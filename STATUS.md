@@ -66,3 +66,5 @@ _(*) Equity is estimated based on Entry Price (Unrealized PnL not real-time in t
 ### 4. Fixes
 - **GBP/JPY Detection**: Fixed Asset Type detection to correctly route GBP pairs to Forex API.
 - **Binance Time Drift**: Increased `recvWindow` and added manual time sync to fix `Timestamp for this request was 1000ms ahead` errors.
+- **Binance CI Fallback**: Automatically switches to `Binance.US` (Public/Anonymous) when Global API is blocked (Error 451).
+- **Git Sync Hardening**: Implemented `pull --rebase` before push to handle remote updates seamlessly.
