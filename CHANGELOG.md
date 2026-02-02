@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.2.3 (2026-02-02)
+
+### Bug Fixes
+
+- Robust Git Sync (Pull Rebase before Push)
+  ([`9195130`](https://github.com/Amirlabai/bot-trader/commit/91951301a445c9273d7c5bd4407636b55b9dc353))
+
+### Documentation
+
+- Update STATUS.md with recent CI fixes
+  ([`22e8261`](https://github.com/Amirlabai/bot-trader/commit/22e8261a2a0c8983e87854c109918370dd571535))
+
+
 ## v1.2.2 (2026-02-02)
 
 ### Bug Fixes
