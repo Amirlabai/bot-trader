@@ -19,121 +19,124 @@ class LedgerManager:
         if os.path.exists(self.ledger_file):
             try:
                 with open(self.ledger_file, 'r') as f:
-                    return json.load(f)
+                    data = json.load(f)
+                    # Simple check to see if we need migration to new schema
+                    if "strategies" not in data:
+                        print("Migrating legacy ledger to strategy-based schema...")
+                        return {"strategies": {}} 
+                    return data
             except json.JSONDecodeError:
                 print("Error decoding ledger file. Starting fresh.")
         
-        # Default Initial State
-        return {
-            "cash": 10000.0,  # Startup mock cash
-            "positions": {},   # { "BTC/USDT": 0.5, "EURUSD": 1000 }
-            "history": []      # List of trade records
-        }
+        return {"strategies": {}}
+
+    def _ensure_strategy_state(self, strategy_id):
+        if strategy_id not in self.ledger["strategies"]:
+            self.ledger["strategies"][strategy_id] = {
+                "cash": 10000.0,
+                "positions": {},
+                "history": []
+            }
 
     def save_ledger(self):
         with open(self.ledger_file, 'w') as f:
             json.dump(self.ledger, f, indent=4)
 
-    def get_balance(self):
-        return self.ledger.get("cash", 0.0)
+    def get_balance(self, strategy_id):
+        self._ensure_strategy_state(strategy_id)
+        return self.ledger["strategies"][strategy_id]["cash"]
 
-    def get_position(self, symbol):
+    def get_position(self, strategy_id, symbol):
         """
-        Returns the position dictionary for a symbol.
+        Returns the position dictionary for a symbol under a specific strategy.
         Format: {'qty': float, 'entry_price': float, 'stop_loss': float, 'tp1_hit': bool}
         Returns None if no position exists.
         """
-        pos = self.ledger.get("positions", {}).get(symbol)
+        self._ensure_strategy_state(strategy_id)
+        pos = self.ledger["strategies"][strategy_id]["positions"].get(symbol)
+        
         if pos and isinstance(pos, (int, float)):
              # Migration for old simpler format
              return {'qty': float(pos), 'entry_price': 0.0, 'stop_loss': 0.0, 'tp1_hit': False}
         return pos
 
-    def update_position(self, symbol, quantity, price, side, stop_loss=0.0):
+    def update_position(self, strategy_id, symbol, quantity, price, side, stop_loss=0.0):
         """
-        Updates cash and position based on a trade execution.
-        side: 'buy' or 'sell'
-        stop_loss: Optional SL price for new entries.
+        Updates cash and position based on a trade execution for a specific strategy.
         """
+        self._ensure_strategy_state(strategy_id)
+        strat_ledger = self.ledger["strategies"][strategy_id]
+        
         cost = quantity * price
         
         if side == 'buy':
-            if self.ledger["cash"] >= cost:
-                self.ledger["cash"] -= cost
+            if strat_ledger["cash"] >= cost:
+                strat_ledger["cash"] -= cost
                 
-                current_pos_data = self.get_position(symbol)
+                current_pos_data = self.get_position(strategy_id, symbol)
                 if current_pos_data:
-                    # Averaging down/scaling in (Simple weighted average for entry)
+                    # Averaging
                     old_qty = current_pos_data['qty']
                     new_qty = old_qty + quantity
                     avg_entry = ((old_qty * current_pos_data['entry_price']) + (quantity * price)) / new_qty
-                    # We keep the old SL/TP status or reset? Strategy decides. 
-                    # For now, we update entry and qty, strategy should manage SL updates if needed via separate call.
-                    # But if this is a fresh entry logic, we might want to reset. 
-                    # Assuming simple addition:
+                    
                     current_pos_data['qty'] = new_qty
                     current_pos_data['entry_price'] = avg_entry
                     if stop_loss > 0:
                         current_pos_data['stop_loss'] = stop_loss
-                    self.ledger["positions"][symbol] = current_pos_data
+                    strat_ledger["positions"][symbol] = current_pos_data
                 else:
                     # New Position
-                    self.ledger["positions"][symbol] = {
+                    strat_ledger["positions"][symbol] = {
                         'qty': quantity,
                         'entry_price': price,
                         'stop_loss': stop_loss,
                         'tp1_hit': False
                     }
 
-                self.record_history(symbol, side, quantity, price)
+                self.record_history(strategy_id, symbol, side, quantity, price)
                 return True
             else:
-                print(f"Insufficient funds to buy {symbol}. Cash: {self.ledger['cash']}, Cost: {cost}")
+                print(f"[{strategy_id}] Insufficient funds to buy {symbol}. Cash: {strat_ledger['cash']}, Cost: {cost}")
                 return False
         
         elif side == 'sell':
-            current_pos_data = self.get_position(symbol)
+            current_pos_data = self.get_position(strategy_id, symbol)
             if current_pos_data and current_pos_data['qty'] >= quantity:
-                self.ledger["cash"] += cost
+                strat_ledger["cash"] += cost
                 current_pos_data['qty'] -= quantity
                 
-                # Cleanup zero positions
-                if current_pos_data['qty'] <= 1e-6: # Float tolerance
-                     del self.ledger["positions"][symbol]
+                if current_pos_data['qty'] <= 1e-6:
+                     del strat_ledger["positions"][symbol]
                 else:
-                     self.ledger["positions"][symbol] = current_pos_data
+                     strat_ledger["positions"][symbol] = current_pos_data
                      
-                self.record_history(symbol, side, quantity, price)
+                self.record_history(strategy_id, symbol, side, quantity, price)
                 return True
             else:
-                print(f"Insufficient position to sell {symbol}. Owned: {current_pos_data}, Selling: {quantity}")
+                print(f"[{strategy_id}] Insufficient position to sell {symbol}. Owned: {current_pos_data}, Selling: {quantity}")
                 return False
         
         return False
 
-    def update_stop_loss(self, symbol, new_sl):
-        """
-        Updates the Stop Loss for an open position.
-        """
-        pos = self.get_position(symbol)
+    def update_stop_loss(self, strategy_id, symbol, new_sl):
+        pos = self.get_position(strategy_id, symbol)
         if pos:
             pos['stop_loss'] = new_sl
-            self.ledger["positions"][symbol] = pos
+            self.ledger["strategies"][strategy_id]["positions"][symbol] = pos
             return True
         return False
 
-    def mark_tp1_hit(self, symbol):
-        """
-        Marks that TP1 has been hit for the position.
-        """
-        pos = self.get_position(symbol)
+    def mark_tp1_hit(self, strategy_id, symbol):
+        pos = self.get_position(strategy_id, symbol)
         if pos:
             pos['tp1_hit'] = True
-            self.ledger["positions"][symbol] = pos
+            self.ledger["strategies"][strategy_id]["positions"][symbol] = pos
             return True
         return False
 
-    def record_history(self, symbol, side, quantity, price):
+    def record_history(self, strategy_id, symbol, side, quantity, price):
+        self._ensure_strategy_state(strategy_id)
         record = {
             "timestamp": datetime.now().isoformat(),
             "symbol": symbol,
@@ -142,25 +145,18 @@ class LedgerManager:
             "price": price,
             "total_value": quantity * price
         }
-        self.ledger["history"].append(record)
+        self.ledger["strategies"][strategy_id]["history"].append(record)
 
     def sync_to_remote(self, commit_message="Update ledger"):
-        """
-        Commits the ledger file and pushes to remote.
-        This assumes the script is running inside the git repo.
-        """
         try:
-            repo_path = os.getcwd() # Assumes we run from root
+            repo_path = os.getcwd() 
             repo = git.Repo(repo_path)
             
-            # Configure git user if needed (often needed in CI if not set globally)
             with repo.config_writer() as git_config:
                 if not git_config.has_option('user', 'email'):
                     git_config.set_value('user', 'email', 'bot-trader@automated.com')
                     git_config.set_value('user', 'name', 'Bot Trader')
 
-            # Add ledger file
-            # Ideally we only add the ledger file, but we can add everything in data/
             repo.index.add([self.ledger_file])
             
             if repo.is_dirty(path=self.ledger_file):
@@ -168,8 +164,6 @@ class LedgerManager:
                 print(f"Committed ledger update: {commit_message}")
                 
                 # Push
-                # If using a token, the remote URL might need adjustment, 
-                # but in GitHub Actions 'actions/checkout' usually handles the auth token for the 'origin'.
                 origin = repo.remote(name='origin')
                 origin.push()
                 print("Pushed ledger to remote.")

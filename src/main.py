@@ -26,10 +26,12 @@ def main():
     ledger = LedgerManager(Config)
     data_fetcher = DataFetcher(Config)
     
-    print(f"Current Balance: ${ledger.get_balance():.2f}")
-
+    # Iterate through configured strategies
     for strategy_id, config in TRADING_CONFIG.items():
-        print(f"\nProcessing Strategy: {strategy_id}")
+        print(f"\n==========================================")
+        print(f"Processing Strategy: {strategy_id}")
+        current_balance = ledger.get_balance(strategy_id)
+        print(f"Strategy Balance: ${current_balance:.2f}")
         
         strategy = load_strategy(config['strategy_module'], config['strategy_class'], config['params'])
         if not strategy:
@@ -46,12 +48,15 @@ def main():
                 print(f"    No data found for {symbol}. Skipping.")
                 continue
 
-            # Pass full position object (dict)
-            pos_data = ledger.get_position(symbol)
+            # Pass full position object (dict) linked to this strategy
+            pos_data = ledger.get_position(strategy_id, symbol)
             
             # Generate Signal
-            # Expected format: {'action': 'buy/sell/hold', 'quantity_pct': 0.5, 'stop_loss': 123.4}
-            signal_data = strategy.generate_signal(market_data, pos_data)
+            try:
+                signal_data = strategy.generate_signal(market_data, pos_data)
+            except Exception as e:
+                print(f"    Error generating signal: {e}")
+                continue
             
             action = signal_data.get('action', 'hold')
             current_price = market_data['close'].iloc[-1]
@@ -60,46 +65,41 @@ def main():
 
             if action == 'buy':
                 # Determine Size
-                pct = signal_data.get('quantity_pct', 0.1) # Default 10%
-                cash = ledger.get_balance()
+                pct = signal_data.get('quantity_pct', 0.1) 
+                cash = ledger.get_balance(strategy_id)
                 amount_to_spend = cash * pct
                 
-                # Check min trade
                 if amount_to_spend > 10:
                     quantity = amount_to_spend / current_price
                     new_sl = signal_data.get('stop_loss', 0.0)
-                    if ledger.update_position(symbol, quantity, current_price, 'buy', stop_loss=new_sl):
+                    if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl):
                         print(f"    EXECUTED BUY: {quantity:.6f} {symbol} @ {current_price} (SL: {new_sl})")
             
             elif action == 'sell':
                 if pos_data:
-                    pct = signal_data.get('quantity_pct', 1.0) # Default 100%
+                    pct = signal_data.get('quantity_pct', 1.0) 
                     quantity_to_sell = pos_data['qty'] * pct
                     
-                    if ledger.update_position(symbol, quantity_to_sell, current_price, 'sell'):
+                    if ledger.update_position(strategy_id, symbol, quantity_to_sell, current_price, 'sell'):
                         print(f"    EXECUTED SELL: {quantity_to_sell:.6f} {symbol} @ {current_price}")
                         
-                        # If partial sell (TP Hit), mark it
                         if 'Partially' in signal_data.get('reason', ''):
-                             ledger.mark_tp1_hit(symbol)
+                             ledger.mark_tp1_hit(strategy_id, symbol)
                              
-                        # Update SL if provided (Trailing or Breakeven)
                         new_sl = signal_data.get('stop_loss')
                         if new_sl:
-                            ledger.update_stop_loss(symbol, new_sl)
+                            ledger.update_stop_loss(strategy_id, symbol, new_sl)
                             print(f"    UPDATED SL: {new_sl}")
 
             elif action == 'hold':
-                # Check for SL Update (Trailing Stop without trading)
+                # Check for SL Update (Trailing Stop)
                 new_sl = signal_data.get('stop_loss')
                 if new_sl and pos_data:
-                     # Only update if new_sl is higher (for longs)
                      if new_sl > pos_data.get('stop_loss', 0):
-                         ledger.update_stop_loss(symbol, new_sl)
+                         ledger.update_stop_loss(strategy_id, symbol, new_sl)
                          print(f"    UPDATED TRAILING SL: {new_sl}")
 
     print("\n--- Session Complete ---")
-    print(f"Final Balance: ${ledger.get_balance():.2f}")
     
     ledger.save_ledger()
     ledger.sync_to_remote(commit_message=f"Journal Update: {datetime.now().strftime('%Y-%m-%d')}")

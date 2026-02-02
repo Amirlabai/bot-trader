@@ -16,7 +16,8 @@ class DataFetcher:
                 'recvWindow': 60000
             }
         })
-        # Force time sync
+        # Force time sync manually before loading markets
+        self.ccxt_exchange.load_time_difference()
         self.ccxt_exchange.load_markets()
     
     def fetch_crypto_ohlcv(self, symbol, timeframe='1d', limit=100):

@@ -23,32 +23,44 @@ class Config:
 # Strategy Configuration
 # Maps Strategy ID -> { 'class': ClassName, 'pairs': [list of pairs], 'params': {dict of params} }
 TRADING_CONFIG = {
-    'ma_crossover_btc': {
+    'ma_crossover_crypto': {
         'strategy_module': 'strategies.moving_average',
         'strategy_class': 'MovingAverageStrategy',
-        'pairs': ['BTC/USDT', 'ETH/USDT'],
+        'pairs': ['BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'XRP/USDT', 'SOL/USDT', 'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'TRX/USDT'],
         'params': {
-            'short_window': 50,
-            'long_window': 200
+            'short_window': 12,
+            'long_window': 24,
+            'trend_window': 50
         }
     },
-    'rsi_eth': {
+    'ma_crossover_forex': {
+        'strategy_module': 'strategies.moving_average',
+        'strategy_class': 'MovingAverageStrategy',
+        'pairs': ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'EUR/GBP', 'EUR/JPY', 'GBP/JPY'],
+        'params': {
+            'short_window': 12,
+            'long_window': 24,
+            'trend_window': 50
+        }
+    },
+    'rsi_crypto': {
         'strategy_module': 'strategies.rsi_strategy',
         'strategy_class': 'RSIStrategy',
-        'pairs': ['ETH/USDT'],
+        'pairs': ['BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'XRP/USDT', 'SOL/USDT', 'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'TRX/USDT'],
         'params': {
             'period': 14,
             'overbought': 70,
             'oversold': 30
         }
     },
-     'forex_eurusd_ma': {
-        'strategy_module': 'strategies.moving_average',
-        'strategy_class': 'MovingAverageStrategy',
-        'pairs': ['EUR/USD'], # Forex pair format for Alpha Vantage might differ, typically "EURUSD" or "EUR/USD" depending on normalizer
+    'rsi_forex': {
+        'strategy_module': 'strategies.rsi_strategy',
+        'strategy_class': 'RSIStrategy',
+        'pairs': ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'EUR/GBP', 'EUR/JPY', 'GBP/JPY'],
         'params': {
-            'short_window': 20,
-            'long_window': 50
+            'period': 14,
+            'overbought': 70,
+            'oversold': 30
         }
     }
 }
