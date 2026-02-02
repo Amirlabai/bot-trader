@@ -1,6 +1,7 @@
 import sys
 import os
 import importlib
+import time
 from datetime import datetime
 
 # Ensure src and root are in path
@@ -49,6 +50,10 @@ def main():
             if market_data.empty:
                 print(f"    No data found for {symbol}. Skipping.")
                 continue
+
+            if asset_type == 'forex':
+                print("    > Forex: Waiting 15s to respect API rate limit...")
+                time.sleep(15)
 
             # Pass full position object (dict) linked to this strategy
             pos_data = ledger.get_position(strategy_id, symbol)
