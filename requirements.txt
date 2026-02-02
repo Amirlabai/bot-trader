@@ -1,0 +1,5 @@
+ccxt
+alpha_vantage
+pandas
+gitpython
+python-dotenv
