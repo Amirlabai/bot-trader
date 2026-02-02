@@ -39,7 +39,9 @@ def main():
             
         pairs = config['pairs']
         for symbol in pairs:
-            asset_type = 'forex' if 'EUR' in symbol or 'USD' in symbol and '/' in symbol and len(symbol)==7 else 'crypto'
+            # Heuristic for Asset Type
+            is_forex = any(cur in symbol for cur in ['EUR', 'USD', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF']) and '/' in symbol and len(symbol) == 7
+            asset_type = 'forex' if is_forex else 'crypto'
             
             print(f"  > Analyzing {symbol} ({asset_type})...")
             
