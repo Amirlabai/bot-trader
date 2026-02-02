@@ -284,6 +284,13 @@ class LedgerManager:
                 repo.index.commit(commit_message)
                 print(f"Committed: {commit_message}")
                 
+                # Pull Rebase before creating remote to ensure we are up to date
+                try:
+                    print("Pulling remote changes (rebase)...")
+                    repo.git.pull('--rebase', 'origin', 'master')
+                except Exception as e:
+                    print(f"Warning: Pull failed ({e}). Attempting push anyway...")
+
                 # Push to master specifically to avoid detached HEAD issues in CI
                 origin = repo.remote(name='origin')
                 # Use git command directly for specific refspec logic which is often safer/clearer
