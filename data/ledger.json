@@ -1,21 +1,35 @@
 {
-    "cash": 9000.0,
-    "positions": {
-        "ETH/USDT": {
-            "qty": 0.42130985233089674,
-            "entry_price": 2373.55,
-            "stop_loss": 0.0,
-            "tp1_hit": false
+    "strategies": {
+        "ma_crossover_btc": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "rsi_eth": {
+            "cash": 9000.0,
+            "positions": {
+                "ETH/USDT": {
+                    "qty": 0.42159226968414304,
+                    "entry_price": 2371.96,
+                    "stop_loss": 0.0,
+                    "tp1_hit": false
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-02-02T19:08:09.636828",
+                    "symbol": "ETH/USDT",
+                    "side": "buy",
+                    "quantity": 0.42159226968414304,
+                    "price": 2371.96,
+                    "total_value": 999.9999999999999
+                }
+            ]
+        },
+        "forex_eurusd_ma": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
         }
-    },
-    "history": [
-        {
-            "timestamp": "2026-02-02T19:05:23.342483",
-            "symbol": "ETH/USDT",
-            "side": "buy",
-            "quantity": 0.42130985233089674,
-            "price": 2373.55,
-            "total_value": 1000.0
-        }
-    ]
+    }
 }
