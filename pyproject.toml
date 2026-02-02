@@ -1,0 +1,22 @@
+[tool.semantic_release]
+version_variable = [
+    "src/__init__.py:__version__"
+]
+version_toml = [
+    "pyproject.toml:tool.semantic_release.version"
+]
+branch = "master"
+upload_to_pypi = false
+upload_to_release = true
+build_command = "pip install -r requirements.txt"
+remove_dist = false
+major_on_zero = false
+
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+    "chore: release",
+    "ci: .*"
+]
+
+[tool.semantic_release.branches.main]
+match = "(main|master)"

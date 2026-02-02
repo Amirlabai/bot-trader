@@ -46,6 +46,26 @@ class LedgerManager:
         self._ensure_strategy_state(strategy_id)
         return self.ledger["strategies"][strategy_id]["cash"]
 
+    def get_total_equity(self, strategy_id):
+        """
+        Calculates Total Realized Equity: Cash + Cost Basis of Open Positions.
+        Does not include Unrealized PnL.
+        """
+        self._ensure_strategy_state(strategy_id)
+        strat = self.ledger["strategies"][strategy_id]
+        cash = strat["cash"]
+        
+        positions_cost = 0.0
+        for symbol, pos in strat["positions"].items():
+            # Handle both simple float (legacy) and dict
+            if isinstance(pos, dict):
+                positions_cost += pos['qty'] * pos['entry_price']
+            else:
+                # Should not happen with new logic, but safe fallback
+                pass
+                
+        return cash + positions_cost
+
     def get_position(self, strategy_id, symbol):
         """
         Returns the position dictionary for a symbol under a specific strategy.
@@ -152,23 +172,28 @@ class LedgerManager:
             repo_path = os.getcwd() 
             repo = git.Repo(repo_path)
             
+            # Configure git user (Critical for CI)
             with repo.config_writer() as git_config:
                 if not git_config.has_option('user', 'email'):
-                    git_config.set_value('user', 'email', 'bot-trader@automated.com')
-                    git_config.set_value('user', 'name', 'Bot Trader')
+                    git_config.set_value('user', 'email', '41898282+github-actions[bot]@users.noreply.github.com')
+                    git_config.set_value('user', 'name', 'github-actions[bot]')
 
+            # Add ledger and version file if changed
             repo.index.add([self.ledger_file])
+            if os.path.exists("VERSION"):
+                repo.index.add(["VERSION"])
             
-            if repo.is_dirty(path=self.ledger_file):
+            if repo.is_dirty(path=self.ledger_file) or repo.is_dirty(path="VERSION"):
                 repo.index.commit(commit_message)
-                print(f"Committed ledger update: {commit_message}")
+                print(f"Committed: {commit_message}")
                 
-                # Push
+                # Push to master specifically to avoid detached HEAD issues in CI
                 origin = repo.remote(name='origin')
-                origin.push()
-                print("Pushed ledger to remote.")
+                # Use git command directly for specific refspec logic which is often safer/clearer
+                repo.git.push('origin', 'HEAD:master')
+                print("Pushed to origin/master.")
             else:
-                print("No changes to ledger to commit.")
+                print("No changes to commit.")
 
         except Exception as e:
             print(f"Git Sync Failed: {e}")
