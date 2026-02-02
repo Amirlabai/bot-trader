@@ -77,66 +77,163 @@ class LedgerManager:
         
         if pos and isinstance(pos, (int, float)):
              # Migration for old simpler format
-             return {'qty': float(pos), 'entry_price': 0.0, 'stop_loss': 0.0, 'tp1_hit': False}
+             return {'qty': float(pos), 'entry_price': 0.0, 'stop_loss': 0.0, 'tp1_hit': False, 'side': 'LONG'}
         return pos
 
     def update_position(self, strategy_id, symbol, quantity, price, side, stop_loss=0.0):
         """
         Updates cash and position based on a trade execution for a specific strategy.
+        side: 'buy' (to open LONG or close SHORT) or 'sell' (to close LONG or open SHORT)
+        
+        Logic:
+        - If FLAT:
+            - BUY -> Open LONG
+            - SELL -> Open SHORT
+        - If LONG:
+            - BUY -> Add to LONG (Avg Entry)
+            - SELL -> Close LONG (Partial or Full)
+        - If SHORT:
+            - BUY -> Close SHORT (Partial or Full)
+            - SELL -> Add to SHORT (Avg Entry)
         """
         self._ensure_strategy_state(strategy_id)
         strat_ledger = self.ledger["strategies"][strategy_id]
+        current_pos = self.get_position(strategy_id, symbol)
         
         cost = quantity * price
-        
-        if side == 'buy':
-            if strat_ledger["cash"] >= cost:
-                strat_ledger["cash"] -= cost
-                
-                current_pos_data = self.get_position(strategy_id, symbol)
-                if current_pos_data:
-                    # Averaging
-                    old_qty = current_pos_data['qty']
-                    new_qty = old_qty + quantity
-                    avg_entry = ((old_qty * current_pos_data['entry_price']) + (quantity * price)) / new_qty
-                    
-                    current_pos_data['qty'] = new_qty
-                    current_pos_data['entry_price'] = avg_entry
-                    if stop_loss > 0:
-                        current_pos_data['stop_loss'] = stop_loss
-                    strat_ledger["positions"][symbol] = current_pos_data
-                else:
-                    # New Position
+
+        # Case 1: No current position (FLAT)
+        if not current_pos:
+            if side == 'buy':
+                # Open LONG
+                if strat_ledger["cash"] >= cost:
+                    strat_ledger["cash"] -= cost
                     strat_ledger["positions"][symbol] = {
                         'qty': quantity,
                         'entry_price': price,
+                        'side': 'LONG',
                         'stop_loss': stop_loss,
                         'tp1_hit': False
                     }
-
-                self.record_history(strategy_id, symbol, side, quantity, price)
-                return True
-            else:
-                print(f"[{strategy_id}] Insufficient funds to buy {symbol}. Cash: {strat_ledger['cash']}, Cost: {cost}")
-                return False
-        
-        elif side == 'sell':
-            current_pos_data = self.get_position(strategy_id, symbol)
-            if current_pos_data and current_pos_data['qty'] >= quantity:
-                strat_ledger["cash"] += cost
-                current_pos_data['qty'] -= quantity
-                
-                if current_pos_data['qty'] <= 1e-6:
-                     del strat_ledger["positions"][symbol]
+                    self.record_history(strategy_id, symbol, 'OPEN_LONG', quantity, price)
+                    return True
                 else:
-                     strat_ledger["positions"][symbol] = current_pos_data
-                     
-                self.record_history(strategy_id, symbol, side, quantity, price)
-                return True
-            else:
-                print(f"[{strategy_id}] Insufficient position to sell {symbol}. Owned: {current_pos_data}, Selling: {quantity}")
-                return False
-        
+                    print(f"[{strategy_id}] Insufficient funds to LONG {symbol}.")
+                    return False
+            
+            elif side == 'sell':
+                # Open SHORT
+                # Require 100% collateral (Simple Margin Model)
+                if strat_ledger["cash"] >= cost:
+                    strat_ledger["cash"] -= cost # Lock collateral
+                    strat_ledger["positions"][symbol] = {
+                        'qty': quantity,
+                        'entry_price': price,
+                        'side': 'SHORT',
+                        'stop_loss': stop_loss,
+                        'tp1_hit': False
+                    }
+                    self.record_history(strategy_id, symbol, 'OPEN_SHORT', quantity, price)
+                    return True
+                else:
+                    print(f"[{strategy_id}] Insufficient collateral to SHORT {symbol}.")
+                    return False
+
+        # Case 2: Existing Position
+        else:
+            current_side = current_pos.get('side', 'LONG') # Default legacy to LONG
+            
+            # --- LONG POSITIONS ---
+            if current_side == 'LONG':
+                if side == 'buy':
+                    # Add to LONG (Avg Entry)
+                    if strat_ledger["cash"] >= cost:
+                        strat_ledger["cash"] -= cost
+                        old_qty = current_pos['qty']
+                        new_qty = old_qty + quantity
+                        avg_entry = ((old_qty * current_pos['entry_price']) + (quantity * price)) / new_qty
+                        
+                        current_pos['qty'] = new_qty
+                        current_pos['entry_price'] = avg_entry
+                        if stop_loss > 0: current_pos['stop_loss'] = stop_loss
+                        
+                        strat_ledger["positions"][symbol] = current_pos
+                        self.record_history(strategy_id, symbol, 'ADD_LONG', quantity, price)
+                        return True
+                
+                elif side == 'sell':
+                    # Close/Reduce LONG
+                    if current_pos['qty'] >= quantity:
+                        # Return Cash = Quantity * SellPrice
+                        revenue = quantity * price
+                        strat_ledger["cash"] += revenue
+                        
+                        current_pos['qty'] -= quantity
+                        if current_pos['qty'] <= 1e-6:
+                            del strat_ledger["positions"][symbol]
+                        else:
+                            strat_ledger["positions"][symbol] = current_pos
+                        
+                        self.record_history(strategy_id, symbol, 'CLOSE_LONG', quantity, price)
+                        return True
+
+            # --- SHORT POSITIONS ---
+            elif current_side == 'SHORT':
+                if side == 'sell':
+                    # Add to SHORT
+                    # Need more collateral
+                    if strat_ledger["cash"] >= cost:
+                        strat_ledger["cash"] -= cost
+                        old_qty = current_pos['qty']
+                        new_qty = old_qty + quantity
+                        # Short avg entry is weighted average of sell prices
+                        avg_entry = ((old_qty * current_pos['entry_price']) + (quantity * price)) / new_qty
+                        
+                        current_pos['qty'] = new_qty
+                        current_pos['entry_price'] = avg_entry
+                        if stop_loss > 0: current_pos['stop_loss'] = stop_loss
+                        
+                        strat_ledger["positions"][symbol] = current_pos
+                        self.record_history(strategy_id, symbol, 'ADD_SHORT', quantity, price)
+                        return True
+                
+                elif side == 'buy':
+                    # Close/Cover SHORT
+                    if current_pos['qty'] >= quantity:
+                        # PnL Calculation for Short
+                        # Profit = (Entry - Exit) * Qty
+                        # Cash Return = Collateral + Profit
+                        # Note: We locked 'Entry * Qty' as collateral originally.
+                        
+                        pct_closed = quantity / current_pos['qty']
+                        
+                        # We don't track per-lot collateral, so we approximate collateral release
+                        # But simplest way: 
+                        # Return = (Entry Price * Qty) + (Entry Price - Exit Price) * Qty ??? 
+                        # Wait. 
+                        # If I short 1 BTC @ 50k. Collateral locked = 50k.
+                        # Price goes to 40k. I buy back 1 BTC @ 40k.
+                        # I keep my 50k collateral. Plus profit (10k). Total Cash += 60k.
+                        
+                        # Formula: Total Return = (Quantity * EntryPrice) + (Quantity * (EntryPrice - BuyPrice))
+                        # Total Return = Quantity * (2*EntryPrice - BuyPrice) 
+                        
+                        entry_val = quantity * current_pos['entry_price']
+                        profit = (current_pos['entry_price'] - price) * quantity
+                        
+                        amount_to_return = entry_val + profit
+                        
+                        strat_ledger["cash"] += amount_to_return
+                        
+                        current_pos['qty'] -= quantity
+                        if current_pos['qty'] <= 1e-6:
+                            del strat_ledger["positions"][symbol]
+                        else:
+                            strat_ledger["positions"][symbol] = current_pos
+
+                        self.record_history(strategy_id, symbol, 'CLOSE_SHORT', quantity, price)
+                        return True
+
         return False
 
     def update_stop_loss(self, strategy_id, symbol, new_sl):

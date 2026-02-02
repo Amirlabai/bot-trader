@@ -44,45 +44,43 @@ class BaseStrategy(ABC):
             return None
 
         entry_price = position_data['entry_price']
+        side = position_data.get('side', 'LONG')
         stop_loss = position_data.get('stop_loss')
-        # If SL not set (legacy or manual), assume 1.5 ATR from entry
-        if not stop_loss:
-            stop_loss = entry_price - (1.5 * current_atr)
-
         tp1_hit = position_data.get('tp1_hit', False)
-        
-        # 1. Check Hard Stop Loss
-        if current_price <= stop_loss:
-            return {
-                'action': 'sell',
-                'quantity_pct': 1.0,
-                'reason': f'Stop Loss Hit @ {current_price} (SL {stop_loss})'
-            }
-            
-        # 2. Check TP1 (Sell Half) - Gain >= 1 ATR
-        # Only if we haven't hit TP1 yet
-        if not tp1_hit:
-             if current_price >= (entry_price + current_atr):
-                 return {
-                     'action': 'sell',
-                     'quantity_pct': 0.5,
-                     'stop_loss': entry_price, # Move SL to Breakeven
-                     'reason': 'TP1 Hit: Selling Half, SL to Breakeven'
-                 }
 
-        # 3. Trailing Stop Logic
-        # We assume a 1.5 ATR trailing distance from HIGH water mark? 
-        # Or simple "Price - 1.5 ATR"? 
-        # User said: "then trailing stop". 
-        # Let's use simple trailing: If (Price - 1.5 ATR) > Current SL, update SL.
-        proposed_sl = current_price - (1.5 * current_atr)
-        
-        # Only tighten, never loosen
-        if proposed_sl > stop_loss:
-            return {
-                'action': 'hold', # No trade, just update
-                'stop_loss': proposed_sl,
-                'reason': 'Updating Trailing Stop'
-            }
+        # --- LONG LOGIC ---
+        if side == 'LONG':
+             if not stop_loss: stop_loss = entry_price - (1.5 * current_atr)
+             
+             # Hard SL
+             if current_price <= stop_loss:
+                 return {'action': 'sell', 'quantity_pct': 1.0, 'reason': f'Stop Loss Hit @ {current_price} (SL {stop_loss})'}
+             
+             # TP1
+             if not tp1_hit and current_price >= (entry_price + current_atr):
+                 return {'action': 'sell', 'quantity_pct': 0.5, 'stop_loss': entry_price, 'reason': 'TP1 Hit: Selling Half'}
+            
+             # Trailing
+             proposed_sl = current_price - (1.5 * current_atr)
+             if proposed_sl > stop_loss:
+                 return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Trailing Stop'}
+
+        # --- SHORT LOGIC ---
+        elif side == 'SHORT':
+             if not stop_loss: stop_loss = entry_price + (1.5 * current_atr)
+             
+             # Hard SL (Price went UP)
+             if current_price >= stop_loss:
+                 return {'action': 'buy', 'quantity_pct': 1.0, 'reason': f'Short Stop Loss Hit @ {current_price} (SL {stop_loss})'}
+             
+             # TP1 (Price went DOWN by 1 ATR)
+             if not tp1_hit and current_price <= (entry_price - current_atr):
+                 return {'action': 'buy', 'quantity_pct': 0.5, 'stop_loss': entry_price, 'reason': 'Short TP1 Hit: Covering Half'}
+            
+             # Trailing (Price + 1.5 ATR)
+             # We want SL to go DOWN (tighten)
+             proposed_sl = current_price + (1.5 * current_atr)
+             if proposed_sl < stop_loss:
+                 return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Short Trailing Stop'}
             
         return None

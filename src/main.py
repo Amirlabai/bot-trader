@@ -66,62 +66,86 @@ def main():
 
             print(f"    Action: {action.upper()} | Reason: {signal_data.get('reason', '')} | Price: {current_price}")
 
-            if action == 'buy':
-                # Risk Management: Size based on 1% Risk
-                # Risk Amount = 1% of Total Realized Equity
-                total_equity = ledger.get_total_equity(strategy_id)
-                risk_amount = total_equity * 0.01
-                
-                new_sl = signal_data.get('stop_loss', 0.0)
-                
-                # Risk Per Share = Entry - SL
-                if new_sl > 0 and current_price > new_sl:
-                    risk_per_share = current_price - new_sl
-                    quantity = risk_amount / risk_per_share
-                else:
-                    # Fallback if no SL provided (shouldn't happen with ATR logic) or invalid SL: Use simple 10% size
-                    print(f"    WARNING: Invalid SL ({new_sl}) for Buy. Defaulting to 10% sizing.")
-                    current_cash = ledger.get_balance(strategy_id)
-                    quantity = (current_cash * 0.10) / current_price
-
-                # Check Affordability (Do we have enough Cash?)
-                cost = quantity * current_price
-                current_cash = ledger.get_balance(strategy_id)
-                
-                if cost > current_cash:
-                    # Scale down to max cash
-                    quantity = current_cash / current_price
-                    print(f"    NOTICE: Risk-based size exceeds cash. Scaled down to max affordable.")
-
-                # Minimum Trade Value Check ($10)
-                if (quantity * current_price) > 10:
-                    if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl):
-                        print(f"    EXECUTED BUY: {quantity:.6f} {symbol} @ {current_price} (SL: {new_sl})")
-                        print(f"      > Risk: ${risk_amount:.2f} (1%) | SL Distance: ${(current_price - new_sl):.2f}")
+            # Current State
+            is_flat = pos_data is None
+            position_side = pos_data.get('side', 'LONG') if pos_data else None
             
-            elif action == 'sell':
-                if pos_data:
-                    pct = signal_data.get('quantity_pct', 1.0) 
-                    quantity_to_sell = pos_data['qty'] * pct
+            # --- SIGNAL PROCESSING ---
+            if action == 'buy':
+                # 1. Close SHORT if exists
+                if position_side == 'SHORT':
+                    print(f"    Signal BUY -> Closing SHORT {symbol}")
+                    pct = signal_data.get('quantity_pct', 1.0)
+                    qty_to_cover = pos_data['qty'] * pct
+                    if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy'):
+                         print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {current_price}")
+
+                # 2. Open/Add LONG (If Flat or Long)
+                elif position_side in [None, 'LONG']:
+                    # Risk Management: Size based on 1% Risk
+                    total_equity = ledger.get_total_equity(strategy_id)
+                    risk_amount = total_equity * 0.01
+                    new_sl = signal_data.get('stop_loss', 0.0)
                     
-                    if ledger.update_position(strategy_id, symbol, quantity_to_sell, current_price, 'sell'):
-                        print(f"    EXECUTED SELL: {quantity_to_sell:.6f} {symbol} @ {current_price}")
-                        
-                        if 'Partially' in signal_data.get('reason', ''):
-                             ledger.mark_tp1_hit(strategy_id, symbol)
-                             
+                    # Risk Per Share = Entry - SL
+                    risk_per_share = current_price - new_sl if new_sl > 0 else current_price * 0.05 # Fallback
+                    
+                    if risk_per_share <= 0: risk_per_share = current_price * 0.01 # Sanity check
+                    
+                    quantity = risk_amount / risk_per_share
+                    
+                    # Cash Check
+                    current_cash = ledger.get_balance(strategy_id)
+                    cost = quantity * current_price
+                    if cost > current_cash:
+                        quantity = current_cash / current_price
+                    
+                    if (quantity * current_price) > 10:
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl):
+                             print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl})")
+
+            elif action == 'sell':
+                # 1. Close LONG if exists
+                if position_side == 'LONG':
+                    print(f"    Signal SELL -> Closing LONG {symbol}")
+                    pct = signal_data.get('quantity_pct', 1.0)
+                    qty_to_sell = pos_data['qty'] * pct
+                    if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell'):
+                        print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {current_price}")
+                        # Check for TP/SL updates if partial
                         new_sl = signal_data.get('stop_loss')
-                        if new_sl:
-                            ledger.update_stop_loss(strategy_id, symbol, new_sl)
-                            print(f"    UPDATED SL: {new_sl}")
+                        if new_sl: ledger.update_stop_loss(strategy_id, symbol, new_sl)
+
+                # 2. Open/Add SHORT (If Flat or Short)
+                elif position_side in [None, 'SHORT']:
+                    # Risk Management for Short
+                    total_equity = ledger.get_total_equity(strategy_id)
+                    risk_amount = total_equity * 0.01
+                    new_sl = signal_data.get('stop_loss', 0.0)
+                    
+                    # Risk Per Share = SL - Entry (Short loses when price goes up)
+                    # For Short, SL > Entry.
+                    risk_per_share = new_sl - current_price if new_sl > 0 else current_price * 0.05
+                    if risk_per_share <= 0: risk_per_share = current_price * 0.01
+
+                    quantity = risk_amount / risk_per_share
+                    
+                    # Collateral Check (Cash needs to cover Short Value)
+                    current_cash = ledger.get_balance(strategy_id)
+                    market_value = quantity * current_price
+                    if market_value > current_cash:
+                        quantity = current_cash / current_price
+                        
+                    if (quantity * current_price) > 10:
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl):
+                             print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl})")
 
             elif action == 'hold':
-                # Check for SL Update (Trailing Stop)
-                new_sl = signal_data.get('stop_loss')
-                if new_sl and pos_data:
-                     if new_sl > pos_data.get('stop_loss', 0):
-                         ledger.update_stop_loss(strategy_id, symbol, new_sl)
-                         print(f"    UPDATED TRAILING SL: {new_sl}")
+                 # Trailing SL Updates
+                 new_sl = signal_data.get('stop_loss')
+                 if new_sl and pos_data:
+                      ledger.update_stop_loss(strategy_id, symbol, new_sl)
+                      print(f"    UPDATED SL: {new_sl}")
 
     print("\n--- Session Complete ---")
     
