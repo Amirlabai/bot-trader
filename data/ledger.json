@@ -10,23 +10,156 @@
             "positions": {},
             "history": []
         },
-        "rsi_eth": {
-            "cash": 9000.0,
+        "rsi_crypto": {
+            "cash": 3874.20489,
             "positions": {
+                "BTC/USDT": {
+                    "qty": 0.012662032869117885,
+                    "entry_price": 78976.26,
+                    "stop_loss": 73644.45107142856,
+                    "tp1_hit": false
+                },
                 "ETH/USDT": {
-                    "qty": 0.42062403782251345,
-                    "entry_price": 2377.42,
-                    "stop_loss": 2089.3707142857143,
+                    "qty": 0.3791533085338984,
+                    "entry_price": 2373.71,
+                    "stop_loss": 2085.660714285714,
+                    "tp1_hit": false
+                },
+                "BNB/USDT": {
+                    "qty": 1.0426857525359148,
+                    "entry_price": 776.84,
+                    "stop_loss": 720.9671428571429,
+                    "tp1_hit": false
+                },
+                "XRP/USDT": {
+                    "qty": 442.247027420529,
+                    "entry_price": 1.6484,
+                    "stop_loss": 1.4910178571428572,
+                    "tp1_hit": false
+                },
+                "SOL/USDT": {
+                    "qty": 6.221906116642959,
+                    "entry_price": 105.45,
+                    "stop_loss": 93.50142857142858,
+                    "tp1_hit": false
+                },
+                "DOGE/USDT": {
+                    "qty": 5417.339449541285,
+                    "entry_price": 0.109,
+                    "stop_loss": 0.09776821428571428,
+                    "tp1_hit": false
+                },
+                "AVAX/USDT": {
+                    "qty": 52.051028403525955,
+                    "entry_price": 10.21,
+                    "stop_loss": 9.125714285714288,
+                    "tp1_hit": false
+                },
+                "DOT/USDT": {
+                    "qty": 306.0120921305183,
+                    "entry_price": 1.563,
+                    "stop_loss": 1.3836428571428572,
+                    "tp1_hit": false
+                },
+                "TRX/USDT": {
+                    "qty": 1513.0657644991215,
+                    "entry_price": 0.2845,
+                    "stop_loss": 0.27424642857142856,
                     "tp1_hit": false
                 }
             },
             "history": [
                 {
-                    "timestamp": "2026-02-02T19:13:15.920713",
+                    "timestamp": "2026-02-02T19:15:30.137113",
+                    "symbol": "BTC/USDT",
+                    "side": "buy",
+                    "quantity": 0.012662032869117885,
+                    "price": 78976.26,
+                    "total_value": 1000.0
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:30.432192",
                     "symbol": "ETH/USDT",
                     "side": "buy",
-                    "quantity": 0.42062403782251345,
-                    "price": 2377.42,
+                    "quantity": 0.3791533085338984,
+                    "price": 2373.71,
+                    "total_value": 900.0
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:30.717259",
+                    "symbol": "BNB/USDT",
+                    "side": "buy",
+                    "quantity": 1.0426857525359148,
+                    "price": 776.84,
+                    "total_value": 810.0000000000001
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:31.034825",
+                    "symbol": "XRP/USDT",
+                    "side": "buy",
+                    "quantity": 442.247027420529,
+                    "price": 1.6484,
+                    "total_value": 729.0
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:31.344118",
+                    "symbol": "SOL/USDT",
+                    "side": "buy",
+                    "quantity": 6.221906116642959,
+                    "price": 105.45,
+                    "total_value": 656.1
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:31.937600",
+                    "symbol": "DOGE/USDT",
+                    "side": "buy",
+                    "quantity": 5417.339449541285,
+                    "price": 0.109,
+                    "total_value": 590.49
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:32.232538",
+                    "symbol": "AVAX/USDT",
+                    "side": "buy",
+                    "quantity": 52.051028403525955,
+                    "price": 10.21,
+                    "total_value": 531.441
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:32.526284",
+                    "symbol": "DOT/USDT",
+                    "side": "buy",
+                    "quantity": 306.0120921305183,
+                    "price": 1.563,
+                    "total_value": 478.29690000000005
+                },
+                {
+                    "timestamp": "2026-02-02T19:15:32.817414",
+                    "symbol": "TRX/USDT",
+                    "side": "buy",
+                    "quantity": 1513.0657644991215,
+                    "price": 0.2845,
+                    "total_value": 430.46721
+                }
+            ]
+        },
+        "rsi_forex": {
+            "cash": 9000.0,
+            "positions": {
+                "USD/CAD": {
+                    "qty": 734.5919341805627,
+                    "entry_price": 1.3613,
+                    "stop_loss": 1.34975,
+                    "tp1_hit": false
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-02-02T19:15:35.820596",
+                    "symbol": "USD/CAD",
+                    "side": "buy",
+                    "quantity": 734.5919341805627,
+                    "price": 1.3613,
                     "total_value": 1000.0
                 }
             ]
