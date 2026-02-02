@@ -7,18 +7,42 @@ from datetime import datetime
 class DataFetcher:
     def __init__(self, config):
         self.config = config
-        self.ccxt_exchange = ccxt.binance({
-            'apiKey': config.CCXT_API_KEY,
-            'secret': config.CCXT_SECRET,
-            'enableRateLimit': True,
-            'options': {
-                'adjustForTimeDifference': True,
-                'recvWindow': 60000
-            }
-        })
-        # Force time sync manually before loading markets
-        self.ccxt_exchange.load_time_difference()
-        self.ccxt_exchange.load_markets()
+        # Try initializing Binance (Global)
+        try:
+            self.ccxt_exchange = ccxt.binance({
+                'apiKey': config.CCXT_API_KEY,
+                'secret': config.CCXT_SECRET,
+                'enableRateLimit': True,
+                'options': {
+                    'adjustForTimeDifference': True,
+                    'recvWindow': 60000
+                }
+            })
+            # Force time sync manually before loading markets
+            self.ccxt_exchange.load_time_difference()
+            self.ccxt_exchange.load_markets()
+            
+        except Exception as e:
+            if '451' in str(e) or 'Service unavailable' in str(e):
+                print(f"⚠️ Binance Global 451 Restricted (Geo-block detected). Switching to Binance.US...")
+                try:
+                    self.ccxt_exchange = ccxt.binanceus({
+                        'apiKey': config.CCXT_API_KEY, # Note: Keys might not work if they are Global keys, but we need public data mostly here
+                        'secret': config.CCXT_SECRET,
+                        'enableRateLimit': True,
+                        'options': {
+                            'adjustForTimeDifference': True, 
+                            'recvWindow': 60000
+                        }
+                    })
+                    self.ccxt_exchange.load_time_difference()
+                    self.ccxt_exchange.load_markets()
+                    print("✅ Successfully connected to Binance.US")
+                except Exception as e2:
+                    print(f"❌ Failed to connect to Binance.US fallback: {e2}")
+                    raise e2
+            else:
+                raise e
     
     def fetch_crypto_ohlcv(self, symbol, timeframe='1d', limit=100):
         """
