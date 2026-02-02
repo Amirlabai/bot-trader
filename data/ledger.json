@@ -38,21 +38,21 @@
                     "qty": 635.3961013910633,
                     "entry_price": 1.6409,
                     "side": "LONG",
-                    "stop_loss": 1.483517857142857,
+                    "stop_loss": 1.484117857142857,
                     "tp1_hit": false
                 },
                 "SOL/USDT": {
                     "qty": 8.369201339072216,
                     "entry_price": 104.17,
                     "side": "LONG",
-                    "stop_loss": 92.22142857142858,
+                    "stop_loss": 92.28142857142858,
                     "tp1_hit": false
                 },
                 "ADA/USDT": {
                     "qty": 2951.7183217372976,
                     "entry_price": 0.2998,
                     "side": "LONG",
-                    "stop_loss": 0.2659214285714286,
+                    "stop_loss": 0.26622142857142855,
                     "tp1_hit": false
                 },
                 "DOGE/USDT": {
@@ -73,7 +73,7 @@
                     "qty": 557.5467941059342,
                     "entry_price": 1.552,
                     "side": "LONG",
-                    "stop_loss": 1.3726428571428573,
+                    "stop_loss": 1.3736428571428572,
                     "tp1_hit": false
                 },
                 "TRX/USDT": {
