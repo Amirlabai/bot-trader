@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.2.1 (2026-02-02)
+
+### Bug Fixes
+
+- Implement Binance.US fallback for CI environments (451 error)
+  ([`09c6102`](https://github.com/Amirlabai/bot-trader/commit/09c61026a6e64b9cd7fb0a92e6ad5b3dc6fdbdc3))
+
+
 ## v1.2.0 (2026-02-02)
 
 ### Chores
