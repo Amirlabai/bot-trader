@@ -46,13 +46,13 @@
                 "ADA/USDT": {
                     "qty": 2951.7183217372976,
                     "entry_price": 0.3,
-                    "stop_loss": 0.26662142857142856,
+                    "stop_loss": 0.2668214285714286,
                     "tp1_hit": false
                 },
                 "DOGE/USDT": {
                     "qty": 8903.303761645833,
                     "entry_price": 0.10849,
-                    "stop_loss": 0.09727821428571427,
+                    "stop_loss": 0.09735821428571428,
                     "tp1_hit": false
                 },
                 "AVAX/USDT": {
