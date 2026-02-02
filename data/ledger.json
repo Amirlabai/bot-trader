@@ -11,7 +11,7 @@
                 "ETH/USDT": {
                     "qty": 0.42159226968414304,
                     "entry_price": 2371.96,
-                    "stop_loss": 0.0,
+                    "stop_loss": 2085.300714285714,
                     "tp1_hit": false
                 }
             },
