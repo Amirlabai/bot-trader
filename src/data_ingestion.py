@@ -27,8 +27,6 @@ class DataFetcher:
                 print(f"⚠️ Binance Global 451 Restricted (Geo-block detected). Switching to Binance.US...")
                 try:
                     self.ccxt_exchange = ccxt.binanceus({
-                        'apiKey': config.CCXT_API_KEY, # Note: Keys might not work if they are Global keys, but we need public data mostly here
-                        'secret': config.CCXT_SECRET,
                         'enableRateLimit': True,
                         'options': {
                             'adjustForTimeDifference': True, 
@@ -37,7 +35,7 @@ class DataFetcher:
                     })
                     self.ccxt_exchange.load_time_difference()
                     self.ccxt_exchange.load_markets()
-                    print("✅ Successfully connected to Binance.US")
+                    print("✅ Successfully connected to Binance.US (Public Data Mode)")
                 except Exception as e2:
                     print(f"❌ Failed to connect to Binance.US fallback: {e2}")
                     raise e2
