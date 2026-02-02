@@ -16,25 +16,25 @@
                 "BTC/USDT": {
                     "qty": 0.012662032869117885,
                     "entry_price": 78976.26,
-                    "stop_loss": 73644.45107142856,
+                    "stop_loss": 73796.27107142856,
                     "tp1_hit": false
                 },
                 "ETH/USDT": {
                     "qty": 0.3791533085338984,
                     "entry_price": 2373.71,
-                    "stop_loss": 2085.660714285714,
+                    "stop_loss": 2088.630714285714,
                     "tp1_hit": false
                 },
                 "BNB/USDT": {
                     "qty": 1.0426857525359148,
                     "entry_price": 776.84,
-                    "stop_loss": 720.9671428571429,
+                    "stop_loss": 721.7271428571429,
                     "tp1_hit": false
                 },
                 "XRP/USDT": {
                     "qty": 442.247027420529,
                     "entry_price": 1.6484,
-                    "stop_loss": 1.4910178571428572,
+                    "stop_loss": 1.494017857142857,
                     "tp1_hit": false
                 },
                 "SOL/USDT": {
@@ -52,19 +52,19 @@
                 "AVAX/USDT": {
                     "qty": 52.051028403525955,
                     "entry_price": 10.21,
-                    "stop_loss": 9.125714285714288,
+                    "stop_loss": 9.135714285714286,
                     "tp1_hit": false
                 },
                 "DOT/USDT": {
                     "qty": 306.0120921305183,
                     "entry_price": 1.563,
-                    "stop_loss": 1.3836428571428572,
+                    "stop_loss": 1.3856428571428572,
                     "tp1_hit": false
                 },
                 "TRX/USDT": {
                     "qty": 1513.0657644991215,
                     "entry_price": 0.2845,
-                    "stop_loss": 0.27424642857142856,
+                    "stop_loss": 0.2743464285714286,
                     "tp1_hit": false
                 }
             },
