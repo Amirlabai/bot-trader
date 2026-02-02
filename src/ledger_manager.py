@@ -38,20 +38,53 @@ class LedgerManager:
         return self.ledger.get("cash", 0.0)
 
     def get_position(self, symbol):
-        return self.ledger.get("positions", {}).get(symbol, 0.0)
+        """
+        Returns the position dictionary for a symbol.
+        Format: {'qty': float, 'entry_price': float, 'stop_loss': float, 'tp1_hit': bool}
+        Returns None if no position exists.
+        """
+        pos = self.ledger.get("positions", {}).get(symbol)
+        if pos and isinstance(pos, (int, float)):
+             # Migration for old simpler format
+             return {'qty': float(pos), 'entry_price': 0.0, 'stop_loss': 0.0, 'tp1_hit': False}
+        return pos
 
-    def update_position(self, symbol, quantity, price, side):
+    def update_position(self, symbol, quantity, price, side, stop_loss=0.0):
         """
         Updates cash and position based on a trade execution.
         side: 'buy' or 'sell'
+        stop_loss: Optional SL price for new entries.
         """
         cost = quantity * price
         
         if side == 'buy':
             if self.ledger["cash"] >= cost:
                 self.ledger["cash"] -= cost
-                current_pos = self.ledger["positions"].get(symbol, 0.0)
-                self.ledger["positions"][symbol] = current_pos + quantity
+                
+                current_pos_data = self.get_position(symbol)
+                if current_pos_data:
+                    # Averaging down/scaling in (Simple weighted average for entry)
+                    old_qty = current_pos_data['qty']
+                    new_qty = old_qty + quantity
+                    avg_entry = ((old_qty * current_pos_data['entry_price']) + (quantity * price)) / new_qty
+                    # We keep the old SL/TP status or reset? Strategy decides. 
+                    # For now, we update entry and qty, strategy should manage SL updates if needed via separate call.
+                    # But if this is a fresh entry logic, we might want to reset. 
+                    # Assuming simple addition:
+                    current_pos_data['qty'] = new_qty
+                    current_pos_data['entry_price'] = avg_entry
+                    if stop_loss > 0:
+                        current_pos_data['stop_loss'] = stop_loss
+                    self.ledger["positions"][symbol] = current_pos_data
+                else:
+                    # New Position
+                    self.ledger["positions"][symbol] = {
+                        'qty': quantity,
+                        'entry_price': price,
+                        'stop_loss': stop_loss,
+                        'tp1_hit': False
+                    }
+
                 self.record_history(symbol, side, quantity, price)
                 return True
             else:
@@ -59,21 +92,45 @@ class LedgerManager:
                 return False
         
         elif side == 'sell':
-            current_pos = self.ledger["positions"].get(symbol, 0.0)
-            if current_pos >= quantity:
+            current_pos_data = self.get_position(symbol)
+            if current_pos_data and current_pos_data['qty'] >= quantity:
                 self.ledger["cash"] += cost
-                self.ledger["positions"][symbol] = current_pos - quantity
+                current_pos_data['qty'] -= quantity
                 
                 # Cleanup zero positions
-                if self.ledger["positions"][symbol] <= 0:
+                if current_pos_data['qty'] <= 1e-6: # Float tolerance
                      del self.ledger["positions"][symbol]
+                else:
+                     self.ledger["positions"][symbol] = current_pos_data
                      
                 self.record_history(symbol, side, quantity, price)
                 return True
             else:
-                print(f"Insufficient position to sell {symbol}. Owned: {current_pos}, Selling: {quantity}")
+                print(f"Insufficient position to sell {symbol}. Owned: {current_pos_data}, Selling: {quantity}")
                 return False
         
+        return False
+
+    def update_stop_loss(self, symbol, new_sl):
+        """
+        Updates the Stop Loss for an open position.
+        """
+        pos = self.get_position(symbol)
+        if pos:
+            pos['stop_loss'] = new_sl
+            self.ledger["positions"][symbol] = pos
+            return True
+        return False
+
+    def mark_tp1_hit(self, symbol):
+        """
+        Marks that TP1 has been hit for the position.
+        """
+        pos = self.get_position(symbol)
+        if pos:
+            pos['tp1_hit'] = True
+            self.ledger["positions"][symbol] = pos
+            return True
         return False
 
     def record_history(self, symbol, side, quantity, price):

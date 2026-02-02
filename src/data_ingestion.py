@@ -11,7 +11,13 @@ class DataFetcher:
             'apiKey': config.CCXT_API_KEY,
             'secret': config.CCXT_SECRET,
             'enableRateLimit': True,
+            'options': {
+                'adjustForTimeDifference': True,
+                'recvWindow': 60000
+            }
         })
+        # Force time sync
+        self.ccxt_exchange.load_markets()
     
     def fetch_crypto_ohlcv(self, symbol, timeframe='1d', limit=100):
         """

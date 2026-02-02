@@ -30,7 +30,13 @@ ALPHAVANTAGE_KEY=your_key_here
 
 ### 3. Usage
 **Install Dependencies:**
+It is recommended to use a virtual environment:
 ```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# Mac/Linux
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -42,5 +48,5 @@ python src/main.py
 ## Project Structure
 - `data/`: Contains the `ledger.json` (your portfolio state).
 - `strategies/`: Contains trading strategy logic.
-- `src/`: Core application code (Data Ingestion, Ledger Manager, Execution).
+- `src/`: Core application code (Dynamic Config, Data Ingestion, Ledger Manager, Execution).
 - `.github/workflows/`: Contains the GitHub Actions workflow for daily automation.
