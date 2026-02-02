@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.2.2 (2026-02-02)
+
+### Bug Fixes
+
+- Use anonymous connection for Binance.US fallback (Fixes Invalid Key ID)
+  ([`2814372`](https://github.com/Amirlabai/bot-trader/commit/28143724aa794e5dd1556df6717333d802f7023c))
+
+
 ## v1.2.1 (2026-02-02)
 
 ### Bug Fixes
