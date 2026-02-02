@@ -58,17 +58,27 @@ class MovingAverageStrategy(BaseStrategy):
 
         # --- 2. Entry Logic ---
         if not position_data:
-            # Trend Filter: Price > 50 SMA (for Long)
+            # LONG: Trend Filter (Price > 50 SMA) + Golden Cross
             if current_price > curr_trend:
-                # Crossover: Fast crosses above Slow
                 if prev_fast <= prev_slow and curr_fast > curr_slow:
-                    # Entry
                     initial_sl = current_price - (1.5 * current_atr)
                     return {
                         'action': 'buy',
-                        'quantity_pct': 0.1, # 10% of cash
+                        'quantity_pct': 0.1, 
                         'stop_loss': initial_sl,
-                        'reason': 'Trend Follow Crossover'
+                        'reason': 'Golden Cross (Long)'
+                    }
+                    
+            # SHORT: Trend Filter (Price < 50 SMA) + Death Cross
+            elif current_price < curr_trend:
+                # Fast crosses BELOW Slow
+                if prev_fast >= prev_slow and curr_fast < curr_slow:
+                    initial_sl = current_price + (1.5 * current_atr) # Stop Loss Above Entry
+                    return {
+                        'action': 'sell', # Main loop interprets SELL on Flat as OPEN SHORT
+                        'quantity_pct': 0.1, 
+                        'stop_loss': initial_sl,
+                        'reason': 'Death Cross (Short)'
                     }
 
         return signal

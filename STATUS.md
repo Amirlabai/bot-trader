@@ -40,9 +40,12 @@ _(*) Equity is estimated based on Entry Price (Unrealized PnL not real-time in t
 *A summary of changes implemented during this development session.*
 
 ### 1. Architecture & Core
-- **Multi-Strategy Engine**: Refactored `src/main.py` and `src/ledger_manager.py` to support multiple simultaneous strategies (e.g., `rsi_crypto` vs `ma_forex`).
-- **Independent Ledgers**: Each strategy now has its own isolated "Wallet" (Cash & Positions) in `ledger.json`.
-- **Config Driven**: Strategies are strictly defined in `src/config.py` with specific pairs and parameters.
+- **Long/Short Trading**: System now supports bi-directional trading.
+    - **Long**: Buy low, Sell high.
+    - **Short**: Open Short (Sell) high, Cover (Buy) low.
+    - **Collateral**: Shorts require 100% cash collateral.
+- **Multi-Strategy Engine**: Refactored `src/main.py` and `src/ledger_manager.py` to support multiple simultaneous strategies.
+- **Independent Ledgers**: Each strategy now has its own isolated "Wallet" in `ledger.json`.
 
 ### 2. Risk Management (Universal)
 - **ATR Integration**: Promoted ATR calculation to `BaseStrategy`, making it available to ALL strategies.

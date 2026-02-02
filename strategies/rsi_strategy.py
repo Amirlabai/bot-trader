@@ -43,22 +43,38 @@ class RSIStrategy(BaseStrategy):
         current_position_qty = position_data['qty'] if position_data else 0.0
 
         # Logic
+        # 1. LONG SIGNAL (Oversold)
         if current_rsi < oversold:
-            if current_position_qty == 0:
+            if not position_data: # Flat -> Buy
                 initial_sl = current_price - (1.5 * current_atr)
                 return {
                     'action': 'buy',
                     'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
-                    'reason': f'RSI Oversold ({current_rsi:.2f})'
+                    'reason': f'RSI Oversold ({current_rsi:.2f}) - Long'
+                }
+            elif position_data.get('side') == 'SHORT': # Short -> Cover
+                return {
+                    'action': 'buy',
+                    'quantity_pct': 1.0, 
+                    'reason': f'RSI Oversold ({current_rsi:.2f}) - Cover Short'
                 }
         
+        # 2. SHORT SIGNAL (Overbought)
         elif current_rsi > overbought:
-            if current_position_qty > 0:
+            if not position_data: # Flat -> Short
+                initial_sl = current_price + (1.5 * current_atr)
                 return {
                     'action': 'sell',
-                    'quantity_pct': 1.0, # Sell All on Signal
-                    'reason': f'RSI Overbought ({current_rsi:.2f})'
+                    'quantity_pct': 0.1,
+                    'stop_loss': initial_sl,
+                    'reason': f'RSI Overbought ({current_rsi:.2f}) - Short'
+                }
+            elif position_data.get('side') == 'LONG': # Long -> Sell
+                return {
+                    'action': 'sell',
+                    'quantity_pct': 1.0, 
+                    'reason': f'RSI Overbought ({current_rsi:.2f}) - Close Long'
                 }
         
         return signal
