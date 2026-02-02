@@ -2,6 +2,27 @@
 
 <!-- version list -->
 
+## v1.2.0 (2026-02-02)
+
+### Chores
+
+- Update local state including STATUS.md
+  ([`f848991`](https://github.com/Amirlabai/bot-trader/commit/f848991d564eb9e301e89e05a3db400b69d46ccc))
+
+### Documentation
+
+- Update STATUS.md with session summary
+  ([`923a4b7`](https://github.com/Amirlabai/bot-trader/commit/923a4b72c4599745d0051d7bce5f6a3c80f42008))
+
+### Features
+
+- Implement Long/Short Trading Architecture
+  ([`d0a71b1`](https://github.com/Amirlabai/bot-trader/commit/d0a71b15904862fbaffd483d511cb284769e12f0))
+
+- Strategies now use Long/Short logic (Death Cross & RSI OB)
+  ([`4b42b67`](https://github.com/Amirlabai/bot-trader/commit/4b42b67b1cd0ba8ae9a2d7d42a3677aecc9cd395))
+
+
 ## v1.1.0 (2026-02-02)
 
 ### Bug Fixes
