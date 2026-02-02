@@ -1,0 +1,166 @@
+{
+    "strategies": {
+        "ma_crossover_crypto": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crossover_forex": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "rsi_crypto": {
+            "cash": 1.1368683772161603e-13,
+            "positions": {
+                "BTC/USDT": {
+                    "qty": 0.018755360767737265,
+                    "entry_price": 78917.12,
+                    "stop_loss": 73585.31107142856,
+                    "tp1_hit": false
+                },
+                "ETH/USDT": {
+                    "qty": 0.34716281191958703,
+                    "entry_price": 2358.2,
+                    "stop_loss": 2070.150714285714,
+                    "tp1_hit": false
+                },
+                "BNB/USDT": {
+                    "qty": 1.7897778118687842,
+                    "entry_price": 776.09,
+                    "stop_loss": 720.2171428571429,
+                    "tp1_hit": false
+                },
+                "XRP/USDT": {
+                    "qty": 635.3961013910633,
+                    "entry_price": 1.6414,
+                    "stop_loss": 1.484017857142857,
+                    "tp1_hit": false
+                },
+                "SOL/USDT": {
+                    "qty": 8.369201339072216,
+                    "entry_price": 104.82,
+                    "stop_loss": 92.87142857142857,
+                    "tp1_hit": false
+                },
+                "ADA/USDT": {
+                    "qty": 2951.7183217372976,
+                    "entry_price": 0.3,
+                    "stop_loss": 0.26612142857142856,
+                    "tp1_hit": false
+                },
+                "DOGE/USDT": {
+                    "qty": 8903.303761645833,
+                    "entry_price": 0.10849,
+                    "stop_loss": 0.09725821428571428,
+                    "tp1_hit": false
+                },
+                "AVAX/USDT": {
+                    "qty": 92.22661396574438,
+                    "entry_price": 10.19,
+                    "stop_loss": 9.105714285714285,
+                    "tp1_hit": false
+                },
+                "DOT/USDT": {
+                    "qty": 557.5467941059343,
+                    "entry_price": 1.559,
+                    "stop_loss": 1.3796428571428572,
+                    "tp1_hit": false
+                },
+                "TRX/USDT": {
+                    "qty": 2574.9191250901067,
+                    "entry_price": 0.2841,
+                    "stop_loss": 0.2738464285714286,
+                    "tp1_hit": false
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-02-02T19:40:47.520541",
+                    "symbol": "BTC/USDT",
+                    "side": "buy",
+                    "quantity": 0.018755360767737265,
+                    "price": 78917.12,
+                    "total_value": 1480.1190563508137
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:47.857488",
+                    "symbol": "ETH/USDT",
+                    "side": "buy",
+                    "quantity": 0.34716281191958703,
+                    "price": 2358.2,
+                    "total_value": 818.6793430687701
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:48.148606",
+                    "symbol": "BNB/USDT",
+                    "side": "buy",
+                    "quantity": 1.7897778118687842,
+                    "price": 776.09,
+                    "total_value": 1389.0286620132447
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:48.451892",
+                    "symbol": "XRP/USDT",
+                    "side": "buy",
+                    "quantity": 635.3961013910633,
+                    "price": 1.6414,
+                    "total_value": 1042.9391608232913
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:48.748355",
+                    "symbol": "SOL/USDT",
+                    "side": "buy",
+                    "quantity": 8.369201339072216,
+                    "price": 104.82,
+                    "total_value": 877.2596843615496
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:49.040751",
+                    "symbol": "ADA/USDT",
+                    "side": "buy",
+                    "quantity": 2951.7183217372976,
+                    "price": 0.3,
+                    "total_value": 885.5154965211892
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:49.342452",
+                    "symbol": "DOGE/USDT",
+                    "side": "buy",
+                    "quantity": 8903.303761645833,
+                    "price": 0.10849,
+                    "total_value": 965.9194251009565
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:49.635265",
+                    "symbol": "AVAX/USDT",
+                    "side": "buy",
+                    "quantity": 92.22661396574438,
+                    "price": 10.19,
+                    "total_value": 939.7891963109352
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:49.927427",
+                    "symbol": "DOT/USDT",
+                    "side": "buy",
+                    "quantity": 557.5467941059343,
+                    "price": 1.559,
+                    "total_value": 869.2154520111516
+                },
+                {
+                    "timestamp": "2026-02-02T19:40:50.217735",
+                    "symbol": "TRX/USDT",
+                    "side": "buy",
+                    "quantity": 2574.9191250901067,
+                    "price": 0.2841,
+                    "total_value": 731.5345234380993
+                }
+            ]
+        },
+        "rsi_forex": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        }
+    }
+}
