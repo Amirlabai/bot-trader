@@ -1,4 +1,3 @@
-import ccxt
 import pandas as pd
 import requests
 import time
@@ -7,109 +6,100 @@ from datetime import datetime
 class DataFetcher:
     def __init__(self, config):
         self.config = config
-        # Try initializing Binance (Global)
-        try:
-            self.ccxt_exchange = ccxt.binance({
-                'apiKey': config.CCXT_API_KEY,
-                'secret': config.CCXT_SECRET,
-                'enableRateLimit': True,
-                'options': {
-                    'adjustForTimeDifference': True,
-                    'recvWindow': 60000
-                }
-            })
-            # Force time sync manually before loading markets
-            self.ccxt_exchange.load_time_difference()
-            self.ccxt_exchange.load_markets()
-            
-        except Exception as e:
-            if '451' in str(e) or 'Service unavailable' in str(e):
-                print(f"⚠️ Binance Global 451 Restricted (Geo-block detected). Switching to Binance.US...")
-                try:
-                    self.ccxt_exchange = ccxt.binanceus({
-                        'enableRateLimit': True,
-                        'options': {
-                            'adjustForTimeDifference': True, 
-                            'recvWindow': 60000
-                        }
-                    })
-                    self.ccxt_exchange.load_time_difference()
-                    self.ccxt_exchange.load_markets()
-                    print("✅ Successfully connected to Binance.US (Public Data Mode)")
-                except Exception as e2:
-                    print(f"❌ Failed to connect to Binance.US fallback: {e2}")
-                    raise e2
-            else:
-                raise e
+        self.cache = {}
     
-    def fetch_crypto_ohlcv(self, symbol, timeframe='1d', limit=100):
+    def fetch_fmp_history(self, symbol, asset_type='forex'):
         """
-        Fetches OHLCV data for a crypto symbol using CCXT.
-        Returns a DataFrame with columns: open, high, low, close, volume.
-        Timestamp is set as index.
+        Fetches historical data using Financial Modeling Prep API.
+        Works for both Forex (e.g., 'EURUSD') and Crypto (e.g., 'BTCUSD').
         """
-        try:
-            # CCXT fetch_ohlcv returns list of lists: [timestamp, open, high, low, close, volume]
-            ohlcv = self.ccxt_exchange.fetch_ohlcv(symbol, timeframe, limit=limit)
-            
-            df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
-            df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
-            df.set_index('timestamp', inplace=True)
-            return df
-        except Exception as e:
-            print(f"Error fetching crypto data for {symbol}: {e}")
-            return pd.DataFrame()
-
-    def fetch_forex_daily(self, symbol):
-        """
-        Fetches daily forex data using Alpha Vantage.
-        Symbol should be in format 'EURUSD' or 'EUR/USD' (will be normalized).
-        Returns DataFrame with standard columns.
-        """
-        clean_symbol = symbol.replace('/', '')
-        from_currency = clean_symbol[:3]
-        to_currency = clean_symbol[3:]
-        
-        api_key = self.config.ALPHAVANTAGE_KEY
+        api_key = self.config.FMP_API_KEY
         if not api_key:
-            print("Alpha Vantage API Key missing.")
+            print("FMP API Key missing.")
             return pd.DataFrame()
 
-        url = f'https://www.alphavantage.co/query?function=FX_DAILY&from_symbol={from_currency}&to_symbol={to_currency}&apikey={api_key}'
+        # Normalize symbol
+        # Forex: EUR/USD -> EURUSD
+        # Crypto: BTC/USDT -> BTCUSD (FMP usually uses BTCUSD)
+        clean_symbol = symbol.replace('/', '')
+        
+        # Handle USDT -> USD for Crypto (FMP uses BTCUSD, ETHUSD)
+        if clean_symbol.endswith('USDT'):
+            clean_symbol = clean_symbol.replace('USDT', 'USD')
+            
+        # Check Cache
+        if clean_symbol in self.cache:
+            # print(f"DEBUG: Using cached data for {symbol} ({clean_symbol})")
+            return self.cache[clean_symbol].copy()
+        
+        # URL construction
+        # FMP Stable Endpoint: https://financialmodelingprep.com/stable/historical-price-eod/full?symbol={symbol}
+        url = f"https://financialmodelingprep.com/stable/historical-price-eod/full?symbol={clean_symbol}&apikey={api_key}"
         
         try:
             response = requests.get(url)
-            data = response.json()
+            # Check for non-200 responses
+            if response.status_code != 200:
+                print(f"FMP API returned status {response.status_code} for {clean_symbol}")
+                return pd.DataFrame()
+
+            try:
+                data = response.json()
+            except ValueError:
+                print(f"FMP API returned invalid JSON for {clean_symbol}")
+                return pd.DataFrame()
             
-            time_series = data.get('Time Series FX (Daily)', {})
-            if not time_series:
-                 # Try compact if full history fails or API issues, though FX_DAILY usually returns full.
-                 print(f"No data returned for forex {symbol}. Response keys: {data.keys()}")
+            # Handle potential dictionary response with 'historical' key (older versions) or list response (stable)
+            if isinstance(data, dict):
+                if 'historical' in data:
+                    data = data['historical']
+                elif 'Error Message' in data:
+                     print(f"FMP API Error for {clean_symbol}: {data['Error Message']}")
+                     return pd.DataFrame()
+                else:
+                    # Unexpected dict response
+                    print(f"Unexpected FMP response format for {clean_symbol}: {data.keys()}")
+                    return pd.DataFrame()
+            
+            if not isinstance(data, list) or not data:
+                print(f"No historical data found for {clean_symbol} in FMP response.")
+                return pd.DataFrame()
+            
+            df = pd.DataFrame(data)
+            
+            # FMP returns: date, open, high, low, close...
+            if 'date' not in df.columns:
+                 print(f"Date column missing in FMP data for {clean_symbol}. Columns: {df.columns}")
                  return pd.DataFrame()
-
-            df = pd.DataFrame.from_dict(time_series, orient='index')
-            # Columns are like "1. open", "2. high", etc. Rename them.
-            df.rename(columns={
-                '1. open': 'open',
-                '2. high': 'high',
-                '3. low': 'low',
-                '4. close': 'close'
-            }, inplace=True)
-            
-            # Alpha Vantage FX_DAILY doesn't always provide volume consistently, sometimes it's missing.
-            # We will fill volume with 0 if missing.
-            if '5. volume' in df.columns:
-                 df.rename(columns={'5. volume': 'volume'}, inplace=True)
-            else:
-                 df['volume'] = 0
-
-            df.index = pd.to_datetime(df.index)
-            df = df.astype(float)
+                 
+            df['timestamp'] = pd.to_datetime(df['date'])
+            df.set_index('timestamp', inplace=True)
             df.sort_index(inplace=True)
             
+            # Select and order columns
+            cols_to_keep = ['open', 'high', 'low', 'close', 'volume']
+            
+            # Ensure columns exist
+            existing_cols = [c for c in cols_to_keep if c in df.columns]
+            if not existing_cols:
+                 print(f"Required columns missing in FMP data for {clean_symbol}.")
+                 return pd.DataFrame()
+                 
+            df = df[existing_cols]
+            
+            # Fill volume with 0 if missing
+            if 'volume' not in df.columns:
+                df['volume'] = 0.0
+                
+            df = df.astype(float)
+            
+            # Update Cache
+            self.cache[clean_symbol] = df.copy()
+            
             return df
+            
         except Exception as e:
-            print(f"Error fetching forex data for {symbol}: {e}")
+            print(f"Error fetching FMP data for {symbol}: {e}")
             return pd.DataFrame()
 
     def get_data(self, symbol, asset_type='crypto'):
@@ -118,9 +108,11 @@ class DataFetcher:
         asset_type: 'crypto' or 'forex'.
         """
         if asset_type == 'crypto':
-            return self.fetch_crypto_ohlcv(symbol)
+             # User requested to switch Binance to FMP if it works.
+             # Initial plan: "if it works switch the binance one too"
+             return self.fetch_fmp_history(symbol, asset_type='crypto')
         elif asset_type == 'forex':
-             return self.fetch_forex_daily(symbol)
+             return self.fetch_fmp_history(symbol, asset_type='forex')
         else:
             print(f"Unknown asset type: {asset_type}")
             return pd.DataFrame()

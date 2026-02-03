@@ -9,6 +9,7 @@ class Config:
     CCXT_API_KEY = os.getenv("CCXT_API_KEY")
     CCXT_SECRET = os.getenv("CCXT_SECRET")
     ALPHAVANTAGE_KEY = os.getenv("ALPHAVANTAGE_KEY")
+    FMP_API_KEY = os.getenv("FMP_API_KEY")
     
     # GitHub Token for pushing (optional if using GITHUB_TOKEN in CI)
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")

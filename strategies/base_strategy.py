@@ -15,6 +15,32 @@ class BaseStrategy(ABC):
         """
         pass
 
+    def _get_closed_candle_index(self, data: pd.DataFrame) -> int:
+        """
+        Determines the index of the last CLOSED candle.
+        - If last timestamp is Today (UTC), assume it's Open/Incomplete -> Use -2 (Yesterday).
+        - If last timestamp is Before Today, assume it's Closed -> Use -1.
+        """
+        if data.empty:
+            return -1
+        
+        last_ts = data.index[-1]
+        today = pd.Timestamp.utcnow().normalize()
+        
+        # Ensure last_ts is timezone-aware for comparison, or normalize both if naive.
+        if last_ts.tzinfo is None:
+            last_ts = last_ts.replace(tzinfo=pd.Timestamp.utcnow().tzinfo)
+        
+        # Normalize to date (remove time)
+        last_date = last_ts.normalize()
+        
+        if last_date == today:
+            # The last candle is from Today (Open/Incomplete)
+            return -2
+        else:
+            # The last candle is from Yesterday or earlier (Closed)
+            return -1
+
     def _calculate_atr(self, data, period=14):
         high = data['high']
         low = data['low']

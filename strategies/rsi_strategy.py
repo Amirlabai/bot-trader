@@ -39,7 +39,11 @@ class RSIStrategy(BaseStrategy):
 
         # Calculate RSI
         rsi_series = self._calculate_rsi(market_data['close'], period)
-        current_rsi = rsi_series.iloc[-1]
+        
+        # Check signal on CLOSED candle
+        idx = self._get_closed_candle_index(market_data)
+        current_rsi = rsi_series.iloc[idx] 
+        
         current_position_qty = position_data['qty'] if position_data else 0.0
 
         # Logic

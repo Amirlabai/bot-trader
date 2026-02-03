@@ -49,31 +49,45 @@ class MovingAverageStrategy(BaseStrategy):
         if risk_signal:
             return risk_signal
 
-        # Current Values
-        curr_trend = sma_trend.iloc[-1]
-        curr_fast = sma_fast.iloc[-1]
-        curr_slow = sma_slow.iloc[-1]
-        prev_fast = sma_fast.iloc[-2]
-        prev_slow = sma_slow.iloc[-2]
+        # Current Values (For Execution Price - Always Latest)
+        current_price = closes.iloc[-1]
+        current_atr = atr.iloc[-1] 
+        
+        # Signal Values (Operate on CLOSED Price)
+        idx = self._get_closed_candle_index(market_data)
+        
+        # If we don't have enough history relative to idx
+        if abs(idx) > len(market_data):
+            return signal
+
+        signal_trend = sma_trend.iloc[idx]
+        signal_fast = sma_fast.iloc[idx]
+        signal_slow = sma_slow.iloc[idx]
+        
+        prev_signal_fast = sma_fast.iloc[idx - 1]
+        prev_signal_slow = sma_slow.iloc[idx - 1]
+        
+        signal_price = closes.iloc[idx]
 
         # --- 2. Entry Logic ---
         if not position_data:
-            # LONG: Trend Filter (Price > 50 SMA) + Golden Cross
-            if current_price > curr_trend:
-                if prev_fast <= prev_slow and curr_fast > curr_slow:
+            # LONG: Trend Filter (Yesterday's Close > 50 SMA) + Golden Cross (Yesterday)
+            if signal_price > signal_trend:
+                if prev_signal_fast <= prev_signal_slow and signal_fast > signal_slow:
                     initial_sl = current_price - (1.5 * current_atr)
                     return {
                         'action': 'buy',
                         'quantity_pct': 0.1, 
                         'stop_loss': initial_sl,
-                        'reason': 'Golden Cross (Long)'
+                        'reason': 'Golden Cross (Confirmed Close)'
                     }
                     
-            # SHORT: Trend Filter (Price < 50 SMA) + Death Cross
-            elif current_price < curr_trend:
+            # SHORT: Trend Filter (Yesterday's Close < 50 SMA) + Death Cross (Yesterday)
+            elif signal_price < signal_trend:
                 # Fast crosses BELOW Slow
-                if prev_fast >= prev_slow and curr_fast < curr_slow:
+                if prev_signal_fast >= prev_signal_slow and signal_fast < signal_slow:
                     initial_sl = current_price + (1.5 * current_atr) # Stop Loss Above Entry
+
                     return {
                         'action': 'sell', # Main loop interprets SELL on Flat as OPEN SHORT
                         'quantity_pct': 0.1, 
