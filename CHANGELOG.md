@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v1.4.0 (2026-02-03)
+
+### Features
+
+- Implement new RSI and Moving Average trading strategies with supporting infrastructure for
+  configuration, data ingestion, and reporting.
+  ([`78e89ee`](https://github.com/Amirlabai/bot-trader/commit/78e89ee17a206ff610d068e3e930cba04818bada))
+
+
 ## v1.3.0 (2026-02-03)
 
 ### Features
