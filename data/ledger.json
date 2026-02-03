@@ -14,172 +14,156 @@
             "cash": 0.0,
             "positions": {
                 "BTC/USDT": {
-                    "qty": 0.018755360767737265,
-                    "entry_price": 78719.03,
+                    "qty": 0.018925269113947256,
+                    "entry_price": 74847.13,
                     "side": "LONG",
-                    "stop_loss": 74134.77392857143,
+                    "stop_loss": 69563.18928571428,
                     "tp1_hit": false
                 },
                 "ETH/USDT": {
-                    "qty": 0.34716281191958703,
-                    "entry_price": 2343.47,
+                    "qty": 0.36136352783725223,
+                    "entry_price": 2197.6,
                     "side": "LONG",
-                    "stop_loss": 2094.0342857142855,
+                    "stop_loss": 1920.870357142857,
                     "tp1_hit": false
                 },
                 "BNB/USDT": {
-                    "qty": 1.7897778118687842,
-                    "entry_price": 774.2,
+                    "qty": 1.8536877751191252,
+                    "entry_price": 750.13987,
                     "side": "LONG",
-                    "stop_loss": 718.3271428571429,
+                    "stop_loss": 696.1933525,
                     "tp1_hit": false
                 },
                 "XRP/USDT": {
-                    "qty": 635.3961013910633,
-                    "entry_price": 1.6409,
+                    "qty": 656.0618947536132,
+                    "entry_price": 1.55794,
                     "side": "LONG",
-                    "stop_loss": 1.490425,
+                    "stop_loss": 1.4055153571428571,
                     "tp1_hit": false
                 },
                 "SOL/USDT": {
-                    "qty": 8.369201339072216,
-                    "entry_price": 104.17,
+                    "qty": 8.659615265664627,
+                    "entry_price": 99.28557,
                     "side": "LONG",
-                    "stop_loss": 93.49821428571428,
+                    "stop_loss": 87.73771285714287,
                     "tp1_hit": false
                 },
                 "ADA/USDT": {
-                    "qty": 2951.7183217372976,
-                    "entry_price": 0.2998,
+                    "qty": 3020.4962243797218,
+                    "entry_price": 0.2875,
                     "side": "LONG",
-                    "stop_loss": 0.26978214285714286,
+                    "stop_loss": 0.25439285714285714,
                     "tp1_hit": false
                 },
                 "DOGE/USDT": {
-                    "qty": 8903.303761645833,
-                    "entry_price": 0.10836,
+                    "qty": 9008.139497474513,
+                    "entry_price": 0.10424,
                     "side": "LONG",
-                    "stop_loss": 0.09775321428571429,
+                    "stop_loss": 0.09313892857142858,
                     "tp1_hit": false
                 },
                 "AVAX/USDT": {
-                    "qty": 92.22661396574453,
-                    "entry_price": 10.16,
+                    "qty": 96.21993127147763,
+                    "entry_price": 9.76,
                     "side": "LONG",
-                    "stop_loss": 9.075714285714287,
+                    "stop_loss": 8.720714285714285,
                     "tp1_hit": false
                 },
                 "DOT/USDT": {
-                    "qty": 557.5467941059342,
-                    "entry_price": 1.552,
+                    "qty": 587.0094802031051,
+                    "entry_price": 1.464,
                     "side": "LONG",
-                    "stop_loss": 1.385392857142857,
+                    "stop_loss": 1.293645,
                     "tp1_hit": false
                 },
                 "TRX/USDT": {
-                    "qty": 631.6720883000972,
-                    "entry_price": 0.28294,
+                    "qty": 3221.6085113941726,
+                    "entry_price": 0.2828,
                     "side": "LONG",
-                    "stop_loss": 0.27396785714285715,
+                    "stop_loss": 0.2738278571428571,
                     "tp1_hit": false
                 }
             },
             "history": [
                 {
-                    "timestamp": "2026-02-02T20:16:03.037609",
+                    "timestamp": "2026-02-03T20:13:44.859506",
                     "symbol": "BTC/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 0.018755360767737265,
-                    "price": 78719.03,
-                    "total_value": 1476.4038069363328
+                    "quantity": 0.018925269113947256,
+                    "price": 74847.13,
+                    "total_value": 1416.5020776565952
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:03.355524",
+                    "timestamp": "2026-02-03T20:13:44.986685",
                     "symbol": "ETH/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 0.34716281191958703,
-                    "price": 2343.47,
-                    "total_value": 813.5656348491946
+                    "quantity": 0.36136352783725223,
+                    "price": 2197.6,
+                    "total_value": 794.1324887751455
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:03.673741",
+                    "timestamp": "2026-02-03T20:13:45.132770",
                     "symbol": "BNB/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 1.7897778118687842,
-                    "price": 774.2,
-                    "total_value": 1385.6459819488127
+                    "quantity": 1.8536877751191252,
+                    "price": 750.13987,
+                    "total_value": 1390.5251066484498
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:03.977105",
+                    "timestamp": "2026-02-03T20:13:45.271467",
                     "symbol": "XRP/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 635.3961013910633,
-                    "price": 1.6409,
-                    "total_value": 1042.6214627725958
+                    "quantity": 656.0618947536132,
+                    "price": 1.55794,
+                    "total_value": 1022.1050683124441
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:04.277375",
+                    "timestamp": "2026-02-03T20:13:45.408568",
                     "symbol": "SOL/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 8.369201339072216,
-                    "price": 104.17,
-                    "total_value": 871.8197034911527
+                    "quantity": 8.659615265664627,
+                    "price": 99.28557,
+                    "total_value": 859.7748376322139
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:04.591544",
+                    "timestamp": "2026-02-03T20:13:45.540101",
                     "symbol": "ADA/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 2951.7183217372976,
-                    "price": 0.2998,
-                    "total_value": 884.9251528568418
+                    "quantity": 3020.4962243797218,
+                    "price": 0.2875,
+                    "total_value": 868.3926645091699
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:04.902522",
+                    "timestamp": "2026-02-03T20:13:45.663845",
                     "symbol": "DOGE/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 8903.303761645833,
-                    "price": 0.10836,
-                    "total_value": 964.7619956119424
+                    "quantity": 9008.139497474513,
+                    "price": 0.10424,
+                    "total_value": 939.0084612167432
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:05.198264",
+                    "timestamp": "2026-02-03T20:13:45.873709",
                     "symbol": "AVAX/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 92.22661396574453,
-                    "price": 10.16,
-                    "total_value": 937.0223978919645
+                    "quantity": 96.21993127147763,
+                    "price": 9.76,
+                    "total_value": 939.1065292096217
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:05.535327",
+                    "timestamp": "2026-02-03T20:13:46.006625",
                     "symbol": "DOT/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 557.5467941059342,
-                    "price": 1.552,
-                    "total_value": 865.3126244524099
+                    "quantity": 587.0094802031051,
+                    "price": 1.464,
+                    "total_value": 859.3818790173459
                 },
                 {
-                    "timestamp": "2026-02-02T20:16:05.827114",
+                    "timestamp": "2026-02-03T20:13:46.139313",
                     "symbol": "TRX/USDT",
                     "side": "OPEN_LONG",
-                    "quantity": 2668.7367577068767,
-                    "price": 0.284,
-                    "total_value": 757.9212391887529
-                },
-                {
-                    "timestamp": "2026-02-02T18:42:52.874662",
-                    "symbol": "TRX/USDT",
-                    "side": "CLOSE_LONG",
-                    "quantity": 2668.7367577068767,
-                    "price": 0.06697,
-                    "total_value": 178.72530066362953
-                },
-                {
-                    "timestamp": "2026-02-03T20:02:59.870455",
-                    "symbol": "TRX/USDT",
-                    "side": "OPEN_LONG",
-                    "quantity": 631.6720883000972,
-                    "price": 0.28294,
-                    "total_value": 178.72530066362953
+                    "quantity": 3221.6085113941726,
+                    "price": 0.2828,
+                    "total_value": 911.070887022272
                 }
             ]
         },
@@ -188,35 +172,35 @@
             "positions": {
                 "GBP/USD": {
                     "qty": 6897.231254310749,
-                    "entry_price": 1.36993,
+                    "entry_price": 1.36944,
                     "side": "SHORT",
-                    "stop_loss": 1.3839485714285715,
+                    "stop_loss": 1.3839385714285715,
                     "tp1_hit": false
                 },
                 "AUD/USD": {
-                    "qty": 785.8419520492586,
-                    "entry_price": 0.70151,
+                    "qty": 790.524394761752,
+                    "entry_price": 0.70163,
                     "side": "SHORT",
-                    "stop_loss": 0.7120121428571429,
+                    "stop_loss": 0.7126121428571428,
                     "tp1_hit": false
                 }
             },
             "history": [
                 {
-                    "timestamp": "2026-02-03T19:51:23.964229",
+                    "timestamp": "2026-02-03T20:13:46.327874",
                     "symbol": "GBP/USD",
                     "side": "OPEN_SHORT",
                     "quantity": 6897.231254310749,
-                    "price": 1.36993,
-                    "total_value": 9448.724012217925
+                    "price": 1.36944,
+                    "total_value": 9445.344368903312
                 },
                 {
-                    "timestamp": "2026-02-03T19:51:26.480171",
+                    "timestamp": "2026-02-03T20:13:46.528816",
                     "symbol": "AUD/USD",
                     "side": "OPEN_SHORT",
-                    "quantity": 785.8419520492586,
-                    "price": 0.70151,
-                    "total_value": 551.2759877820754
+                    "quantity": 790.524394761752,
+                    "price": 0.70163,
+                    "total_value": 554.655631096688
                 }
             ]
         }
