@@ -17,14 +17,14 @@
                     "qty": 0.018755360767737265,
                     "entry_price": 78719.03,
                     "side": "LONG",
-                    "stop_loss": 73387.22107142856,
+                    "stop_loss": 74134.77392857143,
                     "tp1_hit": false
                 },
                 "ETH/USDT": {
                     "qty": 0.34716281191958703,
                     "entry_price": 2343.47,
                     "side": "LONG",
-                    "stop_loss": 2061.5360714285716,
+                    "stop_loss": 2094.0342857142855,
                     "tp1_hit": false
                 },
                 "BNB/USDT": {
@@ -45,7 +45,7 @@
                     "qty": 8.369201339072216,
                     "entry_price": 104.17,
                     "side": "LONG",
-                    "stop_loss": 92.92,
+                    "stop_loss": 93.49821428571428,
                     "tp1_hit": false
                 },
                 "ADA/USDT": {
