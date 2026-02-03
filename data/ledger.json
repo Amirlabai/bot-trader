@@ -11,7 +11,7 @@
             "history": []
         },
         "rsi_crypto": {
-            "cash": 178.72530066362953,
+            "cash": 0.0,
             "positions": {
                 "BTC/USDT": {
                     "qty": 0.018755360767737265,
@@ -74,6 +74,13 @@
                     "entry_price": 1.552,
                     "side": "LONG",
                     "stop_loss": 1.385392857142857,
+                    "tp1_hit": false
+                },
+                "TRX/USDT": {
+                    "qty": 631.6720883000972,
+                    "entry_price": 0.28294,
+                    "side": "LONG",
+                    "stop_loss": 0.27396785714285715,
                     "tp1_hit": false
                 }
             },
@@ -165,6 +172,14 @@
                     "quantity": 2668.7367577068767,
                     "price": 0.06697,
                     "total_value": 178.72530066362953
+                },
+                {
+                    "timestamp": "2026-02-03T20:02:59.870455",
+                    "symbol": "TRX/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 631.6720883000972,
+                    "price": 0.28294,
+                    "total_value": 178.72530066362953
                 }
             ]
         },
@@ -175,14 +190,14 @@
                     "qty": 6897.231254310749,
                     "entry_price": 1.36993,
                     "side": "SHORT",
-                    "stop_loss": 1.3844285714285716,
+                    "stop_loss": 1.3839485714285715,
                     "tp1_hit": false
                 },
                 "AUD/USD": {
                     "qty": 785.8419520492586,
                     "entry_price": 0.70151,
                     "side": "SHORT",
-                    "stop_loss": 0.7124921428571428,
+                    "stop_loss": 0.7120121428571429,
                     "tp1_hit": false
                 }
             },
