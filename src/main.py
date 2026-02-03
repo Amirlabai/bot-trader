@@ -150,6 +150,16 @@ def main():
     print("\n--- Session Complete ---")
     
     ledger.save_ledger()
+
+    # Generate Report (JSON for SPA)
+    from reporting import ReportGenerator
+    print("\n--- Generating Performance Report Data ---")
+    try:
+        reporter = ReportGenerator(Config)
+        reporter.generate()
+    except Exception as e:
+        print(f"Error generating report: {e}")
+
     ledger.sync_to_remote(commit_message=f"Journal Update: {datetime.now().strftime('%Y-%m-%d')}")
 
 if __name__ == "__main__":
