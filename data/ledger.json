@@ -17,7 +17,7 @@
                     "qty": 0.018925269113947256,
                     "entry_price": 74847.13,
                     "side": "LONG",
-                    "stop_loss": 69563.18928571428,
+                    "stop_loss": 69583.92714285714,
                     "tp1_hit": false
                 },
                 "ETH/USDT": {
@@ -38,7 +38,7 @@
                     "qty": 656.0618947536132,
                     "entry_price": 1.55794,
                     "side": "LONG",
-                    "stop_loss": 1.4055153571428571,
+                    "stop_loss": 1.4075428571428572,
                     "tp1_hit": false
                 },
                 "SOL/USDT": {
@@ -59,7 +59,7 @@
                     "qty": 9008.139497474513,
                     "entry_price": 0.10424,
                     "side": "LONG",
-                    "stop_loss": 0.09313892857142858,
+                    "stop_loss": 0.09347892857142859,
                     "tp1_hit": false
                 },
                 "AVAX/USDT": {
