@@ -169,9 +169,41 @@
             ]
         },
         "rsi_forex": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "GBP/USD": {
+                    "qty": 6897.231254310749,
+                    "entry_price": 1.36993,
+                    "side": "SHORT",
+                    "stop_loss": 1.3844285714285716,
+                    "tp1_hit": false
+                },
+                "AUD/USD": {
+                    "qty": 785.8419520492586,
+                    "entry_price": 0.70151,
+                    "side": "SHORT",
+                    "stop_loss": 0.7124921428571428,
+                    "tp1_hit": false
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-02-03T19:51:23.964229",
+                    "symbol": "GBP/USD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 6897.231254310749,
+                    "price": 1.36993,
+                    "total_value": 9448.724012217925
+                },
+                {
+                    "timestamp": "2026-02-03T19:51:26.480171",
+                    "symbol": "AUD/USD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 785.8419520492586,
+                    "price": 0.70151,
+                    "total_value": 551.2759877820754
+                }
+            ]
         }
     }
 }
