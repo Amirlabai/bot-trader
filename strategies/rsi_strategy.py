@@ -27,9 +27,21 @@ class RSIStrategy(BaseStrategy):
         if len(market_data) < max(period, atr_period) + 1:
             return signal
 
-        # Indicators
-        atr = self._calculate_atr(market_data, atr_period)
+        # Determine Data Slice (Exclude Open Candle)
+        idx = self._get_closed_candle_index(market_data)
+        
+        # Prepare "Closed" Data for Indicators
+        # We need this to ensure indicators don't see the forming candle.
+        if idx == -2:
+            closed_data = market_data.iloc[:-1]
+        else:
+            closed_data = market_data
+
+        # Indicators (Calculated on CLOSED data)
+        atr = self._calculate_atr(closed_data, atr_period)
         current_atr = atr.iloc[-1]
+        
+        # Execution Price (Real-time)
         current_price = market_data['close'].iloc[-1]
 
         # --- 1. Global Risk Management Check ---
@@ -37,12 +49,11 @@ class RSIStrategy(BaseStrategy):
         if risk_signal:
             return risk_signal
 
-        # Calculate RSI
-        rsi_series = self._calculate_rsi(market_data['close'], period)
+        # Calculate RSI on Closed Data
+        rsi_series = self._calculate_rsi(closed_data['close'], period)
         
-        # Check signal on CLOSED candle
-        idx = self._get_closed_candle_index(market_data)
-        current_rsi = rsi_series.iloc[idx] 
+        # Signal on last closed candle
+        current_rsi = rsi_series.iloc[-1] 
         
         current_position_qty = position_data['qty'] if position_data else 0.0
 

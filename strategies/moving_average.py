@@ -31,43 +31,48 @@ class MovingAverageStrategy(BaseStrategy):
         slow_period = self.params.get('long_window', 24)
         atr_period = 14
 
-        if len(market_data) < max(trend_period, slow_period, atr_period) + 2:
+        # Determine Data Slice (Exclude Open Candle)
+        idx = self._get_closed_candle_index(market_data)
+        
+        # Prepare "Closed" Data for Indicators
+        if idx == -2:
+            closed_data = market_data.iloc[:-1]
+        else:
+            closed_data = market_data
+
+        if len(closed_data) < max(trend_period, slow_period, atr_period) + 2:
             return signal
 
-        # Indicators
-        closes = market_data['close']
+        # Indicators (Calculated on CLOSED data only)
+        # Note: We using closed_data, so the last row IS the confirmed candle.
+        closes = closed_data['close']
         sma_trend = closes.rolling(window=trend_period).mean()
         sma_fast = closes.rolling(window=fast_period).mean()
         sma_slow = closes.rolling(window=slow_period).mean()
-        atr = self._calculate_atr(market_data, atr_period)
+        atr = self._calculate_atr(closed_data, atr_period)
 
-        current_price = closes.iloc[-1]
-        current_atr = atr.iloc[-1]
+        # Execution Values (Real-time from original market_data)
+        current_price = market_data['close'].iloc[-1]
+        
+        # Risk Management uses ATR from Closed Data (Stable)
+        current_atr = atr.iloc[-1] 
         
         # --- 1. Global Risk Management Check ---
         risk_signal = self.check_risk_management(current_price, current_atr, position_data)
         if risk_signal:
             return risk_signal
 
-        # Current Values (For Execution Price - Always Latest)
-        current_price = closes.iloc[-1]
-        current_atr = atr.iloc[-1] 
+        # Signal Values (Operate on last row of CLOSED data)
+        # Since we sliced, .iloc[-1] of closed_data IS the signal candle.
         
-        # Signal Values (Operate on CLOSED Price)
-        idx = self._get_closed_candle_index(market_data)
+        signal_trend = sma_trend.iloc[-1]
+        signal_fast = sma_fast.iloc[-1]
+        signal_slow = sma_slow.iloc[-1]
         
-        # If we don't have enough history relative to idx
-        if abs(idx) > len(market_data):
-            return signal
-
-        signal_trend = sma_trend.iloc[idx]
-        signal_fast = sma_fast.iloc[idx]
-        signal_slow = sma_slow.iloc[idx]
+        prev_signal_fast = sma_fast.iloc[-2]
+        prev_signal_slow = sma_slow.iloc[-2]
         
-        prev_signal_fast = sma_fast.iloc[idx - 1]
-        prev_signal_slow = sma_slow.iloc[idx - 1]
-        
-        signal_price = closes.iloc[idx]
+        signal_price = closes.iloc[-1]
 
         # --- 2. Entry Logic ---
         if not position_data:
