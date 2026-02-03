@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.3.0 (2026-02-03)
+
+### Features
+
+- Implement core trading bot execution logic and performance report generation.
+  ([`a8fed3a`](https://github.com/Amirlabai/bot-trader/commit/a8fed3a42332d5ccb4f96c40a1177084af497ca5))
+
+
 ## v1.2.3 (2026-02-02)
 
 ### Bug Fixes
