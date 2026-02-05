@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "last_updated": "2026-02-05T09:19:09.477231"
+  },
+  "strategies": {
+    "ma_crossover_crypto": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T09:19:09.477244",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T09:19:09.477246",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    },
+    "ma_crossover_forex": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T09:19:09.477249",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T09:19:09.477251",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    },
+    "rsi_crypto": {
+      "active_positions": [
+        {
+          "symbol": "BTC/USDT",
+          "side": "LONG",
+          "qty": 0.0171626803889652,
+          "entry": 71600.0,
+          "sl": 65773.40428571429,
+          "tp1": false,
+          "value": 1228.8479158499083
+        },
+        {
+          "symbol": "ETH/USDT",
+          "side": "LONG",
+          "qty": 0.3515631376005564,
+          "entry": 2139.54,
+          "sl": 1855.0960714285713,
+          "tp1": false,
+          "value": 752.1833954218945
+        },
+        {
+          "symbol": "BNB/USDT",
+          "side": "LONG",
+          "qty": 1.6537300679015663,
+          "entry": 696.58288,
+          "sl": 636.1135192857143,
+          "tp1": false,
+          "value": 1151.9600534414687
+        },
+        {
+          "symbol": "XRP/USDT",
+          "side": "LONG",
+          "qty": 621.5592257147931,
+          "entry": 1.4404,
+          "sl": 1.2795142857142856,
+          "tp1": false,
+          "value": 895.293908719588
+        },
+        {
+          "symbol": "SOL/USDT",
+          "side": "LONG",
+          "qty": 8.27379598391125,
+          "entry": 92.74624,
+          "sl": 80.65988928571429,
+          "tp1": false,
+          "value": 767.3634680348689
+        },
+        {
+          "symbol": "ADA/USDT",
+          "side": "LONG",
+          "qty": 3033.2575018957846,
+          "entry": 0.28303,
+          "sl": 0.25006214285714284,
+          "tp1": false,
+          "value": 858.5028707615639
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "side": "LONG",
+          "qty": 8915.20998503519,
+          "entry": 0.10255,
+          "sl": 0.0913332142857143,
+          "tp1": false,
+          "value": 914.2547839653587
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "side": "LONG",
+          "qty": 96.81881051175657,
+          "entry": 9.65,
+          "sl": 8.617142857142857,
+          "tp1": false,
+          "value": 934.3015214384509
+        },
+        {
+          "symbol": "DOT/USDT",
+          "side": "LONG",
+          "qty": 584.4291379670213,
+          "entry": 1.438,
+          "sl": 1.266892857142857,
+          "tp1": false,
+          "value": 840.4091003965767
+        }
+      ],
+      "current_cash": 1656.882981970321,
+      "current_equity": 10000.0,
+      "history_events": 9,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T09:19:08.160643",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T09:19:08.160643",
+          "equity": 8771.152084150091,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.187435",
+          "equity": 8018.968688728197,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.214156",
+          "equity": 6867.008635286728,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.241139",
+          "equity": 5971.71472656714,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.268135",
+          "equity": 5204.3512585322715,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.294982",
+          "equity": 4345.848387770708,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.321942",
+          "equity": 3431.5936038053487,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.348974",
+          "equity": 2497.292082366898,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:08.373957",
+          "equity": 1656.882981970321,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:09.477265",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    },
+    "rsi_forex": {
+      "active_positions": [
+        {
+          "symbol": "AUD/USD",
+          "side": "SHORT",
+          "qty": 8869.460546738888,
+          "entry": 0.69698,
+          "sl": 0.7082546428571429,
+          "tp1": false,
+          "value": 6181.836611866071
+        }
+      ],
+      "current_cash": 3818.1633881339294,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T09:19:08.483752",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T09:19:08.483752",
+          "equity": 3818.1633881339294,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T09:19:09.477271",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    }
+  }
+}
