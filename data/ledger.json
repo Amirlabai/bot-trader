@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "strategies": {
         "ma_crossover_crypto": {
@@ -190,4 +191,183 @@
             ]
         }
     }
+=======
+{
+    "strategies": {
+        "ma_crossover_crypto": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crossover_forex": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "rsi_crypto": {
+            "cash": 1656.882981970321,
+            "positions": {
+                "BTC/USDT": {
+                    "qty": 0.0171626803889652,
+                    "entry_price": 71600.0,
+                    "side": "LONG",
+                    "stop_loss": 65773.40428571429,
+                    "tp1_hit": false
+                },
+                "ETH/USDT": {
+                    "qty": 0.3515631376005564,
+                    "entry_price": 2139.54,
+                    "side": "LONG",
+                    "stop_loss": 1855.0960714285713,
+                    "tp1_hit": false
+                },
+                "BNB/USDT": {
+                    "qty": 1.6537300679015663,
+                    "entry_price": 696.58288,
+                    "side": "LONG",
+                    "stop_loss": 636.1135192857143,
+                    "tp1_hit": false
+                },
+                "XRP/USDT": {
+                    "qty": 621.5592257147931,
+                    "entry_price": 1.4404,
+                    "side": "LONG",
+                    "stop_loss": 1.2795142857142856,
+                    "tp1_hit": false
+                },
+                "SOL/USDT": {
+                    "qty": 8.27379598391125,
+                    "entry_price": 92.74624,
+                    "side": "LONG",
+                    "stop_loss": 80.65988928571429,
+                    "tp1_hit": false
+                },
+                "ADA/USDT": {
+                    "qty": 3033.2575018957846,
+                    "entry_price": 0.28303,
+                    "side": "LONG",
+                    "stop_loss": 0.25006214285714284,
+                    "tp1_hit": false
+                },
+                "DOGE/USDT": {
+                    "qty": 8915.20998503519,
+                    "entry_price": 0.10255,
+                    "side": "LONG",
+                    "stop_loss": 0.0913332142857143,
+                    "tp1_hit": false
+                },
+                "AVAX/USDT": {
+                    "qty": 96.81881051175657,
+                    "entry_price": 9.65,
+                    "side": "LONG",
+                    "stop_loss": 8.617142857142857,
+                    "tp1_hit": false
+                },
+                "DOT/USDT": {
+                    "qty": 584.4291379670213,
+                    "entry_price": 1.438,
+                    "side": "LONG",
+                    "stop_loss": 1.266892857142857,
+                    "tp1_hit": false
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-02-05T09:19:08.160643",
+                    "symbol": "BTC/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 0.0171626803889652,
+                    "price": 71600.0,
+                    "total_value": 1228.8479158499083
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.187435",
+                    "symbol": "ETH/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 0.3515631376005564,
+                    "price": 2139.54,
+                    "total_value": 752.1833954218945
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.214156",
+                    "symbol": "BNB/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1.6537300679015663,
+                    "price": 696.58288,
+                    "total_value": 1151.9600534414687
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.241139",
+                    "symbol": "XRP/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 621.5592257147931,
+                    "price": 1.4404,
+                    "total_value": 895.293908719588
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.268135",
+                    "symbol": "SOL/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 8.27379598391125,
+                    "price": 92.74624,
+                    "total_value": 767.3634680348689
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.294982",
+                    "symbol": "ADA/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 3033.2575018957846,
+                    "price": 0.28303,
+                    "total_value": 858.5028707615639
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.321942",
+                    "symbol": "DOGE/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 8915.20998503519,
+                    "price": 0.10255,
+                    "total_value": 914.2547839653587
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.348974",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 96.81881051175657,
+                    "price": 9.65,
+                    "total_value": 934.3015214384509
+                },
+                {
+                    "timestamp": "2026-02-05T09:19:08.373957",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 584.4291379670213,
+                    "price": 1.438,
+                    "total_value": 840.4091003965767
+                }
+            ]
+        },
+        "rsi_forex": {
+            "cash": 3818.1633881339294,
+            "positions": {
+                "AUD/USD": {
+                    "qty": 8869.460546738888,
+                    "entry_price": 0.69698,
+                    "side": "SHORT",
+                    "stop_loss": 0.7082546428571429,
+                    "tp1_hit": false
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-02-05T09:19:08.483752",
+                    "symbol": "AUD/USD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 8869.460546738888,
+                    "price": 0.69698,
+                    "total_value": 6181.836611866071
+                }
+            ]
+        }
+    }
+>>>>>>> d54d2d525322417154237ec8bf07e8e35f24f55b
 }
