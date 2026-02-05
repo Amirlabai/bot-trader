@@ -174,14 +174,14 @@
                     "qty": 6829.6014439728915,
                     "entry_price": 1.36881,
                     "side": "SHORT",
-                    "stop_loss": 1.3766785714285714,
+                    "stop_loss": 1.3749485714285714,
                     "tp1_hit": false
                 },
                 "AUD/USD": {
                     "qty": 929.915578403074,
                     "entry_price": 0.70068,
                     "side": "SHORT",
-                    "stop_loss": 0.7096314285714286,
+                    "stop_loss": 0.7087214285714285,
                     "tp1_hit": false
                 }
             },
