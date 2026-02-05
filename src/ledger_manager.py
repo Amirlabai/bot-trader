@@ -275,12 +275,30 @@ class LedgerManager:
                     git_config.set_value('user', 'email', '41898282+github-actions[bot]@users.noreply.github.com')
                     git_config.set_value('user', 'name', 'github-actions[bot]')
 
-            # Add ledger and version file if changed
-            repo.index.add([self.ledger_file])
+            # Files to sync
+            files_to_sync = [self.ledger_file]
             if os.path.exists("VERSION"):
-                repo.index.add(["VERSION"])
+                files_to_sync.append("VERSION")
             
-            if repo.is_dirty(path=self.ledger_file) or repo.is_dirty(path="VERSION"):
+            report_file = os.path.join(os.getcwd(), 'docs', 'report_data.json')
+            if os.path.exists(report_file):
+                files_to_sync.append(report_file)
+
+            # Stage files
+            repo.index.add(files_to_sync)
+            
+            # Check for changes in index (staged) vs HEAD
+            # We use repo.head.commit to compare index against the latest commit
+            # If repo is fresh/empty (no commits), this might fail, but we assume existing repo.
+            has_changes = False
+            try:
+                if repo.index.diff(repo.head.commit):
+                    has_changes = True
+            except ValueError:
+                 # Should handle case where HEAD doesn't exist yet (unlikely in this flow)
+                 pass
+            
+            if has_changes:
                 repo.index.commit(commit_message)
                 print(f"Committed: {commit_message}")
                 
