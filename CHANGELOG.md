@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.5.1 (2026-02-05)
+
+### Bug Fixes
+
+- Api in action
+  ([`9e87341`](https://github.com/Amirlabai/bot-trader/commit/9e8734162761da6cba1f9fe6cd21573b9b0bf061))
+
+
 ## v1.5.0 (2026-02-03)
 
 
