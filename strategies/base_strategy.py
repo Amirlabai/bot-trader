@@ -83,7 +83,12 @@ class BaseStrategy(ABC):
                  return {'action': 'sell', 'quantity_pct': 1.0, 'reason': f'Stop Loss Hit @ {current_price} (SL {stop_loss})'}
              
              # TP1
-             if not tp1_hit and current_price >= (entry_price + current_atr):
+             # Use stored fixed TP1 if available, otherwise dynamic (Entry + ATR)
+             tp_price = position_data.get('take_profit')
+             if not tp_price or tp_price == 0.0:
+                 tp_price = entry_price + current_atr
+
+             if not tp1_hit and current_price >= tp_price:
                  # TP1 Hit: Sell 50%, Move SL to Entry
                  return {
                      'action': 'sell', 
@@ -107,7 +112,11 @@ class BaseStrategy(ABC):
                  return {'action': 'buy', 'quantity_pct': 1.0, 'reason': f'Short Stop Loss Hit @ {current_price} (SL {stop_loss})'}
              
              # TP1 (Price went DOWN by 1 ATR)
-             if not tp1_hit and current_price <= (entry_price - current_atr):
+             tp_price = position_data.get('take_profit')
+             if not tp_price or tp_price == 0.0:
+                 tp_price = entry_price - current_atr
+
+             if not tp1_hit and current_price <= tp_price:
                  return {
                      'action': 'buy', 
                      'quantity_pct': 0.5, 

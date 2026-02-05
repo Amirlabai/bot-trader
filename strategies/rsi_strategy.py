@@ -58,10 +58,12 @@ class RSIStrategy(BaseStrategy):
         if current_rsi < oversold:
             if not position_data: # Flat -> Buy
                 initial_sl = current_price - (1.5 * current_atr)
+                initial_tp = current_price + (1.0 * current_atr)
                 return {
                     'action': 'buy',
                     'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
+                    'take_profit': initial_tp,
                     'reason': f'RSI Oversold ({current_rsi:.2f}) - Long'
                 }
             elif position_data.get('side') == 'SHORT': # Short -> Cover
@@ -75,10 +77,12 @@ class RSIStrategy(BaseStrategy):
         elif current_rsi > overbought:
             if not position_data: # Flat -> Short
                 initial_sl = current_price + (1.5 * current_atr)
+                initial_tp = current_price - (1.0 * current_atr)
                 return {
                     'action': 'sell',
                     'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
+                    'take_profit': initial_tp,
                     'reason': f'RSI Overbought ({current_rsi:.2f}) - Short'
                 }
             elif position_data.get('side') == 'LONG': # Long -> Sell

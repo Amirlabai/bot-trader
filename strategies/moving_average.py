@@ -74,10 +74,12 @@ class MovingAverageStrategy(BaseStrategy):
             if signal_price > signal_trend:
                 if prev_signal_fast <= prev_signal_slow and signal_fast > signal_slow:
                     initial_sl = current_price - (1.5 * current_atr)
+                    initial_tp = current_price + (1.0 * current_atr)
                     return {
                         'action': 'buy',
                         'quantity_pct': 0.1, 
                         'stop_loss': initial_sl,
+                        'take_profit': initial_tp,
                         'reason': 'Golden Cross (Confirmed Close)'
                     }
                     
@@ -86,11 +88,13 @@ class MovingAverageStrategy(BaseStrategy):
                 # Fast crosses BELOW Slow
                 if prev_signal_fast >= prev_signal_slow and signal_fast < signal_slow:
                     initial_sl = current_price + (1.5 * current_atr) # Stop Loss Above Entry
+                    initial_tp = current_price - (1.0 * current_atr)
 
                     return {
                         'action': 'sell', # Main loop interprets SELL on Flat as OPEN SHORT
                         'quantity_pct': 0.1, 
                         'stop_loss': initial_sl,
+                        'take_profit': initial_tp,
                         'reason': 'Death Cross (Short)'
                     }
 

@@ -80,21 +80,10 @@ class LedgerManager:
              return {'qty': float(pos), 'entry_price': 0.0, 'stop_loss': 0.0, 'tp1_hit': False, 'side': 'LONG'}
         return pos
 
-    def update_position(self, strategy_id, symbol, quantity, price, side, stop_loss=0.0):
+    def update_position(self, strategy_id, symbol, quantity, price, side, stop_loss=0.0, take_profit=0.0):
         """
         Updates cash and position based on a trade execution for a specific strategy.
         side: 'buy' (to open LONG or close SHORT) or 'sell' (to close LONG or open SHORT)
-        
-        Logic:
-        - If FLAT:
-            - BUY -> Open LONG
-            - SELL -> Open SHORT
-        - If LONG:
-            - BUY -> Add to LONG (Avg Entry)
-            - SELL -> Close LONG (Partial or Full)
-        - If SHORT:
-            - BUY -> Close SHORT (Partial or Full)
-            - SELL -> Add to SHORT (Avg Entry)
         """
         self._ensure_strategy_state(strategy_id)
         strat_ledger = self.ledger["strategies"][strategy_id]
@@ -113,6 +102,7 @@ class LedgerManager:
                         'entry_price': price,
                         'side': 'LONG',
                         'stop_loss': stop_loss,
+                        'take_profit': take_profit,
                         'tp1_hit': False
                     }
                     self.record_history(strategy_id, symbol, 'OPEN_LONG', quantity, price)
@@ -131,6 +121,7 @@ class LedgerManager:
                         'entry_price': price,
                         'side': 'SHORT',
                         'stop_loss': stop_loss,
+                        'take_profit': take_profit,
                         'tp1_hit': False
                     }
                     self.record_history(strategy_id, symbol, 'OPEN_SHORT', quantity, price)

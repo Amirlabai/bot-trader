@@ -93,9 +93,6 @@ class DataFetcher:
                 
             df = df.astype(float)
             
-            # Update Cache
-            self.cache[clean_symbol] = df.copy()
-            
             # Filter out Today's candle if present (Incomplete daily candle)
             # FMP 'historical-price-eod' sometimes includes the current incomplete day.
             if not df.empty:
@@ -105,6 +102,9 @@ class DataFetcher:
                     # print(f"DEBUG: Dropping incomplete candle for {clean_symbol} ({last_date})")
                     df = df.iloc[:-1]
 
+            # Update Cache
+            self.cache[clean_symbol] = df.copy()
+            
             return df
             
         except Exception as e:

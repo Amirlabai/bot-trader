@@ -101,8 +101,9 @@ def main():
                         quantity = current_cash / current_price
                     
                     if (quantity * current_price) > 10:
-                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl):
-                             print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl})")
+                        new_tp = signal_data.get('take_profit', 0.0)
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp):
+                             print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
             elif action == 'sell':
                 # 1. Close LONG if exists
@@ -142,8 +143,9 @@ def main():
                         quantity = current_cash / current_price
                         
                     if (quantity * current_price) > 10:
-                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl):
-                             print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl})")
+                        new_tp = signal_data.get('take_profit', 0.0)
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp):
+                             print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
             elif action == 'hold':
                  # Trailing SL Updates
