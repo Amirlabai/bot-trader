@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "last_updated": "2026-02-05T11:23:03.006745"
+  },
+  "strategies": {
+    "ma_crossover_crypto": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T11:23:03.006745",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T11:23:03.006745",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    },
+    "ma_crossover_forex": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T11:23:03.006745",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T11:23:03.006745",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    },
+    "rsi_crypto": {
+      "active_positions": [
+        {
+          "symbol": "BTC/USDT",
+          "side": "LONG",
+          "qty": 0.017585234532702828,
+          "entry": 72998.0,
+          "sl": 67311.41107142856,
+          "tp1": false,
+          "value": 1283.686950418241
+        },
+        {
+          "symbol": "ETH/USDT",
+          "side": "LONG",
+          "qty": 0.34784207472890044,
+          "entry": 2143.57,
+          "sl": 1856.0832142857143,
+          "tp1": false,
+          "value": 745.6238361266292
+        },
+        {
+          "symbol": "BNB/USDT",
+          "side": "LONG",
+          "qty": 1.6452760217883902,
+          "entry": 696.53,
+          "sl": 635.749925,
+          "tp1": false,
+          "value": 1145.9841074562673
+        },
+        {
+          "symbol": "XRP/USDT",
+          "side": "LONG",
+          "qty": 634.1010485313764,
+          "entry": 1.5085,
+          "sl": 1.3507964285714285,
+          "tp1": false,
+          "value": 956.5414317095812
+        },
+        {
+          "symbol": "SOL/USDT",
+          "side": "LONG",
+          "qty": 8.22465045235578,
+          "entry": 91.92,
+          "sl": 79.76142857142858,
+          "tp1": false,
+          "value": 756.0098695805433
+        },
+        {
+          "symbol": "ADA/USDT",
+          "side": "LONG",
+          "qty": 3011.7242121114323,
+          "entry": 0.2857,
+          "sl": 0.25249642857142857,
+          "tp1": false,
+          "value": 860.4496074002362
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "side": "LONG",
+          "qty": 8861.881250791246,
+          "entry": 0.10361,
+          "sl": 0.09232571428571429,
+          "tp1": false,
+          "value": 918.179516394481
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "side": "LONG",
+          "qty": 95.04412763068561,
+          "entry": 9.69,
+          "sl": 8.637857142857142,
+          "tp1": false,
+          "value": 920.9775967413435
+        },
+        {
+          "symbol": "DOT/USDT",
+          "side": "LONG",
+          "qty": 577.2005772005767,
+          "entry": 1.458,
+          "sl": 1.2847499999999998,
+          "tp1": false,
+          "value": 841.5584415584409
+        },
+        {
+          "symbol": "TRX/USDT",
+          "side": "LONG",
+          "qty": 5555.122498635911,
+          "entry": 0.2828,
+          "sl": 0.2733446428571429,
+          "tp1": false,
+          "value": 1570.9886426142357
+        }
+      ],
+      "current_cash": 0.0,
+      "current_equity": 10000.0,
+      "history_events": 10,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T11:23:00.100697",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T11:23:00.100697",
+          "equity": 8716.313049581759,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.123189",
+          "equity": 7970.689213455129,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.144612",
+          "equity": 6824.705105998862,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.165274",
+          "equity": 5868.163674289281,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.185330",
+          "equity": 5112.153804708737,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.207311",
+          "equity": 4251.704197308501,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.227407",
+          "equity": 3333.52468091402,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.248849",
+          "equity": 2412.5470841726765,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.272351",
+          "equity": 1570.9886426142357,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:00.294760",
+          "equity": 0.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:03.007755",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    },
+    "rsi_forex": {
+      "active_positions": [
+        {
+          "symbol": "AUD/USD",
+          "side": "SHORT",
+          "qty": 8919.469928644266,
+          "entry": 0.69964,
+          "sl": 0.7108514285714286,
+          "tp1": false,
+          "value": 6240.417940876675
+        }
+      ],
+      "current_cash": 3759.582059123325,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-02-05T11:23:00.365290",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-02-05T11:23:00.365290",
+          "equity": 3759.582059123325,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-05T11:23:03.007755",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ]
+    }
+  }
+}
