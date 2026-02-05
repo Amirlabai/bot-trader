@@ -115,6 +115,11 @@ def main():
                         # Check for TP/SL updates if partial
                         new_sl = signal_data.get('stop_loss')
                         if new_sl: ledger.update_stop_loss(strategy_id, symbol, new_sl)
+                        
+                        # Mark TP1 Hit logic
+                        if "TP1" in signal_data.get('reason', ''):
+                             ledger.mark_tp1_hit(strategy_id, symbol)
+                             print(f"    TP1 HIT RECORDED for {symbol}")
 
                 # 2. Open/Add SHORT (If Flat or Short)
                 elif position_side in [None, 'SHORT']:

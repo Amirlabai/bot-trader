@@ -31,14 +31,8 @@ class MovingAverageStrategy(BaseStrategy):
         slow_period = self.params.get('long_window', 24)
         atr_period = 14
 
-        # Determine Data Slice (Exclude Open Candle)
-        idx = self._get_closed_candle_index(market_data)
-        
-        # Prepare "Closed" Data for Indicators
-        if idx == -2:
-            closed_data = market_data.iloc[:-1]
-        else:
-            closed_data = market_data
+        # Data provided by DataFetcher is now guaranteed to be closed candles only.
+        closed_data = market_data
 
         if len(closed_data) < max(trend_period, slow_period, atr_period) + 2:
             return signal

@@ -239,10 +239,17 @@
             } else {
                 let rows = data.active_positions.map(p => {
                     const badge = p.side === 'LONG' ? 'badge-long' : 'badge-short';
+                    
+                    let tp1Badge = '-';
+                    if (p.tp1) {
+                         tp1Badge = '<span class="badge" style="background:rgba(210, 153, 34, 0.2); color:#d29922;">HIT</span>';
+                    }
+
                     return `
                 <tr>
                     <td style="font-weight:600">${p.symbol}</td>
                     <td><span class="badge ${badge}">${p.side}</span></td>
+                    <td>${tp1Badge}</td>
                     <td>${p.qty.toFixed(6)}</td>
                     <td>$${p.entry.toFixed(4)}</td>
                     <td>$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
@@ -254,7 +261,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Symbol</th><th>Side</th><th>Size</th><th>Entry</th><th>Stop Loss</th><th>Value</th>
+                        <th>Symbol</th><th>Side</th><th>TP1</th><th>Size</th><th>Entry</th><th>Stop Loss</th><th>Value</th>
                     </tr>
                 </thead>
                 <tbody>${rows}</tbody>

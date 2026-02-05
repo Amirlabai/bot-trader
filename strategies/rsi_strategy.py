@@ -27,15 +27,11 @@ class RSIStrategy(BaseStrategy):
         if len(market_data) < max(period, atr_period) + 1:
             return signal
 
-        # Determine Data Slice (Exclude Open Candle)
-        idx = self._get_closed_candle_index(market_data)
-        
-        # Prepare "Closed" Data for Indicators
-        # We need this to ensure indicators don't see the forming candle.
-        if idx == -2:
-            closed_data = market_data.iloc[:-1]
-        else:
-            closed_data = market_data
+        if len(market_data) < max(period, atr_period) + 1:
+            return signal
+
+        # Data provided by DataFetcher is now guaranteed to be closed candles only.
+        closed_data = market_data
 
         # Indicators (Calculated on CLOSED data)
         atr = self._calculate_atr(closed_data, atr_period)

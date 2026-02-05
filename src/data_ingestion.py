@@ -96,6 +96,15 @@ class DataFetcher:
             # Update Cache
             self.cache[clean_symbol] = df.copy()
             
+            # Filter out Today's candle if present (Incomplete daily candle)
+            # FMP 'historical-price-eod' sometimes includes the current incomplete day.
+            if not df.empty:
+                last_date = df.index[-1].date()
+                today_date = pd.Timestamp.utcnow().date()
+                if last_date == today_date:
+                    # print(f"DEBUG: Dropping incomplete candle for {clean_symbol} ({last_date})")
+                    df = df.iloc[:-1]
+
             return df
             
         except Exception as e:

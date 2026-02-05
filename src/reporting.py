@@ -60,6 +60,7 @@ class ReportGenerator:
                         "qty": qty,
                         "entry": entry,
                         "sl": pos.get('stop_loss', 0.0),
+                        "tp1": pos.get('tp1_hit', False),
                         "value": qty * entry
                     })
             

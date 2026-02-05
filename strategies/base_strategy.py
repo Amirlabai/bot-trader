@@ -84,12 +84,19 @@ class BaseStrategy(ABC):
              
              # TP1
              if not tp1_hit and current_price >= (entry_price + current_atr):
-                 return {'action': 'sell', 'quantity_pct': 0.5, 'stop_loss': entry_price, 'reason': 'TP1 Hit: Selling Half'}
+                 # TP1 Hit: Sell 50%, Move SL to Entry
+                 return {
+                     'action': 'sell', 
+                     'quantity_pct': 0.5, 
+                     'stop_loss': entry_price, 
+                     'reason': 'TP1 Hit' # Main loop looks for "TP1" string
+                 }
             
-             # Trailing
-             proposed_sl = current_price - (1.5 * current_atr)
-             if proposed_sl > stop_loss:
-                 return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Trailing Stop'}
+             # Trailing (ONLY AFTER TP1)
+             if tp1_hit:
+                 proposed_sl = current_price - (1.5 * current_atr)
+                 if proposed_sl > stop_loss:
+                     return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Trailing Stop (Post-TP1)'}
 
         # --- SHORT LOGIC ---
         elif side == 'SHORT':
@@ -101,12 +108,17 @@ class BaseStrategy(ABC):
              
              # TP1 (Price went DOWN by 1 ATR)
              if not tp1_hit and current_price <= (entry_price - current_atr):
-                 return {'action': 'buy', 'quantity_pct': 0.5, 'stop_loss': entry_price, 'reason': 'Short TP1 Hit: Covering Half'}
+                 return {
+                     'action': 'buy', 
+                     'quantity_pct': 0.5, 
+                     'stop_loss': entry_price, 
+                     'reason': 'Short TP1 Hit' # Main loop looks for "TP1" string
+                 }
             
-             # Trailing (Price + 1.5 ATR)
-             # We want SL to go DOWN (tighten)
-             proposed_sl = current_price + (1.5 * current_atr)
-             if proposed_sl < stop_loss:
-                 return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Short Trailing Stop'}
+             # Trailing (ONLY AFTER TP1)
+             if tp1_hit:
+                 proposed_sl = current_price + (1.5 * current_atr)
+                 if proposed_sl < stop_loss:
+                     return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Short Trailing Stop (Post-TP1)'}
             
         return None
