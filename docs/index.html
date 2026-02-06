@@ -137,6 +137,7 @@
             color: #8b949e;
         }
     </style>
+    <script src="report_data.js"></script>
 </head>
 
 <body>
@@ -178,6 +179,13 @@
                 <div class="card-title">Active Positions</div>
                 <div id="positions-table-container"></div>
             </div>
+
+            <br>
+
+            <div class="card">
+                <div class="card-title">Trade History</div>
+                <div id="history-table-container"></div>
+            </div>
         </div>
 
         <div id="loader" class="loader">Fetching available report data...</div>
@@ -189,10 +197,12 @@
 
         async function loadData() {
             try {
-                const response = await fetch('report_data.json');
-                if (!response.ok) throw new Error("Failed to load data");
+                // Use global data loaded from report_data.js
+                if (typeof window.REPORT_DATA === 'undefined') {
+                    throw new Error("REPORT_DATA not found. Ensure report_data.js is loaded.");
+                }
 
-                rawData = await response.json();
+                rawData = window.REPORT_DATA;
 
                 document.getElementById('last-updated').innerText = `Last Updated: ${rawData.metadata.last_updated}`;
 
@@ -219,7 +229,7 @@
                 document.getElementById('dashboard-content').style.display = 'block';
 
             } catch (error) {
-                document.getElementById('loader').innerHTML = `Error loading data: ${error.message}<br><br>Make sure report_data.json exists.`;
+                document.getElementById('loader').innerHTML = `Error loading data: ${error.message}<br><br>Make sure report_data.js exists.`;
             }
         }
 
@@ -247,6 +257,10 @@
                         tp1Badge = `<span style="font-size:12px; color:#8b949e;">$${p.tp_price.toFixed(4)}</span>`;
                     }
 
+                    const pnl = p.unrealized_pnl || 0;
+                    const pnlColor = pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
+                    const pnlSign = pnl >= 0 ? '+' : '';
+
                     return `
                 <tr>
                     <td style="font-weight:600">${p.symbol}</td>
@@ -254,6 +268,8 @@
                     <td>${tp1Badge}</td>
                     <td>${p.qty.toFixed(6)}</td>
                     <td>$${p.entry.toFixed(4)}</td>
+                    <td>$${(p.current_price || p.entry).toFixed(4)}</td>
+                    <td style="color:${pnlColor}; font-weight:600">${pnlSign}$${pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                     <td>$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
                     <td>$${p.value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                 </tr>`;
@@ -263,11 +279,44 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Symbol</th><th>Side</th><th>TP1 Target</th><th>Size</th><th>Entry</th><th>Stop Loss</th><th>Value</th>
+                        <th>Symbol</th><th>Side</th><th>TP1 Target</th><th>Size</th><th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop Loss</th><th>Value</th>
                     </tr>
                 </thead>
                 <tbody>${rows}</tbody>
             </table>`;
+            }
+
+            // Render Trade History Table
+            const historyContainer = document.getElementById('history-table-container');
+            if (!data.trade_history || data.trade_history.length === 0) {
+                historyContainer.innerHTML = '<div style="padding:10px; color:#8b949e; font-style:italic;">No trade history</div>';
+            } else {
+                let histRows = data.trade_history.map(t => {
+                    const badge = t.side === 'LONG' ? 'badge-long' : 'badge-short';
+                    const pnlColor = t.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
+                    const pnlSign = t.pnl >= 0 ? '+' : '';
+
+                    return `
+                    <tr>
+                        <td>${new Date(t.time).toLocaleString()}</td>
+                        <td style="font-weight:600">${t.symbol}</td>
+                        <td><span class="badge ${badge}">${t.side}</span></td>
+                        <td>${t.qty.toFixed(6)}</td>
+                        <td>$${t.entry_price.toFixed(4)}</td>
+                        <td>$${t.exit_price.toFixed(4)}</td>
+                        <td style="color:${pnlColor}; font-weight:600">${pnlSign}$${t.pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                    </tr>`;
+                }).join('');
+
+                historyContainer.innerHTML = `
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th><th>Symbol</th><th>Side</th><th>Size</th><th>Entry</th><th>Exit</th><th>P/L</th>
+                        </tr>
+                    </thead>
+                    <tbody>${histRows}</tbody>
+                 </table>`;
             }
 
             // Render Chart

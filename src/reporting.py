@@ -52,17 +52,33 @@ class ReportGenerator:
                 if isinstance(pos, dict):
                     qty = pos['qty']
                     entry = pos['entry_price']
-                    current_pos_value += (qty * entry) # Est value
                     
+                    # Use last known price if available, otherwise fallback to entry (0 PnL)
+                    current_price = pos.get('last_price', entry)
+                    
+                    market_value = qty * current_price
+                    current_pos_value += market_value
+                    
+                    unrealized_pnl = 0.0
+                    side = pos.get('side', 'LONG')
+                    
+                    if side == 'LONG':
+                        unrealized_pnl = (current_price - entry) * qty
+                    elif side == 'SHORT':
+                        # Short PnL = (Entry - Current) * Qty
+                        unrealized_pnl = (entry - current_price) * qty
+
                     active_positions.append({
                         "symbol": symbol,
-                        "side": pos.get('side', 'LONG'),
+                        "side": side,
                         "qty": qty,
                         "entry": entry,
+                        "current_price": current_price,
+                        "unrealized_pnl": unrealized_pnl,
                         "sl": pos.get('stop_loss', 0.0),
                         "tp1": pos.get('tp1_hit', False),
                         "tp_price": pos.get('take_profit', 0.0),
-                        "value": qty * entry
+                        "value": market_value
                     })
             
             current_equity = cash + current_pos_value
@@ -80,6 +96,7 @@ class ReportGenerator:
             
             equity_curve = []
             running_cash = initial_cash
+            running_inventory_value = 0.0 # Track cost basis of open positions (approx)
             
             # Add initial point
             if sorted_history:
@@ -94,53 +111,74 @@ class ReportGenerator:
             })
             
             for event in sorted_history:
-                # "side": "OPEN_LONG", "CLOSE_LONG", "OPEN_SHORT", "CLOSE_SHORT"
-                # "total_value": qty * price
-                
                 val = event['total_value']
                 side = event.get('side', '')
-                
-                # Logic matches ledger_manager.py update logic roughly
-                # Opening trades reduces cash (collateral or purchase)
-                # Closing trades increases cash
-                
+                qty = event['quantity']
+                price = event['price']
+
                 if "OPEN" in side or "ADD" in side:
+                    # Cash goes down, Inventory goes up
                     running_cash -= val
-                elif "CLOSE" in side:
-                    # For closing, we need to know the profit.
-                    # The ledger history only logs 'total_value' = qty * exit_price.
                     
-                    # Wait, if I CLOSE_LONG, I get back `val`.
-                    # If I CLOSE_SHORT, I get back `collateral + profit`.
-                    # The ledger history 'total_value' is just `qty * price`. 
-                    # This is NOT the cash change for Shorts! 
-                    # Warning: The history format in ledger.json might be insufficient for exact replay 
-                    # without knowing the exact cash delta.
-                    
-                    # However, looking at `ledger_manager.py`:
-                    # record_history logs `total_value` as `quantity * price`.
-                    
-                    # For LONG: Cash += quantity * price. (Correct)
-                    # For SHORT: Cash += Returns. Returns != quantity * price.
-                    # Returns = (Entry * Qty) + (Entry - Exit)*Qty.
-                    
-                    # We can't perfectly reconstruct Short cash flow from just the history event 
-                    # unless we track the matching entry.
-                    # For now, let's approximate or just log the realized events we can.
-                    
-                    if "LONG" in side:
-                         running_cash += val
-                    elif "SHORT" in side:
-                        # We unfortunately don't have the PnL in the history event.
-                        # This is a limitation of the current history logging.
-                        # We will skip exact cash reconstruction for Shorts for now 
-                        # or just assume a flat line to avoid wild errors.
-                        # OR, we can just assume `running_cash` is only accurate for Longs.
-                        pass
+                    # For Short, we technically get cash (proceeds) but lock it as collateral + margin.
+                    # But sticking to the "Cash Balance" view where Shorts consume Buying Power/Cash for collateral:
+                    if "SHORT" in side:
+                         # Treat as collateral lock (same as drawing down cash)
+                         # Inventory value (Negative? No, let's track Net Liquidation Value Logic)
+                         # Net Liq = Cash + Position Value.
+                         # Short Position Value = Liability (Negative).
+                         # But wait, we deducted Cash. 
+                         # If we deduct cash for collateral, we shouldn't also have negative inventory value 
+                         # unless we treat that cash as "Locked" not "Gone".
+                         
+                         # Simpler Model used in `ledger_manager`:
+                         # OPEN SHORT: Cash -= Cost (Collateral). 
+                         # So Net Equity = Cash (Remaining) + Collateral (Locked) = Original Cash.
+                         running_inventory_value += val 
+                    else:
+                         # LONG
+                         running_inventory_value += val
                 
+                elif "CLOSE" in side:
+                    if "LONG" in side:
+                        # Cash += Revenue
+                        # Inventory -= Cost Basis
+                        
+                        revenue = val
+                        # Get entry info from event or approximation
+                        # If we have pnl, we know exact numbers
+                        pnl = event.get('pnl', 0.0)
+                        
+                        running_cash += revenue
+                        
+                        # Inventory Change = Revenue - PnL = Cost Basis
+                        cost_basis_released = revenue - pnl
+                        running_inventory_value -= cost_basis_released
+
+                    elif "SHORT" in side:
+                        # Cash += Collateral + Profit
+                        # Inventory -= Collateral
+                        
+                        # Reconstruct from PnL
+                        pnl = event.get('pnl', 0.0)
+                        entry_price = event.get('entry_price', price) # Fallback
+                        
+                        # In ledger manager:
+                        # entry_val = qty * entry_price (This is the Collateral we tracked in inventory)
+                        entry_val = qty * entry_price
+                        
+                        # We return: entry_val + pnl to cash
+                        amount_returned = entry_val + pnl
+                        running_cash += amount_returned
+                        
+                        running_inventory_value -= entry_val
+
+                # Ensure non-negative inventory value (sanity check for approximations)
+                if running_inventory_value < 0: running_inventory_value = 0
+
                 equity_curve.append({
                     "time": event['timestamp'],
-                    "equity": running_cash, # This is settled cash, not equity (unrealized pnl missing)
+                    "equity": running_cash + running_inventory_value,
                     "type": "trade"
                 })
             
@@ -151,15 +189,37 @@ class ReportGenerator:
                 "type": "current"
             })
 
+            # 3. Trade History (Closed Positions)
+            trade_history = []
+            for event in sorted_history:
+                if "pnl" in event:
+                    trade_history.append({
+                        "time": event['timestamp'],
+                        "symbol": event['symbol'],
+                        "side": "LONG" if "LONG" in event['side'] else "SHORT",
+                        "qty": event['quantity'],
+                        "entry_price": event.get('entry_price', 0.0),
+                        "exit_price": event['price'],
+                        "pnl": event['pnl']
+                    })
+
             output_data["strategies"][strat_name] = {
                 "active_positions": active_positions,
                 "current_cash": cash,
                 "current_equity": current_equity,
                 "history_events": len(history),
-                "equity_curve": equity_curve
+                "equity_curve": equity_curve,
+                "trade_history": list(reversed(trade_history)) # Newest first
             }
 
         with open(self.report_file, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2)
         
-        print(f"Report data generated: {self.report_file}")
+        # Also write JS file for local usage without CORS
+        js_file = os.path.join(self.output_dir, "report_data.js")
+        with open(js_file, 'w', encoding='utf-8') as f:
+            f.write("window.REPORT_DATA = ")
+            json.dump(output_data, f, indent=2)
+            f.write(";")
+
+        print(f"Report data generated: {self.report_file} and {js_file}")

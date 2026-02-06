@@ -63,6 +63,10 @@ def main():
             
             action = signal_data.get('action', 'hold')
             current_price = market_data['close'].iloc[-1]
+            
+            # --- Update Unrelized PnL Data in Ledger ---
+            if pos_data:
+                ledger.update_position_price(strategy_id, symbol, current_price)
 
             print(f"    Action: {action.upper()} | Reason: {signal_data.get('reason', '')} | Price: {current_price}")
 

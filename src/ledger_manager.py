@@ -156,7 +156,12 @@ class LedgerManager:
                     # Close/Reduce LONG
                     if current_pos['qty'] >= quantity:
                         # Return Cash = Quantity * SellPrice
+                        # Calculate PnL for Long Close
+                        avg_entry = current_pos['entry_price']
                         revenue = quantity * price
+                        cost_basis = quantity * avg_entry
+                        pnl = revenue - cost_basis
+
                         strat_ledger["cash"] += revenue
                         
                         current_pos['qty'] -= quantity
@@ -165,7 +170,7 @@ class LedgerManager:
                         else:
                             strat_ledger["positions"][symbol] = current_pos
                         
-                        self.record_history(strategy_id, symbol, 'CLOSE_LONG', quantity, price)
+                        self.record_history(strategy_id, symbol, 'CLOSE_LONG', quantity, price, pnl=pnl, entry_price=avg_entry)
                         return True
 
             # --- SHORT POSITIONS ---
@@ -222,7 +227,7 @@ class LedgerManager:
                         else:
                             strat_ledger["positions"][symbol] = current_pos
 
-                        self.record_history(strategy_id, symbol, 'CLOSE_SHORT', quantity, price)
+                        self.record_history(strategy_id, symbol, 'CLOSE_SHORT', quantity, price, pnl=profit, entry_price=current_pos['entry_price'])
                         return True
 
         return False
@@ -243,7 +248,16 @@ class LedgerManager:
             return True
         return False
 
-    def record_history(self, strategy_id, symbol, side, quantity, price):
+    def update_position_price(self, strategy_id, symbol, current_price):
+        """Updates the current market price for a position to track unrealized PnL."""
+        pos = self.get_position(strategy_id, symbol)
+        if pos:
+            pos['last_price'] = current_price
+            self.ledger["strategies"][strategy_id]["positions"][symbol] = pos
+            return True
+        return False
+
+    def record_history(self, strategy_id, symbol, side, quantity, price, pnl=None, entry_price=None):
         self._ensure_strategy_state(strategy_id)
         record = {
             "timestamp": datetime.now().isoformat(),
@@ -253,6 +267,11 @@ class LedgerManager:
             "price": price,
             "total_value": quantity * price
         }
+        if pnl is not None:
+            record["pnl"] = pnl
+        if entry_price is not None:
+            record["entry_price"] = entry_price
+
         self.ledger["strategies"][strategy_id]["history"].append(record)
 
     def sync_to_remote(self, commit_message="Update ledger"):
