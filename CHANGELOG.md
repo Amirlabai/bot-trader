@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v1.8.0 (2026-02-06)
+
+### Features
+
+- Implement core trading bot functionality including strategy execution, ledger management, and
+  web-based performance reporting.
+  ([`b08f885`](https://github.com/Amirlabai/bot-trader/commit/b08f8850b3948722dfc6b93de5e64f7b5b5dca68))
+
+
 ## v1.7.0 (2026-02-05)
 
 
