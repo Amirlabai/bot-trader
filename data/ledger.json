@@ -20,7 +20,7 @@
                     "stop_loss": 62898.88642857142,
                     "take_profit": 67234.03142857143,
                     "tp1_hit": true,
-                    "last_price": 70361.33
+                    "last_price": 68922.95
                 },
                 "BNB/USDT": {
                     "qty": 0.6298034732152031,
@@ -29,7 +29,7 @@
                     "stop_loss": 607.77,
                     "take_profit": 654.0414785714286,
                     "tp1_hit": true,
-                    "last_price": 640.69493
+                    "last_price": 620.52
                 },
                 "XRP/USDT": {
                     "qty": 228.910470073074,
@@ -38,7 +38,7 @@
                     "stop_loss": 1.2399035714285713,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.44824
+                    "last_price": 1.4105
                 },
                 "SOL/USDT": {
                     "qty": 3.264419353586495,
@@ -47,7 +47,7 @@
                     "stop_loss": 78.19,
                     "take_profit": 87.11714285714285,
                     "tp1_hit": true,
-                    "last_price": 87.3
+                    "last_price": 83.49117
                 },
                 "ADA/USDT": {
                     "qty": 1191.2033016386567,
@@ -56,7 +56,7 @@
                     "stop_loss": 0.245,
                     "take_profit": 0.2694642857142857,
                     "tp1_hit": true,
-                    "last_price": 0.27
+                    "last_price": 0.2626
                 },
                 "DOGE/USDT": {
                     "qty": 3441.7675958430905,
@@ -65,7 +65,7 @@
                     "stop_loss": 0.08832,
                     "take_profit": 0.09678714285714285,
                     "tp1_hit": true,
-                    "last_price": 0.09634
+                    "last_price": 0.09282
                 },
                 "AVAX/USDT": {
                     "qty": 37.637189189228764,
@@ -74,7 +74,7 @@
                     "stop_loss": 8.29,
                     "take_profit": 9.064285714285713,
                     "tp1_hit": true,
-                    "last_price": 9.09999
+                    "last_price": 8.75
                 },
                 "DOT/USDT": {
                     "qty": 457.1284378837425,
@@ -83,7 +83,7 @@
                     "stop_loss": 1.05275,
                     "take_profit": 1.3715,
                     "tp1_hit": false,
-                    "last_price": 1.325
+                    "last_price": 1.28
                 },
                 "TRX/USDT": {
                     "qty": 4384.6010834093495,
@@ -92,7 +92,7 @@
                     "stop_loss": 0.2700375,
                     "take_profit": 0.27560642857142853,
                     "tp1_hit": true,
-                    "last_price": 0.27912
+                    "last_price": 0.2777
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
@@ -101,7 +101,7 @@
                     "stop_loss": 1823.2,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 2115.67
+                    "last_price": 2019.47
                 }
             },
             "history": [
@@ -449,7 +449,7 @@
                     "stop_loss": 0.7108514285714286,
                     "take_profit": 0.6921657142857143,
                     "tp1_hit": false,
-                    "last_price": 0.70833
+                    "last_price": 0.70849
                 }
             },
             "history": [
