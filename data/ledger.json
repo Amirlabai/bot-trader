@@ -11,7 +11,7 @@
             "history": []
         },
         "rsi_crypto": {
-            "cash": 4822.490558384106,
+            "cash": 5146.59462084368,
             "positions": {
                 "BTC/USDT": {
                     "qty": 0.006642626535770649,
@@ -20,7 +20,7 @@
                     "stop_loss": 62898.88642857142,
                     "take_profit": 67234.03142857143,
                     "tp1_hit": true,
-                    "last_price": 68998.0
+                    "last_price": 69787.99
                 },
                 "BNB/USDT": {
                     "qty": 0.6298034732152031,
@@ -29,16 +29,16 @@
                     "stop_loss": 607.77,
                     "take_profit": 654.0414785714286,
                     "tp1_hit": true,
-                    "last_price": 623.9915
+                    "last_price": 632.94819
                 },
                 "XRP/USDT": {
                     "qty": 228.910470073074,
                     "entry_price": 1.2122,
                     "side": "LONG",
-                    "stop_loss": 1.2399035714285713,
+                    "stop_loss": 1.320154642857143,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.41074
+                    "last_price": 1.5319
                 },
                 "SOL/USDT": {
                     "qty": 3.264419353586495,
@@ -47,52 +47,52 @@
                     "stop_loss": 78.19,
                     "take_profit": 87.11714285714285,
                     "tp1_hit": true,
-                    "last_price": 84.83362
+                    "last_price": 88.33405
                 },
                 "ADA/USDT": {
                     "qty": 1191.2033016386567,
                     "entry_price": 0.245,
                     "side": "LONG",
-                    "stop_loss": 0.245,
+                    "stop_loss": 0.26192499999999996,
                     "take_profit": 0.2694642857142857,
                     "tp1_hit": true,
-                    "last_price": 0.2743
+                    "last_price": 0.2965
                 },
                 "DOGE/USDT": {
                     "qty": 3441.7675958430905,
                     "entry_price": 0.08832,
                     "side": "LONG",
-                    "stop_loss": 0.08832,
+                    "stop_loss": 0.09908928571428571,
                     "take_profit": 0.09678714285714285,
                     "tp1_hit": true,
-                    "last_price": 0.0966
+                    "last_price": 0.11239
                 },
                 "AVAX/USDT": {
                     "qty": 37.637189189228764,
                     "entry_price": 8.29,
                     "side": "LONG",
-                    "stop_loss": 8.29,
+                    "stop_loss": 8.532330714285713,
                     "take_profit": 9.064285714285713,
                     "tp1_hit": true,
-                    "last_price": 9.17
+                    "last_price": 9.59
                 },
                 "DOT/USDT": {
-                    "qty": 457.1284378837425,
+                    "qty": 228.56421894187125,
                     "entry_price": 1.244,
                     "side": "LONG",
-                    "stop_loss": 1.05275,
+                    "stop_loss": 1.244,
                     "take_profit": 1.3715,
-                    "tp1_hit": false,
-                    "last_price": 1.3421
+                    "tp1_hit": true,
+                    "last_price": 1.418
                 },
                 "TRX/USDT": {
                     "qty": 4384.6010834093495,
                     "entry_price": 0.26896,
                     "side": "LONG",
-                    "stop_loss": 0.27324642857142856,
+                    "stop_loss": 0.27423964285714286,
                     "take_profit": 0.27560642857142853,
                     "tp1_hit": true,
-                    "last_price": 0.28185
+                    "last_price": 0.282
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
@@ -101,7 +101,7 @@
                     "stop_loss": 1823.2,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 2051.77
+                    "last_price": 2080.7
                 }
             },
             "history": [
@@ -436,6 +436,16 @@
                     "total_value": 1214.53450010439,
                     "pnl": 35.252192710611325,
                     "entry_price": 0.26896
+                },
+                {
+                    "timestamp": "2026-02-15T01:27:16.854205",
+                    "symbol": "DOT/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 228.56421894187125,
+                    "price": 1.418,
+                    "total_value": 324.1040624595734,
+                    "pnl": 39.77017409588558,
+                    "entry_price": 1.244
                 }
             ]
         },
