@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-02-21T01:17:32.988026"
+    "last_updated": "2026-02-22T01:23:31.496403"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,12 +10,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-21T01:17:32.988040",
+          "time": "2026-02-22T01:23:31.496415",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-21T01:17:32.988042",
+          "time": "2026-02-22T01:23:31.496417",
           "equity": 10000.0,
           "type": "current"
         }
@@ -29,12 +29,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-21T01:17:32.988048",
+          "time": "2026-02-22T01:23:31.496423",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-21T01:17:32.988049",
+          "time": "2026-02-22T01:23:31.496425",
           "equity": 10000.0,
           "type": "current"
         }
@@ -48,100 +48,100 @@
           "side": "LONG",
           "qty": 0.006642626535770649,
           "entry": 62791.0,
-          "current_price": 67868.65,
-          "unrealized_pnl": 33.728932629355796,
-          "sl": 63537.468571428566,
+          "current_price": 68040.97,
+          "unrealized_pnl": 34.87359003399984,
+          "sl": 64144.8475,
           "tp1": true,
           "tp_price": 67234.03142857143,
-          "value": 450.8260954369306
+          "value": 451.97075284157467
         },
         {
           "symbol": "XRP/USDT",
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.42806,
-          "unrealized_pnl": 49.41261406997379,
+          "current_price": 1.4282,
+          "unrealized_pnl": 49.44466153578398,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 326.8978858925541
+          "value": 326.9299333583643
         },
         {
           "symbol": "SOL/USDT",
           "side": "LONG",
           "qty": 3.264419353586495,
           "entry": 78.19,
-          "current_price": 84.49034,
-          "unrealized_pnl": 20.566951830175157,
+          "current_price": 85.19,
+          "unrealized_pnl": 22.850935475105466,
           "sl": 78.19,
           "tp1": true,
           "tp_price": 87.11714285714285,
-          "value": 275.8119010871032
+          "value": 278.0958847320335
         },
         {
           "symbol": "ADA/USDT",
           "side": "LONG",
           "qty": 1191.2033016386567,
           "entry": 0.245,
-          "current_price": 0.2824,
-          "unrealized_pnl": 44.55100348128575,
+          "current_price": 0.2786,
+          "unrealized_pnl": 40.02443093505889,
           "sl": 0.26192499999999996,
           "tp1": true,
           "tp_price": 0.2694642857142857,
-          "value": 336.3958123827566
+          "value": 331.8692398365298
         },
         {
           "symbol": "AVAX/USDT",
           "side": "LONG",
           "qty": 37.637189189228764,
           "entry": 8.29,
-          "current_price": 9.12898,
-          "unrealized_pnl": 31.576848985979193,
+          "current_price": 9.06,
+          "unrealized_pnl": 28.9806356757062,
           "sl": 8.532330714285713,
           "tp1": true,
           "tp_price": 9.064285714285713,
-          "value": 343.58914736468563
+          "value": 340.9929340544126
         },
         {
           "symbol": "DOT/USDT",
           "side": "LONG",
           "qty": 228.56421894187125,
           "entry": 1.244,
-          "current_price": 1.3303,
-          "unrealized_pnl": 19.7250920946835,
-          "sl": 1.244,
+          "current_price": 1.361,
+          "unrealized_pnl": 26.742013616198935,
+          "sl": 1.2579285714285715,
           "tp1": true,
           "tp_price": 1.3715,
-          "value": 304.0589804583713
+          "value": 311.07590197988674
         },
         {
           "symbol": "TRX/USDT",
           "side": "LONG",
           "qty": 4384.6010834093495,
           "entry": 0.26896,
-          "current_price": 0.28522,
-          "unrealized_pnl": 71.293613616236,
-          "sl": 0.2784871428571428,
+          "current_price": 0.2894,
+          "unrealized_pnl": 89.62124614488717,
+          "sl": 0.2828364285714286,
           "tp1": true,
           "tp_price": 0.27560642857142853,
-          "value": 1250.5759210100146
+          "value": 1268.9035535386656
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 1964.77,
-          "unrealized_pnl": 19.881841626431864,
+          "current_price": 1973.94,
+          "unrealized_pnl": 21.169660286560294,
           "sl": 1823.2,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 275.9288406609066
+          "value": 277.216659321035
         }
       ],
       "current_cash": 5866.185659477093,
-      "current_equity": 9430.270243770416,
+      "current_equity": 9453.240519139596,
       "history_events": 42,
       "equity_curve": [
         {
@@ -360,8 +360,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-02-21T01:17:32.988089",
-          "equity": 9430.270243770416,
+          "time": "2026-02-22T01:23:31.496466",
+          "equity": 9453.240519139596,
           "type": "current"
         }
       ],
@@ -507,7 +507,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-02-21T01:17:32.988104",
+          "time": "2026-02-22T01:23:31.496481",
           "equity": 9873.87869520897,
           "type": "current"
         }
