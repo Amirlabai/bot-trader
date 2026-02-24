@@ -11,17 +11,8 @@
             "history": []
         },
         "rsi_crypto": {
-            "cash": 6777.961021147158,
+            "cash": 8686.583883275076,
             "positions": {
-                "BTC/USDT": {
-                    "qty": 0.006642626535770649,
-                    "entry_price": 62791.0,
-                    "side": "LONG",
-                    "stop_loss": 64144.8475,
-                    "take_profit": 67234.03142857143,
-                    "tp1_hit": true,
-                    "last_price": 65416.39
-                },
                 "XRP/USDT": {
                     "qty": 228.910470073074,
                     "entry_price": 1.2122,
@@ -29,25 +20,7 @@
                     "stop_loss": 1.320154642857143,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.3362
-                },
-                "SOL/USDT": {
-                    "qty": 3.264419353586495,
-                    "entry_price": 78.19,
-                    "side": "LONG",
-                    "stop_loss": 78.19,
-                    "take_profit": 87.11714285714285,
-                    "tp1_hit": true,
-                    "last_price": 78.63036
-                },
-                "TRX/USDT": {
-                    "qty": 4384.6010834093495,
-                    "entry_price": 0.26896,
-                    "side": "LONG",
-                    "stop_loss": 0.2828364285714286,
-                    "take_profit": 0.27560642857142853,
-                    "tp1_hit": true,
-                    "last_price": 0.28873
+                    "last_price": 1.3451
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
@@ -56,7 +29,7 @@
                     "stop_loss": 1823.2,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 1872.56
+                    "last_price": 1825.96
                 }
             },
             "history": [
@@ -451,6 +424,36 @@
                     "total_value": 285.47670945839724,
                     "pnl": 1.1428210947094044,
                     "entry_price": 1.244
+                },
+                {
+                    "timestamp": "2026-02-24T01:21:53.138801",
+                    "symbol": "BTC/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 0.006642626535770649,
+                    "price": 63718.03,
+                    "total_value": 423.2550768850303,
+                    "pnl": 6.157914077455473,
+                    "entry_price": 62791.0
+                },
+                {
+                    "timestamp": "2026-02-24T01:21:53.252736",
+                    "symbol": "SOL/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 3.264419353586495,
+                    "price": 76.78674,
+                    "total_value": 250.66412015481424,
+                    "pnl": -4.580829102113796,
+                    "entry_price": 78.19
+                },
+                {
+                    "timestamp": "2026-02-24T01:21:53.393714",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 4384.6010834093495,
+                    "price": 0.2816,
+                    "total_value": 1234.703665088073,
+                    "pnl": 55.42135769429433,
+                    "entry_price": 0.26896
                 }
             ]
         },
