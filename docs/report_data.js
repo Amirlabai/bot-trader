@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-02-24T01:21:53.840004"
+    "last_updated": "2026-02-25T01:25:15.595804"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,12 +10,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-24T01:21:53.840021",
+          "time": "2026-02-25T01:25:15.595813",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-24T01:21:53.840023",
+          "time": "2026-02-25T01:25:15.595815",
           "equity": 10000.0,
           "type": "current"
         }
@@ -29,12 +29,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-24T01:21:53.840030",
+          "time": "2026-02-25T01:25:15.595820",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-24T01:21:53.840031",
+          "time": "2026-02-25T01:25:15.595822",
           "equity": 10000.0,
           "type": "current"
         }
@@ -48,28 +48,28 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.3451,
-          "unrealized_pnl": 30.42220147271154,
+          "current_price": 1.38586,
+          "unrealized_pnl": 39.752592232890066,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 307.9074732952918
+          "value": 317.23786405547037
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 1825.96,
-          "unrealized_pnl": 0.38760954219786525,
+          "current_price": 1909.8,
+          "unrealized_pnl": 12.161951577657684,
           "sl": 1823.2,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 256.4346085766726
+          "value": 268.2089506121324
         }
       ],
       "current_cash": 8686.583883275076,
-      "current_equity": 9250.92596514704,
+      "current_equity": 9272.030697942679,
       "history_events": 48,
       "equity_curve": [
         {
@@ -318,8 +318,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-24T01:21:53.840076",
-          "equity": 9250.92596514704,
+          "time": "2026-02-25T01:25:15.595860",
+          "equity": 9272.030697942679,
           "type": "current"
         }
       ],
@@ -519,7 +519,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-24T01:21:53.840095",
+          "time": "2026-02-25T01:25:15.595876",
           "equity": 9873.87869520897,
           "type": "current"
         }
