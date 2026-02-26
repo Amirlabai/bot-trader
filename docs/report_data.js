@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-02-25T01:25:15.595804"
+    "last_updated": "2026-02-26T01:21:03.729623"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,12 +10,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-25T01:25:15.595813",
+          "time": "2026-02-26T01:21:03.729634",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-25T01:25:15.595815",
+          "time": "2026-02-26T01:21:03.729636",
           "equity": 10000.0,
           "type": "current"
         }
@@ -29,12 +29,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-25T01:25:15.595820",
+          "time": "2026-02-26T01:21:03.729642",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-25T01:25:15.595822",
+          "time": "2026-02-26T01:21:03.729644",
           "equity": 10000.0,
           "type": "current"
         }
@@ -48,29 +48,41 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.38586,
-          "unrealized_pnl": 39.752592232890066,
+          "current_price": 1.43578,
+          "unrealized_pnl": 51.179802898937915,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 317.23786405547037
+          "value": 328.66507472151824
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 1909.8,
-          "unrealized_pnl": 12.161951577657684,
-          "sl": 1823.2,
+          "current_price": 2060.29,
+          "unrealized_pnl": 33.296502304236284,
+          "sl": 1908.765357142857,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 268.2089506121324
+          "value": 289.343501338711
+        },
+        {
+          "symbol": "DOT/USDT",
+          "side": "SHORT",
+          "qty": 619.8099786701713,
+          "entry": 1.65452,
+          "current_price": 1.65452,
+          "unrealized_pnl": 0.0,
+          "sl": 1.8032771428571428,
+          "tp1": false,
+          "tp_price": 1.5553485714285715,
+          "value": 1025.4880059093719
         }
       ],
-      "current_cash": 8686.583883275076,
-      "current_equity": 9272.030697942679,
-      "history_events": 48,
+      "current_cash": 7661.095877365704,
+      "current_equity": 9304.592459335305,
+      "history_events": 49,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -318,8 +330,13 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-25T01:25:15.595860",
-          "equity": 9272.030697942679,
+          "time": "2026-02-26T01:21:03.331522",
+          "equity": 10366.09661412466,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-26T01:21:03.729685",
+          "equity": 9304.592459335305,
           "type": "current"
         }
       ],
@@ -498,10 +515,23 @@ window.REPORT_DATA = {
       ]
     },
     "rsi_forex": {
-      "active_positions": [],
-      "current_cash": 9873.87869520897,
+      "active_positions": [
+        {
+          "symbol": "USD/CAD",
+          "side": "SHORT",
+          "qty": 7225.511840361331,
+          "entry": 1.36653,
+          "current_price": 1.36653,
+          "unrealized_pnl": 0.0,
+          "sl": 1.3744564285714285,
+          "tp1": false,
+          "tp_price": 1.3612457142857144,
+          "value": 9873.87869520897
+        }
+      ],
+      "current_cash": 0.0,
       "current_equity": 9873.87869520897,
-      "history_events": 2,
+      "history_events": 3,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:28.016748",
@@ -519,7 +549,12 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-25T01:25:15.595876",
+          "time": "2026-02-26T01:21:03.466195",
+          "equity": 9873.87869520897,
+          "type": "trade"
+        },
+        {
+          "time": "2026-02-26T01:21:03.729705",
           "equity": 9873.87869520897,
           "type": "current"
         }

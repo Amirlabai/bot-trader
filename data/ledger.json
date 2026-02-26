@@ -11,7 +11,7 @@
             "history": []
         },
         "rsi_crypto": {
-            "cash": 8686.583883275076,
+            "cash": 7661.095877365704,
             "positions": {
                 "XRP/USDT": {
                     "qty": 228.910470073074,
@@ -20,16 +20,24 @@
                     "stop_loss": 1.320154642857143,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.38586
+                    "last_price": 1.43578
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
                     "entry_price": 1823.2,
                     "side": "LONG",
-                    "stop_loss": 1823.2,
+                    "stop_loss": 1908.765357142857,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 1909.8
+                    "last_price": 2060.29
+                },
+                "DOT/USDT": {
+                    "qty": 619.8099786701713,
+                    "entry_price": 1.65452,
+                    "side": "SHORT",
+                    "stop_loss": 1.8032771428571428,
+                    "take_profit": 1.5553485714285715,
+                    "tp1_hit": false
                 }
             },
             "history": [
@@ -454,12 +462,29 @@
                     "total_value": 1234.703665088073,
                     "pnl": 55.42135769429433,
                     "entry_price": 0.26896
+                },
+                {
+                    "timestamp": "2026-02-26T01:21:03.331522",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 619.8099786701713,
+                    "price": 1.65452,
+                    "total_value": 1025.4880059093719
                 }
             ]
         },
         "rsi_forex": {
-            "cash": 9873.87869520897,
-            "positions": {},
+            "cash": 0.0,
+            "positions": {
+                "USD/CAD": {
+                    "qty": 7225.511840361331,
+                    "entry_price": 1.36653,
+                    "side": "SHORT",
+                    "stop_loss": 1.3744564285714285,
+                    "take_profit": 1.3612457142857144,
+                    "tp1_hit": false
+                }
+            },
             "history": [
                 {
                     "timestamp": "2026-02-05T10:35:28.016748",
@@ -478,6 +503,14 @@
                     "total_value": 6366.539245667705,
                     "pnl": -126.1213047910293,
                     "entry_price": 0.69964
+                },
+                {
+                    "timestamp": "2026-02-26T01:21:03.466195",
+                    "symbol": "USD/CAD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 7225.511840361331,
+                    "price": 1.36653,
+                    "total_value": 9873.87869520897
                 }
             ]
         }
