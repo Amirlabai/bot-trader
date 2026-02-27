@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-02-26T01:21:03.729623"
+    "last_updated": "2026-02-27T01:18:52.718007"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,12 +10,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-26T01:21:03.729634",
+          "time": "2026-02-27T01:18:52.718017",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-26T01:21:03.729636",
+          "time": "2026-02-27T01:18:52.718020",
           "equity": 10000.0,
           "type": "current"
         }
@@ -29,12 +29,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-26T01:21:03.729642",
+          "time": "2026-02-27T01:18:52.718025",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-26T01:21:03.729644",
+          "time": "2026-02-27T01:18:52.718027",
           "equity": 10000.0,
           "type": "current"
         }
@@ -48,40 +48,40 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.43578,
-          "unrealized_pnl": 51.179802898937915,
+          "current_price": 1.3985,
+          "unrealized_pnl": 42.646020574613715,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 328.66507472151824
+          "value": 320.13129239719404
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 2060.29,
-          "unrealized_pnl": 33.296502304236284,
+          "current_price": 2004.89,
+          "unrealized_pnl": 25.51622381229362,
           "sl": 1908.765357142857,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 289.343501338711
+          "value": 281.5632228467684
         },
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
           "qty": 619.8099786701713,
           "entry": 1.65452,
-          "current_price": 1.65452,
-          "unrealized_pnl": 0.0,
+          "current_price": 1.601,
+          "unrealized_pnl": 33.17223005842757,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 1025.4880059093719
+          "value": 992.3157758509442
         }
       ],
       "current_cash": 7661.095877365704,
-      "current_equity": 9304.592459335305,
+      "current_equity": 9255.10616846061,
       "history_events": 49,
       "equity_curve": [
         {
@@ -335,8 +335,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-26T01:21:03.729685",
-          "equity": 9304.592459335305,
+          "time": "2026-02-27T01:18:52.718066",
+          "equity": 9255.10616846061,
           "type": "current"
         }
       ],
@@ -521,16 +521,16 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 7225.511840361331,
           "entry": 1.36653,
-          "current_price": 1.36653,
-          "unrealized_pnl": 0.0,
+          "current_price": 1.36755,
+          "unrealized_pnl": -7.370022077168709,
           "sl": 1.3744564285714285,
           "tp1": false,
           "tp_price": 1.3612457142857144,
-          "value": 9873.87869520897
+          "value": 9881.248717286138
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 9873.87869520897,
+      "current_equity": 9881.248717286138,
       "history_events": 3,
       "equity_curve": [
         {
@@ -554,8 +554,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-26T01:21:03.729705",
-          "equity": 9873.87869520897,
+          "time": "2026-02-27T01:18:52.718085",
+          "equity": 9881.248717286138,
           "type": "current"
         }
       ],
