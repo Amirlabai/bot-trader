@@ -20,7 +20,7 @@
                     "stop_loss": 1.320154642857143,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.3985
+                    "last_price": 1.36181
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
@@ -29,7 +29,7 @@
                     "stop_loss": 1908.765357142857,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 2004.89
+                    "last_price": 1931.32
                 },
                 "DOT/USDT": {
                     "qty": 619.8099786701713,
@@ -38,7 +38,7 @@
                     "stop_loss": 1.8032771428571428,
                     "take_profit": 1.5553485714285715,
                     "tp1_hit": false,
-                    "last_price": 1.601
+                    "last_price": 1.59321
                 }
             },
             "history": [
@@ -484,7 +484,7 @@
                     "stop_loss": 1.3744564285714285,
                     "take_profit": 1.3612457142857144,
                     "tp1_hit": false,
-                    "last_price": 1.36755
+                    "last_price": 1.36375
                 }
             },
             "history": [

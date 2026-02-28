@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-02-27T01:18:52.718007"
+    "last_updated": "2026-02-28T01:13:27.652361"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,12 +10,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-27T01:18:52.718017",
+          "time": "2026-02-28T01:13:27.652370",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-27T01:18:52.718020",
+          "time": "2026-02-28T01:13:27.652373",
           "equity": 10000.0,
           "type": "current"
         }
@@ -29,12 +29,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-27T01:18:52.718025",
+          "time": "2026-02-28T01:13:27.652378",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-27T01:18:52.718027",
+          "time": "2026-02-28T01:13:27.652380",
           "equity": 10000.0,
           "type": "current"
         }
@@ -48,40 +48,40 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.3985,
-          "unrealized_pnl": 42.646020574613715,
+          "current_price": 1.36181,
+          "unrealized_pnl": 34.24729542763261,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 320.13129239719404
+          "value": 311.7325672502129
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 2004.89,
-          "unrealized_pnl": 25.51622381229362,
+          "current_price": 1931.32,
+          "unrealized_pnl": 15.184182500881626,
           "sl": 1908.765357142857,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 281.5632228467684
+          "value": 271.23118153535637
         },
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
           "qty": 619.8099786701713,
           "entry": 1.65452,
-          "current_price": 1.601,
-          "unrealized_pnl": 33.17223005842757,
+          "current_price": 1.59321,
+          "unrealized_pnl": 38.00054979226819,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 992.3157758509442
+          "value": 987.4874561171036
         }
       ],
       "current_cash": 7661.095877365704,
-      "current_equity": 9255.10616846061,
+      "current_equity": 9231.547082268376,
       "history_events": 49,
       "equity_curve": [
         {
@@ -335,8 +335,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-27T01:18:52.718066",
-          "equity": 9255.10616846061,
+          "time": "2026-02-28T01:13:27.652420",
+          "equity": 9231.547082268376,
           "type": "current"
         }
       ],
@@ -521,16 +521,16 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 7225.511840361331,
           "entry": 1.36653,
-          "current_price": 1.36755,
-          "unrealized_pnl": -7.370022077168709,
+          "current_price": 1.36375,
+          "unrealized_pnl": 20.086922916204536,
           "sl": 1.3744564285714285,
           "tp1": false,
           "tp_price": 1.3612457142857144,
-          "value": 9881.248717286138
+          "value": 9853.791772292765
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 9881.248717286138,
+      "current_equity": 9853.791772292765,
       "history_events": 3,
       "equity_curve": [
         {
@@ -554,8 +554,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-02-27T01:18:52.718085",
-          "equity": 9881.248717286138,
+          "time": "2026-02-28T01:13:27.652457",
+          "equity": 9853.791772292765,
           "type": "current"
         }
       ],
