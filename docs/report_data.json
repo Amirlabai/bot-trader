@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-02-28T01:13:27.652361"
+    "last_updated": "2026-03-01T01:29:11.830447"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,12 +10,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-28T01:13:27.652370",
+          "time": "2026-03-01T01:29:11.830458",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-28T01:13:27.652373",
+          "time": "2026-03-01T01:29:11.830461",
           "equity": 10000.0,
           "type": "current"
         }
@@ -29,12 +29,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-02-28T01:13:27.652378",
+          "time": "2026-03-01T01:29:11.830467",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-02-28T01:13:27.652380",
+          "time": "2026-03-01T01:29:11.830468",
           "equity": 10000.0,
           "type": "current"
         }
@@ -48,41 +48,53 @@
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.36181,
-          "unrealized_pnl": 34.24729542763261,
+          "current_price": 1.36768,
+          "unrealized_pnl": 35.59099988696156,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 311.7325672502129
+          "value": 313.07627170954186
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 1931.32,
-          "unrealized_pnl": 15.184182500881626,
+          "current_price": 1949.49,
+          "unrealized_pnl": 17.735945320350925,
           "sl": 1908.765357142857,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 271.23118153535637
+          "value": 273.7829443548257
         },
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
           "qty": 619.8099786701713,
           "entry": 1.65452,
-          "current_price": 1.59321,
-          "unrealized_pnl": 38.00054979226819,
+          "current_price": 1.6178,
+          "unrealized_pnl": 22.759422416768743,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 987.4874561171036
+          "value": 1002.7285834926031
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "side": "LONG",
+          "qty": 9747.391552788677,
+          "entry": 0.09338,
+          "current_price": 0.09338,
+          "unrealized_pnl": 0.0,
+          "sl": 0.08392094,
+          "tp1": false,
+          "tp_price": 0.09968604,
+          "value": 910.2114231994067
         }
       ],
-      "current_cash": 7661.095877365704,
-      "current_equity": 9231.547082268376,
-      "history_events": 49,
+      "current_cash": 6750.8844541662975,
+      "current_equity": 9250.683676922676,
+      "history_events": 50,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -335,8 +347,13 @@
           "type": "trade"
         },
         {
-          "time": "2026-02-28T01:13:27.652420",
-          "equity": 9231.547082268376,
+          "time": "2026-03-01T01:29:11.406269",
+          "equity": 10366.09661412466,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-01T01:29:11.830510",
+          "equity": 9250.683676922676,
           "type": "current"
         }
       ],
@@ -554,7 +571,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-02-28T01:13:27.652457",
+          "time": "2026-03-01T01:29:11.830528",
           "equity": 9853.791772292765,
           "type": "current"
         }

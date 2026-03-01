@@ -11,7 +11,7 @@
             "history": []
         },
         "rsi_crypto": {
-            "cash": 7661.095877365704,
+            "cash": 6750.8844541662975,
             "positions": {
                 "XRP/USDT": {
                     "qty": 228.910470073074,
@@ -20,7 +20,7 @@
                     "stop_loss": 1.320154642857143,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.36181
+                    "last_price": 1.36768
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
@@ -29,7 +29,7 @@
                     "stop_loss": 1908.765357142857,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 1931.32
+                    "last_price": 1949.49
                 },
                 "DOT/USDT": {
                     "qty": 619.8099786701713,
@@ -38,7 +38,15 @@
                     "stop_loss": 1.8032771428571428,
                     "take_profit": 1.5553485714285715,
                     "tp1_hit": false,
-                    "last_price": 1.59321
+                    "last_price": 1.6178
+                },
+                "DOGE/USDT": {
+                    "qty": 9747.391552788677,
+                    "entry_price": 0.09338,
+                    "side": "LONG",
+                    "stop_loss": 0.08392094,
+                    "take_profit": 0.09968604,
+                    "tp1_hit": false
                 }
             },
             "history": [
@@ -471,6 +479,14 @@
                     "quantity": 619.8099786701713,
                     "price": 1.65452,
                     "total_value": 1025.4880059093719
+                },
+                {
+                    "timestamp": "2026-03-01T01:29:11.406269",
+                    "symbol": "DOGE/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 9747.391552788677,
+                    "price": 0.09338,
+                    "total_value": 910.2114231994067
                 }
             ]
         },
