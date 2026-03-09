@@ -10,7 +10,7 @@
                     "stop_loss": 0.30010000000000003,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": false,
-                    "last_price": 0.2543
+                    "last_price": 0.2508
                 }
             },
             "history": [
@@ -25,16 +25,16 @@
             ]
         },
         "ma_crossover_forex": {
-            "cash": 329.9741262115349,
+            "cash": 5201.302460202641,
             "positions": {
                 "USD/JPY": {
-                    "qty": 61.39543042582071,
+                    "qty": 30.697715212910357,
                     "entry_price": 157.504,
                     "side": "LONG",
-                    "stop_loss": 155.87521428571426,
+                    "stop_loss": 157.504,
                     "take_profit": 158.58985714285714,
-                    "tp1_hit": false,
-                    "last_price": 157.75
+                    "tp1_hit": true,
+                    "last_price": 158.687
                 }
             },
             "history": [
@@ -45,11 +45,21 @@
                     "quantity": 61.39543042582071,
                     "price": 157.504,
                     "total_value": 9670.025873788465
+                },
+                {
+                    "timestamp": "2026-03-09T01:22:03.028327",
+                    "symbol": "USD/JPY",
+                    "side": "CLOSE_LONG",
+                    "quantity": 30.697715212910357,
+                    "price": 158.687,
+                    "total_value": 4871.328333991106,
+                    "pnl": 36.31539709687331,
+                    "entry_price": 157.504
                 }
             ]
         },
         "rsi_crypto": {
-            "cash": 7842.694452080797,
+            "cash": 7851.647994603924,
             "positions": {
                 "XRP/USDT": {
                     "qty": 228.910470073074,
@@ -58,7 +68,7 @@
                     "stop_loss": 1.320154642857143,
                     "take_profit": 1.3395071428571428,
                     "tp1_hit": true,
-                    "last_price": 1.3538
+                    "last_price": 1.3476
                 },
                 "ETH/USDT": {
                     "qty": 0.14043823992676324,
@@ -67,16 +77,16 @@
                     "stop_loss": 1932.0249999999999,
                     "take_profit": 2030.7071428571428,
                     "tp1_hit": true,
-                    "last_price": 1970.25
+                    "last_price": 1949.64
                 },
                 "DOT/USDT": {
-                    "qty": 9.684530916721426,
+                    "qty": 4.842265458360713,
                     "entry_price": 1.65452,
                     "side": "SHORT",
                     "stop_loss": 1.8032771428571428,
                     "take_profit": 1.5553485714285715,
                     "tp1_hit": false,
-                    "last_price": 1.442
+                    "last_price": 1.46
                 },
                 "DOGE/USDT": {
                     "qty": 9747.391552788677,
@@ -85,7 +95,7 @@
                     "stop_loss": 0.08392094,
                     "take_profit": 0.09968604,
                     "tp1_hit": false,
-                    "last_price": 0.08995
+                    "last_price": 0.08952
                 }
             },
             "history": [
@@ -586,20 +596,30 @@
                     "total_value": 13.965093581912296,
                     "pnl": 2.058156510421638,
                     "entry_price": 1.65452
+                },
+                {
+                    "timestamp": "2026-03-09T01:22:10.235180",
+                    "symbol": "DOT/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 4.842265458360713,
+                    "price": 1.46,
+                    "total_value": 7.069707569206641,
+                    "pnl": 0.941917476960326,
+                    "entry_price": 1.65452
                 }
             ]
         },
         "rsi_forex": {
-            "cash": 2486.5876447419487,
+            "cash": 1240.1507247204172,
             "positions": {
                 "USD/CAD": {
-                    "qty": 1806.3779600903329,
+                    "qty": 903.1889800451664,
                     "entry_price": 1.36653,
                     "side": "SHORT",
                     "stop_loss": 1.3744564285714285,
                     "take_profit": 1.3612457142857144,
                     "tp1_hit": false,
-                    "last_price": 1.3565
+                    "last_price": 1.35998
                 },
                 "USD/JPY": {
                     "qty": 31.525675369153074,
@@ -607,6 +627,15 @@
                     "side": "SHORT",
                     "stop_loss": 159.3694642857143,
                     "take_profit": 156.67035714285714,
+                    "tp1_hit": false,
+                    "last_price": 158.687
+                },
+                "EUR/USD": {
+                    "qty": 2159.1522118195185,
+                    "entry_price": 1.15165,
+                    "side": "LONG",
+                    "stop_loss": 1.1403335714285714,
+                    "take_profit": 1.1591942857142858,
                     "tp1_hit": false
                 }
             },
@@ -663,6 +692,24 @@
                     "price": 1.3565,
                     "total_value": 2450.3517028625365,
                     "pnl": 18.11797093970601,
+                    "entry_price": 1.36653
+                },
+                {
+                    "timestamp": "2026-03-09T01:22:10.282057",
+                    "symbol": "EUR/USD",
+                    "side": "OPEN_LONG",
+                    "quantity": 2159.1522118195185,
+                    "price": 1.15165,
+                    "total_value": 2486.5876447419487
+                },
+                {
+                    "timestamp": "2026-03-09T01:22:10.363148",
+                    "symbol": "USD/CAD",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 903.1889800451664,
+                    "price": 1.35998,
+                    "total_value": 1228.3189490818254,
+                    "pnl": 5.91588781929589,
                     "entry_price": 1.36653
                 }
             ]
