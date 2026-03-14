@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-03-13T01:20:35.402791"
+    "last_updated": "2026-03-14T01:18:43.724297"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,16 +10,16 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 3174.6031746031717,
           "entry": 0.2686,
-          "current_price": 0.2709,
-          "unrealized_pnl": -7.301587301587196,
+          "current_price": 0.2649,
+          "unrealized_pnl": 11.746031746031676,
           "sl": 0.30010000000000003,
           "tp1": false,
           "tp_price": 0.24760000000000001,
-          "value": 859.9999999999991
+          "value": 840.9523809523803
         }
       ],
       "current_cash": 9147.301587301588,
-      "current_equity": 10007.301587301587,
+      "current_equity": 9988.253968253968,
       "history_events": 1,
       "equity_curve": [
         {
@@ -33,8 +33,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-13T01:20:35.402806",
-          "equity": 10007.301587301587,
+          "time": "2026-03-14T01:18:43.724316",
+          "equity": 9988.253968253968,
           "type": "current"
         }
       ],
@@ -47,29 +47,17 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 30.697715212910357,
           "entry": 157.504,
-          "current_price": 159.14,
-          "unrealized_pnl": 50.22146208832121,
-          "sl": 157.59489285714284,
+          "current_price": 159.7,
+          "unrealized_pnl": 67.41218260755107,
+          "sl": 158.19367857142856,
           "tp1": true,
           "tp_price": 158.58985714285714,
-          "value": 4885.234398982554
-        },
-        {
-          "symbol": "USD/CAD",
-          "side": "SHORT",
-          "qty": 3830.7120101066002,
-          "entry": 1.35779,
-          "current_price": 1.3623,
-          "unrealized_pnl": -17.27651116558082,
-          "sl": 1.3677682142857144,
-          "tp1": false,
-          "tp_price": 1.3511378571428572,
-          "value": 5218.578971368222
+          "value": 4902.425119501783
         }
       ],
-      "current_cash": 0.0,
-      "current_equity": 10103.813370350776,
-      "history_events": 3,
+      "current_cash": 5146.829735418925,
+      "current_equity": 10049.25485492071,
+      "history_events": 4,
       "equity_curve": [
         {
           "time": "2026-03-03T01:23:37.730503",
@@ -92,12 +80,26 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-13T01:20:35.402819",
-          "equity": 10103.813370350776,
+          "time": "2026-03-14T01:18:41.555609",
+          "equity": 9981.84267231316,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-14T01:18:43.724328",
+          "equity": 10049.25485492071,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-14T01:18:41.555609",
+          "symbol": "USD/CAD",
+          "side": "SHORT",
+          "qty": 3830.7120101066002,
+          "entry_price": 1.35779,
+          "exit_price": 1.37201,
+          "pnl": -54.47272478371547
+        },
         {
           "time": "2026-03-09T01:22:03.028327",
           "symbol": "USD/JPY",
@@ -116,53 +118,53 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.4134,
-          "unrealized_pnl": 46.0567865787025,
+          "current_price": 1.3965,
+          "unrealized_pnl": 42.18819963446757,
           "sl": 1.320154642857143,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 323.5420584012828
+          "value": 319.67347145704787
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 2129.42,
-          "unrealized_pnl": 43.00499783037344,
+          "current_price": 2090.0,
+          "unrealized_pnl": 37.46892241246043,
           "sl": 1936.0110714285715,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 299.0519968648482
+          "value": 293.5159214469352
         },
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
-          "qty": 0.3026415911475446,
+          "qty": 0.1513207955737723,
           "entry": 1.65452,
-          "current_price": 1.536,
-          "unrealized_pnl": 0.03586908138280697,
+          "current_price": 1.455,
+          "unrealized_pnl": 0.030191525132879034,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 0.4648574840026285
+          "value": 0.2201717575598387
         },
         {
           "symbol": "DOGE/USDT",
           "side": "LONG",
           "qty": 9747.391552788677,
           "entry": 0.09338,
-          "current_price": 0.09694,
-          "unrealized_pnl": 34.70071392792763,
+          "current_price": 0.09556,
+          "unrealized_pnl": 21.249313585079328,
           "sl": 0.08392094,
           "tp1": false,
           "tp_price": 0.09968604,
-          "value": 944.9121371273343
+          "value": 931.460736784486
         }
       ],
-      "current_cash": 7859.840381419653,
-      "current_equity": 9427.811431297121,
-      "history_events": 61,
+      "current_cash": 7860.1209362274785,
+      "current_equity": 9404.991237673508,
+      "history_events": 62,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -475,12 +477,26 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-13T01:20:35.402870",
-          "equity": 9427.811431297121,
+          "time": "2026-03-14T01:18:42.882453",
+          "equity": 10450.095453559163,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-14T01:18:43.724377",
+          "equity": 9404.991237673508,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-14T01:18:42.882453",
+          "symbol": "DOT/USDT",
+          "side": "SHORT",
+          "qty": 0.1513207955737723,
+          "entry_price": 1.65452,
+          "exit_price": 1.455,
+          "pnl": 0.030191525132879034
+        },
         {
           "time": "2026-03-13T01:20:34.918570",
           "symbol": "DOT/USDT",
@@ -760,41 +776,29 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 112.8986225056458,
           "entry": 1.36653,
-          "current_price": 1.3623,
-          "unrealized_pnl": 0.4775611731988768,
+          "current_price": 1.37201,
+          "unrealized_pnl": -0.6186844513309311,
           "sl": 1.3744564285714285,
           "tp1": false,
           "tp_price": 1.3612457142857144,
-          "value": 153.8017934394413
+          "value": 154.89803906397108
         },
         {
-          "symbol": "USD/JPY",
-          "side": "SHORT",
-          "qty": 31.525675369153074,
-          "entry": 157.75,
-          "current_price": 159.14,
-          "unrealized_pnl": -43.82068876312234,
-          "sl": 159.3694642857143,
-          "tp1": false,
-          "tp_price": 156.67035714285714,
-          "value": 5016.99597824702
-        },
-        {
-          "symbol": "EUR/USD",
+          "symbol": "GBP/USD",
           "side": "LONG",
-          "qty": 1079.5761059097592,
-          "entry": 1.15165,
-          "current_price": 1.15264,
-          "unrealized_pnl": 1.0687803448507118,
-          "sl": 1.15165,
-          "tp1": true,
-          "tp_price": 1.1591942857142858,
-          "value": 1244.362602715825
+          "qty": 3642.857909758437,
+          "entry": 1.32137,
+          "current_price": 1.32137,
+          "unrealized_pnl": 0.0,
+          "sl": 1.3049910714285715,
+          "tp1": false,
+          "tp_price": 1.3322892857142856,
+          "value": 4813.563156217506
         }
       ],
-      "current_cash": 3581.0758906666883,
-      "current_equity": 9996.236265068974,
-      "history_events": 12,
+      "current_cash": 4911.7002225140495,
+      "current_equity": 9880.161417795527,
+      "history_events": 15,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:28.016748",
@@ -862,12 +866,45 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-13T01:20:35.402903",
-          "equity": 9996.236265068974,
+          "time": "2026-03-14T01:18:42.928803",
+          "equity": 9941.017800314043,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-14T01:18:42.949149",
+          "equity": 9941.017800314043,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-14T01:18:42.968677",
+          "equity": 9879.542733344195,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-14T01:18:43.724406",
+          "equity": 9880.161417795527,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-14T01:18:42.968677",
+          "symbol": "USD/JPY",
+          "side": "SHORT",
+          "qty": 31.525675369153074,
+          "entry_price": 157.75,
+          "exit_price": 159.7,
+          "pnl": -61.475066969848136
+        },
+        {
+          "time": "2026-03-14T01:18:42.928803",
+          "symbol": "EUR/USD",
+          "side": "LONG",
+          "qty": 1079.5761059097592,
+          "entry_price": 1.15165,
+          "exit_price": 1.14164,
+          "pnl": -10.806556820156857
+        },
         {
           "time": "2026-03-12T01:17:07.477997",
           "symbol": "USD/CAD",
