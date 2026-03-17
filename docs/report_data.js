@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-03-16T01:45:42.247084"
+    "last_updated": "2026-03-17T01:22:55.372252"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,16 +10,16 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 3174.6031746031717,
           "entry": 0.2686,
-          "current_price": 0.27108,
-          "unrealized_pnl": -7.8730158730158095,
+          "current_price": 0.2908,
+          "unrealized_pnl": -70.47619047619041,
           "sl": 0.30010000000000003,
           "tp1": false,
           "tp_price": 0.24760000000000001,
-          "value": 860.5714285714278
+          "value": 923.1746031746023
         }
       ],
       "current_cash": 9147.301587301588,
-      "current_equity": 10007.873015873016,
+      "current_equity": 10070.47619047619,
       "history_events": 1,
       "equity_curve": [
         {
@@ -33,8 +33,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-16T01:45:42.247098",
-          "equity": 10007.873015873016,
+          "time": "2026-03-17T01:22:55.372271",
+          "equity": 10070.47619047619,
           "type": "current"
         }
       ],
@@ -47,16 +47,16 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 30.697715212910357,
           "entry": 157.504,
-          "current_price": 159.452,
-          "unrealized_pnl": 59.799149234749606,
+          "current_price": 159.424,
+          "unrealized_pnl": 58.93961320878837,
           "sl": 158.19367857142856,
           "tp1": true,
           "tp_price": 158.58985714285714,
-          "value": 4894.812086128982
+          "value": 4893.952550103021
         }
       ],
       "current_cash": 5146.829735418925,
-      "current_equity": 10041.641821547906,
+      "current_equity": 10040.782285521946,
       "history_events": 4,
       "equity_curve": [
         {
@@ -85,8 +85,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-16T01:45:42.247111",
-          "equity": 10041.641821547906,
+          "time": "2026-03-17T01:22:55.372284",
+          "equity": 10040.782285521946,
           "type": "current"
         }
       ],
@@ -118,77 +118,77 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 228.910470073074,
           "entry": 1.2122,
-          "current_price": 1.4421,
-          "unrealized_pnl": 52.62651706979971,
-          "sl": 1.3529678571428572,
+          "current_price": 1.5662,
+          "unrealized_pnl": 81.03430640586822,
+          "sl": 1.4708,
           "tp1": true,
           "tp_price": 1.3395071428571428,
-          "value": 330.11178889238
+          "value": 358.5195782284485
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.14043823992676324,
           "entry": 1823.2,
-          "current_price": 2177.01,
-          "unrealized_pnl": 49.68845366848813,
-          "sl": 2006.6625000000004,
+          "current_price": 2365.42,
+          "unrealized_pnl": 76.14842245308957,
+          "sl": 2186.4807142857144,
           "tp1": true,
           "tp_price": 2030.7071428571428,
-          "value": 305.7354527029629
+          "value": 332.1954214875643
         },
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
           "qty": 0.03783019889344307,
           "entry": 1.65452,
-          "current_price": 1.44,
-          "unrealized_pnl": 0.008115334266621409,
+          "current_price": 1.62,
+          "unrealized_pnl": 0.0013058984658016505,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 0.05447548640655802
+          "value": 0.06128492220737778
         },
         {
           "symbol": "DOGE/USDT",
           "side": "LONG",
-          "qty": 9747.391552788677,
+          "qty": 4873.695776394338,
           "entry": 0.09338,
-          "current_price": 0.09757,
-          "unrealized_pnl": 40.84157060618455,
-          "sl": 0.08392094,
-          "tp1": false,
+          "current_price": 0.10341,
+          "unrealized_pnl": 48.8831686372352,
+          "sl": 0.09338,
+          "tp1": true,
           "tp_price": 0.09968604,
-          "value": 951.0529938055912
+          "value": 503.98888023693854
         },
         {
           "symbol": "AVAX/USDT",
           "side": "SHORT",
           "qty": 133.80366715552645,
           "entry": 9.95,
-          "current_price": 9.95,
-          "unrealized_pnl": 0.0,
+          "current_price": 10.5,
+          "unrealized_pnl": -73.59201693553965,
           "sl": 10.645357142857142,
           "tp1": false,
           "tp_price": 9.48642857142857,
-          "value": 1331.346488197488
+          "value": 1404.9385051330278
         },
         {
           "symbol": "TRX/USDT",
           "side": "SHORT",
           "qty": 13675.378854654602,
           "entry": 0.29802,
-          "current_price": 0.29802,
-          "unrealized_pnl": 0.0,
+          "current_price": 0.29572,
+          "unrealized_pnl": 31.453371365705916,
           "sl": 0.3048235714285714,
           "tp1": false,
           "tp_price": 0.2934842857142857,
-          "value": 4075.5364062641647
+          "value": 4044.0830348984587
         }
       ],
-      "current_cash": 2453.452505702977,
-      "current_equity": 9447.29011105197,
-      "history_events": 66,
+      "current_cash": 2957.4413859399156,
+      "current_equity": 9601.22809084656,
+      "history_events": 67,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -526,12 +526,26 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-16T01:45:42.247168",
-          "equity": 9447.29011105197,
+          "time": "2026-03-17T01:22:54.788111",
+          "equity": 10499.005313671529,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-17T01:22:55.372365",
+          "equity": 9601.22809084656,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-17T01:22:54.788111",
+          "symbol": "DOGE/USDT",
+          "side": "LONG",
+          "qty": 4873.695776394338,
+          "entry_price": 0.09338,
+          "exit_price": 0.10341,
+          "pnl": 48.8831686372352
+        },
         {
           "time": "2026-03-16T01:45:41.755357",
           "symbol": "DOT/USDT",
@@ -838,40 +852,40 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 112.8986225056458,
           "entry": 1.36653,
-          "current_price": 1.37101,
-          "unrealized_pnl": -0.5057858288252977,
+          "current_price": 1.36869,
+          "unrealized_pnl": -0.24386102461218814,
           "sl": 1.3744564285714285,
           "tp1": false,
           "tp_price": 1.3612457142857144,
-          "value": 154.78514044146547
+          "value": 154.52321563725235
         },
         {
           "symbol": "GBP/USD",
           "side": "LONG",
           "qty": 3642.857909758437,
           "entry": 1.32137,
-          "current_price": 1.32519,
-          "unrealized_pnl": 13.9157172152778,
+          "current_price": 1.32967,
+          "unrealized_pnl": 30.23572065099493,
           "sl": 1.3049910714285715,
           "tp1": false,
           "tp_price": 1.3322892857142856,
-          "value": 4827.478873432783
+          "value": 4843.798876868501
         },
         {
           "symbol": "EUR/USD",
           "side": "LONG",
           "qty": 4302.319665143171,
           "entry": 1.14164,
-          "current_price": 1.14444,
-          "unrealized_pnl": 12.046495062400506,
+          "current_price": 1.14928,
+          "unrealized_pnl": 32.86972224169422,
           "sl": 1.1280532142857143,
           "tp1": false,
           "tp_price": 1.1506978571428572,
-          "value": 4923.74671757645
+          "value": 4944.569944755744
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 9906.010731450697,
+      "current_equity": 9942.892037261496,
       "history_events": 16,
       "equity_curve": [
         {
@@ -960,8 +974,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-16T01:45:42.247202",
-          "equity": 9906.010731450697,
+          "time": "2026-03-17T01:22:55.372402",
+          "equity": 9942.892037261496,
           "type": "current"
         }
       ],
