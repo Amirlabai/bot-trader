@@ -10,7 +10,7 @@
                     "stop_loss": 0.30010000000000003,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": false,
-                    "last_price": 0.2888
+                    "last_price": 0.2727
                 },
                 "DOGE/USDT": {
                     "qty": 11757.789535567315,
@@ -18,7 +18,8 @@
                     "side": "LONG",
                     "stop_loss": 0.091885,
                     "take_profit": 0.10605999999999999,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 0.09494
                 }
             },
             "history": [
@@ -47,10 +48,10 @@
                     "qty": 30.697715212910357,
                     "entry_price": 157.504,
                     "side": "LONG",
-                    "stop_loss": 158.19367857142856,
+                    "stop_loss": 158.29589285714286,
                     "take_profit": 158.58985714285714,
                     "tp1_hit": true,
-                    "last_price": 159.06
+                    "last_price": 159.688
                 }
             },
             "history": [
@@ -102,7 +103,7 @@
                     "stop_loss": 1.8032771428571428,
                     "take_profit": 1.5553485714285715,
                     "tp1_hit": false,
-                    "last_price": 1.626
+                    "last_price": 1.559
                 },
                 "DOGE/USDT": {
                     "qty": 4873.695776394338,
@@ -111,7 +112,7 @@
                     "stop_loss": 0.09338,
                     "take_profit": 0.09968604,
                     "tp1_hit": true,
-                    "last_price": 0.10039
+                    "last_price": 0.09494
                 },
                 "AVAX/USDT": {
                     "qty": 133.80366715552645,
@@ -120,7 +121,7 @@
                     "stop_loss": 10.645357142857142,
                     "take_profit": 9.48642857142857,
                     "tp1_hit": false,
-                    "last_price": 10.21
+                    "last_price": 9.67
                 }
             },
             "history": [
@@ -770,7 +771,7 @@
                     "stop_loss": 1.3744564285714285,
                     "take_profit": 1.3612457142857144,
                     "tp1_hit": false,
-                    "last_price": 1.36902
+                    "last_price": 1.37162
                 },
                 "GBP/USD": {
                     "qty": 1821.4289548792185,
@@ -779,7 +780,7 @@
                     "stop_loss": 1.32137,
                     "take_profit": 1.3322892857142856,
                     "tp1_hit": true,
-                    "last_price": 1.3354
+                    "last_price": 1.32862
                 },
                 "EUR/USD": {
                     "qty": 2151.1598325715854,
@@ -788,7 +789,7 @@
                     "stop_loss": 1.14164,
                     "take_profit": 1.1506978571428572,
                     "tp1_hit": true,
-                    "last_price": 1.15348
+                    "last_price": 1.14774
                 }
             },
             "history": [
