@@ -10,7 +10,7 @@
                     "stop_loss": 0.30010000000000003,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": false,
-                    "last_price": 0.26989
+                    "last_price": 0.2668
                 },
                 "DOGE/USDT": {
                     "qty": 11757.789535567315,
@@ -19,7 +19,7 @@
                     "stop_loss": 0.091885,
                     "take_profit": 0.10605999999999999,
                     "tp1_hit": false,
-                    "last_price": 0.09424
+                    "last_price": 0.09441
                 }
             },
             "history": [
@@ -42,8 +42,17 @@
             ]
         },
         "ma_crossover_forex": {
-            "cash": 9992.31059320076,
-            "positions": {},
+            "cash": 0.0,
+            "positions": {
+                "USD/CAD": {
+                    "qty": 7281.433063616381,
+                    "entry_price": 1.3723,
+                    "side": "LONG",
+                    "stop_loss": 1.3622714285714286,
+                    "take_profit": 1.3789857142857145,
+                    "tp1_hit": false
+                }
+            },
             "history": [
                 {
                     "timestamp": "2026-03-03T01:23:37.730503",
@@ -90,20 +99,28 @@
                     "total_value": 4845.480857781835,
                     "pnl": 10.467920887602304,
                     "entry_price": 157.504
+                },
+                {
+                    "timestamp": "2026-03-21T01:16:52.685393",
+                    "symbol": "USD/CAD",
+                    "side": "OPEN_LONG",
+                    "quantity": 7281.433063616381,
+                    "price": 1.3723,
+                    "total_value": 9992.31059320076
                 }
             ]
         },
         "rsi_crypto": {
-            "cash": 3910.2085059303877,
+            "cash": 3910.2255015255428,
             "positions": {
                 "DOT/USDT": {
-                    "qty": 0.018915099446721536,
+                    "qty": 0.009457549723360768,
                     "entry_price": 1.65452,
                     "side": "SHORT",
                     "stop_loss": 1.8032771428571428,
                     "take_profit": 1.5553485714285715,
                     "tp1_hit": false,
-                    "last_price": 1.53
+                    "last_price": 1.512
                 },
                 "DOGE/USDT": {
                     "qty": 4873.695776394338,
@@ -112,7 +129,7 @@
                     "stop_loss": 0.09338,
                     "take_profit": 0.09968604,
                     "tp1_hit": true,
-                    "last_price": 0.09424
+                    "last_price": 0.09441
                 },
                 "AVAX/USDT": {
                     "qty": 133.80366715552645,
@@ -121,7 +138,7 @@
                     "stop_loss": 10.645357142857142,
                     "take_profit": 9.48642857142857,
                     "tp1_hit": false,
-                    "last_price": 9.54
+                    "last_price": 9.57
                 },
                 "TRX/USDT": {
                     "qty": 12004.66135865877,
@@ -129,7 +146,8 @@
                     "side": "SHORT",
                     "stop_loss": 0.311745,
                     "take_profit": 0.29877,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 0.30856
                 }
             },
             "history": [
@@ -784,6 +802,16 @@
                     "quantity": 12004.66135865877,
                     "price": 0.30396,
                     "total_value": 3648.93686657792
+                },
+                {
+                    "timestamp": "2026-03-21T01:16:53.591028",
+                    "symbol": "DOT/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.009457549723360768,
+                    "price": 1.512,
+                    "total_value": 0.014299815181721482,
+                    "pnl": 0.0013478899865733765,
+                    "entry_price": 1.65452
                 }
             ]
         },
@@ -797,7 +825,7 @@
                     "stop_loss": 1.3744564285714285,
                     "take_profit": 1.3612457142857144,
                     "tp1_hit": false,
-                    "last_price": 1.37339
+                    "last_price": 1.3723
                 },
                 "GBP/USD": {
                     "qty": 1821.4289548792185,
@@ -806,7 +834,7 @@
                     "stop_loss": 1.3260375,
                     "take_profit": 1.3322892857142856,
                     "tp1_hit": true,
-                    "last_price": 1.3422
+                    "last_price": 1.33394
                 },
                 "EUR/USD": {
                     "qty": 2151.1598325715854,
@@ -815,7 +843,7 @@
                     "stop_loss": 1.143290357142857,
                     "take_profit": 1.1506978571428572,
                     "tp1_hit": true,
-                    "last_price": 1.15716
+                    "last_price": 1.15711
                 }
             },
             "history": [
