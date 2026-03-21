@@ -12,6 +12,30 @@ from config import Config, TRADING_CONFIG
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 
+def _build_candle_snapshot(market_data, signal_data, n=20):
+    """
+    Builds a lightweight OHLCV snapshot (last n candles) plus indicator values
+    extracted from signal_data, for chart rendering at report time.
+    """
+    df = market_data.tail(n)
+    candles = []
+    for ts, row in df.iterrows():
+        candles.append({
+            "date": str(ts)[:10],
+            "open": round(float(row["open"]), 8),
+            "high": round(float(row["high"]), 8),
+            "low": round(float(row["low"]), 8),
+            "close": round(float(row["close"]), 8),
+        })
+    return {
+        "candles": candles,
+        "stop_loss": signal_data.get("stop_loss", 0.0),
+        "take_profit": signal_data.get("take_profit", 0.0),
+        "indicators": signal_data.get("indicators", {}),
+        "reason": signal_data.get("reason", ""),
+    }
+
+
 def load_strategy(module_name, class_name, params):
     try:
         module = importlib.import_module(module_name)
@@ -106,7 +130,8 @@ def main():
                     
                     if (quantity * current_price) > 10:
                         new_tp = signal_data.get('take_profit', 0.0)
-                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp):
+                        snapshot = _build_candle_snapshot(market_data, signal_data)
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot):
                              print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
             elif action == 'sell':
@@ -148,7 +173,8 @@ def main():
                         
                     if (quantity * current_price) > 10:
                         new_tp = signal_data.get('take_profit', 0.0)
-                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp):
+                        snapshot = _build_candle_snapshot(market_data, signal_data)
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot):
                              print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
             elif action == 'hold':

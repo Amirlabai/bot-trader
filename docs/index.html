@@ -14,9 +14,10 @@
             --card-bg: #161b22;
             --border-color: #30363d;
             --accent-color: #58a6ff;
-            --success-color: #238636;
-            --danger-color: #da3633;
+            --success-color: #3fb950;
+            --danger-color: #f85149;
             --header-bg: #21262d;
+            --muted: #8b949e;
         }
 
         body {
@@ -27,10 +28,7 @@
             padding: 20px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
 
         header {
             display: flex;
@@ -41,10 +39,7 @@
             margin-bottom: 30px;
         }
 
-        h1 {
-            color: var(--accent-color);
-            margin: 0;
-        }
+        h1 { color: var(--accent-color); margin: 0; }
 
         select {
             background: var(--card-bg);
@@ -70,7 +65,7 @@
         }
 
         .card-title {
-            color: #8b949e;
+            color: var(--muted);
             font-size: 14px;
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -91,28 +86,17 @@
             height: 400px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 
-        th,
-        td {
+        th, td {
             text-align: left;
             padding: 12px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        th {
-            color: #8b949e;
-            font-size: 12px;
-            text-transform: uppercase;
-        }
+        th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+        tr:last-child td { border-bottom: none; }
 
         .badge {
             padding: 4px 8px;
@@ -121,32 +105,68 @@
             font-weight: 600;
         }
 
-        .badge-long {
-            background: rgba(35, 134, 54, 0.2);
-            color: #3fb950;
+        .badge-long  { background: rgba(59,190,80,0.15);  color: var(--success-color); }
+        .badge-short { background: rgba(248,81,73,0.15);  color: var(--danger-color); }
+
+        .loader { text-align: center; padding: 50px; color: var(--muted); }
+
+        /* ── Expandable trade row ── */
+        .trade-row {
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s;
+        }
+        .trade-row:hover { background: rgba(88,166,255,0.06); }
+
+        .trade-row td.caret-cell {
+            width: 28px;
+            color: var(--muted);
+            font-size: 11px;
+            padding-right: 4px;
+            transition: transform 0.2s;
         }
 
-        .badge-short {
-            background: rgba(218, 54, 51, 0.2);
-            color: #f85149;
+        .trade-row.expanded td.caret-cell { transform: rotate(90deg); display: inline-block; }
+
+        /* Expansion detail row */
+        .trade-detail-row td { padding: 0; border-bottom: none; }
+
+        .trade-detail-inner {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease, padding 0.25s ease;
+            background: #0d1117;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .loader {
-            text-align: center;
-            padding: 50px;
-            color: #8b949e;
+        .trade-detail-inner.open {
+            max-height: 600px;
+            padding: 16px 20px;
+        }
+
+        .trade-chart-img {
+            display: block;
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .no-chart-msg {
+            color: var(--muted);
+            font-size: 13px;
+            font-style: italic;
+            padding: 12px 0;
         }
     </style>
     <script src="report_data.js"></script>
 </head>
 
 <body>
-
     <div class="container">
         <header>
             <div>
                 <h1>Performance Dashboard</h1>
-                <div id="last-updated" style="font-size: 12px; color: #8b949e; margin-top: 5px;">Loading...</div>
+                <div id="last-updated" style="font-size: 12px; color: var(--muted); margin-top: 5px;">Loading...</div>
             </div>
             <div>
                 <select id="strategy-selector" onchange="renderStrategy(this.value)">
@@ -183,7 +203,7 @@
             <br>
 
             <div class="card">
-                <div class="card-title">Trade History</div>
+                <div class="card-title">Trade History <span style="font-size:11px; color:var(--muted); font-weight:400; text-transform:none;">&nbsp;— click a row to view entry chart</span></div>
                 <div id="history-table-container"></div>
             </div>
         </div>
@@ -194,21 +214,19 @@
     <script>
         let rawData = null;
         let chartInstance = null;
+        let expandedRow = null; // tracks currently expanded detail row element
 
         async function loadData() {
             try {
-                // Use global data loaded from report_data.js
                 if (typeof window.REPORT_DATA === 'undefined') {
                     throw new Error("REPORT_DATA not found. Ensure report_data.js is loaded.");
                 }
 
                 rawData = window.REPORT_DATA;
-
                 document.getElementById('last-updated').innerText = `Last Updated: ${rawData.metadata.last_updated}`;
 
                 const selector = document.getElementById('strategy-selector');
                 selector.innerHTML = '';
-
                 const strategies = Object.keys(rawData.strategies);
                 if (strategies.length === 0) {
                     selector.innerHTML = '<option>No Strategies</option>';
@@ -222,14 +240,14 @@
                     selector.appendChild(opt);
                 });
 
-                // Auto-select first with data or just first
                 renderStrategy(strategies[0]);
 
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('dashboard-content').style.display = 'block';
 
             } catch (error) {
-                document.getElementById('loader').innerHTML = `Error loading data: ${error.message}<br><br>Make sure report_data.js exists.`;
+                document.getElementById('loader').innerHTML =
+                    `Error loading data: ${error.message}<br><br>Make sure report_data.js exists.`;
             }
         }
 
@@ -237,100 +255,157 @@
             const data = rawData.strategies[strategyName];
             if (!data) return;
 
-            // update cards
-            document.getElementById('val-equity').innerText = `$${data.current_equity.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
-            document.getElementById('val-cash').innerText = `$${data.current_cash.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+            document.getElementById('val-equity').innerText =
+                `$${data.current_equity.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+            document.getElementById('val-cash').innerText =
+                `$${data.current_cash.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
             document.getElementById('val-positions').innerText = data.active_positions.length;
 
-            // Render Table
+            // Active Positions Table
             const tableContainer = document.getElementById('positions-table-container');
             if (data.active_positions.length === 0) {
-                tableContainer.innerHTML = '<div style="padding:10px; color:#8b949e; font-style:italic;">No active positions</div>';
+                tableContainer.innerHTML = '<div style="padding:10px; color:var(--muted); font-style:italic;">No active positions</div>';
             } else {
                 let rows = data.active_positions.map(p => {
                     const badge = p.side === 'LONG' ? 'badge-long' : 'badge-short';
-
                     let tp1Badge = '-';
                     if (p.tp1) {
-                        tp1Badge = '<span class="badge" style="background:rgba(210, 153, 34, 0.2); color:#d29922;">HIT</span>';
+                        tp1Badge = '<span class="badge" style="background:rgba(210,153,34,0.2); color:#d29922;">HIT</span>';
                     } else if (p.tp_price > 0) {
-                        tp1Badge = `<span style="font-size:12px; color:#8b949e;">$${p.tp_price.toFixed(4)}</span>`;
+                        tp1Badge = `<span style="font-size:12px; color:var(--muted);">$${p.tp_price.toFixed(4)}</span>`;
                     }
-
                     const pnl = p.unrealized_pnl || 0;
                     const pnlColor = pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                     const pnlSign = pnl >= 0 ? '+' : '';
-
                     return `
-                <tr>
-                    <td style="font-weight:600">${p.symbol}</td>
-                    <td><span class="badge ${badge}">${p.side}</span></td>
-                    <td>${tp1Badge}</td>
-                    <td>${p.qty.toFixed(6)}</td>
-                    <td>$${p.entry.toFixed(4)}</td>
-                    <td>$${(p.current_price || p.entry).toFixed(4)}</td>
-                    <td style="color:${pnlColor}; font-weight:600">${pnlSign}$${pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                    <td>$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
-                    <td>$${p.value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                </tr>`;
+                        <tr>
+                            <td style="font-weight:600">${p.symbol}</td>
+                            <td><span class="badge ${badge}">${p.side}</span></td>
+                            <td>${tp1Badge}</td>
+                            <td>${p.qty.toFixed(6)}</td>
+                            <td>$${p.entry.toFixed(4)}</td>
+                            <td>$${(p.current_price || p.entry).toFixed(4)}</td>
+                            <td style="color:${pnlColor}; font-weight:600">${pnlSign}$${pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            <td>$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
+                            <td>$${p.value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                        </tr>`;
                 }).join('');
 
                 tableContainer.innerHTML = `
-            <table>
-                <thead>
-                    <tr>
-                        <th>Symbol</th><th>Side</th><th>TP1 Target</th><th>Size</th><th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop Loss</th><th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-            </table>`;
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th><th>Side</th><th>TP1 Target</th><th>Size</th>
+                                <th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop Loss</th><th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>`;
             }
 
-            // Render Trade History Table
+            // Trade History Table with Expandable Rows
+            expandedRow = null;
             const historyContainer = document.getElementById('history-table-container');
             if (!data.trade_history || data.trade_history.length === 0) {
-                historyContainer.innerHTML = '<div style="padding:10px; color:#8b949e; font-style:italic;">No trade history</div>';
+                historyContainer.innerHTML = '<div style="padding:10px; color:var(--muted); font-style:italic;">No trade history</div>';
             } else {
-                let histRows = data.trade_history.map(t => {
+                const tbody = document.createElement('tbody');
+
+                data.trade_history.forEach((t, idx) => {
                     const badge = t.side === 'LONG' ? 'badge-long' : 'badge-short';
                     const pnlColor = t.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                     const pnlSign = t.pnl >= 0 ? '+' : '';
+                    const hasChart = t.chart_b64 && t.chart_b64.length > 0;
 
-                    return `
-                    <tr>
+                    // Main data row
+                    const tr = document.createElement('tr');
+                    tr.className = 'trade-row';
+                    tr.dataset.idx = idx;
+                    tr.innerHTML = `
+                        <td class="caret-cell">&#9654;</td>
                         <td>${new Date(t.time).toLocaleString()}</td>
                         <td style="font-weight:600">${t.symbol}</td>
                         <td><span class="badge ${badge}">${t.side}</span></td>
                         <td>${t.qty.toFixed(6)}</td>
                         <td>$${t.entry_price.toFixed(4)}</td>
                         <td>$${t.exit_price.toFixed(4)}</td>
-                        <td style="color:${pnlColor}; font-weight:600">${pnlSign}$${t.pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                    </tr>`;
-                }).join('');
+                        <td style="color:${pnlColor}; font-weight:600">${pnlSign}$${t.pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>`;
 
-                historyContainer.innerHTML = `
-                 <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th><th>Symbol</th><th>Side</th><th>Size</th><th>Entry</th><th>Exit</th><th>P/L</th>
-                        </tr>
-                    </thead>
-                    <tbody>${histRows}</tbody>
-                 </table>`;
+                    // Detail row (chart container)
+                    const detailTr = document.createElement('tr');
+                    detailTr.className = 'trade-detail-row';
+                    const detailTd = document.createElement('td');
+                    detailTd.colSpan = 8;
+                    const inner = document.createElement('div');
+                    inner.className = 'trade-detail-inner';
+
+                    if (hasChart) {
+                        const img = document.createElement('img');
+                        img.src = `data:image/png;base64,${t.chart_b64}`;
+                        img.className = 'trade-chart-img';
+                        img.alt = `Entry chart: ${t.symbol} ${t.side} @ ${t.entry_price}`;
+                        inner.appendChild(img);
+                    } else {
+                        const msg = document.createElement('div');
+                        msg.className = 'no-chart-msg';
+                        msg.textContent = 'No chart snapshot available for this trade (captured from next run onward).';
+                        inner.appendChild(msg);
+                    }
+
+                    detailTd.appendChild(inner);
+                    detailTr.appendChild(detailTd);
+
+                    // Toggle logic
+                    tr.addEventListener('click', () => {
+                        const isOpen = inner.classList.contains('open');
+
+                        // Collapse any currently open row
+                        if (expandedRow && expandedRow !== inner) {
+                            expandedRow.classList.remove('open');
+                            expandedRow.closest('tr').previousElementSibling &&
+                                expandedRow.closest('tr').previousElementSibling.classList.remove('expanded');
+                        }
+
+                        if (isOpen) {
+                            inner.classList.remove('open');
+                            tr.classList.remove('expanded');
+                            expandedRow = null;
+                        } else {
+                            inner.classList.add('open');
+                            tr.classList.add('expanded');
+                            expandedRow = inner;
+                        }
+                    });
+
+                    tbody.appendChild(tr);
+                    tbody.appendChild(detailTr);
+                });
+
+                const table = document.createElement('table');
+                const thead = document.createElement('thead');
+                thead.innerHTML = `
+                    <tr>
+                        <th></th>
+                        <th>Date</th><th>Symbol</th><th>Side</th><th>Size</th>
+                        <th>Entry</th><th>Exit</th><th>P/L</th>
+                    </tr>`;
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                historyContainer.innerHTML = '';
+                historyContainer.appendChild(table);
             }
 
-            // Render Chart
             renderChart(data.equity_curve);
         }
 
         function renderChart(history) {
             const ctx = document.getElementById('equityChart').getContext('2d');
+            if (chartInstance) chartInstance.destroy();
 
-            if (chartInstance) {
-                chartInstance.destroy();
-            }
-
-            const labels = history.map(h => new Date(h.time).toLocaleDateString() + ' ' + new Date(h.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+            const labels = history.map(h =>
+                new Date(h.time).toLocaleDateString() + ' ' +
+                new Date(h.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            );
             const values = history.map(h => h.equity);
 
             chartInstance = new Chart(ctx, {
@@ -356,25 +431,14 @@
                         tooltip: { mode: 'index', intersect: false }
                     },
                     scales: {
-                        x: {
-                            grid: { color: '#30363d' },
-                            ticks: { color: '#8b949e', maxTicksLimit: 8 }
-                        },
-                        y: {
-                            grid: { color: '#30363d' },
-                            ticks: { color: '#8b949e' }
-                        }
+                        x: { grid: { color: '#30363d' }, ticks: { color: '#8b949e', maxTicksLimit: 8 } },
+                        y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
                     },
-                    interaction: {
-                        mode: 'nearest',
-                        axis: 'x',
-                        intersect: false
-                    }
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false }
                 }
             });
         }
 
-        // Init
         loadData();
     </script>
 

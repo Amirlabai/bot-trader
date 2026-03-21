@@ -80,7 +80,7 @@ class LedgerManager:
              return {'qty': float(pos), 'entry_price': 0.0, 'stop_loss': 0.0, 'tp1_hit': False, 'side': 'LONG'}
         return pos
 
-    def update_position(self, strategy_id, symbol, quantity, price, side, stop_loss=0.0, take_profit=0.0):
+    def update_position(self, strategy_id, symbol, quantity, price, side, stop_loss=0.0, take_profit=0.0, candle_snapshot=None):
         """
         Updates cash and position based on a trade execution for a specific strategy.
         side: 'buy' (to open LONG or close SHORT) or 'sell' (to close LONG or open SHORT)
@@ -105,7 +105,7 @@ class LedgerManager:
                         'take_profit': take_profit,
                         'tp1_hit': False
                     }
-                    self.record_history(strategy_id, symbol, 'OPEN_LONG', quantity, price)
+                    self.record_history(strategy_id, symbol, 'OPEN_LONG', quantity, price, candle_snapshot=candle_snapshot)
                     return True
                 else:
                     print(f"[{strategy_id}] Insufficient funds to LONG {symbol}.")
@@ -124,7 +124,7 @@ class LedgerManager:
                         'take_profit': take_profit,
                         'tp1_hit': False
                     }
-                    self.record_history(strategy_id, symbol, 'OPEN_SHORT', quantity, price)
+                    self.record_history(strategy_id, symbol, 'OPEN_SHORT', quantity, price, candle_snapshot=candle_snapshot)
                     return True
                 else:
                     print(f"[{strategy_id}] Insufficient collateral to SHORT {symbol}.")
@@ -257,7 +257,7 @@ class LedgerManager:
             return True
         return False
 
-    def record_history(self, strategy_id, symbol, side, quantity, price, pnl=None, entry_price=None):
+    def record_history(self, strategy_id, symbol, side, quantity, price, pnl=None, entry_price=None, candle_snapshot=None):
         self._ensure_strategy_state(strategy_id)
         record = {
             "timestamp": datetime.now().isoformat(),
@@ -271,6 +271,8 @@ class LedgerManager:
             record["pnl"] = pnl
         if entry_price is not None:
             record["entry_price"] = entry_price
+        if candle_snapshot is not None:
+            record["snapshot"] = candle_snapshot
 
         self.ledger["strategies"][strategy_id]["history"].append(record)
 
