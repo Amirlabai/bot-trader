@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v1.9.0 (2026-03-21)
+
+### Features
+
+- Introduce a web-based performance dashboard with trade history and equity charts, supported by new
+  backend reporting and ledger management modules.
+  ([`3e32ec7`](https://github.com/Amirlabai/bot-trader/commit/3e32ec7575928b540a7ec79489dd3cfb398a1e54))
+
+
 ## v1.8.0 (2026-02-06)
 
 ### Features
