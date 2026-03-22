@@ -1,7 +1,7 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 7966.937095825986,
+            "cash": 9042.892416225752,
             "positions": {
                 "ADA/USDT": {
                     "qty": 3174.6031746031717,
@@ -10,16 +10,7 @@
                     "stop_loss": 0.30010000000000003,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": false,
-                    "last_price": 0.2668
-                },
-                "DOGE/USDT": {
-                    "qty": 11757.789535567315,
-                    "entry_price": 0.10039,
-                    "side": "LONG",
-                    "stop_loss": 0.091885,
-                    "take_profit": 0.10605999999999999,
-                    "tp1_hit": false,
-                    "last_price": 0.09441
+                    "last_price": 0.2574
                 }
             },
             "history": [
@@ -38,6 +29,16 @@
                     "quantity": 11757.789535567315,
                     "price": 0.10039,
                     "total_value": 1180.3644914756028
+                },
+                {
+                    "timestamp": "2026-03-22T01:26:12.828829",
+                    "symbol": "DOGE/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 11757.789535567315,
+                    "price": 0.09151,
+                    "total_value": 1075.955320399765,
+                    "pnl": -104.40917107583778,
+                    "entry_price": 0.10039
                 }
             ]
         },
@@ -50,7 +51,8 @@
                     "side": "LONG",
                     "stop_loss": 1.3622714285714286,
                     "take_profit": 1.3789857142857145,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 1.3723
                 }
             },
             "history": [
@@ -111,34 +113,25 @@
             ]
         },
         "rsi_crypto": {
-            "cash": 3910.2255015255428,
+            "cash": 5070.068662704244,
             "positions": {
                 "DOT/USDT": {
-                    "qty": 0.009457549723360768,
+                    "qty": 0.004728774861680384,
                     "entry_price": 1.65452,
                     "side": "SHORT",
                     "stop_loss": 1.8032771428571428,
                     "take_profit": 1.5553485714285715,
                     "tp1_hit": false,
-                    "last_price": 1.512
-                },
-                "DOGE/USDT": {
-                    "qty": 4873.695776394338,
-                    "entry_price": 0.09338,
-                    "side": "LONG",
-                    "stop_loss": 0.09338,
-                    "take_profit": 0.09968604,
-                    "tp1_hit": true,
-                    "last_price": 0.09441
+                    "last_price": 1.47
                 },
                 "AVAX/USDT": {
-                    "qty": 133.80366715552645,
+                    "qty": 66.90183357776323,
                     "entry_price": 9.95,
                     "side": "SHORT",
                     "stop_loss": 10.645357142857142,
                     "take_profit": 9.48642857142857,
                     "tp1_hit": false,
-                    "last_price": 9.57
+                    "last_price": 9.23
                 },
                 "TRX/USDT": {
                     "qty": 12004.66135865877,
@@ -147,7 +140,7 @@
                     "stop_loss": 0.311745,
                     "take_profit": 0.29877,
                     "tp1_hit": false,
-                    "last_price": 0.30856
+                    "last_price": 0.31093
                 }
             },
             "history": [
@@ -811,6 +804,36 @@
                     "price": 1.512,
                     "total_value": 0.014299815181721482,
                     "pnl": 0.0013478899865733765,
+                    "entry_price": 1.65452
+                },
+                {
+                    "timestamp": "2026-03-22T01:26:16.708616",
+                    "symbol": "DOGE/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 4873.695776394338,
+                    "price": 0.09151,
+                    "total_value": 445.99190049784585,
+                    "pnl": -9.113811101857493,
+                    "entry_price": 0.09338
+                },
+                {
+                    "timestamp": "2026-03-22T01:26:16.734307",
+                    "symbol": "AVAX/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 66.90183357776323,
+                    "price": 9.23,
+                    "total_value": 617.5039239227547,
+                    "pnl": 48.16932017598945,
+                    "entry_price": 9.95
+                },
+                {
+                    "timestamp": "2026-03-22T01:26:16.758607",
+                    "symbol": "DOT/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.004728774861680384,
+                    "price": 1.47,
+                    "total_value": 0.0069512990466701645,
+                    "pnl": 0.0008725535374772645,
                     "entry_price": 1.65452
                 }
             ]

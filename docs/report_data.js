@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-03-21T16:49:22.468105"
+    "last_updated": "2026-03-22T01:26:18.206585"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,29 +10,17 @@ window.REPORT_DATA = {
           "side": "SHORT",
           "qty": 3174.6031746031717,
           "entry": 0.2686,
-          "current_price": 0.2668,
-          "unrealized_pnl": 5.714285714285785,
+          "current_price": 0.2574,
+          "unrealized_pnl": 35.555555555555486,
           "sl": 0.30010000000000003,
           "tp1": false,
           "tp_price": 0.24760000000000001,
-          "value": 846.9841269841262
-        },
-        {
-          "symbol": "DOGE/USDT",
-          "side": "LONG",
-          "qty": 11757.789535567315,
-          "entry": 0.10039,
-          "current_price": 0.09441,
-          "unrealized_pnl": -70.31158142269254,
-          "sl": 0.091885,
-          "tp1": false,
-          "tp_price": 0.10605999999999999,
-          "value": 1110.0529100529102
+          "value": 817.1428571428564
         }
       ],
-      "current_cash": 7966.937095825986,
-      "current_equity": 9923.974132863023,
-      "history_events": 2,
+      "current_cash": 9042.892416225752,
+      "current_equity": 9860.035273368609,
+      "history_events": 3,
       "equity_curve": [
         {
           "time": "2026-03-06T01:24:09.490476",
@@ -50,12 +38,28 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-21T16:49:22.468105",
-          "equity": 9923.974132863023,
+          "time": "2026-03-22T01:26:12.828829",
+          "equity": 9895.590828924163,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-22T01:26:18.206616",
+          "equity": 9860.035273368609,
           "type": "current"
         }
       ],
-      "trade_history": []
+      "trade_history": [
+        {
+          "time": "2026-03-22T01:26:12.828829",
+          "symbol": "DOGE/USDT",
+          "side": "LONG",
+          "qty": 11757.789535567315,
+          "entry_price": 0.10039,
+          "exit_price": 0.09151,
+          "pnl": -104.40917107583778,
+          "chart_b64": ""
+        }
+      ]
     },
     "ma_crossover_forex": {
       "active_positions": [
@@ -112,7 +116,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-21T16:49:22.468105",
+          "time": "2026-03-22T01:26:18.206641",
           "equity": 9992.31059320076,
           "type": "current"
         }
@@ -155,55 +159,43 @@ window.REPORT_DATA = {
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
-          "qty": 0.009457549723360768,
+          "qty": 0.004728774861680384,
           "entry": 1.65452,
-          "current_price": 1.512,
-          "unrealized_pnl": 0.0013478899865733765,
+          "current_price": 1.47,
+          "unrealized_pnl": 0.0008725535374772645,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 0.014299815181721482
-        },
-        {
-          "symbol": "DOGE/USDT",
-          "side": "LONG",
-          "qty": 4873.695776394338,
-          "entry": 0.09338,
-          "current_price": 0.09441,
-          "unrealized_pnl": 5.019906649686116,
-          "sl": 0.09338,
-          "tp1": true,
-          "tp_price": 0.09968604,
-          "value": 460.12561824938945
+          "value": 0.0069512990466701645
         },
         {
           "symbol": "AVAX/USDT",
           "side": "SHORT",
-          "qty": 133.80366715552645,
+          "qty": 66.90183357776323,
           "entry": 9.95,
-          "current_price": 9.57,
-          "unrealized_pnl": 50.84539351909992,
+          "current_price": 9.23,
+          "unrealized_pnl": 48.16932017598945,
           "sl": 10.645357142857142,
           "tp1": false,
           "tp_price": 9.48642857142857,
-          "value": 1280.5010946783882
+          "value": 617.5039239227547
         },
         {
           "symbol": "TRX/USDT",
           "side": "SHORT",
           "qty": 12004.66135865877,
           "entry": 0.30396,
-          "current_price": 0.30856,
-          "unrealized_pnl": -55.22144224983026,
+          "current_price": 0.31093,
+          "unrealized_pnl": -83.67248966985134,
           "sl": 0.311745,
           "tp1": false,
           "tp_price": 0.29877,
-          "value": 3704.1583088277503
+          "value": 3732.6093562477713
         }
       ],
-      "current_cash": 3910.2255015255428,
-      "current_equity": 9355.024823096253,
-      "history_events": 73,
+      "current_cash": 5070.068662704244,
+      "current_equity": 9420.188894173818,
+      "history_events": 76,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -576,12 +568,57 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-21T16:49:22.468105",
-          "equity": 9355.024823096253,
+          "time": "2026-03-22T01:26:16.708616",
+          "equity": 10482.496864496494,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-22T01:26:16.734307",
+          "equity": 10530.666184672482,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-22T01:26:16.758607",
+          "equity": 10530.667057226021,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-22T01:26:18.206713",
+          "equity": 9420.188894173818,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-22T01:26:16.758607",
+          "symbol": "DOT/USDT",
+          "side": "SHORT",
+          "qty": 0.004728774861680384,
+          "entry_price": 1.65452,
+          "exit_price": 1.47,
+          "pnl": 0.0008725535374772645,
+          "chart_b64": ""
+        },
+        {
+          "time": "2026-03-22T01:26:16.734307",
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 66.90183357776323,
+          "entry_price": 9.95,
+          "exit_price": 9.23,
+          "pnl": 48.16932017598945,
+          "chart_b64": ""
+        },
+        {
+          "time": "2026-03-22T01:26:16.708616",
+          "symbol": "DOGE/USDT",
+          "side": "LONG",
+          "qty": 4873.695776394338,
+          "entry_price": 0.09338,
+          "exit_price": 0.09151,
+          "pnl": -9.113811101857493,
+          "chart_b64": ""
+        },
         {
           "time": "2026-03-21T01:16:53.591028",
           "symbol": "DOT/USDT",
@@ -1113,7 +1150,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-21T16:49:22.468105",
+          "time": "2026-03-22T01:26:18.206989",
           "equity": 9987.39234362337,
           "type": "current"
         }
