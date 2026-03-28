@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-03-27T01:30:09.941513"
+    "last_updated": "2026-03-28T01:24:00.789505"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -8,19 +8,31 @@ window.REPORT_DATA = {
         {
           "symbol": "ADA/USDT",
           "side": "SHORT",
-          "qty": 3174.6031746031717,
+          "qty": 1587.3015873015859,
           "entry": 0.2686,
-          "current_price": 0.2547,
-          "unrealized_pnl": 44.12698412698416,
+          "current_price": 0.24567,
+          "unrealized_pnl": 36.39682539682537,
           "sl": 0.30010000000000003,
           "tp1": false,
           "tp_price": 0.24760000000000001,
-          "value": 808.5714285714278
+          "value": 389.9523809523806
+        },
+        {
+          "symbol": "BNB/USDT",
+          "side": "SHORT",
+          "qty": 3.2460144004718434,
+          "entry": 611.2,
+          "current_price": 611.2,
+          "unrealized_pnl": 0.0,
+          "sl": 641.6853571428572,
+          "tp1": false,
+          "tp_price": 590.8764285714286,
+          "value": 1983.9640015683908
         }
       ],
-      "current_cash": 9042.892416225752,
-      "current_equity": 9851.46384479718,
-      "history_events": 3,
+      "current_cash": 7521.674446403393,
+      "current_equity": 9895.590828924163,
+      "history_events": 5,
       "equity_curve": [
         {
           "time": "2026-03-06T01:24:09.490476",
@@ -43,12 +55,32 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-27T01:30:09.941537",
-          "equity": 9851.46384479718,
+          "time": "2026-03-28T01:23:53.880531",
+          "equity": 9895.590828924163,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-28T01:23:54.615564",
+          "equity": 9931.98765432099,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-28T01:24:00.789536",
+          "equity": 9895.590828924163,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-28T01:23:54.615564",
+          "symbol": "ADA/USDT",
+          "side": "SHORT",
+          "qty": 1587.3015873015859,
+          "entry_price": 0.2686,
+          "exit_price": 0.24567,
+          "pnl": 36.39682539682537,
+          "chart_b64": ""
+        },
         {
           "time": "2026-03-22T01:26:12.828829",
           "symbol": "DOGE/USDT",
@@ -68,16 +100,16 @@ window.REPORT_DATA = {
           "side": "LONG",
           "qty": 3640.7165318081907,
           "entry": 1.3723,
-          "current_price": 1.38536,
-          "unrealized_pnl": 47.54775790541442,
-          "sl": 1.3765110714285713,
+          "current_price": 1.389,
+          "unrealized_pnl": 60.79996608119656,
+          "sl": 1.380005357142857,
           "tp1": true,
           "tp_price": 1.3789857142857145,
-          "value": 5043.703054505795
+          "value": 5056.955262681577
         }
       ],
       "current_cash": 5032.125575934645,
-      "current_equity": 10075.82863044044,
+      "current_equity": 10089.08083861622,
       "history_events": 7,
       "equity_curve": [
         {
@@ -121,8 +153,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-27T01:30:09.941557",
-          "equity": 10075.82863044044,
+          "time": "2026-03-28T01:24:00.789603",
+          "equity": 10089.08083861622,
           "type": "current"
         }
       ],
@@ -174,43 +206,43 @@ window.REPORT_DATA = {
         {
           "symbol": "DOT/USDT",
           "side": "SHORT",
-          "qty": 0.000147774214427512,
+          "qty": 7.3887107213756e-05,
           "entry": 1.65452,
-          "current_price": 1.33,
-          "unrealized_pnl": 4.795568806601618e-05,
+          "current_price": 1.28,
+          "unrealized_pnl": 2.7672199393695896e-05,
           "sl": 1.8032771428571428,
           "tp1": false,
           "tp_price": 1.5553485714285715,
-          "value": 0.00019653970518859098
+          "value": 9.457549723360768e-05
         },
         {
           "symbol": "AVAX/USDT",
           "side": "SHORT",
-          "qty": 16.725458394440807,
+          "qty": 8.362729197220403,
           "entry": 9.95,
-          "current_price": 9.1,
-          "unrealized_pnl": 14.21663963527468,
+          "current_price": 8.74,
+          "unrealized_pnl": 10.11890232863668,
           "sl": 10.645357142857142,
           "tp1": false,
           "tp_price": 9.48642857142857,
-          "value": 152.20167138941133
+          "value": 73.09025318370632
         },
         {
           "symbol": "TRX/USDT",
           "side": "SHORT",
           "qty": 8364.507881527874,
           "entry": 0.31097,
-          "current_price": 0.31097,
-          "unrealized_pnl": 0.0,
+          "current_price": 0.30993,
+          "unrealized_pnl": 8.699088196789331,
           "sl": 0.3220925,
           "tp1": false,
           "tp_price": 0.303555,
-          "value": 2601.1110159187233
+          "value": 2592.411927721934
         }
       ],
-      "current_cash": 6535.894319790559,
-      "current_equity": 9289.207203638398,
-      "history_events": 85,
+      "current_cash": 6629.222527551435,
+      "current_equity": 9294.724803032572,
+      "history_events": 87,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -643,12 +675,42 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-27T01:30:09.941673",
-          "equity": 9289.207203638398,
+          "time": "2026-03-28T01:23:57.734633",
+          "equity": 10459.523253550527,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-28T01:23:57.758750",
+          "equity": 10459.523281222726,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-28T01:24:00.789677",
+          "equity": 9294.724803032572,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-28T01:23:57.758750",
+          "symbol": "DOT/USDT",
+          "side": "SHORT",
+          "qty": 7.3887107213756e-05,
+          "entry_price": 1.65452,
+          "exit_price": 1.28,
+          "pnl": 2.7672199393695896e-05,
+          "chart_b64": ""
+        },
+        {
+          "time": "2026-03-28T01:23:57.734633",
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 8.362729197220403,
+          "entry_price": 9.95,
+          "exit_price": 8.74,
+          "pnl": 10.11890232863668,
+          "chart_b64": ""
+        },
         {
           "time": "2026-03-27T01:30:07.686402",
           "symbol": "DOT/USDT",
@@ -1154,45 +1216,33 @@ window.REPORT_DATA = {
     "rsi_forex": {
       "active_positions": [
         {
-          "symbol": "GBP/USD",
-          "side": "LONG",
-          "qty": 1821.4289548792185,
-          "entry": 1.32137,
-          "current_price": 1.33368,
-          "unrealized_pnl": 22.42179043456326,
-          "sl": 1.3260375,
-          "tp1": true,
-          "tp_price": 1.3322892857142856,
-          "value": 2429.203368543316
-        },
-        {
           "symbol": "EUR/USD",
           "side": "LONG",
           "qty": 2151.1598325715854,
           "entry": 1.14164,
-          "current_price": 1.15346,
-          "unrealized_pnl": 25.426709220996013,
+          "current_price": 1.15114,
+          "unrealized_pnl": 20.4360184094302,
           "sl": 1.1486310714285715,
           "tp1": true,
           "tp_price": 1.1506978571428572,
-          "value": 2481.276820478021
+          "value": 2476.286129666455
         },
         {
           "symbol": "USD/CAD",
           "side": "SHORT",
           "qty": 3665.8626810437445,
           "entry": 1.38218,
-          "current_price": 1.38536,
-          "unrealized_pnl": -11.657443325718964,
+          "current_price": 1.389,
+          "unrealized_pnl": -25.001183484718513,
           "sl": 1.3910278571428571,
           "tp1": false,
           "tp_price": 1.3762814285714284,
-          "value": 5078.539523810761
+          "value": 5091.883263969761
         }
       ],
-      "current_cash": 0.0,
-      "current_equity": 9989.019712832098,
-      "history_events": 20,
+      "current_cash": 2413.6665795581966,
+      "current_equity": 9981.835973194413,
+      "history_events": 21,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:28.016748",
@@ -1300,12 +1350,27 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-03-27T01:30:10.537653",
-          "equity": 9989.019712832098,
+          "time": "2026-03-28T01:23:57.823416",
+          "equity": 9936.398771300263,
+          "type": "trade"
+        },
+        {
+          "time": "2026-03-28T01:24:01.319998",
+          "equity": 9981.835973194413,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-03-28T01:23:57.823416",
+          "symbol": "GBP/USD",
+          "side": "LONG",
+          "qty": 1821.4289548792185,
+          "entry_price": 1.32137,
+          "exit_price": 1.32515,
+          "pnl": 6.885001449443735,
+          "chart_b64": ""
+        },
         {
           "time": "2026-03-25T01:24:49.305157",
           "symbol": "USD/CAD",
