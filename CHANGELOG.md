@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.10.0 (2026-04-13)
+
+### Features
+
+- Implement chart snapshots on trade exits
+  ([`eb2572d`](https://github.com/Amirlabai/bot-trader/commit/eb2572d2bf4370e68ae5ec7bd41e0ac3793f3656))
+
+
 ## v1.9.0 (2026-03-21)
 
 ### Features
