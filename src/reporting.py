@@ -33,6 +33,8 @@ def _render_chart_b64(snapshot: dict) -> str:
         sl = snapshot.get("stop_loss", 0.0)
         tp = snapshot.get("take_profit", 0.0)
         indicators = snapshot.get("indicators", {})
+        entry_price = snapshot.get("entry_price")
+        entry_date = snapshot.get("entry_date")
 
         n = len(candles)
         xs = list(range(n))
@@ -99,13 +101,40 @@ def _render_chart_b64(snapshot: dict) -> str:
         if tp and tp > 0:
             ax.axhline(tp, color="#3fb950", linewidth=1.0, linestyle=":", alpha=0.85, label=f"TP {tp:.4g}")
 
-        # --- Entry vertical marker (last candle is the entry candle) ---
-        ax.axvline(n - 1, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.7, label="Entry")
+        # --- Entry line ---
+        if entry_price is not None:
+            ax.axhline(entry_price, color="#58a6ff", linewidth=1.2, linestyle="-", alpha=0.85, label=f"Entry {entry_price:.4g}")
+
+            # If we have an entry date, try to find it in the dates list
+            if entry_date:
+                # Dates are stored as YYYY-MM-DD
+                entry_date_str = str(entry_date)[:10]
+                if entry_date_str in dates:
+                    idx = dates.index(entry_date_str)
+                    ax.axvline(idx, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.7, label=f"Entry Date")
+                else:
+                    # Date is out of bounds, just draw a dashed vertical line at start of chart to indicate it was before
+                    ax.axvline(0, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.3)
+        else:
+            # Fallback for old snapshots (entry at n-1)
+            ax.axvline(n - 1, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.7, label="Entry")
+
+        # Draw exit marker (last candle)
+        ax.axvline(n - 1, color="#a371f7", linewidth=1.0, linestyle=":", alpha=0.7, label="Exit/Current")
 
         # --- Axis styling ---
         ax.set_xlim(-0.8, n - 0.2)
-        price_range = max(highs) - min(lows)
-        ax.set_ylim(min(lows) - price_range * 0.05, max(highs) + price_range * 0.05)
+
+        all_prices = highs + lows
+        if sl: all_prices.append(sl)
+        if tp: all_prices.append(tp)
+        if entry_price: all_prices.append(entry_price)
+
+        max_p = max(all_prices)
+        min_p = min(all_prices)
+        price_range = max_p - min_p if max_p > min_p else max(highs) * 0.01
+
+        ax.set_ylim(min_p - price_range * 0.05, max_p + price_range * 0.05)
 
         tick_indices = [0, n // 4, n // 2, 3 * n // 4, n - 1]
         ax.set_xticks([i for i in tick_indices if i < n])
@@ -312,8 +341,11 @@ class ReportGenerator:
                 if "pnl" in event:
                     entry_price = event.get('entry_price', 0.0)
 
-                    # Locate the matching OPEN snapshot for this close event
-                    snapshot = _find_open_snapshot(history, event['symbol'], entry_price)
+                    # Locate the snapshot. Ideally, it's stored directly on the close event now.
+                    # Fallback to OPEN snapshot for older ledger entries.
+                    snapshot = event.get('snapshot')
+                    if not snapshot:
+                        snapshot = _find_open_snapshot(history, event['symbol'], entry_price)
                     chart_b64 = _render_chart_b64(snapshot) if snapshot else ""
 
                     trade_history.append({

@@ -12,7 +12,7 @@ from config import Config, TRADING_CONFIG
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 
-def _build_candle_snapshot(market_data, signal_data, n=20):
+def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, entry_date=None):
     """
     Builds a lightweight OHLCV snapshot (last n candles) plus indicator values
     extracted from signal_data, for chart rendering at report time.
@@ -33,6 +33,8 @@ def _build_candle_snapshot(market_data, signal_data, n=20):
         "take_profit": signal_data.get("take_profit", 0.0),
         "indicators": signal_data.get("indicators", {}),
         "reason": signal_data.get("reason", ""),
+        "entry_price": entry_price,
+        "entry_date": entry_date
     }
 
 
@@ -105,7 +107,10 @@ def main():
                     print(f"    Signal BUY -> Closing SHORT {symbol}")
                     pct = signal_data.get('quantity_pct', 1.0)
                     qty_to_cover = pos_data['qty'] * pct
-                    if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy'):
+                    entry_price = pos_data.get('entry_price')
+                    entry_date = pos_data.get('entry_date')
+                    snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date)
+                    if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy', candle_snapshot=snapshot):
                          print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {current_price}")
 
                 # 2. Open/Add LONG (If Flat or Long)
@@ -140,7 +145,10 @@ def main():
                     print(f"    Signal SELL -> Closing LONG {symbol}")
                     pct = signal_data.get('quantity_pct', 1.0)
                     qty_to_sell = pos_data['qty'] * pct
-                    if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell'):
+                    entry_price = pos_data.get('entry_price')
+                    entry_date = pos_data.get('entry_date')
+                    snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date)
+                    if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell', candle_snapshot=snapshot):
                         print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {current_price}")
                         # Check for TP/SL updates if partial
                         new_sl = signal_data.get('stop_loss')
