@@ -1,16 +1,16 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 1562.9646087625406,
+            "cash": 1563.0796261236517,
             "positions": {
                 "ADA/USDT": {
-                    "qty": 0.7750496031746025,
+                    "qty": 0.38752480158730124,
                     "entry_price": 0.2686,
                     "side": "SHORT",
                     "stop_loss": 0.30010000000000003,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": false,
-                    "last_price": 0.24581
+                    "last_price": 0.2404
                 },
                 "BNB/USDT": {
                     "qty": 0.8115036001179609,
@@ -19,7 +19,7 @@
                     "stop_loss": 641.6853571428572,
                     "take_profit": 590.8764285714286,
                     "tp1_hit": false,
-                    "last_price": 614.27
+                    "last_price": 617.68
                 },
                 "DOGE/USDT": {
                     "qty": 14578.70160409844,
@@ -28,7 +28,7 @@
                     "stop_loss": 0.09783499999999999,
                     "take_profit": 0.08646,
                     "tp1_hit": false,
-                    "last_price": 0.09369
+                    "last_price": 0.09342
                 },
                 "XRP/USDT": {
                     "qty": 961.7474028387219,
@@ -37,7 +37,7 @@
                     "stop_loss": 1.441557142857143,
                     "take_profit": 1.2691285714285716,
                     "tp1_hit": false,
-                    "last_price": 1.367
+                    "last_price": 1.3616
                 },
                 "SOL/USDT": {
                     "qty": 14.474178494093978,
@@ -46,7 +46,7 @@
                     "stop_loss": 89.41428571428573,
                     "take_profit": 77.95714285714287,
                     "tp1_hit": false,
-                    "last_price": 86.09
+                    "last_price": 83.78
                 },
                 "BTC/USDT": {
                     "qty": 0.028964311795549272,
@@ -55,7 +55,7 @@
                     "stop_loss": 69401.74857142857,
                     "take_profit": 75042.33428571429,
                     "tp1_hit": false,
-                    "last_price": 74393.22
+                    "last_price": 74642.47
                 },
                 "ETH/USDT": {
                     "qty": 0.3315325395138892,
@@ -64,7 +64,7 @@
                     "stop_loss": 2238.14,
                     "take_profit": 2336.697857142857,
                     "tp1_hit": true,
-                    "last_price": 2365.45
+                    "last_price": 2337.16
                 },
                 "AVAX/USDT": {
                     "qty": 118.39212431816206,
@@ -72,7 +72,8 @@
                     "side": "LONG",
                     "stop_loss": 8.688450357142857,
                     "take_profit": 10.074366428571429,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 9.36
                 }
             },
             "history": [
@@ -1677,11 +1678,21 @@
                         "entry_price": null,
                         "entry_date": null
                     }
+                },
+                {
+                    "timestamp": "2026-04-15T01:48:54.684465",
+                    "symbol": "ADA/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.38752480158730124,
+                    "price": 0.2404,
+                    "total_value": 0.09316096230158721,
+                    "pnl": 0.010928199404761895,
+                    "entry_price": 0.2686
                 }
             ]
         },
         "ma_crossover_forex": {
-            "cash": 2735.9991127251387,
+            "cash": 0.0,
             "positions": {
                 "AUD/USD": {
                     "qty": 10358.36413787168,
@@ -1689,6 +1700,15 @@
                     "side": "LONG",
                     "stop_loss": 0.6983578571428573,
                     "take_profit": 0.7145614285714286,
+                    "tp1_hit": false,
+                    "last_price": 0.71245
+                },
+                "GBP/USD": {
+                    "qty": 2016.464194280152,
+                    "entry_price": 1.35683,
+                    "side": "LONG",
+                    "stop_loss": 1.3413875,
+                    "take_profit": 1.367125,
                     "tp1_hit": false
                 }
             },
@@ -1924,29 +1944,178 @@
                         "entry_price": null,
                         "entry_date": null
                     }
+                },
+                {
+                    "timestamp": "2026-04-15T01:48:57.594111",
+                    "symbol": "GBP/USD",
+                    "side": "OPEN_LONG",
+                    "quantity": 2016.464194280152,
+                    "price": 1.35683,
+                    "total_value": 2735.9991127251387,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-03-23",
+                                "open": 1.33098,
+                                "high": 1.34792,
+                                "low": 1.32568,
+                                "close": 1.34235
+                            },
+                            {
+                                "date": "2026-03-24",
+                                "open": 1.34235,
+                                "high": 1.34453,
+                                "low": 1.33521,
+                                "close": 1.3411
+                            },
+                            {
+                                "date": "2026-03-25",
+                                "open": 1.3411,
+                                "high": 1.34359,
+                                "low": 1.33581,
+                                "close": 1.33634
+                            },
+                            {
+                                "date": "2026-03-26",
+                                "open": 1.33634,
+                                "high": 1.33783,
+                                "low": 1.33101,
+                                "close": 1.33255
+                            },
+                            {
+                                "date": "2026-03-27",
+                                "open": 1.33255,
+                                "high": 1.33471,
+                                "low": 1.32515,
+                                "close": 1.32515
+                            },
+                            {
+                                "date": "2026-03-29",
+                                "open": 1.32378,
+                                "high": 1.3282,
+                                "low": 1.31759,
+                                "close": 1.32384
+                            },
+                            {
+                                "date": "2026-03-30",
+                                "open": 1.32515,
+                                "high": 1.32825,
+                                "low": 1.31737,
+                                "close": 1.31864
+                            },
+                            {
+                                "date": "2026-03-31",
+                                "open": 1.31864,
+                                "high": 1.32643,
+                                "low": 1.31593,
+                                "close": 1.32174
+                            },
+                            {
+                                "date": "2026-04-01",
+                                "open": 1.32174,
+                                "high": 1.33462,
+                                "low": 1.32168,
+                                "close": 1.32983
+                            },
+                            {
+                                "date": "2026-04-02",
+                                "open": 1.32983,
+                                "high": 1.33203,
+                                "low": 1.31817,
+                                "close": 1.32234
+                            },
+                            {
+                                "date": "2026-04-03",
+                                "open": 1.32234,
+                                "high": 1.32426,
+                                "low": 1.31791,
+                                "close": 1.31851
+                            },
+                            {
+                                "date": "2026-04-05",
+                                "open": 1.31891,
+                                "high": 1.32684,
+                                "low": 1.31863,
+                                "close": 1.31863
+                            },
+                            {
+                                "date": "2026-04-06",
+                                "open": 1.31835,
+                                "high": 1.32686,
+                                "low": 1.31759,
+                                "close": 1.32319
+                            },
+                            {
+                                "date": "2026-04-07",
+                                "open": 1.32319,
+                                "high": 1.33008,
+                                "low": 1.32114,
+                                "close": 1.32886
+                            },
+                            {
+                                "date": "2026-04-08",
+                                "open": 1.32886,
+                                "high": 1.34846,
+                                "low": 1.32807,
+                                "close": 1.33918
+                            },
+                            {
+                                "date": "2026-04-09",
+                                "open": 1.33918,
+                                "high": 1.34585,
+                                "low": 1.33808,
+                                "close": 1.34331
+                            },
+                            {
+                                "date": "2026-04-10",
+                                "open": 1.34331,
+                                "high": 1.3479,
+                                "low": 1.34107,
+                                "close": 1.34547
+                            },
+                            {
+                                "date": "2026-04-12",
+                                "open": 1.33896,
+                                "high": 1.34655,
+                                "low": 1.33869,
+                                "close": 1.33944
+                            },
+                            {
+                                "date": "2026-04-13",
+                                "open": 1.33812,
+                                "high": 1.35086,
+                                "low": 1.33805,
+                                "close": 1.35051
+                            },
+                            {
+                                "date": "2026-04-14",
+                                "open": 1.35657,
+                                "high": 1.35791,
+                                "low": 1.35551,
+                                "close": 1.35683
+                            }
+                        ],
+                        "stop_loss": 1.3413875,
+                        "take_profit": 1.367125,
+                        "indicators": {},
+                        "reason": "Golden Cross (Confirmed Close)",
+                        "entry_price": null,
+                        "entry_date": null
+                    }
                 }
             ]
         },
         "rsi_crypto": {
-            "cash": 0.0,
+            "cash": 2484.092223135135,
             "positions": {
                 "AVAX/USDT": {
-                    "qty": 0.0001276051208071961,
+                    "qty": 6.380256040359805e-05,
                     "entry_price": 9.95,
                     "side": "SHORT",
                     "stop_loss": 10.645357142857142,
                     "take_profit": 9.48642857142857,
                     "tp1_hit": false,
-                    "last_price": 9.52
-                },
-                "TRX/USDT": {
-                    "qty": 8364.507881527874,
-                    "entry_price": 0.31097,
-                    "side": "SHORT",
-                    "stop_loss": 0.3220925,
-                    "take_profit": 0.303555,
-                    "tp1_hit": false,
-                    "last_price": 0.32152
+                    "last_price": 9.36
                 },
                 "BNB/USDT": {
                     "qty": 3.1050778680597215,
@@ -1955,7 +2124,7 @@
                     "stop_loss": 582.7992857142857,
                     "take_profit": 632.8171428571428,
                     "tp1_hit": false,
-                    "last_price": 614.27
+                    "last_price": 617.68
                 },
                 "XRP/USDT": {
                     "qty": 979.9015841495425,
@@ -1964,7 +2133,7 @@
                     "stop_loss": 1.2462764285714285,
                     "take_profit": 1.4048157142857143,
                     "tp1_hit": false,
-                    "last_price": 1.367
+                    "last_price": 1.3616
                 },
                 "ADA/USDT": {
                     "qty": 4553.895647192452,
@@ -1973,7 +2142,7 @@
                     "stop_loss": 0.22773142857142856,
                     "take_profit": 0.2618457142857143,
                     "tp1_hit": false,
-                    "last_price": 0.24581
+                    "last_price": 0.2404
                 },
                 "SOL/USDT": {
                     "qty": 14.84851830258266,
@@ -1982,7 +2151,7 @@
                     "stop_loss": 76.49182714285713,
                     "take_profit": 86.95544857142856,
                     "tp1_hit": false,
-                    "last_price": 86.09
+                    "last_price": 83.78
                 },
                 "BTC/USDT": {
                     "qty": 0.0082624268384757,
@@ -1991,7 +2160,7 @@
                     "stop_loss": 76170.45142857144,
                     "take_profit": 70529.86571428573,
                     "tp1_hit": false,
-                    "last_price": 74393.22
+                    "last_price": 74642.47
                 },
                 "ETH/USDT": {
                     "qty": 0.24168645436067415,
@@ -1999,7 +2168,8 @@
                     "side": "SHORT",
                     "stop_loss": 2529.298214285714,
                     "take_profit": 2256.217857142857,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 2337.16
                 }
             },
             "history": [
@@ -4294,29 +4464,49 @@
                         "entry_price": null,
                         "entry_date": null
                     }
+                },
+                {
+                    "timestamp": "2026-04-15T01:49:00.655637",
+                    "symbol": "AVAX/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 6.380256040359805e-05,
+                    "price": 9.36,
+                    "total_value": 0.0005971919653776777,
+                    "pnl": 3.764351063812284e-05,
+                    "entry_price": 9.95
+                },
+                {
+                    "timestamp": "2026-04-15T01:49:00.708360",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 8364.507881527874,
+                    "price": 0.32496,
+                    "total_value": 2718.130481181298,
+                    "pnl": -117.01946526257498,
+                    "entry_price": 0.31097
                 }
             ]
         },
         "rsi_forex": {
-            "cash": 234.7252925866142,
+            "cash": 0.0,
             "positions": {
                 "EUR/USD": {
                     "qty": 2151.1598325715854,
                     "entry_price": 1.14164,
                     "side": "LONG",
-                    "stop_loss": 1.1644332142857143,
+                    "stop_loss": 1.167544642857143,
                     "take_profit": 1.1506978571428572,
                     "tp1_hit": true,
-                    "last_price": 1.17628
+                    "last_price": 1.1791
                 },
                 "USD/CAD": {
-                    "qty": 167.25354143594114,
+                    "qty": 83.62677071797057,
                     "entry_price": 1.39101,
                     "side": "SHORT",
                     "stop_loss": 1.3994110714285717,
                     "take_profit": 1.3854092857142857,
                     "tp1_hit": false,
-                    "last_price": 1.37861
+                    "last_price": 1.37694
                 },
                 "AUD/USD": {
                     "qty": 9910.83998628685,
@@ -4324,6 +4514,23 @@
                     "side": "SHORT",
                     "stop_loss": 0.7178021428571428,
                     "take_profit": 0.7015985714285715,
+                    "tp1_hit": false,
+                    "last_price": 0.71245
+                },
+                "GBP/USD": {
+                    "qty": 172.99535873072838,
+                    "entry_price": 1.35683,
+                    "side": "SHORT",
+                    "stop_loss": 1.3722725,
+                    "take_profit": 1.346535,
+                    "tp1_hit": false
+                },
+                "USD/CHF": {
+                    "qty": 150.44338702295158,
+                    "entry_price": 0.78104,
+                    "side": "LONG",
+                    "stop_loss": 0.7714507142857142,
+                    "take_profit": 0.787432857142857,
                     "tp1_hit": false
                 }
             },
@@ -5045,6 +5252,332 @@
                     "total_value": 230.5774047590028,
                     "pnl": 2.0739439138057016,
                     "entry_price": 1.39101
+                },
+                {
+                    "timestamp": "2026-04-15T01:49:00.749164",
+                    "symbol": "GBP/USD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 172.99535873072838,
+                    "price": 1.35683,
+                    "total_value": 234.7252925866142,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-03-23",
+                                "open": 1.33098,
+                                "high": 1.34792,
+                                "low": 1.32568,
+                                "close": 1.34235
+                            },
+                            {
+                                "date": "2026-03-24",
+                                "open": 1.34235,
+                                "high": 1.34453,
+                                "low": 1.33521,
+                                "close": 1.3411
+                            },
+                            {
+                                "date": "2026-03-25",
+                                "open": 1.3411,
+                                "high": 1.34359,
+                                "low": 1.33581,
+                                "close": 1.33634
+                            },
+                            {
+                                "date": "2026-03-26",
+                                "open": 1.33634,
+                                "high": 1.33783,
+                                "low": 1.33101,
+                                "close": 1.33255
+                            },
+                            {
+                                "date": "2026-03-27",
+                                "open": 1.33255,
+                                "high": 1.33471,
+                                "low": 1.32515,
+                                "close": 1.32515
+                            },
+                            {
+                                "date": "2026-03-29",
+                                "open": 1.32378,
+                                "high": 1.3282,
+                                "low": 1.31759,
+                                "close": 1.32384
+                            },
+                            {
+                                "date": "2026-03-30",
+                                "open": 1.32515,
+                                "high": 1.32825,
+                                "low": 1.31737,
+                                "close": 1.31864
+                            },
+                            {
+                                "date": "2026-03-31",
+                                "open": 1.31864,
+                                "high": 1.32643,
+                                "low": 1.31593,
+                                "close": 1.32174
+                            },
+                            {
+                                "date": "2026-04-01",
+                                "open": 1.32174,
+                                "high": 1.33462,
+                                "low": 1.32168,
+                                "close": 1.32983
+                            },
+                            {
+                                "date": "2026-04-02",
+                                "open": 1.32983,
+                                "high": 1.33203,
+                                "low": 1.31817,
+                                "close": 1.32234
+                            },
+                            {
+                                "date": "2026-04-03",
+                                "open": 1.32234,
+                                "high": 1.32426,
+                                "low": 1.31791,
+                                "close": 1.31851
+                            },
+                            {
+                                "date": "2026-04-05",
+                                "open": 1.31891,
+                                "high": 1.32684,
+                                "low": 1.31863,
+                                "close": 1.31863
+                            },
+                            {
+                                "date": "2026-04-06",
+                                "open": 1.31835,
+                                "high": 1.32686,
+                                "low": 1.31759,
+                                "close": 1.32319
+                            },
+                            {
+                                "date": "2026-04-07",
+                                "open": 1.32319,
+                                "high": 1.33008,
+                                "low": 1.32114,
+                                "close": 1.32886
+                            },
+                            {
+                                "date": "2026-04-08",
+                                "open": 1.32886,
+                                "high": 1.34846,
+                                "low": 1.32807,
+                                "close": 1.33918
+                            },
+                            {
+                                "date": "2026-04-09",
+                                "open": 1.33918,
+                                "high": 1.34585,
+                                "low": 1.33808,
+                                "close": 1.34331
+                            },
+                            {
+                                "date": "2026-04-10",
+                                "open": 1.34331,
+                                "high": 1.3479,
+                                "low": 1.34107,
+                                "close": 1.34547
+                            },
+                            {
+                                "date": "2026-04-12",
+                                "open": 1.33896,
+                                "high": 1.34655,
+                                "low": 1.33869,
+                                "close": 1.33944
+                            },
+                            {
+                                "date": "2026-04-13",
+                                "open": 1.33812,
+                                "high": 1.35086,
+                                "low": 1.33805,
+                                "close": 1.35051
+                            },
+                            {
+                                "date": "2026-04-14",
+                                "open": 1.35657,
+                                "high": 1.35791,
+                                "low": 1.35551,
+                                "close": 1.35683
+                            }
+                        ],
+                        "stop_loss": 1.3722725,
+                        "take_profit": 1.346535,
+                        "indicators": {},
+                        "reason": "RSI Overbought (71.12) - Short",
+                        "entry_price": null,
+                        "entry_date": null
+                    }
+                },
+                {
+                    "timestamp": "2026-04-15T01:49:00.812969",
+                    "symbol": "USD/CAD",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 83.62677071797057,
+                    "price": 1.37694,
+                    "total_value": 115.14904567240241,
+                    "pnl": 1.1766286640018482,
+                    "entry_price": 1.39101
+                },
+                {
+                    "timestamp": "2026-04-15T01:49:00.835066",
+                    "symbol": "USD/CHF",
+                    "side": "OPEN_LONG",
+                    "quantity": 150.44338702295158,
+                    "price": 0.78104,
+                    "total_value": 117.5023030004061,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-03-23",
+                                "open": 0.78727,
+                                "high": 0.79398,
+                                "low": 0.78342,
+                                "close": 0.78625
+                            },
+                            {
+                                "date": "2026-03-24",
+                                "open": 0.78625,
+                                "high": 0.79246,
+                                "low": 0.78555,
+                                "close": 0.78817
+                            },
+                            {
+                                "date": "2026-03-25",
+                                "open": 0.78817,
+                                "high": 0.79245,
+                                "low": 0.78697,
+                                "close": 0.79085
+                            },
+                            {
+                                "date": "2026-03-26",
+                                "open": 0.79085,
+                                "high": 0.79591,
+                                "low": 0.79056,
+                                "close": 0.79454
+                            },
+                            {
+                                "date": "2026-03-27",
+                                "open": 0.79454,
+                                "high": 0.79933,
+                                "low": 0.79344,
+                                "close": 0.79818
+                            },
+                            {
+                                "date": "2026-03-29",
+                                "open": 0.79984,
+                                "high": 0.80126,
+                                "low": 0.7978,
+                                "close": 0.7998
+                            },
+                            {
+                                "date": "2026-03-30",
+                                "open": 0.79818,
+                                "high": 0.80127,
+                                "low": 0.79716,
+                                "close": 0.79829
+                            },
+                            {
+                                "date": "2026-03-31",
+                                "open": 0.79829,
+                                "high": 0.80424,
+                                "low": 0.7979,
+                                "close": 0.79894
+                            },
+                            {
+                                "date": "2026-04-01",
+                                "open": 0.79894,
+                                "high": 0.79934,
+                                "low": 0.79045,
+                                "close": 0.79366
+                            },
+                            {
+                                "date": "2026-04-02",
+                                "open": 0.79366,
+                                "high": 0.80085,
+                                "low": 0.79275,
+                                "close": 0.79875
+                            },
+                            {
+                                "date": "2026-04-03",
+                                "open": 0.79875,
+                                "high": 0.80311,
+                                "low": 0.79724,
+                                "close": 0.7994
+                            },
+                            {
+                                "date": "2026-04-05",
+                                "open": 0.80108,
+                                "high": 0.80176,
+                                "low": 0.79626,
+                                "close": 0.80115
+                            },
+                            {
+                                "date": "2026-04-06",
+                                "open": 0.7994,
+                                "high": 0.80182,
+                                "low": 0.7961,
+                                "close": 0.7972
+                            },
+                            {
+                                "date": "2026-04-07",
+                                "open": 0.7972,
+                                "high": 0.80109,
+                                "low": 0.79665,
+                                "close": 0.797
+                            },
+                            {
+                                "date": "2026-04-08",
+                                "open": 0.797,
+                                "high": 0.79814,
+                                "low": 0.7869,
+                                "close": 0.79081
+                            },
+                            {
+                                "date": "2026-04-09",
+                                "open": 0.79081,
+                                "high": 0.79219,
+                                "low": 0.7879,
+                                "close": 0.78986
+                            },
+                            {
+                                "date": "2026-04-10",
+                                "open": 0.78986,
+                                "high": 0.79136,
+                                "low": 0.78544,
+                                "close": 0.78831
+                            },
+                            {
+                                "date": "2026-04-12",
+                                "open": 0.79288,
+                                "high": 0.7929,
+                                "low": 0.787,
+                                "close": 0.79261
+                            },
+                            {
+                                "date": "2026-04-13",
+                                "open": 0.78944,
+                                "high": 0.7934,
+                                "low": 0.78262,
+                                "close": 0.78262
+                            },
+                            {
+                                "date": "2026-04-14",
+                                "open": 0.78074,
+                                "high": 0.7816,
+                                "low": 0.78022,
+                                "close": 0.78104
+                            }
+                        ],
+                        "stop_loss": 0.7714507142857142,
+                        "take_profit": 0.787432857142857,
+                        "indicators": {},
+                        "reason": "RSI Oversold (28.51) - Long",
+                        "entry_price": null,
+                        "entry_date": null
+                    }
                 }
             ]
         }
