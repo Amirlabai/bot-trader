@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-05-11T02:27:53.282772"
+    "last_updated": "2026-05-12T02:13:16.407567"
   },
   "strategies": {
     "ma_crossover_crypto": {
@@ -10,76 +10,76 @@
           "side": "SHORT",
           "qty": 0.012110150049603164,
           "entry": 0.2686,
-          "current_price": 0.2783,
-          "unrealized_pnl": -0.00011746845548115053,
+          "current_price": 0.2785,
+          "unrealized_pnl": -0.00011989048549107156,
           "sl": 0.30010000000000003,
           "tp1": false,
           "tp_price": 0.24760000000000001,
-          "value": 0.0033702547588045605
+          "value": 0.0033726767888144814
         },
         {
           "symbol": "BTC/USDT",
           "side": "LONG",
           "qty": 0.014482155897774636,
           "entry": 72786.1,
-          "current_price": 81255.99,
-          "unrealized_pnl": 122.6622674170024,
+          "current_price": 81155.52,
+          "unrealized_pnl": 121.20724521395297,
           "sl": 78495.74642857142,
           "tp1": true,
           "tp_price": 75042.33428571429,
-          "value": 1176.7619148080169
+          "value": 1175.3068926049675
         },
         {
           "symbol": "ETH/USDT",
           "side": "LONG",
           "qty": 0.3315325395138892,
           "entry": 2238.14,
-          "current_price": 2352.89,
-          "unrealized_pnl": 38.04335890921879,
+          "current_price": 2314.87,
+          "unrealized_pnl": 25.438491756900728,
           "sl": 2261.2678571428573,
           "tp1": true,
           "tp_price": 2336.697857142857,
-          "value": 780.0595968968348
+          "value": 767.4547297445167
         },
         {
           "symbol": "AVAX/USDT",
           "side": "LONG",
           "qty": 59.19606215908103,
           "entry": 9.52,
-          "current_price": 10.09,
-          "unrealized_pnl": 33.74175543067621,
+          "current_price": 10.06,
+          "unrealized_pnl": 31.965873565903813,
           "sl": 9.599365,
           "tp1": true,
           "tp_price": 10.074366428571429,
-          "value": 597.2882671851276
+          "value": 595.5123853203552
         },
         {
           "symbol": "SOL/USDT",
           "side": "LONG",
           "qty": 21.864245117447922,
           "entry": 95.67,
-          "current_price": 95.67,
-          "unrealized_pnl": 0.0,
+          "current_price": 96.65,
+          "unrealized_pnl": 21.42696021509905,
           "sl": 91.36917535714286,
           "tp1": false,
           "tp_price": 98.53721642857143,
-          "value": 2091.7523303862426
+          "value": 2113.1792906013416
         },
         {
           "symbol": "DOT/USDT",
           "side": "LONG",
           "qty": 1196.4791067670458,
           "entry": 1.36,
-          "current_price": 1.36,
-          "unrealized_pnl": 0.0,
+          "current_price": 1.355,
+          "unrealized_pnl": -5.982395533835367,
           "sl": 1.2814075000000003,
           "tp1": false,
           "tp_price": 1.412395,
-          "value": 1627.2115852031823
+          "value": 1621.229189669347
         }
       ],
       "current_cash": 3324.798854350076,
-      "current_equity": 9597.87591908424,
+      "current_equity": 9597.484714967391,
       "history_events": 45,
       "equity_curve": [
         {
@@ -313,8 +313,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-05-11T02:27:53.282834",
-          "equity": 9597.87591908424,
+          "time": "2026-05-12T02:13:16.407636",
+          "equity": 9597.484714967391,
           "type": "current"
         }
       ],
@@ -638,52 +638,52 @@
           "side": "LONG",
           "qty": 5179.18206893584,
           "entry": 0.70808,
-          "current_price": 0.72335,
-          "unrealized_pnl": 79.08611019265031,
+          "current_price": 0.72334,
+          "unrealized_pnl": 79.03431837196061,
           "sl": 0.71584,
           "tp1": true,
           "tp_price": 0.7145614285714286,
-          "value": 3746.36134956474
+          "value": 3746.3095577440504
         },
         {
           "symbol": "GBP/USD",
           "side": "LONG",
           "qty": 2016.464194280152,
           "entry": 1.35683,
-          "current_price": 1.3595,
-          "unrealized_pnl": 5.383959398727906,
+          "current_price": 1.35893,
+          "unrealized_pnl": 4.2345748079883005,
           "sl": 1.3413875,
           "tp1": false,
           "tp_price": 1.367125,
-          "value": 2741.3830721238664
+          "value": 2740.233687533127
         },
         {
           "symbol": "USD/CAD",
           "side": "SHORT",
           "qty": 42.43012796663191,
           "entry": 1.36885,
-          "current_price": 1.36852,
-          "unrealized_pnl": 0.014001942228986045,
+          "current_price": 1.36895,
+          "unrealized_pnl": -0.004243012796662724,
           "sl": 1.3774417857142855,
           "tp1": false,
           "tp_price": 1.3631221428571427,
-          "value": 58.0664787248951
+          "value": 58.08472367992074
         },
         {
           "symbol": "USD/CHF",
           "side": "SHORT",
           "qty": 4754.2268559229515,
           "entry": 0.77562,
-          "current_price": 0.77842,
-          "unrealized_pnl": -13.311835196584381,
+          "current_price": 0.77946,
+          "unrealized_pnl": -18.256231126744446,
           "sl": 0.7831864285714285,
           "tp1": false,
           "tp_price": 0.7705757142857143,
-          "value": 3700.7852691875437
+          "value": 3705.729665117704
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10246.596169601045,
+      "current_equity": 10250.357634074802,
       "history_events": 19,
       "equity_curve": [
         {
@@ -787,8 +787,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-05-11T02:27:55.009432",
-          "equity": 10246.596169601045,
+          "time": "2026-05-12T02:13:18.438951",
+          "equity": 10250.357634074802,
           "type": "current"
         }
       ],
@@ -922,77 +922,89 @@
           "side": "SHORT",
           "qty": 0.24168645436067415,
           "entry": 2365.45,
-          "current_price": 2352.89,
-          "unrealized_pnl": 3.035581866770054,
+          "current_price": 2314.87,
+          "unrealized_pnl": 12.22450086156288,
           "sl": 2529.298214285714,
           "tp1": false,
           "tp_price": 2256.217857142857,
-          "value": 568.6616416006866
+          "value": 559.4727226058938
         },
         {
           "symbol": "BNB/USDT",
           "side": "SHORT",
           "qty": 0.0035045561361249965,
           "entry": 645.92,
-          "current_price": 655.54,
-          "unrealized_pnl": -0.03371383002952248,
+          "current_price": 664.01,
+          "unrealized_pnl": -0.0633974205025013,
           "sl": 671.9567792857142,
           "tp1": false,
           "tp_price": 628.562147142857,
-          "value": 2.29737672947538
+          "value": 2.327060319948359
         },
         {
           "symbol": "DOT/USDT",
           "side": "LONG",
           "qty": 626.6359682192842,
           "entry": 1.208,
-          "current_price": 1.36,
-          "unrealized_pnl": 95.24866716933128,
+          "current_price": 1.355,
+          "unrealized_pnl": 92.11548732823479,
           "sl": 1.3083571428571428,
           "tp1": true,
           "tp_price": 1.2583571428571427,
-          "value": 852.2249167782267
+          "value": 849.0917369371301
         },
         {
           "symbol": "DOGE/USDT",
           "side": "SHORT",
           "qty": 7286.05552998661,
           "entry": 0.11111,
-          "current_price": 0.10996,
-          "unrealized_pnl": 8.378963859484589,
+          "current_price": 0.11113,
+          "unrealized_pnl": -0.14572111059977683,
           "sl": 0.11751821428571428,
           "tp1": false,
           "tp_price": 0.10683785714285714,
-          "value": 801.1746660773276
+          "value": 809.699351047412
         },
         {
           "symbol": "TRX/USDT",
           "side": "SHORT",
           "qty": 12143.764281691489,
           "entry": 0.34594,
-          "current_price": 0.34986,
-          "unrealized_pnl": -47.60355598423038,
+          "current_price": 0.35032,
+          "unrealized_pnl": -53.18968755380866,
           "sl": 0.3536296428571429,
           "tp1": false,
           "tp_price": 0.34081357142857144,
-          "value": 4248.617371592584
+          "value": 4254.203503162163
         },
         {
           "symbol": "SOL/USDT",
           "side": "SHORT",
           "qty": 21.96978383729489,
           "entry": 95.67,
-          "current_price": 95.67,
-          "unrealized_pnl": 0.0,
+          "current_price": 96.65,
+          "unrealized_pnl": -21.53038816054908,
           "sl": 99.97082464285714,
           "tp1": false,
           "tp_price": 92.80278357142858,
-          "value": 2101.849219714002
+          "value": 2123.3796078745513
+        },
+        {
+          "symbol": "ADA/USDT",
+          "side": "SHORT",
+          "qty": 3856.377381772022,
+          "entry": 0.2785,
+          "current_price": 0.2785,
+          "unrealized_pnl": 0.0,
+          "sl": 0.2936714285714286,
+          "tp1": false,
+          "tp_price": 0.26838571428571434,
+          "value": 1074.0011008235083
         }
       ],
-      "current_cash": 1074.0011008235083,
-      "current_equity": 9648.826293315811,
-      "history_events": 166,
+      "current_cash": 0.0,
+      "current_equity": 9672.175082770607,
+      "history_events": 167,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:27.702178",
@@ -1830,8 +1842,13 @@
           "type": "trade"
         },
         {
-          "time": "2026-05-11T02:27:56.350561",
-          "equity": 9648.826293315811,
+          "time": "2026-05-12T02:13:14.636684",
+          "equity": 10663.335372925367,
+          "type": "trade"
+        },
+        {
+          "time": "2026-05-12T02:13:19.986705",
+          "equity": 9672.175082770607,
           "type": "current"
         }
       ],
@@ -2991,45 +3008,33 @@
     "rsi_forex": {
       "active_positions": [
         {
-          "symbol": "USD/CAD",
-          "side": "SHORT",
-          "qty": 1.2461359905894186e-06,
-          "entry": 1.39101,
-          "current_price": 1.36852,
-          "unrealized_pnl": 2.8025598428356175e-08,
-          "sl": 1.3994110714285717,
-          "tp1": false,
-          "tp_price": 1.3854092857142857,
-          "value": 1.705362025841431e-06
-        },
-        {
           "symbol": "GBP/USD",
           "side": "SHORT",
           "qty": 172.99535873072838,
           "entry": 1.35683,
-          "current_price": 1.3595,
-          "unrealized_pnl": -0.46189760781103617,
+          "current_price": 1.35893,
+          "unrealized_pnl": -0.363290253334528,
           "sl": 1.3722725,
           "tp1": false,
           "tp_price": 1.346535,
-          "value": 235.18719019442523
+          "value": 235.0885828399487
         },
         {
           "symbol": "EUR/USD",
           "side": "SHORT",
           "qty": 281.031309717624,
           "entry": 1.17592,
-          "current_price": 1.17644,
-          "unrealized_pnl": -0.14613628105312343,
+          "current_price": 1.17614,
+          "unrealized_pnl": -0.061826888137845516,
           "sl": 1.1860182142857143,
           "tp1": false,
           "tp_price": 1.1691878571428573,
-          "value": 330.61647400420156
+          "value": 330.5321646112863
         }
       ],
-      "current_cash": 9351.570478472946,
-      "current_equity": 9917.374144376934,
-      "history_events": 66,
+      "current_cash": 9351.570479353384,
+      "current_equity": 9917.19122680462,
+      "history_events": 67,
       "equity_curve": [
         {
           "time": "2026-02-05T10:35:28.016748",
@@ -3367,12 +3372,27 @@
           "type": "trade"
         },
         {
-          "time": "2026-05-11T02:28:07.298544",
-          "equity": 9917.374144376934,
+          "time": "2026-05-12T02:13:14.847954",
+          "equity": 9916.766110529841,
+          "type": "trade"
+        },
+        {
+          "time": "2026-05-12T02:13:33.070588",
+          "equity": 9917.19122680462,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-05-12T02:13:14.847954",
+          "symbol": "USD/CAD",
+          "side": "SHORT",
+          "qty": 6.230679952947093e-07,
+          "entry_price": 1.39101,
+          "exit_price": 1.36895,
+          "pnl": 1.3744879976201406e-08,
+          "chart_b64": "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"
+        },
         {
           "time": "2026-05-11T02:27:51.840559",
           "symbol": "USD/CAD",
