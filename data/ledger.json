@@ -1,7 +1,7 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 3324.798854350076,
+            "cash": 1153.863474490532,
             "positions": {
                 "ADA/USDT": {
                     "qty": 0.012110150049603164,
@@ -10,7 +10,7 @@
                     "stop_loss": 0.30010000000000003,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": false,
-                    "last_price": 0.2785
+                    "last_price": 0.2733
                 },
                 "BTC/USDT": {
                     "qty": 0.014482155897774636,
@@ -19,7 +19,7 @@
                     "stop_loss": 78495.74642857142,
                     "take_profit": 75042.33428571429,
                     "tp1_hit": true,
-                    "last_price": 81155.52
+                    "last_price": 81033.9
                 },
                 "ETH/USDT": {
                     "qty": 0.3315325395138892,
@@ -28,7 +28,7 @@
                     "stop_loss": 2261.2678571428573,
                     "take_profit": 2336.697857142857,
                     "tp1_hit": true,
-                    "last_price": 2314.87
+                    "last_price": 2291.07
                 },
                 "AVAX/USDT": {
                     "qty": 59.19606215908103,
@@ -37,7 +37,7 @@
                     "stop_loss": 9.599365,
                     "take_profit": 10.074366428571429,
                     "tp1_hit": true,
-                    "last_price": 10.06
+                    "last_price": 9.95
                 },
                 "SOL/USDT": {
                     "qty": 21.864245117447922,
@@ -46,7 +46,7 @@
                     "stop_loss": 91.36917535714286,
                     "take_profit": 98.53721642857143,
                     "tp1_hit": false,
-                    "last_price": 96.65
+                    "last_price": 95.08
                 },
                 "DOT/USDT": {
                     "qty": 1196.4791067670458,
@@ -55,7 +55,15 @@
                     "stop_loss": 1.2814075000000003,
                     "take_profit": 1.412395,
                     "tp1_hit": false,
-                    "last_price": 1.355
+                    "last_price": 1.36
+                },
+                "XRP/USDT": {
+                    "qty": 1499.0577129260764,
+                    "entry_price": 1.4482,
+                    "side": "LONG",
+                    "stop_loss": 1.3854710714285714,
+                    "take_profit": 1.4900192857142858,
+                    "tp1_hit": false
                 }
             },
             "history": [
@@ -2264,6 +2272,164 @@
                         "entry_price": null,
                         "entry_date": null
                     }
+                },
+                {
+                    "timestamp": "2026-05-13T02:28:10.727046",
+                    "symbol": "XRP/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1499.0577129260764,
+                    "price": 1.4482,
+                    "total_value": 2170.935379859544,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-04-23",
+                                "open": 1.4298,
+                                "high": 1.4416,
+                                "low": 1.4092,
+                                "close": 1.4393
+                            },
+                            {
+                                "date": "2026-04-24",
+                                "open": 1.4394,
+                                "high": 1.451,
+                                "low": 1.4243,
+                                "close": 1.4338
+                            },
+                            {
+                                "date": "2026-04-25",
+                                "open": 1.4338,
+                                "high": 1.4382,
+                                "low": 1.419,
+                                "close": 1.4244
+                            },
+                            {
+                                "date": "2026-04-26",
+                                "open": 1.4244,
+                                "high": 1.4375,
+                                "low": 1.4182,
+                                "close": 1.431
+                            },
+                            {
+                                "date": "2026-04-27",
+                                "open": 1.4312,
+                                "high": 1.4473,
+                                "low": 1.3837,
+                                "close": 1.4006
+                            },
+                            {
+                                "date": "2026-04-28",
+                                "open": 1.4008,
+                                "high": 1.4008,
+                                "low": 1.3677,
+                                "close": 1.3803
+                            },
+                            {
+                                "date": "2026-04-29",
+                                "open": 1.3804,
+                                "high": 1.4065,
+                                "low": 1.3456,
+                                "close": 1.3687
+                            },
+                            {
+                                "date": "2026-04-30",
+                                "open": 1.369,
+                                "high": 1.3843,
+                                "low": 1.3584,
+                                "close": 1.3674
+                            },
+                            {
+                                "date": "2026-05-01",
+                                "open": 1.3673,
+                                "high": 1.4002,
+                                "low": 1.3644,
+                                "close": 1.3857
+                            },
+                            {
+                                "date": "2026-05-02",
+                                "open": 1.3857,
+                                "high": 1.4003,
+                                "low": 1.3811,
+                                "close": 1.3938
+                            },
+                            {
+                                "date": "2026-05-03",
+                                "open": 1.3939,
+                                "high": 1.404,
+                                "low": 1.3814,
+                                "close": 1.388
+                            },
+                            {
+                                "date": "2026-05-04",
+                                "open": 1.3878,
+                                "high": 1.4206,
+                                "low": 1.3829,
+                                "close": 1.3915
+                            },
+                            {
+                                "date": "2026-05-05",
+                                "open": 1.3915,
+                                "high": 1.422,
+                                "low": 1.3899,
+                                "close": 1.4128
+                            },
+                            {
+                                "date": "2026-05-06",
+                                "open": 1.4125,
+                                "high": 1.4572,
+                                "low": 1.4073,
+                                "close": 1.4249
+                            },
+                            {
+                                "date": "2026-05-07",
+                                "open": 1.4248,
+                                "high": 1.4258,
+                                "low": 1.38,
+                                "close": 1.3869
+                            },
+                            {
+                                "date": "2026-05-08",
+                                "open": 1.3869,
+                                "high": 1.4272,
+                                "low": 1.3817,
+                                "close": 1.4181
+                            },
+                            {
+                                "date": "2026-05-09",
+                                "open": 1.4181,
+                                "high": 1.4352,
+                                "low": 1.4112,
+                                "close": 1.4204
+                            },
+                            {
+                                "date": "2026-05-10",
+                                "open": 1.4204,
+                                "high": 1.5075,
+                                "low": 1.4116,
+                                "close": 1.4734
+                            },
+                            {
+                                "date": "2026-05-11",
+                                "open": 1.4733,
+                                "high": 1.4884,
+                                "low": 1.4398,
+                                "close": 1.4776
+                            },
+                            {
+                                "date": "2026-05-12",
+                                "open": 1.43613,
+                                "high": 1.4515,
+                                "low": 1.43603,
+                                "close": 1.4482
+                            }
+                        ],
+                        "stop_loss": 1.3854710714285714,
+                        "take_profit": 1.4900192857142858,
+                        "indicators": {},
+                        "reason": "Golden Cross (Confirmed Close)",
+                        "entry_price": null,
+                        "entry_date": null
+                    }
                 }
             ]
         },
@@ -2277,7 +2443,7 @@
                     "stop_loss": 0.71584,
                     "take_profit": 0.7145614285714286,
                     "tp1_hit": true,
-                    "last_price": 0.72334
+                    "last_price": 0.72426
                 },
                 "GBP/USD": {
                     "qty": 2016.464194280152,
@@ -2286,7 +2452,7 @@
                     "stop_loss": 1.3413875,
                     "take_profit": 1.367125,
                     "tp1_hit": false,
-                    "last_price": 1.35893
+                    "last_price": 1.35372
                 },
                 "USD/CAD": {
                     "qty": 42.43012796663191,
@@ -2295,7 +2461,7 @@
                     "stop_loss": 1.3774417857142855,
                     "take_profit": 1.3631221428571427,
                     "tp1_hit": false,
-                    "last_price": 1.36895
+                    "last_price": 1.36866
                 },
                 "USD/CHF": {
                     "qty": 4754.2268559229515,
@@ -2304,7 +2470,7 @@
                     "stop_loss": 0.7831864285714285,
                     "take_profit": 0.7705757142857143,
                     "tp1_hit": false,
-                    "last_price": 0.77946
+                    "last_price": 0.7804
                 }
             },
             "history": [
@@ -3087,7 +3253,7 @@
             ]
         },
         "rsi_crypto": {
-            "cash": 0.0,
+            "cash": 2.15074610073991,
             "positions": {
                 "ETH/USDT": {
                     "qty": 0.24168645436067415,
@@ -3096,16 +3262,7 @@
                     "stop_loss": 2529.298214285714,
                     "take_profit": 2256.217857142857,
                     "tp1_hit": false,
-                    "last_price": 2314.87
-                },
-                "BNB/USDT": {
-                    "qty": 0.0035045561361249965,
-                    "entry_price": 645.92,
-                    "side": "SHORT",
-                    "stop_loss": 671.9567792857142,
-                    "take_profit": 628.562147142857,
-                    "tp1_hit": false,
-                    "last_price": 664.01
+                    "last_price": 2291.07
                 },
                 "DOT/USDT": {
                     "qty": 626.6359682192842,
@@ -3114,7 +3271,7 @@
                     "stop_loss": 1.3083571428571428,
                     "take_profit": 1.2583571428571427,
                     "tp1_hit": true,
-                    "last_price": 1.355
+                    "last_price": 1.36
                 },
                 "DOGE/USDT": {
                     "qty": 7286.05552998661,
@@ -3123,7 +3280,7 @@
                     "stop_loss": 0.11751821428571428,
                     "take_profit": 0.10683785714285714,
                     "tp1_hit": false,
-                    "last_price": 0.11113
+                    "last_price": 0.11091
                 },
                 "TRX/USDT": {
                     "qty": 12143.764281691489,
@@ -3132,7 +3289,7 @@
                     "stop_loss": 0.3536296428571429,
                     "take_profit": 0.34081357142857144,
                     "tp1_hit": false,
-                    "last_price": 0.35032
+                    "last_price": 0.34905
                 },
                 "SOL/USDT": {
                     "qty": 21.96978383729489,
@@ -3141,7 +3298,7 @@
                     "stop_loss": 99.97082464285714,
                     "take_profit": 92.80278357142858,
                     "tp1_hit": false,
-                    "last_price": 96.65
+                    "last_price": 95.08
                 },
                 "ADA/USDT": {
                     "qty": 3856.377381772022,
@@ -3149,7 +3306,8 @@
                     "side": "SHORT",
                     "stop_loss": 0.2936714285714286,
                     "take_profit": 0.26838571428571434,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 0.2733
                 }
             },
             "history": [
@@ -7404,6 +7562,16 @@
                         "entry_price": null,
                         "entry_date": null
                     }
+                },
+                {
+                    "timestamp": "2026-05-13T02:28:17.622102",
+                    "symbol": "BNB/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.0035045561361249965,
+                    "price": 678.14,
+                    "total_value": 2.3765796981518053,
+                    "pnl": -0.11291679870594748,
+                    "entry_price": 645.92
                 }
             ]
         },
@@ -7417,7 +7585,7 @@
                     "stop_loss": 1.3722725,
                     "take_profit": 1.346535,
                     "tp1_hit": false,
-                    "last_price": 1.35893
+                    "last_price": 1.35372
                 },
                 "EUR/USD": {
                     "qty": 281.031309717624,
@@ -7426,7 +7594,7 @@
                     "stop_loss": 1.1860182142857143,
                     "take_profit": 1.1691878571428573,
                     "tp1_hit": false,
-                    "last_price": 1.17614
+                    "last_price": 1.17376
                 }
             },
             "history": [
