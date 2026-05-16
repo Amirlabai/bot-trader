@@ -136,7 +136,7 @@ def main():
                     entry_price = pos_data.get('entry_price')
                     entry_date = pos_data.get('entry_date')
                     snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date, pos_data=pos_data)
-                    if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy', candle_snapshot=snapshot):
+                    if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy', candle_snapshot=snapshot, reason=signal_data.get('reason')):
                          print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {current_price}")
 
                 # 2. Open/Add LONG (If Flat or Long)
@@ -162,7 +162,7 @@ def main():
                     if (quantity * current_price) > 10:
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
-                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot):
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot, reason=signal_data.get('reason')):
                              print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
             elif action == 'sell':
@@ -174,7 +174,7 @@ def main():
                     entry_price = pos_data.get('entry_price')
                     entry_date = pos_data.get('entry_date')
                     snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date, pos_data=pos_data)
-                    if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell', candle_snapshot=snapshot):
+                    if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell', candle_snapshot=snapshot, reason=signal_data.get('reason')):
                         print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {current_price}")
                         # Check for TP/SL updates if partial
                         new_sl = signal_data.get('stop_loss')
@@ -208,7 +208,7 @@ def main():
                     if (quantity * current_price) > 10:
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
-                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot):
+                        if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot, reason=signal_data.get('reason')):
                              print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
             elif action == 'hold':

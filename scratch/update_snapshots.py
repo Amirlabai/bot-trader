@@ -139,7 +139,9 @@ def main():
                 )
                 
                 event['snapshot'] = new_snapshot
-                print(f"    History updated (Price: {event['price']}, Entry: {new_snapshot['entry_price']})")
+                if new_snapshot.get('reason'):
+                    event['reason'] = new_snapshot['reason']
+                print(f"    History updated (Price: {event['price']}, Entry: {new_snapshot['entry_price']}, Reason: {event.get('reason')})")
 
     ledger.save_ledger()
     print("\n--- Snapshots Refreshed ---")
