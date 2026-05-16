@@ -337,16 +337,27 @@ class ReportGenerator:
 
             # 3. Trade History (Closed Positions) + Chart Generation
             trade_history = []
+            wins = []
+            losses = []
+            
             for event in sorted_history:
                 if "pnl" in event:
+                    pnl = event['pnl']
                     entry_price = event.get('entry_price', 0.0)
+                    
+                    if pnl > 0: wins.append(pnl)
+                    else: losses.append(pnl)
 
                     # Locate the snapshot. Ideally, it's stored directly on the close event now.
-                    # Fallback to OPEN snapshot for older ledger entries.
                     snapshot = event.get('snapshot')
                     if not snapshot:
                         snapshot = _find_open_snapshot(history, event['symbol'], entry_price)
                     chart_b64 = _render_chart_b64(snapshot) if snapshot else ""
+
+                    # P/L % calculation
+                    pnl_pct = 0.0
+                    if entry_price > 0:
+                        pnl_pct = (pnl / (event['quantity'] * entry_price)) * 100
 
                     trade_history.append({
                         "time": event['timestamp'],
@@ -355,9 +366,32 @@ class ReportGenerator:
                         "qty": event['quantity'],
                         "entry_price": entry_price,
                         "exit_price": event['price'],
-                        "pnl": event['pnl'],
+                        "pnl": pnl,
+                        "pnl_pct": pnl_pct,
+                        "reason": event.get('reason', snapshot.get('reason', 'N/A') if snapshot else 'N/A'),
                         "chart_b64": chart_b64,
                     })
+
+            # 4. Advanced Metrics
+            total_closed = len(wins) + len(losses)
+            win_rate = (len(wins) / total_closed * 100) if total_closed > 0 else 0.0
+            profit_factor = (abs(sum(wins) / sum(losses))) if len(losses) > 0 and sum(losses) != 0 else (float('inf') if len(wins) > 0 else 0.0)
+            
+            # Max Drawdown
+            max_equity = 0.0
+            max_dd = 0.0
+            for pt in equity_curve:
+                if pt['equity'] > max_equity:
+                    max_equity = pt['equity']
+                dd = (max_equity - pt['equity']) / max_equity * 100 if max_equity > 0 else 0.0
+                if dd > max_dd:
+                    max_dd = dd
+
+            # Exposure calculation
+            exposure = {}
+            for pos in active_positions:
+                sym = pos['symbol']
+                exposure[sym] = exposure.get(sym, 0.0) + pos['value']
 
             output_data["strategies"][strat_name] = {
                 "active_positions": active_positions,
@@ -365,7 +399,16 @@ class ReportGenerator:
                 "current_equity": current_equity,
                 "history_events": len(history),
                 "equity_curve": equity_curve,
-                "trade_history": list(reversed(trade_history))  # Newest first
+                "trade_history": list(reversed(trade_history)),  # Newest first
+                "metrics": {
+                    "win_rate": win_rate,
+                    "profit_factor": profit_factor if profit_factor != float('inf') else "∞",
+                    "total_pnl": sum(wins) + sum(losses),
+                    "avg_pnl": (sum(wins) + sum(losses)) / total_closed if total_closed > 0 else 0.0,
+                    "max_drawdown": max_dd,
+                    "total_trades": total_closed
+                },
+                "exposure": exposure
             }
 
         with open(self.report_file, 'w', encoding='utf-8') as f:

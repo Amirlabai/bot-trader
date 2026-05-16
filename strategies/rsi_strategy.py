@@ -42,14 +42,17 @@ class RSIStrategy(BaseStrategy):
 
         # --- 1. Global Risk Management Check ---
         risk_signal = self.check_risk_management(current_price, current_atr, position_data)
-        if risk_signal:
-            return risk_signal
-
+        
         # Calculate RSI on Closed Data
         rsi_series = self._calculate_rsi(closed_data['close'], period)
-        
-        # Signal on last closed candle
         current_rsi = rsi_series.iloc[-1] 
+        
+        # Prepare indicators for snapshot
+        indicators = {'rsi': rsi_series}
+
+        if risk_signal:
+            risk_signal['indicators'] = indicators
+            return risk_signal
         
         current_position_qty = position_data['qty'] if position_data else 0.0
 
@@ -64,12 +67,14 @@ class RSIStrategy(BaseStrategy):
                     'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
+                    'indicators': indicators,
                     'reason': f'RSI Oversold ({current_rsi:.2f}) - Long'
                 }
             elif position_data.get('side') == 'SHORT': # Short -> Cover
                 return {
                     'action': 'buy',
                     'quantity_pct': 1.0, 
+                    'indicators': indicators,
                     'reason': f'RSI Oversold ({current_rsi:.2f}) - Cover Short'
                 }
         
@@ -83,13 +88,16 @@ class RSIStrategy(BaseStrategy):
                     'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
+                    'indicators': indicators,
                     'reason': f'RSI Overbought ({current_rsi:.2f}) - Short'
                 }
             elif position_data.get('side') == 'LONG': # Long -> Sell
                 return {
                     'action': 'sell',
                     'quantity_pct': 1.0, 
+                    'indicators': indicators,
                     'reason': f'RSI Overbought ({current_rsi:.2f}) - Close Long'
                 }
         
+        signal['indicators'] = indicators
         return signal

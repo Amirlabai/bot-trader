@@ -38,39 +38,39 @@ class MovingAverageStrategy(BaseStrategy):
             return signal
 
         # Indicators (Calculated on CLOSED data only)
-        # Note: We using closed_data, so the last row IS the confirmed candle.
         closes = closed_data['close']
         sma_trend = closes.rolling(window=trend_period).mean()
         sma_fast = closes.rolling(window=fast_period).mean()
         sma_slow = closes.rolling(window=slow_period).mean()
         atr = self._calculate_atr(closed_data, atr_period)
+        
+        # Indicators for snapshot
+        indicators = {
+            'sma_trend': sma_trend,
+            'sma_fast': sma_fast,
+            'sma_slow': sma_slow
+        }
 
         # Execution Values (Real-time from original market_data)
         current_price = market_data['close'].iloc[-1]
-        
-        # Risk Management uses ATR from Closed Data (Stable)
         current_atr = atr.iloc[-1] 
         
         # --- 1. Global Risk Management Check ---
         risk_signal = self.check_risk_management(current_price, current_atr, position_data)
         if risk_signal:
+            risk_signal['indicators'] = indicators
             return risk_signal
 
         # Signal Values (Operate on last row of CLOSED data)
-        # Since we sliced, .iloc[-1] of closed_data IS the signal candle.
-        
         signal_trend = sma_trend.iloc[-1]
         signal_fast = sma_fast.iloc[-1]
         signal_slow = sma_slow.iloc[-1]
-        
         prev_signal_fast = sma_fast.iloc[-2]
         prev_signal_slow = sma_slow.iloc[-2]
-        
         signal_price = closes.iloc[-1]
 
         # --- 2. Entry Logic ---
         if not position_data:
-            # LONG: Trend Filter (Yesterday's Close > 50 SMA) + Golden Cross (Yesterday)
             if signal_price > signal_trend:
                 if prev_signal_fast <= prev_signal_slow and signal_fast > signal_slow:
                     initial_sl = current_price - (1.5 * current_atr)
@@ -80,22 +80,23 @@ class MovingAverageStrategy(BaseStrategy):
                         'quantity_pct': 0.1, 
                         'stop_loss': initial_sl,
                         'take_profit': initial_tp,
+                        'indicators': indicators,
                         'reason': 'Golden Cross (Confirmed Close)'
                     }
                     
-            # SHORT: Trend Filter (Yesterday's Close < 50 SMA) + Death Cross (Yesterday)
             elif signal_price < signal_trend:
-                # Fast crosses BELOW Slow
                 if prev_signal_fast >= prev_signal_slow and signal_fast < signal_slow:
-                    initial_sl = current_price + (1.5 * current_atr) # Stop Loss Above Entry
+                    initial_sl = current_price + (1.5 * current_atr)
                     initial_tp = current_price - (1.0 * current_atr)
 
                     return {
-                        'action': 'sell', # Main loop interprets SELL on Flat as OPEN SHORT
+                        'action': 'sell',
                         'quantity_pct': 0.1, 
                         'stop_loss': initial_sl,
                         'take_profit': initial_tp,
+                        'indicators': indicators,
                         'reason': 'Death Cross (Short)'
                     }
 
+        signal['indicators'] = indicators
         return signal

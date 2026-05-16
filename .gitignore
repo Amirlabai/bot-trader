@@ -3,3 +3,5 @@
 **/__pycache__
 gemini.md
 STATUS.md
+graphify-out/
+.agents/

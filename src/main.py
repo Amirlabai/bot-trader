@@ -12,12 +12,15 @@ from config import Config, TRADING_CONFIG
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 
-def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, entry_date=None):
+def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, entry_date=None, pos_data=None):
     """
-    Builds a lightweight OHLCV snapshot (last n candles) plus indicator values
-    extracted from signal_data, for chart rendering at report time.
+    Builds a lightweight OHLCV snapshot plus indicator values.
+    Capped at 'n' candles (default 20) as per Boss Man's request.
+    Y-axis will scale to include entry_price even if date is outside window.
     """
-    df = market_data.tail(n)
+    start_idx = max(0, len(market_data) - n)
+    df = market_data.iloc[start_idx:]
+    
     candles = []
     for ts, row in df.iterrows():
         candles.append({
@@ -27,14 +30,37 @@ def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, ent
             "low": round(float(row["low"]), 8),
             "close": round(float(row["close"]), 8),
         })
+
+    # 2. Extract Levels (Signal Data priority, then Position Data)
+    sl = signal_data.get("stop_loss")
+    if (sl is None or sl == 0.0) and pos_data:
+        sl = pos_data.get("stop_loss", 0.0)
+    
+    tp = signal_data.get("take_profit")
+    if (tp is None or tp == 0.0) and pos_data:
+        tp = pos_data.get("take_profit", 0.0)
+
+    # Use explicitly passed entry info or fallback to pos_data
+    final_entry_price = entry_price if entry_price else (pos_data.get("entry_price") if pos_data else None)
+    final_entry_date = str(entry_date)[:10] if entry_date else (pos_data.get("entry_date") if pos_data else None)
+
+    # 3. Extract Indicators
+    indicators = signal_data.get("indicators", {})
+    sliced_indicators = {}
+    for key, values in indicators.items():
+        if hasattr(values, "iloc"):
+            sliced_indicators[key] = [round(float(v), 8) if pd.notnull(v) else None for v in values.iloc[start_idx:]]
+        elif isinstance(values, list):
+            sliced_indicators[key] = values[start_idx:]
+
     return {
         "candles": candles,
-        "stop_loss": signal_data.get("stop_loss", 0.0),
-        "take_profit": signal_data.get("take_profit", 0.0),
-        "indicators": signal_data.get("indicators", {}),
+        "stop_loss": sl,
+        "take_profit": tp,
+        "indicators": sliced_indicators,
         "reason": signal_data.get("reason", ""),
-        "entry_price": entry_price,
-        "entry_date": entry_date
+        "entry_price": final_entry_price,
+        "entry_date": final_entry_date
     }
 
 
@@ -109,7 +135,7 @@ def main():
                     qty_to_cover = pos_data['qty'] * pct
                     entry_price = pos_data.get('entry_price')
                     entry_date = pos_data.get('entry_date')
-                    snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date)
+                    snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date, pos_data=pos_data)
                     if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy', candle_snapshot=snapshot):
                          print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {current_price}")
 
@@ -135,7 +161,7 @@ def main():
                     
                     if (quantity * current_price) > 10:
                         new_tp = signal_data.get('take_profit', 0.0)
-                        snapshot = _build_candle_snapshot(market_data, signal_data)
+                        snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
                         if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot):
                              print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
@@ -147,7 +173,7 @@ def main():
                     qty_to_sell = pos_data['qty'] * pct
                     entry_price = pos_data.get('entry_price')
                     entry_date = pos_data.get('entry_date')
-                    snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date)
+                    snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date, pos_data=pos_data)
                     if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell', candle_snapshot=snapshot):
                         print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {current_price}")
                         # Check for TP/SL updates if partial
@@ -181,7 +207,7 @@ def main():
                         
                     if (quantity * current_price) > 10:
                         new_tp = signal_data.get('take_profit', 0.0)
-                        snapshot = _build_candle_snapshot(market_data, signal_data)
+                        snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
                         if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot):
                              print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
