@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.11.0 (2026-05-16)
+
+### Features
+
+- **reporting**: Overhaul dashboard with advanced metrics and exposure tracking
+  ([`fa71385`](https://github.com/Amirlabai/bot-trader/commit/fa71385539d164cf8f30d46e6532d155aecb1c2d))
+
+
 ## v1.10.0 (2026-04-13)
 
 ### Features
