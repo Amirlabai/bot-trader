@@ -4,6 +4,8 @@ import importlib
 import time
 from datetime import datetime
 
+import pandas as pd
+
 # Ensure src and root are in path
 sys.path.append(os.path.join(os.getcwd(), 'src'))
 sys.path.append(os.getcwd())
