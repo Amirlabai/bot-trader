@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.12.2 (2026-05-17)
+
+### Bug Fixes
+
+- Import erroe
+  ([`c829e39`](https://github.com/Amirlabai/bot-trader/commit/c829e39916293aaefa114d8ecceb170999fe0d46))
+
+
 ## v1.12.1 (2026-05-16)
 
 
