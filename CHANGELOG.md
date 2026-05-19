@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.13.0 (2026-05-19)
+
+### Features
+
+- Unify risk sizing, tp1 reasons, and strategy cash
+  ([`b09cbb2`](https://github.com/Amirlabai/bot-trader/commit/b09cbb26e6c7b360a536cfdfeba4cb2d9bcb2416))
+
+
 ## v1.12.2 (2026-05-17)
 
 ### Bug Fixes
