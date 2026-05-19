@@ -315,6 +315,7 @@
         let exposureChart = null;
         let currentStrategy = null;
         let expandedRow = null;
+        let expandedTradeRow = null;
 
         async function loadData() {
             try {
@@ -374,7 +375,8 @@
             let rows = positions.map(p => {
                 const badge = p.side === 'LONG' ? 'badge-long' : 'badge-short';
                 const pnl = p.unrealized_pnl || 0;
-                const pnlPct = (pnl / (p.qty * p.entry)) * 100;
+                const costBasis = p.qty * p.entry;
+                const pnlPct = costBasis > 0 ? (pnl / costBasis) * 100 : 0;
                 const pnlColor = pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                 const tp1Badge = p.tp1 ? '<span class="badge" style="background:rgba(210,153,34,0.1); color:var(--warning-color)">TP1 HIT</span>' : '';
 
@@ -398,7 +400,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Asset</th><th>Side</th><th>Size</th><th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop</th><th>Risk Value</th>
+                            <th>Asset</th><th>Side</th><th>Size</th><th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop</th><th>Notional</th>
                         </tr>
                     </thead>
                     <tbody>${rows}</tbody>
@@ -410,6 +412,9 @@
         }
 
         function applyFilters() {
+            if (!rawData?.strategies?.[currentStrategy]) {
+                return;
+            }
             const filterText = document.getElementById('symbol-filter').value.toUpperCase();
             const data = rawData.strategies[currentStrategy];
             const filtered = data.trade_history.filter(t => t.symbol.toUpperCase().includes(filterText));
@@ -456,11 +461,13 @@
                 tr.onclick = () => {
                     if (expandedRow && expandedRow !== inner) {
                         expandedRow.classList.remove('open');
-                        expandedRow.closest('tr').previousElementSibling.classList.remove('expanded');
+                        if (expandedTradeRow) expandedTradeRow.classList.remove('expanded');
                     }
                     inner.classList.toggle('open');
                     tr.classList.toggle('expanded');
-                    expandedRow = inner.classList.contains('open') ? inner : null;
+                    const isOpen = inner.classList.contains('open');
+                    expandedRow = isOpen ? inner : null;
+                    expandedTradeRow = isOpen ? tr : null;
                 };
 
                 tbody.appendChild(tr);
@@ -480,7 +487,8 @@
 
             const labels = history.map(h => new Date(h.time).toLocaleDateString());
             const values = history.map(h => h.equity);
-            const baseline = 10000;
+            const initialPoint = history.find(h => h.type === 'initial');
+            const baseline = initialPoint ? initialPoint.equity : (history[0]?.equity ?? 10000);
 
             equityChart = new Chart(ctx, {
                 type: 'line',

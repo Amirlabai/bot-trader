@@ -1,5 +1,13 @@
 from abc import ABC, abstractmethod
+import os
+import sys
+
 import pandas as pd
+
+_src = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
+if _src not in sys.path:
+    sys.path.insert(0, _src)
+from config import TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT
 
 class BaseStrategy(ABC):
     def __init__(self, params=None):
@@ -94,7 +102,7 @@ class BaseStrategy(ABC):
                      'action': 'sell', 
                      'quantity_pct': 0.5, 
                      'stop_loss': entry_price, 
-                     'reason': 'TP1 Hit' # Main loop looks for "TP1" string
+                     'reason': TP1_HIT_REASON_LONG,
                  }
             
              # Trailing (ONLY AFTER TP1)
@@ -121,7 +129,7 @@ class BaseStrategy(ABC):
                      'action': 'buy', 
                      'quantity_pct': 0.5, 
                      'stop_loss': entry_price, 
-                     'reason': 'Short TP1 Hit' # Main loop looks for "TP1" string
+                     'reason': TP1_HIT_REASON_SHORT,
                  }
             
              # Trailing (ONLY AFTER TP1)

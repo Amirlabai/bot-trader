@@ -33,7 +33,7 @@ class LedgerManager:
     def _ensure_strategy_state(self, strategy_id):
         if strategy_id not in self.ledger["strategies"]:
             self.ledger["strategies"][strategy_id] = {
-                "cash": 10000.0,
+                "cash": self.config.INITIAL_STRATEGY_CASH,
                 "positions": {},
                 "history": []
             }

@@ -277,7 +277,7 @@ class ReportGenerator:
             current_equity = cash + current_pos_value
 
             # 2. Equity Curve Reconstruction
-            initial_cash = 10000.0
+            initial_cash = self.config.INITIAL_STRATEGY_CASH
             sorted_history = sorted(history, key=lambda x: x['timestamp'])
 
             equity_curve = []

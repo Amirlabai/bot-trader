@@ -1,7 +1,6 @@
 import sys
 import os
 import importlib
-import time
 from datetime import datetime
 
 import pandas as pd
@@ -10,7 +9,7 @@ import pandas as pd
 sys.path.append(os.path.join(os.getcwd(), 'src'))
 sys.path.append(os.getcwd())
 
-from config import Config, TRADING_CONFIG
+from config import Config, TRADING_CONFIG, RISK_SETTINGS, TP1_EXIT_REASONS
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 
@@ -43,7 +42,12 @@ def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, ent
         tp = pos_data.get("take_profit", 0.0)
 
     # Use explicitly passed entry info or fallback to pos_data
-    final_entry_price = entry_price if entry_price else (pos_data.get("entry_price") if pos_data else None)
+    if entry_price is not None:
+        final_entry_price = entry_price
+    elif pos_data:
+        final_entry_price = pos_data.get("entry_price")
+    else:
+        final_entry_price = None
     final_entry_date = str(entry_date)[:10] if entry_date else (pos_data.get("entry_date") if pos_data else None)
 
     # 3. Extract Indicators
@@ -64,6 +68,78 @@ def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, ent
         "entry_price": final_entry_price,
         "entry_date": final_entry_date
     }
+
+
+def _apply_tp1_updates(ledger, strategy_id, symbol, signal_data):
+    """After a partial exit, move SL to breakeven and record TP1 (long or short)."""
+    new_sl = signal_data.get('stop_loss')
+    if new_sl is not None:
+        ledger.update_stop_loss(strategy_id, symbol, new_sl)
+    if signal_data.get('reason', '') in TP1_EXIT_REASONS:
+        ledger.mark_tp1_hit(strategy_id, symbol)
+        print(f"    TP1 HIT RECORDED for {symbol}")
+
+
+def _size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pct, is_short=False):
+    """
+    Size from equity_risk_pct of total equity (cash + open positions at cost, no unrealized P/L).
+    Returns (quantity, target_risk, actual_risk, was_cash_capped, sizing_ok).
+    """
+    total_equity = ledger.get_total_equity(strategy_id)
+    target_risk = total_equity * equity_risk_pct
+
+    if stop_loss <= 0:
+        return 0.0, target_risk, 0.0, False, False
+
+    if is_short:
+        risk_per_share = stop_loss - current_price
+    else:
+        risk_per_share = current_price - stop_loss
+
+    if risk_per_share <= 0:
+        return 0.0, target_risk, 0.0, False, False
+
+    quantity = target_risk / risk_per_share
+    current_cash = ledger.get_balance(strategy_id)
+    notional = quantity * current_price
+    capped = False
+    if notional > current_cash:
+        quantity = current_cash / current_price
+        capped = True
+
+    actual_risk = quantity * risk_per_share
+    return quantity, target_risk, actual_risk, capped, True
+
+
+def _should_open_after_sizing(side_label, quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
+    """Log a single skip/cap reason; return True only when an open should proceed."""
+    min_frac = RISK_SETTINGS['min_risk_fraction']
+    min_notional = RISK_SETTINGS['min_notional_usd']
+    notional = quantity * current_price
+    free_cash = ledger.get_balance(strategy_id)
+
+    if not sizing_ok:
+        print(f"    SKIP OPEN {side_label}: invalid stop (missing or on wrong side of entry)")
+        return False
+    if actual_risk < target_risk * min_frac:
+        cap_note = f", cash-capped (free cash ${free_cash:.2f})" if capped else ""
+        print(
+            f"    SKIP OPEN {side_label}: ${actual_risk:.2f} risk below "
+            f"{min_frac:.0%} of target (${target_risk:.2f}){cap_note}"
+        )
+        return False
+    if notional < min_notional:
+        print(
+            f"    SKIP OPEN {side_label}: below min notional "
+            f"(${notional:.2f} < ${min_notional:.2f})"
+        )
+        return False
+    if capped:
+        print(
+            f"    CASH-CAPPED: target risk ${target_risk:.2f}, "
+            f"actual ${actual_risk:.2f} (free cash ${free_cash:.2f})"
+        )
+    return True
 
 
 def load_strategy(module_name, class_name, params):
@@ -140,28 +216,16 @@ def main():
                     snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date, pos_data=pos_data)
                     if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy', candle_snapshot=snapshot, reason=signal_data.get('reason')):
                          print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {current_price}")
+                         _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
 
                 # 2. Open/Add LONG (If Flat or Long)
                 elif position_side in [None, 'LONG']:
-                    # Risk Management: Size based on 1% Risk
-                    total_equity = ledger.get_total_equity(strategy_id)
-                    risk_amount = total_equity * 0.01
                     new_sl = signal_data.get('stop_loss', 0.0)
-                    
-                    # Risk Per Share = Entry - SL
-                    risk_per_share = current_price - new_sl if new_sl > 0 else current_price * 0.05 # Fallback
-                    
-                    if risk_per_share <= 0: risk_per_share = current_price * 0.01 # Sanity check
-                    
-                    quantity = risk_amount / risk_per_share
-                    
-                    # Cash Check
-                    current_cash = ledger.get_balance(strategy_id)
-                    cost = quantity * current_price
-                    if cost > current_cash:
-                        quantity = current_cash / current_price
-                    
-                    if (quantity * current_price) > 10:
+                    quantity, target_risk, actual_risk, capped, sizing_ok = _size_for_risk(
+                        ledger, strategy_id, current_price, new_sl,
+                        RISK_SETTINGS['equity_risk_pct'], is_short=False,
+                    )
+                    if _should_open_after_sizing('LONG', quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
                         if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot, reason=signal_data.get('reason')):
@@ -178,36 +242,16 @@ def main():
                     snapshot = _build_candle_snapshot(market_data, signal_data, entry_price=entry_price, entry_date=entry_date, pos_data=pos_data)
                     if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell', candle_snapshot=snapshot, reason=signal_data.get('reason')):
                         print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {current_price}")
-                        # Check for TP/SL updates if partial
-                        new_sl = signal_data.get('stop_loss')
-                        if new_sl: ledger.update_stop_loss(strategy_id, symbol, new_sl)
-                        
-                        # Mark TP1 Hit logic
-                        if "TP1" in signal_data.get('reason', ''):
-                             ledger.mark_tp1_hit(strategy_id, symbol)
-                             print(f"    TP1 HIT RECORDED for {symbol}")
+                        _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
 
                 # 2. Open/Add SHORT (If Flat or Short)
                 elif position_side in [None, 'SHORT']:
-                    # Risk Management for Short
-                    total_equity = ledger.get_total_equity(strategy_id)
-                    risk_amount = total_equity * 0.01
                     new_sl = signal_data.get('stop_loss', 0.0)
-                    
-                    # Risk Per Share = SL - Entry (Short loses when price goes up)
-                    # For Short, SL > Entry.
-                    risk_per_share = new_sl - current_price if new_sl > 0 else current_price * 0.05
-                    if risk_per_share <= 0: risk_per_share = current_price * 0.01
-
-                    quantity = risk_amount / risk_per_share
-                    
-                    # Collateral Check (Cash needs to cover Short Value)
-                    current_cash = ledger.get_balance(strategy_id)
-                    market_value = quantity * current_price
-                    if market_value > current_cash:
-                        quantity = current_cash / current_price
-                        
-                    if (quantity * current_price) > 10:
+                    quantity, target_risk, actual_risk, capped, sizing_ok = _size_for_risk(
+                        ledger, strategy_id, current_price, new_sl,
+                        RISK_SETTINGS['equity_risk_pct'], is_short=True,
+                    )
+                    if _should_open_after_sizing('SHORT', quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
                         if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot, reason=signal_data.get('reason')):
@@ -216,7 +260,7 @@ def main():
             elif action == 'hold':
                  # Trailing SL Updates
                  new_sl = signal_data.get('stop_loss')
-                 if new_sl and pos_data:
+                 if new_sl is not None and pos_data:
                       ledger.update_stop_loss(strategy_id, symbol, new_sl)
                       print(f"    UPDATED SL: {new_sl}")
 

@@ -20,6 +20,38 @@ class Config:
 
     # Defaults
     DEFAULT_TIMEFRAME = '1d'
+    INITIAL_STRATEGY_CASH = float(os.getenv("INITIAL_STRATEGY_CASH", "10000"))
+
+
+# TP1 partial-exit reasons (keep in sync: main.py + strategies/base_strategy.py)
+TP1_HIT_REASON_LONG = 'TP1 Hit'
+TP1_HIT_REASON_SHORT = 'Short TP1 Hit'
+TP1_EXIT_REASONS = frozenset({TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT})
+
+
+def _load_risk_settings():
+    defaults = {
+        'equity_risk_pct': 0.01,
+        'min_risk_fraction': 0.25,
+        'min_notional_usd': 10.0,
+    }
+    settings = {
+        'equity_risk_pct': float(os.getenv('EQUITY_RISK_PCT', defaults['equity_risk_pct'])),
+        'min_risk_fraction': float(os.getenv('MIN_RISK_FRACTION', defaults['min_risk_fraction'])),
+        'min_notional_usd': float(os.getenv('MIN_NOTIONAL_USD', defaults['min_notional_usd'])),
+    }
+    pct = settings['equity_risk_pct']
+    if not 0 < pct <= 1:
+        raise ValueError(f"equity_risk_pct must be in (0, 1], got {pct}")
+    frac = settings['min_risk_fraction']
+    if not 0 < frac < 1:
+        raise ValueError(f"min_risk_fraction must be in (0, 1), got {frac}")
+    if settings['min_notional_usd'] <= 0:
+        raise ValueError(f"min_notional_usd must be > 0, got {settings['min_notional_usd']}")
+    return settings
+
+
+RISK_SETTINGS = _load_risk_settings()
 
 # Strategy Configuration
 # Maps Strategy ID -> { 'class': ClassName, 'pairs': [list of pairs], 'params': {dict of params} }
