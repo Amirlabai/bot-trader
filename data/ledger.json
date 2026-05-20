@@ -1,16 +1,16 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 8712.358951235494,
+            "cash": 8976.602837403456,
             "positions": {
                 "ADA/USDT": {
-                    "qty": 0.012110150049603164,
+                    "qty": 0.006055075024801582,
                     "entry_price": 0.2686,
                     "side": "SHORT",
-                    "stop_loss": 0.30010000000000003,
+                    "stop_loss": 0.2686,
                     "take_profit": 0.24760000000000001,
-                    "tp1_hit": false,
-                    "last_price": 0.2514,
+                    "tp1_hit": true,
+                    "last_price": 0.2476,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -230,12 +230,12 @@
                     }
                 },
                 "ETH/USDT": {
-                    "qty": 0.2248706541384119,
+                    "qty": 0.11243532706920595,
                     "entry_price": 2229.37,
                     "side": "SHORT",
-                    "stop_loss": 2332.88125,
+                    "stop_loss": 2229.37,
                     "take_profit": 2160.3625,
-                    "tp1_hit": false,
+                    "tp1_hit": true,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -453,7 +453,7 @@
                         "entry_price": 2229.37,
                         "entry_date": null
                     },
-                    "last_price": 2129.5
+                    "last_price": 2108.57
                 }
             },
             "history": [
@@ -11443,6 +11443,28 @@
                     "pnl": -96.83912825502466,
                     "entry_price": 1.4482,
                     "reason": "Stop Loss Hit @ 1.3836 (SL 1.3854710714285714)"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:05.722092",
+                    "symbol": "ETH/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.11243532706920595,
+                    "price": 2108.57,
+                    "total_value": 237.0777575983156,
+                    "pnl": 13.582187509960049,
+                    "entry_price": 2229.37,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:07.790094",
+                    "symbol": "ADA/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.006055075024801582,
+                    "price": 0.2476,
+                    "total_value": 0.0014992365761408715,
+                    "pnl": 0.00012715657552083334,
+                    "entry_price": 0.2686,
+                    "reason": "Short TP1 Hit"
                 }
             ]
         },
@@ -11456,7 +11478,7 @@
                     "stop_loss": 1.3774417857142855,
                     "take_profit": 1.3631221428571427,
                     "tp1_hit": false,
-                    "last_price": 1.37492,
+                    "last_price": 1.37548,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -11682,7 +11704,7 @@
                     "stop_loss": 1.1698,
                     "take_profit": 1.1563999999999999,
                     "tp1_hit": false,
-                    "last_price": 1.1645
+                    "last_price": 1.1599
                 }
             },
             "history": [
@@ -16263,16 +16285,16 @@
             ]
         },
         "rsi_crypto": {
-            "cash": 3926.4300060645464,
+            "cash": 4478.510539744792,
             "positions": {
                 "ETH/USDT": {
-                    "qty": 0.03021080679508427,
+                    "qty": 0.015105403397542135,
                     "entry_price": 2365.45,
                     "side": "SHORT",
-                    "stop_loss": 2529.298214285714,
+                    "stop_loss": 2365.45,
                     "take_profit": 2256.217857142857,
-                    "tp1_hit": false,
-                    "last_price": 2129.5,
+                    "tp1_hit": true,
+                    "last_price": 2108.57,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16448,13 +16470,13 @@
                     }
                 },
                 "DOGE/USDT": {
-                    "qty": 3643.027764993305,
+                    "qty": 1821.5138824966525,
                     "entry_price": 0.11111,
                     "side": "SHORT",
-                    "stop_loss": 0.11751821428571428,
+                    "stop_loss": 0.11111,
                     "take_profit": 0.10683785714285714,
-                    "tp1_hit": false,
-                    "last_price": 0.1044,
+                    "tp1_hit": true,
+                    "last_price": 0.10262,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16630,13 +16652,13 @@
                     }
                 },
                 "SOL/USDT": {
-                    "qty": 0.6865557449154653,
+                    "qty": 0.34327787245773267,
                     "entry_price": 95.67,
                     "side": "SHORT",
-                    "stop_loss": 99.97082464285714,
+                    "stop_loss": 95.67,
                     "take_profit": 92.80278357142858,
-                    "tp1_hit": false,
-                    "last_price": 85.02,
+                    "tp1_hit": true,
+                    "last_price": 84.13,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16812,13 +16834,13 @@
                     }
                 },
                 "ADA/USDT": {
-                    "qty": 241.02358636075138,
+                    "qty": 120.51179318037569,
                     "entry_price": 0.2785,
                     "side": "SHORT",
-                    "stop_loss": 0.2936714285714286,
+                    "stop_loss": 0.2785,
                     "take_profit": 0.26838571428571434,
-                    "tp1_hit": false,
-                    "last_price": 0.2514,
+                    "tp1_hit": true,
+                    "last_price": 0.2476,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16994,13 +17016,13 @@
                     }
                 },
                 "BNB/USDT": {
-                    "qty": 0.6133586007842463,
+                    "qty": 0.30667930039212316,
                     "entry_price": 678.87,
                     "side": "SHORT",
-                    "stop_loss": 704.8971535714286,
+                    "stop_loss": 678.87,
                     "take_profit": 661.5185642857143,
-                    "tp1_hit": false,
-                    "last_price": 643.26,
+                    "tp1_hit": true,
+                    "last_price": 638.66,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -17181,7 +17203,8 @@
                     "side": "SHORT",
                     "stop_loss": 0.36406499999999997,
                     "take_profit": 0.35204,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 0.35571
                 }
             },
             "history": [
@@ -45404,20 +45427,75 @@
                         "entry_date": null
                     },
                     "reason": "RSI Overbought (83.28) - Short"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.342031",
+                    "symbol": "ETH/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.015105403397542135,
+                    "price": 2108.57,
+                    "total_value": 31.85080044195542,
+                    "pnl": 3.8802760247606183,
+                    "entry_price": 2365.45,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.370878",
+                    "symbol": "BNB/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.30667930039212316,
+                    "price": 638.66,
+                    "total_value": 195.86380198843335,
+                    "pnl": 12.331574668767283,
+                    "entry_price": 678.87,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.427252",
+                    "symbol": "SOL/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.34327787245773267,
+                    "price": 84.13,
+                    "total_value": 28.87996740986905,
+                    "pnl": 3.961426648162237,
+                    "entry_price": 95.67,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.456222",
+                    "symbol": "ADA/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 120.51179318037569,
+                    "price": 0.2476,
+                    "total_value": 29.83871999146102,
+                    "pnl": 3.7238144092736136,
+                    "entry_price": 0.2785,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.485067",
+                    "symbol": "DOGE/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 1821.5138824966525,
+                    "price": 0.10262,
+                    "total_value": 186.9237546218065,
+                    "pnl": 15.464652862396575,
+                    "entry_price": 0.11111,
+                    "reason": "Short TP1 Hit"
                 }
             ]
         },
         "rsi_forex": {
-            "cash": 35.68998294876293,
+            "cash": 53.5897529131108,
             "positions": {
                 "GBP/USD": {
-                    "qty": 10.812209920670524,
+                    "qty": 5.406104960335262,
                     "entry_price": 1.35683,
                     "side": "SHORT",
-                    "stop_loss": 1.3722725,
+                    "stop_loss": 1.35683,
                     "take_profit": 1.346535,
-                    "tp1_hit": false,
-                    "last_price": 1.3416,
+                    "tp1_hit": true,
+                    "last_price": 1.33894,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -45593,13 +45671,13 @@
                     }
                 },
                 "EUR/USD": {
-                    "qty": 17.5644568573515,
+                    "qty": 8.78222842867575,
                     "entry_price": 1.17592,
                     "side": "SHORT",
-                    "stop_loss": 1.1860182142857143,
+                    "stop_loss": 1.17592,
                     "take_profit": 1.1691878571428573,
-                    "tp1_hit": false,
-                    "last_price": 1.1645,
+                    "tp1_hit": true,
+                    "last_price": 1.1599,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -45781,7 +45859,7 @@
                     "stop_loss": 1.3820521428571428,
                     "take_profit": 1.3711485714285714,
                     "tp1_hit": false,
-                    "last_price": 1.37492
+                    "last_price": 1.37548
                 }
             },
             "history": [
@@ -58004,6 +58082,28 @@
                     "price": 1.3416,
                     "total_value": 14.505660829571575,
                     "pnl": 0.16466995709181292,
+                    "entry_price": 1.35683,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.590206",
+                    "symbol": "EUR/USD",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 8.78222842867575,
+                    "price": 1.1599,
+                    "total_value": 10.186506754421004,
+                    "pnl": 0.1406912994273868,
+                    "entry_price": 1.17592,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-05-20T02:35:14.613206",
+                    "symbol": "GBP/USD",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 5.406104960335262,
+                    "price": 1.33894,
+                    "total_value": 7.2384501755912956,
+                    "pnl": 0.09671521774039762,
                     "entry_price": 1.35683,
                     "reason": "Short TP1 Hit"
                 }
