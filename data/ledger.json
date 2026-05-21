@@ -10,7 +10,7 @@
                     "stop_loss": 0.2686,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": true,
-                    "last_price": 0.2476,
+                    "last_price": 0.2516,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -453,7 +453,7 @@
                         "entry_price": 2229.37,
                         "entry_date": null
                     },
-                    "last_price": 2108.57
+                    "last_price": 2143.15
                 }
             },
             "history": [
@@ -11478,7 +11478,7 @@
                     "stop_loss": 1.3774417857142855,
                     "take_profit": 1.3631221428571427,
                     "tp1_hit": false,
-                    "last_price": 1.37548,
+                    "last_price": 1.37614,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -11704,7 +11704,7 @@
                     "stop_loss": 1.1698,
                     "take_profit": 1.1563999999999999,
                     "tp1_hit": false,
-                    "last_price": 1.1599
+                    "last_price": 1.16212
                 }
             },
             "history": [
@@ -16291,10 +16291,10 @@
                     "qty": 0.015105403397542135,
                     "entry_price": 2365.45,
                     "side": "SHORT",
-                    "stop_loss": 2365.45,
+                    "stop_loss": 2252.222885714286,
                     "take_profit": 2256.217857142857,
                     "tp1_hit": true,
-                    "last_price": 2108.57,
+                    "last_price": 2143.15,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16476,7 +16476,7 @@
                     "stop_loss": 0.11111,
                     "take_profit": 0.10683785714285714,
                     "tp1_hit": true,
-                    "last_price": 0.10262,
+                    "last_price": 0.10508,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16655,10 +16655,10 @@
                     "qty": 0.34327787245773267,
                     "entry_price": 95.67,
                     "side": "SHORT",
-                    "stop_loss": 95.67,
+                    "stop_loss": 92.14214285714286,
                     "take_profit": 92.80278357142858,
                     "tp1_hit": true,
-                    "last_price": 84.13,
+                    "last_price": 86.65,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -16837,10 +16837,10 @@
                     "qty": 120.51179318037569,
                     "entry_price": 0.2785,
                     "side": "SHORT",
-                    "stop_loss": 0.2785,
+                    "stop_loss": 0.27000714285714283,
                     "take_profit": 0.26838571428571434,
                     "tp1_hit": true,
-                    "last_price": 0.2476,
+                    "last_price": 0.2516,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -17022,7 +17022,7 @@
                     "stop_loss": 678.87,
                     "take_profit": 661.5185642857143,
                     "tp1_hit": true,
-                    "last_price": 638.66,
+                    "last_price": 654.39,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -17204,7 +17204,7 @@
                     "stop_loss": 0.36406499999999997,
                     "take_profit": 0.35204,
                     "tp1_hit": false,
-                    "last_price": 0.35571
+                    "last_price": 0.35911
                 }
             },
             "history": [
@@ -45492,10 +45492,10 @@
                     "qty": 5.406104960335262,
                     "entry_price": 1.35683,
                     "side": "SHORT",
-                    "stop_loss": 1.35683,
+                    "stop_loss": 1.3556221428571429,
                     "take_profit": 1.346535,
                     "tp1_hit": true,
-                    "last_price": 1.33894,
+                    "last_price": 1.3426,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -45674,10 +45674,10 @@
                     "qty": 8.78222842867575,
                     "entry_price": 1.17592,
                     "side": "SHORT",
-                    "stop_loss": 1.17592,
+                    "stop_loss": 1.1699939285714287,
                     "take_profit": 1.1691878571428573,
                     "tp1_hit": true,
-                    "last_price": 1.1599,
+                    "last_price": 1.16212,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -45859,7 +45859,7 @@
                     "stop_loss": 1.3820521428571428,
                     "take_profit": 1.3711485714285714,
                     "tp1_hit": false,
-                    "last_price": 1.37548
+                    "last_price": 1.37614
                 }
             },
             "history": [
