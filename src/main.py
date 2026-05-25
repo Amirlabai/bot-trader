@@ -1,13 +1,17 @@
 import sys
 import os
 import importlib
+import traceback
 from datetime import datetime
 
-import pandas as pd
+# Repo root on sys.path (required for shared.constants via config). Run: python src/main.py from repo root.
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+os.chdir(REPO_ROOT)
+for _path in (REPO_ROOT, os.path.join(REPO_ROOT, 'src')):
+    if _path not in sys.path:
+        sys.path.insert(0, _path)
 
-# Ensure src and root are in path
-sys.path.append(os.path.join(os.getcwd(), 'src'))
-sys.path.append(os.getcwd())
+import pandas as pd
 
 from config import Config, TRADING_CONFIG, RISK_SETTINGS, TP1_EXIT_REASONS
 from data_ingestion import DataFetcher
@@ -70,10 +74,21 @@ def _build_candle_snapshot(market_data, signal_data, n=20, entry_price=None, ent
     }
 
 
+def _clamp_quantity_pct(pct, default=1.0):
+    """Clamp strategy quantity_pct to (0, 1]."""
+    try:
+        v = float(pct)
+    except (TypeError, ValueError):
+        return default
+    if v <= 0:
+        return default
+    return min(1.0, v)
+
+
 def _apply_tp1_updates(ledger, strategy_id, symbol, signal_data):
     """After a partial exit, move SL to breakeven and record TP1 (long or short)."""
     new_sl = signal_data.get('stop_loss')
-    if new_sl is not None:
+    if new_sl is not None and new_sl > 0:
         ledger.update_stop_loss(strategy_id, symbol, new_sl)
     if signal_data.get('reason', '') in TP1_EXIT_REASONS:
         ledger.mark_tp1_hit(strategy_id, symbol)
@@ -85,6 +100,7 @@ def _size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pc
     Size from equity_risk_pct of total equity (cash + open positions at cost, no unrealized P/L).
     Returns (quantity, target_risk, actual_risk, was_cash_capped, sizing_ok).
     """
+    stop_loss = float(stop_loss or 0)
     total_equity = ledger.get_total_equity(strategy_id)
     target_risk = total_equity * equity_risk_pct
 
@@ -97,6 +113,9 @@ def _size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pc
         risk_per_share = current_price - stop_loss
 
     if risk_per_share <= 0:
+        return 0.0, target_risk, 0.0, False, False
+
+    if current_price <= 0:
         return 0.0, target_risk, 0.0, False, False
 
     quantity = target_risk / risk_per_share
@@ -112,7 +131,7 @@ def _size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pc
 
 
 def _should_open_after_sizing(side_label, quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
-    """Log a single skip/cap reason; return True only when an open should proceed."""
+    """Log skip reasons or a CASH-CAPPED note; return True only when an open should proceed."""
     min_frac = RISK_SETTINGS['min_risk_fraction']
     min_notional = RISK_SETTINGS['min_notional_usd']
     notional = quantity * current_price
@@ -189,6 +208,9 @@ def main():
                 signal_data = strategy.generate_signal(market_data, pos_data)
             except Exception as e:
                 print(f"    Error generating signal: {e}")
+                traceback.print_exc()
+                if os.getenv("BOT_TRADER_DEBUG") == "1":
+                    raise
                 continue
             
             action = signal_data.get('action', 'hold')
@@ -200,8 +222,6 @@ def main():
 
             print(f"    Action: {action.upper()} | Reason: {signal_data.get('reason', '')} | Price: {current_price}")
 
-            # Current State
-            is_flat = pos_data is None
             position_side = pos_data.get('side', 'LONG') if pos_data else None
             
             # --- SIGNAL PROCESSING ---
@@ -209,7 +229,7 @@ def main():
                 # 1. Close SHORT if exists
                 if position_side == 'SHORT':
                     print(f"    Signal BUY -> Closing SHORT {symbol}")
-                    pct = signal_data.get('quantity_pct', 1.0)
+                    pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
                     qty_to_cover = pos_data['qty'] * pct
                     entry_price = pos_data.get('entry_price')
                     entry_date = pos_data.get('entry_date')
@@ -217,14 +237,20 @@ def main():
                     if ledger.update_position(strategy_id, symbol, qty_to_cover, current_price, 'buy', candle_snapshot=snapshot, reason=signal_data.get('reason')):
                          print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {current_price}")
                          _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
+                         pos_data = ledger.get_position(strategy_id, symbol)
+                         position_side = pos_data.get('side') if pos_data else None
 
-                # 2. Open/Add LONG (If Flat or Long)
-                elif position_side in [None, 'LONG']:
+                # 2. Open LONG only when flat; same-bar flip after full cover
+                if position_side is None:
                     new_sl = signal_data.get('stop_loss', 0.0)
                     quantity, target_risk, actual_risk, capped, sizing_ok = _size_for_risk(
                         ledger, strategy_id, current_price, new_sl,
                         RISK_SETTINGS['equity_risk_pct'], is_short=False,
                     )
+                    pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
+                    target_risk *= pct
+                    quantity *= pct
+                    actual_risk *= pct
                     if _should_open_after_sizing('LONG', quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
@@ -235,7 +261,7 @@ def main():
                 # 1. Close LONG if exists
                 if position_side == 'LONG':
                     print(f"    Signal SELL -> Closing LONG {symbol}")
-                    pct = signal_data.get('quantity_pct', 1.0)
+                    pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
                     qty_to_sell = pos_data['qty'] * pct
                     entry_price = pos_data.get('entry_price')
                     entry_date = pos_data.get('entry_date')
@@ -243,14 +269,20 @@ def main():
                     if ledger.update_position(strategy_id, symbol, qty_to_sell, current_price, 'sell', candle_snapshot=snapshot, reason=signal_data.get('reason')):
                         print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {current_price}")
                         _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
+                        pos_data = ledger.get_position(strategy_id, symbol)
+                        position_side = pos_data.get('side') if pos_data else None
 
-                # 2. Open/Add SHORT (If Flat or Short)
-                elif position_side in [None, 'SHORT']:
+                # 2. Open SHORT only when flat; same-bar flip after full close
+                if position_side is None:
                     new_sl = signal_data.get('stop_loss', 0.0)
                     quantity, target_risk, actual_risk, capped, sizing_ok = _size_for_risk(
                         ledger, strategy_id, current_price, new_sl,
                         RISK_SETTINGS['equity_risk_pct'], is_short=True,
                     )
+                    pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
+                    target_risk *= pct
+                    quantity *= pct
+                    actual_risk *= pct
                     if _should_open_after_sizing('SHORT', quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
@@ -260,7 +292,7 @@ def main():
             elif action == 'hold':
                  # Trailing SL Updates
                  new_sl = signal_data.get('stop_loss')
-                 if new_sl is not None and pos_data:
+                 if new_sl is not None and new_sl > 0 and pos_data:
                       ledger.update_stop_loss(strategy_id, symbol, new_sl)
                       print(f"    UPDATED SL: {new_sl}")
 

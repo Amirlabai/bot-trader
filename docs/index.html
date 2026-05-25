@@ -345,6 +345,8 @@
 
         function renderStrategy(strategyName) {
             currentStrategy = strategyName;
+            expandedRow = null;
+            expandedTradeRow = null;
             const data = rawData.strategies[strategyName];
             if (!data) return;
 
@@ -358,7 +360,7 @@
 
             // Tables
             renderPositions(data.active_positions);
-            renderHistory(data.trade_history);
+            renderHistory();
 
             // Charts
             renderEquityChart(data.equity_curve);
@@ -400,26 +402,29 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Asset</th><th>Side</th><th>Size</th><th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop</th><th>Notional</th>
+                            <th>Asset</th><th>Side</th><th>Size</th><th>Entry</th><th>Price</th><th>Unrealized P/L</th><th>Stop</th><th>Market value</th>
                         </tr>
                     </thead>
                     <tbody>${rows}</tbody>
                 </table>`;
         }
 
-        function renderHistory(history) {
-            applyFilters(); // Uses the logic from search input
+        function renderHistory() {
+            applyFilters();
         }
 
         function applyFilters() {
+            expandedRow = null;
+            expandedTradeRow = null;
+            const container = document.getElementById('history-table-container');
             if (!rawData?.strategies?.[currentStrategy]) {
+                container.innerHTML = '<div style="padding:20px; color:var(--muted); text-align:center;">No strategy selected.</div>';
                 return;
             }
             const filterText = document.getElementById('symbol-filter').value.toUpperCase();
             const data = rawData.strategies[currentStrategy];
             const filtered = data.trade_history.filter(t => t.symbol.toUpperCase().includes(filterText));
 
-            const container = document.getElementById('history-table-container');
             if (filtered.length === 0) {
                 container.innerHTML = '<div style="padding:20px; color:var(--muted); text-align:center;">No trades match your filter.</div>';
                 return;
@@ -488,7 +493,8 @@
             const labels = history.map(h => new Date(h.time).toLocaleDateString());
             const values = history.map(h => h.equity);
             const initialPoint = history.find(h => h.type === 'initial');
-            const baseline = initialPoint ? initialPoint.equity : (history[0]?.equity ?? 10000);
+            // Prefer curve "initial" point, then report metadata; 10000 is legacy fallback only
+            const baseline = initialPoint?.equity ?? rawData.metadata?.initial_cash ?? history[0]?.equity ?? 10000;
 
             equityChart = new Chart(ctx, {
                 type: 'line',

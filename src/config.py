@@ -1,8 +1,19 @@
 import os
 from dotenv import load_dotenv
 
+from shared.constants import TP1_EXIT_REASONS, TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT
+
 # Load environment variables from .env file (if it exists)
 load_dotenv()
+
+
+def _env_float(name, default):
+    raw = os.getenv(name, str(default))
+    try:
+        return float(raw)
+    except ValueError as e:
+        raise ValueError(f"Invalid {name} in environment: {raw!r}") from e
+
 
 class Config:
     # API Keys
@@ -20,13 +31,7 @@ class Config:
 
     # Defaults
     DEFAULT_TIMEFRAME = '1d'
-    INITIAL_STRATEGY_CASH = float(os.getenv("INITIAL_STRATEGY_CASH", "10000"))
-
-
-# TP1 partial-exit reasons (keep in sync: main.py + strategies/base_strategy.py)
-TP1_HIT_REASON_LONG = 'TP1 Hit'
-TP1_HIT_REASON_SHORT = 'Short TP1 Hit'
-TP1_EXIT_REASONS = frozenset({TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT})
+    INITIAL_STRATEGY_CASH = _env_float("INITIAL_STRATEGY_CASH", 10000)
 
 
 def _load_risk_settings():
@@ -36,9 +41,9 @@ def _load_risk_settings():
         'min_notional_usd': 10.0,
     }
     settings = {
-        'equity_risk_pct': float(os.getenv('EQUITY_RISK_PCT', defaults['equity_risk_pct'])),
-        'min_risk_fraction': float(os.getenv('MIN_RISK_FRACTION', defaults['min_risk_fraction'])),
-        'min_notional_usd': float(os.getenv('MIN_NOTIONAL_USD', defaults['min_notional_usd'])),
+        'equity_risk_pct': _env_float('EQUITY_RISK_PCT', defaults['equity_risk_pct']),
+        'min_risk_fraction': _env_float('MIN_RISK_FRACTION', defaults['min_risk_fraction']),
+        'min_notional_usd': _env_float('MIN_NOTIONAL_USD', defaults['min_notional_usd']),
     }
     pct = settings['equity_risk_pct']
     if not 0 < pct <= 1:

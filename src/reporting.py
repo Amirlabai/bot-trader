@@ -119,8 +119,12 @@ def _render_chart_b64(snapshot: dict) -> str:
             # Fallback for old snapshots (entry at n-1)
             ax.axvline(n - 1, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.7, label="Entry")
 
-        # Draw exit marker (last candle)
-        ax.axvline(n - 1, color="#a371f7", linewidth=1.0, linestyle=":", alpha=0.7, label="Exit/Current")
+        exit_price = snapshot.get("exit_price") if "exit_price" in snapshot else None
+        if exit_price is not None:
+            ax.axhline(
+                exit_price, color="#a371f7", linewidth=1.2, linestyle=":",
+                alpha=0.85, label=f"Exit {exit_price:.4g}",
+            )
 
         # --- Axis styling ---
         ax.set_xlim(-0.8, n - 0.2)
@@ -129,6 +133,8 @@ def _render_chart_b64(snapshot: dict) -> str:
         if sl: all_prices.append(sl)
         if tp: all_prices.append(tp)
         if entry_price: all_prices.append(entry_price)
+        if exit_price is not None:
+            all_prices.append(exit_price)
 
         max_p = max(all_prices)
         min_p = min(all_prices)
@@ -231,7 +237,8 @@ class ReportGenerator:
 
         output_data = {
             "metadata": {
-                "last_updated": datetime.now().isoformat()
+                "last_updated": datetime.now().isoformat(),
+                "initial_cash": self.config.INITIAL_STRATEGY_CASH,
             },
             "strategies": {}
         }
@@ -352,7 +359,11 @@ class ReportGenerator:
                     snapshot = event.get('snapshot')
                     if not snapshot:
                         snapshot = _find_open_snapshot(history, event['symbol'], entry_price)
-                    chart_b64 = _render_chart_b64(snapshot) if snapshot else ""
+                    if snapshot:
+                        snap = {**snapshot, "exit_price": event["price"]}
+                        chart_b64 = _render_chart_b64(snap)
+                    else:
+                        chart_b64 = ""
 
                     # P/L % calculation
                     pnl_pct = 0.0

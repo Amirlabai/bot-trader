@@ -2,9 +2,12 @@ import sys
 import os
 from datetime import datetime
 
-# Add src and root to path
-sys.path.append(os.getcwd())
-sys.path.append(os.path.join(os.getcwd(), 'src'))
+# Always run from repo root (IDE may use scratch/ as cwd)
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+os.chdir(REPO_ROOT)
+for path in (REPO_ROOT, os.path.join(REPO_ROOT, 'src')):
+    if path not in sys.path:
+        sys.path.insert(0, path)
 
 from config import Config, TRADING_CONFIG
 from ledger_manager import LedgerManager
@@ -117,14 +120,15 @@ def main():
                     # If event is in the future relative to data, use full
                     market_data_to_event = full_market_data
                 
-                # Generate signal on the sliced data
-                # We mock a pos_data for the strategy if it's a close event
+                # Mock position for signal refresh (preserve SL/TP/tp1 from stored snapshot)
+                old_snap = event.get('snapshot') or {}
                 mock_pos = {
                     'qty': event.get('quantity', 0.0),
                     'entry_price': event.get('entry_price', event['price']),
                     'side': 'LONG' if 'LONG' in event['side'] else 'SHORT',
-                    'stop_loss': event.get('stop_loss', 0.0),
-                    'take_profit': event.get('take_profit', 0.0)
+                    'stop_loss': old_snap.get('stop_loss') or event.get('stop_loss', 0.0),
+                    'take_profit': old_snap.get('take_profit') or event.get('take_profit', 0.0),
+                    'tp1_hit': old_snap.get('tp1_hit', event.get('tp1_hit', False)),
                 }
                 
                 signal_data = strategy.generate_signal(market_data_to_event, mock_pos)
@@ -138,18 +142,40 @@ def main():
                     pos_data=mock_pos
                 )
                 
+                if 'CLOSE' in event.get('side', '') or 'pnl' in event:
+                    new_snapshot['exit_price'] = event['price']
                 event['snapshot'] = new_snapshot
-                if new_snapshot.get('reason'):
+                is_close = 'CLOSE' in event.get('side', '')
+                if new_snapshot.get('reason') and not is_close:
                     event['reason'] = new_snapshot['reason']
                 print(f"    History updated (Price: {event['price']}, Entry: {new_snapshot['entry_price']}, Reason: {event.get('reason')})")
 
     ledger.save_ledger()
     print("\n--- Snapshots Refreshed ---")
     
-    # Run reporting
+    _regenerate_report()
+
+
+def _regenerate_report():
+    """Rebuild docs/report_data.js so trade charts use current reporting.py renderer."""
     from reporting import ReportGenerator
     reporter = ReportGenerator(Config)
     reporter.generate()
+    print(f"Report written: {reporter.report_file}")
+    print("Hard-refresh the dashboard (Ctrl+F5) so the browser loads the new report_data.js.")
+
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description="Refresh ledger snapshots and/or regenerate dashboard report.")
+    parser.add_argument(
+        "--report-only",
+        action="store_true",
+        help="Skip API/snapshot refresh; only regenerate docs/report_data.js from ledger.json",
+    )
+    args = parser.parse_args()
+    if args.report_only:
+        print(f"--- Report Regeneration: {datetime.now()} ---")
+        _regenerate_report()
+    else:
+        main()

@@ -1,13 +1,8 @@
 from abc import ABC, abstractmethod
-import os
-import sys
 
 import pandas as pd
 
-_src = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
-if _src not in sys.path:
-    sys.path.insert(0, _src)
-from config import TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT
+from shared.constants import TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT
 
 class BaseStrategy(ABC):
     def __init__(self, params=None):
