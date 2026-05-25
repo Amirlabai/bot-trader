@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.14.0 (2026-05-25)
+
+### Features
+
+- **trading**: Same-bar flip and shared TP1 constants
+  ([`5fcd97c`](https://github.com/Amirlabai/bot-trader/commit/5fcd97cca3ebc8721454945c04de86b56f62322b))
+
+
 ## v1.13.0 (2026-05-19)
 
 ### Features
