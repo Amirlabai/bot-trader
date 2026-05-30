@@ -98,14 +98,16 @@ def _apply_tp1_updates(ledger, strategy_id, symbol, signal_data):
 def _size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pct, is_short=False):
     """
     Size from equity_risk_pct of total equity (cash + open positions at cost, no unrealized P/L).
-    Returns (quantity, target_risk, actual_risk, was_cash_capped, sizing_ok).
+    Caps notional at max_notional_pct of equity, then at free cash.
+    Returns (quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok).
     """
     stop_loss = float(stop_loss or 0)
     total_equity = ledger.get_total_equity(strategy_id)
     target_risk = total_equity * equity_risk_pct
+    max_notional_pct = RISK_SETTINGS['max_notional_pct']
 
     if stop_loss <= 0:
-        return 0.0, target_risk, 0.0, False, False
+        return 0.0, target_risk, 0.0, False, False, False
 
     if is_short:
         risk_per_share = stop_loss - current_price
@@ -113,38 +115,47 @@ def _size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pc
         risk_per_share = current_price - stop_loss
 
     if risk_per_share <= 0:
-        return 0.0, target_risk, 0.0, False, False
+        return 0.0, target_risk, 0.0, False, False, False
 
     if current_price <= 0:
-        return 0.0, target_risk, 0.0, False, False
+        return 0.0, target_risk, 0.0, False, False, False
 
     quantity = target_risk / risk_per_share
+    capped_notional = False
+    capped_cash = False
+
+    max_notional = total_equity * max_notional_pct
+    if quantity * current_price > max_notional:
+        quantity = max_notional / current_price
+        capped_notional = True
+
     current_cash = ledger.get_balance(strategy_id)
-    notional = quantity * current_price
-    capped = False
-    if notional > current_cash:
+    if quantity * current_price > current_cash:
         quantity = current_cash / current_price
-        capped = True
+        capped_cash = True
 
     actual_risk = quantity * risk_per_share
-    return quantity, target_risk, actual_risk, capped, True
+    return quantity, target_risk, actual_risk, capped_notional, capped_cash, True
 
 
-def _should_open_after_sizing(side_label, quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
-    """Log skip reasons or a CASH-CAPPED note; return True only when an open should proceed."""
+def _should_open_after_sizing(
+    side_label, quantity, current_price, target_risk, actual_risk,
+    capped_notional, capped_cash, sizing_ok, ledger, strategy_id,
+):
+    """Log skip reasons or cap notes; return True only when an open should proceed."""
     min_frac = RISK_SETTINGS['min_risk_fraction']
     min_notional = RISK_SETTINGS['min_notional_usd']
     notional = quantity * current_price
     free_cash = ledger.get_balance(strategy_id)
+    capped = capped_notional or capped_cash
 
     if not sizing_ok:
         print(f"    SKIP OPEN {side_label}: invalid stop (missing or on wrong side of entry)")
         return False
-    if actual_risk < target_risk * min_frac:
-        cap_note = f", cash-capped (free cash ${free_cash:.2f})" if capped else ""
+    if not capped and actual_risk < target_risk * min_frac:
         print(
             f"    SKIP OPEN {side_label}: ${actual_risk:.2f} risk below "
-            f"{min_frac:.0%} of target (${target_risk:.2f}){cap_note}"
+            f"{min_frac:.0%} of target (${target_risk:.2f})"
         )
         return False
     if notional < min_notional:
@@ -154,9 +165,14 @@ def _should_open_after_sizing(side_label, quantity, current_price, target_risk, 
         )
         return False
     if capped:
+        cap_parts = []
+        if capped_notional:
+            cap_parts.append(f"max notional {RISK_SETTINGS['max_notional_pct']:.0%} of equity")
+        if capped_cash:
+            cap_parts.append(f"free cash ${free_cash:.2f}")
         print(
-            f"    CASH-CAPPED: target risk ${target_risk:.2f}, "
-            f"actual ${actual_risk:.2f} (free cash ${free_cash:.2f})"
+            f"    SIZE-CAPPED ({', '.join(cap_parts)}): target risk ${target_risk:.2f}, "
+            f"actual ${actual_risk:.2f}, notional ${notional:.2f}"
         )
     return True
 
@@ -243,15 +259,14 @@ def main():
                 # 2. Open LONG only when flat; same-bar flip after full cover
                 if position_side is None:
                     new_sl = signal_data.get('stop_loss', 0.0)
-                    quantity, target_risk, actual_risk, capped, sizing_ok = _size_for_risk(
+                    quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok = _size_for_risk(
                         ledger, strategy_id, current_price, new_sl,
                         RISK_SETTINGS['equity_risk_pct'], is_short=False,
                     )
-                    pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
-                    target_risk *= pct
-                    quantity *= pct
-                    actual_risk *= pct
-                    if _should_open_after_sizing('LONG', quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
+                    if _should_open_after_sizing(
+                        'LONG', quantity, current_price, target_risk, actual_risk,
+                        capped_notional, capped_cash, sizing_ok, ledger, strategy_id,
+                    ):
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
                         if ledger.update_position(strategy_id, symbol, quantity, current_price, 'buy', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot, reason=signal_data.get('reason')):
@@ -275,15 +290,14 @@ def main():
                 # 2. Open SHORT only when flat; same-bar flip after full close
                 if position_side is None:
                     new_sl = signal_data.get('stop_loss', 0.0)
-                    quantity, target_risk, actual_risk, capped, sizing_ok = _size_for_risk(
+                    quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok = _size_for_risk(
                         ledger, strategy_id, current_price, new_sl,
                         RISK_SETTINGS['equity_risk_pct'], is_short=True,
                     )
-                    pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
-                    target_risk *= pct
-                    quantity *= pct
-                    actual_risk *= pct
-                    if _should_open_after_sizing('SHORT', quantity, current_price, target_risk, actual_risk, capped, sizing_ok, ledger, strategy_id):
+                    if _should_open_after_sizing(
+                        'SHORT', quantity, current_price, target_risk, actual_risk,
+                        capped_notional, capped_cash, sizing_ok, ledger, strategy_id,
+                    ):
                         new_tp = signal_data.get('take_profit', 0.0)
                         snapshot = _build_candle_snapshot(market_data, signal_data, pos_data=pos_data)
                         if ledger.update_position(strategy_id, symbol, quantity, current_price, 'sell', stop_loss=new_sl, take_profit=new_tp, candle_snapshot=snapshot, reason=signal_data.get('reason')):

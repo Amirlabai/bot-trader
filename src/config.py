@@ -39,11 +39,13 @@ def _load_risk_settings():
         'equity_risk_pct': 0.01,
         'min_risk_fraction': 0.25,
         'min_notional_usd': 10.0,
+        'max_notional_pct': 0.25,
     }
     settings = {
         'equity_risk_pct': _env_float('EQUITY_RISK_PCT', defaults['equity_risk_pct']),
         'min_risk_fraction': _env_float('MIN_RISK_FRACTION', defaults['min_risk_fraction']),
         'min_notional_usd': _env_float('MIN_NOTIONAL_USD', defaults['min_notional_usd']),
+        'max_notional_pct': _env_float('MAX_NOTIONAL_PCT', defaults['max_notional_pct']),
     }
     pct = settings['equity_risk_pct']
     if not 0 < pct <= 1:
@@ -53,6 +55,9 @@ def _load_risk_settings():
         raise ValueError(f"min_risk_fraction must be in (0, 1), got {frac}")
     if settings['min_notional_usd'] <= 0:
         raise ValueError(f"min_notional_usd must be > 0, got {settings['min_notional_usd']}")
+    max_notional = settings['max_notional_pct']
+    if not 0 < max_notional <= 1:
+        raise ValueError(f"max_notional_pct must be in (0, 1], got {max_notional}")
     return settings
 
 

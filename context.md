@@ -12,11 +12,11 @@
 - **Strategies**: Modular strategy logic is stored in `strategies/` (e.g., `MovingAverageStrategy`, `RSIStrategy`).
 
 ## Risk Management
-- **Model**: 1% of total equity per trade (`cash + open positions at entry cost`; no unrealized P/L).
-- **Position Sizing**: `quantity = (equity × equity_risk_pct) / |entry − stop|`; capped by free cash (100% collateral for shorts). Entry signals may set `quantity_pct` (e.g. 0.1) to scale the risk-sized quantity before open.
-- **Undersize guard**: `RISK_SETTINGS` in `src/config.py` (`min_risk_fraction`, `min_notional_usd`, `equity_risk_pct`). Env floats use `_env_float` with clear errors on bad values.
+- **Model**: 1% of total equity per new open (`cash + open positions at entry cost`; no unrealized P/L).
+- **Position Sizing**: `quantity = (equity × equity_risk_pct) / |entry − stop|`; then capped by `max_notional_pct` of equity (default 25%), then by free cash. Caps reduce notional only — actual risk may fall below 1% but the trade still opens.
+- **Undersize guard**: `RISK_SETTINGS` in `src/config.py` (`min_risk_fraction`, `min_notional_usd`, `equity_risk_pct`, `max_notional_pct`). Env floats use `_env_float` with clear errors on bad values. `min_risk_fraction` is skipped when a notional or cash cap applies.
+- **Exits**: `quantity_pct` on close/cover only (TP1 50%, full exit 100%). TP1 at 1.0 ATR (50% out, SL to breakeven); trailing 1.5 ATR after TP1. SL updates require `new_sl > 0` (hold, TP1, ledger ADD).
 - **TP1 flag**: `shared/constants.py` defines `TP1_HIT_REASON_*` and `TP1_EXIT_REASONS`; re-exported from `src/config.py` for `main.py`.
-- **Exits**: TP1 at 1.0 ATR (50% out, SL to breakeven); trailing 1.5 ATR after TP1. SL updates require `new_sl > 0` (hold, TP1, ledger ADD).
 - **Same-bar reversal**: After a full SHORT cover or LONG close, `main.py` refreshes position state and may open the opposite side in the same bar.
 - **Debug**: Set `BOT_TRADER_DEBUG=1` to re-raise after signal generation errors (traceback always printed).
 - **Trade charts**: Exit price drawn as horizontal line (`exit_price` from ledger fill); report metadata includes `initial_cash` for dashboard baseline.

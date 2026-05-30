@@ -64,7 +64,6 @@ class RSIStrategy(BaseStrategy):
                 initial_tp = current_price + (1.0 * current_atr)
                 return {
                     'action': 'buy',
-                    'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
                     'indicators': indicators,
@@ -85,7 +84,6 @@ class RSIStrategy(BaseStrategy):
                 initial_tp = current_price - (1.0 * current_atr)
                 return {
                     'action': 'sell',
-                    'quantity_pct': 0.1,
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
                     'indicators': indicators,
