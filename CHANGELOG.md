@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.14.1 (2026-05-30)
+
+### Bug Fixes
+
+- **risk**: Use full 1% entry risk sizing
+  ([`0106165`](https://github.com/Amirlabai/bot-trader/commit/0106165fc1d0306afd5934459a79cab1707d9387))
+
+
 ## v1.14.0 (2026-05-25)
 
 ### Features
