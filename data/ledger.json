@@ -1,16 +1,16 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 552.556936234228,
+            "cash": 2559.082875079288,
             "positions": {
                 "ADA/USDT": {
                     "qty": 0.006055075024801582,
                     "entry_price": 0.2686,
                     "side": "SHORT",
-                    "stop_loss": 0.2482282142857143,
+                    "stop_loss": 0.24019857142857143,
                     "take_profit": 0.24760000000000001,
                     "tp1_hit": true,
-                    "last_price": 0.2362,
+                    "last_price": 0.22687,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -233,7 +233,7 @@
                     "qty": 0.11243532706920595,
                     "entry_price": 2229.37,
                     "side": "SHORT",
-                    "stop_loss": 2111.6575000000003,
+                    "stop_loss": 2085.567857142857,
                     "take_profit": 2160.3625,
                     "tp1_hit": true,
                     "candle_snapshot": {
@@ -453,16 +453,16 @@
                         "entry_price": 2229.37,
                         "entry_date": null
                     },
-                    "last_price": 2010.01
+                    "last_price": 1986.36
                 },
                 "BTC/USDT": {
-                    "qty": 0.030825474163822433,
+                    "qty": 0.015412737081911217,
                     "entry_price": 75392.24,
                     "side": "SHORT",
-                    "stop_loss": 78385.6292857143,
+                    "stop_loss": 75392.24,
                     "take_profit": 73396.64714285715,
-                    "tp1_hit": false,
-                    "last_price": 73468.67,
+                    "tp1_hit": true,
+                    "last_price": 70612.0,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -688,7 +688,7 @@
                     "stop_loss": 0.10908964285714287,
                     "take_profit": 0.09662357142857143,
                     "tp1_hit": false,
-                    "last_price": 0.101,
+                    "last_price": 0.10037,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -908,13 +908,13 @@
                     }
                 },
                 "XRP/USDT": {
-                    "qty": 1073.8296070213478,
+                    "qty": 536.9148035106739,
                     "entry_price": 1.3577,
                     "side": "SHORT",
-                    "stop_loss": 1.4436285714285715,
+                    "stop_loss": 1.3577,
                     "take_profit": 1.3004142857142855,
-                    "tp1_hit": false,
-                    "last_price": 1.3234,
+                    "tp1_hit": true,
+                    "last_price": 1.2797,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -1137,10 +1137,10 @@
                     "qty": 8.557346431151865,
                     "entry_price": 85.67,
                     "side": "SHORT",
-                    "stop_loss": 85.67,
+                    "stop_loss": 84.65857142857142,
                     "take_profit": 82.07571428571428,
                     "tp1_hit": true,
-                    "last_price": 82.2,
+                    "last_price": 80.24,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -1363,10 +1363,10 @@
                     "qty": 74.88794302879322,
                     "entry_price": 9.34,
                     "side": "SHORT",
-                    "stop_loss": 9.34,
+                    "stop_loss": 9.316785714285714,
                     "take_profit": 8.929285714285713,
                     "tp1_hit": true,
-                    "last_price": 9.01,
+                    "last_price": 8.78,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -1591,7 +1591,8 @@
                     "side": "LONG",
                     "stop_loss": 673.4041978571429,
                     "take_profit": 727.4972014285714,
-                    "tp1_hit": false
+                    "tp1_hit": false,
+                    "last_price": 691.09
                 }
             },
             "history": [
@@ -15500,6 +15501,28 @@
                         "entry_date": null
                     },
                     "reason": "Golden Cross (Confirmed Close)"
+                },
+                {
+                    "timestamp": "2026-06-02T02:48:49.683404",
+                    "symbol": "BTC/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 0.015412737081911217,
+                    "price": 70612.0,
+                    "total_value": 1088.324190827915,
+                    "pnl": 73.67658230843536,
+                    "entry_price": 75392.24,
+                    "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-06-02T02:48:50.784126",
+                    "symbol": "XRP/USDT",
+                    "side": "CLOSE_SHORT",
+                    "quantity": 536.9148035106739,
+                    "price": 1.2797,
+                    "total_value": 687.0898740526094,
+                    "pnl": 41.87935467383248,
+                    "entry_price": 1.3577,
+                    "reason": "Short TP1 Hit"
                 }
             ]
         },
@@ -15513,7 +15536,7 @@
                     "stop_loss": 1.1698,
                     "take_profit": 1.1563999999999999,
                     "tp1_hit": false,
-                    "last_price": 1.16453,
+                    "last_price": 1.16318,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -20539,7 +20562,7 @@
             ]
         },
         "rsi_crypto": {
-            "cash": 3615.915487004305,
+            "cash": 3853.210725077422,
             "positions": {
                 "ETH/USDT": {
                     "qty": 0.8029580906500395,
@@ -20721,7 +20744,7 @@
                         "entry_price": 2096.82,
                         "entry_date": null
                     },
-                    "last_price": 2010.01
+                    "last_price": 1986.36
                 },
                 "XRP/USDT": {
                     "qty": 119.95845625975966,
@@ -20730,7 +20753,7 @@
                     "stop_loss": 1.2555607142857141,
                     "take_profit": 1.3907928571428572,
                     "tp1_hit": false,
-                    "last_price": 1.3234
+                    "last_price": 1.2797
                 },
                 "SOL/USDT": {
                     "qty": 1.7879263712953382,
@@ -20739,25 +20762,16 @@
                     "stop_loss": 78.47607142857143,
                     "take_profit": 87.54928571428572,
                     "tp1_hit": false,
-                    "last_price": 82.2
+                    "last_price": 80.24
                 },
                 "TRX/USDT": {
                     "qty": 574.1002694990754,
                     "entry_price": 0.37437,
                     "side": "SHORT",
-                    "stop_loss": 0.35565214285714286,
+                    "stop_loss": 0.3546064285714286,
                     "take_profit": 0.36881499999999995,
                     "tp1_hit": true,
-                    "last_price": 0.35018
-                },
-                "BTC/USDT": {
-                    "qty": 0.0033605511538140447,
-                    "entry_price": 73511.1,
-                    "side": "LONG",
-                    "stop_loss": 70662.8475,
-                    "take_profit": 75409.93500000001,
-                    "tp1_hit": false,
-                    "last_price": 73468.67
+                    "last_price": 0.34239
                 },
                 "AVAX/USDT": {
                     "qty": 16.331965283754084,
@@ -20766,7 +20780,7 @@
                     "stop_loss": 8.303928571428571,
                     "take_profit": 9.280714285714286,
                     "tp1_hit": false,
-                    "last_price": 9.01
+                    "last_price": 8.78
                 },
                 "DOT/USDT": {
                     "qty": 93.64344874437617,
@@ -20775,7 +20789,7 @@
                     "stop_loss": 1.1057857142857141,
                     "take_profit": 1.276142857142857,
                     "tp1_hit": false,
-                    "last_price": 1.2
+                    "last_price": 1.141
                 },
                 "ADA/USDT": {
                     "qty": 7208.718298172308,
@@ -20784,7 +20798,7 @@
                     "stop_loss": 0.2232142857142857,
                     "take_profit": 0.24535714285714286,
                     "tp1_hit": false,
-                    "last_price": 0.2362
+                    "last_price": 0.22687
                 },
                 "DOGE/USDT": {
                     "qty": 15319.298525678922,
@@ -20793,7 +20807,7 @@
                     "stop_loss": 0.09441821428571427,
                     "take_profit": 0.10483785714285714,
                     "tp1_hit": false,
-                    "last_price": 0.101
+                    "last_price": 0.10037
                 }
             },
             "history": [
@@ -54093,6 +54107,17 @@
                         "entry_date": null
                     },
                     "reason": "RSI Oversold (25.89) - Long"
+                },
+                {
+                    "timestamp": "2026-06-02T02:48:55.069592",
+                    "symbol": "BTC/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 0.0033605511538140447,
+                    "price": 70612.0,
+                    "total_value": 237.29523807311733,
+                    "pnl": -9.742573850022296,
+                    "entry_price": 73511.1,
+                    "reason": "Stop Loss Hit @ 70612.0 (SL 70662.8475)"
                 }
             ]
         },
@@ -54106,7 +54131,7 @@
                     "stop_loss": 1.3519921428571429,
                     "take_profit": 1.346535,
                     "tp1_hit": true,
-                    "last_price": 1.34541,
+                    "last_price": 1.34545,
                     "candle_snapshot": {
                         "candles": [
                             {
@@ -54288,7 +54313,7 @@
                     "stop_loss": 160.0812857142857,
                     "take_profit": 158.79914285714287,
                     "tp1_hit": false,
-                    "last_price": 159.463
+                    "last_price": 159.706
                 }
             },
             "history": [
