@@ -2,7 +2,7 @@ import os
 import json
 import base64
 import io
-from datetime import datetime
+from datetime import datetime, timedelta
 
 try:
     import matplotlib
@@ -34,7 +34,8 @@ def _render_chart_b64(snapshot: dict) -> str:
         tp = snapshot.get("take_profit", 0.0)
         indicators = snapshot.get("indicators", {})
         entry_price = snapshot.get("entry_price")
-        entry_date = snapshot.get("entry_date")
+        exit_date = snapshot.get("exit_date")
+        exit_price = snapshot.get("exit_price")
 
         n = len(candles)
         xs = list(range(n))
@@ -96,34 +97,36 @@ def _render_chart_b64(snapshot: dict) -> str:
                     ax.axhline(values, color=color, linewidth=1.0, linestyle="--", label=key.replace("_", " ").upper())
 
         # --- SL / TP horizontal levels ---
+        exit_kind = snapshot.get("exit_kind", "")
+        sl_label = "SL at exit" if exit_kind else f"SL {sl:.4g}"
+        tp_label = "TP1 target" if exit_kind == "tp1_partial" else (f"TP {tp:.4g}" if tp else "")
         if sl and sl > 0:
-            ax.axhline(sl, color="#f85149", linewidth=1.0, linestyle=":", alpha=0.85, label=f"SL {sl:.4g}")
+            ax.axhline(sl, color="#f85149", linewidth=1.0, linestyle=":", alpha=0.85, label=sl_label)
         if tp and tp > 0:
-            ax.axhline(tp, color="#3fb950", linewidth=1.0, linestyle=":", alpha=0.85, label=f"TP {tp:.4g}")
+            ax.axhline(tp, color="#3fb950", linewidth=1.0, linestyle=":", alpha=0.85, label=tp_label or f"TP {tp:.4g}")
 
-        # --- Entry line ---
+        # --- Entry price (horizontal reference for SL context) ---
         if entry_price is not None:
-            ax.axhline(entry_price, color="#58a6ff", linewidth=1.2, linestyle="-", alpha=0.85, label=f"Entry {entry_price:.4g}")
+            ax.axhline(
+                entry_price, color="#58a6ff", linewidth=1.0, linestyle="-",
+                alpha=0.55, label=f"Entry {entry_price:.4g}",
+            )
 
-            # If we have an entry date, try to find it in the dates list
-            if entry_date:
-                # Dates are stored as YYYY-MM-DD
-                entry_date_str = str(entry_date)[:10]
-                if entry_date_str in dates:
-                    idx = dates.index(entry_date_str)
-                    ax.axvline(idx, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.7, label=f"Entry Date")
-                else:
-                    # Date is out of bounds, just draw a dashed vertical line at start of chart to indicate it was before
-                    ax.axvline(0, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.3)
-        else:
-            # Fallback for old snapshots (entry at n-1)
-            ax.axvline(n - 1, color="#58a6ff", linewidth=1.0, linestyle="--", alpha=0.7, label="Entry")
-
-        exit_price = snapshot.get("exit_price") if "exit_price" in snapshot else None
         if exit_price is not None:
             ax.axhline(
                 exit_price, color="#a371f7", linewidth=1.2, linestyle=":",
                 alpha=0.85, label=f"Exit {exit_price:.4g}",
+            )
+
+        if exit_date:
+            exit_date_str = str(exit_date)[:10]
+            if exit_date_str in dates:
+                exit_idx = dates.index(exit_date_str)
+            else:
+                exit_idx = n - 1
+            ax.axvline(
+                exit_idx, color="#a371f7", linewidth=1.0, linestyle="--",
+                alpha=0.85, label="Close",
             )
 
         # --- Axis styling ---
@@ -191,26 +194,183 @@ def _render_chart_b64(snapshot: dict) -> str:
 
 # --- Snapshot Lookup -----------------------------------------------------------
 
-def _find_open_snapshot(history: list, symbol: str, entry_price: float) -> dict:
-    """
-    Locates the matching OPEN_LONG / OPEN_SHORT history event for a closed trade
-    in order to retrieve its stored candle snapshot.
-
-    Matching is done by symbol and closest entry_price (since partial close events
-    record the original avg_entry which may differ from the OPEN price by rounding).
-    """
+def _find_open_event(history: list, symbol: str, entry_price: float, before_timestamp: str = None) -> dict:
+    """Latest OPEN_* event for symbol before close time (fallback: closest entry price)."""
     candidates = [
         e for e in history
         if e["symbol"] == symbol
         and ("OPEN" in e.get("side", ""))
-        and "snapshot" in e
     ]
+    if before_timestamp:
+        candidates = [e for e in candidates if e["timestamp"] <= before_timestamp]
     if not candidates:
         return {}
+    if before_timestamp:
+        return max(candidates, key=lambda e: e["timestamp"])
+    return min(candidates, key=lambda e: abs(e["price"] - entry_price))
 
-    # Pick the candidate whose price is closest to the entry_price recorded on close
-    best = min(candidates, key=lambda e: abs(e["price"] - entry_price))
-    return best.get("snapshot", {})
+
+def _find_open_snapshot(history: list, symbol: str, entry_price: float, before_timestamp: str = None) -> dict:
+    open_event = _find_open_event(history, symbol, entry_price, before_timestamp)
+    return open_event.get("snapshot", {}) if open_event else {}
+
+
+def _merge_trade_snapshot(
+    event: dict,
+    snapshot: dict,
+    entry_price: float,
+    entry_date: str = "",
+    exit_date: str = "",
+) -> dict:
+    """Build chart/report snapshot with exit fill and repaired entry metadata."""
+    if not snapshot:
+        return {}
+    snap = {**snapshot}
+    snap["exit_price"] = event["price"]
+    if entry_price and entry_price > 0:
+        snap["entry_price"] = entry_price
+    elif not snap.get("entry_price"):
+        snap["entry_price"] = entry_price or None
+    if entry_date:
+        snap["entry_date"] = entry_date
+    if exit_date:
+        snap["exit_date"] = exit_date
+    if event.get("reason"):
+        snap["reason"] = event["reason"]
+    return snap
+
+
+def _exit_date_from_event(event: dict, snap: dict) -> str:
+    if event.get("snapshot"):
+        candles = snap.get("candles") or []
+        if candles:
+            return str(candles[-1]["date"])[:10]
+    return str(event["timestamp"])[:10]
+
+
+def _hold_days(entry_date: str, exit_date: str):
+    if not entry_date or not exit_date:
+        return None
+    try:
+        entry_dt = datetime.fromisoformat(str(entry_date)[:10])
+        exit_dt = datetime.fromisoformat(str(exit_date)[:10])
+        return max(0, (exit_dt - entry_dt).days)
+    except (ValueError, TypeError):
+        return None
+
+
+def _date_from_open_event(event: dict) -> str:
+    osnap = event.get("snapshot") or {}
+    if osnap.get("entry_date"):
+        return str(osnap["entry_date"])[:10]
+    candles = osnap.get("candles") or []
+    if candles:
+        return str(candles[-1]["date"])[:10]
+    return str(event["timestamp"])[:10]
+
+
+def _entry_date_for_trade(history: list, event: dict, snap: dict, entry_price: float) -> str:
+    if snap.get("entry_date"):
+        return str(snap["entry_date"])[:10]
+    open_event = _find_open_event(
+        history, event["symbol"], entry_price, event.get("timestamp"),
+    )
+    if open_event:
+        return _date_from_open_event(open_event)
+    return ""
+
+
+def _entry_date_for_open_position(history: list, symbol: str, side: str) -> str:
+    """Entry date for a still-open position by replaying OPEN/CLOSE qty for the symbol."""
+    open_side = "OPEN_LONG" if side == "LONG" else "OPEN_SHORT"
+    close_side = "CLOSE_LONG" if side == "LONG" else "CLOSE_SHORT"
+    add_side = "ADD_LONG" if side == "LONG" else "ADD_SHORT"
+
+    events = sorted(
+        (e for e in history if e.get("symbol") == symbol),
+        key=lambda x: x["timestamp"],
+    )
+    entry_date = ""
+    qty = 0.0
+
+    for event in events:
+        event_side = event.get("side", "")
+        if event_side == open_side:
+            qty = float(event["quantity"])
+            entry_date = _date_from_open_event(event)
+        elif event_side == add_side:
+            qty += float(event["quantity"])
+        elif event_side == close_side and "pnl" in event:
+            qty -= float(event["quantity"])
+            if qty <= 1e-12:
+                qty = 0.0
+                entry_date = ""
+
+    return entry_date
+
+
+# --- Pair performance ----------------------------------------------------------
+
+ROLLING_PAIR_DAYS = 30
+# Intentional floor: when the 30-day window is thin, use the last N trades so pair rankings stay stable.
+ROLLING_PAIR_MIN_TRADES = 50
+PAIR_PERF_TOP_N = 5
+
+
+def _compute_pair_performance(trade_history_chronological: list, top_n: int = PAIR_PERF_TOP_N) -> dict:
+    """
+    Rolling pair P/L: aggregate closed trades in the last ROLLING_PAIR_DAYS,
+    or the most recent ROLLING_PAIR_MIN_TRADES if the window is thin.
+    """
+    if not trade_history_chronological:
+        return {
+            "winners": [],
+            "losers": [],
+            "window_label": "No closed trades",
+            "trades_in_window": 0,
+        }
+
+    latest_ts = max(t["time"] for t in trade_history_chronological)
+    latest_dt = datetime.fromisoformat(latest_ts[:19])
+    cutoff = (latest_dt - timedelta(days=ROLLING_PAIR_DAYS)).isoformat()
+    rolling = [t for t in trade_history_chronological if t["time"] >= cutoff]
+
+    if len(rolling) < ROLLING_PAIR_MIN_TRADES:
+        rolling = trade_history_chronological[-ROLLING_PAIR_MIN_TRADES:]
+
+    by_symbol = {}
+    for t in rolling:
+        sym = t["symbol"]
+        if sym not in by_symbol:
+            by_symbol[sym] = {"symbol": sym, "pnl": 0.0, "trades": 0, "wins": 0}
+        by_symbol[sym]["pnl"] += t["pnl"]
+        by_symbol[sym]["trades"] += 1
+        if t["pnl"] > 0:
+            by_symbol[sym]["wins"] += 1
+
+    rows = []
+    for d in by_symbol.values():
+        rows.append({
+            "symbol": d["symbol"],
+            "pnl": round(d["pnl"], 2),
+            "trades": d["trades"],
+            "win_rate": round(d["wins"] / d["trades"] * 100, 1) if d["trades"] else 0.0,
+        })
+
+    rows.sort(key=lambda x: x["pnl"], reverse=True)
+    winners = [r for r in rows if r["pnl"] > 0][:top_n]
+    losers = sorted([r for r in rows if r["pnl"] < 0], key=lambda x: x["pnl"])[:top_n]
+
+    window_label = f"Last {ROLLING_PAIR_DAYS} days ({len(rolling)} trades)"
+    if len(rolling) >= ROLLING_PAIR_MIN_TRADES and rolling[0]["time"] < cutoff:
+        window_label = f"Last {len(rolling)} closed trades"
+
+    return {
+        "winners": winners,
+        "losers": losers,
+        "window_label": window_label,
+        "trades_in_window": len(rolling),
+    }
 
 
 # --- Report Generator ---------------------------------------------------------
@@ -273,6 +433,9 @@ class ReportGenerator:
                         "side": side,
                         "qty": qty,
                         "entry": entry,
+                        "entry_date": pos.get("entry_date") or _entry_date_for_open_position(
+                            history, symbol, side,
+                        ),
                         "current_price": current_price,
                         "unrealized_pnl": unrealized_pnl,
                         "sl": pos.get('stop_loss', 0.0),
@@ -355,20 +518,36 @@ class ReportGenerator:
                     if pnl > 0: wins.append(pnl)
                     else: losses.append(pnl)
 
-                    # Locate the snapshot. Ideally, it's stored directly on the close event now.
                     snapshot = event.get('snapshot')
-                    if not snapshot:
-                        snapshot = _find_open_snapshot(history, event['symbol'], entry_price)
-                    if snapshot:
-                        snap = {**snapshot, "exit_price": event["price"]}
-                        chart_b64 = _render_chart_b64(snap)
-                    else:
-                        chart_b64 = ""
 
-                    # P/L % calculation
                     pnl_pct = 0.0
                     if entry_price > 0:
                         pnl_pct = (pnl / (event['quantity'] * entry_price)) * 100
+
+                    entry_date = _entry_date_for_trade(history, event, snapshot or {}, entry_price)
+                    exit_date = _exit_date_from_event(event, snapshot or {})
+
+                    snap = _merge_trade_snapshot(
+                        event, snapshot, entry_price, entry_date, exit_date,
+                    ) if snapshot else {}
+                    chart_b64 = _render_chart_b64(snap) if snapshot else ""
+
+                    sl_level = 0.0
+                    tp_level = 0.0
+                    if snap:
+                        sl_level = float(
+                            snap.get("stop_loss_at_exit") or snap.get("stop_loss") or 0
+                        )
+                        tp_level = float(
+                            snap.get("take_profit_at_exit") or snap.get("take_profit") or 0
+                        )
+
+                    exit_kind = (
+                        event.get("exit_kind")
+                        or (snap.get("exit_kind") if snap else "")
+                        or ""
+                    )
+                    quantity_pct = event.get("quantity_pct") or (snap.get("quantity_pct") if snap else None)
 
                     trade_history.append({
                         "time": event['timestamp'],
@@ -377,9 +556,18 @@ class ReportGenerator:
                         "qty": event['quantity'],
                         "entry_price": entry_price,
                         "exit_price": event['price'],
+                        "entry_date": entry_date,
+                        "exit_date": exit_date,
+                        "hold_days": _hold_days(entry_date, exit_date),
+                        "stop_loss": sl_level,
+                        "take_profit": tp_level,
+                        "stop_loss_at_exit": sl_level,
+                        "take_profit_at_exit": tp_level,
+                        "exit_kind": exit_kind,
+                        "quantity_pct": quantity_pct,
                         "pnl": pnl,
                         "pnl_pct": pnl_pct,
-                        "reason": event.get('reason', snapshot.get('reason', 'N/A') if snapshot else 'N/A'),
+                        "reason": event.get('reason') or 'N/A',
                         "chart_b64": chart_b64,
                     })
 
@@ -404,6 +592,8 @@ class ReportGenerator:
                 sym = pos['symbol']
                 exposure[sym] = exposure.get(sym, 0.0) + pos['value']
 
+            pair_performance = _compute_pair_performance(trade_history)
+
             output_data["strategies"][strat_name] = {
                 "active_positions": active_positions,
                 "current_cash": cash,
@@ -411,6 +601,7 @@ class ReportGenerator:
                 "history_events": len(history),
                 "equity_curve": equity_curve,
                 "trade_history": list(reversed(trade_history)),  # Newest first
+                "pair_performance": pair_performance,
                 "metrics": {
                     "win_rate": win_rate,
                     "profit_factor": profit_factor if profit_factor != float('inf') else "∞",

@@ -2,7 +2,13 @@ from abc import ABC, abstractmethod
 
 import pandas as pd
 
-from shared.constants import TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT
+from shared.constants import (
+    TP1_HIT_REASON_LONG,
+    TP1_HIT_REASON_SHORT,
+    TRAILED_STOP_REASON_LONG,
+    TRAILED_STOP_REASON_SHORT,
+    tp1_already_done,
+)
 
 class BaseStrategy(ABC):
     def __init__(self, params=None):
@@ -75,15 +81,19 @@ class BaseStrategy(ABC):
         entry_price = position_data['entry_price']
         side = position_data.get('side', 'LONG')
         stop_loss = position_data.get('stop_loss')
-        tp1_hit = position_data.get('tp1_hit', False)
+        post_tp1 = tp1_already_done(position_data)
 
         # --- LONG LOGIC ---
         if side == 'LONG':
              if not stop_loss: stop_loss = entry_price - (1.5 * current_atr)
              
-             # Hard SL
+             # Hard SL (initial or trailed after TP1)
              if current_price <= stop_loss:
-                 return {'action': 'sell', 'quantity_pct': 1.0, 'reason': f'Stop Loss Hit @ {current_price} (SL {stop_loss})'}
+                 if post_tp1:
+                     reason = f'{TRAILED_STOP_REASON_LONG} @ {current_price} (SL {stop_loss})'
+                 else:
+                     reason = f'Stop Loss Hit @ {current_price} (SL {stop_loss})'
+                 return {'action': 'sell', 'quantity_pct': 1.0, 'reason': reason}
              
              # TP1
              # Use stored fixed TP1 if available, otherwise dynamic (Entry + ATR)
@@ -91,7 +101,7 @@ class BaseStrategy(ABC):
              if not tp_price or tp_price == 0.0:
                  tp_price = entry_price + current_atr
 
-             if not tp1_hit and current_price >= tp_price:
+             if not post_tp1 and current_price >= tp_price:
                  # TP1 Hit: Sell 50%, Move SL to Entry
                  return {
                      'action': 'sell', 
@@ -101,7 +111,7 @@ class BaseStrategy(ABC):
                  }
             
              # Trailing (ONLY AFTER TP1)
-             if tp1_hit:
+             if post_tp1:
                  proposed_sl = current_price - (1.5 * current_atr)
                  if proposed_sl > stop_loss:
                      return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Trailing Stop (Post-TP1)'}
@@ -110,16 +120,20 @@ class BaseStrategy(ABC):
         elif side == 'SHORT':
              if not stop_loss: stop_loss = entry_price + (1.5 * current_atr)
              
-             # Hard SL (Price went UP)
+             # Hard SL (Price went UP; initial or trailed after TP1)
              if current_price >= stop_loss:
-                 return {'action': 'buy', 'quantity_pct': 1.0, 'reason': f'Short Stop Loss Hit @ {current_price} (SL {stop_loss})'}
+                 if post_tp1:
+                     reason = f'{TRAILED_STOP_REASON_SHORT} @ {current_price} (SL {stop_loss})'
+                 else:
+                     reason = f'Short Stop Loss Hit @ {current_price} (SL {stop_loss})'
+                 return {'action': 'buy', 'quantity_pct': 1.0, 'reason': reason}
              
              # TP1 (Price went DOWN by 1 ATR)
              tp_price = position_data.get('take_profit')
              if not tp_price or tp_price == 0.0:
                  tp_price = entry_price - current_atr
 
-             if not tp1_hit and current_price <= tp_price:
+             if not post_tp1 and current_price <= tp_price:
                  return {
                      'action': 'buy', 
                      'quantity_pct': 0.5, 
@@ -128,7 +142,7 @@ class BaseStrategy(ABC):
                  }
             
              # Trailing (ONLY AFTER TP1)
-             if tp1_hit:
+             if post_tp1:
                  proposed_sl = current_price + (1.5 * current_atr)
                  if proposed_sl < stop_loss:
                      return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Short Trailing Stop (Post-TP1)'}

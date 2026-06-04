@@ -1,8 +1,6 @@
 import os
 from dotenv import load_dotenv
 
-from shared.constants import TP1_EXIT_REASONS, TP1_HIT_REASON_LONG, TP1_HIT_REASON_SHORT
-
 # Load environment variables from .env file (if it exists)
 load_dotenv()
 

@@ -67,7 +67,8 @@ class RSIStrategy(BaseStrategy):
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
                     'indicators': indicators,
-                    'reason': f'RSI Oversold ({current_rsi:.2f}) - Long'
+                    'reason': f'RSI Oversold ({current_rsi:.2f}) - Long',
+                    'is_entry': True,
                 }
             elif position_data.get('side') == 'SHORT': # Short -> Cover
                 return {
@@ -87,7 +88,8 @@ class RSIStrategy(BaseStrategy):
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
                     'indicators': indicators,
-                    'reason': f'RSI Overbought ({current_rsi:.2f}) - Short'
+                    'reason': f'RSI Overbought ({current_rsi:.2f}) - Short',
+                    'is_entry': True,
                 }
             elif position_data.get('side') == 'LONG': # Long -> Sell
                 return {

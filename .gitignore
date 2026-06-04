@@ -5,3 +5,9 @@ gemini.md
 STATUS.md
 graphify-out/
 .agents/
+docs/report_data.json
+docs/trade_audit.json
+data/ledger.json.bak
+data/*.bak
+data/ledger*.bak
+data/ledger_resim.json

@@ -80,7 +80,8 @@ class MovingAverageStrategy(BaseStrategy):
                         'stop_loss': initial_sl,
                         'take_profit': initial_tp,
                         'indicators': indicators,
-                        'reason': 'Golden Cross (Confirmed Close)'
+                        'reason': 'Golden Cross (Confirmed Close)',
+                        'is_entry': True,
                     }
                     
             elif signal_price < signal_trend:
@@ -93,7 +94,8 @@ class MovingAverageStrategy(BaseStrategy):
                         'stop_loss': initial_sl,
                         'take_profit': initial_tp,
                         'indicators': indicators,
-                        'reason': 'Death Cross (Short)'
+                        'reason': 'Death Cross (Short)',
+                        'is_entry': True,
                     }
 
         signal['indicators'] = indicators
