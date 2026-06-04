@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.15.0 (2026-06-04)
+
+### Features
+
+- **trading**: Audit repair and exit snapshots
+  ([`6f4c270`](https://github.com/Amirlabai/bot-trader/commit/6f4c270300713619e3c2d13118dc089c9e8aef9f))
+
+
 ## v1.14.1 (2026-05-30)
 
 ### Bug Fixes
