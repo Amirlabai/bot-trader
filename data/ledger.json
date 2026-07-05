@@ -1,7 +1,7 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 7873.379620835944,
+            "cash": 4867.344672519535,
             "positions": {
                 "DOT/USDT": {
                     "qty": 495.7700613690267,
@@ -12,7 +12,7 @@
                     "take_profit": 1.1983571428571427,
                     "tp1_hit": true,
                     "entry_date": "2026-04-22",
-                    "last_price": 0.87
+                    "last_price": 0.874
                 },
                 "BNB/USDT": {
                     "qty": 2.19542960797214,
@@ -23,7 +23,7 @@
                     "take_profit": 540.7495357142858,
                     "tp1_hit": false,
                     "entry_date": "2026-06-05",
-                    "last_price": 571.58
+                    "last_price": 570.63
                 },
                 "BTC/USDT": {
                     "qty": 0.03762203132406011,
@@ -34,7 +34,17 @@
                     "take_profit": 57899.586642857146,
                     "tp1_hit": false,
                     "entry_date": "2026-06-27",
-                    "last_price": 62421.41
+                    "last_price": 62736.46
+                },
+                "TRX/USDT": {
+                    "qty": 9265.874324383232,
+                    "initial_qty": 9265.874324383232,
+                    "entry_price": 0.32442,
+                    "side": "SHORT",
+                    "stop_loss": 0.33179464285714283,
+                    "take_profit": 0.31950357142857144,
+                    "tp1_hit": false,
+                    "entry_date": "2026-07-04"
                 }
             },
             "history": [
@@ -16864,6 +16874,15 @@
                     "take_profit_at_exit": 1490.318407142857,
                     "quantity_pct": 1.0,
                     "reason": "Short Stop Loss Hit @ 1688.4973892857142 (SL 1688.4973892857142)"
+                },
+                {
+                    "timestamp": "2026-07-05T02:15:03.837854",
+                    "symbol": "TRX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 9265.874324383232,
+                    "price": 0.32442,
+                    "total_value": 3006.034948316408,
+                    "reason": "Death Cross (Short)"
                 }
             ]
         },
@@ -24928,18 +24947,18 @@
                     "take_profit": 0.33620142857142854,
                     "tp1_hit": false,
                     "entry_date": "2026-06-07",
-                    "last_price": 0.32362
+                    "last_price": 0.32442
                 },
                 "ADA/USDT": {
                     "qty": 3388.6447025404655,
                     "initial_qty": 6777.289405080931,
                     "entry_price": 0.1404,
                     "side": "LONG",
-                    "stop_loss": 0.1635025,
+                    "stop_loss": 0.17468214285714287,
                     "take_profit": 0.14992142857142857,
                     "tp1_hit": true,
                     "entry_date": "2026-06-25",
-                    "last_price": 0.178
+                    "last_price": 0.1907
                 },
                 "DOGE/USDT": {
                     "qty": 17480.89546627881,
@@ -24950,7 +24969,7 @@
                     "take_profit": 0.07683142857142856,
                     "tp1_hit": false,
                     "entry_date": "2026-06-25",
-                    "last_price": 0.07678
+                    "last_price": 0.07636
                 },
                 "DOT/USDT": {
                     "qty": 638.9057126572052,
@@ -24961,7 +24980,7 @@
                     "take_profit": 0.8664999999999999,
                     "tp1_hit": true,
                     "entry_date": "2026-06-25",
-                    "last_price": 0.87
+                    "last_price": 0.874
                 },
                 "BNB/USDT": {
                     "qty": 3.336871501545945,
@@ -24972,7 +24991,7 @@
                     "take_profit": 575.9283164285714,
                     "tp1_hit": false,
                     "entry_date": "2026-06-27",
-                    "last_price": 571.58
+                    "last_price": 570.63
                 },
                 "BTC/USDT": {
                     "qty": 0.015152627414252112,
@@ -24983,18 +25002,18 @@
                     "take_profit": 61669.68642857143,
                     "tp1_hit": true,
                     "entry_date": "2026-06-28",
-                    "last_price": 62421.41
+                    "last_price": 62736.46
                 },
                 "XRP/USDT": {
                     "qty": 383.01464429014493,
                     "initial_qty": 766.0292885802899,
                     "entry_price": 1.0428,
                     "side": "LONG",
-                    "stop_loss": 1.064125,
+                    "stop_loss": 1.0711371428571428,
                     "take_profit": 1.0923749999999999,
                     "tp1_hit": true,
                     "entry_date": "2026-06-28",
-                    "last_price": 1.1326
+                    "last_price": 1.1406
                 },
                 "SOL/USDT": {
                     "qty": 11.558040280848804,
@@ -25005,7 +25024,7 @@
                     "take_profit": 76.97857142857143,
                     "tp1_hit": false,
                     "entry_date": "2026-07-02",
-                    "last_price": 81.86
+                    "last_price": 80.51
                 }
             },
             "history": [
