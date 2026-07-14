@@ -12,7 +12,7 @@
                     "take_profit": 1.1983571428571427,
                     "tp1_hit": true,
                     "entry_date": "2026-04-22",
-                    "last_price": 0.835
+                    "last_price": 0.83693
                 },
                 "BNB/USDT": {
                     "qty": 2.19542960797214,
@@ -23,7 +23,7 @@
                     "take_profit": 540.7495357142858,
                     "tp1_hit": false,
                     "entry_date": "2026-06-05",
-                    "last_price": 575.57
+                    "last_price": 568.87
                 },
                 "TRX/USDT": {
                     "qty": 9265.874324383232,
@@ -34,7 +34,7 @@
                     "take_profit": 0.31950357142857144,
                     "tp1_hit": false,
                     "entry_date": "2026-07-04",
-                    "last_price": 0.33152
+                    "last_price": 0.32414
                 }
             },
             "history": [
@@ -17126,7 +17126,7 @@
                     "take_profit": 1.3496821428571428,
                     "tp1_hit": false,
                     "entry_date": "2026-07-09",
-                    "last_price": 1.33832
+                    "last_price": 1.3352
                 }
             },
             "history": [
@@ -25185,7 +25185,7 @@
             ]
         },
         "rsi_crypto": {
-            "cash": 3307.2235675896986,
+            "cash": 3720.2091077955474,
             "positions": {
                 "TRX/USDT": {
                     "qty": 5957.063239096081,
@@ -25196,7 +25196,7 @@
                     "take_profit": 0.33620142857142854,
                     "tp1_hit": false,
                     "entry_date": "2026-06-07",
-                    "last_price": 0.33152
+                    "last_price": 0.32414
                 },
                 "DOT/USDT": {
                     "qty": 638.9057126572052,
@@ -25207,7 +25207,7 @@
                     "take_profit": 0.8664999999999999,
                     "tp1_hit": true,
                     "entry_date": "2026-06-25",
-                    "last_price": 0.835
+                    "last_price": 0.83693
                 },
                 "BNB/USDT": {
                     "qty": 1.6684357507729726,
@@ -25218,7 +25218,7 @@
                     "take_profit": 575.9283164285714,
                     "tp1_hit": true,
                     "entry_date": "2026-06-27",
-                    "last_price": 575.57
+                    "last_price": 568.87
                 },
                 "BTC/USDT": {
                     "qty": 0.015152627414252112,
@@ -25229,29 +25229,18 @@
                     "take_profit": 61669.68642857143,
                     "tp1_hit": true,
                     "entry_date": "2026-06-28",
-                    "last_price": 63551.34
-                },
-                "XRP/USDT": {
-                    "qty": 383.01464429014493,
-                    "initial_qty": 766.0292885802899,
-                    "entry_price": 1.0428,
-                    "side": "LONG",
-                    "stop_loss": 1.07825,
-                    "take_profit": 1.0923749999999999,
-                    "tp1_hit": true,
-                    "entry_date": "2026-06-28",
-                    "last_price": 1.0851
+                    "last_price": 62447.27
                 },
                 "SOL/USDT": {
                     "qty": 5.779020140424402,
                     "initial_qty": 11.558040280848804,
                     "entry_price": 81.41,
                     "side": "SHORT",
-                    "stop_loss": 81.41,
+                    "stop_loss": 80.37504464285715,
                     "take_profit": 76.97857142857143,
                     "tp1_hit": true,
                     "entry_date": "2026-07-02",
-                    "last_price": 76.72
+                    "last_price": 75.19
                 },
                 "ETH/USDT": {
                     "qty": 0.9231550985895559,
@@ -25262,7 +25251,7 @@
                     "take_profit": 1692.4585714285715,
                     "tp1_hit": false,
                     "entry_date": "2026-07-09",
-                    "last_price": 1811.38
+                    "last_price": 1783.39
                 }
             },
             "history": [
@@ -53519,6 +53508,200 @@
                     "take_profit_at_exit": 76.97857142857143,
                     "quantity_pct": 0.5,
                     "reason": "Short TP1 Hit"
+                },
+                {
+                    "timestamp": "2026-07-14T01:46:08.803565",
+                    "symbol": "XRP/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 383.01464429014493,
+                    "price": 1.07825,
+                    "total_value": 412.98554020584874,
+                    "pnl": 13.577869140085625,
+                    "entry_price": 1.0428,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-06-24",
+                                "open": 1.1087,
+                                "high": 1.1124,
+                                "low": 1.0449,
+                                "close": 1.072
+                            },
+                            {
+                                "date": "2026-06-25",
+                                "open": 1.072,
+                                "high": 1.0882,
+                                "low": 1.0111,
+                                "close": 1.042
+                            },
+                            {
+                                "date": "2026-06-26",
+                                "open": 1.042,
+                                "high": 1.0541,
+                                "low": 1.0072,
+                                "close": 1.0477
+                            },
+                            {
+                                "date": "2026-06-27",
+                                "open": 1.0475,
+                                "high": 1.076,
+                                "low": 1.0424,
+                                "close": 1.046
+                            },
+                            {
+                                "date": "2026-06-28",
+                                "open": 1.0459,
+                                "high": 1.0575,
+                                "low": 1.0315,
+                                "close": 1.0468
+                            },
+                            {
+                                "date": "2026-06-29",
+                                "open": 1.0469,
+                                "high": 1.0751,
+                                "low": 1.0306,
+                                "close": 1.0574
+                            },
+                            {
+                                "date": "2026-06-30",
+                                "open": 1.0573,
+                                "high": 1.0576,
+                                "low": 1.0254,
+                                "close": 1.0383
+                            },
+                            {
+                                "date": "2026-07-01",
+                                "open": 1.0384,
+                                "high": 1.0727,
+                                "low": 1.0205,
+                                "close": 1.0519
+                            },
+                            {
+                                "date": "2026-07-02",
+                                "open": 1.0519,
+                                "high": 1.1113,
+                                "low": 1.0438,
+                                "close": 1.087
+                            },
+                            {
+                                "date": "2026-07-03",
+                                "open": 1.0869,
+                                "high": 1.1445,
+                                "low": 1.0815,
+                                "close": 1.1339
+                            },
+                            {
+                                "date": "2026-07-04",
+                                "open": 1.1338,
+                                "high": 1.1832,
+                                "low": 1.1304,
+                                "close": 1.1563
+                            },
+                            {
+                                "date": "2026-07-05",
+                                "open": 1.1565,
+                                "high": 1.1685,
+                                "low": 1.1239,
+                                "close": 1.1562
+                            },
+                            {
+                                "date": "2026-07-06",
+                                "open": 1.1562,
+                                "high": 1.1638,
+                                "low": 1.1082,
+                                "close": 1.1443
+                            },
+                            {
+                                "date": "2026-07-07",
+                                "open": 1.1443,
+                                "high": 1.1506,
+                                "low": 1.1066,
+                                "close": 1.1113
+                            },
+                            {
+                                "date": "2026-07-08",
+                                "open": 1.1112,
+                                "high": 1.116,
+                                "low": 1.0684,
+                                "close": 1.09
+                            },
+                            {
+                                "date": "2026-07-09",
+                                "open": 1.0899,
+                                "high": 1.1019,
+                                "low": 1.0812,
+                                "close": 1.0926
+                            },
+                            {
+                                "date": "2026-07-10",
+                                "open": 1.0926,
+                                "high": 1.1175,
+                                "low": 1.0881,
+                                "close": 1.1039
+                            },
+                            {
+                                "date": "2026-07-11",
+                                "open": 1.104,
+                                "high": 1.1186,
+                                "low": 1.0959,
+                                "close": 1.0961
+                            },
+                            {
+                                "date": "2026-07-12",
+                                "open": 1.096,
+                                "high": 1.1032,
+                                "low": 1.0803,
+                                "close": 1.0854
+                            },
+                            {
+                                "date": "2026-07-13",
+                                "open": 1.08566,
+                                "high": 1.09758,
+                                "low": 1.0525,
+                                "close": 1.066
+                            }
+                        ],
+                        "stop_loss": 1.07825,
+                        "take_profit": 1.0923749999999999,
+                        "indicators": {
+                            "rsi": [
+                                46.69603524,
+                                35.69168824,
+                                37.75450844,
+                                34.05686334,
+                                26.33196721,
+                                14.20047733,
+                                14.3258427,
+                                21.21342513,
+                                37.16424483,
+                                49.81031866,
+                                51.39603233,
+                                56.59385113,
+                                53.12622886,
+                                50.46694061,
+                                53.56859635,
+                                61.2544484,
+                                62.19618056,
+                                60.59196617,
+                                57.83279221,
+                                51.68495298
+                            ]
+                        },
+                        "reason": "Trailed Stop Hit @ 1.07825 (SL 1.07825)",
+                        "entry_price": 1.0428,
+                        "entry_date": "2026-06-28",
+                        "stop_loss_at_exit": 1.07825,
+                        "take_profit_at_exit": 1.0923749999999999,
+                        "exit_kind": "trailed_stop",
+                        "quantity_pct": 1.0,
+                        "exit_price": 1.07825,
+                        "exit_date": "2026-07-13"
+                    },
+                    "exit_kind": "trailed_stop",
+                    "stop_loss_at_exit": 1.07825,
+                    "take_profit_at_exit": 1.0923749999999999,
+                    "quantity_pct": 1.0,
+                    "reason": "Trailed Stop Hit @ 1.07825 (SL 1.07825)"
                 }
             ]
         },
@@ -53534,7 +53717,7 @@
                     "take_profit": 1.150397142857143,
                     "tp1_hit": false,
                     "entry_date": "2026-06-18",
-                    "last_price": 1.13974
+                    "last_price": 1.13862
                 },
                 "USD/CAD": {
                     "qty": 1807.630518129804,
@@ -53545,7 +53728,7 @@
                     "take_profit": 1.409085,
                     "tp1_hit": false,
                     "entry_date": "2026-06-18",
-                    "last_price": 1.41626
+                    "last_price": 1.41463
                 },
                 "AUD/USD": {
                     "qty": 1847.2767842457765,
@@ -53556,7 +53739,7 @@
                     "take_profit": 0.69327,
                     "tp1_hit": true,
                     "entry_date": "2026-06-30",
-                    "last_price": 0.69361
+                    "last_price": 0.69168
                 },
                 "GBP/USD": {
                     "qty": 1914.62770913926,
@@ -53567,7 +53750,7 @@
                     "take_profit": 1.3335321428571427,
                     "tp1_hit": false,
                     "entry_date": "2026-07-10",
-                    "last_price": 1.33832
+                    "last_price": 1.3352
                 }
             },
             "history": [
