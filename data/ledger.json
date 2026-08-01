@@ -12,7 +12,7 @@
                     "take_profit": 1.1983571428571427,
                     "tp1_hit": true,
                     "entry_date": "2026-04-22",
-                    "last_price": 0.767
+                    "last_price": 0.762
                 },
                 "BNB/USDT": {
                     "qty": 2.19542960797214,
@@ -23,7 +23,7 @@
                     "take_profit": 540.7495357142858,
                     "tp1_hit": false,
                     "entry_date": "2026-06-05",
-                    "last_price": 588.85
+                    "last_price": 589.63
                 },
                 "TRX/USDT": {
                     "qty": 9265.874324383232,
@@ -34,7 +34,7 @@
                     "take_profit": 0.31950357142857144,
                     "tp1_hit": false,
                     "entry_date": "2026-07-04",
-                    "last_price": 0.32865
+                    "last_price": 0.3264
                 },
                 "XRP/USDT": {
                     "qty": 1183.5895567910438,
@@ -45,7 +45,7 @@
                     "take_profit": 1.0749785714285716,
                     "tp1_hit": true,
                     "entry_date": "2026-07-23",
-                    "last_price": 1.0806
+                    "last_price": 1.0639
                 },
                 "ADA/USDT": {
                     "qty": 9942.055866469447,
@@ -55,7 +55,8 @@
                     "stop_loss": 0.15741535714285715,
                     "take_profit": 0.1775564285714286,
                     "tp1_hit": false,
-                    "entry_date": "2026-07-30"
+                    "entry_date": "2026-07-30",
+                    "last_price": 0.1694
                 }
             },
             "history": [
@@ -17877,8 +17878,19 @@
             ]
         },
         "ma_crossover_forex": {
-            "cash": 10015.352157583991,
-            "positions": {},
+            "cash": 7511.5141181879935,
+            "positions": {
+                "EUR/USD": {
+                    "qty": 2171.4724640487034,
+                    "initial_qty": 2171.4724640487034,
+                    "entry_price": 1.15306,
+                    "side": "LONG",
+                    "stop_loss": 1.1450414285714285,
+                    "take_profit": 1.1584057142857143,
+                    "tp1_hit": false,
+                    "entry_date": "2026-07-31"
+                }
+            },
             "history": [
                 {
                     "timestamp": "2026-01-09T23:59:59",
@@ -26654,6 +26666,15 @@
                     "take_profit_at_exit": 1.1323392857142858,
                     "quantity_pct": 1.0,
                     "reason": "Short Stop Loss Hit @ 1.1441410714285714 (SL 1.1441410714285714)"
+                },
+                {
+                    "timestamp": "2026-08-01T02:02:41.512367",
+                    "symbol": "EUR/USD",
+                    "side": "OPEN_LONG",
+                    "quantity": 2171.4724640487034,
+                    "price": 1.15306,
+                    "total_value": 2503.838039395998,
+                    "reason": "Golden Cross (Confirmed Close)"
                 }
             ]
         },
@@ -26669,18 +26690,18 @@
                     "take_profit": 0.33620142857142854,
                     "tp1_hit": false,
                     "entry_date": "2026-06-07",
-                    "last_price": 0.32865
+                    "last_price": 0.3264
                 },
                 "BNB/USDT": {
                     "qty": 1.6684357507729726,
                     "initial_qty": 3.336871501545945,
                     "entry_price": 556.59,
                     "side": "LONG",
-                    "stop_loss": 572.2800410714286,
+                    "stop_loss": 573.5596428571429,
                     "take_profit": 575.9283164285714,
                     "tp1_hit": true,
                     "entry_date": "2026-06-27",
-                    "last_price": 588.85
+                    "last_price": 589.63
                 },
                 "ADA/USDT": {
                     "qty": 8134.220175471588,
@@ -26691,7 +26712,7 @@
                     "take_profit": 0.17496785714285712,
                     "tp1_hit": false,
                     "entry_date": "2026-07-18",
-                    "last_price": 0.1695
+                    "last_price": 0.1694
                 },
                 "DOT/USDT": {
                     "qty": 2077.7446127820094,
@@ -26702,7 +26723,7 @@
                     "take_profit": 0.7897142857142857,
                     "tp1_hit": false,
                     "entry_date": "2026-07-28",
-                    "last_price": 0.767
+                    "last_price": 0.762
                 }
             },
             "history": [
@@ -56752,22 +56773,22 @@
                     "initial_qty": 2233.8509902594574,
                     "entry_price": 1.1444,
                     "side": "LONG",
-                    "stop_loss": 1.1444,
+                    "stop_loss": 1.1450414285714285,
                     "take_profit": 1.150397142857143,
                     "tp1_hit": true,
                     "entry_date": "2026-06-18",
-                    "last_price": 1.15102
+                    "last_price": 1.15306
                 },
                 "USD/JPY": {
                     "qty": 7.867490599892385,
                     "initial_qty": 15.73498119978477,
                     "entry_price": 163.162,
                     "side": "SHORT",
-                    "stop_loss": 163.162,
+                    "stop_loss": 159.1367857142857,
                     "take_profit": 162.50671428571428,
                     "tp1_hit": true,
                     "entry_date": "2026-07-21",
-                    "last_price": 160.725
+                    "last_price": 157.469
                 }
             },
             "history": [
