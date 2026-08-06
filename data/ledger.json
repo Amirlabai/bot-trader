@@ -1,7 +1,7 @@
 {
     "strategies": {
         "ma_crossover_crypto": {
-            "cash": 2899.9886384173087,
+            "cash": 1138.5324893293537,
             "positions": {
                 "BNB/USDT": {
                     "qty": 2.19542960797214,
@@ -12,7 +12,7 @@
                     "take_profit": 540.7495357142858,
                     "tp1_hit": false,
                     "entry_date": "2026-06-05",
-                    "last_price": 601.2984
+                    "last_price": 594.34
                 },
                 "TRX/USDT": {
                     "qty": 9265.874324383232,
@@ -23,18 +23,18 @@
                     "take_profit": 0.31950357142857144,
                     "tp1_hit": false,
                     "entry_date": "2026-07-04",
-                    "last_price": 0.32676
+                    "last_price": 0.32832
                 },
                 "XRP/USDT": {
                     "qty": 1183.5895567910438,
                     "initial_qty": 2367.1791135820877,
                     "entry_price": 1.1085,
                     "side": "SHORT",
-                    "stop_loss": 1.1085,
+                    "stop_loss": 1.1009107142857144,
                     "take_profit": 1.0749785714285716,
                     "tp1_hit": true,
                     "entry_date": "2026-07-23",
-                    "last_price": 1.0727
+                    "last_price": 1.058
                 },
                 "ADA/USDT": {
                     "qty": 4971.027933234724,
@@ -45,7 +45,7 @@
                     "take_profit": 0.1775564285714286,
                     "tp1_hit": true,
                     "entry_date": "2026-07-30",
-                    "last_price": 0.19247
+                    "last_price": 0.19103
                 },
                 "BTC/USDT": {
                     "qty": 0.04759773926437723,
@@ -56,7 +56,17 @@
                     "take_profit": 61524.46028571428,
                     "tp1_hit": false,
                     "entry_date": "2026-08-02",
-                    "last_price": 64230.77
+                    "last_price": 64503.99
+                },
+                "AVAX/USDT": {
+                    "qty": 265.71973888790995,
+                    "initial_qty": 265.71973888790995,
+                    "entry_price": 6.629,
+                    "side": "LONG",
+                    "stop_loss": 6.165178571428571,
+                    "take_profit": 6.9382142857142854,
+                    "tp1_hit": false,
+                    "entry_date": "2026-08-05"
                 }
             },
             "history": [
@@ -18359,6 +18369,15 @@
                     "take_profit_at_exit": 1.1983571428571427,
                     "quantity_pct": 1.0,
                     "reason": "Short Trailed Stop Hit @ 0.8060714285714285 (SL 0.8060714285714285)"
+                },
+                {
+                    "timestamp": "2026-08-06T01:50:00.430988",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 265.71973888790995,
+                    "price": 6.629,
+                    "total_value": 1761.456149087955,
+                    "reason": "Golden Cross (Confirmed Close)"
                 }
             ]
         },
@@ -18374,7 +18393,7 @@
                     "take_profit": 1.1584057142857143,
                     "tp1_hit": false,
                     "entry_date": "2026-07-31",
-                    "last_price": 1.15275
+                    "last_price": 1.15607
                 },
                 "USD/JPY": {
                     "qty": 16.015543498036294,
@@ -18385,7 +18404,7 @@
                     "take_profit": 155.07585714285713,
                     "tp1_hit": false,
                     "entry_date": "2026-08-02",
-                    "last_price": 157.649
+                    "last_price": 157.606
                 }
             },
             "history": [
@@ -27196,7 +27215,7 @@
                     "take_profit": 0.33620142857142854,
                     "tp1_hit": false,
                     "entry_date": "2026-06-07",
-                    "last_price": 0.32676
+                    "last_price": 0.32832
                 },
                 "BNB/USDT": {
                     "qty": 1.6684357507729726,
@@ -27207,7 +27226,7 @@
                     "take_profit": 575.9283164285714,
                     "tp1_hit": true,
                     "entry_date": "2026-06-27",
-                    "last_price": 601.2984
+                    "last_price": 594.34
                 },
                 "ADA/USDT": {
                     "qty": 4067.110087735794,
@@ -27218,7 +27237,7 @@
                     "take_profit": 0.17496785714285712,
                     "tp1_hit": true,
                     "entry_date": "2026-07-18",
-                    "last_price": 0.19247
+                    "last_price": 0.19103
                 },
                 "DOT/USDT": {
                     "qty": 1038.8723063910047,
@@ -27229,7 +27248,7 @@
                     "take_profit": 0.7897142857142857,
                     "tp1_hit": true,
                     "entry_date": "2026-07-28",
-                    "last_price": 0.8591
+                    "last_price": 0.8381
                 }
             },
             "history": [
@@ -57667,11 +57686,11 @@
                     "initial_qty": 2233.8509902594574,
                     "entry_price": 1.1444,
                     "side": "LONG",
-                    "stop_loss": 1.1457014285714286,
+                    "stop_loss": 1.1479914285714286,
                     "take_profit": 1.150397142857143,
                     "tp1_hit": true,
                     "entry_date": "2026-06-18",
-                    "last_price": 1.15275
+                    "last_price": 1.15607
                 },
                 "USD/JPY": {
                     "qty": 8.279913255273147,
@@ -57682,7 +57701,7 @@
                     "take_profit": 157.60014285714286,
                     "tp1_hit": true,
                     "entry_date": "2026-08-02",
-                    "last_price": 157.649
+                    "last_price": 157.606
                 }
             },
             "history": [
