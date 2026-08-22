@@ -26,7 +26,7 @@
 - **Debug**: Set `BOT_TRADER_DEBUG=1` to re-raise after signal generation errors (traceback always printed).
 - **Trade charts**: Close-only snapshots (`_build_close_snapshot` on exit in `main.py`); last ~20 daily bars ending on the close bar; chart shows SL/TP, entry price line, exit price/date. OPEN history does not store chart snapshots. Backfill closes: `.\.venv\Scripts\python.exe scratch\update_snapshots.py`.
 - **Stop-loss fills**: On stop/trail exits, fill is the **SL level** when the bar close gaps through SL (not the worse close); same rule in live `main.py` and backfill (`apply_close_fill_to_event` updates `price`, `pnl`, and strategy `cash`).
-- **Dashboard**: Pair performance (rolling winners/losers) under the equity/exposure charts; closed trades table shows exit date, entry date, days held, qty, entry/exit prices, and P/L; expand row shows SL at exit and TP1 target when applicable. Open positions show entry date.
+- **Dashboard**: Pair performance (rolling winners/losers) under the equity/exposure charts; closed trades table shows exit date, entry date, days held, qty, entry/exit prices, and P/L; expand row shows SL at exit and TP1 target when applicable. Open positions show entry date. Mobile (≤720px): stacked header/filter, 2-col KPI grid, compact charts, primary table columns only (secondary fields in expand / horizontal scroll wrappers).
 - **Report**: `trade_history` exports `entry_date`, `exit_date`, `hold_days`, `exit_kind`, `stop_loss_at_exit`, `take_profit_at_exit`, `quantity_pct`, `reason` (from ledger event), `chart_b64` from close snapshots only. Regenerate report: `scratch\update_snapshots.py --report-only`.
 
 ## Tech Stack

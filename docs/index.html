@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Bot Trader Dashboard</title>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -19,6 +19,14 @@
             --warning-color: #d29922;
             --header-bg: #21262d;
             --muted: #8b949e;
+            --page-pad: 20px;
+            --chart-h: 380px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
         }
 
         body {
@@ -26,26 +34,38 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px;
+            padding: max(var(--page-pad), env(safe-area-inset-top))
+                max(var(--page-pad), env(safe-area-inset-right))
+                max(var(--page-pad), env(safe-area-inset-bottom))
+                max(var(--page-pad), env(safe-area-inset-left));
+            overflow-x: clip;
         }
 
         .container {
             max-width: 1300px;
             margin: 0 auto;
+            min-width: 0;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 16px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
 
+        header > div:last-child {
+            flex-shrink: 0;
+        }
+
         h1 {
             color: var(--accent-color);
             margin: 0;
+            font-size: clamp(1.35rem, 4vw, 2rem);
+            line-height: 1.2;
         }
 
         select,
@@ -55,12 +75,22 @@
             border: 1px solid var(--border-color);
             padding: 8px 12px;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 16px;
+            max-width: 100%;
+        }
+
+        #strategy-selector {
+            min-height: 44px;
+        }
+
+        #symbol-filter {
+            min-height: 44px;
+            width: min(240px, 100%);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
@@ -70,6 +100,8 @@
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 15px;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .card-title {
@@ -115,7 +147,29 @@
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 20px;
-            height: 380px;
+            height: var(--chart-h);
+            min-width: 0;
+        }
+
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            margin-top: 15px;
+        }
+
+        .table-scroll table {
+            margin-top: 0;
+            min-width: 560px;
+        }
+
+        .pair-perf-card .table-scroll {
+            margin-top: 0;
+        }
+
+        .pair-perf-card .table-scroll table {
+            min-width: 0;
         }
 
         table {
@@ -176,15 +230,18 @@
         }
 
         .trade-row td.caret-cell {
-            width: 20px;
+            width: 28px;
             color: var(--muted);
             font-size: 10px;
+        }
+
+        .trade-row td.caret-cell .caret {
+            display: inline-block;
             transition: transform 0.2s;
         }
 
-        .trade-row.expanded td.caret-cell {
+        .trade-row.expanded td.caret-cell .caret {
             transform: rotate(90deg);
-            display: inline-block;
         }
 
         .trade-detail-row td {
@@ -255,7 +312,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
             margin-bottom: 10px;
+        }
+
+        .filter-bar > div:last-child {
+            flex: 1 1 auto;
+            min-width: 0;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .pos-pnl-bar {
@@ -347,6 +413,94 @@
                 grid-column: 1;
                 grid-row: 3;
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            :root {
+                --page-pad: 12px;
+                --chart-h: 260px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
+
+            header > div:last-child {
+                width: 100%;
+            }
+
+            #strategy-selector {
+                width: 100%;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                padding: 12px;
+            }
+
+            .card-value {
+                font-size: 20px;
+            }
+
+            .chart-container {
+                padding: 14px;
+            }
+
+            .main-charts {
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+
+            .filter-bar > div:last-child {
+                justify-content: stretch;
+                width: 100%;
+            }
+
+            #symbol-filter {
+                width: 100%;
+            }
+
+            /* Keep glanceable columns; details live in the expand panel */
+            .history-table .col-secondary,
+            .positions-table .col-secondary {
+                display: none;
+            }
+
+            .table-scroll table.history-table,
+            .table-scroll table.positions-table {
+                min-width: 0;
+            }
+
+            th,
+            td {
+                padding: 10px 8px;
+            }
+
+            .trade-row {
+                min-height: 48px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (pointer: coarse) {
+            .trade-row td {
+                padding-top: 12px;
+                padding-bottom: 12px;
             }
         }
     </style>
@@ -480,12 +634,12 @@
         }
 
         function fmtPrice(v) {
-            if (v == null || v === undefined || v <= 0) return '—';
+            if (v == null || v === undefined || v <= 0) return '-';
             return '$' + Number(v).toFixed(4);
         }
 
         function fmtDate(d) {
-            if (!d) return '—';
+            if (!d) return '-';
             const parsed = new Date(d.length === 10 ? d + 'T00:00:00' : d);
             if (isNaN(parsed.getTime())) return d;
             return parsed.toLocaleDateString();
@@ -503,7 +657,7 @@
         }
 
         function formatReason(t) {
-            let r = t.reason || '—';
+            let r = t.reason || '-';
             if (t.exit_kind === 'tp1_partial' && t.quantity_pct != null && t.quantity_pct < 1) {
                 const pct = Math.round(t.quantity_pct * 100);
                 if (!r.includes('%')) r += ` · ${pct}%`;
@@ -526,7 +680,8 @@
                 <div><dt>Exit</dt><dd>${fmtPrice(t.exit_price)} <span style="color:var(--muted); font-weight:400">${fmtDate(t.exit_date || t.time)}</span>${heldStr}</dd></div>
                 <div><dt>${slLabel}</dt><dd>${fmtPrice(sl)}</dd></div>
                 ${tpRow}
-                <div><dt>Quantity</dt><dd>${t.qty != null ? t.qty.toFixed(6) : '—'}</dd></div>
+                <div><dt>Quantity</dt><dd>${t.qty != null ? t.qty.toFixed(6) : '-'}</dd></div>
+                <div><dt>Reason</dt><dd>${formatReason(t)}</dd></div>
             </dl>`;
         }
 
@@ -582,10 +737,10 @@
                     <td style="color:var(--muted)">${r.win_rate.toFixed(1)}%</td>
                 </tr>`;
             }).join('');
-            container.innerHTML = `<table class="pair-perf-table">
+            container.innerHTML = `<div class="table-scroll"><table class="pair-perf-table">
                 <thead><tr><th>Pair</th><th>Realized P/L</th><th>Trades</th><th>Win %</th></tr></thead>
                 <tbody>${body}</tbody>
-            </table>`;
+            </table></div>`;
         }
 
         function renderPairPerformance(data) {
@@ -640,28 +795,30 @@
                     <tr>
                         <td style="font-weight:600">${p.symbol} ${tp1Badge}</td>
                         <td><span class="badge ${badge}">${p.side}</span></td>
-                        <td>${p.qty.toFixed(6)}</td>
-                        <td>$${p.entry.toFixed(4)}</td>
-                        <td style="color:var(--muted)">${fmtDate(p.entry_date)}</td>
-                        <td>$${(p.current_price || p.entry).toFixed(4)}</td>
+                        <td class="col-secondary">${p.qty.toFixed(6)}</td>
+                        <td class="col-secondary">$${p.entry.toFixed(4)}</td>
+                        <td class="col-secondary" style="color:var(--muted)">${fmtDate(p.entry_date)}</td>
+                        <td class="col-secondary">$${(p.current_price || p.entry).toFixed(4)}</td>
                         <td style="color:${pnlColor}; font-weight:600">
                             ${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)}
                             <div style="font-size:10px; opacity:0.8">${pnlPct.toFixed(2)}%</div>
                         </td>
-                        <td>$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
+                        <td class="col-secondary">$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
                         <td>$${p.value.toLocaleString()}</td>
                     </tr>`;
             }).join('');
 
             container.innerHTML = `
-                <table>
+                <div class="table-scroll">
+                <table class="positions-table">
                     <thead>
                         <tr>
-                            <th>Asset</th><th>Side</th><th>Size</th><th>Entry</th><th>Entry date</th><th>Price</th><th>Unrealized P/L</th><th>Stop</th><th>Market value</th>
+                            <th>Asset</th><th>Side</th><th class="col-secondary">Size</th><th class="col-secondary">Entry</th><th class="col-secondary">Entry date</th><th class="col-secondary">Price</th><th>Unrealized P/L</th><th class="col-secondary">Stop</th><th>Market value</th>
                         </tr>
                     </thead>
                     <tbody>${rows}</tbody>
-                </table>`;
+                </table>
+                </div>`;
         }
 
         function renderHistory() {
@@ -695,20 +852,20 @@
                 tr.className = 'trade-row';
                 const held = daysHeld(t);
                 tr.innerHTML = `
-                    <td class="caret-cell">&#9654;</td>
+                    <td class="caret-cell"><span class="caret">&#9654;</span></td>
                     <td style="color:var(--muted)">${fmtDate(t.exit_date || t.time)}</td>
-                    <td style="color:var(--muted)">${fmtDate(t.entry_date)}</td>
-                    <td style="color:var(--muted)">${held != null ? held : '—'}</td>
+                    <td class="col-secondary" style="color:var(--muted)">${fmtDate(t.entry_date)}</td>
+                    <td class="col-secondary" style="color:var(--muted)">${held != null ? held : '-'}</td>
                     <td style="font-weight:600">${t.symbol}</td>
                     <td><span class="badge ${badge}">${t.side}</span></td>
-                    <td style="color:var(--muted)">${fmtPrice(t.entry_price)}</td>
-                    <td style="color:var(--muted)">${fmtPrice(t.exit_price)}</td>
-                    <td style="color:var(--muted)">${t.qty != null ? t.qty.toFixed(4) : '—'}</td>
+                    <td class="col-secondary" style="color:var(--muted)">${fmtPrice(t.entry_price)}</td>
+                    <td class="col-secondary" style="color:var(--muted)">${fmtPrice(t.exit_price)}</td>
+                    <td class="col-secondary" style="color:var(--muted)">${t.qty != null ? t.qty.toFixed(4) : '-'}</td>
                     <td style="color:${pnlColor}">
                         ${t.pnl >= 0 ? '+' : ''}$${t.pnl.toFixed(2)}
                         <span style="font-size:10px; opacity:0.7">(${t.pnl_pct.toFixed(2)}%)</span>
                     </td>
-                    <td style="font-size:11px; opacity:0.8">${formatReason(t)}</td>`;
+                    <td class="col-secondary" style="font-size:11px; opacity:0.8">${formatReason(t)}</td>`;
 
                 const detailTr = document.createElement('tr');
                 detailTr.className = 'trade-detail-row';
@@ -743,10 +900,14 @@
             });
 
             container.innerHTML = '';
+            const scroll = document.createElement('div');
+            scroll.className = 'table-scroll';
             const table = document.createElement('table');
-            table.innerHTML = `<thead><tr><th></th><th>Exit</th><th>Entry date</th><th>Days</th><th>Symbol</th><th>Side</th><th>Entry</th><th>Exit</th><th>Qty</th><th>Realized P/L</th><th>Signal Reason</th></tr></thead>`;
+            table.className = 'history-table';
+            table.innerHTML = `<thead><tr><th></th><th>Exit</th><th class="col-secondary">Entry date</th><th class="col-secondary">Days</th><th>Symbol</th><th>Side</th><th class="col-secondary">Entry</th><th class="col-secondary">Exit</th><th class="col-secondary">Qty</th><th>Realized P/L</th><th class="col-secondary">Signal Reason</th></tr></thead>`;
             table.appendChild(tbody);
-            container.appendChild(table);
+            scroll.appendChild(table);
+            container.appendChild(scroll);
         }
 
         function renderEquityChart(history) {
@@ -787,7 +948,7 @@
                     maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
                     scales: {
-                        x: { grid: { display: false }, ticks: { color: '#8b949e', maxTicksLimit: 10 } },
+                        x: { grid: { display: false }, ticks: { color: '#8b949e', maxTicksLimit: window.innerWidth < 720 ? 4 : 10 } },
                         y: { grid: { color: '#30363d' }, ticks: { color: '#8b949e' } }
                     }
                 }
