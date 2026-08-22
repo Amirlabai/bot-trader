@@ -395,6 +395,7 @@ class ReportGenerator:
 
         strategies = ledger.get("strategies", {})
 
+        charts = {}  # ponytail: separate file so dashboard first paint stays small
         output_data = {
             "metadata": {
                 "last_updated": datetime.now().isoformat(),
@@ -531,6 +532,9 @@ class ReportGenerator:
                         event, snapshot, entry_price, entry_date, exit_date,
                     ) if snapshot else {}
                     chart_b64 = _render_chart_b64(snap) if snapshot else ""
+                    chart_id = f"{strat_name}:{len(trade_history)}"
+                    if chart_b64:
+                        charts[chart_id] = chart_b64
 
                     sl_level = 0.0
                     tp_level = 0.0
@@ -568,7 +572,7 @@ class ReportGenerator:
                         "pnl": pnl,
                         "pnl_pct": pnl_pct,
                         "reason": event.get('reason') or 'N/A',
-                        "chart_b64": chart_b64,
+                        "chart_id": chart_id if chart_b64 else None,
                     })
 
             # 4. Advanced Metrics
@@ -623,4 +627,10 @@ class ReportGenerator:
             json.dump(output_data, f, indent=2)
             f.write(";")
 
-        print(f"Report data generated: {self.report_file} and {js_file}")
+        charts_js = os.path.join(self.output_dir, "report_charts.js")
+        with open(charts_js, 'w', encoding='utf-8') as f:
+            f.write("window.REPORT_CHARTS = ")
+            json.dump(charts, f, separators=(',', ':'))
+            f.write(";")
+
+        print(f"Report data generated: {self.report_file}, {js_file}, {charts_js}")

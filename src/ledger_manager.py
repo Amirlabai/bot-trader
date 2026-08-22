@@ -351,6 +351,10 @@ class LedgerManager:
             if os.path.exists(js_report_file):
                 files_to_sync.append(js_report_file)
 
+            charts_js = os.path.join(os.getcwd(), 'docs', 'report_charts.js')
+            if os.path.exists(charts_js):
+                files_to_sync.append(charts_js)
+
             # Stage files
             repo.index.add(files_to_sync)
             

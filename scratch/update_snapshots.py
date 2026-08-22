@@ -304,12 +304,12 @@ def main(dry_run=False):
 
 
 def _regenerate_report():
-    """Rebuild docs/report_data.js so trade charts use current reporting.py renderer."""
+    """Rebuild docs/report_data.js + report_charts.js from ledger."""
     from reporting import ReportGenerator
     reporter = ReportGenerator(Config)
     reporter.generate()
     print(f"Report written: {reporter.report_file}")
-    print("Hard-refresh the dashboard (Ctrl+F5) so the browser loads the new report_data.js.")
+    print("Hard-refresh the dashboard (Ctrl+F5) so the browser loads report_data.js / report_charts.js.")
 
 
 if __name__ == "__main__":

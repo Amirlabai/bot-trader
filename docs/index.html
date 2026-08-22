@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Bot Trader Dashboard</title>
     <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -504,7 +504,7 @@
             }
         }
     </style>
-    <script src="report_data.js"></script>
+    <script defer src="report_data.js"></script>
 </head>
 
 <body>
@@ -606,6 +606,21 @@
         let currentStrategy = null;
         let expandedRow = null;
         let expandedTradeRow = null;
+        let chartsLoad = null;
+
+        function loadCharts() {
+            // ponytail: charts stay out of first paint (~20MB)
+            if (window.REPORT_CHARTS) return Promise.resolve(window.REPORT_CHARTS);
+            if (chartsLoad) return chartsLoad;
+            chartsLoad = new Promise((resolve, reject) => {
+                const s = document.createElement('script');
+                s.src = 'report_charts.js';
+                s.onload = () => resolve(window.REPORT_CHARTS || {});
+                s.onerror = () => reject(new Error('Chart pack failed to load'));
+                document.head.appendChild(s);
+            });
+            return chartsLoad;
+        }
 
         async function loadData() {
             try {
@@ -846,7 +861,7 @@
             filtered.forEach(t => {
                 const badge = t.side === 'LONG' ? 'badge-long' : 'badge-short';
                 const pnlColor = t.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
-                const hasChart = t.chart_b64 && t.chart_b64.length > 0;
+                const hasChart = !!(t.chart_id || (t.chart_b64 && t.chart_b64.length > 0));
 
                 const tr = document.createElement('tr');
                 tr.className = 'trade-row';
@@ -874,7 +889,7 @@
 
                 let detailBody = tradeSummaryHtml(t);
                 if (hasChart) {
-                    detailBody += `<img src="data:image/png;base64,${t.chart_b64}" class="trade-chart-img">`;
+                    detailBody += `<div class="trade-chart-slot" data-chart-id="${t.chart_id || ''}"></div>`;
                 } else {
                     detailBody += `<div class="no-chart-msg">Close snapshot missing. Re-run snapshot backfill or wait for the next daily close.</div>`;
                 }
@@ -883,7 +898,7 @@
                 detailTr.innerHTML = `<td colspan="11"></td>`;
                 detailTr.querySelector('td').appendChild(inner);
 
-                tr.onclick = () => {
+                tr.onclick = async () => {
                     if (expandedRow && expandedRow !== inner) {
                         expandedRow.classList.remove('open');
                         if (expandedTradeRow) expandedTradeRow.classList.remove('expanded');
@@ -893,6 +908,26 @@
                     const isOpen = inner.classList.contains('open');
                     expandedRow = isOpen ? inner : null;
                     expandedTradeRow = isOpen ? tr : null;
+                    if (isOpen && hasChart) {
+                        const slot = inner.querySelector('.trade-chart-slot');
+                        if (slot && !slot.querySelector('img')) {
+                            slot.innerHTML = '<div class="no-chart-msg">Loading chart...</div>';
+                            try {
+                                let b64 = t.chart_b64;
+                                if (!b64 && t.chart_id) {
+                                    const pack = await loadCharts();
+                                    b64 = pack[t.chart_id];
+                                }
+                                if (b64) {
+                                    slot.innerHTML = `<img src="data:image/png;base64,${b64}" class="trade-chart-img">`;
+                                } else {
+                                    slot.innerHTML = '<div class="no-chart-msg">Chart missing from pack.</div>';
+                                }
+                            } catch (e) {
+                                slot.innerHTML = `<div class="no-chart-msg">${e.message}</div>`;
+                            }
+                        }
+                    }
                 };
 
                 tbody.appendChild(tr);
@@ -985,7 +1020,7 @@
             });
         }
 
-        loadData();
+        document.addEventListener('DOMContentLoaded', loadData);
     </script>
 </body>
 
