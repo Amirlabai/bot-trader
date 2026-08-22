@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.15.1 (2026-08-22)
+
+### Performance Improvements
+
+- **dashboard**: Lazy-load trade charts
+  ([`e96665f`](https://github.com/Amirlabai/bot-trader/commit/e96665fece575aef1de63fd362f5af6d023638cf))
+
+
 ## v1.15.0 (2026-06-04)
 
 ### Features
