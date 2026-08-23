@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-08-22T00:45:07.416806",
+    "last_updated": "2026-08-23T00:50:53.091771",
     "initial_cash": 10000.0
   },
   "strategies": {
@@ -12,12 +12,12 @@
           "qty": 132.85986944395498,
           "entry": 6.629,
           "entry_date": "2026-08-05",
-          "current_price": 7.852,
-          "unrealized_pnl": 162.48762032995702,
+          "current_price": 7.555,
+          "unrealized_pnl": 123.02823910510233,
           "sl": 7.341870357142858,
           "tp1": true,
           "tp_price": 6.9382142857142854,
-          "value": 1043.2156948739346
+          "value": 1003.7563136490799
         },
         {
           "symbol": "ETH/USDT",
@@ -25,12 +25,12 @@
           "qty": 0.29709631264791864,
           "entry": 1916.1,
           "entry_date": "2026-08-08",
-          "current_price": 2510.63,
-          "unrealized_pnl": 176.63267075856712,
+          "current_price": 2429.98,
+          "unrealized_pnl": 152.67185314351246,
           "sl": 2384.415703571429,
           "tp1": true,
           "tp_price": 1974.167857142857,
-          "value": 745.898915423244
+          "value": 721.9380978081894
         },
         {
           "symbol": "DOGE/USDT",
@@ -38,12 +38,12 @@
           "qty": 20404.332212900918,
           "entry": 0.07543,
           "entry_date": "2026-08-19",
-          "current_price": 0.09127,
-          "unrealized_pnl": 323.20462225235065,
-          "sl": 0.08606966928571429,
+          "current_price": 0.0934,
+          "unrealized_pnl": 366.6658498658295,
+          "sl": 0.08709079964285714,
           "tp1": true,
           "tp_price": 0.07740714285714285,
-          "value": 1862.3034010714669
+          "value": 1905.7646286849456
         },
         {
           "symbol": "XRP/USDT",
@@ -51,12 +51,12 @@
           "qty": 1329.1089653435356,
           "entry": 1.4553,
           "entry_date": "2026-08-21",
-          "current_price": 1.4553,
-          "unrealized_pnl": 0.0,
+          "current_price": 1.4919,
+          "unrealized_pnl": 48.645388131573355,
           "sl": 1.3621007142857144,
           "tp1": false,
           "tp_price": 1.5174328571428572,
-          "value": 1934.2522772644475
+          "value": 1982.8976653960208
         },
         {
           "symbol": "ADA/USDT",
@@ -64,16 +64,16 @@
           "qty": 8005.946434414004,
           "entry": 0.2296,
           "entry_date": "2026-08-21",
-          "current_price": 0.2296,
-          "unrealized_pnl": 0.0,
+          "current_price": 0.22805,
+          "unrealized_pnl": -12.409216973341673,
           "sl": 0.2141275,
           "tp1": false,
           "tp_price": 0.239915,
-          "value": 1838.1653013414555
+          "value": 1825.7560843681138
         }
       ],
       "current_cash": 5625.689944013396,
-      "current_equity": 13049.525533987944,
+      "current_equity": 13065.802733919745,
       "history_events": 140,
       "equity_curve": [
         {
@@ -782,8 +782,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-08-22T00:45:07.416971",
-          "equity": 13049.525533987944,
+          "time": "2026-08-23T00:50:53.091909",
+          "equity": 13065.802733919745,
           "type": "current"
         }
       ],
@@ -807,7 +807,7 @@
           "pnl": -123.31838941668786,
           "pnl_pct": -4.937734962406026,
           "reason": "Short Stop Loss Hit @ 0.7975267857142858 (SL 0.7975267857142858)",
-          "chart_id": "ma_crossover_crypto:0"
+          "chart_id": "ma_crossover_crypto:83"
         },
         {
           "time": "2026-08-21T00:50:03.593608",
@@ -828,7 +828,7 @@
           "pnl": 82.24025918580821,
           "pnl_pct": 9.337758334590445,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:1"
+          "chart_id": "ma_crossover_crypto:82"
         },
         {
           "time": "2026-08-21T00:50:02.926786",
@@ -849,7 +849,7 @@
           "pnl": 115.48852032501918,
           "pnl_pct": 7.503645764284767,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:2"
+          "chart_id": "ma_crossover_crypto:81"
         },
         {
           "time": "2026-08-20T00:44:56.097260",
@@ -870,7 +870,7 @@
           "pnl": 98.68600640301337,
           "pnl_pct": 7.521747535279344,
           "reason": "Short Trailed Stop Hit @ 1.0251214285714285 (SL 1.0251214285714285)",
-          "chart_id": "ma_crossover_crypto:3"
+          "chart_id": "ma_crossover_crypto:80"
         },
         {
           "time": "2026-08-20T00:44:55.743013",
@@ -891,7 +891,7 @@
           "pnl": -109.79496365459211,
           "pnl_pct": -8.711298999907916,
           "reason": "Short Stop Loss Hit @ 624.1006964285714 (SL 624.1006964285714)",
-          "chart_id": "ma_crossover_crypto:4"
+          "chart_id": "ma_crossover_crypto:79"
         },
         {
           "time": "2026-08-20T00:44:55.464837",
@@ -912,7 +912,7 @@
           "pnl": 104.90470799598006,
           "pnl_pct": 18.428056990762485,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:5"
+          "chart_id": "ma_crossover_crypto:78"
         },
         {
           "time": "2026-08-20T00:44:55.182919",
@@ -933,7 +933,7 @@
           "pnl": -112.84446186025824,
           "pnl_pct": -3.756905074271582,
           "reason": "Short Stop Loss Hit @ 65475.78457142857 (SL 65475.78457142857)",
-          "chart_id": "ma_crossover_crypto:6"
+          "chart_id": "ma_crossover_crypto:77"
         },
         {
           "time": "2026-08-13T01:14:59.435935",
@@ -954,7 +954,7 @@
           "pnl": 75.52056650854956,
           "pnl_pct": 8.962916139907295,
           "reason": "Trailed Stop Hit @ 0.18469214285714286 (SL 0.18469214285714286)",
-          "chart_id": "ma_crossover_crypto:7"
+          "chart_id": "ma_crossover_crypto:76"
         },
         {
           "time": "2026-08-12T01:12:52.251086",
@@ -975,7 +975,7 @@
           "pnl": -68.33251390149607,
           "pnl_pct": -2.2731776268857784,
           "reason": "Short Stop Loss Hit @ 0.33179464285714283 (SL 0.33179464285714283)",
-          "chart_id": "ma_crossover_crypto:8"
+          "chart_id": "ma_crossover_crypto:75"
         },
         {
           "time": "2026-08-04T01:47:46.678009",
@@ -996,7 +996,7 @@
           "pnl": 231.48920651209477,
           "pnl_pct": 36.67938502973852,
           "reason": "Short Trailed Stop Hit @ 0.8060714285714285 (SL 0.8060714285714285)",
-          "chart_id": "ma_crossover_crypto:9"
+          "chart_id": "ma_crossover_crypto:74"
         },
         {
           "time": "2026-08-03T02:01:50.513624",
@@ -1017,7 +1017,7 @@
           "pnl": 78.54224134510855,
           "pnl_pct": 9.321533923303825,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:10"
+          "chart_id": "ma_crossover_crypto:73"
         },
         {
           "time": "2026-07-28T01:49:10.207414",
@@ -1038,7 +1038,7 @@
           "pnl": 59.65291366226861,
           "pnl_pct": 4.546684709066306,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:11"
+          "chart_id": "ma_crossover_crypto:72"
         },
         {
           "time": "2026-07-26T02:00:17.785373",
@@ -1059,7 +1059,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 6.6 (SL 6.6)",
-          "chart_id": "ma_crossover_crypto:12"
+          "chart_id": "ma_crossover_crypto:71"
         },
         {
           "time": "2026-07-24T01:56:58.640718",
@@ -1080,7 +1080,7 @@
           "pnl": 52.28269178436223,
           "pnl_pct": 5.454545454545446,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:13"
+          "chart_id": "ma_crossover_crypto:70"
         },
         {
           "time": "2026-07-06T02:26:48.540333",
@@ -1101,7 +1101,7 @@
           "pnl": -121.45595750773369,
           "pnl_pct": -5.375892205919365,
           "reason": "Short Stop Loss Hit @ 63280.12003571429 (SL 63280.12003571429)",
-          "chart_id": "ma_crossover_crypto:14"
+          "chart_id": "ma_crossover_crypto:69"
         },
         {
           "time": "2026-07-03T02:08:20.783929",
@@ -1122,7 +1122,7 @@
           "pnl": -121.45595750773371,
           "pnl_pct": -7.575697429629032,
           "reason": "Short Stop Loss Hit @ 1688.4973892857142 (SL 1688.4973892857142)",
-          "chart_id": "ma_crossover_crypto:15"
+          "chart_id": "ma_crossover_crypto:68"
         },
         {
           "time": "2026-06-27T02:30:04.214393",
@@ -1143,7 +1143,7 @@
           "pnl": 162.24846620022777,
           "pnl_pct": 30.798838714590314,
           "reason": "Short Trailed Stop Hit @ 6.491068928571429 (SL 6.491068928571429)",
-          "chart_id": "ma_crossover_crypto:16"
+          "chart_id": "ma_crossover_crypto:67"
         },
         {
           "time": "2026-06-21T02:54:23.038727",
@@ -1164,7 +1164,7 @@
           "pnl": 27.575252834405134,
           "pnl_pct": 2.0109612684673603,
           "reason": "Short Trailed Stop Hit @ 0.3260389285714286 (SL 0.3260389285714286)",
-          "chart_id": "ma_crossover_crypto:17"
+          "chart_id": "ma_crossover_crypto:66"
         },
         {
           "time": "2026-06-15T02:55:21.905107",
@@ -1185,7 +1185,7 @@
           "pnl": 203.44000427547627,
           "pnl_pct": 27.67783413943612,
           "reason": "Short Trailed Stop Hit @ 0.17516428571428572 (SL 0.17516428571428572)",
-          "chart_id": "ma_crossover_crypto:18"
+          "chart_id": "ma_crossover_crypto:65"
         },
         {
           "time": "2026-06-15T02:55:20.889928",
@@ -1206,7 +1206,7 @@
           "pnl": 108.33311366976066,
           "pnl_pct": 13.415828550365955,
           "reason": "Short Trailed Stop Hit @ 1.1745142857142858 (SL 1.1745142857142858)",
-          "chart_id": "ma_crossover_crypto:19"
+          "chart_id": "ma_crossover_crypto:64"
         },
         {
           "time": "2026-06-15T02:55:19.857780",
@@ -1227,7 +1227,7 @@
           "pnl": 260.08201200569334,
           "pnl_pct": 23.162875136559347,
           "reason": "Short Trailed Stop Hit @ 1708.0892857142858 (SL 1708.0892857142858)",
-          "chart_id": "ma_crossover_crypto:20"
+          "chart_id": "ma_crossover_crypto:63"
         },
         {
           "time": "2026-06-14T02:50:42.252943",
@@ -1248,7 +1248,7 @@
           "pnl": 155.37317478169842,
           "pnl_pct": 19.6372279209407,
           "reason": "Short Trailed Stop Hit @ 68.8307142857143 (SL 68.8307142857143)",
-          "chart_id": "ma_crossover_crypto:21"
+          "chart_id": "ma_crossover_crypto:62"
         },
         {
           "time": "2026-06-14T02:50:41.812390",
@@ -1269,7 +1269,7 @@
           "pnl": 196.1311357714761,
           "pnl_pct": 14.517177160394484,
           "reason": "Short Trailed Stop Hit @ 64491.58392857143 (SL 64491.58392857143)",
-          "chart_id": "ma_crossover_crypto:22"
+          "chart_id": "ma_crossover_crypto:61"
         },
         {
           "time": "2026-06-06T02:28:12.682974",
@@ -1290,7 +1290,7 @@
           "pnl": 52.916225775422035,
           "pnl_pct": 3.8589847624199853,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:23"
+          "chart_id": "ma_crossover_crypto:60"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -1311,7 +1311,7 @@
           "pnl": 89.83008819579896,
           "pnl_pct": 12.221304706853834,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:24"
+          "chart_id": "ma_crossover_crypto:59"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -1332,7 +1332,7 @@
           "pnl": -109.11413191996024,
           "pnl_pct": -4.823636588619476,
           "reason": "Stop Loss Hit @ 675.7616978571428 (SL 675.7616978571428)",
-          "chart_id": "ma_crossover_crypto:25"
+          "chart_id": "ma_crossover_crypto:58"
         },
         {
           "time": "2026-06-01T23:59:59",
@@ -1353,7 +1353,7 @@
           "pnl": 41.47771591615741,
           "pnl_pct": 5.242265032107425,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:26"
+          "chart_id": "ma_crossover_crypto:57"
         },
         {
           "time": "2026-06-01T23:59:59",
@@ -1374,7 +1374,7 @@
           "pnl": 36.371828806465665,
           "pnl_pct": 4.504238849981565,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:27"
+          "chart_id": "ma_crossover_crypto:56"
         },
         {
           "time": "2026-05-29T23:59:59",
@@ -1395,7 +1395,7 @@
           "pnl": 40.15737497089114,
           "pnl_pct": 6.362922230950508,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:28"
+          "chart_id": "ma_crossover_crypto:55"
         },
         {
           "time": "2026-05-29T23:59:59",
@@ -1416,7 +1416,7 @@
           "pnl": 37.19683149492146,
           "pnl_pct": 2.7532242165073355,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:29"
+          "chart_id": "ma_crossover_crypto:54"
         },
         {
           "time": "2026-05-28T23:59:59",
@@ -1437,7 +1437,7 @@
           "pnl": 25.834570852255872,
           "pnl_pct": 4.904051172707899,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:30"
+          "chart_id": "ma_crossover_crypto:53"
         },
         {
           "time": "2026-05-19T23:59:59",
@@ -1458,7 +1458,7 @@
           "pnl": -95.81482360276748,
           "pnl_pct": -3.5470976187964083,
           "reason": "Stop Loss Hit @ 639.9360714285715 (SL 639.9360714285715)",
-          "chart_id": "ma_crossover_crypto:31"
+          "chart_id": "ma_crossover_crypto:52"
         },
         {
           "time": "2026-05-17T23:59:59",
@@ -1479,7 +1479,7 @@
           "pnl": 47.1057365222978,
           "pnl_pct": 4.1952316689158895,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:32"
+          "chart_id": "ma_crossover_crypto:51"
         },
         {
           "time": "2026-05-15T23:59:59",
@@ -1500,7 +1500,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 1.4369 (SL 1.4369)",
-          "chart_id": "ma_crossover_crypto:33"
+          "chart_id": "ma_crossover_crypto:50"
         },
         {
           "time": "2026-05-15T23:59:59",
@@ -1521,7 +1521,7 @@
           "pnl": 105.92041512140904,
           "pnl_pct": 8.581756562167083,
           "reason": "Trailed Stop Hit @ 79262.38035714286 (SL 79262.38035714286)",
-          "chart_id": "ma_crossover_crypto:34"
+          "chart_id": "ma_crossover_crypto:49"
         },
         {
           "time": "2026-05-14T23:59:59",
@@ -1542,7 +1542,7 @@
           "pnl": 27.705396569920897,
           "pnl_pct": 3.368362446934372,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:35"
+          "chart_id": "ma_crossover_crypto:48"
         },
         {
           "time": "2026-05-13T23:59:59",
@@ -1563,7 +1563,7 @@
           "pnl": 20.39774271028064,
           "pnl_pct": 2.8194038895928584,
           "reason": "Trailed Stop Hit @ 0.26661071428571426 (SL 0.26661071428571426)",
-          "chart_id": "ma_crossover_crypto:36"
+          "chart_id": "ma_crossover_crypto:47"
         },
         {
           "time": "2026-05-13T23:59:59",
@@ -1584,7 +1584,7 @@
           "pnl": -108.04870223479116,
           "pnl_pct": -4.560570599040118,
           "reason": "Stop Loss Hit @ 92.04178571428571 (SL 92.04178571428571)",
-          "chart_id": "ma_crossover_crypto:37"
+          "chart_id": "ma_crossover_crypto:46"
         },
         {
           "time": "2026-05-13T23:59:59",
@@ -1605,7 +1605,7 @@
           "pnl": 6.088426112486639,
           "pnl_pct": 0.7002498723291767,
           "reason": "Trailed Stop Hit @ 2262.019642857143 (SL 2262.019642857143)",
-          "chart_id": "ma_crossover_crypto:38"
+          "chart_id": "ma_crossover_crypto:45"
         },
         {
           "time": "2026-05-08T23:59:59",
@@ -1626,7 +1626,7 @@
           "pnl": -111.01708159942137,
           "pnl_pct": -6.120770676691729,
           "reason": "Short Stop Loss Hit @ 9.678214285714285 (SL 9.678214285714285)",
-          "chart_id": "ma_crossover_crypto:39"
+          "chart_id": "ma_crossover_crypto:44"
         },
         {
           "time": "2026-05-08T23:59:59",
@@ -1647,7 +1647,7 @@
           "pnl": 39.6196507162072,
           "pnl_pct": 5.476282298495969,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:40"
+          "chart_id": "ma_crossover_crypto:43"
         },
         {
           "time": "2026-05-06T23:59:59",
@@ -1668,7 +1668,7 @@
           "pnl": -109.86128943800335,
           "pnl_pct": -4.614543420026446,
           "reason": "Short Stop Loss Hit @ 88.14821428571429 (SL 88.14821428571429)",
-          "chart_id": "ma_crossover_crypto:41"
+          "chart_id": "ma_crossover_crypto:42"
         },
         {
           "time": "2026-04-30T23:59:59",
@@ -1689,7 +1689,7 @@
           "pnl": -115.5792161418011,
           "pnl_pct": -11.993620536670434,
           "reason": "Short Stop Loss Hit @ 0.10457964285714286 (SL 0.10457964285714286)",
-          "chart_id": "ma_crossover_crypto:42"
+          "chart_id": "ma_crossover_crypto:41"
         },
         {
           "time": "2026-04-19T23:59:59",
@@ -1710,7 +1710,7 @@
           "pnl": -112.13846626204179,
           "pnl_pct": -4.186486897454963,
           "reason": "Stop Loss Hit @ 616.6078635714285 (SL 616.6078635714285)",
-          "chart_id": "ma_crossover_crypto:43"
+          "chart_id": "ma_crossover_crypto:40"
         },
         {
           "time": "2026-04-17T23:59:59",
@@ -1731,7 +1731,7 @@
           "pnl": 69.32515713828037,
           "pnl_pct": 5.616779555789826,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:44"
+          "chart_id": "ma_crossover_crypto:39"
         },
         {
           "time": "2026-04-16T23:59:59",
@@ -1752,7 +1752,7 @@
           "pnl": -116.00667578245252,
           "pnl_pct": -8.448182025667592,
           "reason": "Short Stop Loss Hit @ 88.24428571428572 (SL 88.24428571428572)",
-          "chart_id": "ma_crossover_crypto:45"
+          "chart_id": "ma_crossover_crypto:38"
         },
         {
           "time": "2026-04-16T23:59:59",
@@ -1773,7 +1773,7 @@
           "pnl": -116.0066757824525,
           "pnl_pct": -7.740966449890179,
           "reason": "Short Stop Loss Hit @ 1.4295071428571429 (SL 1.4295071428571429)",
-          "chart_id": "ma_crossover_crypto:46"
+          "chart_id": "ma_crossover_crypto:37"
         },
         {
           "time": "2026-04-13T23:59:59",
@@ -1794,7 +1794,7 @@
           "pnl": -116.00667578245252,
           "pnl_pct": -8.11836734693878,
           "reason": "Short Stop Loss Hit @ 9.460357142857143 (SL 9.460357142857143)",
-          "chart_id": "ma_crossover_crypto:47"
+          "chart_id": "ma_crossover_crypto:36"
         },
         {
           "time": "2026-04-13T23:59:59",
@@ -1815,7 +1815,7 @@
           "pnl": 47.99244080385505,
           "pnl_pct": 5.519768151040171,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:48"
+          "chart_id": "ma_crossover_crypto:35"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -1836,7 +1836,7 @@
           "pnl": 18.43763686071581,
           "pnl_pct": 3.731897512068306,
           "reason": "Short Trailed Stop Hit @ 0.25925000000000004 (SL 0.25925000000000004)",
-          "chart_id": "ma_crossover_crypto:49"
+          "chart_id": "ma_crossover_crypto:34"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -1857,7 +1857,7 @@
           "pnl": 1.239620571677423,
           "pnl_pct": 0.10656376948236566,
           "reason": "Short Trailed Stop Hit @ 612.9960714285714 (SL 612.9960714285714)",
-          "chart_id": "ma_crossover_crypto:50"
+          "chart_id": "ma_crossover_crypto:33"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -1878,7 +1878,7 @@
           "pnl": -116.00667578245252,
           "pnl_pct": -7.777515135264814,
           "reason": "Short Stop Loss Hit @ 2182.0635714285713 (SL 2182.0635714285713)",
-          "chart_id": "ma_crossover_crypto:51"
+          "chart_id": "ma_crossover_crypto:32"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -1899,7 +1899,7 @@
           "pnl": -116.00667578245252,
           "pnl_pct": -6.195657406857916,
           "reason": "Short Stop Loss Hit @ 70429.11928571427 (SL 70429.11928571427)",
-          "chart_id": "ma_crossover_crypto:52"
+          "chart_id": "ma_crossover_crypto:31"
         },
         {
           "time": "2026-04-02T23:59:59",
@@ -1920,7 +1920,7 @@
           "pnl": 57.45719206833691,
           "pnl_pct": 4.939297645237504,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:53"
+          "chart_id": "ma_crossover_crypto:30"
         },
         {
           "time": "2026-03-27T23:59:59",
@@ -1941,7 +1941,7 @@
           "pnl": 42.745964065142324,
           "pnl_pct": 8.652060898626063,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:54"
+          "chart_id": "ma_crossover_crypto:29"
         },
         {
           "time": "2026-02-25T23:59:59",
@@ -1962,7 +1962,7 @@
           "pnl": 147.7181475000793,
           "pnl_pct": 29.925339870737687,
           "reason": "Short Trailed Stop Hit @ 1.3475357142857143 (SL 1.3475357142857143)",
-          "chart_id": "ma_crossover_crypto:55"
+          "chart_id": "ma_crossover_crypto:28"
         },
         {
           "time": "2026-02-25T23:59:59",
@@ -1983,7 +1983,7 @@
           "pnl": 179.9431806302846,
           "pnl_pct": 28.095258148740854,
           "reason": "Short Trailed Stop Hit @ 85.37249999999999 (SL 85.37249999999999)",
-          "chart_id": "ma_crossover_crypto:56"
+          "chart_id": "ma_crossover_crypto:27"
         },
         {
           "time": "2026-02-25T23:59:59",
@@ -2004,7 +2004,7 @@
           "pnl": 85.88688365272331,
           "pnl_pct": 29.307069166672072,
           "reason": "Short Trailed Stop Hit @ 621.5039707142857 (SL 621.5039707142857)",
-          "chart_id": "ma_crossover_crypto:57"
+          "chart_id": "ma_crossover_crypto:26"
         },
         {
           "time": "2026-02-14T23:59:59",
@@ -2025,7 +2025,7 @@
           "pnl": 138.58136642555115,
           "pnl_pct": 23.698156682027633,
           "reason": "Short Trailed Stop Hit @ 9.461428571428574 (SL 9.461428571428574)",
-          "chart_id": "ma_crossover_crypto:58"
+          "chart_id": "ma_crossover_crypto:25"
         },
         {
           "time": "2026-02-14T23:59:59",
@@ -2046,7 +2046,7 @@
           "pnl": 116.0527794269113,
           "pnl_pct": 20.135414431406204,
           "reason": "Short Trailed Stop Hit @ 0.10102071428571428 (SL 0.10102071428571428)",
-          "chart_id": "ma_crossover_crypto:59"
+          "chart_id": "ma_crossover_crypto:24"
         },
         {
           "time": "2026-02-14T23:59:59",
@@ -2067,7 +2067,7 @@
           "pnl": 123.0449368992718,
           "pnl_pct": 21.533028253083963,
           "reason": "Short Trailed Stop Hit @ 0.28169642857142857 (SL 0.28169642857142857)",
-          "chart_id": "ma_crossover_crypto:60"
+          "chart_id": "ma_crossover_crypto:23"
         },
         {
           "time": "2026-02-06T23:59:59",
@@ -2088,7 +2088,7 @@
           "pnl": 197.5434481517534,
           "pnl_pct": 27.891427396797656,
           "reason": "Short Trailed Stop Hit @ 1.4031607142857143 (SL 1.4031607142857143)",
-          "chart_id": "ma_crossover_crypto:61"
+          "chart_id": "ma_crossover_crypto:22"
         },
         {
           "time": "2026-02-06T23:59:59",
@@ -2109,7 +2109,7 @@
           "pnl": 246.60371970566112,
           "pnl_pct": 21.29683935122823,
           "reason": "Short Trailed Stop Hit @ 69455.54714285715 (SL 69455.54714285715)",
-          "chart_id": "ma_crossover_crypto:62"
+          "chart_id": "ma_crossover_crypto:21"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -2130,7 +2130,7 @@
           "pnl": 71.69136987413572,
           "pnl_pct": 11.19346416238525,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:63"
+          "chart_id": "ma_crossover_crypto:20"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -2151,7 +2151,7 @@
           "pnl": 32.76058762835889,
           "pnl_pct": 11.17885254106192,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:64"
+          "chart_id": "ma_crossover_crypto:19"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -2172,7 +2172,7 @@
           "pnl": 48.258445257892205,
           "pnl_pct": 9.776391055642222,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:65"
+          "chart_id": "ma_crossover_crypto:18"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -2193,7 +2193,7 @@
           "pnl": 42.83183041922068,
           "pnl_pct": 7.431417503359943,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:66"
+          "chart_id": "ma_crossover_crypto:17"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -2214,7 +2214,7 @@
           "pnl": 39.633601296452866,
           "pnl_pct": 6.935933147632306,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:67"
+          "chart_id": "ma_crossover_crypto:16"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -2235,7 +2235,7 @@
           "pnl": 49.03099667374053,
           "pnl_pct": 4.234345129252675,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:68"
+          "chart_id": "ma_crossover_crypto:15"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -2256,7 +2256,7 @@
           "pnl": -100.55065113764468,
           "pnl_pct": -7.285750834011849,
           "reason": "Short Stop Loss Hit @ 3019.321428571429 (SL 3019.321428571429)",
-          "chart_id": "ma_crossover_crypto:69"
+          "chart_id": "ma_crossover_crypto:14"
         },
         {
           "time": "2026-01-25T23:59:59",
@@ -2277,7 +2277,7 @@
           "pnl": 42.915085276167304,
           "pnl_pct": 7.338709677419356,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:70"
+          "chart_id": "ma_crossover_crypto:13"
         },
         {
           "time": "2026-01-25T23:59:59",
@@ -2298,7 +2298,7 @@
           "pnl": 40.910772735080556,
           "pnl_pct": 5.776247494732517,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_crypto:71"
+          "chart_id": "ma_crossover_crypto:12"
         },
         {
           "time": "2026-01-20T23:59:59",
@@ -2319,7 +2319,7 @@
           "pnl": 0.9682965490722009,
           "pnl_pct": 0.07721307511375726,
           "reason": "Trailed Stop Hit @ 910.5225 (SL 910.5225)",
-          "chart_id": "ma_crossover_crypto:72"
+          "chart_id": "ma_crossover_crypto:11"
         },
         {
           "time": "2026-01-18T23:59:59",
@@ -2340,7 +2340,7 @@
           "pnl": -100.91162053279315,
           "pnl_pct": -8.375647491821166,
           "reason": "Stop Loss Hit @ 0.3840892857142857 (SL 0.3840892857142857)",
-          "chart_id": "ma_crossover_crypto:73"
+          "chart_id": "ma_crossover_crypto:10"
         },
         {
           "time": "2026-01-15T23:59:59",
@@ -2361,7 +2361,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 2.142 (SL 2.142)",
-          "chart_id": "ma_crossover_crypto:74"
+          "chart_id": "ma_crossover_crypto:9"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -2382,7 +2382,7 @@
           "pnl": 41.77323103154311,
           "pnl_pct": 6.535947712418307,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:75"
+          "chart_id": "ma_crossover_crypto:8"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -2403,7 +2403,7 @@
           "pnl": 45.69257025159297,
           "pnl_pct": 3.6435778505638448,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:76"
+          "chart_id": "ma_crossover_crypto:7"
         },
         {
           "time": "2026-01-08T23:59:59",
@@ -2424,7 +2424,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 13.99 (SL 13.99)",
-          "chart_id": "ma_crossover_crypto:77"
+          "chart_id": "ma_crossover_crypto:6"
         },
         {
           "time": "2026-01-08T23:59:59",
@@ -2445,7 +2445,7 @@
           "pnl": 8.27805189304558,
           "pnl_pct": 0.6839952586085469,
           "reason": "Trailed Stop Hit @ 3164.6389285714286 (SL 3164.6389285714286)",
-          "chart_id": "ma_crossover_crypto:78"
+          "chart_id": "ma_crossover_crypto:5"
         },
         {
           "time": "2026-01-07T23:59:59",
@@ -2466,7 +2466,7 @@
           "pnl": -56.952750147594934,
           "pnl_pct": -5.577361935189415,
           "reason": "Stop Loss Hit @ 2.2165714285714286 (SL 2.2165714285714286)",
-          "chart_id": "ma_crossover_crypto:79"
+          "chart_id": "ma_crossover_crypto:4"
         },
         {
           "time": "2026-01-07T23:59:59",
@@ -2487,7 +2487,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 91494.0 (SL 91494.0)",
-          "chart_id": "ma_crossover_crypto:80"
+          "chart_id": "ma_crossover_crypto:3"
         },
         {
           "time": "2026-01-06T23:59:59",
@@ -2508,7 +2508,7 @@
           "pnl": 33.3333333333333,
           "pnl_pct": 4.288777698355966,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:81"
+          "chart_id": "ma_crossover_crypto:2"
         },
         {
           "time": "2026-01-06T23:59:59",
@@ -2529,7 +2529,7 @@
           "pnl": 58.70008856031737,
           "pnl_pct": 4.850245296105178,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:82"
+          "chart_id": "ma_crossover_crypto:1"
         },
         {
           "time": "2026-01-05T23:59:59",
@@ -2550,7 +2550,7 @@
           "pnl": 32.46196471899793,
           "pnl_pct": 2.5969571775198346,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_crypto:83"
+          "chart_id": "ma_crossover_crypto:0"
         }
       ],
       "pair_performance": {
@@ -2618,11 +2618,11 @@
         "total_trades": 84
       },
       "exposure": {
-        "AVAX/USDT": 1043.2156948739346,
-        "ETH/USDT": 745.898915423244,
-        "DOGE/USDT": 1862.3034010714669,
-        "XRP/USDT": 1934.2522772644475,
-        "ADA/USDT": 1838.1653013414555
+        "AVAX/USDT": 1003.7563136490799,
+        "ETH/USDT": 721.9380978081894,
+        "DOGE/USDT": 1905.7646286849456,
+        "XRP/USDT": 1982.8976653960208,
+        "ADA/USDT": 1825.7560843681138
       }
     },
     "ma_crossover_forex": {
@@ -3012,7 +3012,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-08-22T00:45:20.230958",
+          "time": "2026-08-23T00:51:07.356450",
           "equity": 10042.22563933224,
           "type": "current"
         }
@@ -3037,7 +3037,7 @@
           "pnl": 14.667686284032659,
           "pnl_pct": 1.175173985189588,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_forex:0"
+          "chart_id": "ma_crossover_forex:39"
         },
         {
           "time": "2026-08-20T00:44:58.341329",
@@ -3058,7 +3058,7 @@
           "pnl": 15.721460639712632,
           "pnl_pct": 1.2557889442006505,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:1"
+          "chart_id": "ma_crossover_forex:38"
         },
         {
           "time": "2026-08-17T00:45:27.359479",
@@ -3079,7 +3079,7 @@
           "pnl": 6.433224766924695,
           "pnl_pct": 0.5154295122331115,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:2"
+          "chart_id": "ma_crossover_forex:37"
         },
         {
           "time": "2026-08-07T02:12:53.496497",
@@ -3100,7 +3100,7 @@
           "pnl": -30.32085574396098,
           "pnl_pct": -1.2109751216686242,
           "reason": "Short Stop Loss Hit @ 158.2312142857143 (SL 158.2312142857143)",
-          "chart_id": "ma_crossover_forex:3"
+          "chart_id": "ma_crossover_forex:36"
         },
         {
           "time": "2026-07-30T01:44:12.715211",
@@ -3121,7 +3121,7 @@
           "pnl": -15.617031935162622,
           "pnl_pct": -0.6227526628824684,
           "reason": "Short Stop Loss Hit @ 1.1441410714285714 (SL 1.1441410714285714)",
-          "chart_id": "ma_crossover_forex:4"
+          "chart_id": "ma_crossover_forex:35"
         },
         {
           "time": "2026-07-22T01:53:14.604240",
@@ -3142,7 +3142,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 1.34347 (SL 1.34347)",
-          "chart_id": "ma_crossover_forex:5"
+          "chart_id": "ma_crossover_forex:34"
         },
         {
           "time": "2026-07-16T01:52:34.308184",
@@ -3163,7 +3163,7 @@
           "pnl": 8.73747749685981,
           "pnl_pct": 0.6974476542088851,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:6"
+          "chart_id": "ma_crossover_forex:33"
         },
         {
           "time": "2026-07-03T02:08:23.143346",
@@ -3184,7 +3184,7 @@
           "pnl": 23.20726500213982,
           "pnl_pct": 1.8542322482521179,
           "reason": "Trailed Stop Hit @ 161.87285714285716 (SL 161.87285714285716)",
-          "chart_id": "ma_crossover_forex:7"
+          "chart_id": "ma_crossover_forex:32"
         },
         {
           "time": "2026-06-17T02:53:17.120457",
@@ -3205,7 +3205,7 @@
           "pnl": 2.6039015408213353,
           "pnl_pct": 0.20791311284586886,
           "reason": "Short Trailed Stop Hit @ 1.1598135714285716 (SL 1.1598135714285716)",
-          "chart_id": "ma_crossover_forex:8"
+          "chart_id": "ma_crossover_forex:31"
         },
         {
           "time": "2026-06-06T02:28:12.871825",
@@ -3226,7 +3226,7 @@
           "pnl": 10.743499174337797,
           "pnl_pct": 0.8578336473847719,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_forex:9"
+          "chart_id": "ma_crossover_forex:30"
         },
         {
           "time": "2026-06-03T23:59:59",
@@ -3247,7 +3247,7 @@
           "pnl": -31.613463887345464,
           "pnl_pct": -1.2612952151648154,
           "reason": "Short Stop Loss Hit @ 0.7906785714285715 (SL 0.7906785714285715)",
-          "chart_id": "ma_crossover_forex:10"
+          "chart_id": "ma_crossover_forex:29"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -3268,7 +3268,7 @@
           "pnl": 7.733504926541984,
           "pnl_pct": 0.6178976378943656,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:11"
+          "chart_id": "ma_crossover_forex:28"
         },
         {
           "time": "2026-05-24T23:59:59",
@@ -3289,7 +3289,7 @@
           "pnl": -23.78704814193454,
           "pnl_pct": -0.9496594143579203,
           "reason": "Short Stop Loss Hit @ 1.3441750000000001 (SL 1.3441750000000001)",
-          "chart_id": "ma_crossover_forex:12"
+          "chart_id": "ma_crossover_forex:27"
         },
         {
           "time": "2026-05-15T23:59:59",
@@ -3310,7 +3310,7 @@
           "pnl": 13.372651957641885,
           "pnl_pct": 1.0670682585333358,
           "reason": "Trailed Stop Hit @ 0.7168889285714286 (SL 0.7168889285714286)",
-          "chart_id": "ma_crossover_forex:13"
+          "chart_id": "ma_crossover_forex:26"
         },
         {
           "time": "2026-05-15T23:59:59",
@@ -3331,7 +3331,7 @@
           "pnl": -18.766385949964082,
           "pnl_pct": -0.746659560559642,
           "reason": "Stop Loss Hit @ 1.1626139285714285 (SL 1.1626139285714285)",
-          "chart_id": "ma_crossover_forex:14"
+          "chart_id": "ma_crossover_forex:25"
         },
         {
           "time": "2026-05-14T23:59:59",
@@ -3352,7 +3352,7 @@
           "pnl": -28.93178108966052,
           "pnl_pct": -1.1543030268566006,
           "reason": "Stop Loss Hit @ 1.3409110714285715 (SL 1.3409110714285715)",
-          "chart_id": "ma_crossover_forex:15"
+          "chart_id": "ma_crossover_forex:24"
         },
         {
           "time": "2026-05-10T23:59:59",
@@ -3373,7 +3373,7 @@
           "pnl": 0.6295655815599055,
           "pnl_pct": 0.09940565333777696,
           "reason": "Short Trailed Stop Hit @ 1.3674892857142857 (SL 1.3674892857142857)",
-          "chart_id": "ma_crossover_forex:16"
+          "chart_id": "ma_crossover_forex:23"
         },
         {
           "time": "2026-04-30T23:59:59",
@@ -3394,7 +3394,7 @@
           "pnl": 3.9088510387041535,
           "pnl_pct": 0.311906036584816,
           "reason": "Trailed Stop Hit @ 159.26521321428572 (SL 159.26521321428572)",
-          "chart_id": "ma_crossover_forex:17"
+          "chart_id": "ma_crossover_forex:22"
         },
         {
           "time": "2026-04-27T23:59:59",
@@ -3415,7 +3415,7 @@
           "pnl": 2.8963321557960438,
           "pnl_pct": 0.45731818679913305,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_forex:18"
+          "chart_id": "ma_crossover_forex:21"
         },
         {
           "time": "2026-04-23T23:59:59",
@@ -3436,7 +3436,7 @@
           "pnl": 6.922396781935738,
           "pnl_pct": 0.5523713547899358,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:19"
+          "chart_id": "ma_crossover_forex:20"
         },
         {
           "time": "2026-04-15T23:59:59",
@@ -3457,7 +3457,7 @@
           "pnl": 13.445216246563973,
           "pnl_pct": 1.072858512378053,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:20"
+          "chart_id": "ma_crossover_forex:19"
         },
         {
           "time": "2026-04-08T23:59:59",
@@ -3478,7 +3478,7 @@
           "pnl": 12.872118919082766,
           "pnl_pct": 1.0293080879450789,
           "reason": "Trailed Stop Hit @ 1.385950357142857 (SL 1.385950357142857)",
-          "chart_id": "ma_crossover_forex:21"
+          "chart_id": "ma_crossover_forex:18"
         },
         {
           "time": "2026-03-25T23:59:59",
@@ -3499,7 +3499,7 @@
           "pnl": 8.359372875189553,
           "pnl_pct": 0.6684501723974471,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:22"
+          "chart_id": "ma_crossover_forex:17"
         },
         {
           "time": "2026-03-19T23:59:59",
@@ -3520,7 +3520,7 @@
           "pnl": 8.112200246383068,
           "pnl_pct": 0.6456757181261337,
           "reason": "Trailed Stop Hit @ 158.36496428571428 (SL 158.36496428571428)",
-          "chart_id": "ma_crossover_forex:23"
+          "chart_id": "ma_crossover_forex:16"
         },
         {
           "time": "2026-03-13T23:59:59",
@@ -3541,7 +3541,7 @@
           "pnl": -19.31985560049743,
           "pnl_pct": -0.7679436709806315,
           "reason": "Short Stop Loss Hit @ 1.3683682142857143 (SL 1.3683682142857143)",
-          "chart_id": "ma_crossover_forex:24"
+          "chart_id": "ma_crossover_forex:15"
         },
         {
           "time": "2026-03-13T23:59:59",
@@ -3562,7 +3562,7 @@
           "pnl": -47.47234860519391,
           "pnl_pct": -1.8869752658506533,
           "reason": "Stop Loss Hit @ 0.7015964285714286 (SL 0.7015964285714286)",
-          "chart_id": "ma_crossover_forex:25"
+          "chart_id": "ma_crossover_forex:14"
         },
         {
           "time": "2026-03-08T23:59:59",
@@ -3583,7 +3583,7 @@
           "pnl": 12.048957176861506,
           "pnl_pct": 0.9590146743862462,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:26"
+          "chart_id": "ma_crossover_forex:13"
         },
         {
           "time": "2026-02-02T23:59:59",
@@ -3604,7 +3604,7 @@
           "pnl": 7.96823782328167,
           "pnl_pct": 0.6385103081030631,
           "reason": "Short Trailed Stop Hit @ 0.7719592857142857 (SL 0.7719592857142857)",
-          "chart_id": "ma_crossover_forex:27"
+          "chart_id": "ma_crossover_forex:12"
         },
         {
           "time": "2026-02-02T23:59:59",
@@ -3625,7 +3625,7 @@
           "pnl": 4.098668860011294,
           "pnl_pct": 0.3284342629648608,
           "reason": "Trailed Stop Hit @ 1.3709278571428571 (SL 1.3709278571428571)",
-          "chart_id": "ma_crossover_forex:28"
+          "chart_id": "ma_crossover_forex:11"
         },
         {
           "time": "2026-02-01T23:59:59",
@@ -3646,7 +3646,7 @@
           "pnl": 36.802972156748,
           "pnl_pct": 2.9533353054281783,
           "reason": "Trailed Stop Hit @ 0.6960675 (SL 0.6960675)",
-          "chart_id": "ma_crossover_forex:29"
+          "chart_id": "ma_crossover_forex:10"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -3667,7 +3667,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 1.35693 (SL 1.35693)",
-          "chart_id": "ma_crossover_forex:30"
+          "chart_id": "ma_crossover_forex:9"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -3688,7 +3688,7 @@
           "pnl": -34.12403322790573,
           "pnl_pct": -1.3626889983148067,
           "reason": "Short Stop Loss Hit @ 154.23853571428572 (SL 154.23853571428572)",
-          "chart_id": "ma_crossover_forex:31"
+          "chart_id": "ma_crossover_forex:8"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -3709,7 +3709,7 @@
           "pnl": 4.013868038682798,
           "pnl_pct": 0.3216390091390216,
           "reason": "Trailed Stop Hit @ 1.1918210714285715 (SL 1.1918210714285715)",
-          "chart_id": "ma_crossover_forex:32"
+          "chart_id": "ma_crossover_forex:7"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -3730,7 +3730,7 @@
           "pnl": 3.7619702785733558,
           "pnl_pct": 0.5903031106984201,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_forex:33"
+          "chart_id": "ma_crossover_forex:6"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -3751,7 +3751,7 @@
           "pnl": 26.069733595479594,
           "pnl_pct": 2.089018174329413,
           "reason": "Short TP1 Hit",
-          "chart_id": "ma_crossover_forex:34"
+          "chart_id": "ma_crossover_forex:5"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -3772,7 +3772,7 @@
           "pnl": 16.238113204425094,
           "pnl_pct": 1.3011914171130754,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:35"
+          "chart_id": "ma_crossover_forex:4"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -3793,7 +3793,7 @@
           "pnl": 16.901839693310794,
           "pnl_pct": 1.3543771043771178,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:36"
+          "chart_id": "ma_crossover_forex:3"
         },
         {
           "time": "2026-01-22T23:59:59",
@@ -3814,7 +3814,7 @@
           "pnl": 14.339658113409339,
           "pnl_pct": 1.1507173495045124,
           "reason": "TP1 Hit",
-          "chart_id": "ma_crossover_forex:37"
+          "chart_id": "ma_crossover_forex:2"
         },
         {
           "time": "2026-01-20T23:59:59",
@@ -3835,7 +3835,7 @@
           "pnl": -18.12765832179626,
           "pnl_pct": -0.7251063328718504,
           "reason": "Stop Loss Hit @ 0.7949139285714285 (SL 0.7949139285714285)",
-          "chart_id": "ma_crossover_forex:38"
+          "chart_id": "ma_crossover_forex:1"
         },
         {
           "time": "2026-01-20T23:59:59",
@@ -3856,7 +3856,7 @@
           "pnl": -12.676608540885017,
           "pnl_pct": -0.5070643416354006,
           "reason": "Stop Loss Hit @ 1.3839367857142857 (SL 1.3839367857142857)",
-          "chart_id": "ma_crossover_forex:39"
+          "chart_id": "ma_crossover_forex:0"
         }
       ],
       "pair_performance": {
@@ -3925,38 +3925,12 @@
           "qty": 1320.3666090666045,
           "entry": 1.0003,
           "entry_date": "2026-08-17",
-          "current_price": 1.4553,
-          "unrealized_pnl": 600.7668071253051,
-          "sl": 1.3621007142857144,
+          "current_price": 1.4919,
+          "unrealized_pnl": 649.0922250171428,
+          "sl": 1.3751453571428571,
           "tp1": true,
           "tp_price": 1.0239292857142857,
-          "value": 1921.5295261746296
-        },
-        {
-          "symbol": "DOT/USDT",
-          "side": "LONG",
-          "qty": 1407.8079898503354,
-          "entry": 0.76,
-          "entry_date": "2026-08-17",
-          "current_price": 0.9515,
-          "unrealized_pnl": 269.59523005633923,
-          "sl": 0.898265,
-          "tp1": true,
-          "tp_price": 0.7850178571428572,
-          "value": 1339.529302342594
-        },
-        {
-          "symbol": "AVAX/USDT",
-          "side": "LONG",
-          "qty": 141.4236152461958,
-          "entry": 6.339,
-          "entry_date": "2026-08-18",
-          "current_price": 7.852,
-          "unrealized_pnl": 213.97392986749423,
-          "sl": 7.341870357142858,
-          "tp1": true,
-          "tp_price": 6.588041428571429,
-          "value": 1110.4582269131295
+          "value": 1969.8549440664672
         },
         {
           "symbol": "BTC/USDT",
@@ -3964,12 +3938,12 @@
           "qty": 0.017030701721908008,
           "entry": 77928.0,
           "entry_date": "2026-08-21",
-          "current_price": 77928.0,
-          "unrealized_pnl": 0.0,
+          "current_price": 77289.0,
+          "unrealized_pnl": 10.882618400299217,
           "sl": 80934.73553571428,
           "tp1": false,
           "tp_price": 75923.50964285714,
-          "value": 1327.1685237848471
+          "value": 1316.285905384548
         },
         {
           "symbol": "DOGE/USDT",
@@ -3977,12 +3951,12 @@
           "qty": 20361.086045156102,
           "entry": 0.09127,
           "entry_date": "2026-08-21",
-          "current_price": 0.09127,
-          "unrealized_pnl": 0.0,
+          "current_price": 0.0934,
+          "unrealized_pnl": -43.369113276182354,
           "sl": 0.09647033071428572,
           "tp1": false,
           "tp_price": 0.08780311285714286,
-          "value": 1858.3563233413975
+          "value": 1901.7254366175798
         },
         {
           "symbol": "TRX/USDT",
@@ -3990,17 +3964,30 @@
           "qty": 7700.90629086225,
           "entry": 0.34374,
           "entry_date": "2026-08-21",
-          "current_price": 0.34374,
-          "unrealized_pnl": 0.0,
+          "current_price": 0.34493,
+          "unrealized_pnl": -9.164078486126265,
           "sl": 0.34983642857142855,
           "tp1": false,
           "tp_price": 0.3396757142857143,
-          "value": 2647.1095284209896
+          "value": 2656.273606907116
+        },
+        {
+          "symbol": "ETH/USDT",
+          "side": "SHORT",
+          "qty": 0.6043764350963831,
+          "entry": 2429.98,
+          "entry_date": "2026-08-22",
+          "current_price": 2429.98,
+          "unrealized_pnl": 0.0,
+          "sl": 2569.2739214285716,
+          "tp1": false,
+          "tp_price": 2337.117385714286,
+          "value": 1468.622649755509
         }
       ],
-      "current_cash": 1468.622649755509,
-      "current_equity": 11672.774080733096,
-      "history_events": 288,
+      "current_cash": 2380.6732405245066,
+      "current_equity": 11693.435783255725,
+      "history_events": 291,
       "equity_curve": [
         {
           "time": "2026-01-01T23:59:59",
@@ -5448,12 +5435,69 @@
           "type": "trade"
         },
         {
-          "time": "2026-08-22T00:45:26.467347",
-          "equity": 11672.774080733096,
+          "time": "2026-08-23T00:50:50.597707",
+          "equity": 10588.438113683957,
+          "type": "trade"
+        },
+        {
+          "time": "2026-08-23T00:50:50.758639",
+          "equity": 10760.40922982333,
+          "type": "trade"
+        },
+        {
+          "time": "2026-08-23T00:50:50.786591",
+          "equity": 11002.692984876572,
+          "type": "trade"
+        },
+        {
+          "time": "2026-08-23T00:51:14.208120",
+          "equity": 11693.435783255725,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-08-23T00:50:50.786591",
+          "symbol": "DOT/USDT",
+          "side": "LONG",
+          "qty": 1407.8079898503354,
+          "entry_price": 0.76,
+          "exit_price": 0.9321,
+          "entry_date": "2026-08-17",
+          "exit_date": "2026-08-22",
+          "hold_days": 5,
+          "stop_loss": 0.898265,
+          "take_profit": 0.7850178571428572,
+          "stop_loss_at_exit": 0.898265,
+          "take_profit_at_exit": 0.7850178571428572,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": 242.28375505324288,
+          "pnl_pct": 22.644736842105278,
+          "reason": "RSI Overbought (71.08) - Close Long",
+          "chart_id": "rsi_crypto:171"
+        },
+        {
+          "time": "2026-08-23T00:50:50.758639",
+          "symbol": "AVAX/USDT",
+          "side": "LONG",
+          "qty": 141.4236152461958,
+          "entry_price": 6.339,
+          "exit_price": 7.555,
+          "entry_date": "2026-08-18",
+          "exit_date": "2026-08-22",
+          "hold_days": 4,
+          "stop_loss": 7.341870357142858,
+          "take_profit": 6.588041428571429,
+          "stop_loss_at_exit": 7.341870357142858,
+          "take_profit_at_exit": 6.588041428571429,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": 171.97111613937386,
+          "pnl_pct": 19.18283640952829,
+          "reason": "RSI Overbought (73.18) - Close Long",
+          "chart_id": "rsi_crypto:170"
+        },
         {
           "time": "2026-08-22T00:45:05.944715",
           "symbol": "SOL/USDT",
@@ -5473,7 +5517,7 @@
           "pnl": -107.11474116052828,
           "pnl_pct": -4.121841381035775,
           "reason": "Short Stop Loss Hit @ 89.18035714285715 (SL 89.18035714285715)",
-          "chart_id": "rsi_crypto:0"
+          "chart_id": "rsi_crypto:169"
         },
         {
           "time": "2026-08-22T00:45:05.889770",
@@ -5494,7 +5538,7 @@
           "pnl": -36.61050062016953,
           "pnl_pct": -3.142111413274414,
           "reason": "Short Stop Loss Hit @ 676.1893682142858 (SL 676.1893682142858)",
-          "chart_id": "rsi_crypto:1"
+          "chart_id": "rsi_crypto:168"
         },
         {
           "time": "2026-08-22T00:45:05.861466",
@@ -5515,7 +5559,7 @@
           "pnl": -108.40420670875783,
           "pnl_pct": -4.402467631927824,
           "reason": "Short Stop Loss Hit @ 2440.188435714286 (SL 2440.188435714286)",
-          "chart_id": "rsi_crypto:2"
+          "chart_id": "rsi_crypto:167"
         },
         {
           "time": "2026-08-21T00:50:09.165142",
@@ -5536,7 +5580,7 @@
           "pnl": 0.14689129763355627,
           "pnl_pct": 0.011069246652614127,
           "reason": "Short Trailed Stop Hit @ 0.33551285714285717 (SL 0.33551285714285717)",
-          "chart_id": "rsi_crypto:3"
+          "chart_id": "rsi_crypto:166"
         },
         {
           "time": "2026-08-21T00:50:08.921143",
@@ -5557,7 +5601,7 @@
           "pnl": -20.323920910092692,
           "pnl_pct": -2.850297822558211,
           "reason": "Short Stop Loss Hit @ 71610.62035714286 (SL 71610.62035714286)",
-          "chart_id": "rsi_crypto:4"
+          "chart_id": "rsi_crypto:165"
         },
         {
           "time": "2026-08-20T00:45:00.452637",
@@ -5578,7 +5622,7 @@
           "pnl": 44.205170881300546,
           "pnl_pct": 4.131578947368423,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:5"
+          "chart_id": "rsi_crypto:164"
         },
         {
           "time": "2026-08-20T00:45:00.435293",
@@ -5599,7 +5643,7 @@
           "pnl": 65.05486301325004,
           "pnl_pct": 7.256665089130775,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:6"
+          "chart_id": "rsi_crypto:163"
         },
         {
           "time": "2026-08-20T00:45:00.400880",
@@ -5620,7 +5664,7 @@
           "pnl": 40.010441838493634,
           "pnl_pct": 6.295695287988259,
           "reason": "Short Trailed Stop Hit @ 0.1860217857142857 (SL 0.1860217857142857)",
-          "chart_id": "rsi_crypto:7"
+          "chart_id": "rsi_crypto:162"
         },
         {
           "time": "2026-08-20T00:45:00.366816",
@@ -5641,7 +5685,7 @@
           "pnl": 145.37236365823333,
           "pnl_pct": 11.00669799060283,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:8"
+          "chart_id": "rsi_crypto:161"
         },
         {
           "time": "2026-08-20T00:45:00.349432",
@@ -5662,7 +5706,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 619.95 (SL 619.95)",
-          "chart_id": "rsi_crypto:9"
+          "chart_id": "rsi_crypto:160"
         },
         {
           "time": "2026-08-17T00:45:30.436553",
@@ -5683,7 +5727,7 @@
           "pnl": -104.0168589107725,
           "pnl_pct": -4.0064191437444645,
           "reason": "Stop Loss Hit @ 0.9891178571428572 (SL 0.9891178571428572)",
-          "chart_id": "rsi_crypto:10"
+          "chart_id": "rsi_crypto:159"
         },
         {
           "time": "2026-08-17T00:45:30.407387",
@@ -5704,7 +5748,7 @@
           "pnl": 38.95698938373733,
           "pnl_pct": 2.959916122267929,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:11"
+          "chart_id": "rsi_crypto:158"
         },
         {
           "time": "2026-08-15T00:45:16.453183",
@@ -5725,7 +5769,7 @@
           "pnl": 14.98856202392061,
           "pnl_pct": 1.1294888988228327,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:12"
+          "chart_id": "rsi_crypto:157"
         },
         {
           "time": "2026-08-12T01:12:53.470373",
@@ -5746,7 +5790,7 @@
           "pnl": 47.35865275081392,
           "pnl_pct": 2.4334251606978916,
           "reason": "RSI Overbought (73.59) - Close Long",
-          "chart_id": "rsi_crypto:13"
+          "chart_id": "rsi_crypto:156"
         },
         {
           "time": "2026-08-12T01:12:53.354798",
@@ -5767,7 +5811,7 @@
           "pnl": 39.5999903848568,
           "pnl_pct": 6.231110215595402,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:14"
+          "chart_id": "rsi_crypto:155"
         },
         {
           "time": "2026-08-11T01:05:29.376587",
@@ -5788,7 +5832,7 @@
           "pnl": 71.45910320560631,
           "pnl_pct": 7.69507177635242,
           "reason": "RSI Overbought (72.34) - Close Long",
-          "chart_id": "rsi_crypto:15"
+          "chart_id": "rsi_crypto:154"
         },
         {
           "time": "2026-08-10T01:06:36.854418",
@@ -5809,7 +5853,7 @@
           "pnl": 56.06942247921745,
           "pnl_pct": 7.129647103227035,
           "reason": "Trailed Stop Hit @ 0.8109714285714286 (SL 0.8109714285714286)",
-          "chart_id": "rsi_crypto:16"
+          "chart_id": "rsi_crypto:153"
         },
         {
           "time": "2026-08-08T01:00:39.969620",
@@ -5830,7 +5874,7 @@
           "pnl": 136.41087234265854,
           "pnl_pct": 20.119976004799042,
           "reason": "RSI Overbought (77.27) - Close Long",
-          "chart_id": "rsi_crypto:17"
+          "chart_id": "rsi_crypto:152"
         },
         {
           "time": "2026-08-02T01:59:13.698702",
@@ -5851,7 +5895,7 @@
           "pnl": 35.3216584172942,
           "pnl_pct": 4.491413474240429,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:18"
+          "chart_id": "rsi_crypto:151"
         },
         {
           "time": "2026-08-02T01:59:13.610757",
@@ -5872,7 +5916,7 @@
           "pnl": 34.163724736980726,
           "pnl_pct": 5.038992201559696,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:19"
+          "chart_id": "rsi_crypto:150"
         },
         {
           "time": "2026-07-28T01:49:17.635115",
@@ -5893,7 +5937,7 @@
           "pnl": 68.39193041114424,
           "pnl_pct": 7.580631547013504,
           "reason": "Trailed Stop Hit @ 64053.90607142857 (SL 64053.90607142857)",
-          "chart_id": "rsi_crypto:20"
+          "chart_id": "rsi_crypto:149"
         },
         {
           "time": "2026-07-27T02:07:39.396335",
@@ -5914,7 +5958,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 1928.02 (SL 1928.02)",
-          "chart_id": "rsi_crypto:21"
+          "chart_id": "rsi_crypto:148"
         },
         {
           "time": "2026-07-25T01:55:53.716668",
@@ -5935,7 +5979,7 @@
           "pnl": 37.89206592451097,
           "pnl_pct": 3.5336770365452583,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:22"
+          "chart_id": "rsi_crypto:147"
         },
         {
           "time": "2026-07-22T01:53:15.412983",
@@ -5956,7 +6000,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 1918.95996 (SL 1918.95996)",
-          "chart_id": "rsi_crypto:23"
+          "chart_id": "rsi_crypto:146"
         },
         {
           "time": "2026-07-20T02:12:21.703490",
@@ -5977,7 +6021,7 @@
           "pnl": 1.6200823428093827,
           "pnl_pct": 0.31074929971989584,
           "reason": "Trailed Stop Hit @ 0.8185357142857143 (SL 0.8185357142857143)",
-          "chart_id": "rsi_crypto:24"
+          "chart_id": "rsi_crypto:145"
         },
         {
           "time": "2026-07-19T01:55:06.919511",
@@ -5998,7 +6042,7 @@
           "pnl": 33.74947762007853,
           "pnl_pct": 7.173565900994968,
           "reason": "RSI Oversold (29.18) - Cover Short",
-          "chart_id": "rsi_crypto:25"
+          "chart_id": "rsi_crypto:144"
         },
         {
           "time": "2026-07-18T01:46:05.101935",
@@ -6019,7 +6063,7 @@
           "pnl": 36.30213694212054,
           "pnl_pct": 4.137134784198414,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:26"
+          "chart_id": "rsi_crypto:143"
         },
         {
           "time": "2026-07-15T01:42:53.488996",
@@ -6040,7 +6084,7 @@
           "pnl": -100.78282030251887,
           "pnl_pct": -6.184549571567772,
           "reason": "Short Stop Loss Hit @ 1874.412142857143 (SL 1874.412142857143)",
-          "chart_id": "rsi_crypto:27"
+          "chart_id": "rsi_crypto:142"
         },
         {
           "time": "2026-07-14T01:46:08.803565",
@@ -6061,7 +6105,7 @@
           "pnl": 13.577869140085625,
           "pnl_pct": 3.399501342539314,
           "reason": "Trailed Stop Hit @ 1.07825 (SL 1.07825)",
-          "chart_id": "rsi_crypto:28"
+          "chart_id": "rsi_crypto:141"
         },
         {
           "time": "2026-07-12T01:57:32.173606",
@@ -6082,7 +6126,7 @@
           "pnl": 26.756863250164955,
           "pnl_pct": 5.687262007124427,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:29"
+          "chart_id": "rsi_crypto:140"
         },
         {
           "time": "2026-07-09T02:09:01.420604",
@@ -6103,7 +6147,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 0.07314 (SL 0.07314)",
-          "chart_id": "rsi_crypto:30"
+          "chart_id": "rsi_crypto:139"
         },
         {
           "time": "2026-07-06T02:26:57.104452",
@@ -6124,7 +6168,7 @@
           "pnl": 38.8949924124704,
           "pnl_pct": 6.084222039923443,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:31"
+          "chart_id": "rsi_crypto:138"
         },
         {
           "time": "2026-07-06T02:26:57.076457",
@@ -6145,7 +6189,7 @@
           "pnl": 164.68813254346662,
           "pnl_pct": 34.61538461538461,
           "reason": "RSI Overbought (70.04) - Close Long",
-          "chart_id": "rsi_crypto:32"
+          "chart_id": "rsi_crypto:137"
         },
         {
           "time": "2026-07-06T02:26:56.994420",
@@ -6166,7 +6210,7 @@
           "pnl": 51.3544524087921,
           "pnl_pct": 5.530102948310247,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:33"
+          "chart_id": "rsi_crypto:136"
         },
         {
           "time": "2026-07-04T02:06:26.777489",
@@ -6187,7 +6231,7 @@
           "pnl": 34.500908483489184,
           "pnl_pct": 6.61764705882355,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:34"
+          "chart_id": "rsi_crypto:135"
         },
         {
           "time": "2026-07-04T02:06:26.547477",
@@ -6208,7 +6252,7 @@
           "pnl": 43.65532568555682,
           "pnl_pct": 4.838800968149835,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:35"
+          "chart_id": "rsi_crypto:134"
         },
         {
           "time": "2026-07-03T02:08:24.146356",
@@ -6229,7 +6273,7 @@
           "pnl": 19.3422395366523,
           "pnl_pct": 4.842731108553889,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:36"
+          "chart_id": "rsi_crypto:133"
         },
         {
           "time": "2026-07-02T02:33:16.521049",
@@ -6250,7 +6294,7 @@
           "pnl": 46.42443242480431,
           "pnl_pct": 9.757834757834743,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:37"
+          "chart_id": "rsi_crypto:132"
         },
         {
           "time": "2026-06-26T02:36:49.638800",
@@ -6271,7 +6315,7 @@
           "pnl": -77.02158919816782,
           "pnl_pct": -7.781321549946883,
           "reason": "Stop Loss Hit @ 561.6947485714286 (SL 561.6947485714286)",
-          "chart_id": "rsi_crypto:38"
+          "chart_id": "rsi_crypto:131"
         },
         {
           "time": "2026-06-26T02:36:49.583724",
@@ -6292,7 +6336,7 @@
           "pnl": -99.74140761530043,
           "pnl_pct": -5.309940773623636,
           "reason": "Stop Loss Hit @ 60639.513928571425 (SL 60639.513928571425)",
-          "chart_id": "rsi_crypto:39"
+          "chart_id": "rsi_crypto:130"
         },
         {
           "time": "2026-06-25T02:34:39.191237",
@@ -6313,7 +6357,7 @@
           "pnl": 42.39110900930609,
           "pnl_pct": 7.963980753591747,
           "reason": "Trailed Stop Hit @ 68.27642142857142 (SL 68.27642142857142)",
-          "chart_id": "rsi_crypto:40"
+          "chart_id": "rsi_crypto:129"
         },
         {
           "time": "2026-06-25T02:34:39.106351",
@@ -6334,7 +6378,7 @@
           "pnl": 20.157493704612875,
           "pnl_pct": 3.665032245271364,
           "reason": "Trailed Stop Hit @ 1643.0389285714286 (SL 1643.0389285714286)",
-          "chart_id": "rsi_crypto:41"
+          "chart_id": "rsi_crypto:128"
         },
         {
           "time": "2026-06-24T02:33:07.032005",
@@ -6355,7 +6399,7 @@
           "pnl": 5.289092432328005,
           "pnl_pct": 1.361907816365775,
           "reason": "Trailed Stop Hit @ 0.15802321428571425 (SL 0.15802321428571425)",
-          "chart_id": "rsi_crypto:42"
+          "chart_id": "rsi_crypto:127"
         },
         {
           "time": "2026-06-24T02:33:06.977470",
@@ -6376,7 +6420,7 @@
           "pnl": 7.3535668039147595,
           "pnl_pct": 1.1274138219007241,
           "reason": "Trailed Stop Hit @ 1.1244357142857142 (SL 1.1244357142857142)",
-          "chart_id": "rsi_crypto:43"
+          "chart_id": "rsi_crypto:126"
         },
         {
           "time": "2026-06-23T02:32:08.818535",
@@ -6397,7 +6441,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 0.938 (SL 0.938)",
-          "chart_id": "rsi_crypto:44"
+          "chart_id": "rsi_crypto:125"
         },
         {
           "time": "2026-06-20T02:38:08.665299",
@@ -6418,7 +6462,7 @@
           "pnl": -12.4216667513316,
           "pnl_pct": -9.96714709622721,
           "reason": "Stop Loss Hit @ 6.068214285714286 (SL 6.068214285714286)",
-          "chart_id": "rsi_crypto:45"
+          "chart_id": "rsi_crypto:124"
         },
         {
           "time": "2026-06-19T03:33:55.759228",
@@ -6439,7 +6483,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 0.08307 (SL 0.08307)",
-          "chart_id": "rsi_crypto:46"
+          "chart_id": "rsi_crypto:123"
         },
         {
           "time": "2026-06-17T02:53:18.327279",
@@ -6460,7 +6504,7 @@
           "pnl": 37.609415465258735,
           "pnl_pct": 9.594882729211093,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:47"
+          "chart_id": "rsi_crypto:122"
         },
         {
           "time": "2026-06-15T02:55:27.976687",
@@ -6481,7 +6525,7 @@
           "pnl": 39.948094534771485,
           "pnl_pct": 6.124651497436811,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:48"
+          "chart_id": "rsi_crypto:121"
         },
         {
           "time": "2026-06-14T02:50:43.812975",
@@ -6502,7 +6546,7 @@
           "pnl": 34.748194767159475,
           "pnl_pct": 5.874563621042472,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:49"
+          "chart_id": "rsi_crypto:120"
         },
         {
           "time": "2026-06-12T02:46:32.437115",
@@ -6523,7 +6567,7 @@
           "pnl": 37.36617025362159,
           "pnl_pct": 9.621552277100694,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:50"
+          "chart_id": "rsi_crypto:119"
         },
         {
           "time": "2026-06-12T02:46:32.408279",
@@ -6544,7 +6588,7 @@
           "pnl": 31.815922143875923,
           "pnl_pct": 5.9772296015180135,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:51"
+          "chart_id": "rsi_crypto:118"
         },
         {
           "time": "2026-06-08T05:06:19.510236",
@@ -6565,7 +6609,7 @@
           "pnl": 36.36674650739701,
           "pnl_pct": 6.612195968327082,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:52"
+          "chart_id": "rsi_crypto:117"
         },
         {
           "time": "2026-06-07T02:46:20.606213",
@@ -6586,7 +6630,7 @@
           "pnl": 164.2519156547026,
           "pnl_pct": 13.73850459816073,
           "reason": "RSI Oversold (27.49) - Cover Short",
-          "chart_id": "rsi_crypto:53"
+          "chart_id": "rsi_crypto:116"
         },
         {
           "time": "2026-06-06T02:28:14.053890",
@@ -6607,7 +6651,7 @@
           "pnl": -97.85615830788947,
           "pnl_pct": -8.696475937855261,
           "reason": "Stop Loss Hit @ 6.884285714285714 (SL 6.884285714285714)",
-          "chart_id": "rsi_crypto:54"
+          "chart_id": "rsi_crypto:115"
         },
         {
           "time": "2026-06-06T02:28:14.024609",
@@ -6628,7 +6672,7 @@
           "pnl": -88.60308350641458,
           "pnl_pct": -6.979665633511773,
           "reason": "Stop Loss Hit @ 0.08489035714285714 (SL 0.08489035714285714)",
-          "chart_id": "rsi_crypto:55"
+          "chart_id": "rsi_crypto:114"
         },
         {
           "time": "2026-06-06T02:28:13.967256",
@@ -6649,7 +6693,7 @@
           "pnl": -99.74140761530043,
           "pnl_pct": -7.497902684563757,
           "reason": "Stop Loss Hit @ 66.1575 (SL 66.1575)",
-          "chart_id": "rsi_crypto:56"
+          "chart_id": "rsi_crypto:113"
         },
         {
           "time": "2026-06-06T02:28:13.938450",
@@ -6670,7 +6714,7 @@
           "pnl": -99.74140761530043,
           "pnl_pct": -6.228114057028517,
           "reason": "Stop Loss Hit @ 1.1247 (SL 1.1247)",
-          "chart_id": "rsi_crypto:57"
+          "chart_id": "rsi_crypto:112"
         },
         {
           "time": "2026-06-06T02:28:13.882219",
@@ -6691,7 +6735,7 @@
           "pnl": -99.74140761530043,
           "pnl_pct": -6.664400984013727,
           "reason": "Stop Loss Hit @ 1689.9903571428572 (SL 1689.9903571428572)",
-          "chart_id": "rsi_crypto:58"
+          "chart_id": "rsi_crypto:111"
         },
         {
           "time": "2026-06-05T02:40:10.166695",
@@ -6712,7 +6756,7 @@
           "pnl": -99.74140761530043,
           "pnl_pct": -8.295276152419023,
           "reason": "Stop Loss Hit @ 0.1835928571428571 (SL 0.1835928571428571)",
-          "chart_id": "rsi_crypto:59"
+          "chart_id": "rsi_crypto:110"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -6733,7 +6777,7 @@
           "pnl": -80.85377701967084,
           "pnl_pct": -6.289724011431991,
           "reason": "Stop Loss Hit @ 0.09415071428571428 (SL 0.09415071428571428)",
-          "chart_id": "rsi_crypto:60"
+          "chart_id": "rsi_crypto:109"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -6754,7 +6798,7 @@
           "pnl": -104.85127255291445,
           "pnl_pct": -6.791373763850831,
           "reason": "Stop Loss Hit @ 0.22351428571428572 (SL 0.22351428571428572)",
-          "chart_id": "rsi_crypto:61"
+          "chart_id": "rsi_crypto:108"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -6775,7 +6819,7 @@
           "pnl": -105.0870235268919,
           "pnl_pct": -6.461103919030241,
           "reason": "Stop Loss Hit @ 79.48 (SL 79.48)",
-          "chart_id": "rsi_crypto:62"
+          "chart_id": "rsi_crypto:107"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -6796,7 +6840,7 @@
           "pnl": -105.08702352689188,
           "pnl_pct": -6.0679868685799,
           "reason": "Stop Loss Hit @ 1.2671428571428571 (SL 1.2671428571428571)",
-          "chart_id": "rsi_crypto:63"
+          "chart_id": "rsi_crypto:106"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -6817,7 +6861,7 @@
           "pnl": -103.76908836665014,
           "pnl_pct": -5.408107877951193,
           "reason": "Stop Loss Hit @ 1951.7996428571428 (SL 1951.7996428571428)",
-          "chart_id": "rsi_crypto:64"
+          "chart_id": "rsi_crypto:105"
         },
         {
           "time": "2026-06-02T23:59:59",
@@ -6838,7 +6882,7 @@
           "pnl": -47.916317629295236,
           "pnl_pct": -3.928483202637182,
           "reason": "Stop Loss Hit @ 70624.63142857142 (SL 70624.63142857142)",
-          "chart_id": "rsi_crypto:65"
+          "chart_id": "rsi_crypto:104"
         },
         {
           "time": "2026-05-30T23:59:59",
@@ -6859,7 +6903,7 @@
           "pnl": 12.421440745606649,
           "pnl_pct": 0.9757086577883576,
           "reason": "Short Trailed Stop Hit @ 663.2724075 (SL 663.2724075)",
-          "chart_id": "rsi_crypto:66"
+          "chart_id": "rsi_crypto:103"
         },
         {
           "time": "2026-05-27T23:59:59",
@@ -6880,7 +6924,7 @@
           "pnl": 24.15656811530156,
           "pnl_pct": 2.020525123284014,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:67"
+          "chart_id": "rsi_crypto:102"
         },
         {
           "time": "2026-05-25T23:59:59",
@@ -6901,7 +6945,7 @@
           "pnl": -51.98124394543872,
           "pnl_pct": -2.00372749779865,
           "reason": "Short Stop Loss Hit @ 0.36903928571428574 (SL 0.36903928571428574)",
-          "chart_id": "rsi_crypto:68"
+          "chart_id": "rsi_crypto:101"
         },
         {
           "time": "2026-05-25T23:59:59",
@@ -6922,7 +6966,7 @@
           "pnl": 28.40614654769451,
           "pnl_pct": 13.159771754636232,
           "reason": "RSI Oversold (21.04) - Cover Short",
-          "chart_id": "rsi_crypto:69"
+          "chart_id": "rsi_crypto:100"
         },
         {
           "time": "2026-05-24T23:59:59",
@@ -6943,7 +6987,7 @@
           "pnl": 131.79351602417663,
           "pnl_pct": 11.686022397345495,
           "reason": "RSI Oversold (26.65) - Cover Short",
-          "chart_id": "rsi_crypto:70"
+          "chart_id": "rsi_crypto:99"
         },
         {
           "time": "2026-05-21T23:59:59",
@@ -6964,7 +7008,7 @@
           "pnl": -55.31343577542873,
           "pnl_pct": -2.1386943808746195,
           "reason": "Short Stop Loss Hit @ 0.36278642857142857 (SL 0.36278642857142857)",
-          "chart_id": "rsi_crypto:71"
+          "chart_id": "rsi_crypto:98"
         },
         {
           "time": "2026-05-20T23:59:59",
@@ -6985,7 +7029,7 @@
           "pnl": 86.9506394157571,
           "pnl_pct": 12.08028729528352,
           "reason": "RSI Oversold (26.21) - Cover Short",
-          "chart_id": "rsi_crypto:72"
+          "chart_id": "rsi_crypto:97"
         },
         {
           "time": "2026-05-17T23:59:59",
@@ -7006,7 +7050,7 @@
           "pnl": 39.37720101654712,
           "pnl_pct": 3.0930933647859313,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:73"
+          "chart_id": "rsi_crypto:96"
         },
         {
           "time": "2026-05-16T23:59:59",
@@ -7027,7 +7071,7 @@
           "pnl": -59.009381119144756,
           "pnl_pct": -2.310439005070358,
           "reason": "Short Stop Loss Hit @ 0.35427035714285715 (SL 0.35427035714285715)",
-          "chart_id": "rsi_crypto:74"
+          "chart_id": "rsi_crypto:95"
         },
         {
           "time": "2026-05-14T23:59:59",
@@ -7048,7 +7092,7 @@
           "pnl": 106.2125825914766,
           "pnl_pct": 13.28903654485051,
           "reason": "RSI Overbought (70.94) - Close Long",
-          "chart_id": "rsi_crypto:75"
+          "chart_id": "rsi_crypto:94"
         },
         {
           "time": "2026-05-13T23:59:59",
@@ -7069,7 +7113,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 0.11244 (SL 0.11244)",
-          "chart_id": "rsi_crypto:76"
+          "chart_id": "rsi_crypto:93"
         },
         {
           "time": "2026-05-13T23:59:59",
@@ -7090,7 +7134,7 @@
           "pnl": 12.16306545944642,
           "pnl_pct": 5.634807417974316,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:77"
+          "chart_id": "rsi_crypto:92"
         },
         {
           "time": "2026-05-13T23:59:59",
@@ -7111,7 +7155,7 @@
           "pnl": 61.97920451891179,
           "pnl_pct": 5.495644960597259,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:78"
+          "chart_id": "rsi_crypto:91"
         },
         {
           "time": "2026-05-10T23:59:59",
@@ -7132,7 +7176,7 @@
           "pnl": -102.16133122691599,
           "pnl_pct": -4.570036410366257,
           "reason": "Short Stop Loss Hit @ 0.27899285714285715 (SL 0.27899285714285715)",
-          "chart_id": "rsi_crypto:79"
+          "chart_id": "rsi_crypto:90"
         },
         {
           "time": "2026-05-09T23:59:59",
@@ -7153,7 +7197,7 @@
           "pnl": 34.576665039338586,
           "pnl_pct": 6.533180778032029,
           "reason": "RSI Overbought (70.36) - Close Long",
-          "chart_id": "rsi_crypto:80"
+          "chart_id": "rsi_crypto:89"
         },
         {
           "time": "2026-05-07T23:59:59",
@@ -7174,7 +7218,7 @@
           "pnl": 36.00050405342706,
           "pnl_pct": 4.099964425471366,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:81"
+          "chart_id": "rsi_crypto:88"
         },
         {
           "time": "2026-05-05T23:59:59",
@@ -7195,7 +7239,7 @@
           "pnl": 48.45949080736113,
           "pnl_pct": 6.063122923588036,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:82"
+          "chart_id": "rsi_crypto:87"
         },
         {
           "time": "2026-05-05T23:59:59",
@@ -7216,7 +7260,7 @@
           "pnl": -102.70377405943672,
           "pnl_pct": -5.2677666144345086,
           "reason": "Short Stop Loss Hit @ 0.114205 (SL 0.114205)",
-          "chart_id": "rsi_crypto:83"
+          "chart_id": "rsi_crypto:86"
         },
         {
           "time": "2026-05-02T23:59:59",
@@ -7237,7 +7281,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 0.3272 (SL 0.3272)",
-          "chart_id": "rsi_crypto:84"
+          "chart_id": "rsi_crypto:85"
         },
         {
           "time": "2026-04-26T23:59:59",
@@ -7258,7 +7302,7 @@
           "pnl": -100.67292507198923,
           "pnl_pct": -4.838504483031981,
           "reason": "Short Stop Loss Hit @ 78457.26821428571 (SL 78457.26821428571)",
-          "chart_id": "rsi_crypto:85"
+          "chart_id": "rsi_crypto:84"
         },
         {
           "time": "2026-04-24T23:59:59",
@@ -7279,7 +7323,7 @@
           "pnl": 15.20731062235109,
           "pnl_pct": 1.2041564792176038,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:86"
+          "chart_id": "rsi_crypto:83"
         },
         {
           "time": "2026-04-19T23:59:59",
@@ -7300,7 +7344,7 @@
           "pnl": 37.018013567044356,
           "pnl_pct": 5.413013905683196,
           "reason": "Trailed Stop Hit @ 1.394825 (SL 1.394825)",
-          "chart_id": "rsi_crypto:87"
+          "chart_id": "rsi_crypto:82"
         },
         {
           "time": "2026-04-19T23:59:59",
@@ -7321,7 +7365,7 @@
           "pnl": 17.936273533665105,
           "pnl_pct": 1.7975076886067012,
           "reason": "Trailed Stop Hit @ 616.6078635714285 (SL 616.6078635714285)",
-          "chart_id": "rsi_crypto:88"
+          "chart_id": "rsi_crypto:81"
         },
         {
           "time": "2026-04-19T23:59:59",
@@ -7342,7 +7386,7 @@
           "pnl": 46.37843355810361,
           "pnl_pct": 6.44348109975577,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:89"
+          "chart_id": "rsi_crypto:80"
         },
         {
           "time": "2026-04-16T23:59:59",
@@ -7363,7 +7407,7 @@
           "pnl": 49.56918013229398,
           "pnl_pct": 4.967641814699847,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:90"
+          "chart_id": "rsi_crypto:79"
         },
         {
           "time": "2026-04-16T23:59:59",
@@ -7384,7 +7428,7 @@
           "pnl": 101.72886450925691,
           "pnl_pct": 16.003655042971463,
           "reason": "RSI Overbought (70.65) - Close Long",
-          "chart_id": "rsi_crypto:91"
+          "chart_id": "rsi_crypto:78"
         },
         {
           "time": "2026-04-15T23:59:59",
@@ -7405,7 +7449,7 @@
           "pnl": 35.91974789402562,
           "pnl_pct": 5.252418379685619,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:92"
+          "chart_id": "rsi_crypto:77"
         },
         {
           "time": "2026-04-14T23:59:59",
@@ -7426,7 +7470,7 @@
           "pnl": -88.56951408841492,
           "pnl_pct": -3.5830129469733905,
           "reason": "Short Stop Loss Hit @ 0.32253678571428573 (SL 0.32253678571428573)",
-          "chart_id": "rsi_crypto:93"
+          "chart_id": "rsi_crypto:76"
         },
         {
           "time": "2026-04-13T23:59:59",
@@ -7447,7 +7491,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 73086.0 (SL 73086.0)",
-          "chart_id": "rsi_crypto:94"
+          "chart_id": "rsi_crypto:75"
         },
         {
           "time": "2026-04-12T23:59:59",
@@ -7468,7 +7512,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 1.243 (SL 1.243)",
-          "chart_id": "rsi_crypto:95"
+          "chart_id": "rsi_crypto:74"
         },
         {
           "time": "2026-04-12T23:59:59",
@@ -7489,7 +7533,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 0.2432 (SL 0.2432)",
-          "chart_id": "rsi_crypto:96"
+          "chart_id": "rsi_crypto:73"
         },
         {
           "time": "2026-04-12T23:59:59",
@@ -7510,7 +7554,7 @@
           "pnl": 34.97570304708151,
           "pnl_pct": 3.1889144295761076,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:97"
+          "chart_id": "rsi_crypto:72"
         },
         {
           "time": "2026-04-10T23:59:59",
@@ -7531,7 +7575,7 @@
           "pnl": 29.779844107037302,
           "pnl_pct": 3.5024252882201004,
           "reason": "RSI Overbought (77.59) - Close Long",
-          "chart_id": "rsi_crypto:98"
+          "chart_id": "rsi_crypto:71"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -7552,7 +7596,7 @@
           "pnl": 23.966028353226168,
           "pnl_pct": 5.711987127916327,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:99"
+          "chart_id": "rsi_crypto:70"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -7573,7 +7617,7 @@
           "pnl": 27.194034677487192,
           "pnl_pct": 8.018092105263154,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:100"
+          "chart_id": "rsi_crypto:69"
         },
         {
           "time": "2026-04-01T23:59:59",
@@ -7594,7 +7638,7 @@
           "pnl": 36.29787360240485,
           "pnl_pct": 5.710263755803622,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:101"
+          "chart_id": "rsi_crypto:68"
         },
         {
           "time": "2026-03-30T23:59:59",
@@ -7615,7 +7659,7 @@
           "pnl": 115.93499594222814,
           "pnl_pct": 16.030534351145036,
           "reason": "RSI Oversold (26.54) - Cover Short",
-          "chart_id": "rsi_crypto:102"
+          "chart_id": "rsi_crypto:67"
         },
         {
           "time": "2026-03-25T23:59:59",
@@ -7636,7 +7680,7 @@
           "pnl": -67.70311039260524,
           "pnl_pct": -2.7293002771412613,
           "reason": "Short Stop Loss Hit @ 0.3118964285714286 (SL 0.3118964285714286)",
-          "chart_id": "rsi_crypto:103"
+          "chart_id": "rsi_crypto:66"
         },
         {
           "time": "2026-03-20T23:59:59",
@@ -7657,7 +7701,7 @@
           "pnl": 38.58905404746218,
           "pnl_pct": 7.092413236481024,
           "reason": "Trailed Stop Hit @ 1.5164285714285712 (SL 1.5164285714285712)",
-          "chart_id": "rsi_crypto:104"
+          "chart_id": "rsi_crypto:65"
         },
         {
           "time": "2026-03-19T23:59:59",
@@ -7678,7 +7722,7 @@
           "pnl": 0.7734261693726316,
           "pnl_pct": 0.17274370149887955,
           "reason": "Trailed Stop Hit @ 0.0942325 (SL 0.0942325)",
-          "chart_id": "rsi_crypto:105"
+          "chart_id": "rsi_crypto:64"
         },
         {
           "time": "2026-03-19T23:59:59",
@@ -7699,7 +7743,7 @@
           "pnl": 15.3739215681288,
           "pnl_pct": 5.434211027702639,
           "reason": "Trailed Stop Hit @ 2174.0007142857144 (SL 2174.0007142857144)",
-          "chart_id": "rsi_crypto:106"
+          "chart_id": "rsi_crypto:63"
         },
         {
           "time": "2026-03-18T23:59:59",
@@ -7720,7 +7764,7 @@
           "pnl": 54.517051663309736,
           "pnl_pct": 7.538167938931306,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:107"
+          "chart_id": "rsi_crypto:62"
         },
         {
           "time": "2026-03-17T23:59:59",
@@ -7741,7 +7785,7 @@
           "pnl": -57.50401030990686,
           "pnl_pct": -2.381551875458622,
           "reason": "Short Stop Loss Hit @ 0.3049639285714286 (SL 0.3049639285714286)",
-          "chart_id": "rsi_crypto:108"
+          "chart_id": "rsi_crypto:61"
         },
         {
           "time": "2026-03-17T23:59:59",
@@ -7762,7 +7806,7 @@
           "pnl": 38.073738544496344,
           "pnl_pct": 6.777754341559448,
           "reason": "RSI Overbought (70.09) - Close Long",
-          "chart_id": "rsi_crypto:109"
+          "chart_id": "rsi_crypto:60"
         },
         {
           "time": "2026-03-16T23:59:59",
@@ -7783,7 +7827,7 @@
           "pnl": 86.83909459898327,
           "pnl_pct": 15.96045197740113,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:110"
+          "chart_id": "rsi_crypto:59"
         },
         {
           "time": "2026-03-16T23:59:59",
@@ -7804,7 +7848,7 @@
           "pnl": 42.78831546252387,
           "pnl_pct": 9.556713085999785,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:111"
+          "chart_id": "rsi_crypto:58"
         },
         {
           "time": "2026-03-16T23:59:59",
@@ -7825,7 +7869,7 @@
           "pnl": 39.92529155773667,
           "pnl_pct": 14.112369359101832,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:112"
+          "chart_id": "rsi_crypto:57"
         },
         {
           "time": "2026-03-15T23:59:59",
@@ -7846,7 +7890,7 @@
           "pnl": 48.45358350181009,
           "pnl_pct": 7.45140388768898,
           "reason": "RSI Overbought (70.18) - Close Long",
-          "chart_id": "rsi_crypto:113"
+          "chart_id": "rsi_crypto:56"
         },
         {
           "time": "2026-03-11T23:59:59",
@@ -7867,7 +7911,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 0.29046 (SL 0.29046)",
-          "chart_id": "rsi_crypto:114"
+          "chart_id": "rsi_crypto:55"
         },
         {
           "time": "2026-03-07T23:59:59",
@@ -7888,7 +7932,7 @@
           "pnl": 30.11895015606538,
           "pnl_pct": 10.23356672588568,
           "reason": "Trailed Stop Hit @ 1.5068928571428573 (SL 1.5068928571428573)",
-          "chart_id": "rsi_crypto:115"
+          "chart_id": "rsi_crypto:54"
         },
         {
           "time": "2026-03-03T23:59:59",
@@ -7909,7 +7953,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 0.2698 (SL 0.2698)",
-          "chart_id": "rsi_crypto:116"
+          "chart_id": "rsi_crypto:53"
         },
         {
           "time": "2026-02-25T23:59:59",
@@ -7930,7 +7974,7 @@
           "pnl": 63.72883811423786,
           "pnl_pct": 21.653255303584494,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:117"
+          "chart_id": "rsi_crypto:52"
         },
         {
           "time": "2026-02-25T23:59:59",
@@ -7951,7 +7995,7 @@
           "pnl": 32.19569146906948,
           "pnl_pct": 10.155670867309132,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:118"
+          "chart_id": "rsi_crypto:51"
         },
         {
           "time": "2026-02-23T23:59:59",
@@ -7972,7 +8016,7 @@
           "pnl": 35.98917989854809,
           "pnl_pct": 3.029677063967491,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:119"
+          "chart_id": "rsi_crypto:50"
         },
         {
           "time": "2026-02-22T23:59:59",
@@ -7993,7 +8037,7 @@
           "pnl": 5.040585905605066,
           "pnl_pct": 1.621923105525406,
           "reason": "Trailed Stop Hit @ 0.09760785714285715 (SL 0.09760785714285715)",
-          "chart_id": "rsi_crypto:120"
+          "chart_id": "rsi_crypto:49"
         },
         {
           "time": "2026-02-19T23:59:59",
@@ -8014,7 +8058,7 @@
           "pnl": 29.574573279120568,
           "pnl_pct": 2.517830127512426,
           "reason": "RSI Overbought (73.28) - Close Long",
-          "chart_id": "rsi_crypto:121"
+          "chart_id": "rsi_crypto:48"
         },
         {
           "time": "2026-02-18T23:59:59",
@@ -8035,7 +8079,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Trailed Stop Hit @ 607.77 (SL 607.77)",
-          "chart_id": "rsi_crypto:122"
+          "chart_id": "rsi_crypto:47"
         },
         {
           "time": "2026-02-16T23:59:59",
@@ -8056,7 +8100,7 @@
           "pnl": 28.347588121617893,
           "pnl_pct": 2.4133707946113536,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:123"
+          "chart_id": "rsi_crypto:46"
         },
         {
           "time": "2026-02-14T23:59:59",
@@ -8077,7 +8121,7 @@
           "pnl": 48.339704173147624,
           "pnl_pct": 15.55439875065071,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:124"
+          "chart_id": "rsi_crypto:45"
         },
         {
           "time": "2026-02-06T23:59:59",
@@ -8098,7 +8142,7 @@
           "pnl": 165.0827240177195,
           "pnl_pct": 13.751298926221004,
           "reason": "RSI Oversold (22.18) - Cover Short",
-          "chart_id": "rsi_crypto:125"
+          "chart_id": "rsi_crypto:44"
         },
         {
           "time": "2026-02-06T23:59:59",
@@ -8119,7 +8163,7 @@
           "pnl": 34.66380801445729,
           "pnl_pct": 8.111621172483023,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_crypto:126"
+          "chart_id": "rsi_crypto:43"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8140,7 +8184,7 @@
           "pnl": -98.3034657076728,
           "pnl_pct": -12.294400295693961,
           "reason": "Stop Loss Hit @ 1.3559285714285714 (SL 1.3559285714285714)",
-          "chart_id": "rsi_crypto:127"
+          "chart_id": "rsi_crypto:42"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8161,7 +8205,7 @@
           "pnl": -98.3034657076728,
           "pnl_pct": -10.671894870707927,
           "reason": "Stop Loss Hit @ 9.031071428571428 (SL 9.031071428571428)",
-          "chart_id": "rsi_crypto:128"
+          "chart_id": "rsi_crypto:41"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8182,7 +8226,7 @@
           "pnl": -68.7728453299514,
           "pnl_pct": -10.726629361421983,
           "reason": "Stop Loss Hit @ 0.09298714285714287 (SL 0.09298714285714287)",
-          "chart_id": "rsi_crypto:129"
+          "chart_id": "rsi_crypto:40"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8203,7 +8247,7 @@
           "pnl": -98.3034657076728,
           "pnl_pct": -11.919361297427157,
           "reason": "Stop Loss Hit @ 0.2513821428571429 (SL 0.2513821428571429)",
-          "chart_id": "rsi_crypto:130"
+          "chart_id": "rsi_crypto:39"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8224,7 +8268,7 @@
           "pnl": -98.30346570767279,
           "pnl_pct": -11.59028980159518,
           "reason": "Stop Loss Hit @ 88.99321428571429 (SL 88.99321428571429)",
-          "chart_id": "rsi_crypto:131"
+          "chart_id": "rsi_crypto:38"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8245,7 +8289,7 @@
           "pnl": -101.23350549910279,
           "pnl_pct": -9.654251855710383,
           "reason": "Stop Loss Hit @ 1.4866392857142856 (SL 1.4866392857142856)",
-          "chart_id": "rsi_crypto:132"
+          "chart_id": "rsi_crypto:37"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8266,7 +8310,7 @@
           "pnl": -98.3034657076728,
           "pnl_pct": -12.201884959999388,
           "reason": "Stop Loss Hit @ 1991.4192857142857 (SL 1991.4192857142857)",
-          "chart_id": "rsi_crypto:133"
+          "chart_id": "rsi_crypto:36"
         },
         {
           "time": "2026-02-05T23:59:59",
@@ -8287,7 +8331,7 @@
           "pnl": -98.3034657076728,
           "pnl_pct": -6.532493779918955,
           "reason": "Stop Loss Hit @ 71872.33428571429 (SL 71872.33428571429)",
-          "chart_id": "rsi_crypto:134"
+          "chart_id": "rsi_crypto:35"
         },
         {
           "time": "2026-02-04T23:59:59",
@@ -8308,7 +8352,7 @@
           "pnl": -100.57500289759633,
           "pnl_pct": -7.352731120284798,
           "reason": "Stop Loss Hit @ 698.9309964285715 (SL 698.9309964285715)",
-          "chart_id": "rsi_crypto:135"
+          "chart_id": "rsi_crypto:34"
         },
         {
           "time": "2026-02-02T23:59:59",
@@ -8329,7 +8373,7 @@
           "pnl": 227.15371899235214,
           "pnl_pct": 18.37763713080169,
           "reason": "RSI Oversold (22.37) - Cover Short",
-          "chart_id": "rsi_crypto:136"
+          "chart_id": "rsi_crypto:33"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -8350,7 +8394,7 @@
           "pnl": -87.35620774071757,
           "pnl_pct": -8.109385425161243,
           "reason": "Stop Loss Hit @ 0.10624392857142857 (SL 0.10624392857142857)",
-          "chart_id": "rsi_crypto:137"
+          "chart_id": "rsi_crypto:32"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -8371,7 +8415,7 @@
           "pnl": -101.4142958878305,
           "pnl_pct": -9.157456873700085,
           "reason": "Stop Loss Hit @ 0.3182214285714286 (SL 0.3182214285714286)",
-          "chart_id": "rsi_crypto:138"
+          "chart_id": "rsi_crypto:31"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -8392,7 +8436,7 @@
           "pnl": -104.23347551445131,
           "pnl_pct": -7.849113073946998,
           "reason": "Stop Loss Hit @ 108.20357142857144 (SL 108.20357142857144)",
-          "chart_id": "rsi_crypto:139"
+          "chart_id": "rsi_crypto:30"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -8413,7 +8457,7 @@
           "pnl": -105.30156928552604,
           "pnl_pct": -7.9044660795619945,
           "reason": "Stop Loss Hit @ 2489.056785714286 (SL 2489.056785714286)",
-          "chart_id": "rsi_crypto:140"
+          "chart_id": "rsi_crypto:29"
         },
         {
           "time": "2026-01-31T23:59:59",
@@ -8434,7 +8478,7 @@
           "pnl": -88.87951552511983,
           "pnl_pct": -4.464020328861557,
           "reason": "Stop Loss Hit @ 80740.51357142857 (SL 80740.51357142857)",
-          "chart_id": "rsi_crypto:141"
+          "chart_id": "rsi_crypto:28"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -8455,7 +8499,7 @@
           "pnl": -105.81591672420487,
           "pnl_pct": -9.193474615032772,
           "reason": "Stop Loss Hit @ 1.701714285714286 (SL 1.701714285714286)",
-          "chart_id": "rsi_crypto:142"
+          "chart_id": "rsi_crypto:27"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -8476,7 +8520,7 @@
           "pnl": -106.80937710747361,
           "pnl_pct": -6.575007112162551,
           "reason": "Stop Loss Hit @ 1.782735714285714 (SL 1.782735714285714)",
-          "chart_id": "rsi_crypto:143"
+          "chart_id": "rsi_crypto:26"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -8497,7 +8541,7 @@
           "pnl": -107.3116023560128,
           "pnl_pct": -7.72921108742004,
           "reason": "Stop Loss Hit @ 11.127857142857144 (SL 11.127857142857144)",
-          "chart_id": "rsi_crypto:144"
+          "chart_id": "rsi_crypto:25"
         },
         {
           "time": "2026-01-29T23:59:59",
@@ -8518,7 +8562,7 @@
           "pnl": -93.69170469266378,
           "pnl_pct": -9.075893894625006,
           "reason": "Stop Loss Hit @ 0.11737392857142859 (SL 0.11737392857142859)",
-          "chart_id": "rsi_crypto:145"
+          "chart_id": "rsi_crypto:24"
         },
         {
           "time": "2026-01-28T23:59:59",
@@ -8539,7 +8583,7 @@
           "pnl": 50.2225248539188,
           "pnl_pct": 14.68302658486707,
           "reason": "RSI Oversold (28.72) - Cover Short",
-          "chart_id": "rsi_crypto:146"
+          "chart_id": "rsi_crypto:23"
         },
         {
           "time": "2026-01-28T23:59:59",
@@ -8560,7 +8604,7 @@
           "pnl": 99.34603832687331,
           "pnl_pct": 8.037488670020254,
           "reason": "RSI Oversold (24.57) - Cover Short",
-          "chart_id": "rsi_crypto:147"
+          "chart_id": "rsi_crypto:22"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -8581,7 +8625,7 @@
           "pnl": 97.72023265932597,
           "pnl_pct": 13.900709219858149,
           "reason": "RSI Oversold (23.42) - Cover Short",
-          "chart_id": "rsi_crypto:148"
+          "chart_id": "rsi_crypto:21"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -8602,7 +8646,7 @@
           "pnl": 164.27086743044183,
           "pnl_pct": 18.50905218317359,
           "reason": "RSI Oversold (26.18) - Cover Short",
-          "chart_id": "rsi_crypto:149"
+          "chart_id": "rsi_crypto:20"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -8623,7 +8667,7 @@
           "pnl": 98.33248729728685,
           "pnl_pct": 10.000493958798721,
           "reason": "Short Trailed Stop Hit @ 3019.321428571429 (SL 3019.321428571429)",
-          "chart_id": "rsi_crypto:150"
+          "chart_id": "rsi_crypto:19"
         },
         {
           "time": "2026-01-20T23:59:59",
@@ -8644,7 +8688,7 @@
           "pnl": 79.83849625038326,
           "pnl_pct": 6.650502251472125,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:151"
+          "chart_id": "rsi_crypto:18"
         },
         {
           "time": "2026-01-20T23:59:59",
@@ -8665,7 +8709,7 @@
           "pnl": 84.21454890205504,
           "pnl_pct": 6.81329113924051,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:152"
+          "chart_id": "rsi_crypto:17"
         },
         {
           "time": "2026-01-19T23:59:59",
@@ -8686,7 +8730,7 @@
           "pnl": 49.03749181302175,
           "pnl_pct": 4.98715281296761,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:153"
+          "chart_id": "rsi_crypto:16"
         },
         {
           "time": "2026-01-18T23:59:59",
@@ -8707,7 +8751,7 @@
           "pnl": 56.83727817940385,
           "pnl_pct": 8.085106382978715,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:154"
+          "chart_id": "rsi_crypto:15"
         },
         {
           "time": "2026-01-18T23:59:59",
@@ -8728,7 +8772,7 @@
           "pnl": 20.72786657155699,
           "pnl_pct": 6.059986366734823,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:155"
+          "chart_id": "rsi_crypto:14"
         },
         {
           "time": "2026-01-18T23:59:59",
@@ -8749,7 +8793,7 @@
           "pnl": 42.34581602509153,
           "pnl_pct": 3.4259445294092696,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:156"
+          "chart_id": "rsi_crypto:13"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -8770,7 +8814,7 @@
           "pnl": -17.265696107121716,
           "pnl_pct": -2.0983296806587255,
           "reason": "Short Stop Loss Hit @ 0.30414071428571426 (SL 0.30414071428571426)",
-          "chart_id": "rsi_crypto:157"
+          "chart_id": "rsi_crypto:12"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -8791,7 +8835,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 2.207 (SL 2.207)",
-          "chart_id": "rsi_crypto:158"
+          "chart_id": "rsi_crypto:11"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -8812,7 +8856,7 @@
           "pnl": -85.13912657308272,
           "pnl_pct": -5.0448047239200156,
           "reason": "Short Stop Loss Hit @ 144.8567857142857 (SL 144.8567857142857)",
-          "chart_id": "rsi_crypto:159"
+          "chart_id": "rsi_crypto:10"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -8833,7 +8877,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 916.99 (SL 916.99)",
-          "chart_id": "rsi_crypto:160"
+          "chart_id": "rsi_crypto:9"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -8854,7 +8898,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 3225.19 (SL 3225.19)",
-          "chart_id": "rsi_crypto:161"
+          "chart_id": "rsi_crypto:8"
         },
         {
           "time": "2026-01-13T23:59:59",
@@ -8875,7 +8919,7 @@
           "pnl": 2.782772413194035,
           "pnl_pct": 0.2248704980358816,
           "reason": "Short Trailed Stop Hit @ 93658.97392857142 (SL 93658.97392857142)",
-          "chart_id": "rsi_crypto:162"
+          "chart_id": "rsi_crypto:7"
         },
         {
           "time": "2026-01-09T23:59:59",
@@ -8896,7 +8940,7 @@
           "pnl": 36.165213781652106,
           "pnl_pct": 5.754417761667412,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:163"
+          "chart_id": "rsi_crypto:6"
         },
         {
           "time": "2026-01-08T23:59:59",
@@ -8917,7 +8961,7 @@
           "pnl": 2.53039684480254,
           "pnl_pct": 2.7699320603278093,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:164"
+          "chart_id": "rsi_crypto:5"
         },
         {
           "time": "2026-01-08T23:59:59",
@@ -8938,7 +8982,7 @@
           "pnl": 45.40414116040289,
           "pnl_pct": 3.748306301334181,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:165"
+          "chart_id": "rsi_crypto:4"
         },
         {
           "time": "2026-01-07T23:59:59",
@@ -8959,7 +9003,7 @@
           "pnl": 69.64026186579379,
           "pnl_pct": 7.846645367412146,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:166"
+          "chart_id": "rsi_crypto:3"
         },
         {
           "time": "2026-01-07T23:59:59",
@@ -8980,7 +9024,7 @@
           "pnl": 34.14862390628068,
           "pnl_pct": 2.7594847601034895,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_crypto:167"
+          "chart_id": "rsi_crypto:2"
         },
         {
           "time": "2026-01-05T23:59:59",
@@ -9001,7 +9045,7 @@
           "pnl": -100.0,
           "pnl_pct": -6.4949431099873545,
           "reason": "Short Stop Loss Hit @ 14.440714285714286 (SL 14.440714285714286)",
-          "chart_id": "rsi_crypto:168"
+          "chart_id": "rsi_crypto:1"
         },
         {
           "time": "2026-01-04T23:59:59",
@@ -9022,7 +9066,7 @@
           "pnl": -100.0,
           "pnl_pct": -4.464996926610516,
           "reason": "Short Stop Loss Hit @ 3134.3782142857144 (SL 3134.3782142857144)",
-          "chart_id": "rsi_crypto:169"
+          "chart_id": "rsi_crypto:0"
         }
       ],
       "pair_performance": {
@@ -9035,21 +9079,21 @@
           },
           {
             "symbol": "DOT/USDT",
-            "pnl": 209.33,
-            "trades": 7,
-            "win_rate": 85.7
+            "pnl": 451.61,
+            "trades": 8,
+            "win_rate": 87.5
+          },
+          {
+            "symbol": "AVAX/USDT",
+            "pnl": 224.6,
+            "trades": 3,
+            "win_rate": 66.7
           },
           {
             "symbol": "XRP/USDT",
-            "pnl": 121.58,
-            "trades": 6,
-            "win_rate": 83.3
-          },
-          {
-            "symbol": "DOGE/USDT",
-            "pnl": 73.64,
-            "trades": 4,
-            "win_rate": 50.0
+            "pnl": 81.63,
+            "trades": 5,
+            "win_rate": 80.0
           },
           {
             "symbol": "TRX/USDT",
@@ -9082,20 +9126,19 @@
         "trades_in_window": 50
       },
       "metrics": {
-        "win_rate": 59.411764705882355,
-        "profit_factor": 1.1293649733036213,
-        "total_pnl": 588.4381136839602,
-        "avg_pnl": 3.4614006687291776,
+        "win_rate": 59.883720930232556,
+        "profit_factor": 1.220436691988231,
+        "total_pnl": 1002.6929848765767,
+        "avg_pnl": 5.8296103771893995,
         "max_drawdown": 14.295398262016345,
-        "total_trades": 170
+        "total_trades": 172
       },
       "exposure": {
-        "XRP/USDT": 1921.5295261746296,
-        "DOT/USDT": 1339.529302342594,
-        "AVAX/USDT": 1110.4582269131295,
-        "BTC/USDT": 1327.1685237848471,
-        "DOGE/USDT": 1858.3563233413975,
-        "TRX/USDT": 2647.1095284209896
+        "XRP/USDT": 1969.8549440664672,
+        "BTC/USDT": 1316.285905384548,
+        "DOGE/USDT": 1901.7254366175798,
+        "TRX/USDT": 2656.273606907116,
+        "ETH/USDT": 1468.622649755509
       }
     },
     "rsi_forex": {
@@ -9151,11 +9194,24 @@
           "tp1": false,
           "tp_price": 1.3827185714285715,
           "value": 2563.0896480178562
+        },
+        {
+          "symbol": "AUD/USD",
+          "side": "SHORT",
+          "qty": 1802.3239639044339,
+          "entry": 0.71694,
+          "entry_date": "2026-08-21",
+          "current_price": 0.71694,
+          "unrealized_pnl": 0.0,
+          "sl": 0.7230225,
+          "tp1": false,
+          "tp_price": 0.712885,
+          "value": 1292.158142681645
         }
       ],
-      "current_cash": 1292.158142681645,
+      "current_cash": 0.0,
       "current_equity": 10333.43719567375,
-      "history_events": 134,
+      "history_events": 135,
       "equity_curve": [
         {
           "time": "2026-01-02T23:59:59",
@@ -9833,7 +9889,12 @@
           "type": "trade"
         },
         {
-          "time": "2026-08-22T00:45:58.627294",
+          "time": "2026-08-23T00:50:50.896691",
+          "equity": 10316.26568798076,
+          "type": "trade"
+        },
+        {
+          "time": "2026-08-23T00:51:49.495253",
           "equity": 10333.43719567375,
           "type": "current"
         }
@@ -9858,7 +9919,7 @@
           "pnl": -11.364814203001224,
           "pnl_pct": -0.8718537823194579,
           "reason": "Short Stop Loss Hit @ 0.7143946428571428 (SL 0.7143946428571428)",
-          "chart_id": "rsi_forex:0"
+          "chart_id": "rsi_forex:78"
         },
         {
           "time": "2026-08-20T00:45:00.537009",
@@ -9879,7 +9940,7 @@
           "pnl": -15.775037758895905,
           "pnl_pct": -0.6086884763592902,
           "reason": "Stop Loss Hit @ 1.3850874999999998 (SL 1.3850874999999998)",
-          "chart_id": "rsi_forex:1"
+          "chart_id": "rsi_forex:77"
         },
         {
           "time": "2026-08-20T00:45:00.496566",
@@ -9900,7 +9961,7 @@
           "pnl": -18.234611323022058,
           "pnl_pct": -0.7027323538568689,
           "reason": "Short Stop Loss Hit @ 1.3585 (SL 1.3585)",
-          "chart_id": "rsi_forex:2"
+          "chart_id": "rsi_forex:76"
         },
         {
           "time": "2026-08-20T00:45:00.482877",
@@ -9921,7 +9982,7 @@
           "pnl": -17.623716659802476,
           "pnl_pct": -0.6791894640722707,
           "reason": "Short Stop Loss Hit @ 1.1624217857142856 (SL 1.1624217857142856)",
-          "chart_id": "rsi_forex:3"
+          "chart_id": "rsi_forex:75"
         },
         {
           "time": "2026-08-10T01:06:36.909330",
@@ -9942,7 +10003,7 @@
           "pnl": 12.688273624673457,
           "pnl_pct": 0.9926599091226639,
           "reason": "RSI Overbought (74.46) - Close Long",
-          "chart_id": "rsi_forex:4"
+          "chart_id": "rsi_forex:74"
         },
         {
           "time": "2026-08-05T01:49:14.067788",
@@ -9963,7 +10024,7 @@
           "pnl": 10.854966277663152,
           "pnl_pct": 0.8385677186608546,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:5"
+          "chart_id": "rsi_forex:73"
         },
         {
           "time": "2026-08-02T01:59:13.795113",
@@ -9984,7 +10045,7 @@
           "pnl": 44.78962398518744,
           "pnl_pct": 3.489170272489925,
           "reason": "RSI Oversold (22.69) - Cover Short",
-          "chart_id": "rsi_forex:6"
+          "chart_id": "rsi_forex:72"
         },
         {
           "time": "2026-07-31T02:01:31.015295",
@@ -10005,7 +10066,7 @@
           "pnl": 19.173074591937834,
           "pnl_pct": 1.4936075801963762,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:7"
+          "chart_id": "rsi_forex:71"
         },
         {
           "time": "2026-07-31T02:01:30.972196",
@@ -10026,7 +10087,7 @@
           "pnl": 7.394046777758604,
           "pnl_pct": 0.5784690667598584,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:8"
+          "chart_id": "rsi_forex:70"
         },
         {
           "time": "2026-07-30T01:44:13.827662",
@@ -10047,7 +10108,7 @@
           "pnl": 3.6994011077354116,
           "pnl_pct": 0.2883630748392373,
           "reason": "Trailed Stop Hit @ 1.4046789285714285 (SL 1.4046789285714285)",
-          "chart_id": "rsi_forex:9"
+          "chart_id": "rsi_forex:69"
         },
         {
           "time": "2026-07-29T01:51:50.463425",
@@ -10068,7 +10129,7 @@
           "pnl": 11.260471483395122,
           "pnl_pct": 0.8847704200119273,
           "reason": "Trailed Stop Hit @ 0.6950557142857142 (SL 0.6950557142857142)",
-          "chart_id": "rsi_forex:10"
+          "chart_id": "rsi_forex:68"
         },
         {
           "time": "2026-07-21T01:54:38.338956",
@@ -10089,7 +10150,7 @@
           "pnl": 6.22836653031095,
           "pnl_pct": 0.4854923463559478,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:11"
+          "chart_id": "rsi_forex:67"
         },
         {
           "time": "2026-07-19T01:55:07.161803",
@@ -10110,7 +10171,7 @@
           "pnl": 11.632102384165231,
           "pnl_pct": 0.9096563520447786,
           "reason": "RSI Oversold (15.46) - Cover Short",
-          "chart_id": "rsi_forex:12"
+          "chart_id": "rsi_forex:66"
         },
         {
           "time": "2026-07-16T01:52:37.571016",
@@ -10131,7 +10192,7 @@
           "pnl": -17.65628645631614,
           "pnl_pct": -0.6883573475968724,
           "reason": "Short Stop Loss Hit @ 1.3489017857142858 (SL 1.3489017857142858)",
-          "chart_id": "rsi_forex:13"
+          "chart_id": "rsi_forex:65"
         },
         {
           "time": "2026-07-15T01:42:53.806168",
@@ -10152,7 +10213,7 @@
           "pnl": 9.246030100233913,
           "pnl_pct": 0.7230601772663633,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:14"
+          "chart_id": "rsi_forex:64"
         },
         {
           "time": "2026-07-11T01:54:39.593111",
@@ -10173,7 +10234,7 @@
           "pnl": 20.32596551406823,
           "pnl_pct": 1.5901904133585103,
           "reason": "RSI Overbought (85.64) - Close Long",
-          "chart_id": "rsi_forex:15"
+          "chart_id": "rsi_forex:63"
         },
         {
           "time": "2026-07-08T01:55:45.601329",
@@ -10194,7 +10255,7 @@
           "pnl": 0.7011850802192903,
           "pnl_pct": 0.10886170300665123,
           "reason": "Short Trailed Stop Hit @ 162.34907142857142 (SL 162.34907142857142)",
-          "chart_id": "rsi_forex:16"
+          "chart_id": "rsi_forex:62"
         },
         {
           "time": "2026-07-04T02:06:26.893167",
@@ -10215,7 +10276,7 @@
           "pnl": 8.109545082839077,
           "pnl_pct": 0.637192289828156,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:17"
+          "chart_id": "rsi_forex:61"
         },
         {
           "time": "2026-07-03T02:08:24.376475",
@@ -10236,7 +10297,7 @@
           "pnl": 5.104468860118297,
           "pnl_pct": 0.7924885864415606,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:18"
+          "chart_id": "rsi_forex:60"
         },
         {
           "time": "2026-07-02T02:33:16.671986",
@@ -10257,7 +10318,7 @@
           "pnl": 10.003050267295293,
           "pnl_pct": 0.7825829788202043,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:19"
+          "chart_id": "rsi_forex:59"
         },
         {
           "time": "2026-07-01T02:43:50.220158",
@@ -10278,7 +10339,7 @@
           "pnl": -14.177655927440105,
           "pnl_pct": -0.5543621585147664,
           "reason": "Short Stop Loss Hit @ 162.4325 (SL 162.4325)",
-          "chart_id": "rsi_forex:20"
+          "chart_id": "rsi_forex:58"
         },
         {
           "time": "2026-06-19T03:33:55.975992",
@@ -10299,7 +10360,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 0.79884 (SL 0.79884)",
-          "chart_id": "rsi_forex:21"
+          "chart_id": "rsi_forex:57"
         },
         {
           "time": "2026-06-19T03:33:55.930049",
@@ -10320,7 +10381,7 @@
           "pnl": 15.246468261485465,
           "pnl_pct": 2.2941348850839387,
           "reason": "RSI Oversold (26.86) - Cover Short",
-          "chart_id": "rsi_forex:22"
+          "chart_id": "rsi_forex:56"
         },
         {
           "time": "2026-06-19T03:33:55.907571",
@@ -10341,7 +10402,7 @@
           "pnl": -11.035522631541614,
           "pnl_pct": -0.4308842731028154,
           "reason": "Short Stop Loss Hit @ 160.97564285714284 (SL 160.97564285714284)",
-          "chart_id": "rsi_forex:23"
+          "chart_id": "rsi_forex:55"
         },
         {
           "time": "2026-06-18T02:48:40.496690",
@@ -10362,7 +10423,7 @@
           "pnl": -15.451970636694586,
           "pnl_pct": -0.6041449845829527,
           "reason": "Short Stop Loss Hit @ 1.4071803571428572 (SL 1.4071803571428572)",
-          "chart_id": "rsi_forex:24"
+          "chart_id": "rsi_forex:54"
         },
         {
           "time": "2026-06-17T02:53:18.489182",
@@ -10383,7 +10444,7 @@
           "pnl": 10.490896122287118,
           "pnl_pct": 0.8174352811576832,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:25"
+          "chart_id": "rsi_forex:53"
         },
         {
           "time": "2026-06-12T02:46:32.656902",
@@ -10404,7 +10465,7 @@
           "pnl": -13.897715710389475,
           "pnl_pct": -0.5414160396493635,
           "reason": "Short Stop Loss Hit @ 1.3971335714285715 (SL 1.3971335714285715)",
-          "chart_id": "rsi_forex:26"
+          "chart_id": "rsi_forex:52"
         },
         {
           "time": "2026-06-11T02:50:16.156150",
@@ -10425,7 +10486,7 @@
           "pnl": -22.598096950706147,
           "pnl_pct": -0.8803069871364203,
           "reason": "Short Stop Loss Hit @ 160.47635714285713 (SL 160.47635714285713)",
-          "chart_id": "rsi_forex:27"
+          "chart_id": "rsi_forex:51"
         },
         {
           "time": "2026-06-06T02:28:14.198366",
@@ -10446,7 +10507,7 @@
           "pnl": 11.87072954665527,
           "pnl_pct": 1.7861877450775068,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:28"
+          "chart_id": "rsi_forex:50"
         },
         {
           "time": "2026-06-06T02:28:14.133096",
@@ -10467,7 +10528,7 @@
           "pnl": -15.620096841676968,
           "pnl_pct": -0.6077922748173532,
           "reason": "Stop Loss Hit @ 1.1555139285714284 (SL 1.1555139285714284)",
-          "chart_id": "rsi_forex:29"
+          "chart_id": "rsi_forex:49"
         },
         {
           "time": "2026-05-27T23:59:59",
@@ -10488,7 +10549,7 @@
           "pnl": -12.212320528027861,
           "pnl_pct": -0.4757299304194963,
           "reason": "Short Stop Loss Hit @ 1.381722142857143 (SL 1.381722142857143)",
-          "chart_id": "rsi_forex:30"
+          "chart_id": "rsi_forex:48"
         },
         {
           "time": "2026-05-24T23:59:59",
@@ -10509,7 +10570,7 @@
           "pnl": 11.611488750754965,
           "pnl_pct": 0.9137014676721388,
           "reason": "Short Trailed Stop Hit @ 1.3441750000000001 (SL 1.3441750000000001)",
-          "chart_id": "rsi_forex:31"
+          "chart_id": "rsi_forex:47"
         },
         {
           "time": "2026-05-14T23:59:59",
@@ -10530,7 +10591,7 @@
           "pnl": 15.363325172439056,
           "pnl_pct": 1.208931348916751,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:32"
+          "chart_id": "rsi_forex:46"
         },
         {
           "time": "2026-05-08T23:59:59",
@@ -10551,7 +10612,7 @@
           "pnl": 0.0,
           "pnl_pct": 0.0,
           "reason": "Short Trailed Stop Hit @ 1.17588 (SL 1.17588)",
-          "chart_id": "rsi_forex:33"
+          "chart_id": "rsi_forex:45"
         },
         {
           "time": "2026-04-30T23:59:59",
@@ -10572,7 +10633,7 @@
           "pnl": 2.756326183683868,
           "pnl_pct": 0.21689374493441663,
           "reason": "Trailed Stop Hit @ 0.7825235714285714 (SL 0.7825235714285714)",
-          "chart_id": "rsi_forex:34"
+          "chart_id": "rsi_forex:44"
         },
         {
           "time": "2026-04-30T23:59:59",
@@ -10593,7 +10654,7 @@
           "pnl": -8.008489971581314,
           "pnl_pct": -0.6249543962057594,
           "reason": "Stop Loss Hit @ 1.3619350000000001 (SL 1.3619350000000001)",
-          "chart_id": "rsi_forex:35"
+          "chart_id": "rsi_forex:43"
         },
         {
           "time": "2026-04-29T23:59:59",
@@ -10614,7 +10675,7 @@
           "pnl": 8.980936037029808,
           "pnl_pct": 0.7067047657924311,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:36"
+          "chart_id": "rsi_forex:42"
         },
         {
           "time": "2026-04-28T23:59:59",
@@ -10635,7 +10696,7 @@
           "pnl": 13.654916640046896,
           "pnl_pct": 1.074497649936607,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:37"
+          "chart_id": "rsi_forex:41"
         },
         {
           "time": "2026-04-18T23:59:59",
@@ -10656,7 +10717,7 @@
           "pnl": 18.323993715326736,
           "pnl_pct": 1.4506839452843856,
           "reason": "RSI Oversold (29.88) - Cover Short",
-          "chart_id": "rsi_forex:38"
+          "chart_id": "rsi_forex:40"
         },
         {
           "time": "2026-04-16T23:59:59",
@@ -10698,7 +10759,7 @@
           "pnl": 7.384160246573226,
           "pnl_pct": 0.5845932325413898,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:40"
+          "chart_id": "rsi_forex:38"
         },
         {
           "time": "2026-04-08T23:59:59",
@@ -10719,7 +10780,7 @@
           "pnl": 32.071448366583724,
           "pnl_pct": 2.547513011056163,
           "reason": "Trailed Stop Hit @ 0.7920975 (SL 0.7920975)",
-          "chart_id": "rsi_forex:41"
+          "chart_id": "rsi_forex:37"
         },
         {
           "time": "2026-04-07T23:59:59",
@@ -10740,7 +10801,7 @@
           "pnl": 16.409396093909393,
           "pnl_pct": 1.2983806549996457,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:42"
+          "chart_id": "rsi_forex:36"
         },
         {
           "time": "2026-03-30T23:59:59",
@@ -10761,7 +10822,7 @@
           "pnl": 5.6610438370396245,
           "pnl_pct": 0.4495725447601681,
           "reason": "Trailed Stop Hit @ 1.1467725 (SL 1.1467725)",
-          "chart_id": "rsi_forex:43"
+          "chart_id": "rsi_forex:35"
         },
         {
           "time": "2026-03-27T23:59:59",
@@ -10782,7 +10843,7 @@
           "pnl": 4.832161432837634,
           "pnl_pct": 0.38374673904464773,
           "reason": "Trailed Stop Hit @ 1.3264407142857142 (SL 1.3264407142857142)",
-          "chart_id": "rsi_forex:44"
+          "chart_id": "rsi_forex:34"
         },
         {
           "time": "2026-03-26T23:59:59",
@@ -10803,7 +10864,7 @@
           "pnl": -16.381545226921055,
           "pnl_pct": -0.6477112692549198,
           "reason": "Short Stop Loss Hit @ 1.381359642857143 (SL 1.381359642857143)",
-          "chart_id": "rsi_forex:45"
+          "chart_id": "rsi_forex:33"
         },
         {
           "time": "2026-03-26T23:59:59",
@@ -10824,7 +10885,7 @@
           "pnl": 3.203208399437952,
           "pnl_pct": 0.25438321853475265,
           "reason": "Short Trailed Stop Hit @ 159.29375 (SL 159.29375)",
-          "chart_id": "rsi_forex:46"
+          "chart_id": "rsi_forex:32"
         },
         {
           "time": "2026-03-19T23:59:59",
@@ -10845,7 +10906,7 @@
           "pnl": 15.864259199185629,
           "pnl_pct": 1.259862241703194,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:47"
+          "chart_id": "rsi_forex:31"
         },
         {
           "time": "2026-03-17T23:59:59",
@@ -10866,7 +10927,7 @@
           "pnl": 13.417603347527331,
           "pnl_pct": 1.0655607437735148,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:48"
+          "chart_id": "rsi_forex:30"
         },
         {
           "time": "2026-03-17T23:59:59",
@@ -10887,7 +10948,7 @@
           "pnl": 13.64386015863231,
           "pnl_pct": 1.083528958340632,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:49"
+          "chart_id": "rsi_forex:29"
         },
         {
           "time": "2026-03-13T23:59:59",
@@ -10908,7 +10969,7 @@
           "pnl": 1.6184286505957268,
           "pnl_pct": 0.12799040437653447,
           "reason": "Short Trailed Stop Hit @ 1.36554 (SL 1.36554)",
-          "chart_id": "rsi_forex:50"
+          "chart_id": "rsi_forex:28"
         },
         {
           "time": "2026-03-13T23:59:59",
@@ -10929,7 +10990,7 @@
           "pnl": -26.004666915108388,
           "pnl_pct": -1.0266017659044606,
           "reason": "Short Stop Loss Hit @ 159.3694642857143 (SL 159.3694642857143)",
-          "chart_id": "rsi_forex:51"
+          "chart_id": "rsi_forex:27"
         },
         {
           "time": "2026-03-13T23:59:59",
@@ -10950,7 +11011,7 @@
           "pnl": -16.089831072305625,
           "pnl_pct": -0.8510620158425849,
           "reason": "Stop Loss Hit @ 1.3291014285714287 (SL 1.3291014285714287)",
-          "chart_id": "rsi_forex:52"
+          "chart_id": "rsi_forex:26"
         },
         {
           "time": "2026-03-13T23:59:59",
@@ -10971,7 +11032,7 @@
           "pnl": -18.20595953548242,
           "pnl_pct": -0.9375438406501686,
           "reason": "Stop Loss Hit @ 1.1499764285714285 (SL 1.1499764285714285)",
-          "chart_id": "rsi_forex:53"
+          "chart_id": "rsi_forex:25"
         },
         {
           "time": "2026-03-06T23:59:59",
@@ -10992,7 +11053,7 @@
           "pnl": 10.524410310731511,
           "pnl_pct": 0.8323033153171563,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:54"
+          "chart_id": "rsi_forex:24"
         },
         {
           "time": "2026-03-06T23:59:59",
@@ -11013,7 +11074,7 @@
           "pnl": -27.533263784135094,
           "pnl_pct": -1.0887083481375894,
           "reason": "Short Stop Loss Hit @ 157.70242857142856 (SL 157.70242857142856)",
-          "chart_id": "rsi_forex:55"
+          "chart_id": "rsi_forex:23"
         },
         {
           "time": "2026-03-04T23:59:59",
@@ -11034,7 +11095,7 @@
           "pnl": 18.193825709521633,
           "pnl_pct": 2.801005789135143,
           "reason": "RSI Oversold (27.35) - Cover Short",
-          "chart_id": "rsi_forex:56"
+          "chart_id": "rsi_forex:22"
         },
         {
           "time": "2026-03-03T23:59:59",
@@ -11055,7 +11116,7 @@
           "pnl": 15.206536056929197,
           "pnl_pct": 1.2078920794386407,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:57"
+          "chart_id": "rsi_forex:21"
         },
         {
           "time": "2026-02-10T23:59:59",
@@ -11076,7 +11137,7 @@
           "pnl": 13.017288393658818,
           "pnl_pct": 1.0427919538088914,
           "reason": "Trailed Stop Hit @ 154.99964285714285 (SL 154.99964285714285)",
-          "chart_id": "rsi_forex:58"
+          "chart_id": "rsi_forex:20"
         },
         {
           "time": "2026-02-09T23:59:59",
@@ -11097,7 +11158,7 @@
           "pnl": 1.5631457054853692,
           "pnl_pct": 0.2507809568776739,
           "reason": "Trailed Stop Hit @ 1.3588792857142855 (SL 1.3588792857142855)",
-          "chart_id": "rsi_forex:59"
+          "chart_id": "rsi_forex:19"
         },
         {
           "time": "2026-02-09T23:59:59",
@@ -11118,7 +11179,7 @@
           "pnl": 0.28305772553275554,
           "pnl_pct": 0.02267525384109881,
           "reason": "Short Trailed Stop Hit @ 0.7038803571428571 (SL 0.7038803571428571)",
-          "chart_id": "rsi_forex:60"
+          "chart_id": "rsi_forex:18"
         },
         {
           "time": "2026-02-09T23:59:59",
@@ -11139,7 +11200,7 @@
           "pnl": 11.742123255017031,
           "pnl_pct": 0.9406407295185073,
           "reason": "Short Trailed Stop Hit @ 1.3674946428571428 (SL 1.3674946428571428)",
-          "chart_id": "rsi_forex:61"
+          "chart_id": "rsi_forex:17"
         },
         {
           "time": "2026-02-02T23:59:59",
@@ -11160,7 +11221,7 @@
           "pnl": 17.87835482974605,
           "pnl_pct": 1.4322033898305102,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:62"
+          "chart_id": "rsi_forex:16"
         },
         {
           "time": "2026-02-01T23:59:59",
@@ -11181,7 +11242,7 @@
           "pnl": 4.253569423416012,
           "pnl_pct": 0.6824150854309898,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:63"
+          "chart_id": "rsi_forex:15"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -11202,7 +11263,7 @@
           "pnl": 14.060433417737608,
           "pnl_pct": 1.1263564570194866,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:64"
+          "chart_id": "rsi_forex:14"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -11223,7 +11284,7 @@
           "pnl": 11.040999748137143,
           "pnl_pct": 0.8844749652294733,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:65"
+          "chart_id": "rsi_forex:13"
         },
         {
           "time": "2026-01-30T23:59:59",
@@ -11244,7 +11305,7 @@
           "pnl": 6.516786363595461,
           "pnl_pct": 1.0032830160308148,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:66"
+          "chart_id": "rsi_forex:12"
         },
         {
           "time": "2026-01-28T23:59:59",
@@ -11265,7 +11326,7 @@
           "pnl": 49.09233176838812,
           "pnl_pct": 3.92738654147105,
           "reason": "RSI Oversold (28.00) - Cover Short",
-          "chart_id": "rsi_forex:67"
+          "chart_id": "rsi_forex:11"
         },
         {
           "time": "2026-01-28T23:59:59",
@@ -11286,7 +11347,7 @@
           "pnl": 38.06640789088179,
           "pnl_pct": 3.06066144773598,
           "reason": "RSI Overbought (71.08) - Close Long",
-          "chart_id": "rsi_forex:68"
+          "chart_id": "rsi_forex:10"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -11307,7 +11368,7 @@
           "pnl": -14.201309894281485,
           "pnl_pct": -0.5675171808744054,
           "reason": "Stop Loss Hit @ 1.3600374999999998 (SL 1.3600374999999998)",
-          "chart_id": "rsi_forex:69"
+          "chart_id": "rsi_forex:9"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -11328,7 +11389,7 @@
           "pnl": -25.50636362588607,
           "pnl_pct": -1.0207633967425083,
           "reason": "Short Stop Loss Hit @ 0.6964371428571429 (SL 0.6964371428571429)",
-          "chart_id": "rsi_forex:70"
+          "chart_id": "rsi_forex:8"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -11349,7 +11410,7 @@
           "pnl": -0.14677893695744418,
           "pnl_pct": -1.2001306832136966,
           "reason": "Stop Loss Hit @ 152.28517857142856 (SL 152.28517857142856)",
-          "chart_id": "rsi_forex:71"
+          "chart_id": "rsi_forex:7"
         },
         {
           "time": "2026-01-27T23:59:59",
@@ -11370,7 +11431,7 @@
           "pnl": -21.153444405120837,
           "pnl_pct": -0.8453405512551863,
           "reason": "Short Stop Loss Hit @ 1.3779910714285715 (SL 1.3779910714285715)",
-          "chart_id": "rsi_forex:72"
+          "chart_id": "rsi_forex:6"
         },
         {
           "time": "2026-01-24T23:59:59",
@@ -11391,7 +11452,7 @@
           "pnl": 14.415825292466138,
           "pnl_pct": 1.1532660233972911,
           "reason": "RSI Oversold (27.67) - Cover Short",
-          "chart_id": "rsi_forex:73"
+          "chart_id": "rsi_forex:5"
         },
         {
           "time": "2026-01-22T23:59:59",
@@ -11412,7 +11473,7 @@
           "pnl": 6.459155763082347,
           "pnl_pct": 0.5167324610465878,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:74"
+          "chart_id": "rsi_forex:4"
         },
         {
           "time": "2026-01-21T23:59:59",
@@ -11433,7 +11494,7 @@
           "pnl": -18.224869187628784,
           "pnl_pct": -0.7289947675051514,
           "reason": "Short Stop Loss Hit @ 0.6740482142857143 (SL 0.6740482142857143)",
-          "chart_id": "rsi_forex:75"
+          "chart_id": "rsi_forex:3"
         },
         {
           "time": "2026-01-20T23:59:59",
@@ -11454,7 +11515,7 @@
           "pnl": 14.256651017214322,
           "pnl_pct": 1.1405320813771458,
           "reason": "Short TP1 Hit",
-          "chart_id": "rsi_forex:76"
+          "chart_id": "rsi_forex:2"
         },
         {
           "time": "2026-01-19T23:59:59",
@@ -11475,7 +11536,7 @@
           "pnl": 5.061223809717291,
           "pnl_pct": 0.40693864882574554,
           "reason": "TP1 Hit",
-          "chart_id": "rsi_forex:77"
+          "chart_id": "rsi_forex:1"
         },
         {
           "time": "2026-01-16T23:59:59",
@@ -11496,7 +11557,7 @@
           "pnl": -12.537172705584684,
           "pnl_pct": -0.5014869082233874,
           "reason": "Stop Loss Hit @ 1.1600432142857144 (SL 1.1600432142857144)",
-          "chart_id": "rsi_forex:78"
+          "chart_id": "rsi_forex:0"
         }
       ],
       "pair_performance": {
@@ -11555,7 +11616,8 @@
         "USD/JPY": 1316.2743700172828,
         "EUR/USD": 2580.007409411026,
         "GBP/USD": 2581.9076255459404,
-        "USD/CAD": 2563.0896480178562
+        "USD/CAD": 2563.0896480178562,
+        "AUD/USD": 1292.158142681645
       }
     }
   }
