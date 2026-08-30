@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-30T14:20:00Z",
+  "title": "Design System: Bot Trader Dashboard",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "displayName": "Night Canvas",
+        "role": "neutral",
+        "canonical": "#0d1117",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c6269",
+          "#7d838b",
+          "#a0a5ae",
+          "#c4cad2",
+          "#e9eff8"
+        ]
+      },
+      "surface": {
+        "displayName": "Graphite Panel",
+        "role": "neutral",
+        "canonical": "#161b22",
+        "tonalRamp": [
+          "#070b12",
+          "#20252d",
+          "#3d424a",
+          "#5c626a",
+          "#7c838c",
+          "#9fa6af",
+          "#c3cad4",
+          "#e8eff9"
+        ]
+      },
+      "ink": {
+        "displayName": "Pewter Ink",
+        "role": "neutral",
+        "canonical": "#c9d1d9",
+        "tonalRamp": [
+          "#070c11",
+          "#20262c",
+          "#3c4349",
+          "#5b6269",
+          "#7c838b",
+          "#9ea6ae",
+          "#c2cad2",
+          "#e7f0f8"
+        ]
+      },
+      "frost": {
+        "displayName": "Frost Value",
+        "role": "neutral",
+        "canonical": "#f0f6fc",
+        "tonalRamp": [
+          "#080c0f",
+          "#21262a",
+          "#3e4347",
+          "#5d6267",
+          "#7e8388",
+          "#a0a6ab",
+          "#c4cad0",
+          "#e9eff5"
+        ]
+      },
+      "muted": {
+        "displayName": "Ash Caption",
+        "role": "neutral",
+        "canonical": "#8b949e",
+        "tonalRamp": [
+          "#060c13",
+          "#1f262e",
+          "#3b434c",
+          "#5a626b",
+          "#7b838d",
+          "#9da6b0",
+          "#c1cad5",
+          "#e6f0fb"
+        ]
+      },
+      "stroke": {
+        "displayName": "Iron Hairline",
+        "role": "neutral",
+        "canonical": "#30363d",
+        "tonalRamp": [
+          "#070c11",
+          "#20262c",
+          "#3c434a",
+          "#5b626a",
+          "#7c838b",
+          "#9fa6ae",
+          "#c2cad3",
+          "#e8eff9"
+        ]
+      },
+      "accent": {
+        "displayName": "After-Hours Blue",
+        "role": "primary",
+        "canonical": "#58a6ff",
+        "tonalRamp": [
+          "#000048",
+          "#001b6b",
+          "#003e8f",
+          "#0361b4",
+          "#3584da",
+          "#5aa8ff",
+          "#7ecdff",
+          "#a3f3ff"
+        ]
+      },
+      "pnl-gain": {
+        "displayName": "Ledger Green",
+        "role": "secondary",
+        "canonical": "#3fb950",
+        "tonalRamp": [
+          "#001700",
+          "#003600",
+          "#005700",
+          "#007900",
+          "#159d33",
+          "#49c258",
+          "#71e77c",
+          "#98ffa1"
+        ]
+      },
+      "pnl-loss": {
+        "displayName": "Ledger Red",
+        "role": "tertiary",
+        "canonical": "#f85149",
+        "tonalRamp": [
+          "#400000",
+          "#690000",
+          "#910000",
+          "#ba000f",
+          "#e33c37",
+          "#ff655a",
+          "#ff8b7d",
+          "#ffb2a2"
+        ]
+      },
+      "caution": {
+        "displayName": "Amber Caution",
+        "role": "secondary",
+        "canonical": "#d29922",
+        "tonalRamp": [
+          "#250000",
+          "#461300",
+          "#673400",
+          "#8a5400",
+          "#ae7600",
+          "#d39a23",
+          "#f9be52",
+          "#ffe479"
+        ]
+      },
+      "gain-wash": {
+        "displayName": "Green Wash",
+        "role": "secondary",
+        "canonical": "rgba(59, 190, 80, 0.15)",
+        "tonalRamp": [
+          "#001700",
+          "#003600",
+          "#005700",
+          "#007900",
+          "#159d33",
+          "#49c258",
+          "#71e77c",
+          "#98ffa1"
+        ]
+      },
+      "loss-wash": {
+        "displayName": "Red Wash",
+        "role": "tertiary",
+        "canonical": "rgba(248, 81, 73, 0.15)",
+        "tonalRamp": [
+          "#400000",
+          "#690000",
+          "#910000",
+          "#ba000f",
+          "#e33c37",
+          "#ff655a",
+          "#ff8b7d",
+          "#ffb2a2"
+        ]
+      },
+      "accent-hover": {
+        "displayName": "Blue Hover Veil",
+        "role": "primary",
+        "canonical": "rgba(88, 166, 255, 0.06)",
+        "tonalRamp": [
+          "#000048",
+          "#001b6b",
+          "#003e8f",
+          "#0361b4",
+          "#3584da",
+          "#5aa8ff",
+          "#7ecdff",
+          "#a3f3ff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page title only. Accent color. The title is Bot Trader, with no subtitle."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "KPI numeric line in Frost Value. Compact viewport steps size down in CSS."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Page default and native control text. 16px on select and input so iOS does not zoom."
+      },
+      "table": {
+        "displayName": "Table",
+        "purpose": "Closed-trades and positions density. Symbols and signed P/L bump to semibold."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase region names: KPI titles, chart captions, expand-summary keys."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Sync timestamp, pair-window hint, table column headers."
+      },
+      "chip": {
+        "displayName": "Chip",
+        "purpose": "LONG, SHORT, and TP1 HIT badges."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "row-hover",
+        "value": "background 0.1s",
+        "purpose": "Closed-trade row background tint on hover."
+      },
+      {
+        "name": "caret-rotate",
+        "value": "transform 0.2s",
+        "purpose": "Expand caret rotates 90deg when the row is open."
+      },
+      {
+        "name": "expand-well",
+        "value": "max-height 0.3s ease",
+        "purpose": "Trade detail well opens from max-height 0 to 2000px (uncapped at 720px)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "charts-stack",
+        "value": "900px",
+        "purpose": "Equity, exposure, then pair cards stack to one column."
+      },
+      {
+        "name": "compact",
+        "value": "720px",
+        "purpose": "Stacked header and filter, 2-col KPIs with fifth card spanning, 260px charts, hide secondary table columns, 12px expand padding."
+      },
+      {
+        "name": "kpi-single",
+        "value": "380px",
+        "purpose": "KPI grid becomes one column."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Page Header",
+      "kind": "nav",
+      "refersTo": "page-header",
+      "description": "Accent display title Bot Trader, Ash Caption sync line, hairline bottom edge.",
+      "html": "<header class=\"ds-header\"><div><h1 class=\"ds-header-title\">Bot Trader</h1><div class=\"ds-header-sync\">Sync: Aug 30, 2026</div></div></header>",
+      "css": ".ds-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 1px solid #30363d; padding-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-header-title { color: #58a6ff; margin: 0; font-size: clamp(1.35rem, 4vw, 2rem); line-height: 1.2; font-weight: 700; } .ds-header-sync { font-size: 11px; color: #8b949e; margin-top: 4px; }"
+    },
+    {
+      "name": "KPI Metric Card",
+      "kind": "card",
+      "refersTo": "metric-card",
+      "description": "Graphite panel with uppercase Ash Caption title and Frost Value headline. Drawdown is Ledger Red only when greater than zero.",
+      "html": "<div class=\"ds-kpi-row\"><div class=\"ds-kpi-card\"><div class=\"ds-kpi-title\">Net Equity</div><div class=\"ds-kpi-value\">$10,482.15</div></div><div class=\"ds-kpi-card\"><div class=\"ds-kpi-title\">Max Drawdown</div><div class=\"ds-kpi-value ds-kpi-loss\">-12.4%</div></div></div>",
+      "css": ".ds-kpi-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-kpi-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px; min-width: 0; } .ds-kpi-title { color: #8b949e; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; } .ds-kpi-value { font-size: 24px; font-weight: 600; color: #f0f6fc; font-variant-numeric: tabular-nums; } .ds-kpi-loss { color: #f85149; }"
+    },
+    {
+      "name": "Strategy Select",
+      "kind": "input",
+      "refersTo": "filter-control",
+      "description": "Native select on Graphite Panel with hairline and 6px radius. 2px After-Hours Blue focus-visible outline.",
+      "html": "<select class=\"ds-filter-control\"><option>RSI STRATEGY</option><option>MOVING AVERAGE</option></select>",
+      "css": ".ds-filter-control { background: #161b22; color: #c9d1d9; border: 1px solid #30363d; padding: 8px 12px; border-radius: 6px; font-size: 16px; min-height: 44px; max-width: 100%; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-filter-control:focus-visible { outline: 2px solid #58a6ff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Symbol Filter",
+      "kind": "input",
+      "refersTo": "symbol-filter",
+      "description": "Closed-trades text filter. Same control chrome as the select. Width capped at 240px.",
+      "html": "<input class=\"ds-symbol-filter\" type=\"text\" placeholder=\"Filter by symbol...\" />",
+      "css": ".ds-symbol-filter { background: #161b22; color: #c9d1d9; border: 1px solid #30363d; padding: 8px 12px; border-radius: 6px; font-size: 16px; min-height: 44px; width: min(240px, 100%); font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-symbol-filter:focus-visible { outline: 2px solid #58a6ff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Chart Panel",
+      "kind": "card",
+      "refersTo": "chart-panel",
+      "description": "Equity/exposure shell: uppercase caption, Graphite Panel, 380px tall. Series ink is After-Hours Blue.",
+      "html": "<div class=\"ds-chart-panel\"><div class=\"ds-chart-caption\">Equity Growth (vs. Baseline)</div><svg class=\"ds-chart-plot\" viewBox=\"0 0 320 120\" aria-hidden=\"true\"><polyline fill=\"rgba(88, 166, 255, 0.05)\" stroke=\"none\" points=\"0,120 0,80 40,70 80,74 120,50 160,46 200,38 240,42 280,28 320,22 320,120\" /><polyline fill=\"none\" stroke=\"#58a6ff\" stroke-width=\"2\" points=\"0,80 40,70 80,74 120,50 160,46 200,38 240,42 280,28 320,22\" /><line x1=\"0\" y1=\"90\" x2=\"320\" y2=\"90\" stroke=\"rgba(139, 148, 158, 0.5)\" stroke-width=\"1\" stroke-dasharray=\"5 5\" /></svg></div>",
+      "css": ".ds-chart-panel { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 20px; height: 380px; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; display: flex; flex-direction: column; } .ds-chart-caption { font-size: 12px; color: #8b949e; margin-bottom: 10px; text-transform: uppercase; } .ds-chart-plot { width: 100%; flex: 1; min-height: 0; }"
+    },
+    {
+      "name": "Side Chips",
+      "kind": "chip",
+      "refersTo": "chip-long",
+      "description": "LONG/SHORT pills on tinted washes. TP1 HIT uses Amber Caution at 10% wash.",
+      "html": "<div class=\"ds-chip-row\"><span class=\"ds-badge-long\">LONG</span><span class=\"ds-badge-short\">SHORT</span><span class=\"ds-badge-tp1\">TP1 HIT</span></div>",
+      "css": ".ds-chip-row { display: flex; gap: 8px; align-items: center; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-badge-long, .ds-badge-short, .ds-badge-tp1 { padding: 3px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; } .ds-badge-long { background: rgba(59, 190, 80, 0.15); color: #3fb950; } .ds-badge-short { background: rgba(248, 81, 73, 0.15); color: #f85149; } .ds-badge-tp1 { background: rgba(210, 153, 34, 0.1); color: #d29922; }"
+    },
+    {
+      "name": "Closed-Trade Row",
+      "kind": "custom",
+      "refersTo": "trade-row-hover",
+      "description": "History row stays a table row. Caret button in the first cell is the keyboard control. Hover and active tint with the blue veil.",
+      "html": "<table class=\"ds-table\"><tbody><tr class=\"ds-trade-row\"><td class=\"ds-caret-cell\"><button type=\"button\" class=\"ds-trade-toggle\" aria-expanded=\"false\" aria-label=\"Closed trade ETH-USD\"><span class=\"ds-caret\">\u25b6</span></button></td><td class=\"ds-muted\">Aug 28, 2026</td><td class=\"ds-symbol\">ETH-USD</td><td><span class=\"ds-badge-long\">LONG</span></td><td class=\"ds-pnl-gain\">+$128.40 <span class=\"ds-pnl-pct\">(2.14%)</span></td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; font-size: 13px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; color: #c9d1d9; } .ds-table td { text-align: left; padding: 10px; border-bottom: 1px solid #30363d; } .ds-trade-row { cursor: pointer; user-select: none; transition: background 0.1s; } .ds-trade-row:hover, .ds-trade-row:active { background: rgba(88, 166, 255, 0.06); } .ds-caret-cell { width: 28px; color: #8b949e; font-size: 10px; } .ds-trade-toggle { display: inline-flex; align-items: center; justify-content: center; margin: 0; padding: 8px; border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; } .ds-trade-toggle:focus-visible { outline: 2px solid #58a6ff; outline-offset: 2px; } .ds-caret { display: inline-block; transition: transform 0.2s; } .ds-muted { color: #8b949e; } .ds-symbol { font-weight: 600; } .ds-badge-long { padding: 3px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; background: rgba(59, 190, 80, 0.15); color: #3fb950; } .ds-pnl-gain { color: #3fb950; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; } .ds-pnl-pct { font-size: 10px; opacity: 0.7; }"
+    },
+    {
+      "name": "Expand Panel",
+      "kind": "custom",
+      "refersTo": "expand-well",
+      "description": "Night Canvas well under an open trade: uppercase keys, frost values, hairline divider.",
+      "html": "<div class=\"ds-expand-inner\"><dl class=\"ds-trade-summary\"><div><dt>Entry</dt><dd>$2.4100 <span class=\"ds-meta\">Aug 20, 2026</span></dd></div><div><dt>Exit</dt><dd>$2.4614 <span class=\"ds-meta\">Aug 28, 2026 (8d)</span></dd></div><div><dt>SL at exit</dt><dd>$2.2800</dd></div><div><dt>Quantity</dt><dd>12.500000</dd></div><div><dt>Reason</dt><dd>Take Profit</dd></div></dl><p class=\"ds-no-chart\">Close snapshot missing. Re-run snapshot backfill or wait for the next daily close.</p></div>",
+      "css": ".ds-expand-inner { background: #0d1117; border-bottom: 1px solid #30363d; padding: 20px; max-height: 2000px; font-variant-numeric: tabular-nums; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-trade-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px 16px; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid #30363d; font-size: 12px; } .ds-trade-summary dt { color: #8b949e; margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; } .ds-trade-summary dd { margin: 2px 0 0 0; color: #f0f6fc; font-weight: 500; } .ds-meta { color: #8b949e; font-weight: 400; } .ds-no-chart { color: #8b949e; font-size: 12px; font-style: italic; text-align: center; padding: 20px; margin: 0; }"
+    },
+    {
+      "name": "Filter Bar",
+      "kind": "custom",
+      "description": "Section title plus trailing symbol filter inside a Graphite Panel. Compact stacks the control full width.",
+      "html": "<div class=\"ds-section-card\"><div class=\"ds-filter-bar\"><div class=\"ds-kpi-title\">Closed Trades History</div><input class=\"ds-symbol-filter\" type=\"text\" placeholder=\"Filter by symbol...\" /></div></div>",
+      "css": ".ds-section-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-filter-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; } .ds-kpi-title { color: #8b949e; font-size: 12px; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px; } .ds-symbol-filter { background: #161b22; color: #c9d1d9; border: 1px solid #30363d; padding: 8px 12px; border-radius: 6px; font-size: 16px; min-height: 44px; width: min(240px, 100%); }"
+    },
+    {
+      "name": "Pair Performance Card",
+      "kind": "card",
+      "refersTo": "pair-card",
+      "description": "Tighter pair card: rolling window caption, dense table, signed P/L in Ledger Green or Red.",
+      "html": "<div class=\"ds-pair-card\"><div class=\"ds-pair-header\"><div class=\"ds-kpi-title\">Rolling winners</div><span class=\"ds-pair-window\">Last 30 days (64 trades)</span></div><table class=\"ds-pair-table\"><thead><tr><th>Pair</th><th>Realized P/L</th><th>Trades</th><th>Win %</th></tr></thead><tbody><tr><td class=\"ds-symbol\">BTC-USD</td><td class=\"ds-pnl-gain\">+$412.00</td><td class=\"ds-muted\">18</td><td class=\"ds-muted\">61.1%</td></tr><tr><td class=\"ds-symbol\">ETH-USD</td><td class=\"ds-pnl-gain\">+$128.40</td><td class=\"ds-muted\">12</td><td class=\"ds-muted\">58.3%</td></tr></tbody></table></div>",
+      "css": ".ds-pair-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 12px; min-width: 0; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif; } .ds-pair-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; } .ds-kpi-title { color: #8b949e; font-size: 12px; margin-bottom: 0; text-transform: uppercase; letter-spacing: 0.5px; } .ds-pair-window { font-size: 11px; color: #8b949e; } .ds-pair-table { width: 100%; border-collapse: collapse; font-size: 12px; color: #c9d1d9; } .ds-pair-table th { color: #8b949e; font-size: 10px; text-transform: uppercase; padding: 6px 8px 6px 0; border-bottom: 1px solid #30363d; text-align: left; } .ds-pair-table td { padding: 8px 8px 8px 0; border-bottom: 1px solid #30363d; } .ds-pair-table tr:last-child td { border-bottom: none; } .ds-symbol { font-weight: 600; } .ds-pnl-gain { color: #3fb950; font-weight: 600; } .ds-muted { color: #8b949e; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The After-Hours Desk",
+    "overview": "The dashboard is a GitHub-dark paper-trading desk: one cool canvas, hairline-bordered panels, and the platform system UI stack. It exists to scan equity, exposure, and closed trades after the daily run, not to sell a product. Personality is quiet, dense, and operational. Almost all color sits in graphite until a figure is profit, loss, or the page title.\n\nVisual rejections confirmed by the shipped CSS: no drop shadows, no webfonts, no lifted cards, no decorative illustration. Depth is a 1px stroke and a darker well when a trade row expands. The brand mark is the accent-blue title plus the chart series. Everything else is muted labels and frost values.",
+    "keyCharacteristics": [
+      "Cool graphite surfaces with one Primer-blue accent",
+      "P/L is only green or red, never the accent",
+      "Shared 6px rectangles; pills are side badges only",
+      "System UI stack at every type role",
+      "Expand-row is the detail pattern; compact view hides secondary columns"
+    ],
+    "rules": [
+      {
+        "name": "The Accent Scarcity Rule",
+        "body": "After-Hours Blue is title and chart series. It is not a P/L color and not a body-text color.",
+        "section": "colors"
+      },
+      {
+        "name": "The P/L Binary Rule",
+        "body": "Signed money is Ledger Green or Ledger Red. Neutral frost is for unsigned magnitudes (equity, trade count, profit factor). Max Drawdown is Ledger Red only when the value is greater than zero.",
+        "section": "colors"
+      },
+      {
+        "name": "The System Face Rule",
+        "body": "Do not load a webfont. Every role uses the shipped system stack.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caps Label Rule",
+        "body": "Chrome that names a region (KPI title, chart caption, table header, expand dt) is uppercase and Ash Caption. Values stay sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Compact Stack Rule",
+        "body": "At 720px: stack header and filter, two-column KPIs with `.card-span` on Total Trades, `--chart-h` 260px, hide secondary table columns, expand well padding 12px, summary grid one column. Do not add a fourth layout breakpoint besides 900px (charts), 720px (compact), and 380px (single KPI).",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Depth Rule",
+        "body": "Surfaces are distinguished by a 1px Iron Hairline border, not by shadow or blur. Hover and `:active` on a trade row tint the surface with the blue hover veil; they do not lift.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Shared Radius Rule",
+        "body": "New panels and controls use the 6px radius. Pills are for LONG, SHORT, and status chips only.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do paint signed P/L and side chips with Ledger Green or Ledger Red, and unsigned KPIs with Frost Value.",
+      "Do put new panels on Graphite Panel with a 1px Iron Hairline and the 6px radius.",
+      "Do keep region names uppercase Ash Caption and values in sentence case.",
+      "Do hide `.col-secondary` at 720px and put extra trade fields in the expand well.",
+      "Do wrap wide tables in `.table-scroll` and lazy-load close snapshots only after expand.",
+      "Do right-align money, qty, and P/L with tabular numerals. Keep Symbol and Side left.",
+      "Do use a 2px After-Hours Blue `:focus-visible` outline on selects, inputs, and the caret toggle."
+    ],
+    "donts": [
+      "Don't add drop shadows, backdrop blur, or lifted hover states.",
+      "Don't load a display or mono webfont; the system stack is the type system.",
+      "Don't use After-Hours Blue for P/L, body copy, or as a card fill.",
+      "Don't introduce a primary button. The desk uses select, filter, and row expand.",
+      "Don't reintroduce `--header-bg`, a P/L bar, or an Insights subtitle.",
+      "Don't put secondary trade columns in the compact table; the expand panel is the detail surface.",
+      "Don't paint Max Drawdown red when the value is zero."
+    ]
+  }
+}

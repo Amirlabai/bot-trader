@@ -5,6 +5,12 @@ gemini.md
 STATUS.md
 graphify-out/
 .agents/
+.impeccable/live/
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/hook.pending.json
+.impeccable-live.json
+.impeccable-live/
 docs/report_data.json
 docs/trade_audit.json
 data/ledger.json.bak

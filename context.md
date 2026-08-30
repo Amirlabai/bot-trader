@@ -9,7 +9,7 @@
 - **State Management**: `src/ledger_manager.py` manages independent "wallets" for each strategy, tracking cash, open positions, and trade history in `data/ledger.json`.
 - **Reporting & Visualization**: 
     - `src/reporting.py`: Reconstructs equity curves, calculates advanced performance metrics (Win Rate, Profit Factor, Max DD), and renders entry charts.
-    - `docs/index.html`: Advanced SPA dashboard with asset exposure tracking, trade history filtering, and P/L percentage analysis.
+    - `docs/index.html`: Advanced SPA dashboard with asset exposure tracking, trade history filtering, and P/L percentage analysis. Visual system: `DESIGN.md` and `.impeccable/design.json` (After-Hours Desk).
 - **Strategies**: Modular strategy logic is stored in `strategies/` (e.g., `MovingAverageStrategy`, `RSIStrategy`).
 
 ## Risk Management
@@ -27,7 +27,7 @@
 - **Debug**: Set `BOT_TRADER_DEBUG=1` to re-raise after signal generation errors (traceback always printed).
 - **Trade charts**: Close-only snapshots (`_build_close_snapshot` on exit in `main.py`); last ~20 daily bars ending on the close bar; chart shows SL/TP, entry price line, exit price/date. OPEN history does not store chart snapshots. Backfill closes: `.\.venv\Scripts\python.exe scratch\update_snapshots.py`.
 - **Stop-loss fills**: Stop/trail exits always fill at the **SL level** (including a wick through SL that closes back inside). TP1 fills at stored **take_profit**. Same rule in live `main.py` and backfill (`apply_close_fill_to_event` updates `price`, `pnl`, and strategy `cash`).
-- **Dashboard**: Pair performance (rolling winners/losers) under the equity/exposure charts; closed trades table shows exit date, entry date, days held, qty, entry/exit prices, and P/L; expand row shows SL at exit and TP1 target when applicable. Open positions show entry date. Mobile (≤720px): stacked header/filter, 2-col KPI grid, compact charts, primary table columns only (secondary fields in expand / horizontal scroll wrappers).
+- **Dashboard**: Pair performance (rolling winners/losers) under the equity/exposure charts; closed trades table shows exit date, entry date, days held, qty, entry/exit prices, and P/L; expand row shows SL at exit and TP1 target when applicable. Open positions show entry date. Mobile (≤720px): stacked header/filter, 2-col KPI grid with Total Trades spanning, compact charts, 12px expand padding, primary table columns only (secondary fields in expand). Money columns use tabular numerals.
 - **Report**: `trade_history` exports `entry_date`, `exit_date`, `hold_days`, `exit_kind`, `stop_loss_at_exit`, `take_profit_at_exit`, `quantity_pct`, `reason`, `chart_id` (PNG bytes live in `docs/report_charts.js`, loaded on row expand). Regenerate: `scratch\update_snapshots.py --report-only`.
 - **Dashboard load**: Lean `report_data.js` (~0.4 MB) for first paint; `report_charts.js` (~20 MB) fetched only when a closed-trade row is expanded.
 

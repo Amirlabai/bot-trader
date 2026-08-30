@@ -17,7 +17,7 @@
             --success-color: #3fb950;
             --danger-color: #f85149;
             --warning-color: #d29922;
-            --header-bg: #21262d;
+            --frost: #f0f6fc;
             --muted: #8b949e;
             --page-pad: 20px;
             --chart-h: 380px;
@@ -41,6 +41,11 @@
             overflow-x: clip;
         }
 
+        ::selection {
+            background: rgba(88, 166, 255, 0.3);
+            color: var(--frost);
+        }
+
         .container {
             max-width: 1300px;
             margin: 0 auto;
@@ -59,6 +64,12 @@
 
         header > div:last-child {
             flex-shrink: 0;
+        }
+
+        #last-updated {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px;
         }
 
         h1 {
@@ -88,6 +99,13 @@
             width: min(240px, 100%);
         }
 
+        select:focus-visible,
+        input:focus-visible,
+        .trade-toggle:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
@@ -101,7 +119,6 @@
             border-radius: 6px;
             padding: 15px;
             min-width: 0;
-            overflow: hidden;
         }
 
         .card-title {
@@ -115,7 +132,12 @@
         .card-value {
             font-size: 24px;
             font-weight: 600;
-            color: #f0f6fc;
+            color: var(--frost);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .card-value.is-loss {
+            color: var(--danger-color);
         }
 
         .main-charts {
@@ -125,6 +147,11 @@
             gap: 20px;
             margin-bottom: 30px;
             align-items: stretch;
+        }
+
+        .section-stack {
+            display: grid;
+            gap: 30px;
         }
 
         .chart-equity {
@@ -157,6 +184,7 @@
             -webkit-overflow-scrolling: touch;
             overscroll-behavior-x: contain;
             margin-top: 15px;
+            padding: 2px;
         }
 
         .table-scroll table {
@@ -213,6 +241,11 @@
             color: var(--danger-color);
         }
 
+        .badge-tp1 {
+            background: rgba(210, 153, 34, 0.1);
+            color: var(--warning-color);
+        }
+
         .loader {
             text-align: center;
             padding: 50px;
@@ -225,7 +258,8 @@
             transition: background 0.1s;
         }
 
-        .trade-row:hover {
+        .trade-row:hover,
+        .trade-row:active {
             background: rgba(88, 166, 255, 0.06);
         }
 
@@ -233,6 +267,19 @@
             width: 28px;
             color: var(--muted);
             font-size: 10px;
+        }
+
+        .trade-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 8px;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
         }
 
         .trade-row td.caret-cell .caret {
@@ -258,7 +305,7 @@
         }
 
         .trade-detail-inner.open {
-            max-height: 700px;
+            max-height: 2000px;
             padding: 20px;
         }
 
@@ -304,8 +351,9 @@
 
         .trade-summary dd {
             margin: 2px 0 0 0;
-            color: #f0f6fc;
+            color: var(--frost);
             font-weight: 500;
+            font-variant-numeric: tabular-nums;
         }
 
         .filter-bar {
@@ -324,16 +372,14 @@
             justify-content: flex-end;
         }
 
-        .pos-pnl-bar {
-            height: 6px;
-            background: #30363d;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 5px;
+        .filter-bar .card-title {
+            margin-bottom: 0;
         }
 
-        .pos-pnl-fill {
-            height: 100%;
+        th.num,
+        td.num {
+            font-variant-numeric: tabular-nums;
+            text-align: right;
         }
 
         .pair-perf-row {
@@ -448,6 +494,10 @@
                 padding: 12px;
             }
 
+            .grid > .card-span {
+                grid-column: 1 / -1;
+            }
+
             .card-value {
                 font-size: 20px;
             }
@@ -459,6 +509,10 @@
             .main-charts {
                 gap: 12px;
                 margin-bottom: 20px;
+            }
+
+            .section-stack {
+                gap: 20px;
             }
 
             .filter-bar > div:last-child {
@@ -489,11 +543,24 @@
             .trade-row {
                 min-height: 48px;
             }
+
+            .trade-detail-inner.open {
+                max-height: none;
+                padding: 12px;
+            }
+
+            .trade-summary {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 380px) {
             .grid {
                 grid-template-columns: 1fr;
+            }
+
+            .grid > .card-span {
+                grid-column: auto;
             }
         }
 
@@ -511,8 +578,8 @@
     <div class="container">
         <header>
             <div>
-                <h1>Bot Trader <span style="font-weight:300; opacity:0.7">Insights</span></h1>
-                <div id="last-updated" style="font-size: 11px; color: var(--muted); margin-top: 4px;">Loading...</div>
+                <h1>Bot Trader</h1>
+                <div id="last-updated">Loading...</div>
             </div>
             <div>
                 <select id="strategy-selector" onchange="renderStrategy(this.value)">
@@ -538,9 +605,9 @@
                 </div>
                 <div class="card">
                     <div class="card-title">Max Drawdown</div>
-                    <div class="card-value" id="val-drawdown" style="color:var(--danger-color)">---</div>
+                    <div class="card-value" id="val-drawdown">---</div>
                 </div>
-                <div class="card">
+                <div class="card card-span">
                     <div class="card-title">Total Trades</div>
                     <div class="card-value" id="val-total-trades">---</div>
                 </div>
@@ -549,13 +616,11 @@
             <!-- Charts Section -->
             <div class="main-charts">
                 <div class="chart-container chart-equity">
-                    <div style="font-size:12px; color:var(--muted); margin-bottom:10px; text-transform:uppercase;">
-                        Equity Growth (vs. Baseline)</div>
+                    <div class="card-title">Equity Growth (vs. Baseline)</div>
                     <canvas id="equityChart"></canvas>
                 </div>
                 <div class="chart-container chart-exposure">
-                    <div style="font-size:12px; color:var(--muted); margin-bottom:10px; text-transform:uppercase;">Asset
-                        Exposure</div>
+                    <div class="card-title">Asset Exposure</div>
                     <canvas id="exposureChart"></canvas>
                 </div>
                 <div class="pair-perf-row" id="pair-performance-container">
@@ -576,23 +641,23 @@
             </div>
 
             <!-- Active Positions -->
+            <div class="section-stack">
             <div class="card">
                 <div class="card-title">Open Positions</div>
                 <div id="positions-table-container"></div>
             </div>
 
-            <br>
-
             <!-- Trade History with Filtering -->
             <div class="card">
                 <div class="filter-bar">
-                    <div class="card-title" style="margin-bottom:0">Closed Trades History</div>
+                    <div class="card-title">Closed Trades History</div>
                     <div>
                         <input type="text" id="symbol-filter" placeholder="Filter by symbol..."
                             onkeyup="applyFilters()">
                     </div>
                 </div>
                 <div id="history-table-container"></div>
+            </div>
             </div>
         </div>
 
@@ -747,13 +812,13 @@
                 const pnlColor = r.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                 return `<tr>
                     <td style="font-weight:600">${r.symbol}</td>
-                    <td style="color:${pnlColor}; font-weight:600">${r.pnl >= 0 ? '+' : ''}$${r.pnl.toFixed(2)}</td>
-                    <td style="color:var(--muted)">${r.trades}</td>
-                    <td style="color:var(--muted)">${r.win_rate.toFixed(1)}%</td>
+                    <td class="num" style="color:${pnlColor}; font-weight:600">${r.pnl >= 0 ? '+' : ''}$${r.pnl.toFixed(2)}</td>
+                    <td class="num" style="color:var(--muted)">${r.trades}</td>
+                    <td class="num" style="color:var(--muted)">${r.win_rate.toFixed(1)}%</td>
                 </tr>`;
             }).join('');
             container.innerHTML = `<div class="table-scroll"><table class="pair-perf-table">
-                <thead><tr><th>Pair</th><th>Realized P/L</th><th>Trades</th><th>Win %</th></tr></thead>
+                <thead><tr><th>Pair</th><th class="num">Realized P/L</th><th class="num">Trades</th><th class="num">Win %</th></tr></thead>
                 <tbody>${body}</tbody>
             </table></div>`;
         }
@@ -779,7 +844,18 @@
             document.getElementById('val-winrate').innerText = `${data.metrics.win_rate.toFixed(1)}%`;
             const pf = data.metrics.profit_factor;
             document.getElementById('val-profitfactor').innerText = (typeof pf === 'number') ? pf.toFixed(2) : pf;
-            document.getElementById('val-drawdown').innerText = `-${data.metrics.max_drawdown.toFixed(1)}%`;
+            const ddEl = document.getElementById('val-drawdown');
+            const dd = Number(data.metrics.max_drawdown);
+            if (!Number.isFinite(dd)) {
+                ddEl.classList.remove('is-loss');
+                ddEl.innerText = '-';
+            } else if (dd > 0) {
+                ddEl.classList.add('is-loss');
+                ddEl.innerText = `-${dd.toFixed(1)}%`;
+            } else {
+                ddEl.classList.remove('is-loss');
+                ddEl.innerText = '0.0%';
+            }
             document.getElementById('val-total-trades').innerText = data.metrics.total_trades;
 
             // Tables
@@ -804,22 +880,22 @@
                 const costBasis = p.qty * p.entry;
                 const pnlPct = costBasis > 0 ? (pnl / costBasis) * 100 : 0;
                 const pnlColor = pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
-                const tp1Badge = p.tp1 ? '<span class="badge" style="background:rgba(210,153,34,0.1); color:var(--warning-color)">TP1 HIT</span>' : '';
+                const tp1Badge = p.tp1 ? '<span class="badge badge-tp1">TP1 HIT</span>' : '';
 
                 return `
                     <tr>
                         <td style="font-weight:600">${p.symbol} ${tp1Badge}</td>
                         <td><span class="badge ${badge}">${p.side}</span></td>
-                        <td class="col-secondary">${p.qty.toFixed(6)}</td>
-                        <td class="col-secondary">$${p.entry.toFixed(4)}</td>
+                        <td class="col-secondary num">${p.qty.toFixed(6)}</td>
+                        <td class="col-secondary num">$${p.entry.toFixed(4)}</td>
                         <td class="col-secondary" style="color:var(--muted)">${fmtDate(p.entry_date)}</td>
-                        <td class="col-secondary">$${(p.current_price || p.entry).toFixed(4)}</td>
-                        <td style="color:${pnlColor}; font-weight:600">
+                        <td class="col-secondary num">$${(p.current_price || p.entry).toFixed(4)}</td>
+                        <td class="num" style="color:${pnlColor}; font-weight:600">
                             ${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)}
                             <div style="font-size:10px; opacity:0.8">${pnlPct.toFixed(2)}%</div>
                         </td>
-                        <td class="col-secondary">$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
-                        <td>$${p.value.toLocaleString()}</td>
+                        <td class="col-secondary num">$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
+                        <td class="num">$${p.value.toLocaleString()}</td>
                     </tr>`;
             }).join('');
 
@@ -828,7 +904,7 @@
                 <table class="positions-table">
                     <thead>
                         <tr>
-                            <th>Asset</th><th>Side</th><th class="col-secondary">Size</th><th class="col-secondary">Entry</th><th class="col-secondary">Entry date</th><th class="col-secondary">Price</th><th>Unrealized P/L</th><th class="col-secondary">Stop</th><th>Market value</th>
+                            <th>Asset</th><th>Side</th><th class="col-secondary num">Size</th><th class="col-secondary num">Entry</th><th class="col-secondary">Entry date</th><th class="col-secondary num">Price</th><th class="num">Unrealized P/L</th><th class="col-secondary num">Stop</th><th class="num">Market value</th>
                         </tr>
                     </thead>
                     <tbody>${rows}</tbody>
@@ -858,34 +934,38 @@
             }
 
             const tbody = document.createElement('tbody');
-            filtered.forEach(t => {
+            filtered.forEach((t, i) => {
                 const badge = t.side === 'LONG' ? 'badge-long' : 'badge-short';
                 const pnlColor = t.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                 const hasChart = !!(t.chart_id || (t.chart_b64 && t.chart_b64.length > 0));
+                const detailId = `trade-detail-${i}`;
 
                 const tr = document.createElement('tr');
                 tr.className = 'trade-row';
                 const held = daysHeld(t);
                 tr.innerHTML = `
-                    <td class="caret-cell"><span class="caret">&#9654;</span></td>
+                    <td class="caret-cell"><button type="button" class="trade-toggle" aria-expanded="false" aria-controls="${detailId}" aria-label="Closed trade ${t.symbol}"><span class="caret">&#9654;</span></button></td>
                     <td style="color:var(--muted)">${fmtDate(t.exit_date || t.time)}</td>
                     <td class="col-secondary" style="color:var(--muted)">${fmtDate(t.entry_date)}</td>
-                    <td class="col-secondary" style="color:var(--muted)">${held != null ? held : '-'}</td>
+                    <td class="col-secondary num" style="color:var(--muted)">${held != null ? held : '-'}</td>
                     <td style="font-weight:600">${t.symbol}</td>
                     <td><span class="badge ${badge}">${t.side}</span></td>
-                    <td class="col-secondary" style="color:var(--muted)">${fmtPrice(t.entry_price)}</td>
-                    <td class="col-secondary" style="color:var(--muted)">${fmtPrice(t.exit_price)}</td>
-                    <td class="col-secondary" style="color:var(--muted)">${t.qty != null ? t.qty.toFixed(4) : '-'}</td>
-                    <td style="color:${pnlColor}">
+                    <td class="col-secondary num" style="color:var(--muted)">${fmtPrice(t.entry_price)}</td>
+                    <td class="col-secondary num" style="color:var(--muted)">${fmtPrice(t.exit_price)}</td>
+                    <td class="col-secondary num" style="color:var(--muted)">${t.qty != null ? t.qty.toFixed(4) : '-'}</td>
+                    <td class="num" style="color:${pnlColor}; font-weight:600">
                         ${t.pnl >= 0 ? '+' : ''}$${t.pnl.toFixed(2)}
                         <span style="font-size:10px; opacity:0.7">(${t.pnl_pct.toFixed(2)}%)</span>
                     </td>
                     <td class="col-secondary" style="font-size:11px; opacity:0.8">${formatReason(t)}</td>`;
 
+                const toggle = tr.querySelector('.trade-toggle');
+
                 const detailTr = document.createElement('tr');
                 detailTr.className = 'trade-detail-row';
                 const inner = document.createElement('div');
                 inner.className = 'trade-detail-inner';
+                inner.id = detailId;
 
                 let detailBody = tradeSummaryHtml(t);
                 if (hasChart) {
@@ -898,14 +978,19 @@
                 detailTr.innerHTML = `<td colspan="11"></td>`;
                 detailTr.querySelector('td').appendChild(inner);
 
-                tr.onclick = async () => {
+                const openTradeDetail = async () => {
                     if (expandedRow && expandedRow !== inner) {
                         expandedRow.classList.remove('open');
-                        if (expandedTradeRow) expandedTradeRow.classList.remove('expanded');
+                        if (expandedTradeRow) {
+                            expandedTradeRow.classList.remove('expanded');
+                            const prev = expandedTradeRow.querySelector('.trade-toggle');
+                            if (prev) prev.setAttribute('aria-expanded', 'false');
+                        }
                     }
                     inner.classList.toggle('open');
                     tr.classList.toggle('expanded');
                     const isOpen = inner.classList.contains('open');
+                    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
                     expandedRow = isOpen ? inner : null;
                     expandedTradeRow = isOpen ? tr : null;
                     if (isOpen && hasChart) {
@@ -930,6 +1015,12 @@
                     }
                 };
 
+                toggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openTradeDetail();
+                });
+                tr.addEventListener('click', openTradeDetail);
+
                 tbody.appendChild(tr);
                 tbody.appendChild(detailTr);
             });
@@ -939,7 +1030,7 @@
             scroll.className = 'table-scroll';
             const table = document.createElement('table');
             table.className = 'history-table';
-            table.innerHTML = `<thead><tr><th></th><th>Exit</th><th class="col-secondary">Entry date</th><th class="col-secondary">Days</th><th>Symbol</th><th>Side</th><th class="col-secondary">Entry</th><th class="col-secondary">Exit</th><th class="col-secondary">Qty</th><th>Realized P/L</th><th class="col-secondary">Signal Reason</th></tr></thead>`;
+            table.innerHTML = `<thead><tr><th></th><th>Exit</th><th class="col-secondary">Entry date</th><th class="col-secondary num">Days</th><th>Symbol</th><th>Side</th><th class="col-secondary num">Entry</th><th class="col-secondary num">Exit</th><th class="col-secondary num">Qty</th><th class="num">Realized P/L</th><th class="col-secondary">Signal Reason</th></tr></thead>`;
             table.appendChild(tbody);
             scroll.appendChild(table);
             container.appendChild(scroll);
