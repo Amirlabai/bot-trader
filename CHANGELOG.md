@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.17.0 (2026-08-30)
+
+### Features
+
+- **ui**: After-Hours Desk dashboard pass
+  ([`ca56fe4`](https://github.com/Amirlabai/bot-trader/commit/ca56fe4e435d102f7ee729b9c1bdc8bc9e9a8c89))
+
+
 ## v1.16.0 (2026-08-30)
 
 ### Features
