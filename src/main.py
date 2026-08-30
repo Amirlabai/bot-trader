@@ -15,30 +15,12 @@ from config import Config, TRADING_CONFIG, RISK_SETTINGS
 from shared.constants import (
     reason_is_entry_long,
     reason_is_entry_short,
-    reason_is_tp1_exit,
-    tp1_already_done,
 )
-from shared.exit_snapshots import (
-    build_close_snapshot as _build_close_snapshot,
-    bar_close_price as _bar_close_price,
-    clamp_quantity_pct as _clamp_quantity_pct,
-    last_bar_date as _last_bar_date,
-    resolve_close_fill_price as _resolve_close_fill_price,
-    resolve_close_reason,
-)
+from shared.exit_snapshots import last_bar_date as _last_bar_date
 from shared.risk_sizing import size_for_risk, should_open_after_sizing
+from shared.trade_exec import apply_exit
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
-
-
-def _apply_tp1_updates(ledger, strategy_id, symbol, signal_data):
-    """After a partial exit, move SL to breakeven and record TP1 (long or short)."""
-    new_sl = signal_data.get('stop_loss')
-    if new_sl is not None and new_sl > 0:
-        ledger.update_stop_loss(strategy_id, symbol, new_sl)
-    if reason_is_tp1_exit(signal_data.get('reason', '') or ''):
-        ledger.mark_tp1_hit(strategy_id, symbol)
-        print(f"    TP1 HIT RECORDED for {symbol}")
 
 
 def _is_entry_signal(signal_data, long=True):
@@ -112,31 +94,10 @@ def main():
 
             if action == 'buy':
                 if position_side == 'SHORT':
-                    skip_dup_tp1 = (
-                        reason_is_tp1_exit(signal_data.get('reason', ''))
-                        and tp1_already_done(pos_data)
+                    pos_data, position_side = apply_exit(
+                        ledger, strategy, strategy_id, symbol, market_data, pos_data,
+                        signal_data, position_side, build_snapshots=True, verbose=True,
                     )
-                    if skip_dup_tp1:
-                        print(f"    SKIP duplicate TP1 cover for {symbol} (TP1 already taken)")
-                        _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
-                    else:
-                        print(f"    Signal BUY -> Closing SHORT {symbol}")
-                        pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
-                        qty_to_cover = pos_data['qty'] * pct
-                        bar_close = _bar_close_price(market_data)
-                        fill_price = _resolve_close_fill_price('SHORT', bar_close, signal_data, pos_data)
-                        close_reason = resolve_close_reason(signal_data, fill_price)
-                        snapshot = _build_close_snapshot(
-                            market_data, signal_data, pos_data, fill_price, close_reason=close_reason,
-                        )
-                        if ledger.update_position(
-                            strategy_id, symbol, qty_to_cover, fill_price, 'buy',
-                            candle_snapshot=snapshot, reason=close_reason,
-                        ):
-                            print(f"    EXECUTED COVER SHORT: {qty_to_cover:.6f} {symbol} @ {fill_price}")
-                            _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
-                            pos_data = ledger.get_position(strategy_id, symbol)
-                            position_side = pos_data.get('side') if pos_data else None
 
                 if position_side is None and _is_entry_signal(signal_data, long=True):
                     new_sl = signal_data.get('stop_loss', 0.0)
@@ -160,31 +121,10 @@ def main():
 
             elif action == 'sell':
                 if position_side == 'LONG':
-                    skip_dup_tp1 = (
-                        reason_is_tp1_exit(signal_data.get('reason', ''))
-                        and tp1_already_done(pos_data)
+                    pos_data, position_side = apply_exit(
+                        ledger, strategy, strategy_id, symbol, market_data, pos_data,
+                        signal_data, position_side, build_snapshots=True, verbose=True,
                     )
-                    if skip_dup_tp1:
-                        print(f"    SKIP duplicate TP1 sell for {symbol} (TP1 already taken)")
-                        _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
-                    else:
-                        print(f"    Signal SELL -> Closing LONG {symbol}")
-                        pct = _clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
-                        qty_to_sell = pos_data['qty'] * pct
-                        bar_close = _bar_close_price(market_data)
-                        fill_price = _resolve_close_fill_price('LONG', bar_close, signal_data, pos_data)
-                        close_reason = resolve_close_reason(signal_data, fill_price)
-                        snapshot = _build_close_snapshot(
-                            market_data, signal_data, pos_data, fill_price, close_reason=close_reason,
-                        )
-                        if ledger.update_position(
-                            strategy_id, symbol, qty_to_sell, fill_price, 'sell',
-                            candle_snapshot=snapshot, reason=close_reason,
-                        ):
-                            print(f"    EXECUTED SELL LONG: {qty_to_sell:.6f} {symbol} @ {fill_price}")
-                            _apply_tp1_updates(ledger, strategy_id, symbol, signal_data)
-                            pos_data = ledger.get_position(strategy_id, symbol)
-                            position_side = pos_data.get('side') if pos_data else None
 
                 if position_side is None and _is_entry_signal(signal_data, long=False):
                     new_sl = signal_data.get('stop_loss', 0.0)
@@ -211,6 +151,8 @@ def main():
                 if new_sl is not None and new_sl > 0 and pos_data:
                     ledger.update_stop_loss(strategy_id, symbol, new_sl)
                     print(f"    UPDATED SL: {new_sl}")
+
+    data_fetcher.report_fetch_alerts()
 
     print("\n--- Session Complete ---")
 

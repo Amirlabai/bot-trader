@@ -1,26 +1,7 @@
 from .base_strategy import BaseStrategy
 import pandas as pd
-import numpy as np
 
 class MovingAverageStrategy(BaseStrategy):
-    def _calculate_atr(self, data, period=14):
-        high = data['high']
-        low = data['low']
-        close = data['close'].shift(1)
-        
-        tr_list = []
-        for i in range(len(data)):
-             if i == 0:
-                 tr_list.append(high.iloc[i] - low.iloc[i])
-             else:
-                 h = high.iloc[i]
-                 l = low.iloc[i]
-                 pc = close.iloc[i]
-                 tr_list.append(max(h - l, abs(h - pc), abs(l - pc)))
-                 
-        tr_series = pd.Series(tr_list, index=data.index)
-        return tr_series.rolling(window=period).mean()
-
     def generate_signal(self, market_data: pd.DataFrame, position_data: dict) -> dict:
         # Default Hold
         signal = {'action': 'hold', 'reason': 'Waiting'}
@@ -56,10 +37,9 @@ class MovingAverageStrategy(BaseStrategy):
         current_atr = atr.iloc[-1] 
         
         # --- 1. Global Risk Management Check ---
-        risk_signal = self.check_risk_management(current_price, current_atr, position_data)
+        risk_signal = self.check_risk_management(market_data.iloc[-1], current_atr, position_data)
         if risk_signal:
-            risk_signal['indicators'] = indicators
-            return risk_signal
+            return self._stamp_atr(risk_signal, current_atr, indicators)
 
         # Signal Values (Operate on last row of CLOSED data)
         signal_trend = sma_trend.iloc[-1]
@@ -75,28 +55,25 @@ class MovingAverageStrategy(BaseStrategy):
                 if prev_signal_fast <= prev_signal_slow and signal_fast > signal_slow:
                     initial_sl = current_price - (1.5 * current_atr)
                     initial_tp = current_price + (1.0 * current_atr)
-                    return {
+                    return self._stamp_atr({
                         'action': 'buy',
                         'stop_loss': initial_sl,
                         'take_profit': initial_tp,
-                        'indicators': indicators,
                         'reason': 'Golden Cross (Confirmed Close)',
                         'is_entry': True,
-                    }
+                    }, current_atr, indicators)
                     
             elif signal_price < signal_trend:
                 if prev_signal_fast >= prev_signal_slow and signal_fast < signal_slow:
                     initial_sl = current_price + (1.5 * current_atr)
                     initial_tp = current_price - (1.0 * current_atr)
 
-                    return {
+                    return self._stamp_atr({
                         'action': 'sell',
                         'stop_loss': initial_sl,
                         'take_profit': initial_tp,
-                        'indicators': indicators,
                         'reason': 'Death Cross (Short)',
                         'is_entry': True,
-                    }
+                    }, current_atr, indicators)
 
-        signal['indicators'] = indicators
-        return signal
+        return self._stamp_atr(signal, current_atr, indicators)

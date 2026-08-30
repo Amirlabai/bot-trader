@@ -125,27 +125,38 @@ def is_stop_or_trail_reason(reason: str) -> bool:
     return reason_is_stop_exit(reason) or reason_is_trailed_stop(reason)
 
 
-def _execution_price(position_side, bar_close, signal_data, pos_data):
+def _level_price(signal_data, pos_data, key):
+    raw = signal_data.get(key) if signal_data else None
+    if raw is None or raw == 0:
+        raw = pos_data.get(key) if pos_data else None
+    try:
+        value = float(raw or 0)
+    except (TypeError, ValueError):
+        return 0.0
+    return value if value > 0 else 0.0
+
+
+def _execution_price(bar_close, signal_data, pos_data):
     reason = signal_data.get('reason', '') or ''
+    if reason_is_tp1_exit(reason):
+        tp = _level_price(signal_data, pos_data, 'take_profit')
+        if tp > 0:
+            return tp
+        return float(bar_close)
     if not pos_data or not is_stop_or_trail_reason(reason):
         return float(bar_close)
-    sl = float(pos_data.get('stop_loss') or 0)
-    if sl <= 0:
-        return float(bar_close)
-    price = float(bar_close)
-    if position_side == 'LONG' and price < sl:
+    sl = _level_price(signal_data, pos_data, 'stop_loss')
+    if sl > 0:
         return sl
-    if position_side == 'SHORT' and price > sl:
-        return sl
-    return price
+    return float(bar_close)
 
 
-def resolve_close_fill_price(position_side, bar_close, signal_data, pos_data, fallback_reason=None):
+def resolve_close_fill_price(bar_close, signal_data, pos_data, fallback_reason=None):
     reason = signal_data.get('reason', '') or fallback_reason or ''
     if reason_is_hold_label(reason) and fallback_reason:
         reason = fallback_reason
     ctx = {**signal_data, 'reason': reason}
-    return _execution_price(position_side, bar_close, ctx, pos_data)
+    return _execution_price(bar_close, ctx, pos_data)
 
 
 def _pnl_for_close(position_side, quantity, entry_price, fill_price):

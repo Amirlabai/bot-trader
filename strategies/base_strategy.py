@@ -7,6 +7,8 @@ from shared.constants import (
     TP1_HIT_REASON_SHORT,
     TRAILED_STOP_REASON_LONG,
     TRAILED_STOP_REASON_SHORT,
+    STOP_LOSS_REASON_LONG,
+    STOP_LOSS_REASON_SHORT,
     tp1_already_done,
 )
 
@@ -68,83 +70,94 @@ class BaseStrategy(ABC):
         tr_series = pd.Series(tr_list, index=data.index)
         return tr_series.rolling(window=period).mean()
 
-    def check_risk_management(self, current_price, current_atr, position_data):
+    def _stamp_atr(self, signal, current_atr, indicators=None):
+        if signal is None:
+            return None
+        try:
+            if pd.notnull(current_atr):
+                signal['current_atr'] = float(current_atr)
+        except (TypeError, ValueError):
+            pass
+        if indicators is not None:
+            signal['indicators'] = indicators
+        return signal
+
+    def follow_up_risk(self, market_data, position_data, current_atr=None):
+        """Re-check SL/trail on the same closed bar after a TP1 fill. Requires ATR from generate_signal."""
+        if position_data is None or market_data is None or market_data.empty:
+            return None
+        try:
+            atr = float(current_atr)
+        except (TypeError, ValueError):
+            return None
+        if pd.isnull(atr):
+            return None
+        idx = self._get_closed_candle_index(market_data)
+        if idx < -len(market_data):
+            return None
+        return self.check_risk_management(market_data.iloc[idx], atr, position_data)
+
+    def check_risk_management(self, bar, current_atr, position_data):
         """
-        Standard Risk Management:
+        Standard Risk Management (last closed bar):
+        - TP1 / SL hits use high/low wicks
         - SL: Entry - 1.5 ATR
         - TP1: Entry + 1.0 ATR (Sell 50%, Moves SL to Entry)
-        - Trailing: 1.5 ATR trailing stop
+        - Trailing updates use close (1.5 ATR)
         """
         if not position_data:
             return None
 
+        high = float(bar['high'])
+        low = float(bar['low'])
+        close = float(bar['close'])
         entry_price = position_data['entry_price']
         side = position_data.get('side', 'LONG')
+        is_long = side == 'LONG'
+        if side not in ('LONG', 'SHORT'):
+            return None
         stop_loss = position_data.get('stop_loss')
         post_tp1 = tp1_already_done(position_data)
+        close_action = 'sell' if is_long else 'buy'
 
-        # --- LONG LOGIC ---
-        if side == 'LONG':
-             if not stop_loss: stop_loss = entry_price - (1.5 * current_atr)
-             
-             # Hard SL (initial or trailed after TP1)
-             if current_price <= stop_loss:
-                 if post_tp1:
-                     reason = f'{TRAILED_STOP_REASON_LONG} @ {current_price} (SL {stop_loss})'
-                 else:
-                     reason = f'Stop Loss Hit @ {current_price} (SL {stop_loss})'
-                 return {'action': 'sell', 'quantity_pct': 1.0, 'reason': reason}
-             
-             # TP1
-             # Use stored fixed TP1 if available, otherwise dynamic (Entry + ATR)
-             tp_price = position_data.get('take_profit')
-             if not tp_price or tp_price == 0.0:
-                 tp_price = entry_price + current_atr
+        if stop_loss is None:
+            stop_loss = entry_price - (1.5 * current_atr) if is_long else entry_price + (1.5 * current_atr)
+        tp_price = position_data.get('take_profit')
+        if not tp_price or tp_price == 0.0:
+            tp_price = entry_price + current_atr if is_long else entry_price - current_atr
 
-             if not post_tp1 and current_price >= tp_price:
-                 # TP1 Hit: Sell 50%, Move SL to Entry
-                 return {
-                     'action': 'sell', 
-                     'quantity_pct': 0.5, 
-                     'stop_loss': entry_price, 
-                     'reason': TP1_HIT_REASON_LONG,
-                 }
-            
-             # Trailing (ONLY AFTER TP1)
-             if post_tp1:
-                 proposed_sl = current_price - (1.5 * current_atr)
-                 if proposed_sl > stop_loss:
-                     return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Trailing Stop (Post-TP1)'}
+        tp_hit = (not post_tp1) and (high >= tp_price if is_long else low <= tp_price)
+        sl_hit = (low <= stop_loss) if is_long else (high >= stop_loss)
 
-        # --- SHORT LOGIC ---
-        elif side == 'SHORT':
-             if not stop_loss: stop_loss = entry_price + (1.5 * current_atr)
-             
-             # Hard SL (Price went UP; initial or trailed after TP1)
-             if current_price >= stop_loss:
-                 if post_tp1:
-                     reason = f'{TRAILED_STOP_REASON_SHORT} @ {current_price} (SL {stop_loss})'
-                 else:
-                     reason = f'Short Stop Loss Hit @ {current_price} (SL {stop_loss})'
-                 return {'action': 'buy', 'quantity_pct': 1.0, 'reason': reason}
-             
-             # TP1 (Price went DOWN by 1 ATR)
-             tp_price = position_data.get('take_profit')
-             if not tp_price or tp_price == 0.0:
-                 tp_price = entry_price - current_atr
+        if tp_hit:
+            return {
+                'action': close_action,
+                'quantity_pct': 0.5,
+                'stop_loss': entry_price,
+                'take_profit': tp_price,
+                'reason': TP1_HIT_REASON_LONG if is_long else TP1_HIT_REASON_SHORT,
+            }
 
-             if not post_tp1 and current_price <= tp_price:
-                 return {
-                     'action': 'buy', 
-                     'quantity_pct': 0.5, 
-                     'stop_loss': entry_price, 
-                     'reason': TP1_HIT_REASON_SHORT,
-                 }
-            
-             # Trailing (ONLY AFTER TP1)
-             if post_tp1:
-                 proposed_sl = current_price + (1.5 * current_atr)
-                 if proposed_sl < stop_loss:
-                     return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': 'Updating Short Trailing Stop (Post-TP1)'}
-            
+        if sl_hit:
+            trailed = False
+            if post_tp1:
+                trailed = (stop_loss > entry_price) if is_long else (stop_loss < entry_price)
+            if trailed:
+                label = TRAILED_STOP_REASON_LONG if is_long else TRAILED_STOP_REASON_SHORT
+            else:
+                label = STOP_LOSS_REASON_LONG if is_long else STOP_LOSS_REASON_SHORT
+            reason = f'{label} @ {stop_loss} (SL {stop_loss})'
+            return {'action': close_action, 'quantity_pct': 1.0, 'reason': reason}
+
+        if post_tp1:
+            proposed_sl = close - (1.5 * current_atr) if is_long else close + (1.5 * current_atr)
+            better = proposed_sl > stop_loss if is_long else proposed_sl < stop_loss
+            if better:
+                hold_reason = (
+                    'Updating Trailing Stop (Post-TP1)'
+                    if is_long else
+                    'Updating Short Trailing Stop (Post-TP1)'
+                )
+                return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': hold_reason}
+
         return None

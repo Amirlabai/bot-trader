@@ -4,3 +4,4 @@ pandas
 gitpython
 python-dotenv
 matplotlib
+yfinance

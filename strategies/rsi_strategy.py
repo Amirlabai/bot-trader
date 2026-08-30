@@ -27,9 +27,6 @@ class RSIStrategy(BaseStrategy):
         if len(market_data) < max(period, atr_period) + 1:
             return signal
 
-        if len(market_data) < max(period, atr_period) + 1:
-            return signal
-
         # Data provided by DataFetcher is now guaranteed to be closed candles only.
         closed_data = market_data
 
@@ -41,7 +38,7 @@ class RSIStrategy(BaseStrategy):
         current_price = market_data['close'].iloc[-1]
 
         # --- 1. Global Risk Management Check ---
-        risk_signal = self.check_risk_management(current_price, current_atr, position_data)
+        risk_signal = self.check_risk_management(market_data.iloc[-1], current_atr, position_data)
         
         # Calculate RSI on Closed Data
         rsi_series = self._calculate_rsi(closed_data['close'], period)
@@ -51,53 +48,42 @@ class RSIStrategy(BaseStrategy):
         indicators = {'rsi': rsi_series}
 
         if risk_signal:
-            risk_signal['indicators'] = indicators
-            return risk_signal
-        
-        current_position_qty = position_data['qty'] if position_data else 0.0
+            return self._stamp_atr(risk_signal, current_atr, indicators)
 
-        # Logic
-        # 1. LONG SIGNAL (Oversold)
         if current_rsi < oversold:
-            if not position_data: # Flat -> Buy
+            if not position_data:
                 initial_sl = current_price - (1.5 * current_atr)
                 initial_tp = current_price + (1.0 * current_atr)
-                return {
+                return self._stamp_atr({
                     'action': 'buy',
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
-                    'indicators': indicators,
                     'reason': f'RSI Oversold ({current_rsi:.2f}) - Long',
                     'is_entry': True,
-                }
-            elif position_data.get('side') == 'SHORT': # Short -> Cover
-                return {
+                }, current_atr, indicators)
+            elif position_data.get('side') == 'SHORT':
+                return self._stamp_atr({
                     'action': 'buy',
-                    'quantity_pct': 1.0, 
-                    'indicators': indicators,
+                    'quantity_pct': 1.0,
                     'reason': f'RSI Oversold ({current_rsi:.2f}) - Cover Short'
-                }
-        
-        # 2. SHORT SIGNAL (Overbought)
+                }, current_atr, indicators)
+
         elif current_rsi > overbought:
-            if not position_data: # Flat -> Short
+            if not position_data:
                 initial_sl = current_price + (1.5 * current_atr)
                 initial_tp = current_price - (1.0 * current_atr)
-                return {
+                return self._stamp_atr({
                     'action': 'sell',
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
-                    'indicators': indicators,
                     'reason': f'RSI Overbought ({current_rsi:.2f}) - Short',
                     'is_entry': True,
-                }
-            elif position_data.get('side') == 'LONG': # Long -> Sell
-                return {
+                }, current_atr, indicators)
+            elif position_data.get('side') == 'LONG':
+                return self._stamp_atr({
                     'action': 'sell',
-                    'quantity_pct': 1.0, 
-                    'indicators': indicators,
+                    'quantity_pct': 1.0,
                     'reason': f'RSI Overbought ({current_rsi:.2f}) - Close Long'
-                }
-        
-        signal['indicators'] = indicators
-        return signal
+                }, current_atr, indicators)
+
+        return self._stamp_atr(signal, current_atr, indicators)

@@ -91,6 +91,7 @@ def run_resimulation(
 
     print('Prefetching market data...')
     market_cache = _prefetch_market_data(data_fetcher, pairs_by_strategy)
+    data_fetcher.report_fetch_alerts()
     if not market_cache:
         raise SystemExit('No market data loaded. Check FMP_API_KEY and network.')
 

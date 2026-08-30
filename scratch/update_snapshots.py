@@ -197,7 +197,7 @@ def _backfill_close_event(strategy, data_fetcher, history, event, strat_cash_hol
     bar_close = bar_close_price(market_data_to_event)
     fallback_reason = event.get('reason', '') if is_stop_or_trail_reason(event.get('reason', '')) else None
     fill_price = resolve_close_fill_price(
-        pos_side, bar_close, signal_data, mock_pos, fallback_reason=fallback_reason,
+        bar_close, signal_data, mock_pos, fallback_reason=fallback_reason,
     )
     entry_for_pnl = float(event.get('entry_price', mock_pos['entry_price']))
     cash_delta = apply_close_fill_to_event(event, pos_side, fill_price, entry_for_pnl)
