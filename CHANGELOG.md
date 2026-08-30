@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.16.0 (2026-08-30)
+
+### Features
+
+- **exits**: Hit TP/SL on bar wicks
+  ([`4c7b48c`](https://github.com/Amirlabai/bot-trader/commit/4c7b48c9f3bf22ddc306eca1c8f232c41776f78f))
+
+
 ## v1.15.1 (2026-08-22)
 
 ### Performance Improvements
