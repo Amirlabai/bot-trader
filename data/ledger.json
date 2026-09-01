@@ -12,7 +12,7 @@
                     "take_profit": 1974.167857142857,
                     "tp1_hit": true,
                     "entry_date": "2026-08-08",
-                    "last_price": 2416.24
+                    "last_price": 2461.87
                 }
             },
             "history": [
@@ -32208,7 +32208,7 @@
                     "take_profit": 75923.50964285714,
                     "tp1_hit": false,
                     "entry_date": "2026-08-21",
-                    "last_price": 77856.38
+                    "last_price": 78302.93
                 },
                 "DOGE/USDT": {
                     "qty": 10180.543022578051,
@@ -32219,18 +32219,18 @@
                     "take_profit": 0.08780311285714286,
                     "tp1_hit": true,
                     "entry_date": "2026-08-21",
-                    "last_price": 0.0821
+                    "last_price": 0.08277
                 },
                 "TRX/USDT": {
                     "qty": 3850.453145431125,
                     "initial_qty": 7700.90629086225,
                     "entry_price": 0.34374,
                     "side": "SHORT",
-                    "stop_loss": 0.34374,
+                    "stop_loss": 0.34116285714285716,
                     "take_profit": 0.3396757142857143,
                     "tp1_hit": true,
                     "entry_date": "2026-08-21",
-                    "last_price": 0.33608
+                    "last_price": 0.33227
                 },
                 "ETH/USDT": {
                     "qty": 0.6043764350963831,
@@ -32241,7 +32241,7 @@
                     "take_profit": 2337.117385714286,
                     "tp1_hit": false,
                     "entry_date": "2026-08-22",
-                    "last_price": 2416.24
+                    "last_price": 2461.87
                 },
                 "BNB/USDT": {
                     "qty": 1.695926113099466,
@@ -32252,7 +32252,7 @@
                     "take_profit": 682.7553592857142,
                     "tp1_hit": true,
                     "entry_date": "2026-08-23",
-                    "last_price": 685.1
+                    "last_price": 690.86
                 },
                 "AVAX/USDT": {
                     "qty": 11.044276720708924,
@@ -32263,7 +32263,7 @@
                     "take_profit": 7.107627142857143,
                     "tp1_hit": true,
                     "entry_date": "2026-08-23",
-                    "last_price": 7.139
+                    "last_price": 7.248
                 },
                 "XRP/USDT": {
                     "qty": 726.459379142,
@@ -32274,7 +32274,7 @@
                     "take_profit": 1.314857142857143,
                     "tp1_hit": false,
                     "entry_date": "2026-08-26",
-                    "last_price": 1.3508
+                    "last_price": 1.3716
                 },
                 "SOL/USDT": {
                     "qty": 6.626326600281037,
@@ -32285,7 +32285,7 @@
                     "take_profit": 103.32714285714286,
                     "tp1_hit": true,
                     "entry_date": "2026-08-27",
-                    "last_price": 102.08
+                    "last_price": 103.29
                 }
             },
             "history": [
@@ -68145,7 +68145,7 @@
                     "take_profit": 157.60014285714286,
                     "tp1_hit": true,
                     "entry_date": "2026-08-02",
-                    "last_price": 159.747
+                    "last_price": 159.806
                 },
                 "EUR/USD": {
                     "qty": 1104.7768226243197,
@@ -68156,7 +68156,7 @@
                     "take_profit": 1.1645214285714287,
                     "tp1_hit": true,
                     "entry_date": "2026-08-20",
-                    "last_price": 1.15926
+                    "last_price": 1.16082
                 },
                 "GBP/USD": {
                     "qty": 946.3707565907223,
@@ -68167,7 +68167,7 @@
                     "take_profit": 1.3592135714285714,
                     "tp1_hit": true,
                     "entry_date": "2026-08-20",
-                    "last_price": 1.35452
+                    "last_price": 1.35417
                 },
                 "USD/CAD": {
                     "qty": 931.1454715935567,
@@ -68178,7 +68178,7 @@
                     "take_profit": 1.3827185714285715,
                     "tp1_hit": true,
                     "entry_date": "2026-08-20",
-                    "last_price": 1.38892
+                    "last_price": 1.38645
                 },
                 "AUD/USD": {
                     "qty": 1802.3239639044339,
@@ -68189,7 +68189,7 @@
                     "take_profit": 0.712885,
                     "tp1_hit": false,
                     "entry_date": "2026-08-21",
-                    "last_price": 0.71665
+                    "last_price": 0.7169
                 }
             },
             "history": [
