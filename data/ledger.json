@@ -114695,6 +114695,16 @@
                     "reason": "RSI Overbought (76.70) - Short"
                 }
             ]
+        },
+        "ma_crossover_commodities": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "rsi_commodities": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
         }
     }
 }

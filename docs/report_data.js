@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-09-01T10:37:56.569903",
+    "last_updated": "2026-09-01T08:07:52.124352",
     "initial_cash": 10000.0
   },
   "strategies": {
@@ -930,7 +930,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-01T10:37:56.570958",
+          "time": "2026-09-01T08:07:52.124568",
           "equity": 11685.877827947967,
           "type": "current"
         }
@@ -3812,7 +3812,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-01T10:38:12.445688",
+          "time": "2026-09-01T08:08:05.627012",
           "equity": 9729.409917558833,
           "type": "current"
         }
@@ -7068,7 +7068,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-01T10:38:19.577317",
+          "time": "2026-09-01T08:08:11.735862",
           "equity": 8724.727910653704,
           "type": "current"
         }
@@ -13406,7 +13406,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-01T10:39:01.809681",
+          "time": "2026-09-01T08:08:47.152074",
           "equity": 10518.015464730404,
           "type": "current"
         }
@@ -16369,6 +16369,74 @@ window.REPORT_DATA = {
         "GBP/JPY": 30.166386670254486,
         "AUD/USD": 2617.535904332621
       }
+    },
+    "ma_crossover_commodities": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-09-01T08:09:07.526215",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-09-01T08:09:07.526220",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "rsi_commodities": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-09-01T08:09:07.526228",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-09-01T08:09:07.526230",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
     }
   }
 };
