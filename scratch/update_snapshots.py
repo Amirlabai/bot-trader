@@ -14,6 +14,7 @@ from config import Config, TRADING_CONFIG
 from ledger_manager import LedgerManager
 from data_ingestion import DataFetcher
 from shared.constants import reason_is_tp1_exit
+from shared.symbols import asset_type_for_symbol
 from shared.exit_snapshots import (
     build_close_snapshot,
     reason_with_fill,
@@ -35,15 +36,6 @@ def load_strategy(module_name, class_name, params):
     except Exception as e:
         print(f"Failed to load strategy {class_name} from {module_name}: {e}")
         return None
-
-
-def _asset_type(symbol):
-    is_forex = (
-        any(cur in symbol for cur in ['EUR', 'USD', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF'])
-        and '/' in symbol
-        and len(symbol) == 7
-    )
-    return 'forex' if is_forex else 'crypto'
 
 
 def _initial_sl_tp(strategy, market_slice, mock_pos):
@@ -144,7 +136,7 @@ def _simulate_trailing(strategy, market_data, mock_pos, entry_date, exit_ts):
 
 def _backfill_close_event(strategy, data_fetcher, history, event, strat_cash_holder):
     symbol = event['symbol']
-    asset_type = _asset_type(symbol)
+    asset_type = asset_type_for_symbol(symbol)
     market_data = data_fetcher.get_data(symbol, asset_type=asset_type)
     if market_data.empty:
         return False

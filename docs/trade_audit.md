@@ -1,59 +1,58 @@
 # Trade leg audit
 
-Generated: 2026-06-04T19:05:52.066342
+Generated: 2026-09-01T10:37:56.471636
 
 Expected: at most one TP1 partial (50% of initial), then one final close for the remainder.
 
 ## Totals
 
-- Legs analyzed: 180
-- TP1 then final (2 closes): 81
-- Single full exit: 87
-- Clean (other): 12
+- Legs analyzed: 354
+- TP1 then final (2 closes): 193
+- Single full exit: 151
+- Clean (other): 10
 - Violations: 0
-- Still open legs: 21
+- Still open legs: 20
 
 ## ma_crossover_crypto
 
 Violation count: 0
 
 Still open:
-- AVAX/USDT SHORT: 56.162111 remaining of 112.324221 (1 prior closes)
-- BTC/USDT SHORT: 0.017908 remaining of 0.035815 (1 prior closes)
-- ETH/USDT SHORT: 0.505101 remaining of 1.010202 (1 prior closes)
-- DOT/USDT SHORT: 495.770061 remaining of 991.540123 (1 prior closes)
-- XRP/USDT SHORT: 595.283614 remaining of 1190.567228 (1 prior closes)
-- ADA/USDT SHORT: 3034.800277 remaining of 6069.600554 (1 prior closes)
-- SOL/USDT SHORT: 9.237799 remaining of 18.475597 (1 prior closes)
-- TRX/USDT SHORT: 8242.402769 remaining of 8242.402769 (0 prior closes)
+- BTC/USDT LONG: 0.019638 remaining of 0.039277 (1 prior closes)
 
 ## ma_crossover_forex
 
 Violation count: 0
 
 Still open:
-- EUR/USD SHORT: 2155.165331 remaining of 2155.165331 (0 prior closes)
-- USD/JPY LONG: 7.875260 remaining of 15.750519 (1 prior closes)
+- EUR/GBP SHORT: 2853.454067 remaining of 2853.454067 (0 prior closes)
+- GBP/JPY LONG: 11.249251 remaining of 11.249251 (0 prior closes)
+- EUR/JPY LONG: 6.468070 remaining of 6.468070 (0 prior closes)
 
 ## rsi_crypto
 
 Violation count: 0
 
 Still open:
-- ETH/USDT LONG: 0.826566 remaining of 0.826566 (0 prior closes)
-- BTC/USDT LONG: 0.029332 remaining of 0.029332 (0 prior closes)
-- XRP/USDT LONG: 1335.226340 remaining of 1335.226340 (0 prior closes)
-- SOL/USDT LONG: 18.599796 remaining of 18.599796 (0 prior closes)
-- TRX/USDT SHORT: 3186.882337 remaining of 6373.764674 (1 prior closes)
-- DOGE/USDT LONG: 13910.212157 remaining of 13910.212157 (0 prior closes)
-- ADA/USDT LONG: 6005.934222 remaining of 6005.934222 (0 prior closes)
+- ETH/USDT SHORT: 0.604253 remaining of 0.604253 (0 prior closes)
+- AVAX/USDT SHORT: 51.363189 remaining of 102.726378 (1 prior closes)
+- BTC/USDT SHORT: 0.023345 remaining of 0.023345 (0 prior closes)
+- XRP/USDT SHORT: 367.208511 remaining of 734.417021 (1 prior closes)
+- SOL/USDT SHORT: 5.692874 remaining of 5.692874 (0 prior closes)
+- BNB/USDT SHORT: 2.829867 remaining of 2.829867 (0 prior closes)
+- DOGE/USDT SHORT: 5831.899957 remaining of 11663.799914 (1 prior closes)
+- TRX/USDT SHORT: 1606.991773 remaining of 3213.983545 (1 prior closes)
+- ADA/USDT SHORT: 1953.279334 remaining of 3906.558667 (1 prior closes)
 
 ## rsi_forex
 
 Violation count: 0
 
 Still open:
-- AUD/USD SHORT: 1854.801492 remaining of 1854.801492 (0 prior closes)
-- EUR/USD LONG: 2210.577263 remaining of 2210.577263 (0 prior closes)
-- USD/CAD SHORT: 1847.223203 remaining of 1847.223203 (0 prior closes)
-- USD/JPY SHORT: 16.137381 remaining of 16.137381 (0 prior closes)
+- USD/CAD LONG: 945.141008 remaining of 1890.282016 (1 prior closes)
+- GBP/JPY SHORT: 0.139145 remaining of 0.139145 (0 prior closes)
+- EUR/USD SHORT: 1118.154776 remaining of 2236.309551 (1 prior closes)
+- USD/JPY LONG: 8.267380 remaining of 16.534761 (1 prior closes)
+- AUD/USD SHORT: 3654.244936 remaining of 3654.244936 (0 prior closes)
+- GBP/USD SHORT: 484.367461 remaining of 968.734921 (1 prior closes)
+- EUR/JPY SHORT: 14.137137 remaining of 14.137137 (0 prior closes)

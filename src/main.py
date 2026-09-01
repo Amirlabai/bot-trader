@@ -18,6 +18,7 @@ from shared.constants import (
 )
 from shared.exit_snapshots import last_bar_date as _last_bar_date
 from shared.risk_sizing import size_for_risk, should_open_after_sizing
+from shared.symbols import asset_type_for_symbol
 from shared.trade_exec import apply_exit
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
@@ -58,12 +59,7 @@ def main():
 
         pairs = config['pairs']
         for symbol in pairs:
-            is_forex = (
-                any(cur in symbol for cur in ['EUR', 'USD', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF'])
-                and '/' in symbol
-                and len(symbol) == 7
-            )
-            asset_type = 'forex' if is_forex else 'crypto'
+            asset_type = asset_type_for_symbol(symbol)
 
             print(f"  > Analyzing {symbol} ({asset_type})...")
             market_data = data_fetcher.get_data(symbol, asset_type=asset_type)

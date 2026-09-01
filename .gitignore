@@ -17,3 +17,4 @@ data/ledger.json.bak
 data/*.bak
 data/ledger*.bak
 data/ledger_resim.json
+gitaction.log

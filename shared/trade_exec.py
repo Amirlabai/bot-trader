@@ -67,51 +67,13 @@ def execute_close(
     return pos_data, position_side, False
 
 
-def maybe_same_bar_sl(
-    strategy, ledger, strategy_id, symbol, market_data, pos_data,
-    *, current_atr=None, event_ts=None, build_snapshots=False, verbose=True,
-):
-    """After a real TP1 fill, re-check the same bar's wick against remainder SL."""
-    if not pos_data:
-        return pos_data, None
-    follow = strategy.follow_up_risk(market_data, pos_data, current_atr=current_atr)
-    if not follow:
-        return pos_data, pos_data.get('side')
-    side = pos_data.get('side')
-    action = follow.get('action')
-    if action == 'hold':
-        new_sl = follow.get('stop_loss')
-        if new_sl is not None and new_sl > 0:
-            ledger.update_stop_loss(strategy_id, symbol, new_sl)
-            if verbose:
-                print(f'    UPDATED SL: {new_sl}')
-        return pos_data, side
-    if side == 'LONG' and action != 'sell':
-        return pos_data, side
-    if side == 'SHORT' and action != 'buy':
-        return pos_data, side
-    if verbose:
-        print(f'    Same-bar SL after TP1 for {symbol}')
-    pos_data, side, _filled = execute_close(
-        ledger, strategy_id, symbol, market_data, pos_data, follow, side,
-        event_ts=event_ts, build_snapshots=build_snapshots, verbose=verbose,
-    )
-    return pos_data, side
-
-
 def apply_exit(
     ledger, strategy, strategy_id, symbol, market_data, pos_data, signal_data, position_side,
     *, event_ts=None, build_snapshots=False, verbose=True,
 ):
-    """Close/reduce, then same-bar SL only if this call actually filled TP1."""
-    pos_data, position_side, filled_tp1 = execute_close(
+    """Close or reduce. Remainder SL is evaluated on later daily bars only."""
+    pos_data, position_side, _filled_tp1 = execute_close(
         ledger, strategy_id, symbol, market_data, pos_data, signal_data, position_side,
         event_ts=event_ts, build_snapshots=build_snapshots, verbose=verbose,
     )
-    if filled_tp1:
-        pos_data, position_side = maybe_same_bar_sl(
-            strategy, ledger, strategy_id, symbol, market_data, pos_data,
-            current_atr=signal_data.get('current_atr'),
-            event_ts=event_ts, build_snapshots=build_snapshots, verbose=verbose,
-        )
     return pos_data, position_side

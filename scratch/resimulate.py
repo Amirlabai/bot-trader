@@ -93,7 +93,7 @@ def run_resimulation(
     market_cache = _prefetch_market_data(data_fetcher, pairs_by_strategy)
     data_fetcher.report_fetch_alerts()
     if not market_cache:
-        raise SystemExit('No market data loaded. Check FMP_API_KEY and network.')
+        raise SystemExit('No market data loaded. Check Yahoo/yfinance access.')
 
     last_bar = max(df.index[-1].date() for df in market_cache.values())
     if end is None:
@@ -223,7 +223,6 @@ def main():
             class _Cfg:
                 DATA_DIR = Config.DATA_DIR
                 LEDGER_FILE = out_path
-                FMP_API_KEY = Config.FMP_API_KEY
             reporter = ReportGenerator(_Cfg)
         reporter.generate()
         print(f"Report: {reporter.report_file}")

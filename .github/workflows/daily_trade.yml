@@ -30,7 +30,5 @@ jobs:
         pip install -r requirements.txt
         
     - name: Run Trading Bot
-      env:
-        FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
       run: |
         python src/main.py

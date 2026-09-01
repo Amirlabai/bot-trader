@@ -18,7 +18,6 @@ class Config:
     CCXT_API_KEY = os.getenv("CCXT_API_KEY")
     CCXT_SECRET = os.getenv("CCXT_SECRET")
     ALPHAVANTAGE_KEY = os.getenv("ALPHAVANTAGE_KEY")
-    FMP_API_KEY = os.getenv("FMP_API_KEY")
     
     # GitHub Token for pushing (optional if using GITHUB_TOKEN in CI)
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -98,6 +97,26 @@ TRADING_CONFIG = {
         'strategy_module': 'strategies.rsi_strategy',
         'strategy_class': 'RSIStrategy',
         'pairs': ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'EUR/GBP', 'EUR/JPY', 'GBP/JPY'],
+        'params': {
+            'period': 14,
+            'overbought': 70,
+            'oversold': 30
+        }
+    },
+    'ma_crossover_commodities': {
+        'strategy_module': 'strategies.moving_average',
+        'strategy_class': 'MovingAverageStrategy',
+        'pairs': ['XAU/USD', 'XAG/USD', 'CL/USD', 'NG/USD', 'HG/USD', 'PL/USD', 'PA/USD'],
+        'params': {
+            'short_window': 12,
+            'long_window': 24,
+            'trend_window': 50
+        }
+    },
+    'rsi_commodities': {
+        'strategy_module': 'strategies.rsi_strategy',
+        'strategy_class': 'RSIStrategy',
+        'pairs': ['XAU/USD', 'XAG/USD', 'CL/USD', 'NG/USD', 'HG/USD', 'PL/USD', 'PA/USD'],
         'params': {
             'period': 14,
             'overbought': 70,

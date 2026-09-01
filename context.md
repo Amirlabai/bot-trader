@@ -1,11 +1,11 @@
 # Project Context: bot-trader
 
 ## Overview
-`bot-trader` is a multi-strategy algorithmic trading system built in Python. It supports bi-directional trading (Long/Short) for both Crypto and Forex markets. Daily bars come from Financial Modeling Prep (FMP). yfinance is a one-shot VM probe only and is never used as OHLCV.
+`bot-trader` is a multi-strategy algorithmic trading system built in Python. It supports bi-directional trading (Long/Short) for both Crypto and Forex markets. Daily bars come from yfinance (Yahoo).
 
 ## Architecture
 - **Core Engine**: `src/main.py` orchestrates the trading loop, strategy loading, and report generation.
-- **Data**: `src/data_ingestion.py` (`DataFetcher.get_data`) loads daily OHLCV from FMP. On GitHub Actions, one Yahoo probe per session (`probe_yahoo`) only to detect VM rate-limit/block. Local runs skip the probe.
+- **Data**: `src/data_ingestion.py` (`DataFetcher.get_data`) loads daily OHLCV via yfinance. Session `yahoo_blocked` after Yahoo rate-limit/block skips Yahoo for remaining pairs.
 - **State Management**: `src/ledger_manager.py` manages independent "wallets" for each strategy, tracking cash, open positions, and trade history in `data/ledger.json`.
 - **Reporting & Visualization**: 
     - `src/reporting.py`: Reconstructs equity curves, calculates advanced performance metrics (Win Rate, Profit Factor, Max DD), and renders entry charts.
@@ -16,7 +16,7 @@
 - **Model**: 1% of total equity per new open (`cash + open positions at entry cost`; no unrealized P/L).
 - **Position Sizing**: `quantity = (equity × equity_risk_pct) / |entry − stop|`; then capped by `max_notional_pct` of equity (default 25%), then by free cash. Caps reduce notional only — actual risk may fall below 1% but the trade still opens.
 - **Undersize guard**: `RISK_SETTINGS` in `src/config.py` (`min_risk_fraction`, `min_notional_usd`, `equity_risk_pct`, `max_notional_pct`). Env floats use `_env_float` with clear errors on bad values. `min_risk_fraction` is skipped when a notional or cash cap applies.
-- **Exits**: `quantity_pct` on close/cover only (TP1 50%, full exit 100%). TP1 at 1.0 ATR (50% out, SL to breakeven); trailing 1.5 ATR after TP1. TP1 and SL hits use the last closed bar **high/low** (wicks); trail *updates* still use close. Same-bar both wicks: TP1 first, then remainder SL via `shared/trade_exec.py` `apply_exit` (live `main.py` and `resim_engine.py`). Follow-up uses ATR from `generate_signal`, not a recompute. SL updates require `new_sl > 0` (hold, TP1, ledger ADD). TP1 fires **once per leg** (`tp1_hit`, `initial_qty`, `tp1_already_done()`); duplicate TP1 fills are skipped and do not trigger same-bar SL.
+- **Exits**: `quantity_pct` on close/cover only (TP1 50%, full exit 100%). TP1 at 1.0 ATR (50% out, SL to breakeven); trailing 1.5 ATR after TP1. TP1 and initial SL hits use the last closed bar **high/low** (wicks); trail *updates* still use close. On a bar where both initial TP1 and initial SL wicks print, TP1 wins. After TP1 fills on a daily run, remainder SL/trail is checked only on **later** closed bars (next run onward), not the same bar. Follow-up uses ATR from `generate_signal`, not a recompute. SL updates require `new_sl > 0` (hold, TP1, ledger ADD). TP1 fires **once per leg** (`tp1_hit`, `initial_qty`, `tp1_already_done()`); duplicate TP1 fills are skipped.
 - **Trade audit**: `scratch/audit_trades.py` writes `docs/trade_audit.md` (per-leg TP1/final pattern). Run after backfill via `update_snapshots.py` or standalone.
 - **Trailed stop**: After TP1, remainder SL at breakeven uses `Stop Loss Hit`. Once the trail has moved off entry, a full remainder exit uses `Trailed Stop Hit @ fill (SL level)` (long/short variants in `shared/constants.py`).
 - **TP1 flag**: `shared/constants.py` defines `TP1_HIT_REASON_*`, `TRAILED_STOP_*`, `reason_is_tp1_exit()`, `reason_is_trailed_stop()`, `tp1_already_done()` (uses `TP1_MAX_REMAINING_FRACTION` when `tp1_hit` unset). Close fills/snapshots live in `shared/exit_snapshots.py` (used by `main.py` and `scratch/update_snapshots.py`, not via `main` import).
@@ -34,7 +34,7 @@
 ## Tech Stack
 - **Language**: Python 3.9+ (Type Hinting, Modular Design).
 - **Libraries**: `pandas`, `matplotlib`, `gitpython`, `python-dotenv`, `yfinance`.
-- **Market data**: FMP for all OHLCV (cache by bot symbol). Yahoo: one `5d` probe of `BTC-USD` per `DataFetcher` session on GitHub Actions only. Empty/429/block: `ALERT:` plus GitHub Actions `::warning::`; bars still from FMP. FMP 429: one `::error::`. Missing FMP data (not rate-limited): `::error::`. Summary: `DataFetcher.report_fetch_alerts()`.
+- **Market data**: yfinance only (cache by bot symbol; crypto `BTC/USDT` → `BTC-USD`, forex `EUR/USD` → `EURUSD=X`, commodities e.g. `XAU/USD` → `GC=F` futures). Yahoo empty/429/block: `ALERT:` plus GitHub Actions annotation; session block skips Yahoo for rest. Summary: `DataFetcher.report_fetch_alerts()`. Symbol routing: `shared/symbols.py`.
 - **Automation**: GitHub Actions for daily execution and semantic releases.
 - **Local knowledge graph**: `graphify-out/` (gitignored). Incremental rebuild: `/graphify --update`.
 

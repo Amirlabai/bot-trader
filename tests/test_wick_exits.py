@@ -18,7 +18,7 @@ from shared.constants import (
 from shared.exit_snapshots import resolve_close_fill_price
 from shared.trade_exec import apply_exit
 from strategies.base_strategy import BaseStrategy
-from data_ingestion import yahoo_block_text
+from data_ingestion import yahoo_block_text, yahoo_ticker
 
 
 class DummyStrategy(BaseStrategy):
@@ -171,7 +171,7 @@ class ApplyExitTests(unittest.TestCase):
         )
         self.assertEqual(ledger.closed, [])
 
-    def test_real_tp1_then_same_bar_sl(self):
+    def test_tp1_leaves_remainder_open_same_bar(self):
         strategy = DummyStrategy()
         pos = _long_pos()
         ledger = FakeLedger(pos)
@@ -190,8 +190,31 @@ class ApplyExitTests(unittest.TestCase):
         apply_exit(
             ledger, strategy, 's', 'ADA/USDT', market, pos, signal, 'LONG', verbose=False,
         )
-        self.assertEqual(len(ledger.closed), 2)
-        self.assertTrue(ledger.closed[1][2].startswith(STOP_LOSS_REASON_LONG))
+        self.assertEqual(len(ledger.closed), 1)
+        self.assertEqual(ledger.closed[0][0], 5.0)
+        self.assertIsNotNone(ledger.pos)
+        self.assertAlmostEqual(ledger.pos['qty'], 5.0)
+
+
+class YahooTickerTests(unittest.TestCase):
+    def test_ticker_mapping(self):
+        self.assertEqual(yahoo_ticker('BTC/USDT', 'crypto'), 'BTC-USD')
+        self.assertEqual(yahoo_ticker('EUR/USD', 'forex'), 'EURUSD=X')
+        self.assertEqual(yahoo_ticker('ADA/USDT', 'crypto'), 'ADA-USD')
+        self.assertEqual(yahoo_ticker('EUR/GBP', 'forex'), 'EURGBP=X')
+        self.assertEqual(yahoo_ticker('XAU/USD', 'commodity'), 'GC=F')
+        self.assertEqual(yahoo_ticker('XAG/USD', 'commodity'), 'SI=F')
+        self.assertEqual(yahoo_ticker('CL/USD', 'commodity'), 'CL=F')
+
+
+class AssetTypeTests(unittest.TestCase):
+    def test_asset_type_for_symbol(self):
+        from shared.symbols import asset_type_for_symbol
+
+        self.assertEqual(asset_type_for_symbol('BTC/USDT'), 'crypto')
+        self.assertEqual(asset_type_for_symbol('EUR/USD'), 'forex')
+        self.assertEqual(asset_type_for_symbol('XAU/USD'), 'commodity')
+        self.assertEqual(asset_type_for_symbol('XAG/USD'), 'commodity')
 
 
 class YahooProbeTextTests(unittest.TestCase):

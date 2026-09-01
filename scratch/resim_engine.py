@@ -15,6 +15,7 @@ from shared.constants import (
 )
 from shared.exit_snapshots import last_bar_date
 from shared.risk_sizing import size_for_risk, should_open_after_sizing
+from shared.symbols import asset_type_for_symbol
 from shared.trade_exec import apply_exit
 
 
@@ -26,15 +27,6 @@ def load_strategy(module_name, class_name, params):
     except Exception as e:
         print(f"Failed to load strategy {class_name} from {module_name}: {e}")
         return None
-
-
-def asset_type_for_symbol(symbol: str) -> str:
-    is_forex = (
-        any(cur in symbol for cur in ['EUR', 'USD', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF'])
-        and '/' in symbol
-        and len(symbol) == 7
-    )
-    return 'forex' if is_forex else 'crypto'
 
 
 def _is_entry_signal(signal_data, long=True):
