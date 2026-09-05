@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-09-04T02:13:48.814903",
+    "last_updated": "2026-09-05T02:14:09.109606",
     "initial_cash": 10000.0
   },
   "strategies": {
@@ -921,7 +921,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-04T02:13:48.815099",
+          "time": "2026-09-05T02:14:09.109771",
           "equity": 11641.899207893668,
           "type": "current"
         }
@@ -3797,7 +3797,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-04T02:14:06.498616",
+          "time": "2026-09-05T02:14:28.789459",
           "equity": 9697.984625258145,
           "type": "current"
         }
@@ -4974,43 +4974,17 @@
     "rsi_crypto": {
       "active_positions": [
         {
-          "symbol": "ETH/USDT",
-          "side": "SHORT",
-          "qty": 0.30212647943792026,
-          "entry": 2463.81591796875,
-          "entry_date": "2026-08-23",
-          "current_price": 2391.5009765625,
-          "unrealized_pnl": 21.8482586578298,
-          "sl": 2463.81591796875,
-          "tp1": true,
-          "tp_price": 2365.6131330217636,
-          "value": 722.5357706211764
-        },
-        {
           "symbol": "XRP/USDT",
           "side": "SHORT",
           "qty": 367.2085106423715,
           "entry": 1.5221879482269287,
           "entry_date": "2026-08-23",
-          "current_price": 1.3498140573501587,
-          "unrealized_pnl": 63.297159742489384,
+          "current_price": 1.4513189792633057,
+          "unrealized_pnl": 26.02368854389247,
           "sl": 1.5147948690823148,
           "tp1": true,
           "tp_price": 1.4413900886263167,
-          "value": 495.6632096436884
-        },
-        {
-          "symbol": "ADA/USDT",
-          "side": "SHORT",
-          "qty": 1953.2793335451843,
-          "entry": 0.22686199843883514,
-          "entry_date": "2026-08-23",
-          "current_price": 0.2006639987230301,
-          "unrealized_pnl": 51.17201142510462,
-          "sl": 0.2166240747485842,
-          "tp1": true,
-          "tp_price": 0.21399314169372832,
-          "value": 391.9528416922319
+          "value": 532.9366808422853
         },
         {
           "symbol": "AVAX/USDT",
@@ -5018,82 +4992,17 @@
           "qty": 51.36318888349079,
           "entry": 7.606296062469482,
           "entry_date": "2026-08-23",
-          "current_price": 7.185410976409912,
-          "unrealized_pnl": 21.618000173521988,
+          "current_price": 7.518126010894775,
+          "unrealized_pnl": 4.528695012898802,
           "sl": 7.606296062469482,
           "tp1": true,
           "tp_price": 7.236766304288592,
-          "value": 369.0656211868503
-        },
-        {
-          "symbol": "TRX/USDT",
-          "side": "SHORT",
-          "qty": 1606.991772703002,
-          "entry": 0.34396299719810486,
-          "entry_date": "2026-08-23",
-          "current_price": 0.3251110017299652,
-          "unrealized_pnl": 30.295001616334694,
-          "sl": 0.3308012900607927,
-          "tp1": true,
-          "tp_price": 0.3396059274673462,
-          "value": 522.4507049952855
-        },
-        {
-          "symbol": "BNB/USDT",
-          "side": "SHORT",
-          "qty": 2.8298673846797464,
-          "entry": 694.0257568359375,
-          "entry_date": "2026-08-25",
-          "current_price": 687.9632568359375,
-          "unrealized_pnl": 17.156071019620963,
-          "sl": 723.906476702009,
-          "tp1": false,
-          "tp_price": 674.1052769252232,
-          "value": 1946.844782378075
-        },
-        {
-          "symbol": "BTC/USDT",
-          "side": "SHORT",
-          "qty": 0.011672432131751755,
-          "entry": 79027.421875,
-          "entry_date": "2026-08-26",
-          "current_price": 77300.4765625,
-          "unrealized_pnl": 20.157651955403075,
-          "sl": 79027.421875,
-          "tp1": true,
-          "tp_price": 76472.95200892857,
-          "value": 902.2845664278485
-        },
-        {
-          "symbol": "DOGE/USDT",
-          "side": "SHORT",
-          "qty": 5831.899957235171,
-          "entry": 0.08914300054311752,
-          "entry_date": "2026-08-27",
-          "current_price": 0.08163599669933319,
-          "unrealized_pnl": 43.78009539553011,
-          "sl": 0.08914300054311752,
-          "tp1": true,
-          "tp_price": 0.08406992788825716,
-          "value": 476.0929656596918
-        },
-        {
-          "symbol": "SOL/USDT",
-          "side": "SHORT",
-          "qty": 2.846437068313857,
-          "entry": 104.126953125,
-          "entry_date": "2026-08-28",
-          "current_price": 100.3856201171875,
-          "unrealized_pnl": 10.649468958343677,
-          "sl": 104.126953125,
-          "tp1": true,
-          "tp_price": 98.55587823050362,
-          "value": 285.7413502272357
+          "value": 386.1549263474735
         }
       ],
-      "current_cash": 2615.722139255317,
-      "current_equity": 8728.3539520874,
-      "history_events": 404,
+      "current_cash": 8015.2734855522485,
+      "current_equity": 8934.365092742008,
+      "history_events": 411,
       "equity_curve": [
         {
           "time": "2026-01-01T23:59:59",
@@ -7121,12 +7030,194 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-04T02:14:14.911083",
-          "equity": 8728.3539520874,
+          "time": "2026-09-05T02:14:01.238457",
+          "equity": 9008.327671031582,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:01.285589",
+          "equity": 9008.32767103158,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:01.333912",
+          "equity": 8923.769196451834,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:01.415983",
+          "equity": 8923.769196451833,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:01.464302",
+          "equity": 8943.766721214413,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:01.511948",
+          "equity": 8943.766721214413,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:01.624518",
+          "equity": 8964.9174762988,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-05T02:14:38.060935",
+          "equity": 8934.365092742008,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-09-05T02:14:01.624518",
+          "symbol": "TRX/USDT",
+          "side": "SHORT",
+          "qty": 1606.991772703002,
+          "entry_price": 0.34396299719810486,
+          "exit_price": 0.3308012900607927,
+          "entry_date": "2026-08-23",
+          "exit_date": "2026-09-03",
+          "hold_days": 11,
+          "stop_loss": 0.3308012900607927,
+          "take_profit": 0.3396059274673462,
+          "stop_loss_at_exit": 0.3308012900607927,
+          "take_profit_at_exit": 0.3396059274673462,
+          "exit_kind": "trailed_stop",
+          "quantity_pct": 1.0,
+          "pnl": 21.15075508438706,
+          "pnl_pct": 3.826489257427805,
+          "reason": "Short Trailed Stop Hit @ 0.3308012900607927 (SL 0.3308012900607927)",
+          "chart_id": "rsi_crypto:248"
+        },
+        {
+          "time": "2026-09-05T02:14:01.511948",
+          "symbol": "DOGE/USDT",
+          "side": "SHORT",
+          "qty": 5831.899957235171,
+          "entry_price": 0.08914300054311752,
+          "exit_price": 0.08914300054311752,
+          "entry_date": "2026-08-27",
+          "exit_date": "2026-09-03",
+          "hold_days": 7,
+          "stop_loss": 0.08914300054311752,
+          "take_profit": 0.08406992788825716,
+          "stop_loss_at_exit": 0.08914300054311752,
+          "take_profit_at_exit": 0.08406992788825716,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": 0.0,
+          "pnl_pct": 0.0,
+          "reason": "Short Stop Loss Hit @ 0.08914300054311752 (SL 0.08914300054311752)",
+          "chart_id": "rsi_crypto:247"
+        },
+        {
+          "time": "2026-09-05T02:14:01.464302",
+          "symbol": "ADA/USDT",
+          "side": "SHORT",
+          "qty": 1953.2793335451843,
+          "entry_price": 0.22686199843883514,
+          "exit_price": 0.2166240747485842,
+          "entry_date": "2026-08-23",
+          "exit_date": "2026-09-03",
+          "hold_days": 11,
+          "stop_loss": 0.2166240747485842,
+          "take_profit": 0.21399314169372832,
+          "stop_loss_at_exit": 0.2166240747485842,
+          "take_profit_at_exit": 0.21399314169372832,
+          "exit_kind": "trailed_stop",
+          "quantity_pct": 1.0,
+          "pnl": 19.99752476257983,
+          "pnl_pct": 4.512842062885743,
+          "reason": "Short Trailed Stop Hit @ 0.2166240747485842 (SL 0.2166240747485842)",
+          "chart_id": "rsi_crypto:246"
+        },
+        {
+          "time": "2026-09-05T02:14:01.415983",
+          "symbol": "SOL/USDT",
+          "side": "SHORT",
+          "qty": 2.846437068313857,
+          "entry_price": 104.126953125,
+          "exit_price": 104.126953125,
+          "entry_date": "2026-08-28",
+          "exit_date": "2026-09-03",
+          "hold_days": 6,
+          "stop_loss": 104.126953125,
+          "take_profit": 98.55587823050362,
+          "stop_loss_at_exit": 104.126953125,
+          "take_profit_at_exit": 98.55587823050362,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": 0.0,
+          "pnl_pct": 0.0,
+          "reason": "Short Stop Loss Hit @ 104.126953125 (SL 104.126953125)",
+          "chart_id": "rsi_crypto:245"
+        },
+        {
+          "time": "2026-09-05T02:14:01.333912",
+          "symbol": "BNB/USDT",
+          "side": "SHORT",
+          "qty": 2.8298673846797464,
+          "entry_price": 694.0257568359375,
+          "exit_price": 723.906476702009,
+          "entry_date": "2026-08-25",
+          "exit_date": "2026-09-03",
+          "hold_days": 9,
+          "stop_loss": 723.906476702009,
+          "take_profit": 674.1052769252232,
+          "stop_loss_at_exit": 723.906476702009,
+          "take_profit_at_exit": 674.1052769252232,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": -84.55847457974774,
+          "pnl_pct": -4.305419441822679,
+          "reason": "Short Stop Loss Hit @ 723.906476702009 (SL 723.906476702009)",
+          "chart_id": "rsi_crypto:244"
+        },
+        {
+          "time": "2026-09-05T02:14:01.285589",
+          "symbol": "ETH/USDT",
+          "side": "SHORT",
+          "qty": 0.30212647943792026,
+          "entry_price": 2463.81591796875,
+          "exit_price": 2463.81591796875,
+          "entry_date": "2026-08-23",
+          "exit_date": "2026-09-03",
+          "hold_days": 11,
+          "stop_loss": 2463.81591796875,
+          "take_profit": 2365.6131330217636,
+          "stop_loss_at_exit": 2463.81591796875,
+          "take_profit_at_exit": 2365.6131330217636,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": 0.0,
+          "pnl_pct": 0.0,
+          "reason": "Short Stop Loss Hit @ 2463.81591796875 (SL 2463.81591796875)",
+          "chart_id": "rsi_crypto:243"
+        },
+        {
+          "time": "2026-09-05T02:14:01.238457",
+          "symbol": "BTC/USDT",
+          "side": "SHORT",
+          "qty": 0.011672432131751755,
+          "entry_price": 79027.421875,
+          "exit_price": 79027.421875,
+          "entry_date": "2026-08-26",
+          "exit_date": "2026-09-03",
+          "hold_days": 8,
+          "stop_loss": 79027.421875,
+          "take_profit": 76472.95200892857,
+          "stop_loss_at_exit": 79027.421875,
+          "take_profit_at_exit": 76472.95200892857,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": 0.0,
+          "pnl_pct": 0.0,
+          "reason": "Short Stop Loss Hit @ 79027.421875 (SL 79027.421875)",
+          "chart_id": "rsi_crypto:242"
+        },
         {
           "time": "2026-09-04T02:13:41.310460",
           "symbol": "ETH/USDT",
@@ -12214,27 +12305,27 @@
         "winners": [
           {
             "symbol": "XRP/USDT",
-            "pnl": 500.49,
+            "pnl": 476.07,
+            "trades": 4,
+            "win_rate": 75.0
+          },
+          {
+            "symbol": "DOT/USDT",
+            "pnl": 264.09,
             "trades": 5,
             "win_rate": 80.0
           },
           {
-            "symbol": "ADA/USDT",
-            "pnl": 291.34,
-            "trades": 6,
-            "win_rate": 83.3
-          },
-          {
-            "symbol": "DOT/USDT",
-            "pnl": 290.65,
-            "trades": 6,
-            "win_rate": 83.3
-          },
-          {
             "symbol": "AVAX/USDT",
-            "pnl": 205.81,
-            "trades": 5,
+            "pnl": 178.92,
+            "trades": 4,
             "win_rate": 100.0
+          },
+          {
+            "symbol": "ADA/USDT",
+            "pnl": 176.48,
+            "trades": 6,
+            "win_rate": 83.3
           },
           {
             "symbol": "DOGE/USDT",
@@ -12246,56 +12337,43 @@
         "losers": [
           {
             "symbol": "BNB/USDT",
-            "pnl": -193.93,
+            "pnl": -280.11,
             "trades": 4,
-            "win_rate": 25.0
+            "win_rate": 0.0
           },
           {
             "symbol": "SOL/USDT",
-            "pnl": -175.37,
+            "pnl": -202.25,
             "trades": 6,
-            "win_rate": 50.0
+            "win_rate": 33.3
           },
           {
             "symbol": "BTC/USDT",
             "pnl": -72.39,
-            "trades": 4,
-            "win_rate": 50.0
+            "trades": 5,
+            "win_rate": 40.0
           },
           {
             "symbol": "ETH/USDT",
             "pnl": -25.35,
-            "trades": 6,
-            "win_rate": 50.0
-          },
-          {
-            "symbol": "TRX/USDT",
-            "pnl": -16.57,
-            "trades": 4,
-            "win_rate": 50.0
+            "trades": 7,
+            "win_rate": 42.9
           }
         ],
         "window_label": "Last 50 closed trades",
         "trades_in_window": 50
       },
       "metrics": {
-        "win_rate": 55.371900826446286,
-        "profit_factor": 0.8280866331440639,
-        "total_pnl": -991.6723289684169,
-        "avg_pnl": -4.0978195411918055,
+        "win_rate": 54.61847389558233,
+        "profit_factor": 0.8231535289086676,
+        "total_pnl": -1035.0825237011977,
+        "avg_pnl": -4.1569579265108345,
         "max_drawdown": 25.875071077980405,
-        "total_trades": 242
+        "total_trades": 249
       },
       "exposure": {
-        "ETH/USDT": 722.5357706211764,
-        "XRP/USDT": 495.6632096436884,
-        "ADA/USDT": 391.9528416922319,
-        "AVAX/USDT": 369.0656211868503,
-        "TRX/USDT": 522.4507049952855,
-        "BNB/USDT": 1946.844782378075,
-        "BTC/USDT": 902.2845664278485,
-        "DOGE/USDT": 476.0929656596918,
-        "SOL/USDT": 285.7413502272357
+        "XRP/USDT": 532.9366808422853,
+        "AVAX/USDT": 386.1549263474735
       }
     },
     "rsi_forex": {
@@ -12306,12 +12384,12 @@
           "qty": 1118.1547755046713,
           "entry": 1.1673787832260132,
           "entry_date": "2026-08-20",
-          "current_price": 1.1585336923599243,
-          "unrealized_pnl": 9.890180591690015,
+          "current_price": 1.1621150970458984,
+          "unrealized_pnl": 5.885615839053245,
           "sl": 1.1668577236788613,
           "tp1": true,
           "tp_price": 1.1618681379726954,
-          "value": 1295.419980695309
+          "value": 1299.4245454479458
         },
         {
           "symbol": "GBP/USD",
@@ -12319,12 +12397,12 @@
           "qty": 484.3674605921208,
           "entry": 1.364349603652954,
           "entry_date": "2026-08-21",
-          "current_price": 1.3483631610870361,
-          "unrealized_pnl": 7.743312589555474,
+          "current_price": 1.351698398590088,
+          "unrealized_pnl": 6.1278320697306885,
           "sl": 1.3582825064659119,
           "tp1": true,
           "tp_price": 1.3579705953598022,
-          "value": 653.1032402916924
+          "value": 654.7187208115172
         },
         {
           "symbol": "EUR/JPY",
@@ -12332,12 +12410,12 @@
           "qty": 7.068568526635765,
           "entry": 185.70399475097656,
           "entry_date": "2026-08-21",
-          "current_price": 184.10800170898438,
-          "unrealized_pnl": 11.28138618535565,
-          "sl": 185.69307381766183,
+          "current_price": 181.46200561523438,
+          "unrealized_pnl": 29.984790895238078,
+          "sl": 183.3710779462542,
           "tp1": true,
           "tp_price": 184.8141359601702,
-          "value": 1301.3800263819305
+          "value": 1282.6766216720482
         },
         {
           "symbol": "GBP/JPY",
@@ -12345,16 +12423,16 @@
           "qty": 0.06957256545897066,
           "entry": 216.75799560546875,
           "entry_date": "2026-08-21",
-          "current_price": 214.27200317382812,
-          "unrealized_pnl": 0.172956871180823,
-          "sl": 216.3849160330636,
+          "current_price": 211.30099487304688,
+          "unrealized_pnl": 0.3796575406660717,
+          "sl": 213.79115731375558,
           "tp1": true,
           "tp_price": 215.5361382620675,
-          "value": 14.907452966835926
+          "value": 14.700752297350677
         }
       ],
       "current_cash": 7248.90858376284,
-      "current_equity": 10513.719284098608,
+      "current_equity": 10500.429223991701,
       "history_events": 230,
       "equity_curve": [
         {
@@ -13513,8 +13591,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-04T02:15:01.323080",
-          "equity": 10513.719284098608,
+          "time": "2026-09-05T02:15:30.561141",
+          "equity": 10500.429223991701,
           "type": "current"
         }
       ],
@@ -16594,10 +16672,10 @@
         "total_trades": 143
       },
       "exposure": {
-        "EUR/USD": 1295.419980695309,
-        "GBP/USD": 653.1032402916924,
-        "EUR/JPY": 1301.3800263819305,
-        "GBP/JPY": 14.907452966835926
+        "EUR/USD": 1299.4245454479458,
+        "GBP/USD": 654.7187208115172,
+        "EUR/JPY": 1282.6766216720482,
+        "GBP/JPY": 14.700752297350677
       }
     },
     "ma_crossover_commodities": {
@@ -16607,12 +16685,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-09-04T02:15:28.479862",
+          "time": "2026-09-05T02:16:00.970001",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-09-04T02:15:28.479868",
+          "time": "2026-09-05T02:16:00.970007",
           "equity": 10000.0,
           "type": "current"
         }
@@ -16642,12 +16720,12 @@
           "qty": 21.934988682611273,
           "entry": 91.2699966430664,
           "entry_date": "2026-09-02",
-          "current_price": 91.9800033569336,
-          "unrealized_pnl": -15.573989233254778,
+          "current_price": 91.22000122070312,
+          "unrealized_pnl": 1.0966490237209447,
           "sl": 95.82892308916364,
           "tp1": false,
           "tp_price": 88.23071234566825,
-          "value": 2017.5803326608852
+          "value": 2000.9096944039095
         },
         {
           "symbol": "NG/USD",
@@ -16655,16 +16733,16 @@
           "qty": 320.07327640174657,
           "entry": 3.0199999809265137,
           "entry_date": "2026-09-02",
-          "current_price": 2.9260001182556152,
-          "unrealized_pnl": 30.086844026388697,
+          "current_price": 2.938999891281128,
+          "unrealized_pnl": 25.9259640816338,
           "sl": 3.0199999809265137,
           "tp1": true,
           "tp_price": 2.91585716179439,
-          "value": 936.5344446019727
+          "value": 940.6953245467275
         }
       ],
       "current_cash": 7064.705701277341,
-      "current_equity": 10018.8204785402,
+      "current_equity": 10006.310720227979,
       "history_events": 3,
       "equity_curve": [
         {
@@ -16688,8 +16766,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-04T02:15:28.479889",
-          "equity": 10018.8204785402,
+          "time": "2026-09-05T02:16:00.970028",
+          "equity": 10006.310720227979,
           "type": "current"
         }
       ],
@@ -16734,12 +16812,12 @@
         "profit_factor": "\u221e",
         "total_pnl": 33.333333333333385,
         "avg_pnl": 33.333333333333385,
-        "max_drawdown": 0.14464639328703638,
+        "max_drawdown": 0.26932836982079633,
         "total_trades": 1
       },
       "exposure": {
-        "CL/USD": 2017.5803326608852,
-        "NG/USD": 936.5344446019727
+        "CL/USD": 2000.9096944039095,
+        "NG/USD": 940.6953245467275
       }
     }
   }
