@@ -146,7 +146,7 @@ class BaseStrategy(ABC):
                 label = TRAILED_STOP_REASON_LONG if is_long else TRAILED_STOP_REASON_SHORT
             else:
                 label = STOP_LOSS_REASON_LONG if is_long else STOP_LOSS_REASON_SHORT
-            reason = f'{label} @ {stop_loss} (SL {stop_loss})'
+            reason = f'{label} @ {round(float(stop_loss), 4)} (SL {round(float(stop_loss), 4)})'
             return {'action': close_action, 'quantity_pct': 1.0, 'reason': reason}
 
         if post_tp1:

@@ -169,6 +169,11 @@
             grid-row: 2;
         }
 
+        .pair-perf-side-card {
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+
         .chart-container {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -382,6 +387,47 @@
             text-align: right;
         }
 
+        /* Mobile glance cell: hidden on desktop; shown ≤720px */
+        .trade-mobile-main {
+            display: none;
+        }
+
+        .trade-symbol {
+            font-weight: 600;
+        }
+
+        .trade-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+            font-size: 11px;
+            line-height: 1.2;
+        }
+
+        .trade-exit-date {
+            color: var(--muted);
+        }
+
+        .trade-meta .badge {
+            padding: 2px 6px;
+            font-size: 9px;
+        }
+
+        .trade-pnl-pct {
+            font-size: 10px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        .trade-pnl-pct::before {
+            content: '(';
+        }
+
+        .trade-pnl-pct::after {
+            content: ')';
+        }
+
         .pair-perf-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -401,15 +447,62 @@
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .pair-perf-header .card-title {
             margin-bottom: 0;
         }
 
+        .pair-perf-header-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+
         .pair-perf-window {
             font-size: 11px;
             color: var(--muted);
+        }
+
+        /* Read-only desk cue: rolling long vs short tot P/L bias */
+        .bias-readout {
+            box-sizing: border-box;
+            width: 4.75rem;
+            min-height: 28px;
+            margin: 0;
+            padding: 2px 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--card-bg);
+            color: var(--muted);
+            font: inherit;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .bias-readout.is-bull {
+            color: var(--success-color);
+            background: rgba(59, 190, 80, 0.15);
+        }
+
+        .bias-readout.is-bear {
+            color: var(--danger-color);
+            background: rgba(248, 81, 73, 0.15);
+        }
+
+        .bias-readout:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
 
         .pair-perf-table {
@@ -459,6 +552,11 @@
                 grid-column: 1;
                 grid-row: 3;
                 grid-template-columns: 1fr;
+            }
+
+            .pair-perf-side-card {
+                grid-column: 1;
+                grid-row: 4;
             }
         }
 
@@ -524,8 +622,18 @@
                 width: 100%;
             }
 
+            th,
+            td {
+                padding: 10px 8px;
+            }
+
+            .trade-row {
+                min-height: 48px;
+            }
+
             /* Keep glanceable columns; details live in the expand panel */
             .history-table .col-secondary,
+            .history-table .col-desktop,
             .positions-table .col-secondary {
                 display: none;
             }
@@ -535,13 +643,66 @@
                 min-width: 0;
             }
 
-            th,
-            td {
-                padding: 10px 8px;
+            /* Dense closed-trades glance: caret | symbol/meta | P/L stack */
+            .table-scroll table.history-table {
+                display: block;
             }
 
-            .trade-row {
+            .history-table thead {
+                display: none;
+            }
+
+            .history-table tbody {
+                display: block;
+            }
+
+            .history-table .trade-row {
+                display: grid;
+                grid-template-columns: 28px minmax(0, 1fr) auto;
+                align-items: center;
+                column-gap: 8px;
                 min-height: 48px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .history-table .trade-row td {
+                border-bottom: none;
+                padding: 10px 0;
+            }
+
+            .history-table .trade-row td.caret-cell {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .history-table .trade-mobile-main {
+                display: block;
+                min-width: 0;
+            }
+
+            .history-table .trade-pnl {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                gap: 2px;
+                padding-right: 0;
+            }
+
+            .history-table .trade-pnl-pct::before,
+            .history-table .trade-pnl-pct::after {
+                content: none;
+            }
+
+            .history-table .trade-detail-row {
+                display: block;
+            }
+
+            .history-table .trade-detail-row > td {
+                display: block;
+                width: 100%;
+                padding: 0;
+                border-bottom: none;
             }
 
             .trade-detail-inner.open {
@@ -638,6 +799,17 @@
                         <div id="pair-losers-container"></div>
                     </div>
                 </div>
+                <div class="pair-perf-card pair-perf-side-card">
+                    <div class="pair-perf-header">
+                        <div class="card-title">Long vs Short</div>
+                        <div class="pair-perf-header-meta">
+                            <span class="pair-perf-window" id="pair-side-window"></span>
+                            <input type="text" class="bias-readout" id="pair-side-bias" readonly
+                                value="Flat" aria-label="Rolling window bias from long versus short total P/L">
+                        </div>
+                    </div>
+                    <div id="pair-side-container"></div>
+                </div>
             </div>
 
             <!-- Active Positions -->
@@ -713,9 +885,36 @@
             }
         }
 
+        function roundMax4(v) {
+            const n = Number(v);
+            if (!Number.isFinite(n)) return n;
+            return Math.round(n * 1e4) / 1e4;
+        }
+
+        function fmtDec(v, decimals = 4) {
+            const n = Number(v);
+            if (!Number.isFinite(n)) return '-';
+            const capped = decimals >= 4 ? roundMax4(n) : Math.round(n * (10 ** decimals)) / (10 ** decimals);
+            return capped.toFixed(decimals);
+        }
+
         function fmtPrice(v) {
             if (v == null || v === undefined || v <= 0) return '-';
-            return '$' + Number(v).toFixed(4);
+            return '$' + fmtDec(v, 4);
+        }
+
+        function fmtQty(v) {
+            if (v == null || v === undefined) return '-';
+            return fmtDec(v, 4);
+        }
+
+        function fmtUsd(v) {
+            const n = Number(v);
+            if (!Number.isFinite(n)) return '-';
+            return '$' + roundMax4(n).toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 4
+            });
         }
 
         function fmtDate(d) {
@@ -738,6 +937,12 @@
 
         function formatReason(t) {
             let r = t.reason || '-';
+            // Cap embedded fill/SL prices at 4 decimals (ledger reasons store full floats)
+            r = r.replace(/-?\d+\.\d+/g, (m) => {
+                const n = Number(m);
+                if (!Number.isFinite(n)) return m;
+                return String(Number(roundMax4(n).toFixed(4)));
+            });
             if (t.exit_kind === 'tp1_partial' && t.quantity_pct != null && t.quantity_pct < 1) {
                 const pct = Math.round(t.quantity_pct * 100);
                 if (!r.includes('%')) r += ` · ${pct}%`;
@@ -760,14 +965,24 @@
                 <div><dt>Exit</dt><dd>${fmtPrice(t.exit_price)} <span style="color:var(--muted); font-weight:400">${fmtDate(t.exit_date || t.time)}</span>${heldStr}</dd></div>
                 <div><dt>${slLabel}</dt><dd>${fmtPrice(sl)}</dd></div>
                 ${tpRow}
-                <div><dt>Quantity</dt><dd>${t.qty != null ? t.qty.toFixed(6) : '-'}</dd></div>
+                <div><dt>Quantity</dt><dd>${fmtQty(t.qty)}</dd></div>
                 <div><dt>Reason</dt><dd>${formatReason(t)}</dd></div>
             </dl>`;
         }
 
         function computePairPerformance(trades, days = 30, minTrades = 50, topN = 5) {
+            const emptySide = [
+                { side: 'LONG', pnl: 0, avg_pnl: 0, trades: 0, win_rate: 0 },
+                { side: 'SHORT', pnl: 0, avg_pnl: 0, trades: 0, win_rate: 0 }
+            ];
             if (!trades || trades.length === 0) {
-                return { winners: [], losers: [], window_label: 'No closed trades', trades_in_window: 0 };
+                return {
+                    winners: [],
+                    losers: [],
+                    side_breakdown: emptySide,
+                    window_label: 'No closed trades',
+                    trades_in_window: 0
+                };
             }
             const chrono = [...trades].sort((a, b) => new Date(a.time) - new Date(b.time));
             const latest = new Date(chrono[chrono.length - 1].time);
@@ -778,6 +993,10 @@
                 rolling = chrono.slice(-minTrades);
             }
             const bySymbol = {};
+            const bySide = {
+                LONG: { side: 'LONG', pnl: 0, trades: 0, wins: 0 },
+                SHORT: { side: 'SHORT', pnl: 0, trades: 0, wins: 0 }
+            };
             rolling.forEach(t => {
                 if (!bySymbol[t.symbol]) {
                     bySymbol[t.symbol] = { symbol: t.symbol, pnl: 0, trades: 0, wins: 0 };
@@ -785,6 +1004,11 @@
                 bySymbol[t.symbol].pnl += t.pnl;
                 bySymbol[t.symbol].trades += 1;
                 if (t.pnl > 0) bySymbol[t.symbol].wins += 1;
+
+                const side = String(t.side || '').toUpperCase() === 'SHORT' ? 'SHORT' : 'LONG';
+                bySide[side].pnl += t.pnl;
+                bySide[side].trades += 1;
+                if (t.pnl > 0) bySide[side].wins += 1;
             });
             const rows = Object.values(bySymbol).map(d => ({
                 symbol: d.symbol,
@@ -795,11 +1019,27 @@
             rows.sort((a, b) => b.pnl - a.pnl);
             const winners = rows.filter(r => r.pnl > 0).slice(0, topN);
             const losers = rows.filter(r => r.pnl < 0).sort((a, b) => a.pnl - b.pnl).slice(0, topN);
+            const side_breakdown = ['LONG', 'SHORT'].map(key => {
+                const d = bySide[key];
+                return {
+                    side: d.side,
+                    pnl: d.pnl,
+                    avg_pnl: d.trades ? d.pnl / d.trades : 0,
+                    trades: d.trades,
+                    win_rate: d.trades ? (d.wins / d.trades) * 100 : 0
+                };
+            });
             let windowLabel = `Last ${days} days (${rolling.length} trades)`;
             if (rolling.length >= minTrades && new Date(rolling[0].time) < cutoff) {
                 windowLabel = `Last ${rolling.length} closed trades`;
             }
-            return { winners, losers, window_label: windowLabel, trades_in_window: rolling.length };
+            return {
+                winners,
+                losers,
+                side_breakdown,
+                window_label: windowLabel,
+                trades_in_window: rolling.length
+            };
         }
 
         function renderPairPerfTable(containerId, rows, positive) {
@@ -812,9 +1052,9 @@
                 const pnlColor = r.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                 return `<tr>
                     <td style="font-weight:600">${r.symbol}</td>
-                    <td class="num" style="color:${pnlColor}; font-weight:600">${r.pnl >= 0 ? '+' : ''}$${r.pnl.toFixed(2)}</td>
+                    <td class="num" style="color:${pnlColor}; font-weight:600">${r.pnl >= 0 ? '+' : ''}$${fmtDec(r.pnl, 2)}</td>
                     <td class="num" style="color:var(--muted)">${r.trades}</td>
-                    <td class="num" style="color:var(--muted)">${r.win_rate.toFixed(1)}%</td>
+                    <td class="num" style="color:var(--muted)">${Number(r.win_rate).toFixed(1)}%</td>
                 </tr>`;
             }).join('');
             container.innerHTML = `<div class="table-scroll"><table class="pair-perf-table">
@@ -823,11 +1063,62 @@
             </table></div>`;
         }
 
+        function sideWindowBias(rows) {
+            // Short tot P/L ahead → Bear; long ahead → Bull; else Flat
+            const longRow = (rows || []).find(r => r.side === 'LONG') || { pnl: 0, trades: 0 };
+            const shortRow = (rows || []).find(r => r.side === 'SHORT') || { pnl: 0, trades: 0 };
+            if (!longRow.trades && !shortRow.trades) {
+                return { label: 'Flat', kind: 'flat' };
+            }
+            if (shortRow.pnl > longRow.pnl) return { label: 'Bear', kind: 'bear' };
+            if (longRow.pnl > shortRow.pnl) return { label: 'Bull', kind: 'bull' };
+            return { label: 'Flat', kind: 'flat' };
+        }
+
+        function renderSideBreakdown(rows, windowLabel) {
+            const container = document.getElementById('pair-side-container');
+            const windowEl = document.getElementById('pair-side-window');
+            const biasEl = document.getElementById('pair-side-bias');
+            if (windowEl) windowEl.innerText = windowLabel || '';
+            const bias = sideWindowBias(rows);
+            if (biasEl) {
+                biasEl.value = bias.label;
+                biasEl.classList.remove('is-bull', 'is-bear');
+                if (bias.kind === 'bull') biasEl.classList.add('is-bull');
+                if (bias.kind === 'bear') biasEl.classList.add('is-bear');
+                biasEl.title = 'Compares long vs short total P/L in this window. Short ahead = Bear, long ahead = Bull.';
+            }
+            if (!rows || rows.length === 0 || rows.every(r => !r.trades)) {
+                container.innerHTML = '<div class="pair-perf-empty">No closed trades in this window.</div>';
+                return;
+            }
+            const body = rows.map(r => {
+                const totColor = r.pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
+                const avg = r.avg_pnl != null ? r.avg_pnl : (r.trades ? r.pnl / r.trades : 0);
+                const avgColor = avg >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
+                const badge = r.side === 'LONG' ? 'badge-long' : 'badge-short';
+                return `<tr>
+                    <td><span class="badge ${badge}">${r.side}</span></td>
+                    <td class="num" style="color:var(--muted)">${r.trades}</td>
+                    <td class="num" style="color:${totColor}; font-weight:600">${r.pnl >= 0 ? '+' : ''}$${fmtDec(r.pnl, 2)}</td>
+                    <td class="num" style="color:${avgColor}">${avg >= 0 ? '+' : ''}$${fmtDec(avg, 2)}</td>
+                    <td class="num" style="color:var(--muted)">${Number(r.win_rate).toFixed(1)}%</td>
+                </tr>`;
+            }).join('');
+            container.innerHTML = `<div class="table-scroll"><table class="pair-perf-table">
+                <thead><tr><th>Side</th><th class="num">Trades</th><th class="num">Tot P/L</th><th class="num">Avg P/L</th><th class="num">Win %</th></tr></thead>
+                <tbody>${body}</tbody>
+            </table></div>`;
+        }
+
         function renderPairPerformance(data) {
-            const perf = data.pair_performance || computePairPerformance(data.trade_history);
+            const perf = (data.trade_history && data.trade_history.length)
+                ? computePairPerformance(data.trade_history)
+                : (data.pair_performance || computePairPerformance([]));
             document.getElementById('pair-perf-window').innerText = perf.window_label || '';
             renderPairPerfTable('pair-winners-container', perf.winners, true);
             renderPairPerfTable('pair-losers-container', perf.losers, false);
+            renderSideBreakdown(perf.side_breakdown || [], perf.window_label || '');
         }
 
         function renderStrategy(strategyName) {
@@ -840,7 +1131,7 @@
             renderPairPerformance(data);
 
             // Metrics
-            document.getElementById('val-equity').innerText = `$${data.current_equity.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+            document.getElementById('val-equity').innerText = fmtUsd(data.current_equity);
             document.getElementById('val-winrate').innerText = `${data.metrics.win_rate.toFixed(1)}%`;
             const pf = data.metrics.profit_factor;
             document.getElementById('val-profitfactor').innerText = (typeof pf === 'number') ? pf.toFixed(2) : pf;
@@ -886,16 +1177,16 @@
                     <tr>
                         <td style="font-weight:600">${p.symbol} ${tp1Badge}</td>
                         <td><span class="badge ${badge}">${p.side}</span></td>
-                        <td class="col-secondary num">${p.qty.toFixed(6)}</td>
-                        <td class="col-secondary num">$${p.entry.toFixed(4)}</td>
+                        <td class="col-secondary num">${fmtQty(p.qty)}</td>
+                        <td class="col-secondary num">${fmtPrice(p.entry)}</td>
                         <td class="col-secondary" style="color:var(--muted)">${fmtDate(p.entry_date)}</td>
-                        <td class="col-secondary num">$${(p.current_price || p.entry).toFixed(4)}</td>
+                        <td class="col-secondary num">${fmtPrice(p.current_price || p.entry)}</td>
                         <td class="num" style="color:${pnlColor}; font-weight:600">
-                            ${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)}
-                            <div style="font-size:10px; opacity:0.8">${pnlPct.toFixed(2)}%</div>
+                            ${pnl >= 0 ? '+' : ''}$${fmtDec(pnl, 2)}
+                            <div style="font-size:10px; opacity:0.8">${fmtDec(pnlPct, 2)}%</div>
                         </td>
-                        <td class="col-secondary num">$${p.sl > 0 ? p.sl.toFixed(4) : '-'}</td>
-                        <td class="num">$${p.value.toLocaleString()}</td>
+                        <td class="col-secondary num">${p.sl > 0 ? fmtPrice(p.sl) : '-'}</td>
+                        <td class="num">${fmtUsd(p.value)}</td>
                     </tr>`;
             }).join('');
 
@@ -945,17 +1236,24 @@
                 const held = daysHeld(t);
                 tr.innerHTML = `
                     <td class="caret-cell"><button type="button" class="trade-toggle" aria-expanded="false" aria-controls="${detailId}" aria-label="Closed trade ${t.symbol}"><span class="caret">&#9654;</span></button></td>
-                    <td style="color:var(--muted)">${fmtDate(t.exit_date || t.time)}</td>
+                    <td class="trade-mobile-main">
+                        <div class="trade-symbol">${t.symbol}</div>
+                        <div class="trade-meta">
+                            <span class="trade-exit-date">${fmtDate(t.exit_date || t.time)}</span>
+                            <span class="badge ${badge}">${t.side}</span>
+                        </div>
+                    </td>
+                    <td class="col-desktop" style="color:var(--muted)">${fmtDate(t.exit_date || t.time)}</td>
                     <td class="col-secondary" style="color:var(--muted)">${fmtDate(t.entry_date)}</td>
                     <td class="col-secondary num" style="color:var(--muted)">${held != null ? held : '-'}</td>
-                    <td style="font-weight:600">${t.symbol}</td>
-                    <td><span class="badge ${badge}">${t.side}</span></td>
+                    <td class="col-desktop" style="font-weight:600">${t.symbol}</td>
+                    <td class="col-desktop"><span class="badge ${badge}">${t.side}</span></td>
                     <td class="col-secondary num" style="color:var(--muted)">${fmtPrice(t.entry_price)}</td>
                     <td class="col-secondary num" style="color:var(--muted)">${fmtPrice(t.exit_price)}</td>
-                    <td class="col-secondary num" style="color:var(--muted)">${t.qty != null ? t.qty.toFixed(4) : '-'}</td>
-                    <td class="num" style="color:${pnlColor}; font-weight:600">
-                        ${t.pnl >= 0 ? '+' : ''}$${t.pnl.toFixed(2)}
-                        <span style="font-size:10px; opacity:0.7">(${t.pnl_pct.toFixed(2)}%)</span>
+                    <td class="col-secondary num" style="color:var(--muted)">${fmtQty(t.qty)}</td>
+                    <td class="num trade-pnl" style="color:${pnlColor}; font-weight:600">
+                        <span class="trade-pnl-amt">${t.pnl >= 0 ? '+' : ''}$${fmtDec(t.pnl, 2)}</span>
+                        <span class="trade-pnl-pct">${fmtDec(t.pnl_pct, 2)}%</span>
                     </td>
                     <td class="col-secondary" style="font-size:11px; opacity:0.8">${formatReason(t)}</td>`;
 
@@ -975,7 +1273,7 @@
                 }
                 inner.innerHTML = detailBody;
 
-                detailTr.innerHTML = `<td colspan="11"></td>`;
+                detailTr.innerHTML = `<td colspan="12"></td>`;
                 detailTr.querySelector('td').appendChild(inner);
 
                 const openTradeDetail = async () => {
@@ -1030,7 +1328,7 @@
             scroll.className = 'table-scroll';
             const table = document.createElement('table');
             table.className = 'history-table';
-            table.innerHTML = `<thead><tr><th></th><th>Exit</th><th class="col-secondary">Entry date</th><th class="col-secondary num">Days</th><th>Symbol</th><th>Side</th><th class="col-secondary num">Entry</th><th class="col-secondary num">Exit</th><th class="col-secondary num">Qty</th><th class="num">Realized P/L</th><th class="col-secondary">Signal Reason</th></tr></thead>`;
+            table.innerHTML = `<thead><tr><th></th><th class="trade-mobile-main"></th><th class="col-desktop">Exit</th><th class="col-secondary">Entry date</th><th class="col-secondary num">Days</th><th class="col-desktop">Symbol</th><th class="col-desktop">Side</th><th class="col-secondary num">Entry</th><th class="col-secondary num">Exit</th><th class="col-secondary num">Qty</th><th class="num">Realized P/L</th><th class="col-secondary">Signal Reason</th></tr></thead>`;
             table.appendChild(tbody);
             scroll.appendChild(table);
             container.appendChild(scroll);

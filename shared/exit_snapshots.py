@@ -190,14 +190,20 @@ def apply_close_fill_to_event(event, position_side, fill_price, entry_price=None
 def reason_with_fill(signal_data, fill_price):
     """Rewrite stop/trail reason so ledger shows actual fill price."""
     reason = signal_data.get('reason', '') or ''
+    fill = round(float(fill_price), 4)
     for prefix in ('Stop Loss Hit @', 'Short Stop Loss Hit @', 'Trailed Stop Hit @', 'Short Trailed Stop Hit @'):
         if prefix in reason:
             sl_marker = '(SL '
             sl_idx = reason.find(sl_marker)
             label = reason.split('@')[0].strip()
             if sl_idx == -1:
-                return f'{label} @ {fill_price}'
-            return f'{label} @ {fill_price} {reason[sl_idx:]}'
+                return f'{label} @ {fill}'
+            sl_tail = reason[sl_idx + len(sl_marker):].rstrip(')')
+            try:
+                sl_val = round(float(sl_tail.strip().split()[0]), 4)
+            except (TypeError, ValueError):
+                sl_val = fill
+            return f'{label} @ {fill} (SL {sl_val})'
     return reason
 
 

@@ -321,11 +321,17 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
     """
     Rolling pair P/L: aggregate closed trades in the last ROLLING_PAIR_DAYS,
     or the most recent ROLLING_PAIR_MIN_TRADES if the window is thin.
+    Also returns long vs short totals for the same window.
     """
+    empty_side = [
+        {"side": "LONG", "pnl": 0.0, "avg_pnl": 0.0, "trades": 0, "win_rate": 0.0},
+        {"side": "SHORT", "pnl": 0.0, "avg_pnl": 0.0, "trades": 0, "win_rate": 0.0},
+    ]
     if not trade_history_chronological:
         return {
             "winners": [],
             "losers": [],
+            "side_breakdown": empty_side,
             "window_label": "No closed trades",
             "trades_in_window": 0,
         }
@@ -339,6 +345,10 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
         rolling = trade_history_chronological[-ROLLING_PAIR_MIN_TRADES:]
 
     by_symbol = {}
+    by_side = {
+        "LONG": {"side": "LONG", "pnl": 0.0, "trades": 0, "wins": 0},
+        "SHORT": {"side": "SHORT", "pnl": 0.0, "trades": 0, "wins": 0},
+    }
     for t in rolling:
         sym = t["symbol"]
         if sym not in by_symbol:
@@ -347,6 +357,12 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
         by_symbol[sym]["trades"] += 1
         if t["pnl"] > 0:
             by_symbol[sym]["wins"] += 1
+
+        side = "SHORT" if (t.get("side") or "").upper() == "SHORT" else "LONG"
+        by_side[side]["pnl"] += t["pnl"]
+        by_side[side]["trades"] += 1
+        if t["pnl"] > 0:
+            by_side[side]["wins"] += 1
 
     rows = []
     for d in by_symbol.values():
@@ -361,6 +377,18 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
     winners = [r for r in rows if r["pnl"] > 0][:top_n]
     losers = sorted([r for r in rows if r["pnl"] < 0], key=lambda x: x["pnl"])[:top_n]
 
+    side_breakdown = []
+    for key in ("LONG", "SHORT"):
+        d = by_side[key]
+        trades = d["trades"]
+        side_breakdown.append({
+            "side": d["side"],
+            "pnl": round(d["pnl"], 2),
+            "avg_pnl": round(d["pnl"] / trades, 2) if trades else 0.0,
+            "trades": trades,
+            "win_rate": round(d["wins"] / trades * 100, 1) if trades else 0.0,
+        })
+
     window_label = f"Last {ROLLING_PAIR_DAYS} days ({len(rolling)} trades)"
     if len(rolling) >= ROLLING_PAIR_MIN_TRADES and rolling[0]["time"] < cutoff:
         window_label = f"Last {len(rolling)} closed trades"
@@ -368,6 +396,7 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
     return {
         "winners": winners,
         "losers": losers,
+        "side_breakdown": side_breakdown,
         "window_label": window_label,
         "trades_in_window": len(rolling),
     }
