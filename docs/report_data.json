@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-09-08T02:18:58.606870",
+    "last_updated": "2026-09-09T02:22:11.237471",
     "initial_cash": 10000.0
   },
   "strategies": {
@@ -921,7 +921,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-08T02:18:58.607102",
+          "time": "2026-09-09T02:22:11.237663",
           "equity": 11641.899207893668,
           "type": "current"
         }
@@ -3327,6 +3327,22 @@
             "win_rate": 40.0
           }
         ],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 711.94,
+            "avg_pnl": 30.95,
+            "trades": 23,
+            "win_rate": 60.9
+          },
+          {
+            "side": "SHORT",
+            "pnl": 1083.35,
+            "avg_pnl": 40.12,
+            "trades": 27,
+            "win_rate": 66.7
+          }
+        ],
         "window_label": "Last 50 closed trades",
         "trades_in_window": 50
       },
@@ -3341,10 +3357,24 @@
       "exposure": {}
     },
     "ma_crossover_forex": {
-      "active_positions": [],
-      "current_cash": 9697.984625258145,
+      "active_positions": [
+        {
+          "symbol": "USD/JPY",
+          "side": "SHORT",
+          "qty": 15.758319350306067,
+          "entry": 153.85499572753906,
+          "entry_date": "2026-09-08",
+          "current_price": 153.85499572753906,
+          "unrealized_pnl": 0.0,
+          "sl": 156.2564958844866,
+          "tp1": false,
+          "tp_price": 152.25399562290735,
+          "value": 2424.496156314536
+        }
+      ],
+      "current_cash": 7273.4884689436085,
       "current_equity": 9697.984625258145,
-      "history_events": 89,
+      "history_events": 90,
       "equity_curve": [
         {
           "time": "2026-01-15T23:59:59",
@@ -3797,7 +3827,12 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-08T02:19:18.717366",
+          "time": "2026-09-09T02:22:00.976235",
+          "equity": 9697.984625258145,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-09T02:22:30.714703",
           "equity": 9697.984625258145,
           "type": "current"
         }
@@ -4958,6 +4993,22 @@
             "win_rate": 54.5
           }
         ],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 15.07,
+            "avg_pnl": 0.66,
+            "trades": 23,
+            "win_rate": 69.6
+          },
+          {
+            "side": "SHORT",
+            "pnl": -241.21,
+            "avg_pnl": -8.93,
+            "trades": 27,
+            "win_rate": 37.0
+          }
+        ],
         "window_label": "Last 50 closed trades",
         "trades_in_window": 50
       },
@@ -4969,7 +5020,9 @@
         "max_drawdown": 3.0201537474185534,
         "total_trades": 53
       },
-      "exposure": {}
+      "exposure": {
+        "USD/JPY": 2424.496156314536
+      }
     },
     "rsi_crypto": {
       "active_positions": [
@@ -4979,12 +5032,12 @@
           "qty": 367.2085106423715,
           "entry": 1.5221879482269287,
           "entry_date": "2026-08-23",
-          "current_price": 1.4228249788284302,
-          "unrealized_pnl": 36.48692800582618,
-          "sl": 1.5147948690823148,
+          "current_price": 1.3977500200271606,
+          "unrealized_pnl": 45.694666281659195,
+          "sl": 1.5007664901869637,
           "tp1": true,
           "tp_price": 1.4413900886263167,
-          "value": 522.4734413803516
+          "value": 513.2657031045186
         },
         {
           "symbol": "BNB/USDT",
@@ -4992,17 +5045,30 @@
           "qty": 1.2878588902275874,
           "entry": 766.9117431640625,
           "entry_date": "2026-09-05",
-          "current_price": 752.500732421875,
-          "unrealized_pnl": 18.559348301491433,
+          "current_price": 740.0272827148438,
+          "unrealized_pnl": 34.62339139849833,
           "sl": 766.9117431640625,
           "tp1": true,
           "tp_price": 743.7080688476562,
-          "value": 969.1147581522827
+          "value": 953.0507150552758
+        },
+        {
+          "symbol": "DOT/USDT",
+          "side": "SHORT",
+          "qty": 1115.887587191275,
+          "entry": 1.0626059770584106,
+          "entry_date": "2026-09-07",
+          "current_price": 1.0626059770584106,
+          "unrealized_pnl": 0.0,
+          "sl": 1.1432126675333296,
+          "tp1": false,
+          "tp_price": 1.0088681834084647,
+          "value": 1185.7488198747374
         }
       ],
-      "current_cash": 7448.1660587131755,
-      "current_equity": 8939.75425824581,
-      "history_events": 414,
+      "current_cash": 6262.417238838438,
+      "current_equity": 8914.48247687297,
+      "history_events": 415,
       "equity_curve": [
         {
           "time": "2026-01-01T23:59:59",
@@ -7080,8 +7146,13 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-08T02:19:28.168965",
-          "equity": 8939.75425824581,
+          "time": "2026-09-09T02:22:04.645084",
+          "equity": 8994.80053455313,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-09T02:22:39.912425",
+          "equity": 8914.48247687297,
           "type": "current"
         }
       ],
@@ -12417,6 +12488,22 @@
             "win_rate": 33.3
           }
         ],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 930.65,
+            "avg_pnl": 77.55,
+            "trades": 12,
+            "win_rate": 83.3
+          },
+          {
+            "side": "SHORT",
+            "pnl": -350.69,
+            "avg_pnl": -9.23,
+            "trades": 38,
+            "win_rate": 47.4
+          }
+        ],
         "window_label": "Last 50 closed trades",
         "trades_in_window": 50
       },
@@ -12429,8 +12516,9 @@
         "total_trades": 251
       },
       "exposure": {
-        "XRP/USDT": 522.4734413803516,
-        "BNB/USDT": 969.1147581522827
+        "XRP/USDT": 513.2657031045186,
+        "BNB/USDT": 953.0507150552758,
+        "DOT/USDT": 1185.7488198747374
       }
     },
     "rsi_forex": {
@@ -12441,12 +12529,12 @@
           "qty": 1118.1547755046713,
           "entry": 1.1673787832260132,
           "entry_date": "2026-08-20",
-          "current_price": 1.1613997220993042,
-          "unrealized_pnl": 6.685515751863991,
+          "current_price": 1.1627637147903442,
+          "unrealized_pnl": 5.160360810624105,
           "sl": 1.1668577236788613,
           "tp1": true,
           "tp_price": 1.1618681379726954,
-          "value": 1298.6246455351352
+          "value": 1300.149800476375
         },
         {
           "symbol": "GBP/USD",
@@ -12454,56 +12542,30 @@
           "qty": 484.3674605921208,
           "entry": 1.364349603652954,
           "entry_date": "2026-08-21",
-          "current_price": 1.3517167568206787,
-          "unrealized_pnl": 6.118939940198448,
+          "current_price": 1.3546831607818604,
+          "unrealized_pnl": 4.682110386430489,
           "sl": 1.3582825064659119,
           "tp1": true,
           "tp_price": 1.3579705953598022,
-          "value": 654.7276129410494
+          "value": 656.1644424948173
         },
         {
-          "symbol": "USD/JPY",
-          "side": "LONG",
-          "qty": 16.981195104754462,
-          "entry": 155.66000366210938,
-          "entry_date": "2026-09-04",
-          "current_price": 156.19700622558594,
-          "unrealized_pnl": 9.1189453021488,
-          "sl": 153.62825557163782,
+          "symbol": "AUD/USD",
+          "side": "SHORT",
+          "qty": 3648.6694325556646,
+          "entry": 0.722089946269989,
+          "entry_date": "2026-09-08",
+          "current_price": 0.722089946269989,
+          "unrealized_pnl": 0.0,
+          "sl": 0.7286191901990345,
           "tp1": false,
-          "tp_price": 157.0145023890904,
-          "value": 2652.4118374952222
-        },
-        {
-          "symbol": "EUR/JPY",
-          "side": "LONG",
-          "qty": 14.603424330196903,
-          "entry": 181.0050048828125,
-          "entry_date": "2026-09-04",
-          "current_price": 181.4029998779297,
-          "unrealized_pnl": 5.812089794990934,
-          "sl": 179.1083608354841,
-          "tp1": false,
-          "tp_price": 182.26943424769811,
-          "value": 2649.104981988064
-        },
-        {
-          "symbol": "GBP/JPY",
-          "side": "LONG",
-          "qty": 12.551963665402292,
-          "entry": 210.58799743652344,
-          "entry_date": "2026-09-04",
-          "current_price": 211.14100646972656,
-          "unrealized_pnl": 6.941349291404875,
-          "sl": 208.11658532278878,
-          "tp1": false,
-          "tp_price": 212.23560551234655,
-          "value": 2650.234241484478
+          "tp_price": 0.7177371169839587,
+          "value": 2634.667514511071
         }
       ],
-      "current_cash": 677.1361780248271,
-      "current_equity": 10582.239497468774,
-      "history_events": 235,
+      "current_cash": 5879.127256484655,
+      "current_equity": 10470.109013966918,
+      "history_events": 239,
       "equity_curve": [
         {
           "time": "2026-01-01T23:59:59",
@@ -13686,12 +13748,95 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-08T02:20:23.391273",
-          "equity": 10582.239497468774,
+          "time": "2026-09-09T02:22:04.973150",
+          "equity": 10538.670058044294,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-09T02:22:05.049157",
+          "equity": 10538.670058044292,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-09T02:22:05.409027",
+          "equity": 10510.972560217815,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-09T02:22:05.494986",
+          "equity": 10479.951485163981,
+          "type": "trade"
+        },
+        {
+          "time": "2026-09-09T02:23:32.254523",
+          "equity": 10470.109013966918,
           "type": "current"
         }
       ],
       "trade_history": [
+        {
+          "time": "2026-09-09T02:22:05.494986",
+          "symbol": "GBP/JPY",
+          "side": "LONG",
+          "qty": 12.551963665402292,
+          "entry_price": 210.58799743652344,
+          "exit_price": 208.11658532278878,
+          "entry_date": "2026-09-04",
+          "exit_date": "2026-09-08",
+          "hold_days": 4,
+          "stop_loss": 208.11658532278878,
+          "take_profit": 212.23560551234655,
+          "stop_loss_at_exit": 208.11658532278878,
+          "take_profit_at_exit": 212.23560551234655,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": -31.021075053832647,
+          "pnl_pct": -1.1735769102793314,
+          "reason": "Stop Loss Hit @ 208.1166 (SL 208.1166)",
+          "chart_id": "rsi_forex:147"
+        },
+        {
+          "time": "2026-09-09T02:22:05.409027",
+          "symbol": "EUR/JPY",
+          "side": "LONG",
+          "qty": 14.603424330196903,
+          "entry_price": 181.0050048828125,
+          "exit_price": 179.1083608354841,
+          "entry_date": "2026-09-04",
+          "exit_date": "2026-09-08",
+          "hold_days": 4,
+          "stop_loss": 179.1083608354841,
+          "take_profit": 182.26943424769811,
+          "stop_loss_at_exit": 179.1083608354841,
+          "take_profit_at_exit": 182.26943424769811,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": -27.697497826478866,
+          "pnl_pct": -1.047840665265776,
+          "reason": "Stop Loss Hit @ 179.1084 (SL 179.1084)",
+          "chart_id": "rsi_forex:146"
+        },
+        {
+          "time": "2026-09-09T02:22:04.973150",
+          "symbol": "USD/JPY",
+          "side": "LONG",
+          "qty": 16.981195104754462,
+          "entry_price": 155.66000366210938,
+          "exit_price": 153.62825557163782,
+          "entry_date": "2026-09-04",
+          "exit_date": "2026-09-08",
+          "hold_days": 4,
+          "stop_loss": 153.62825557163782,
+          "take_profit": 157.0145023890904,
+          "stop_loss_at_exit": 153.62825557163782,
+          "take_profit_at_exit": 157.0145023890904,
+          "exit_kind": "stop_loss",
+          "quantity_pct": 1.0,
+          "pnl": -34.501510728009634,
+          "pnl_pct": -1.3052473613464983,
+          "reason": "Stop Loss Hit @ 153.6283 (SL 153.6283)",
+          "chart_id": "rsi_forex:145"
+        },
         {
           "time": "2026-09-06T02:09:40.357637",
           "symbol": "GBP/JPY",
@@ -16741,22 +16886,22 @@
       "pair_performance": {
         "winners": [
           {
-            "symbol": "GBP/JPY",
-            "pnl": 80.66,
-            "trades": 6,
-            "win_rate": 100.0
+            "symbol": "EUR/JPY",
+            "pnl": 51.34,
+            "trades": 5,
+            "win_rate": 80.0
           },
           {
-            "symbol": "EUR/JPY",
-            "pnl": 79.04,
-            "trades": 4,
-            "win_rate": 100.0
+            "symbol": "GBP/JPY",
+            "pnl": 49.64,
+            "trades": 7,
+            "win_rate": 85.7
           },
           {
             "symbol": "USD/JPY",
-            "pnl": 69.39,
-            "trades": 7,
-            "win_rate": 85.7
+            "pnl": 34.88,
+            "trades": 8,
+            "win_rate": 75.0
           },
           {
             "symbol": "GBP/USD",
@@ -16765,24 +16910,18 @@
             "win_rate": 71.4
           },
           {
-            "symbol": "USD/CHF",
-            "pnl": 8.78,
-            "trades": 2,
-            "win_rate": 50.0
+            "symbol": "AUD/USD",
+            "pnl": 16.5,
+            "trades": 4,
+            "win_rate": 75.0
           }
         ],
         "losers": [
           {
             "symbol": "EUR/USD",
-            "pnl": -14.73,
-            "trades": 5,
-            "win_rate": 40.0
-          },
-          {
-            "symbol": "AUD/USD",
-            "pnl": -11.51,
-            "trades": 5,
-            "win_rate": 60.0
+            "pnl": -4.05,
+            "trades": 4,
+            "win_rate": 50.0
           },
           {
             "symbol": "USD/CAD",
@@ -16791,23 +16930,37 @@
             "win_rate": 62.5
           }
         ],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 58.6,
+            "avg_pnl": 2.55,
+            "trades": 23,
+            "win_rate": 69.6
+          },
+          {
+            "side": "SHORT",
+            "pnl": 128.03,
+            "avg_pnl": 4.74,
+            "trades": 27,
+            "win_rate": 70.4
+          }
+        ],
         "window_label": "Last 50 closed trades",
         "trades_in_window": 50
       },
       "metrics": {
-        "win_rate": 66.20689655172414,
-        "profit_factor": 2.1949977657017556,
-        "total_pnl": 573.1715687722908,
-        "avg_pnl": 3.952907370843385,
+        "win_rate": 64.86486486486487,
+        "profit_factor": 1.8378127704674672,
+        "total_pnl": 479.95148516396966,
+        "avg_pnl": 3.242915440297092,
         "max_drawdown": 1.1919519699569516,
-        "total_trades": 145
+        "total_trades": 148
       },
       "exposure": {
-        "EUR/USD": 1298.6246455351352,
-        "GBP/USD": 654.7276129410494,
-        "USD/JPY": 2652.4118374952222,
-        "EUR/JPY": 2649.104981988064,
-        "GBP/JPY": 2650.234241484478
+        "EUR/USD": 1300.149800476375,
+        "GBP/USD": 656.1644424948173,
+        "AUD/USD": 2634.667514511071
       }
     },
     "ma_crossover_commodities": {
@@ -16818,16 +16971,16 @@
           "qty": 187.05574581471475,
           "entry": 6.682499885559082,
           "entry_date": "2026-09-06",
-          "current_price": 6.792500019073486,
-          "unrealized_pnl": 20.576157014255095,
+          "current_price": 6.765500068664551,
+          "unrealized_pnl": 15.525661153551344,
           "sl": 6.682499885559082,
           "tp1": true,
           "tp_price": 6.774428401674543,
-          "value": 1270.5761570142552
+          "value": 1265.5256611535515
         }
       ],
       "current_cash": 8767.195757143618,
-      "current_equity": 10037.771914157873,
+      "current_equity": 10032.72141829717,
       "history_events": 2,
       "equity_curve": [
         {
@@ -16846,8 +16999,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-08T02:20:54.700918",
-          "equity": 10037.771914157873,
+          "time": "2026-09-09T02:24:03.339474",
+          "equity": 10032.72141829717,
           "type": "current"
         }
       ],
@@ -16884,6 +17037,22 @@
           }
         ],
         "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 17.2,
+            "avg_pnl": 17.2,
+            "trades": 1,
+            "win_rate": 100.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
         "window_label": "Last 30 days (1 trades)",
         "trades_in_window": 1
       },
@@ -16896,7 +17065,7 @@
         "total_trades": 1
       },
       "exposure": {
-        "HG/USD": 1270.5761570142552
+        "HG/USD": 1265.5256611535515
       }
     },
     "rsi_commodities": {
@@ -16907,12 +17076,12 @@
           "qty": 21.934988682611273,
           "entry": 91.2699966430664,
           "entry_date": "2026-09-02",
-          "current_price": 92.37999725341797,
-          "unrealized_pnl": -24.347850825753127,
+          "current_price": 94.31999969482422,
+          "unrealized_pnl": -66.90178242223746,
           "sl": 95.82892308916364,
           "tp1": false,
           "tp_price": 88.23071234566825,
-          "value": 2026.3541942533836
+          "value": 2068.908125849868
         },
         {
           "symbol": "NG/USD",
@@ -16920,16 +17089,16 @@
           "qty": 320.07327640174657,
           "entry": 3.0199999809265137,
           "entry_date": "2026-09-02",
-          "current_price": 2.950000047683716,
-          "unrealized_pnl": 22.405107980925845,
+          "current_price": 2.8949999809265137,
+          "unrealized_pnl": 40.00915955021832,
           "sl": 3.0199999809265137,
           "tp1": true,
           "tp_price": 2.91585716179439,
-          "value": 944.2161806474355
+          "value": 926.6121290781431
         }
       ],
       "current_cash": 7064.705701277341,
-      "current_equity": 10035.276076178161,
+      "current_equity": 10060.225956205351,
       "history_events": 3,
       "equity_curve": [
         {
@@ -16953,8 +17122,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-08T02:20:54.882333",
-          "equity": 10035.276076178161,
+          "time": "2026-09-09T02:24:03.509472",
+          "equity": 10060.225956205351,
           "type": "current"
         }
       ],
@@ -16991,6 +17160,22 @@
           }
         ],
         "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 33.33,
+            "avg_pnl": 33.33,
+            "trades": 1,
+            "win_rate": 100.0
+          }
+        ],
         "window_label": "Last 30 days (1 trades)",
         "trades_in_window": 1
       },
@@ -17003,8 +17188,8 @@
         "total_trades": 1
       },
       "exposure": {
-        "CL/USD": 2026.3541942533836,
-        "NG/USD": 944.2161806474355
+        "CL/USD": 2068.908125849868,
+        "NG/USD": 926.6121290781431
       }
     }
   }
