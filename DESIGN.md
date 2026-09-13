@@ -204,7 +204,7 @@ KPI metrics use `auto-fit` columns with `minmax(min(200px, 100%), 1fr)` and the 
 
 The chart band is `2fr 1fr` for equity vs exposure. Pair winners/losers span the full row as two equal cards (`.pair-perf-row`). The Long vs Short card (`.pair-perf-side-card`) sits full width under winners/losers. At 900px equity, exposure, then pair cards stack to one column; the side card remains full width below.
 
-The header and the closed-trades filter bar are space-between rows that wrap. At 720px both stack to full width; the strategy select and symbol filter become 100% wide. Strategy select `min-height` is 44px.
+The header and the closed-trades filter bar are space-between rows that wrap. At 720px both stack to full width; the market and param selects and symbol filter become 100% wide. Header selects `min-height` 44px.
 
 History and positions tables sit in a touch-scrolling wrapper. History tables keep `min-width: 560px` so columns can scroll sideways on desktop. At 720px, positions still hide `.col-secondary`. Closed-trades history switches to a dense glance row (not a looser card list): hide `thead`, `.col-secondary`, and `.col-desktop`; show `.trade-mobile-main` in a three-column grid (`28px 1fr auto`) of caret, symbol stack, and P/L stack. Symbol keeps table semibold size; exit date + side badge sit under it at caption scale. Realized P/L stacks dollar over percent (no parentheses on compact). Expand well and detail summary stay the same. Coarse pointers add extra vertical cell padding. Money, qty, and P/L cells use `tabular-nums` and right alignment. Symbol and Side stay left on desktop.
 
@@ -234,9 +234,15 @@ There is no button component. Actions are a native select, a native text filter,
 
 ### Filter controls
 - **Shape:** Shared 6px radius, 1px Iron Hairline, Graphite Panel fill.
-- **Select:** Strategy switcher in the header. Minimum height 44px. Options render strategy keys as uppercase with underscores turned to spaces.
+- **Selects:** Market book (Crypto / Forex / Commodities) then param set in the header. Param default is "Compare all". Minimum height 44px. Param options use human labels (`W1 · ADX 14 · Vol 0.8`), not raw wallet keys.
 - **Text filter:** Symbol filter in the closed-trades bar. Width capped at 240px on desktop, full width at compact.
 - **Hover / Focus:** Row hover and `:active` use the blue hover veil. Selects, the symbol filter, and the caret toggle use a 2px After-Hours Blue `:focus-visible` outline, offset 2px. No glow, no box-shadow. Cards do not use `overflow: hidden`, so the ring can paint.
+
+### Compare table
+- **Job:** Market-first overview of wallets for the selected book before drilling into one desk.
+- **Shape:** Graphite Panel card, hairline table inside `.table-scroll`. Columns: Param, Net Equity, Win Rate, PF, Avg Month, Max DD, Trades.
+- **Rows:** Clickable / keyboard-activatable; open the existing single-wallet desk. Empty books show "No ledger yet" per row.
+- **Color:** Net Equity and Avg Month use Ledger Green/Red vs initial cash or zero; Max DD red only when drawdown > 0.
 
 ### Chips
 - **LONG:** Green wash fill, Ledger Green text, pill radius, 10px semibold.
@@ -255,7 +261,7 @@ There is no button component. Actions are a native select, a native text filter,
 Covered under Filter controls and the bias readout above. Placeholder copy is allowed on the symbol filter. No error or disabled styles ship. Bias is read-only.
 
 ### Navigation
-No site nav. The header is the only chrome: accent display title Bot Trader, Ash Caption sync line, strategy select on the right (stacked on compact). Bottom border is the same 1px hairline as cards. There is no header fill.
+No site nav. The header is the only chrome: accent display title Bot Trader, Ash Caption sync line, market then param selects on the right (stacked on compact). Default land is Crypto compare-all. Choosing a param reveals the single-wallet desk; "Compare all" returns to the market table. Bottom border is the same 1px hairline as cards. There is no header fill.
 
 ### Closed-trades expand row
 Signature pattern. A history row stays a table row on desktop. On compact (≤720px) the same row is a dense three-column glance grid: caret, `.trade-mobile-main` (semibold symbol over smaller exit date + side badge), and stacked realized P/L (dollar over percent). Expand behavior is unchanged. The caret in the first cell is the keyboard control (`button.trade-toggle` with `aria-expanded` and `aria-controls`). Clicking the row still toggles on pointer. The caret rotates 90deg over 0.2s when open. Hover and `:active` use the blue hover veil (0.1s background). Toggle opens an adjacent detail row: `max-height` 0 to 2000px over 0.3s ease, Night Canvas well, 20px padding when open (12px and no max-height cap at 720px). Inside: a definition-list summary grid (`auto-fit`, min 140px; one column at 720px) then a lazy-loaded close snapshot (6px image, hairline) or an italic 12px empty message. Only one row is expanded at a time. Chart bytes load from `report_charts.js` on first open, never on first paint. Prices, qty, and USD in the summary use the four-decimal display caps.

@@ -1,6 +1,6 @@
 # Bot Trader
 
-A Python-based automated trading bot that runs daily on GitHub Actions. It fetches data for crypto and forex, executes strategies, and maintains a persistent ledger using this Git repository as a database.
+A Python-based automated trading bot that runs daily on GitHub Actions. It fetches data for crypto and commodities (forex reserved), executes dual MA wallets (long-only asset trail and long/short TP1 trail), and maintains a persistent ledger using this Git repository as a database.
 
 ## Setup Instructions
 
@@ -21,11 +21,11 @@ To run this bot, you need to configure Secrets in your GitHub repository setting
 |Data Provider Keys| |
 | `CCXT_API_KEY` | API Key for your Crypto Exchange (if execution enabled) |
 | `CCXT_SECRET` | Secret Key for your Crypto Exchange (if execution enabled) |
-| `ALPHAVANTAGE_KEY` | API Key for Alpha Vantage (Forex Data) |
+| `CMP_API_KEY` | CoinMarketCap API key (daily top-15 crypto universe sync) |
 
 **Note**: For local development, create a `.env` file in the root directory with the same keys:
 ```
-ALPHAVANTAGE_KEY=your_key_here
+CMP_API_KEY=your_key_here
 ```
 
 ### 3. Usage

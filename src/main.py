@@ -11,7 +11,7 @@ for _path in (REPO_ROOT, os.path.join(REPO_ROOT, 'src')):
     if _path not in sys.path:
         sys.path.insert(0, _path)
 
-from config import Config, TRADING_CONFIG, RISK_SETTINGS
+from config import Config, TRADING_CONFIG, RISK_SETTINGS, sync_crypto_universe_from_cmc
 from shared.constants import (
     reason_is_entry_long,
     reason_is_entry_short,
@@ -46,6 +46,12 @@ def main():
 
     ledger = LedgerManager(Config)
     data_fetcher = DataFetcher(Config)
+
+    try:
+        sync_crypto_universe_from_cmc(data_fetcher)
+    except Exception as e:
+        print(f"CMC universe sync failed (continuing with existing pairs): {e}")
+        traceback.print_exc()
 
     for strategy_id, config in TRADING_CONFIG.items():
         print(f"\n==========================================")

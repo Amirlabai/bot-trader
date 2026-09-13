@@ -90,13 +90,79 @@
             max-width: 100%;
         }
 
-        #strategy-selector {
+        .header-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        #market-selector,
+        #param-selector {
             min-height: 44px;
         }
 
         #symbol-filter {
             min-height: 44px;
             width: min(240px, 100%);
+        }
+
+        #compare-view {
+            margin-bottom: 30px;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .compare-table th {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            font-weight: 400;
+            text-align: left;
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .compare-table th.num,
+        .compare-table td.num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .compare-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .compare-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table tbody tr.compare-row {
+            cursor: pointer;
+        }
+
+        .compare-table tbody tr.compare-row:hover,
+        .compare-table tbody tr.compare-row:active {
+            background-color: rgba(88, 166, 255, 0.06);
+        }
+
+        .compare-table tbody tr.compare-row:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: -2px;
+        }
+
+        .compare-empty {
+            padding: 20px;
+            color: var(--muted);
+            text-align: center;
         }
 
         select:focus-visible,
@@ -578,7 +644,14 @@
                 width: 100%;
             }
 
-            #strategy-selector {
+            .header-controls {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            #market-selector,
+            #param-selector {
+                flex: 1 1 140px;
                 width: 100%;
             }
 
@@ -742,12 +815,24 @@
                 <h1>Bot Trader</h1>
                 <div id="last-updated">Loading...</div>
             </div>
-            <div>
-                <select id="strategy-selector" onchange="renderStrategy(this.value)">
-                    <option value="">Loading Strategies...</option>
+            <div class="header-controls">
+                <select id="market-selector" aria-label="Market book" onchange="onMarketChange(this.value)">
+                    <option value="crypto">Crypto</option>
+                    <option value="forex">Forex</option>
+                    <option value="commodities">Commodities</option>
+                </select>
+                <select id="param-selector" aria-label="Wallet" onchange="onParamChange(this.value)">
+                    <option value="">Compare all</option>
                 </select>
             </div>
         </header>
+
+        <div id="compare-view" style="display:none;">
+            <div class="card">
+                <div class="card-title" id="compare-title">Wallets</div>
+                <div id="compare-table-container"></div>
+            </div>
+        </div>
 
         <div id="dashboard-content" style="display:none;">
             <!-- Performance Highlights -->
@@ -841,9 +926,177 @@
         let equityChart = null;
         let exposureChart = null;
         let currentStrategy = null;
+        let currentMarket = 'crypto';
         let expandedRow = null;
         let expandedTradeRow = null;
         let chartsLoad = null;
+
+        const MARKET_LABELS = {
+            crypto: 'Crypto',
+            forex: 'Forex',
+            commodities: 'Commodities',
+        };
+
+        function walletIndex() {
+            const fromMeta = rawData?.metadata?.wallet_index;
+            if (Array.isArray(fromMeta) && fromMeta.length) return fromMeta;
+            return Object.keys(rawData?.strategies || {}).map(id => {
+                const desk = rawData.strategies[id]?.desk || {};
+                return {
+                    id,
+                    market: desk.market || 'crypto',
+                    param_rank: desk.param_rank || null,
+                    param_label: desk.param_label || id.replace(/_/g, ' ').toUpperCase(),
+                };
+            });
+        }
+
+        function walletsForMarket(market) {
+            return walletIndex()
+                .filter(w => w.market === market)
+                .sort((a, b) => (a.param_rank || 99) - (b.param_rank || 99));
+        }
+
+        function avgMonthlyFor(data) {
+            const m = data?.metrics?.avg_monthly_pnl;
+            if (typeof m === 'number' && Number.isFinite(m)) return m;
+            const curve = data?.equity_curve || [];
+            if (!curve.length) return 0;
+            const initial = rawData?.metadata?.initial_cash ?? 10000;
+            const start = new Date(curve[0].time);
+            const end = new Date(curve[curve.length - 1].time);
+            if (isNaN(start) || isNaN(end)) return 0;
+            const days = Math.max(1, (end - start) / 86400000);
+            return (data.current_equity - initial) / (days / 30.4375);
+        }
+
+        function signedMoney(n) {
+            const v = Number(n);
+            if (!Number.isFinite(v)) return '-';
+            const color = v >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
+            const prefix = v >= 0 ? '+' : '';
+            return `<span style="color:${color}; font-weight:600">${prefix}$${fmtDec(v, 2)}</span>`;
+        }
+
+        function fillParamSelector(market, selectedId) {
+            const sel = document.getElementById('param-selector');
+            const wallets = walletsForMarket(market);
+            sel.innerHTML = '';
+            const all = document.createElement('option');
+            all.value = '';
+            all.innerText = 'Compare all';
+            sel.appendChild(all);
+            wallets.forEach(w => {
+                const opt = document.createElement('option');
+                opt.value = w.id;
+                opt.innerText = w.param_label || w.id;
+                sel.appendChild(opt);
+            });
+            sel.value = selectedId || '';
+        }
+
+        function showCompareView() {
+            currentStrategy = null;
+            document.getElementById('param-selector').value = '';
+            document.getElementById('compare-view').style.display = 'block';
+            document.getElementById('dashboard-content').style.display = 'none';
+            document.getElementById('compare-title').innerText =
+                `${MARKET_LABELS[currentMarket] || currentMarket} · Wallets`;
+            renderCompareTable(currentMarket);
+        }
+
+        function showDetailView(strategyId) {
+            if (!rawData?.strategies?.[strategyId]) return;
+            document.getElementById('compare-view').style.display = 'none';
+            document.getElementById('dashboard-content').style.display = 'block';
+            document.getElementById('param-selector').value = strategyId;
+            renderStrategy(strategyId);
+        }
+
+        function renderCompareTable(market) {
+            const container = document.getElementById('compare-table-container');
+            const wallets = walletsForMarket(market);
+            if (!wallets.length) {
+                const untraded = market === 'forex'
+                    ? 'Forex is untraded for now. A different approach is planned.'
+                    : 'No wallets configured for this market.';
+                container.innerHTML = `<div class="compare-empty">${untraded}</div>`;
+                return;
+            }
+
+            const rows = wallets.map(w => {
+                const data = rawData.strategies[w.id];
+                if (!data) {
+                    return `<tr class="compare-row" tabindex="0" data-strategy="${w.id}" role="button"
+                        aria-label="Open ${w.param_label || w.id}">
+                        <td>${w.param_label || w.id}</td>
+                        <td class="num" colspan="6" style="color:var(--muted); text-align:left">No ledger yet</td>
+                    </tr>`;
+                }
+                const wr = Number(data.metrics?.win_rate);
+                const pf = data.metrics?.profit_factor;
+                const pfText = (typeof pf === 'number') ? pf.toFixed(2) : (pf ?? '-');
+                const avgM = avgMonthlyFor(data);
+                const trades = data.metrics?.total_trades ?? 0;
+                const dd = Number(data.metrics?.max_drawdown);
+                const ddText = Number.isFinite(dd) ? (dd > 0 ? `-${dd.toFixed(1)}%` : '0.0%') : '-';
+                const ddColor = dd > 0 ? 'var(--danger-color)' : 'var(--frost)';
+                const initial = rawData.metadata.initial_cash || 10000;
+                const eq = Number(data.current_equity);
+                const eqColor = eq >= initial ? 'var(--success-color)' : 'var(--danger-color)';
+                return `<tr class="compare-row" tabindex="0" data-strategy="${w.id}" role="button"
+                    aria-label="Open ${w.param_label || w.id}">
+                    <td style="font-weight:600; color:var(--frost)">${w.param_label || w.id}</td>
+                    <td class="num" style="color:${eqColor}; font-weight:600">${fmtUsd(eq)}</td>
+                    <td class="num">${Number.isFinite(wr) ? wr.toFixed(1) + '%' : '-'}</td>
+                    <td class="num">${pfText}</td>
+                    <td class="num">${signedMoney(avgM)}</td>
+                    <td class="num" style="color:${ddColor}">${ddText}</td>
+                    <td class="num" style="color:var(--muted)">${trades}</td>
+                </tr>`;
+            }).join('');
+
+            container.innerHTML = `<div class="table-scroll"><table class="compare-table">
+                <thead><tr>
+                    <th>Param</th>
+                    <th class="num">Net Equity</th>
+                    <th class="num">Win Rate</th>
+                    <th class="num">PF</th>
+                    <th class="num">Avg Month</th>
+                    <th class="num">Max DD</th>
+                    <th class="num">Trades</th>
+                </tr></thead>
+                <tbody>${rows}</tbody>
+            </table></div>`;
+
+            container.querySelectorAll('.compare-row').forEach(row => {
+                const open = () => {
+                    const id = row.getAttribute('data-strategy');
+                    if (rawData.strategies[id]) showDetailView(id);
+                };
+                row.addEventListener('click', open);
+                row.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        open();
+                    }
+                });
+            });
+        }
+
+        function onMarketChange(market) {
+            currentMarket = market;
+            fillParamSelector(market, '');
+            showCompareView();
+        }
+
+        function onParamChange(strategyId) {
+            if (!strategyId || !rawData?.strategies?.[strategyId]) {
+                showCompareView();
+                return;
+            }
+            showDetailView(strategyId);
+        }
 
         function loadCharts() {
             // ponytail: charts stay out of first paint (~20MB)
@@ -867,19 +1120,11 @@
                 rawData = window.REPORT_DATA;
                 document.getElementById('last-updated').innerText = `Sync: ${new Date(rawData.metadata.last_updated).toLocaleString()}`;
 
-                const selector = document.getElementById('strategy-selector');
-                selector.innerHTML = '';
-                const strategies = Object.keys(rawData.strategies);
-                strategies.forEach(strat => {
-                    const opt = document.createElement('option');
-                    opt.value = strat;
-                    opt.innerText = strat.replace(/_/g, ' ').toUpperCase();
-                    selector.appendChild(opt);
-                });
-
-                renderStrategy(strategies[0]);
+                currentMarket = 'crypto';
+                document.getElementById('market-selector').value = currentMarket;
+                fillParamSelector(currentMarket, '');
+                showCompareView();
                 document.getElementById('loader').style.display = 'none';
-                document.getElementById('dashboard-content').style.display = 'block';
             } catch (error) {
                 document.getElementById('loader').innerHTML = `<div style="color:var(--danger-color)">${error.message}</div>`;
             }
@@ -911,9 +1156,9 @@
         function fmtUsd(v) {
             const n = Number(v);
             if (!Number.isFinite(n)) return '-';
-            return '$' + roundMax4(n).toLocaleString(undefined, {
+            return '$' + (Math.round(n * 100) / 100).toLocaleString(undefined, {
                 minimumFractionDigits: 2,
-                maximumFractionDigits: 4
+                maximumFractionDigits: 2
             });
         }
 

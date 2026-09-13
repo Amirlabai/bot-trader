@@ -112,6 +112,8 @@ class LedgerManager:
                         'take_profit': take_profit,
                         'tp1_hit': False,
                     }
+                    if stop_loss and float(stop_loss) > 0:
+                        pos['initial_stop_loss'] = float(stop_loss)
                     if entry_date:
                         pos['entry_date'] = str(entry_date)[:10]
                     strat_ledger["positions"][symbol] = pos
@@ -138,6 +140,8 @@ class LedgerManager:
                         'take_profit': take_profit,
                         'tp1_hit': False,
                     }
+                    if stop_loss and float(stop_loss) > 0:
+                        pos['initial_stop_loss'] = float(stop_loss)
                     if entry_date:
                         pos['entry_date'] = str(entry_date)[:10]
                     strat_ledger["positions"][symbol] = pos
@@ -342,6 +346,10 @@ class LedgerManager:
             files_to_sync = [self.ledger_file]
             if os.path.exists("VERSION"):
                 files_to_sync.append("VERSION")
+
+            universe_file = os.path.join(os.getcwd(), 'data', 'crypto_universe.json')
+            if os.path.exists(universe_file):
+                files_to_sync.append(universe_file)
             
             report_file = os.path.join(os.getcwd(), 'docs', 'report_data.json')
             if os.path.exists(report_file):

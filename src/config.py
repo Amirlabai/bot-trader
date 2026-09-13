@@ -18,6 +18,7 @@ class Config:
     CCXT_API_KEY = os.getenv("CCXT_API_KEY")
     CCXT_SECRET = os.getenv("CCXT_SECRET")
     ALPHAVANTAGE_KEY = os.getenv("ALPHAVANTAGE_KEY")
+    CMP_API_KEY = os.getenv("CMP_API_KEY") or os.getenv("CMC_API_KEY")
     
     # GitHub Token for pushing (optional if using GITHUB_TOKEN in CI)
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -60,67 +61,168 @@ def _load_risk_settings():
 
 RISK_SETTINGS = _load_risk_settings()
 
-# Strategy Configuration
-# Maps Strategy ID -> { 'class': ClassName, 'pairs': [list of pairs], 'params': {dict of params} }
-TRADING_CONFIG = {
-    'ma_crossover_crypto': {
-        'strategy_module': 'strategies.moving_average',
-        'strategy_class': 'MovingAverageStrategy',
-        'pairs': ['BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'XRP/USDT', 'SOL/USDT', 'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'TRX/USDT'],
-        'params': {
-            'short_window': 12,
-            'long_window': 24,
-            'trend_window': 50
-        }
-    },
-    'ma_crossover_forex': {
-        'strategy_module': 'strategies.moving_average',
-        'strategy_class': 'MovingAverageStrategy',
-        'pairs': ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'EUR/GBP', 'EUR/JPY', 'GBP/JPY'],
-        'params': {
-            'short_window': 12,
-            'long_window': 24,
-            'trend_window': 50
-        }
-    },
-    'rsi_crypto': {
-        'strategy_module': 'strategies.rsi_strategy',
-        'strategy_class': 'RSIStrategy',
-        'pairs': ['BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'XRP/USDT', 'SOL/USDT', 'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'TRX/USDT'],
-        'params': {
-            'period': 14,
-            'overbought': 70,
-            'oversold': 30
-        }
-    },
-    'rsi_forex': {
-        'strategy_module': 'strategies.rsi_strategy',
-        'strategy_class': 'RSIStrategy',
-        'pairs': ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'EUR/GBP', 'EUR/JPY', 'GBP/JPY'],
-        'params': {
-            'period': 14,
-            'overbought': 70,
-            'oversold': 30
-        }
-    },
-    'ma_crossover_commodities': {
-        'strategy_module': 'strategies.moving_average',
-        'strategy_class': 'MovingAverageStrategy',
-        'pairs': ['XAU/USD', 'XAG/USD', 'CL/USD', 'NG/USD', 'HG/USD', 'PL/USD', 'PA/USD'],
-        'params': {
-            'short_window': 12,
-            'long_window': 24,
-            'trend_window': 50
-        }
-    },
-    'rsi_commodities': {
-        'strategy_module': 'strategies.rsi_strategy',
-        'strategy_class': 'RSIStrategy',
-        'pairs': ['XAU/USD', 'XAG/USD', 'CL/USD', 'NG/USD', 'HG/USD', 'PL/USD', 'PA/USD'],
-        'params': {
-            'period': 14,
-            'overbought': 70,
-            'oversold': 30
-        }
-    }
+# Seed crypto book. Daily CMC sync may append new top-15 alts as */USDT
+# into data/crypto_universe.json (never removes; open positions stay tradeable).
+BASE_CRYPTO_PAIRS = [
+    'BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'XRP/USDT', 'SOL/USDT',
+    'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'TRX/USDT',
+]
+CRYPTO_UNIVERSE_FILE = os.path.join(os.getcwd(), 'data', 'crypto_universe.json')
+CMP_API_KEY = os.getenv('CMP_API_KEY') or os.getenv('CMC_API_KEY')
+
+
+def load_crypto_pairs(universe_file: str | None = None) -> list:
+    from shared.cmc_universe import load_universe, merge_crypto_pairs
+
+    path = universe_file or CRYPTO_UNIVERSE_FILE
+    universe = load_universe(path)
+    return merge_crypto_pairs(BASE_CRYPTO_PAIRS, universe.get('pairs') or [])
+
+
+CRYPTO_PAIRS = load_crypto_pairs()
+FOREX_PAIRS = [
+    'EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD',
+    'USD/CHF', 'EUR/GBP', 'EUR/JPY', 'GBP/JPY',
+]
+COMMODITY_PAIRS = [
+    'XAU/USD', 'XAG/USD', 'CL/USD', 'NG/USD', 'HG/USD', 'PL/USD', 'PA/USD',
+]
+ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS
+
+# Desk market tabs (forex kept visible but untraded until a separate approach).
+DASHBOARD_MARKETS = ['crypto', 'forex', 'commodities']
+
+# EMA grid 4y winners (docs/crypto_ema_grid_6m.md / docs/commodities_ema_grid_4y.md).
+# ADX/vol off to match the vectorized grid entry path.
+_CRYPTO_EMA = {
+    'short_window': 20,
+    'long_window': 35,
+    'trend_window': 100,
+    'atr_period': 15,
+    'adx_period': 14,
+    'adx_min': 0,
+    'vol_ma_period': 20,
+    'vol_mult': 0.0,
+    'atr_buffer': 0.0,
+    'sl_atr': 1.0,
+    'trail_atr': 2.5,
 }
+_COMMODITIES_EMA = {
+    'short_window': 20,
+    'long_window': 25,
+    'trend_window': 200,
+    'atr_period': 16,
+    'adx_period': 14,
+    'adx_min': 0,
+    'vol_ma_period': 20,
+    'vol_mult': 0.0,
+    'atr_buffer': 0.0,
+    'sl_atr': 3.0,
+    'trail_atr': 3.0,
+}
+
+
+def _asset_trail_params(base: dict, *, long_only: bool) -> dict:
+    """Full size: trail from entry, no TP1."""
+    return {
+        **base,
+        'long_only': long_only,
+        'use_trailing': True,
+        'trail_from_entry': True,
+        'skip_tp1': True,
+        'trend_exit': False,
+    }
+
+
+def _tp1_trail_params(base: dict, *, long_only: bool) -> dict:
+    """50% TP1 at 1 ATR, then trail the remainder."""
+    return {
+        **base,
+        'long_only': long_only,
+        'use_trailing': True,
+        'trail_from_entry': False,
+        'skip_tp1': False,
+        'trend_exit': False,
+    }
+
+
+def _wallet(market, pairs, rank, label, params):
+    return {
+        'strategy_module': 'strategies.moving_average',
+        'strategy_class': 'MovingAverageStrategy',
+        'pairs': list(pairs),
+        'params': params,
+        'market': market,
+        'param_rank': rank,
+        'param_label': label,
+    }
+
+
+def _book_wallets(market, pairs, ema):
+    """Four exit/side modes per traded book."""
+    prefix = 'ma_crypto' if market == 'crypto' else f'ma_{market}'
+    return {
+        f'{prefix}_long_trail': _wallet(
+            market, pairs, 1, 'Long · asset trail',
+            _asset_trail_params(ema, long_only=True),
+        ),
+        f'{prefix}_long_tp1': _wallet(
+            market, pairs, 2, 'Long · TP1 trail',
+            _tp1_trail_params(ema, long_only=True),
+        ),
+        f'{prefix}_ls_trail': _wallet(
+            market, pairs, 3, 'Long/Short · asset trail',
+            _asset_trail_params(ema, long_only=False),
+        ),
+        f'{prefix}_ls_tp1': _wallet(
+            market, pairs, 4, 'Long/Short · TP1 trail',
+            _tp1_trail_params(ema, long_only=False),
+        ),
+    }
+
+
+# 4 wallets × crypto / commodities. Forex pairs defined but untraded.
+TRADING_CONFIG = {}
+TRADING_CONFIG.update(_book_wallets('crypto', CRYPTO_PAIRS, _CRYPTO_EMA))
+TRADING_CONFIG.update(_book_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA))
+
+
+def apply_crypto_pairs(pairs: list) -> None:
+    """Update module CRYPTO_PAIRS and crypto wallet pair lists in place."""
+    global CRYPTO_PAIRS, ALL_MARKET_PAIRS
+    CRYPTO_PAIRS = list(pairs)
+    ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS
+    for sid, cfg in TRADING_CONFIG.items():
+        if cfg.get('market') == 'crypto':
+            cfg['pairs'] = list(pairs)
+
+
+def sync_crypto_universe_from_cmc(data_fetcher=None) -> dict | None:
+    """Daily CMC top-15: add any new tradable alt as */USDT. No-op without API key."""
+    if not CMP_API_KEY:
+        print('CMP_API_KEY not set; skipping crypto universe sync.')
+        return None
+
+    from shared.cmc_universe import sync_crypto_universe
+
+    def yahoo_ok(pair: str) -> bool:
+        if data_fetcher is None:
+            return True
+        df = data_fetcher.get_data(pair, asset_type='crypto')
+        return df is not None and not df.empty
+
+    print('--- CMC top-15 crypto universe sync ---')
+    summary = sync_crypto_universe(
+        CMP_API_KEY,
+        CRYPTO_UNIVERSE_FILE,
+        BASE_CRYPTO_PAIRS,
+        yahoo_ok=yahoo_ok,
+    )
+    apply_crypto_pairs(summary['pairs'])
+    if summary['added']:
+        print(f"Added {len(summary['added'])} pair(s): "
+              f"{', '.join(a['pair'] for a in summary['added'])}")
+    else:
+        print('No new top-15 alts to add.')
+    print(f"Crypto pairs ({len(summary['pairs'])}): {', '.join(summary['pairs'])}")
+    return summary

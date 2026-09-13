@@ -1,0 +1,59 @@
+{
+  "updated_at": "2026-09-13T11:43:20+00:00",
+  "cmc_top15": [
+    "BTC",
+    "ETH",
+    "USDT",
+    "BNB",
+    "XRP",
+    "USDC",
+    "SOL",
+    "TRX",
+    "HYPE",
+    "ZEC",
+    "DOGE",
+    "XMR",
+    "LINK",
+    "LEO",
+    "ADA"
+  ],
+  "pairs": [
+    "HYPE/USDT",
+    "ZEC/USDT",
+    "XMR/USDT",
+    "LINK/USDT",
+    "LEO/USDT"
+  ],
+  "added": [
+    {
+      "pair": "HYPE/USDT",
+      "symbol": "HYPE",
+      "rank": 9,
+      "at": "2026-09-13T11:41:09+00:00"
+    },
+    {
+      "pair": "ZEC/USDT",
+      "symbol": "ZEC",
+      "rank": 10,
+      "at": "2026-09-13T11:41:10+00:00"
+    },
+    {
+      "pair": "XMR/USDT",
+      "symbol": "XMR",
+      "rank": 12,
+      "at": "2026-09-13T11:41:11+00:00"
+    },
+    {
+      "pair": "LINK/USDT",
+      "symbol": "LINK",
+      "rank": 13,
+      "at": "2026-09-13T11:41:12+00:00"
+    },
+    {
+      "pair": "LEO/USDT",
+      "symbol": "LEO",
+      "rank": 14,
+      "at": "2026-09-13T11:41:13+00:00"
+    }
+  ]
+}

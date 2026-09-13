@@ -4,6 +4,9 @@ import base64
 import io
 from datetime import datetime, timedelta
 
+from shared.trade_legs import leg_metric_buckets
+from config import DASHBOARD_MARKETS, TRADING_CONFIG
+
 try:
     import matplotlib
     matplotlib.use('Agg')  # Non-interactive backend, safe for server/CI
@@ -317,17 +320,16 @@ ROLLING_PAIR_MIN_TRADES = 50
 PAIR_PERF_TOP_N = 5
 
 
-def _compute_pair_performance(trade_history_chronological: list, top_n: int = PAIR_PERF_TOP_N) -> dict:
+def _compute_pair_performance(leg_records_chronological: list, top_n: int = PAIR_PERF_TOP_N) -> dict:
     """
-    Rolling pair P/L: aggregate closed trades in the last ROLLING_PAIR_DAYS,
-    or the most recent ROLLING_PAIR_MIN_TRADES if the window is thin.
-    Also returns long vs short totals for the same window.
+    Rolling pair P/L from completed legs (one trade per open→flat cycle).
+    Window: last ROLLING_PAIR_DAYS, or last ROLLING_PAIR_MIN_TRADES if thin.
     """
     empty_side = [
         {"side": "LONG", "pnl": 0.0, "avg_pnl": 0.0, "trades": 0, "win_rate": 0.0},
         {"side": "SHORT", "pnl": 0.0, "avg_pnl": 0.0, "trades": 0, "win_rate": 0.0},
     ]
-    if not trade_history_chronological:
+    if not leg_records_chronological:
         return {
             "winners": [],
             "losers": [],
@@ -336,13 +338,13 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
             "trades_in_window": 0,
         }
 
-    latest_ts = max(t["time"] for t in trade_history_chronological)
+    latest_ts = max(t["time"] for t in leg_records_chronological)
     latest_dt = datetime.fromisoformat(latest_ts[:19])
     cutoff = (latest_dt - timedelta(days=ROLLING_PAIR_DAYS)).isoformat()
-    rolling = [t for t in trade_history_chronological if t["time"] >= cutoff]
+    rolling = [t for t in leg_records_chronological if t["time"] >= cutoff]
 
     if len(rolling) < ROLLING_PAIR_MIN_TRADES:
-        rolling = trade_history_chronological[-ROLLING_PAIR_MIN_TRADES:]
+        rolling = leg_records_chronological[-ROLLING_PAIR_MIN_TRADES:]
 
     by_symbol = {}
     by_side = {
@@ -402,6 +404,44 @@ def _compute_pair_performance(trade_history_chronological: list, top_n: int = PA
     }
 
 
+def _parse_report_time(value):
+    if not value:
+        return None
+    text = str(value).strip().replace('Z', '')
+    if 'T' in text:
+        text = text.split('.')[0]
+        try:
+            return datetime.strptime(text, '%Y-%m-%dT%H:%M:%S')
+        except ValueError:
+            pass
+    try:
+        return datetime.strptime(text[:10], '%Y-%m-%d')
+    except ValueError:
+        return None
+
+
+def _avg_monthly_pnl(equity_curve, current_equity, initial_cash):
+    """Net equity change divided by months spanned by the equity curve."""
+    if not equity_curve:
+        return 0.0
+    start = _parse_report_time(equity_curve[0].get('time'))
+    end = _parse_report_time(equity_curve[-1].get('time'))
+    if not start or not end:
+        return 0.0
+    days = max(1, (end - start).days)
+    months = days / 30.4375
+    return (current_equity - initial_cash) / months
+
+
+def _desk_meta(strat_name):
+    cfg = TRADING_CONFIG.get(strat_name) or {}
+    return {
+        'market': cfg.get('market'),
+        'param_rank': cfg.get('param_rank'),
+        'param_label': cfg.get('param_label') or strat_name.replace('_', ' ').upper(),
+    }
+
+
 # --- Report Generator ---------------------------------------------------------
 
 class ReportGenerator:
@@ -425,10 +465,20 @@ class ReportGenerator:
         strategies = ledger.get("strategies", {})
 
         charts = {}  # ponytail: separate file so dashboard first paint stays small
+        wallet_index = []
+        for sid, cfg in TRADING_CONFIG.items():
+            wallet_index.append({
+                'id': sid,
+                'market': cfg.get('market'),
+                'param_rank': cfg.get('param_rank'),
+                'param_label': cfg.get('param_label'),
+            })
         output_data = {
             "metadata": {
                 "last_updated": datetime.now().isoformat(),
                 "initial_cash": self.config.INITIAL_STRATEGY_CASH,
+                "markets": list(DASHBOARD_MARKETS),
+                "wallet_index": wallet_index,
             },
             "strategies": {}
         }
@@ -474,7 +524,7 @@ class ReportGenerator:
                         "value": market_value
                     })
 
-            current_equity = cash + current_pos_value
+            current_equity = round(cash + current_pos_value, 2)
 
             # 2. Equity Curve Reconstruction
             initial_cash = self.config.INITIAL_STRATEGY_CASH
@@ -525,7 +575,7 @@ class ReportGenerator:
 
                 equity_curve.append({
                     "time": event['timestamp'],
-                    "equity": running_cash + running_inventory_value,
+                    "equity": round(running_cash + running_inventory_value, 2),
                     "type": "trade"
                 })
 
@@ -536,17 +586,13 @@ class ReportGenerator:
             })
 
             # 3. Trade History (Closed Positions) + Chart Generation
+            # Per-close rows stay in the table; metrics use completed legs (TP1+final = one trade).
             trade_history = []
-            wins = []
-            losses = []
-            
+
             for event in sorted_history:
                 if "pnl" in event:
                     pnl = event['pnl']
                     entry_price = event.get('entry_price', 0.0)
-                    
-                    if pnl > 0: wins.append(pnl)
-                    else: losses.append(pnl)
 
                     snapshot = event.get('snapshot')
 
@@ -604,7 +650,8 @@ class ReportGenerator:
                         "chart_id": chart_id if chart_b64 else None,
                     })
 
-            # 4. Advanced Metrics
+            # 4. Advanced Metrics (completed legs)
+            wins, losses, leg_records = leg_metric_buckets(history)
             total_closed = len(wins) + len(losses)
             win_rate = (len(wins) / total_closed * 100) if total_closed > 0 else 0.0
             profit_factor = (abs(sum(wins) / sum(losses))) if len(losses) > 0 and sum(losses) != 0 else (float('inf') if len(wins) > 0 else 0.0)
@@ -625,7 +672,9 @@ class ReportGenerator:
                 sym = pos['symbol']
                 exposure[sym] = exposure.get(sym, 0.0) + pos['value']
 
-            pair_performance = _compute_pair_performance(trade_history)
+            pair_performance = _compute_pair_performance(leg_records)
+            desk = _desk_meta(strat_name)
+            avg_monthly = _avg_monthly_pnl(equity_curve, current_equity, initial_cash)
 
             output_data["strategies"][strat_name] = {
                 "active_positions": active_positions,
@@ -635,11 +684,13 @@ class ReportGenerator:
                 "equity_curve": equity_curve,
                 "trade_history": list(reversed(trade_history)),  # Newest first
                 "pair_performance": pair_performance,
+                "desk": desk,
                 "metrics": {
                     "win_rate": win_rate,
                     "profit_factor": profit_factor if profit_factor != float('inf') else "∞",
                     "total_pnl": sum(wins) + sum(losses),
                     "avg_pnl": (sum(wins) + sum(losses)) / total_closed if total_closed > 0 else 0.0,
+                    "avg_monthly_pnl": avg_monthly,
                     "max_drawdown": max_dd,
                     "total_trades": total_closed
                 },

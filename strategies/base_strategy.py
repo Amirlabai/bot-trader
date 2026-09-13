@@ -52,23 +52,69 @@ class BaseStrategy(ABC):
             # The last candle is from Yesterday or earlier (Closed)
             return -1
 
+    def _ema(self, series: pd.Series, span: int) -> pd.Series:
+        return series.ewm(span=span, adjust=False).mean()
+
     def _calculate_atr(self, data, period=14):
         high = data['high']
         low = data['low']
-        close = data['close'].shift(1)
-        
-        tr_list = []
-        for i in range(len(data)):
-             if i == 0:
-                 tr_list.append(high.iloc[i] - low.iloc[i])
-             else:
-                 h = high.iloc[i]
-                 l = low.iloc[i]
-                 pc = close.iloc[i]
-                 tr_list.append(max(h - l, abs(h - pc), abs(l - pc)))
-                 
-        tr_series = pd.Series(tr_list, index=data.index)
-        return tr_series.rolling(window=period).mean()
+        prev_close = data['close'].shift(1)
+        tr = pd.concat(
+            [
+                (high - low),
+                (high - prev_close).abs(),
+                (low - prev_close).abs(),
+            ],
+            axis=1,
+        ).max(axis=1)
+        tr.iloc[0] = high.iloc[0] - low.iloc[0]
+        return tr.rolling(window=period).mean()
+
+    def _wilder_smooth(self, series: pd.Series, period: int) -> pd.Series:
+        """Wilder RMA: first value = SMA of first `period` bars, then RMA."""
+        values = series.astype(float).tolist()
+        out = [float('nan')] * len(values)
+        if len(values) < period:
+            return pd.Series(out, index=series.index)
+        seed = sum(values[:period]) / period
+        out[period - 1] = seed
+        for i in range(period, len(values)):
+            out[i] = (out[i - 1] * (period - 1) + values[i]) / period
+        return pd.Series(out, index=series.index)
+
+    def _calculate_adx(self, data: pd.DataFrame, period: int = 14) -> pd.Series:
+        """Average Directional Index (Wilder). ATR used elsewhere stays SMA-of-TR."""
+        high = data['high'].astype(float)
+        low = data['low'].astype(float)
+        close = data['close'].astype(float)
+
+        up_move = high.diff()
+        down_move = -low.diff()
+        plus_dm = pd.Series(0.0, index=data.index)
+        minus_dm = pd.Series(0.0, index=data.index)
+        plus_dm[(up_move > down_move) & (up_move > 0)] = up_move
+        minus_dm[(down_move > up_move) & (down_move > 0)] = down_move
+
+        prev_close = close.shift(1)
+        tr = pd.concat(
+            [
+                (high - low),
+                (high - prev_close).abs(),
+                (low - prev_close).abs(),
+            ],
+            axis=1,
+        ).max(axis=1)
+        tr.iloc[0] = high.iloc[0] - low.iloc[0]
+
+        atr_w = self._wilder_smooth(tr, period)
+        plus_dm_s = self._wilder_smooth(plus_dm, period)
+        minus_dm_s = self._wilder_smooth(minus_dm, period)
+
+        plus_di = 100.0 * (plus_dm_s / atr_w)
+        minus_di = 100.0 * (minus_dm_s / atr_w)
+        di_sum = plus_di + minus_di
+        dx = 100.0 * (plus_di - minus_di).abs() / di_sum.replace(0, pd.NA)
+        return self._wilder_smooth(dx.fillna(0.0), period)
 
     def _stamp_atr(self, signal, current_atr, indicators=None):
         if signal is None:
@@ -101,9 +147,9 @@ class BaseStrategy(ABC):
         """
         Standard Risk Management (last closed bar):
         - TP1 / SL hits use high/low wicks
-        - SL: Entry - 1.5 ATR
-        - TP1: Entry + 1.0 ATR (Sell 50%, Moves SL to Entry)
-        - Trailing updates use close (1.5 ATR)
+        - SL: Entry - sl_atr ATR (default 1.5)
+        - TP1: Entry + 1.0 ATR (Sell 50%, Moves SL to Entry) unless skip_tp1 / trail_from_entry
+        - Trailing updates use close (trail_atr ATR, default 1.5) after TP1, or from entry when trail_from_entry
         """
         if not position_data:
             return None
@@ -119,14 +165,23 @@ class BaseStrategy(ABC):
         stop_loss = position_data.get('stop_loss')
         post_tp1 = tp1_already_done(position_data)
         close_action = 'sell' if is_long else 'buy'
+        sl_atr = float(self.params.get('sl_atr', 1.5))
+        trail_atr = float(self.params.get('trail_atr', 1.5))
+        trail_from_entry = bool(self.params.get('trail_from_entry', False))
+        skip_tp1 = bool(self.params.get('skip_tp1', False)) or trail_from_entry
+        use_trailing = bool(self.params.get('use_trailing', True))
 
         if stop_loss is None:
-            stop_loss = entry_price - (1.5 * current_atr) if is_long else entry_price + (1.5 * current_atr)
+            stop_loss = entry_price - (sl_atr * current_atr) if is_long else entry_price + (sl_atr * current_atr)
         tp_price = position_data.get('take_profit')
         if not tp_price or tp_price == 0.0:
             tp_price = entry_price + current_atr if is_long else entry_price - current_atr
 
-        tp_hit = (not post_tp1) and (high >= tp_price if is_long else low <= tp_price)
+        tp_hit = (
+            (not skip_tp1)
+            and (not post_tp1)
+            and (high >= tp_price if is_long else low <= tp_price)
+        )
         sl_hit = (low <= stop_loss) if is_long else (high >= stop_loss)
 
         if tp_hit:
@@ -142,6 +197,14 @@ class BaseStrategy(ABC):
             trailed = False
             if post_tp1:
                 trailed = (stop_loss > entry_price) if is_long else (stop_loss < entry_price)
+            elif trail_from_entry:
+                init_sl = position_data.get('initial_stop_loss')
+                if init_sl is not None:
+                    trailed = (
+                        float(stop_loss) > float(init_sl)
+                        if is_long else
+                        float(stop_loss) < float(init_sl)
+                    )
             if trailed:
                 label = TRAILED_STOP_REASON_LONG if is_long else TRAILED_STOP_REASON_SHORT
             else:
@@ -149,15 +212,22 @@ class BaseStrategy(ABC):
             reason = f'{label} @ {round(float(stop_loss), 4)} (SL {round(float(stop_loss), 4)})'
             return {'action': close_action, 'quantity_pct': 1.0, 'reason': reason}
 
-        if post_tp1:
-            proposed_sl = close - (1.5 * current_atr) if is_long else close + (1.5 * current_atr)
+        if use_trailing and (post_tp1 or trail_from_entry):
+            proposed_sl = close - (trail_atr * current_atr) if is_long else close + (trail_atr * current_atr)
             better = proposed_sl > stop_loss if is_long else proposed_sl < stop_loss
             if better:
-                hold_reason = (
-                    'Updating Trailing Stop (Post-TP1)'
-                    if is_long else
-                    'Updating Short Trailing Stop (Post-TP1)'
-                )
+                if trail_from_entry and not post_tp1:
+                    hold_reason = (
+                        'Updating Trailing Stop (From Entry)'
+                        if is_long else
+                        'Updating Short Trailing Stop (From Entry)'
+                    )
+                else:
+                    hold_reason = (
+                        'Updating Trailing Stop (Post-TP1)'
+                        if is_long else
+                        'Updating Short Trailing Stop (Post-TP1)'
+                    )
                 return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': hold_reason}
 
         return None

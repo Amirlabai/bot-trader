@@ -12,13 +12,13 @@ Anyone whom it may concern: operators, reviewers, or curious readers who open th
 
 ## Product Purpose
 
-**Bot Trader** is a daily trade tester: a simple algorithmic paper-trading system on a fixed set of assets (crypto, forex, and commodities), with a GitHub Pages dashboard for after-run review.
+**Bot Trader** is a daily trade tester: a simple algorithmic paper-trading system on crypto and commodities (forex reserved for a later approach), with a GitHub Pages dashboard for after-run review.
 
 Success means the bot runs on a schedule, the ledger stays coherent with the risk and exit rules, and the desk makes equity, exposure, open risk, and closed-trade outcomes easy to scan. It is not a live brokerage, not a marketplace product, and not a claim of profitable live trading.
 
 ## Positioning
 
-Paper-tests simple long/short strategies (moving average and RSI families) on a declared symbol set with a shared risk model (about 1% equity risk per new open, TP1 then trail), then publishes a static post-run desk. Neighboring “trading dashboards” without this ledgered daily bot loop cannot truthfully claim the same workflow.
+Paper-tests four MA wallets per book (long/long-short × asset-trail/TP1-trail) on declared symbol sets with a shared risk model (about 1% equity risk per new open), then publishes a static post-run desk. Neighboring “trading dashboards” without this ledgered daily bot loop cannot truthfully claim the same workflow.
 
 ## Operating Context
 
@@ -32,9 +32,9 @@ Paper-tests simple long/short strategies (moving average and RSI families) on a 
 ## Capabilities and Constraints
 
 **Capabilities (built and in scope to preserve):**
-- Multi-strategy paper trading (long and short) across configured crypto, forex, and commodity symbols.
-- Risk sizing, TP1 (50% at 1.0 ATR) and trailing stop after TP1; wick-aware stop/TP1 fills on daily bars.
-- Equity curve, exposure, rolling pair winners/losers, Long vs Short window stats with Bull/Bear/Flat bias cue.
+- Multi-wallet paper trading: four wallets per traded book (crypto, commodities). Long vs long/short × asset trail (no TP1) vs TP1 then trail. Forex pairs remain defined but untraded.
+- Risk sizing; TP1 wallets take 50% at 1.0 ATR then trail; asset-trail wallets skip TP1 and trail from entry.
+- Desk: market-first compare of wallets for the selected book, then single-wallet equity, exposure, rolling pair winners/losers, Long vs Short window stats with Bull/Bear/Flat bias cue.
 - Open positions and closed-trade history with expand detail and lazy close charts.
 - Trade audit and ledger repair/backfill tooling under `scratch/`.
 

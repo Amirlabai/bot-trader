@@ -13,8 +13,12 @@ graphify-out/
 .impeccable-live/
 docs/report_data.json
 docs/trade_audit.json
+# Local EMA grid tune dumps (regenerate via scratch/tune_btc_ema_grid.py)
+docs/*_ema_grid_*.md
+docs/ma_crypto_tune.md
 data/ledger.json.bak
 data/*.bak
 data/ledger*.bak
 data/ledger_resim.json
+data/ohlcv_cache/
 gitaction.log
