@@ -40,7 +40,7 @@ Paper-tests four MA wallets per book (long/long-short × asset-trail/TP1-trail) 
 
 **Constraints:**
 - Paper cash and ledger only; no live order routing.
-- Dashboard is static HTML/JS (no app framework); Python 3.9+ bot stack.
+- Dashboard is static HTML/JS (no app framework); Python 3.12 bot stack (GitHub Actions).
 - Preserve as much of what is already built as possible; do not strip working desk or engine behavior without an explicit product decision.
 - Undecided: public marketing site, paid product packaging, multi-user auth, and formal accessibility compliance target.
 

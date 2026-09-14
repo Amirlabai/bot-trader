@@ -37,7 +37,7 @@
 - **Dashboard load**: Lean `report_data.js` (~0.4 MB) for first paint; `report_charts.js` (~20 MB) fetched only when a closed-trade row is expanded.
 
 ## Tech Stack
-- **Language**: Python 3.9+ (Type Hinting, Modular Design).
+- **Language**: Python 3.12 (CI / preferred; 3.10+ for `|` type unions).
 - **Libraries**: `pandas`, `matplotlib`, `gitpython`, `python-dotenv`, `yfinance`.
 - **Market data**: yfinance only (cache by bot symbol; crypto `BTC/USDT` → `BTC-USD`, forex `EUR/USD` → `EURUSD=X`, commodities e.g. `XAU/USD` → `GC=F` futures). Yahoo empty/429/block: `ALERT:` plus GitHub Actions annotation; session block skips Yahoo for rest. Summary: `DataFetcher.report_fetch_alerts()`. Symbol routing: `shared/symbols.py`.
 - **Automation**: GitHub Actions for daily execution and semantic releases.
