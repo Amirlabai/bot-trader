@@ -28,9 +28,20 @@ def is_forex_symbol(symbol: str) -> bool:
     )
 
 
+def is_stock_symbol(symbol: str) -> bool:
+    """US equity tickers are plain symbols without a slash (e.g. NVDA, BRK-B)."""
+    if not symbol or '/' in symbol:
+        return False
+    if is_commodity_symbol(symbol):
+        return False
+    return True
+
+
 def asset_type_for_symbol(symbol: str) -> str:
     if is_commodity_symbol(symbol):
         return 'commodity'
     if is_forex_symbol(symbol):
         return 'forex'
+    if is_stock_symbol(symbol):
+        return 'stock'
     return 'crypto'

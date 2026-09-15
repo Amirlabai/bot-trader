@@ -3,7 +3,7 @@ EMA grid (vectorized): fast 10-20, slow 20-50 (step 5), trend 100/150/200.
 
 Grid: atr_period 14-20, sl_atr 1-3, trail_atr 1-3 (0.5 steps).
 Entry: golden cross + close > trend EMA. Exit: SL or trail from entry (no TP1).
-Default: BTC/USDT, last ~6 months. Use --book crypto|forex for shared-cash multi-pair.
+Default: BTC/USDT, last ~6 months. Use --book crypto|forex|commodities for shared-cash multi-pair.
 
 Usage:
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py
@@ -13,6 +13,8 @@ Usage:
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --book commodities --start 2022-09-11 --label "4y pass"
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --limit 50
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --parity
+
+Stocks tuning: scratch/tune_stocks_ema_grid.py (7% risk, ATR20, --fix-ema / --fix-risk).
 """
 from __future__ import annotations
 
@@ -57,6 +59,8 @@ TRAIL_ATRS = [1.0, 1.5, 2.0, 2.5, 3.0]
 W_WR = 0.25
 W_PNL = 0.45
 W_PF = 0.30
+# Cap every ranking table in docs/*_ema_grid_*.md (console Top 10 matches).
+REPORT_TOP_N = 10
 
 
 def _ema_pairs():
@@ -346,12 +350,12 @@ def write_report(
         '',
         f'Configs: **{len(ranked)}** | Eligible (n≥{min_trades}): **{len(eligible)}**',
         '',
-        '## Top 15 by composite (eligible)',
+        f'## Top {REPORT_TOP_N} by composite (eligible)',
         '',
         '| # | PnL | Equity | WR% | Trades | PF | fast | slow | trend | atr | SL× | trail× |',
         '|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|',
     ]
-    for i, r in enumerate(eligible[:15], 1):
+    for i, r in enumerate(eligible[:REPORT_TOP_N], 1):
         p = r['params']
         pf = r['profit_factor']
         pf_s = 'inf' if pf == float('inf') else f'{pf:.2f}'
@@ -363,13 +367,13 @@ def write_report(
 
     lines += [
         '',
-        '## Best by net PnL (any trade count)',
+        f'## Best by net PnL (top {REPORT_TOP_N}, any trade count)',
         '',
         '| # | PnL | WR% | Trades | PF | fast | slow | trend | atr | SL× | trail× |',
         '|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|',
     ]
     by_pnl = sorted(ranked, key=lambda r: (r['net_pnl'], r['win_rate']), reverse=True)
-    for i, r in enumerate(by_pnl[:15], 1):
+    for i, r in enumerate(by_pnl[:REPORT_TOP_N], 1):
         p = r['params']
         pf = r['profit_factor']
         pf_s = 'inf' if pf == float('inf') else f'{pf:.2f}'
@@ -381,12 +385,12 @@ def write_report(
 
     lines += [
         '',
-        '## Full eligible ranking',
+        f'## Full eligible ranking (top {REPORT_TOP_N})',
         '',
         '| Rank | Composite | PnL | WR% | n | PF | params |',
         '|---:|---:|---:|---:|---:|---:|---|',
     ]
-    for i, r in enumerate(eligible, 1):
+    for i, r in enumerate(eligible[:REPORT_TOP_N], 1):
         pf = r['profit_factor']
         pf_s = 'inf' if pf == float('inf') else f'{pf:.2f}'
         slim = {
@@ -730,7 +734,9 @@ def run_parity(df: pd.DataFrame, start: date, end: date):
 def _default_report_path(book: str | None, label: str) -> str:
     if book in ('crypto', 'forex', 'commodities'):
         prefix = 'commodities' if book == 'commodities' else book
-        if '4y' in label:
+        if '10y' in label:
+            suffix = '10y'
+        elif '4y' in label:
             suffix = '4y'
         elif '2y' in label:
             suffix = '2y'
@@ -743,6 +749,8 @@ def _default_report_path(book: str | None, label: str) -> str:
 
 
 def main():
+    global FAST_WINDOWS, SLOW_WINDOWS, TREND_WINDOWS, ATR_PERIODS, SL_ATRS, TRAIL_ATRS
+
     parser = argparse.ArgumentParser(description='EMA period grid (vectorized)')
     parser.add_argument('--start', default=None, help='ISO start (default: ~6 months before last bar)')
     parser.add_argument('--end', default=None)
@@ -755,7 +763,7 @@ def main():
         '--book',
         choices=sorted(BOOKS.keys()),
         default=None,
-        help='Shared-cash multi-pair book (crypto or forex)',
+        help='Shared-cash multi-pair book (crypto, forex, commodities)',
     )
     parser.add_argument(
         '--all-crypto',
@@ -807,6 +815,8 @@ def main():
     span_days = (end - start).days
     if args.label:
         label = args.label
+    elif span_days >= 3000:
+        label = '10y pass'
     elif span_days >= 1200:
         label = '4y pass'
     elif span_days >= 600:
@@ -842,8 +852,8 @@ def main():
         book_title=book_title,
     )
 
-    print('\n=== Top 10 (eligible) ===')
-    for i, r in enumerate(eligible[:10], 1):
+    print(f'\n=== Top {REPORT_TOP_N} (eligible) ===')
+    for i, r in enumerate(eligible[:REPORT_TOP_N], 1):
         p = r['params']
         print(
             f"{i:2d}. PnL=${r['net_pnl']:+7.0f}  WR={r['win_rate']:5.1f}%  n={r['closed_trades']:2d}  "

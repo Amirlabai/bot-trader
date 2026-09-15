@@ -89,10 +89,31 @@ FOREX_PAIRS = [
 COMMODITY_PAIRS = [
     'XAU/USD', 'XAG/USD', 'CL/USD', 'NG/USD', 'HG/USD', 'PL/USD', 'PA/USD',
 ]
-ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS
+
+# Frozen mid-cap sim set for EMA/ATR grid (see docs/stocks_ema_grid_*.md).
+from shared.stocks_universe import STOCK_SIM_TICKERS  # noqa: E402
+
+STOCKS_UNIVERSE_FILE = os.path.join(os.getcwd(), 'data', 'stocks_universe.json')
+STOCKS_FUNDAMENTALS_CACHE = os.path.join(os.getcwd(), 'data', 'stocks_fundamentals_cache.json')
+BASE_STOCK_PAIRS = list(STOCK_SIM_TICKERS)
+
+
+def load_stock_pairs(universe_file: str | None = None) -> list:
+    from shared.stocks_universe import load_universe
+
+    path = universe_file or STOCKS_UNIVERSE_FILE
+    universe = load_universe(path)
+    active = [str(t).upper() for t in (universe.get('active') or []) if t]
+    if active:
+        return active
+    return list(BASE_STOCK_PAIRS)
+
+
+STOCK_PAIRS = load_stock_pairs()
+ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS + STOCK_PAIRS
 
 # Desk market tabs (forex kept visible but untraded until a separate approach).
-DASHBOARD_MARKETS = ['crypto', 'forex', 'commodities']
+DASHBOARD_MARKETS = ['crypto', 'forex', 'commodities', 'stocks']
 
 # EMA grid 4y winners (docs/crypto_ema_grid_6m.md / docs/commodities_ema_grid_4y.md).
 # ADX/vol off to match the vectorized grid entry path.
@@ -122,6 +143,25 @@ _COMMODITIES_EMA = {
     'sl_atr': 3.0,
     'trail_atr': 3.0,
 }
+# Locked from scratch/tune_stocks_ema_grid.py (10y, 7% risk, ATR20):
+# 1) phase atr EMA fixed 20/45/150 → SL10 · trail24
+# 2) phase ema risk fixed → 20/40/150
+# Reports: docs/stocks_ema_grid_10y_atr.md, docs/stocks_ema_grid_10y_ema.md
+_STOCKS_EMA = {
+    'short_window': 20,
+    'long_window': 40,
+    'trend_window': 150,
+    'atr_period': 20,
+    'adx_period': 14,
+    'adx_min': 0,
+    'vol_ma_period': 20,
+    'vol_mult': 0.0,
+    'atr_buffer': 0.0,
+    'sl_atr': 10.0,
+    'trail_atr': 24.0,
+}
+# Stocks paper wallets size at 7% equity risk (tuner default).
+STOCKS_EQUITY_RISK_PCT = 0.07
 
 
 def _asset_trail_params(base: dict, *, long_only: bool) -> dict:
@@ -162,7 +202,12 @@ def _wallet(market, pairs, rank, label, params):
 
 def _book_wallets(market, pairs, ema):
     """Four exit/side modes per traded book."""
-    prefix = 'ma_crypto' if market == 'crypto' else f'ma_{market}'
+    if market == 'crypto':
+        prefix = 'ma_crypto'
+    elif market == 'stocks':
+        prefix = 'ma_stocks'
+    else:
+        prefix = f'ma_{market}'
     return {
         f'{prefix}_long_trail': _wallet(
             market, pairs, 1, 'Long · asset trail',
@@ -183,19 +228,30 @@ def _book_wallets(market, pairs, ema):
     }
 
 
-# 4 wallets × crypto / commodities. Forex pairs defined but untraded.
+# 4 wallets × crypto / commodities / stocks. Forex pairs defined but untraded.
 TRADING_CONFIG = {}
 TRADING_CONFIG.update(_book_wallets('crypto', CRYPTO_PAIRS, _CRYPTO_EMA))
 TRADING_CONFIG.update(_book_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA))
+TRADING_CONFIG.update(_book_wallets('stocks', STOCK_PAIRS, _STOCKS_EMA))
 
 
 def apply_crypto_pairs(pairs: list) -> None:
     """Update module CRYPTO_PAIRS and crypto wallet pair lists in place."""
     global CRYPTO_PAIRS, ALL_MARKET_PAIRS
     CRYPTO_PAIRS = list(pairs)
-    ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS
+    ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS + STOCK_PAIRS
     for sid, cfg in TRADING_CONFIG.items():
         if cfg.get('market') == 'crypto':
+            cfg['pairs'] = list(pairs)
+
+
+def apply_stock_pairs(pairs: list) -> None:
+    """Update module STOCK_PAIRS and stocks wallet pair lists in place."""
+    global STOCK_PAIRS, ALL_MARKET_PAIRS
+    STOCK_PAIRS = list(pairs)
+    ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS + STOCK_PAIRS
+    for sid, cfg in TRADING_CONFIG.items():
+        if cfg.get('market') == 'stocks':
             cfg['pairs'] = list(pairs)
 
 
@@ -228,3 +284,49 @@ def sync_crypto_universe_from_cmc(data_fetcher=None) -> dict | None:
         print('No new top-15 alts to add.')
     print(f"Crypto pairs ({len(summary['pairs'])}): {', '.join(summary['pairs'])}")
     return summary
+
+
+def sync_stocks_universe_from_screen(data_fetcher=None, open_symbols=None) -> dict | None:
+    """Seed mid-caps, run runner screener, update stocks wallet pairs."""
+    from shared.stocks_universe import sync_stocks_universe
+
+    def get_ohlcv(ticker: str):
+        if data_fetcher is None:
+            return None
+        return data_fetcher.get_data(ticker, asset_type='stock')
+
+    def blocked():
+        return bool(data_fetcher and getattr(data_fetcher, 'yahoo_blocked', False))
+
+    summary = sync_stocks_universe(
+        STOCKS_UNIVERSE_FILE,
+        STOCKS_FUNDAMENTALS_CACHE,
+        get_ohlcv,
+        open_symbols=open_symbols or [],
+        yahoo_blocked=blocked,
+        refresh_seed=True,
+    )
+    apply_stock_pairs(summary['active'])
+    print(
+        f"Stocks active ({len(summary['active'])}): "
+        f"{', '.join(summary['active']) or '(none)'}"
+    )
+    return summary
+
+
+def open_stock_symbols_from_ledger(ledger) -> list[str]:
+    """Collect open stock tickers across stocks wallets (keep tradeable off-screen)."""
+    found = []
+    seen = set()
+    strategies = getattr(ledger, 'ledger', {}).get('strategies', {})
+    for sid, cfg in TRADING_CONFIG.items():
+        if cfg.get('market') != 'stocks':
+            continue
+        positions = (strategies.get(sid) or {}).get('positions') or {}
+        for sym, pos in positions.items():
+            if not pos:
+                continue
+            if sym not in seen:
+                seen.add(sym)
+                found.append(sym)
+    return found

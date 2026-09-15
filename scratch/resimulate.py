@@ -20,11 +20,14 @@ for path in (REPO_ROOT, os.path.join(REPO_ROOT, 'src'), os.path.join(REPO_ROOT, 
     if path not in sys.path:
         sys.path.insert(0, path)
 
-from config import Config, TRADING_CONFIG
+from config import Config, TRADING_CONFIG, RISK_SETTINGS, STOCKS_EQUITY_RISK_PCT, STOCKS_UNIVERSE_FILE
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 from resim_engine import asset_type_for_symbol, load_strategy, process_symbol
 from strategies.moving_average import MovingAverageStrategy, CachedMovingAverageStrategy
+from shared.stocks_screener import ohlcv_pass_mask, ohlcv_screen
+from shared.stocks_universe import STOCK_SIM_TICKERS, load_universe
+from shared.us_market_calendar import regular_open_et_label
 
 DEFAULT_START = date(2026, 1, 1)
 
@@ -120,6 +123,91 @@ def _precompute_ma_caches(market_cache, strategies):
     return caches
 
 
+def _stocks_universe_pairs() -> list[str]:
+    universe = load_universe(STOCKS_UNIVERSE_FILE)
+    seen = set()
+    out = []
+    for sym in list(STOCK_SIM_TICKERS) + list(universe.get('seed_tickers') or []) + list(
+        universe.get('active') or []
+    ):
+        s = str(sym or '').upper().strip()
+        if not s or s in seen or len(s) < 2:
+            continue
+        seen.add(s)
+        out.append(s)
+    return out
+
+
+def _precompute_screen_masks(market_cache: dict) -> dict[str, pd.Series]:
+    """symbol -> boolean Series indexed by bar timestamp (OHLCV Core, point-in-time)."""
+    masks = {}
+    print(f'Precomputing daily OHLCV screen masks ({len(market_cache)} symbols)...')
+    for symbol, df in market_cache.items():
+        masks[symbol] = ohlcv_pass_mask(df)
+        n_pass = int(masks[symbol].sum()) if len(masks[symbol]) else 0
+        print(f'  {symbol}: {n_pass} eligible bars / {len(df)}')
+    return masks
+
+
+def _eligible_on_day(mask: pd.Series, day: date) -> bool:
+    if mask is None or mask.empty:
+        return False
+    ts = pd.Timestamp(day)
+    # Exact calendar day match on the mask index.
+    day_rows = mask.index.normalize() == ts.normalize()
+    if not day_rows.any():
+        # Fall back to last bar on or before day.
+        loc = mask.index[mask.index <= ts]
+        if len(loc) == 0:
+            return False
+        return bool(mask.loc[loc[-1]])
+    return bool(mask.loc[day_rows].iloc[-1])
+
+
+def _risk_for_strategy(cfg: dict) -> dict:
+    if cfg.get('market') == 'stocks':
+        return {**RISK_SETTINGS, 'equity_risk_pct': STOCKS_EQUITY_RISK_PCT}
+    return RISK_SETTINGS
+
+
+def _merge_strategies_into_live(resim_ledger: dict, strategy_ids: list[str]) -> None:
+    """Overwrite only the given strategies in data/ledger.json; keep other books."""
+    live_path = Config.LEDGER_FILE
+    if os.path.exists(live_path):
+        shutil.copy2(live_path, live_path + '.pre_resim.bak')
+        with open(live_path, 'r', encoding='utf-8') as f:
+            live = json.load(f)
+    else:
+        live = {'strategies': {}}
+    live.setdefault('strategies', {})
+    for sid in strategy_ids:
+        live['strategies'][sid] = resim_ledger['strategies'][sid]
+    with open(live_path, 'w', encoding='utf-8') as f:
+        json.dump(live, f, indent=4)
+    print(f'Merged {len(strategy_ids)} strategy(ies) into {live_path}')
+
+
+def _latest_screen_payload(market_cache: dict, masks: dict, end: date) -> dict:
+    matches = []
+    for symbol, df in market_cache.items():
+        mask = masks.get(symbol)
+        if not _eligible_on_day(mask, end):
+            continue
+        slice_df = df.loc[: pd.Timestamp(end)]
+        hit = ohlcv_screen(slice_df)
+        if hit:
+            matches.append({'ticker': symbol, **hit})
+    return {
+        'as_of': f'{end.isoformat()}T16:00:00',
+        'open_et': regular_open_et_label(),
+        'seed_count': len(market_cache),
+        'match_count': len(matches),
+        'matches': matches,
+        'active': [m['ticker'] for m in matches],
+        'screen_mode': 'ohlcv_daily_pit',
+        'note': '4y resim: OHLCV Core gates evaluated each day (fundamentals not PIT).',
+    }
+
 def run_resimulation(
     start: date,
     end: Optional[date],
@@ -128,6 +216,8 @@ def run_resimulation(
     build_snapshots: bool = False,
     output_path: Optional[str] = None,
     strategy_ids: Optional[list] = None,
+    screen_daily: bool = False,
+    stocks_universe_pairs: bool = False,
 ):
     data_fetcher = DataFetcher(Config)
     active_config = TRADING_CONFIG
@@ -136,6 +226,18 @@ def run_resimulation(
         if missing:
             raise SystemExit(f'Unknown strategy id(s): {missing}')
         active_config = {sid: TRADING_CONFIG[sid] for sid in strategy_ids}
+
+    # Copy configs so we can expand stocks pairs for the resim without mutating live config.
+    active_config = {
+        sid: {**cfg, 'pairs': list(cfg.get('pairs') or [])}
+        for sid, cfg in active_config.items()
+    }
+    if stocks_universe_pairs:
+        uni = _stocks_universe_pairs()
+        for sid, cfg in active_config.items():
+            if cfg.get('market') == 'stocks':
+                cfg['pairs'] = list(uni)
+                print(f'{sid}: screening universe {len(uni)} tickers')
 
     pairs_by_strategy = {sid: cfg['pairs'] for sid, cfg in active_config.items()}
 
@@ -157,6 +259,10 @@ def run_resimulation(
     print(f"Resimulating {len(days)} trading days from {start} through {end}")
     if strategy_ids:
         print(f"Strategies: {', '.join(strategy_ids)}")
+    if screen_daily:
+        print('Daily OHLCV screener: new entries only when Core gates pass that day')
+
+    screen_masks = _precompute_screen_masks(market_cache) if screen_daily else {}
 
     ledger = LedgerManager(Config)
     ledger.ledger = {
@@ -194,6 +300,7 @@ def run_resimulation(
             strategy = strategies.get(strategy_id)
             if not strategy:
                 continue
+            risk_settings = _risk_for_strategy(cfg)
             if verbose:
                 print(f"  Strategy {strategy_id} (cash ${ledger.get_balance(strategy_id):.2f})")
             for symbol in cfg['pairs']:
@@ -202,6 +309,13 @@ def run_resimulation(
                     continue
                 if full_df.index[0].date() > day:
                     continue
+                pos_open = ledger.get_position(strategy_id, symbol) is not None
+                eligible = True
+                if screen_daily and cfg.get('market') == 'stocks':
+                    eligible = _eligible_on_day(screen_masks.get(symbol), day)
+                    # Always manage open positions; block new entries when off-screen.
+                    if not eligible and not pos_open:
+                        continue
                 market_data = _slice_asof(full_df, day)
                 if len(market_data) < 30:
                     continue
@@ -222,6 +336,8 @@ def run_resimulation(
                     event_ts=event_ts,
                     verbose=verbose,
                     build_snapshots=build_snapshots,
+                    risk_settings=risk_settings,
+                    allow_new_entries=(eligible if screen_daily else True),
                 )
 
     out = output_path or os.path.join(Config.DATA_DIR, 'ledger_resim.json')
@@ -239,7 +355,11 @@ def run_resimulation(
             'history_rows': len(strat.get('history', [])),
         }
     print('Summary:', json.dumps(totals, indent=2))
-    return out, ledger
+    screen_payload = None
+    if screen_daily:
+        screen_payload = _latest_screen_payload(market_cache, screen_masks, end)
+        print(f"End-date screen matches: {screen_payload['match_count']}")
+    return out, ledger, screen_payload
 
 
 def main():
@@ -258,7 +378,12 @@ def main():
     parser.add_argument(
         '--replace-ledger',
         action='store_true',
-        help='Copy result to data/ledger.json (backs up existing file first)',
+        help='Copy/merge result into data/ledger.json (backs up existing file first)',
+    )
+    parser.add_argument(
+        '--merge-strategies',
+        action='store_true',
+        help='With --replace-ledger, only overwrite strategies included in this resim',
     )
     parser.add_argument('-v', '--verbose', action='store_true', help='Print each symbol/day')
     parser.add_argument(
@@ -275,32 +400,71 @@ def main():
         default=None,
         help='Limit resim to one or more strategy ids (repeatable)',
     )
+    parser.add_argument(
+        '--market',
+        default=None,
+        help='Limit to strategies in this market (e.g. stocks)',
+    )
+    parser.add_argument(
+        '--screen-daily',
+        action='store_true',
+        help='Stocks: evaluate OHLCV Core screener each day; entries only when eligible',
+    )
+    parser.add_argument(
+        '--stocks-universe',
+        action='store_true',
+        help='Stocks: trade the seed/sim universe (not only current active list)',
+    )
     args = parser.parse_args()
 
     start = date.fromisoformat(args.start)
     end = date.fromisoformat(args.end) if args.end else None
 
+    strategy_ids = list(args.strategies) if args.strategies else None
+    if args.market:
+        market_ids = [
+            sid for sid, cfg in TRADING_CONFIG.items()
+            if cfg.get('market') == args.market
+        ]
+        if not market_ids:
+            raise SystemExit(f'No strategies for market={args.market}')
+        strategy_ids = market_ids if strategy_ids is None else [
+            sid for sid in strategy_ids if sid in market_ids
+        ]
+
+    stocks_universe = bool(args.stocks_universe or (args.screen_daily and args.market == 'stocks'))
+
     print(f"--- Resimulation: {datetime.now()} ---")
-    out_path, ledger = run_resimulation(
+    out_path, ledger, screen_payload = run_resimulation(
         start,
         end,
         verbose=args.verbose,
         build_snapshots=args.snapshots,
         output_path=args.output,
-        strategy_ids=args.strategies,
+        strategy_ids=strategy_ids,
+        screen_daily=args.screen_daily,
+        stocks_universe_pairs=stocks_universe,
     )
 
     if args.replace_ledger:
-        live_path = Config.LEDGER_FILE
-        if os.path.exists(live_path):
-            shutil.copy2(live_path, live_path + '.pre_resim.bak')
-        shutil.copy2(out_path, live_path)
-        print(f"Replaced {live_path} (backup {live_path}.pre_resim.bak)")
-        ledger.ledger_file = live_path
+        if args.merge_strategies or (strategy_ids and len(strategy_ids) < len(TRADING_CONFIG)):
+            _merge_strategies_into_live(ledger.ledger, list(ledger.ledger['strategies'].keys()))
+        else:
+            live_path = Config.LEDGER_FILE
+            if os.path.exists(live_path):
+                shutil.copy2(live_path, live_path + '.pre_resim.bak')
+            shutil.copy2(out_path, live_path)
+            print(f"Replaced {live_path} (backup {live_path}.pre_resim.bak)")
+        ledger.ledger_file = Config.LEDGER_FILE
 
     if args.audit:
         from audit_trades import run_audit
-        run_audit(write_files=True, ledger=ledger.ledger)
+        # Prefer live ledger after merge.
+        if args.replace_ledger and os.path.exists(Config.LEDGER_FILE):
+            with open(Config.LEDGER_FILE, 'r', encoding='utf-8') as f:
+                run_audit(write_files=True, ledger=json.load(f))
+        else:
+            run_audit(write_files=True, ledger=ledger.ledger)
 
     if args.report:
         from reporting import ReportGenerator
@@ -310,8 +474,9 @@ def main():
             class _Cfg:
                 DATA_DIR = Config.DATA_DIR
                 LEDGER_FILE = out_path
+                INITIAL_STRATEGY_CASH = Config.INITIAL_STRATEGY_CASH
             reporter = ReportGenerator(_Cfg)
-        reporter.generate()
+        reporter.generate(stocks_screener=screen_payload)
         print(f"Report: {reporter.report_file}")
 
 

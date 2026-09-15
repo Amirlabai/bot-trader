@@ -5,6 +5,8 @@ import io
 from datetime import datetime, timedelta
 
 from shared.trade_legs import leg_metric_buckets
+from shared.exit_snapshots import build_open_snapshot
+from shared.symbols import asset_type_for_symbol
 from config import DASHBOARD_MARKETS, TRADING_CONFIG
 
 try:
@@ -19,6 +21,11 @@ except ImportError:
 
 
 # --- Chart Rendering -----------------------------------------------------------
+
+# Cap PNG pack size for Pages (~40 recent closes per wallet).
+MAX_CHARTS_PER_STRATEGY = 40
+CHART_DPI = 90
+
 
 def _render_chart_b64(snapshot: dict) -> str:
     """
@@ -101,7 +108,7 @@ def _render_chart_b64(snapshot: dict) -> str:
 
         # --- SL / TP horizontal levels ---
         exit_kind = snapshot.get("exit_kind", "")
-        sl_label = "SL at exit" if exit_kind else f"SL {sl:.4g}"
+        sl_label = "SL at exit" if exit_kind and exit_kind != "open" else ("Stop" if exit_kind == "open" else f"SL {sl:.4g}")
         tp_label = "TP1 target" if exit_kind == "tp1_partial" else (f"TP {tp:.4g}" if tp else "")
         if sl and sl > 0:
             ax.axhline(sl, color="#f85149", linewidth=1.0, linestyle=":", alpha=0.85, label=sl_label)
@@ -116,9 +123,10 @@ def _render_chart_b64(snapshot: dict) -> str:
             )
 
         if exit_price is not None:
+            mark_label = "Mark" if exit_kind == "open" else "Exit"
             ax.axhline(
                 exit_price, color="#a371f7", linewidth=1.2, linestyle=":",
-                alpha=0.85, label=f"Exit {exit_price:.4g}",
+                alpha=0.85, label=f"{mark_label} {exit_price:.4g}",
             )
 
         if exit_date:
@@ -126,11 +134,30 @@ def _render_chart_b64(snapshot: dict) -> str:
             if exit_date_str in dates:
                 exit_idx = dates.index(exit_date_str)
             else:
+                # Weekly/monthly buckets may not land on the exact exit calendar day.
                 exit_idx = n - 1
+                try:
+                    exit_d = datetime.strptime(exit_date_str, '%Y-%m-%d').date()
+                    best_i, best_delta = n - 1, None
+                    for i, d in enumerate(dates):
+                        try:
+                            di = datetime.strptime(str(d)[:10], '%Y-%m-%d').date()
+                        except ValueError:
+                            continue
+                        delta = abs((di - exit_d).days)
+                        if best_delta is None or delta < best_delta:
+                            best_delta, best_i = delta, i
+                    exit_idx = best_i
+                except Exception:
+                    exit_idx = n - 1
             ax.axvline(
                 exit_idx, color="#a371f7", linewidth=1.0, linestyle="--",
-                alpha=0.85, label="Close",
+                alpha=0.85, label="Now" if exit_kind == "open" else "Close",
             )
+
+        tf = snapshot.get("timeframe") or "1d"
+        tf_label = {"1d": "Daily", "1wk": "Weekly", "1mo": "Monthly"}.get(tf, tf)
+        ax.set_title(tf_label, color="#8b949e", fontsize=8, loc="right", pad=2)
 
         # --- Axis styling ---
         ax.set_xlim(-0.8, n - 0.2)
@@ -185,7 +212,7 @@ def _render_chart_b64(snapshot: dict) -> str:
         plt.tight_layout(pad=0.4)
 
         buf = io.BytesIO()
-        fig.savefig(buf, format="png", dpi=130, bbox_inches="tight", facecolor=fig.get_facecolor())
+        fig.savefig(buf, format="png", dpi=CHART_DPI, bbox_inches="tight", facecolor=fig.get_facecolor())
         plt.close(fig)
         buf.seek(0)
         return base64.b64encode(buf.read()).decode("utf-8")
@@ -453,7 +480,7 @@ class ReportGenerator:
             os.makedirs(self.output_dir)
         self.report_file = os.path.join(self.output_dir, "report_data.json")
 
-    def generate(self):
+    def generate(self, stocks_screener=None):
         """Generates the JSON data for the frontend."""
         if not os.path.exists(self.ledger_file):
             print("No ledger file found for reporting.")
@@ -465,6 +492,13 @@ class ReportGenerator:
         strategies = ledger.get("strategies", {})
 
         charts = {}  # ponytail: separate file so dashboard first paint stays small
+        data_fetcher = None
+        try:
+            from data_ingestion import DataFetcher
+            data_fetcher = DataFetcher(self.config)
+        except Exception as exc:
+            print(f"Open-position charts: DataFetcher unavailable ({exc})")
+
         wallet_index = []
         for sid, cfg in TRADING_CONFIG.items():
             wallet_index.append({
@@ -482,6 +516,21 @@ class ReportGenerator:
             },
             "strategies": {}
         }
+        if stocks_screener is not None:
+            output_data["metadata"]["screener"] = {
+                "stocks": stocks_screener,
+            }
+        else:
+            # Preserve prior screener block when regenerating without a stocks run.
+            try:
+                if os.path.exists(self.report_file):
+                    with open(self.report_file, 'r', encoding='utf-8') as prev:
+                        old = json.load(prev)
+                    old_screener = (old.get('metadata') or {}).get('screener')
+                    if old_screener:
+                        output_data['metadata']['screener'] = old_screener
+            except (OSError, json.JSONDecodeError):
+                pass
 
         for strat_name, data in strategies.items():
             cash = data.get("cash", 0.0)
@@ -508,20 +557,49 @@ class ReportGenerator:
                     elif side == 'SHORT':
                         unrealized_pnl = (entry - current_price) * qty
 
+                    entry_date = pos.get("entry_date") or _entry_date_for_open_position(
+                        history, symbol, side,
+                    )
+                    chart_id = None
+                    if data_fetcher is not None:
+                        try:
+                            md = data_fetcher.get_data(
+                                symbol, asset_type=asset_type_for_symbol(symbol),
+                            )
+                            if md is not None and not md.empty:
+                                open_snap = build_open_snapshot(
+                                    md,
+                                    {
+                                        'entry_price': entry,
+                                        'entry_date': entry_date,
+                                        'stop_loss': pos.get('stop_loss', 0.0),
+                                        'take_profit': pos.get('take_profit', 0.0),
+                                        'side': side,
+                                    },
+                                )
+                                chart_b64 = _render_chart_b64(open_snap)
+                                if chart_b64:
+                                    chart_id = f"open:{strat_name}:{symbol}"
+                                    charts[chart_id] = chart_b64
+                        except Exception as exc:
+                            print(f"  Open chart skip {strat_name}/{symbol}: {exc}")
+
                     active_positions.append({
                         "symbol": symbol,
                         "side": side,
                         "qty": qty,
                         "entry": entry,
-                        "entry_date": pos.get("entry_date") or _entry_date_for_open_position(
-                            history, symbol, side,
-                        ),
+                        "entry_date": entry_date,
                         "current_price": current_price,
                         "unrealized_pnl": unrealized_pnl,
                         "sl": pos.get('stop_loss', 0.0),
                         "tp1": pos.get('tp1_hit', False),
                         "tp_price": pos.get('take_profit', 0.0),
-                        "value": market_value
+                        "value": market_value,
+                        "hold_days": _hold_days(
+                            entry_date, datetime.now().strftime('%Y-%m-%d'),
+                        ),
+                        "chart_id": chart_id,
                     })
 
             current_equity = round(cash + current_pos_value, 2)
@@ -587,68 +665,74 @@ class ReportGenerator:
 
             # 3. Trade History (Closed Positions) + Chart Generation
             # Per-close rows stay in the table; metrics use completed legs (TP1+final = one trade).
+            # Charts: newest closes first, cap per wallet to keep report_charts.js lean.
             trade_history = []
+            close_events = [e for e in sorted_history if "pnl" in e]
+            chart_eligible = {
+                id(e) for e in close_events[-MAX_CHARTS_PER_STRATEGY:]
+            }
 
-            for event in sorted_history:
-                if "pnl" in event:
-                    pnl = event['pnl']
-                    entry_price = event.get('entry_price', 0.0)
+            for event in close_events:
+                pnl = event['pnl']
+                entry_price = event.get('entry_price', 0.0)
 
-                    snapshot = event.get('snapshot')
+                snapshot = event.get('snapshot')
 
-                    pnl_pct = 0.0
-                    if entry_price > 0:
-                        pnl_pct = (pnl / (event['quantity'] * entry_price)) * 100
+                pnl_pct = 0.0
+                if entry_price > 0:
+                    pnl_pct = (pnl / (event['quantity'] * entry_price)) * 100
 
-                    entry_date = _entry_date_for_trade(history, event, snapshot or {}, entry_price)
-                    exit_date = _exit_date_from_event(event, snapshot or {})
+                entry_date = _entry_date_for_trade(history, event, snapshot or {}, entry_price)
+                exit_date = _exit_date_from_event(event, snapshot or {})
 
-                    snap = _merge_trade_snapshot(
-                        event, snapshot, entry_price, entry_date, exit_date,
-                    ) if snapshot else {}
-                    chart_b64 = _render_chart_b64(snap) if snapshot else ""
-                    chart_id = f"{strat_name}:{len(trade_history)}"
-                    if chart_b64:
-                        charts[chart_id] = chart_b64
+                snap = _merge_trade_snapshot(
+                    event, snapshot, entry_price, entry_date, exit_date,
+                ) if snapshot else {}
+                chart_b64 = ""
+                if snapshot and id(event) in chart_eligible:
+                    chart_b64 = _render_chart_b64(snap)
+                chart_id = f"{strat_name}:{len(trade_history)}"
+                if chart_b64:
+                    charts[chart_id] = chart_b64
 
-                    sl_level = 0.0
-                    tp_level = 0.0
-                    if snap:
-                        sl_level = float(
-                            snap.get("stop_loss_at_exit") or snap.get("stop_loss") or 0
-                        )
-                        tp_level = float(
-                            snap.get("take_profit_at_exit") or snap.get("take_profit") or 0
-                        )
-
-                    exit_kind = (
-                        event.get("exit_kind")
-                        or (snap.get("exit_kind") if snap else "")
-                        or ""
+                sl_level = 0.0
+                tp_level = 0.0
+                if snap:
+                    sl_level = float(
+                        snap.get("stop_loss_at_exit") or snap.get("stop_loss") or 0
                     )
-                    quantity_pct = event.get("quantity_pct") or (snap.get("quantity_pct") if snap else None)
+                    tp_level = float(
+                        snap.get("take_profit_at_exit") or snap.get("take_profit") or 0
+                    )
 
-                    trade_history.append({
-                        "time": event['timestamp'],
-                        "symbol": event['symbol'],
-                        "side": "LONG" if "LONG" in event['side'] else "SHORT",
-                        "qty": event['quantity'],
-                        "entry_price": entry_price,
-                        "exit_price": event['price'],
-                        "entry_date": entry_date,
-                        "exit_date": exit_date,
-                        "hold_days": _hold_days(entry_date, exit_date),
-                        "stop_loss": sl_level,
-                        "take_profit": tp_level,
-                        "stop_loss_at_exit": sl_level,
-                        "take_profit_at_exit": tp_level,
-                        "exit_kind": exit_kind,
-                        "quantity_pct": quantity_pct,
-                        "pnl": pnl,
-                        "pnl_pct": pnl_pct,
-                        "reason": event.get('reason') or 'N/A',
-                        "chart_id": chart_id if chart_b64 else None,
-                    })
+                exit_kind = (
+                    event.get("exit_kind")
+                    or (snap.get("exit_kind") if snap else "")
+                    or ""
+                )
+                quantity_pct = event.get("quantity_pct") or (snap.get("quantity_pct") if snap else None)
+
+                trade_history.append({
+                    "time": event['timestamp'],
+                    "symbol": event['symbol'],
+                    "side": "LONG" if "LONG" in event['side'] else "SHORT",
+                    "qty": event['quantity'],
+                    "entry_price": entry_price,
+                    "exit_price": event['price'],
+                    "entry_date": entry_date,
+                    "exit_date": exit_date,
+                    "hold_days": _hold_days(entry_date, exit_date),
+                    "stop_loss": sl_level,
+                    "take_profit": tp_level,
+                    "stop_loss_at_exit": sl_level,
+                    "take_profit_at_exit": tp_level,
+                    "exit_kind": exit_kind,
+                    "quantity_pct": quantity_pct,
+                    "pnl": pnl,
+                    "pnl_pct": pnl_pct,
+                    "reason": event.get('reason') or 'N/A',
+                    "chart_id": chart_id if chart_b64 else None,
+                })
 
             # 4. Advanced Metrics (completed legs)
             wins, losses, leg_records = leg_metric_buckets(history)

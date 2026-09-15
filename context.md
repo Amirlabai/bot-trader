@@ -1,21 +1,22 @@
 # Project Context: bot-trader
 
 ## Overview
-`bot-trader` is a multi-strategy algorithmic trading system built in Python. It supports long-only and long/short MA wallets on crypto and commodities (forex reserved). Daily bars come from yfinance (Yahoo).
+`bot-trader` is a multi-strategy algorithmic trading system built in Python. It supports long-only and long/short MA wallets on crypto, commodities, and US stocks (forex reserved). Daily bars come from yfinance (Yahoo).
 
 ## Architecture
-- **Core Engine**: `src/main.py` orchestrates the trading loop, strategy loading, and report generation.
-- **Data**: `src/data_ingestion.py` (`DataFetcher.get_data`) loads daily OHLCV via yfinance. Session memory cache plus disk CSV cache under `data/ohlcv_cache/` (gitignored); refresh when last bar is older than ~4 calendar days. Session `yahoo_blocked` after Yahoo rate-limit/block skips Yahoo for remaining pairs (falls back to disk cache if present). Daily CMC sync (`CMP_API_KEY`): top-15 market-cap listings; any new non-stable alt with Yahoo data is appended as `SYMBOL/USDT` to `data/crypto_universe.json` and crypto wallet pair lists (add-only; never removes).
+- **Core Engine**: `src/main.py` orchestrates the trading loop, strategy loading, and report generation. `--market crypto,commodities,stocks` filters which books run.
+- **Data**: `src/data_ingestion.py` (`DataFetcher.get_data`) loads daily OHLCV via yfinance. Session memory cache plus disk CSV cache under `data/ohlcv_cache/` (gitignored); refresh when last bar is older than ~4 calendar days. Session `yahoo_blocked` after Yahoo rate-limit/block skips Yahoo for remaining pairs (falls back to disk cache if present). Daily CMC sync (`CMP_API_KEY`): top-15 market-cap listings; any new non-stable alt with Yahoo data is appended as `SYMBOL/USDT` to `data/crypto_universe.json` and crypto wallet pair lists (add-only; never removes). Stocks: IJH/MDY seed + runner screener (`shared/stocks_universe.py`, `shared/stocks_screener.py`) → `data/stocks_universe.json`; fundamentals TTL cache `data/stocks_fundamentals_cache.json` (gitignored).
 - **State Management**: `src/ledger_manager.py` manages independent "wallets" for each strategy, tracking cash, open positions, and trade history in `data/ledger.json`.
-- **Strategies**: Four wallets per traded book (crypto, commodities) from EMA grid 4y winners:
+- **Strategies**: Four wallets per traded book (crypto, commodities, stocks) from EMA grid winners:
   1. Long · asset trail (no TP1, trail from entry)
   2. Long · TP1 trail (50% at 1 ATR, then trail)
   3. Long/Short · asset trail (no TP1, trail from entry)
   4. Long/Short · TP1 trail (50% at 1 ATR, then trail)
-  Same EMA/ATR/SL/trail per book; ADX/vol off. Forex pairs stay in config but have no wallets. Grid study: `scratch/tune_btc_ema_grid.py` → `docs/crypto_ema_grid_*.md`, `docs/commodities_ema_grid_4y.md`, `docs/forex_ema_grid_4y.md`.
+  Same EMA/ATR/SL/trail per book; ADX/vol off. Forex pairs stay in config but have no wallets. Grid study: `scratch/tune_btc_ema_grid.py` → `docs/crypto_ema_grid_*.md`, `docs/commodities_ema_grid_4y.md`, `docs/forex_ema_grid_4y.md`. Stocks: `scratch/tune_stocks_ema_grid.py` → `docs/stocks_ema_grid_10y_{atr,ema}.md`.
+- **Stocks screener (Core)**: market cap $2B–$30B; price > $15; avg vol 30D > 750k; within 3% of 52w high; 6m perf > 20%; RSI(14) 55–70; close > SMA50 > SMA200; quarterly sales YoY > 20%; optional float < 150M. Empty screen falls back to sim floor `STOCK_SIM_TICKERS` for wallet pairs; open positions stay tradeable off-screen.
 - **Reporting & Visualization**: 
-    - `src/reporting.py`: Reconstructs equity curves, calculates advanced performance metrics (Win Rate, Profit Factor, Max DD, Avg Month), desk metadata, and renders entry charts.
-    - `docs/index.html`: Market-first compare of wallets for the selected book, then the single-wallet desk. Forex tab shows untraded. Product brief: `PRODUCT.md`. Visual system: `DESIGN.md` and `.impeccable/design.json` (After-Hours Desk).
+    - `src/reporting.py`: Reconstructs equity curves, calculates advanced performance metrics (Win Rate, Profit Factor, Max DD, Avg Month), desk metadata, stocks screener payload under `metadata.screener.stocks`, and renders entry charts.
+    - `docs/index.html`: Market-first compare of wallets for the selected book, then the single-wallet desk. Stocks tab includes runner screener table. Forex tab shows untraded. Product brief: `PRODUCT.md`. Visual system: `DESIGN.md` and `.impeccable/design.json` (After-Hours Desk).
 
 ## Risk Management
 - **Model**: 1% of total equity per new open (`cash + open positions at entry cost`; no unrealized P/L).
@@ -30,20 +31,25 @@
 - **Risk sizing**: `shared/risk_sizing.py` (`size_for_risk`, `should_open_after_sizing`) used by `src/main.py` and `scratch/resim_engine.py`.
 - **Same-bar reversal**: After a full SHORT cover or LONG close, `main.py` refreshes position state and may open the opposite side in the same bar.
 - **Debug**: Set `BOT_TRADER_DEBUG=1` to re-raise after signal generation errors (traceback always printed).
-- **Trade charts**: Close-only snapshots (`_build_close_snapshot` on exit in `main.py`); last ~20 daily bars ending on the close bar; chart shows SL/TP, entry price line, exit price/date. OPEN history does not store chart snapshots. Backfill closes: `.\.venv\Scripts\python.exe scratch\update_snapshots.py`.
+- **Trade charts**: Close snapshots on exit (entry→exit) and open-position charts at report time (entry→now). Cap `SNAPSHOT_BAR_CAP` (60): stay on daily while ≤cap, else weekly, else monthly (monthly may exceed cap). Chart title shows timeframe. Close pack capped ~40 recent closes per wallet; every open position gets a chart. OPEN history does not store chart snapshots. Backfill closes: `.\.venv\Scripts\python.exe scratch\update_snapshots.py`.
 - **Stop-loss fills**: Stop/trail exits always fill at the **SL level** (including a wick through SL that closes back inside). TP1 fills at stored **take_profit**. Same rule in live `main.py` and backfill (`apply_close_fill_to_event` updates `price`, `pnl`, and strategy `cash`).
 - **Dashboard**: Lands on Crypto compare of dual wallets (Net Equity, WR, PF, Avg Month, Max DD, Trades); market select first, then wallet drill-down into the single-wallet desk. Forex is untraded. Pair performance (rolling winners/losers) under the equity/exposure charts; separate Long vs Short card for the same window (Side, Trades, Tot P/L, Avg P/L, Win %) with a compact Bull/Bear/Flat readout from comparing long vs short Tot P/L (short ahead = Bear, long ahead = Bull). Closed trades table shows exit date, entry date, days held, qty, entry/exit prices, and P/L; expand row shows SL at exit and TP1 target when applicable. Open positions show entry date. Mobile (≤720px): stacked header/filter, two-column KPIs with Total Trades spanning, compact charts, 12px expand padding; closed-trades dense glance row (symbol over smaller exit date + side; P/L over percent); positions keep primary columns only (secondary hidden). Money columns use tabular numerals. Display caps prices/qty/USD at 4 decimal places (`fmtPrice` / `fmtQty` / `fmtUsd`); dollar P/L stays 2 places. `formatReason` rounds embedded fill/SL numbers in reason text to 4 decimals.
 - **Report**: `trade_history` exports `entry_date`, `exit_date`, `hold_days`, `exit_kind`, `stop_loss_at_exit`, `take_profit_at_exit`, `quantity_pct`, `reason`, `chart_id` (PNG bytes live in `docs/report_charts.js`, loaded on row expand). Regenerate: `scratch\update_snapshots.py --report-only`.
-- **Dashboard load**: Lean `report_data.js` (~0.4 MB) for first paint; `report_charts.js` (~20 MB) fetched only when a closed-trade row is expanded.
+- **Dashboard load**: Lean `report_data.js` for first paint; `report_charts.js` fetched only when a closed-trade row is expanded (capped to ~40 recent closes per wallet, `CHART_DPI=90`).
 
 ## Tech Stack
 - **Language**: Python 3.12 (CI / preferred; 3.10+ for `|` type unions).
 - **Libraries**: `pandas`, `matplotlib`, `gitpython`, `python-dotenv`, `yfinance`.
-- **Market data**: yfinance only (cache by bot symbol; crypto `BTC/USDT` → `BTC-USD`, forex `EUR/USD` → `EURUSD=X`, commodities e.g. `XAU/USD` → `GC=F` futures). Yahoo empty/429/block: `ALERT:` plus GitHub Actions annotation; session block skips Yahoo for rest. Summary: `DataFetcher.report_fetch_alerts()`. Symbol routing: `shared/symbols.py`.
+- **Market data**: yfinance only (cache by bot symbol; crypto `BTC/USDT` → `BTC-USD`, forex `EUR/USD` → `EURUSD=X`, commodities e.g. `XAU/USD` → `GC=F` futures, stocks plain tickers e.g. `NVDA`). Yahoo empty/429/block: `ALERT:` plus GitHub Actions annotation; session block skips Yahoo for rest. Summary: `DataFetcher.report_fetch_alerts()`. Symbol routing: `shared/symbols.py`.
 - **Automation**: GitHub Actions for daily execution and semantic releases.
 - **Local knowledge graph**: `graphify-out/` (gitignored). Incremental rebuild: `/graphify --update`.
 
 ## Deployment
 - **Dashboard**: Hosted on GitHub Pages via `docs/index.html` (`report_data.js` + lazy `report_charts.js`).
-- **Execution**: Runs daily at 00:00 UTC via `.github/workflows/daily_trade.yml` (`python src/main.py` from **repo root**). `main.py` sets `REPO_ROOT` on `sys.path` so `shared.constants` resolves; do not run with cwd=`src/`.
+- **Execution**:
+  - Crypto/commodities: `.github/workflows/daily_trade.yml` at 00:00 UTC → `python src/main.py --market crypto,commodities`.
+  - Stocks: `.github/workflows/stocks_trade.yml` Mon–Fri 09:30 `America/New_York` → `python src/main.py --market stocks` (skips US holidays/weekends).
+  - Run from **repo root**. `main.py` sets `REPO_ROOT` on `sys.path` so `shared.constants` resolves; do not run with cwd=`src/`.
 - **Debug**: `BOT_TRADER_DEBUG=1` re-raises after signal errors.
+- **Stocks EMA (locked)**: 20/40/150 · ATR20 · SL10 · trail24 via `scratch/tune_stocks_ema_grid.py` (10y, **7%** equity risk). Stocks wallets size at `STOCKS_EQUITY_RISK_PCT=0.07`.
+- **Stocks 4y dashboard feed**: `scratch/resimulate.py --market stocks --start 2022-09-14 --screen-daily --stocks-universe --merge-strategies --replace-ledger --report` evaluates OHLCV Core gates **each day** (entries only when eligible; open positions still managed). Fundamentals are not point-in-time in the resim.

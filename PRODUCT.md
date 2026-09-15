@@ -12,27 +12,28 @@ Anyone whom it may concern: operators, reviewers, or curious readers who open th
 
 ## Product Purpose
 
-**Bot Trader** is a daily trade tester: a simple algorithmic paper-trading system on crypto and commodities (forex reserved for a later approach), with a GitHub Pages dashboard for after-run review.
+**Bot Trader** is a daily trade tester: a simple algorithmic paper-trading system on crypto, commodities, and US stocks (forex reserved for a later approach), with a GitHub Pages dashboard for after-run review.
 
 Success means the bot runs on a schedule, the ledger stays coherent with the risk and exit rules, and the desk makes equity, exposure, open risk, and closed-trade outcomes easy to scan. It is not a live brokerage, not a marketplace product, and not a claim of profitable live trading.
 
 ## Positioning
 
-Paper-tests four MA wallets per book (long/long-short × asset-trail/TP1-trail) on declared symbol sets with a shared risk model (about 1% equity risk per new open), then publishes a static post-run desk. Neighboring “trading dashboards” without this ledgered daily bot loop cannot truthfully claim the same workflow.
+Paper-tests four MA wallets per book (long/long-short × asset-trail/TP1-trail) on declared symbol sets with a shared risk model (about 1% equity risk per new open), then publishes a static post-run desk. Stocks add a Mon–Fri US-open screener before the stocks wallets run. Neighboring “trading dashboards” without this ledgered daily bot loop cannot truthfully claim the same workflow.
 
 ## Operating Context
 
-- Daily GitHub Actions run (`daily_trade.yml`, 00:00 UTC) executes `src/main.py` from repo root.
+- Daily GitHub Actions: `daily_trade.yml` (00:00 UTC, crypto/commodities) and `stocks_trade.yml` (Mon–Fri 09:30 America/New_York).
 - Market data: yfinance only (Yahoo); session can block further Yahoo fetches after rate-limit/block.
 - State lives in `data/ledger.json` (per-strategy wallets); reports land in `docs/` (`report_data.js`, lazy `report_charts.js`).
 - Dashboard: static SPA at `docs/index.html`, hosted on GitHub Pages.
-- Operator rituals: review KPIs and charts, filter closed trades, expand rows for SL/TP and close snapshots; optional audit/repair/snapshot backfill via `scratch/` scripts.
+- Operator rituals: review KPIs and charts, filter closed trades, expand rows for SL/TP and close snapshots; on Stocks, review the runner screener table; optional audit/repair/snapshot backfill via `scratch/` scripts.
 - Local knowledge graph (`graphify-out/`) is a development aid, not a user-facing surface.
 
 ## Capabilities and Constraints
 
 **Capabilities (built and in scope to preserve):**
-- Multi-wallet paper trading: four wallets per traded book (crypto, commodities). Long vs long/short × asset trail (no TP1) vs TP1 then trail. Forex pairs remain defined but untraded.
+- Multi-wallet paper trading: four wallets per traded book (crypto, commodities, stocks). Long vs long/short × asset trail (no TP1) vs TP1 then trail. Forex pairs remain defined but untraded.
+- Stocks mid-cap runner screener (Core gates) feeds the stocks book; desk shows today’s matches on the Stocks tab.
 - Risk sizing; TP1 wallets take 50% at 1.0 ATR then trail; asset-trail wallets skip TP1 and trail from entry.
 - Desk: market-first compare of wallets for the selected book, then single-wallet equity, exposure, rolling pair winners/losers, Long vs Short window stats with Bull/Bear/Flat bias cue.
 - Open positions and closed-trade history with expand detail and lazy close charts.

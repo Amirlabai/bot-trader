@@ -1,0 +1,54 @@
+{
+  "updated_at": "2026-09-15T12:52:48+00:00",
+  "seed_tickers": [
+    "AXON",
+    "DECK",
+    "FIX",
+    "CASY",
+    "MANH",
+    "WSM",
+    "TWLO",
+    "ILMN",
+    "FTI",
+    "P",
+    "OKTA",
+    "ATI",
+    "NVT",
+    "CRS",
+    "USFD",
+    "THC",
+    "CW",
+    "XPO"
+  ],
+  "active": [
+    "OKTA"
+  ],
+  "matches": [
+    {
+      "ticker": "OKTA",
+      "price": 186.45,
+      "avg_volume_30": 3658703,
+      "dist_52w_high_pct": 0.0,
+      "perf_6m_pct": 141.64,
+      "rsi_14": 67.83,
+      "sma50": 149.7521,
+      "sma200": 104.1869,
+      "reasons": [
+        "price>15",
+        "avgVol30>750000",
+        "within3pct52wHigh",
+        "perf6m>20%",
+        "rsi55-70",
+        "close>sma50>sma200"
+      ]
+    }
+  ],
+  "open_positions_kept": [],
+  "screener_meta": {
+    "as_of": "2026-09-14T16:00:00",
+    "open_et": "09:30 America/New_York",
+    "seed_count": 17,
+    "match_count": 1,
+    "screen_mode": "ohlcv_daily_pit"
+  }
+}

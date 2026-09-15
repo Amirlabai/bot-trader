@@ -820,6 +820,7 @@
                     <option value="crypto">Crypto</option>
                     <option value="forex">Forex</option>
                     <option value="commodities">Commodities</option>
+                    <option value="stocks">Stocks</option>
                 </select>
                 <select id="param-selector" aria-label="Wallet" onchange="onParamChange(this.value)">
                     <option value="">Compare all</option>
@@ -828,6 +829,11 @@
         </header>
 
         <div id="compare-view" style="display:none;">
+            <div class="card" id="screener-card" style="display:none; margin-bottom: 1.25rem;">
+                <div class="card-title" id="screener-title">Runner screener</div>
+                <div id="screener-meta" class="compare-empty" style="padding-bottom: 0.75rem;"></div>
+                <div id="screener-table-container"></div>
+            </div>
             <div class="card">
                 <div class="card-title" id="compare-title">Wallets</div>
                 <div id="compare-table-container"></div>
@@ -935,6 +941,7 @@
             crypto: 'Crypto',
             forex: 'Forex',
             commodities: 'Commodities',
+            stocks: 'Stocks',
         };
 
         function walletIndex() {
@@ -1002,7 +1009,63 @@
             document.getElementById('dashboard-content').style.display = 'none';
             document.getElementById('compare-title').innerText =
                 `${MARKET_LABELS[currentMarket] || currentMarket} · Wallets`;
+            renderScreenerPanel(currentMarket);
             renderCompareTable(currentMarket);
+        }
+
+        function renderScreenerPanel(market) {
+            const card = document.getElementById('screener-card');
+            const metaEl = document.getElementById('screener-meta');
+            const tableEl = document.getElementById('screener-table-container');
+            if (!card || !metaEl || !tableEl) return;
+            if (market !== 'stocks') {
+                card.style.display = 'none';
+                return;
+            }
+            card.style.display = 'block';
+            const screen = rawData?.metadata?.screener?.stocks;
+            if (!screen) {
+                metaEl.innerText = 'No screener run yet.';
+                tableEl.innerHTML = '<div class="compare-empty">Runner matches will appear after the Mon–Fri US-open job.</div>';
+                return;
+            }
+            const asOf = screen.as_of ? String(screen.as_of).replace('T', ' ').slice(0, 19) : '-';
+            const openEt = screen.open_et || '09:30 America/New_York';
+            const n = Array.isArray(screen.matches) ? screen.matches.length : (screen.match_count || 0);
+            metaEl.innerText = `As of ${asOf} · open ${openEt} · ${n} match${n === 1 ? '' : 'es'}`;
+            const matches = Array.isArray(screen.matches) ? screen.matches : [];
+            if (!matches.length) {
+                tableEl.innerHTML = '<div class="compare-empty">No mid-cap runners cleared the screen today.</div>';
+                return;
+            }
+            const rows = matches.map(m => {
+                const mcap = m.market_cap != null ? `$${(Number(m.market_cap) / 1e9).toFixed(1)}B` : '-';
+                const rev = m.revenue_growth_yoy != null ? `${(Number(m.revenue_growth_yoy) * 100).toFixed(0)}%` : '-';
+                const rsi = m.rsi_14 != null ? Number(m.rsi_14).toFixed(1) : '-';
+                const perf = m.perf_6m_pct != null ? `${Number(m.perf_6m_pct).toFixed(1)}%` : '-';
+                const dist = m.dist_52w_high_pct != null ? `${Number(m.dist_52w_high_pct).toFixed(1)}%` : '-';
+                return `<tr>
+                    <td style="font-weight:600; color:var(--frost)">${m.ticker || '-'}</td>
+                    <td class="num">${m.price != null ? fmtPrice(m.price) : '-'}</td>
+                    <td class="num">${mcap}</td>
+                    <td class="num">${perf}</td>
+                    <td class="num">${dist}</td>
+                    <td class="num">${rsi}</td>
+                    <td class="num">${rev}</td>
+                </tr>`;
+            }).join('');
+            tableEl.innerHTML = `<div class="table-scroll"><table class="compare-table">
+                <thead><tr>
+                    <th>Ticker</th>
+                    <th class="num">Price</th>
+                    <th class="num">Mkt Cap</th>
+                    <th class="num">6M</th>
+                    <th class="num">vs 52w</th>
+                    <th class="num">RSI</th>
+                    <th class="num">Rev YoY</th>
+                </tr></thead>
+                <tbody>${rows}</tbody>
+            </table></div>`;
         }
 
         function showDetailView(strategyId) {
@@ -1215,6 +1278,21 @@
             </dl>`;
         }
 
+        function positionSummaryHtml(p) {
+            const held = p.hold_days != null ? p.hold_days : null;
+            const heldStr = held != null ? ` <span style="color:var(--muted); font-weight:400">(${held}d)</span>` : '';
+            const tpRow = p.tp_price > 0
+                ? `<div><dt>TP1 target</dt><dd>${fmtPrice(p.tp_price)}${p.tp1 ? ' · hit' : ''}</dd></div>`
+                : '';
+            return `<dl class="trade-summary">
+                <div><dt>Entry</dt><dd>${fmtPrice(p.entry)} <span style="color:var(--muted); font-weight:400">${fmtDate(p.entry_date)}</span>${heldStr}</dd></div>
+                <div><dt>Mark</dt><dd>${fmtPrice(p.current_price || p.entry)}</dd></div>
+                <div><dt>Stop</dt><dd>${p.sl > 0 ? fmtPrice(p.sl) : '-'}</dd></div>
+                ${tpRow}
+                <div><dt>Quantity</dt><dd>${fmtQty(p.qty)}</dd></div>
+            </dl>`;
+        }
+
         function computePairPerformance(trades, days = 30, minTrades = 50, topN = 5) {
             const emptySide = [
                 { side: 'LONG', pnl: 0, avg_pnl: 0, trades: 0, win_rate: 0 },
@@ -1410,42 +1488,106 @@
                 return;
             }
 
-            let rows = positions.map(p => {
+            const tbody = document.createElement('tbody');
+            positions.forEach((p, i) => {
                 const badge = p.side === 'LONG' ? 'badge-long' : 'badge-short';
                 const pnl = p.unrealized_pnl || 0;
                 const costBasis = p.qty * p.entry;
                 const pnlPct = costBasis > 0 ? (pnl / costBasis) * 100 : 0;
                 const pnlColor = pnl >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
                 const tp1Badge = p.tp1 ? '<span class="badge badge-tp1">TP1 HIT</span>' : '';
+                const hasChart = !!(p.chart_id || (p.chart_b64 && p.chart_b64.length > 0));
+                const detailId = `pos-detail-${i}`;
 
-                return `
-                    <tr>
-                        <td style="font-weight:600">${p.symbol} ${tp1Badge}</td>
-                        <td><span class="badge ${badge}">${p.side}</span></td>
-                        <td class="col-secondary num">${fmtQty(p.qty)}</td>
-                        <td class="col-secondary num">${fmtPrice(p.entry)}</td>
-                        <td class="col-secondary" style="color:var(--muted)">${fmtDate(p.entry_date)}</td>
-                        <td class="col-secondary num">${fmtPrice(p.current_price || p.entry)}</td>
-                        <td class="num" style="color:${pnlColor}; font-weight:600">
-                            ${pnl >= 0 ? '+' : ''}$${fmtDec(pnl, 2)}
-                            <div style="font-size:10px; opacity:0.8">${fmtDec(pnlPct, 2)}%</div>
-                        </td>
-                        <td class="col-secondary num">${p.sl > 0 ? fmtPrice(p.sl) : '-'}</td>
-                        <td class="num">${fmtUsd(p.value)}</td>
-                    </tr>`;
-            }).join('');
+                const tr = document.createElement('tr');
+                tr.className = 'trade-row';
+                tr.innerHTML = `
+                    <td class="caret-cell"><button type="button" class="trade-toggle" aria-expanded="false" aria-controls="${detailId}" aria-label="Open position ${p.symbol}"><span class="caret">&#9654;</span></button></td>
+                    <td style="font-weight:600">${p.symbol} ${tp1Badge}</td>
+                    <td><span class="badge ${badge}">${p.side}</span></td>
+                    <td class="col-secondary num">${fmtQty(p.qty)}</td>
+                    <td class="col-secondary num">${fmtPrice(p.entry)}</td>
+                    <td class="col-secondary" style="color:var(--muted)">${fmtDate(p.entry_date)}</td>
+                    <td class="col-secondary num">${fmtPrice(p.current_price || p.entry)}</td>
+                    <td class="num" style="color:${pnlColor}; font-weight:600">
+                        ${pnl >= 0 ? '+' : ''}$${fmtDec(pnl, 2)}
+                        <div style="font-size:10px; opacity:0.8">${fmtDec(pnlPct, 2)}%</div>
+                    </td>
+                    <td class="col-secondary num">${p.sl > 0 ? fmtPrice(p.sl) : '-'}</td>
+                    <td class="num">${fmtUsd(p.value)}</td>`;
 
-            container.innerHTML = `
-                <div class="table-scroll">
-                <table class="positions-table">
-                    <thead>
-                        <tr>
-                            <th>Asset</th><th>Side</th><th class="col-secondary num">Size</th><th class="col-secondary num">Entry</th><th class="col-secondary">Entry date</th><th class="col-secondary num">Price</th><th class="num">Unrealized P/L</th><th class="col-secondary num">Stop</th><th class="num">Market value</th>
-                        </tr>
-                    </thead>
-                    <tbody>${rows}</tbody>
-                </table>
-                </div>`;
+                const detailTr = document.createElement('tr');
+                detailTr.className = 'trade-detail-row';
+                detailTr.innerHTML = `<td colspan="10"></td>`;
+                const inner = document.createElement('div');
+                inner.className = 'trade-detail-inner';
+                inner.id = detailId;
+                let detailBody = positionSummaryHtml(p);
+                if (hasChart) {
+                    detailBody += `<div class="trade-chart-slot" data-chart-id="${p.chart_id || ''}"></div>`;
+                } else {
+                    detailBody += '<div class="no-chart-msg">No open chart for this position.</div>';
+                }
+                inner.innerHTML = detailBody;
+                detailTr.querySelector('td').appendChild(inner);
+
+                const openPosDetail = async () => {
+                    if (expandedRow && expandedRow !== inner) {
+                        expandedRow.classList.remove('open');
+                        if (expandedTradeRow) {
+                            expandedTradeRow.classList.remove('expanded');
+                            const prev = expandedTradeRow.querySelector('.trade-toggle');
+                            if (prev) prev.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                    inner.classList.toggle('open');
+                    tr.classList.toggle('expanded');
+                    const isOpen = inner.classList.contains('open');
+                    const toggle = tr.querySelector('.trade-toggle');
+                    if (toggle) toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    expandedRow = isOpen ? inner : null;
+                    expandedTradeRow = isOpen ? tr : null;
+                    if (isOpen && hasChart) {
+                        const slot = inner.querySelector('.trade-chart-slot');
+                        if (slot && !slot.querySelector('img')) {
+                            slot.innerHTML = '<div class="no-chart-msg">Loading chart...</div>';
+                            try {
+                                let b64 = p.chart_b64;
+                                if (!b64 && p.chart_id) {
+                                    const pack = await loadCharts();
+                                    b64 = pack[p.chart_id];
+                                }
+                                if (b64) {
+                                    slot.innerHTML = `<img src="data:image/png;base64,${b64}" class="trade-chart-img">`;
+                                } else {
+                                    slot.innerHTML = '<div class="no-chart-msg">Chart missing from pack.</div>';
+                                }
+                            } catch (e) {
+                                slot.innerHTML = `<div class="no-chart-msg">${e.message}</div>`;
+                            }
+                        }
+                    }
+                };
+
+                tr.querySelector('.trade-toggle').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openPosDetail();
+                });
+                tr.addEventListener('click', openPosDetail);
+
+                tbody.appendChild(tr);
+                tbody.appendChild(detailTr);
+            });
+
+            container.innerHTML = '';
+            const scroll = document.createElement('div');
+            scroll.className = 'table-scroll';
+            const table = document.createElement('table');
+            table.className = 'positions-table';
+            table.innerHTML = `<thead><tr><th></th><th>Asset</th><th>Side</th><th class="col-secondary num">Size</th><th class="col-secondary num">Entry</th><th class="col-secondary">Entry date</th><th class="col-secondary num">Price</th><th class="num">Unrealized P/L</th><th class="col-secondary num">Stop</th><th class="num">Market value</th></tr></thead>`;
+            table.appendChild(tbody);
+            scroll.appendChild(table);
+            container.appendChild(scroll);
         }
 
         function renderHistory() {

@@ -20,6 +20,9 @@ except ImportError:
 def yahoo_ticker(symbol, asset_type='crypto'):
     if asset_type == 'commodity':
         return COMMODITY_YAHOO_TICKERS[symbol]
+    if asset_type == 'stock':
+        # Yahoo uses '-' for share classes (BRK-B); accept '.' from some lists.
+        return str(symbol).upper().strip().replace('.', '-')
     clean = symbol.replace('/', '')
     if asset_type == 'forex':
         return f'{clean}=X'
@@ -177,7 +180,7 @@ class DataFetcher:
 
     def get_data(self, symbol, asset_type='crypto'):
         """Daily OHLCV from yfinance (Yahoo), with session + disk cache under data/ohlcv_cache/."""
-        if asset_type not in ('crypto', 'forex', 'commodity'):
+        if asset_type not in ('crypto', 'forex', 'commodity', 'stock'):
             print(f'Unknown asset type: {asset_type}')
             return pd.DataFrame()
 

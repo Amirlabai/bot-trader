@@ -46,10 +46,15 @@ def process_symbol(
     event_ts=None,
     verbose=True,
     build_snapshots=False,
+    risk_settings=None,
+    allow_new_entries=True,
 ):
     """One simulated trading day for a symbol (same rules as src/main.py)."""
     if market_data.empty:
         return
+
+    settings = risk_settings if risk_settings is not None else RISK_SETTINGS
+    equity_risk_pct = settings['equity_risk_pct']
 
     pos_data = ledger.get_position(strategy_id, symbol)
 
@@ -85,15 +90,19 @@ def process_symbol(
                 event_ts=event_ts, build_snapshots=build_snapshots, verbose=verbose,
             )
 
-        if position_side is None and _is_entry_signal(signal_data, long=True):
+        if (
+            allow_new_entries
+            and position_side is None
+            and _is_entry_signal(signal_data, long=True)
+        ):
             new_sl = signal_data.get('stop_loss', 0.0)
             quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok = size_for_risk(
                 ledger, strategy_id, current_price, new_sl,
-                RISK_SETTINGS['equity_risk_pct'], RISK_SETTINGS, is_short=False,
+                equity_risk_pct, settings, is_short=False,
             )
             if should_open_after_sizing(
                 'LONG', quantity, current_price, target_risk, actual_risk,
-                capped_notional, capped_cash, sizing_ok, ledger, strategy_id, RISK_SETTINGS,
+                capped_notional, capped_cash, sizing_ok, ledger, strategy_id, settings,
                 verbose=verbose,
             ):
                 new_tp = signal_data.get('take_profit', 0.0)
@@ -113,15 +122,19 @@ def process_symbol(
                 event_ts=event_ts, build_snapshots=build_snapshots, verbose=verbose,
             )
 
-        if position_side is None and _is_entry_signal(signal_data, long=False):
+        if (
+            allow_new_entries
+            and position_side is None
+            and _is_entry_signal(signal_data, long=False)
+        ):
             new_sl = signal_data.get('stop_loss', 0.0)
             quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok = size_for_risk(
                 ledger, strategy_id, current_price, new_sl,
-                RISK_SETTINGS['equity_risk_pct'], RISK_SETTINGS, is_short=True,
+                equity_risk_pct, settings, is_short=True,
             )
             if should_open_after_sizing(
                 'SHORT', quantity, current_price, target_risk, actual_risk,
-                capped_notional, capped_cash, sizing_ok, ledger, strategy_id, RISK_SETTINGS,
+                capped_notional, capped_cash, sizing_ok, ledger, strategy_id, settings,
                 verbose=verbose,
             ):
                 new_tp = signal_data.get('take_profit', 0.0)

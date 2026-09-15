@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 import importlib
 import traceback
 from datetime import datetime
@@ -11,7 +12,15 @@ for _path in (REPO_ROOT, os.path.join(REPO_ROOT, 'src')):
     if _path not in sys.path:
         sys.path.insert(0, _path)
 
-from config import Config, TRADING_CONFIG, RISK_SETTINGS, sync_crypto_universe_from_cmc
+from config import (
+    Config,
+    TRADING_CONFIG,
+    RISK_SETTINGS,
+    STOCKS_EQUITY_RISK_PCT,
+    open_stock_symbols_from_ledger,
+    sync_crypto_universe_from_cmc,
+    sync_stocks_universe_from_screen,
+)
 from shared.constants import (
     reason_is_entry_long,
     reason_is_entry_short,
@@ -20,6 +29,7 @@ from shared.exit_snapshots import last_bar_date as _last_bar_date
 from shared.risk_sizing import size_for_risk, should_open_after_sizing
 from shared.symbols import asset_type_for_symbol
 from shared.trade_exec import apply_exit
+from shared.us_market_calendar import is_us_equity_trading_day, now_et
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 
@@ -41,19 +51,92 @@ def load_strategy(module_name, class_name, params):
         return None
 
 
-def main():
+def _parse_markets(raw: str | None) -> set[str] | None:
+    """None means all markets in TRADING_CONFIG."""
+    if not raw:
+        return None
+    markets = {m.strip().lower() for m in raw.split(',') if m.strip()}
+    return markets or None
+
+
+def _risk_for_market(market: str | None) -> tuple[float, dict]:
+    """Return (equity_risk_pct, risk_settings) for the wallet market."""
+    if market == 'stocks':
+        settings = {**RISK_SETTINGS, 'equity_risk_pct': STOCKS_EQUITY_RISK_PCT}
+        return STOCKS_EQUITY_RISK_PCT, settings
+    return RISK_SETTINGS['equity_risk_pct'], RISK_SETTINGS
+
+
+def _normalize_screener_payload(screener_payload: dict | None) -> dict | None:
+    """Normalize live sync or on-disk universe JSON into the dashboard screener block."""
+    if not screener_payload:
+        return None
+    meta = screener_payload.get('screener_meta') or {}
+    matches = screener_payload.get('matches') or []
+    return {
+        'as_of': screener_payload.get('as_of') or meta.get('as_of'),
+        'open_et': screener_payload.get('open_et') or meta.get('open_et'),
+        'seed_count': screener_payload.get('seed_count') or meta.get('seed_count'),
+        'match_count': screener_payload.get('match_count', len(matches)),
+        'matches': matches,
+        'active': screener_payload.get('active') or [],
+    }
+
+
+def _last_screener_payload():
+    from shared.stocks_universe import load_universe
+    from config import STOCKS_UNIVERSE_FILE
+
+    return _normalize_screener_payload(load_universe(STOCKS_UNIVERSE_FILE))
+
+
+def main(markets: set[str] | None = None):
     print(f"--- Starting Bot Trader Session: {datetime.now()} ---")
+    if markets:
+        print(f"Market filter: {', '.join(sorted(markets))}")
+
+    run_stocks = markets is None or 'stocks' in markets
+    run_crypto = markets is None or 'crypto' in markets
+
+    if run_stocks and not is_us_equity_trading_day():
+        et = now_et()
+        print(
+            f"US equities closed ({et.date().isoformat()} ET). "
+            "Skipping stocks sync/trade for this session."
+        )
+        run_stocks = False
+        if markets == {'stocks'}:
+            print('--- Session Complete (holiday/weekend skip) ---')
+            return
 
     ledger = LedgerManager(Config)
     data_fetcher = DataFetcher(Config)
+    screener_payload = None
 
-    try:
-        sync_crypto_universe_from_cmc(data_fetcher)
-    except Exception as e:
-        print(f"CMC universe sync failed (continuing with existing pairs): {e}")
-        traceback.print_exc()
+    if run_crypto:
+        try:
+            sync_crypto_universe_from_cmc(data_fetcher)
+        except Exception as e:
+            print(f"CMC universe sync failed (continuing with existing pairs): {e}")
+            traceback.print_exc()
+
+    if run_stocks:
+        try:
+            open_syms = open_stock_symbols_from_ledger(ledger)
+            screener_payload = sync_stocks_universe_from_screen(
+                data_fetcher, open_symbols=open_syms,
+            )
+        except Exception as e:
+            print(f"Stocks universe sync failed (continuing with existing pairs): {e}")
+            traceback.print_exc()
 
     for strategy_id, config in TRADING_CONFIG.items():
+        market = config.get('market')
+        if markets is not None and market not in markets:
+            continue
+        if market == 'stocks' and not run_stocks:
+            continue
+
         print(f"\n==========================================")
         print(f"Processing Strategy: {strategy_id}")
         current_balance = ledger.get_balance(strategy_id)
@@ -93,6 +176,7 @@ def main():
             print(f"    Action: {action.upper()} | Reason: {signal_data.get('reason', '')} | Price: {current_price}")
 
             position_side = pos_data.get('side', 'LONG') if pos_data else None
+            equity_risk_pct, risk_settings = _risk_for_market(market)
 
             if action == 'buy':
                 if position_side == 'SHORT':
@@ -105,11 +189,11 @@ def main():
                     new_sl = signal_data.get('stop_loss', 0.0)
                     quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok = size_for_risk(
                         ledger, strategy_id, current_price, new_sl,
-                        RISK_SETTINGS['equity_risk_pct'], RISK_SETTINGS, is_short=False,
+                        equity_risk_pct, risk_settings, is_short=False,
                     )
                     if should_open_after_sizing(
                         'LONG', quantity, current_price, target_risk, actual_risk,
-                        capped_notional, capped_cash, sizing_ok, ledger, strategy_id, RISK_SETTINGS,
+                        capped_notional, capped_cash, sizing_ok, ledger, strategy_id, risk_settings,
                     ):
                         new_tp = signal_data.get('take_profit', 0.0)
                         bar_date = _last_bar_date(market_data)
@@ -132,11 +216,11 @@ def main():
                     new_sl = signal_data.get('stop_loss', 0.0)
                     quantity, target_risk, actual_risk, capped_notional, capped_cash, sizing_ok = size_for_risk(
                         ledger, strategy_id, current_price, new_sl,
-                        RISK_SETTINGS['equity_risk_pct'], RISK_SETTINGS, is_short=True,
+                        equity_risk_pct, risk_settings, is_short=True,
                     )
                     if should_open_after_sizing(
                         'SHORT', quantity, current_price, target_risk, actual_risk,
-                        capped_notional, capped_cash, sizing_ok, ledger, strategy_id, RISK_SETTINGS,
+                        capped_notional, capped_cash, sizing_ok, ledger, strategy_id, risk_settings,
                     ):
                         new_tp = signal_data.get('take_profit', 0.0)
                         bar_date = _last_bar_date(market_data)
@@ -163,13 +247,24 @@ def main():
     from reporting import ReportGenerator
     print("\n--- Generating Performance Report Data ---")
     try:
+        stocks_screener = _normalize_screener_payload(screener_payload)
+        if stocks_screener is None and run_stocks:
+            stocks_screener = _last_screener_payload()
         reporter = ReportGenerator(Config)
-        reporter.generate()
+        reporter.generate(stocks_screener=stocks_screener)
     except Exception as e:
         print(f"Error generating report: {e}")
+        traceback.print_exc()
 
     ledger.sync_to_remote(commit_message=f"Journal Update: {datetime.now().strftime('%Y-%m-%d')}")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Bot Trader daily session')
+    parser.add_argument(
+        '--market',
+        default=None,
+        help='Comma-separated markets to run (crypto,commodities,stocks). Default: all.',
+    )
+    cli = parser.parse_args()
+    main(markets=_parse_markets(cli.market))

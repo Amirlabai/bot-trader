@@ -39,7 +39,7 @@ def load_strategy(module_name, class_name, params):
 
 
 def _initial_sl_tp(strategy, market_slice, mock_pos):
-    """Bootstrap SL/TP from standard 1.5 ATR / 1.0 ATR rules when not on position."""
+    """Bootstrap SL/TP from strategy params when ledger opens omit levels."""
     if market_slice is None or market_slice.empty:
         return 0.0, 0.0
     idx = strategy._get_closed_candle_index(market_slice)
@@ -52,9 +52,16 @@ def _initial_sl_tp(strategy, market_slice, mock_pos):
         return 0.0, 0.0
     entry = float(mock_pos['entry_price'])
     side = mock_pos.get('side', 'LONG')
+    params = strategy.params or {}
+    sl_atr = float(params.get('sl_atr', 1.5))
+    skip_tp1 = bool(params.get('skip_tp1', False)) or bool(params.get('trail_from_entry', False))
     if side == 'LONG':
-        return entry - (1.5 * atr), entry + (1.0 * atr)
-    return entry + (1.5 * atr), entry - (1.0 * atr)
+        sl = entry - (sl_atr * atr)
+        tp = 0.0 if skip_tp1 else entry + (1.0 * atr)
+        return sl, tp
+    sl = entry + (sl_atr * atr)
+    tp = 0.0 if skip_tp1 else entry - (1.0 * atr)
+    return sl, tp
 
 
 def _ensure_pos_levels(strategy, market_slice, mock_pos):
@@ -219,10 +226,12 @@ def _repair_open_positions_from_history(ledger):
     return repair_open_positions(ledger)
 
 
-def main(dry_run=False):
+def main(dry_run=False, strategy_prefix=None):
     print(f"--- Close Snapshot Backfill: {datetime.now()} ---")
     if dry_run:
         print("DRY RUN: ledger will not be saved")
+    if strategy_prefix:
+        print(f"Filter: strategy_id startswith {strategy_prefix!r}")
 
     ledger = LedgerManager(Config)
     if not dry_run:
@@ -237,6 +246,8 @@ def main(dry_run=False):
     data_fetcher = DataFetcher(Config)
 
     for strategy_id, config in TRADING_CONFIG.items():
+        if strategy_prefix and not strategy_id.startswith(strategy_prefix):
+            continue
         print(f"\nStrategy: {strategy_id}")
         strategy = load_strategy(config['strategy_module'], config['strategy_class'], config['params'])
         if not strategy:
@@ -317,9 +328,14 @@ if __name__ == "__main__":
         action="store_true",
         help="Backfill in memory only; do not save ledger or write audit/report artifacts",
     )
+    parser.add_argument(
+        "--strategy-prefix",
+        default=None,
+        help="Only backfill strategies whose id starts with this prefix (e.g. ma_stocks)",
+    )
     args = parser.parse_args()
     if args.report_only:
         print(f"--- Report Regeneration: {datetime.now()} ---")
         _regenerate_report()
     else:
-        main(dry_run=args.dry_run)
+        main(dry_run=args.dry_run, strategy_prefix=args.strategy_prefix)

@@ -1,36 +1,35 @@
-name: Daily Trading Bot
+name: Stocks Screener + Trade
 
 on:
   schedule:
-    # Runs at 00:00 UTC every day
-    - cron: '0 0 * * *'
-  workflow_dispatch: # Allows manual trigger from Actions tab
+    # US regular open 9:30 America/New_York, Mon–Fri (DST-safe)
+    - cron: '30 9 * * 1-5'
+      timezone: America/New_York
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  trade:
+  stocks:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0 # Fetch all history for proper git operations
-        
+        fetch-depth: 0
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.12'
-        
+
     - name: Install Dependencies
       run: |
         pip install -r requirements.txt
-        
-    - name: Run Trading Bot
-      env:
-        CMP_API_KEY: ${{ secrets.CMP_API_KEY }}
+
+    - name: Run Stocks Screener + Wallets
       run: |
-        python src/main.py --market crypto,commodities
+        python src/main.py --market stocks
