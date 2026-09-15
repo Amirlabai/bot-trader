@@ -1,11 +1,12 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-09-13T15:07:24.576363",
+    "last_updated": "2026-09-15T15:52:49.112073",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
       "forex",
-      "commodities"
+      "commodities",
+      "stocks"
     ],
     "wallet_index": [
       {
@@ -55,8 +56,49 @@ window.REPORT_DATA = {
         "market": "commodities",
         "param_rank": 4,
         "param_label": "Long/Short \u00b7 TP1 trail"
+      },
+      {
+        "id": "ma_stocks_long_trail",
+        "market": "stocks",
+        "param_rank": 1,
+        "param_label": "Long \u00b7 asset trail"
+      },
+      {
+        "id": "ma_stocks_long_tp1",
+        "market": "stocks",
+        "param_rank": 2,
+        "param_label": "Long \u00b7 TP1 trail"
+      },
+      {
+        "id": "ma_stocks_ls_trail",
+        "market": "stocks",
+        "param_rank": 3,
+        "param_label": "Long/Short \u00b7 asset trail"
+      },
+      {
+        "id": "ma_stocks_ls_tp1",
+        "market": "stocks",
+        "param_rank": 4,
+        "param_label": "Long/Short \u00b7 TP1 trail"
       }
-    ]
+    ],
+    "screener": {
+      "stocks": {
+        "as_of": "2026-09-15T08:52:48-04:00",
+        "open_et": "09:30 America/New_York",
+        "seed_count": 18,
+        "match_count": 0,
+        "matches": [],
+        "active": [
+          "AXON",
+          "DECK",
+          "FIX",
+          "CASY",
+          "MANH",
+          "WSM"
+        ]
+      }
+    }
   },
   "strategies": {
     "ma_crypto_long_trail": {
@@ -1500,7 +1542,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.576363",
+          "time": "2026-09-15T15:52:49.112073",
           "equity": 26243.64,
           "type": "current"
         }
@@ -4562,7 +4604,7 @@ window.REPORT_DATA = {
         "profit_factor": 2.1754880652642847,
         "total_pnl": 15503.77595646387,
         "avg_pnl": 109.9558578472615,
-        "avg_monthly_pnl": 340.0383717331499,
+        "avg_monthly_pnl": 339.5712860576923,
         "max_drawdown": 14.4461088633448,
         "total_trades": 141
       },
@@ -6816,7 +6858,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.585123",
+          "time": "2026-09-15T15:52:49.116073",
           "equity": 23002.58,
           "type": "current"
         }
@@ -12653,7 +12695,7 @@ window.REPORT_DATA = {
         "profit_factor": 2.59345100048609,
         "total_pnl": 12629.691501843201,
         "avg_pnl": 74.73190237777042,
-        "avg_monthly_pnl": 272.19121647180197,
+        "avg_monthly_pnl": 271.81732743818685,
         "max_drawdown": 6.025939110216878,
         "total_trades": 169
       },
@@ -15522,7 +15564,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.607612",
+          "time": "2026-09-15T15:52:49.124822",
           "equity": 28526.45,
           "type": "current"
         }
@@ -21566,7 +21608,7 @@ window.REPORT_DATA = {
         "profit_factor": 1.698979861947527,
         "total_pnl": 17722.727228341537,
         "avg_pnl": 62.62447783866268,
-        "avg_monthly_pnl": 386.76188057270235,
+        "avg_monthly_pnl": 386.2320697773973,
         "max_drawdown": 22.131082770080393,
         "total_trades": 283
       },
@@ -25845,7 +25887,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.638608",
+          "time": "2026-09-15T15:52:49.169350",
           "equity": 25141.08,
           "type": "current"
         }
@@ -36770,7 +36812,7 @@ window.REPORT_DATA = {
         "profit_factor": 1.7374757675954562,
         "total_pnl": 14736.403142917916,
         "avg_pnl": 44.38675645457204,
-        "avg_monthly_pnl": 316.08821844993145,
+        "avg_monthly_pnl": 315.65522089041104,
         "max_drawdown": 9.731446563022693,
         "total_trades": 332
       },
@@ -37419,7 +37461,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.706298",
+          "time": "2026-09-15T15:52:49.191566",
           "equity": 12957.02,
           "type": "current"
         }
@@ -38783,7 +38825,7 @@ window.REPORT_DATA = {
         "profit_factor": 2.020861136125393,
         "total_pnl": 2802.446330274696,
         "avg_pnl": 45.94174311925731,
-        "avg_monthly_pnl": 61.562446135430925,
+        "avg_monthly_pnl": 61.478344433060116,
         "max_drawdown": 5.608814264454075,
         "total_trades": 61
       },
@@ -39633,7 +39675,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.709675",
+          "time": "2026-09-15T15:52:49.192567",
           "equity": 11127.66,
           "type": "current"
         }
@@ -41921,7 +41963,7 @@ window.REPORT_DATA = {
         "profit_factor": 1.688656447307531,
         "total_pnl": 1127.657449027106,
         "avg_pnl": 18.48618768896895,
-        "avg_monthly_pnl": 23.476847640218875,
+        "avg_monthly_pnl": 23.444775443989066,
         "max_drawdown": 3.9847070173899977,
         "total_trades": 61
       },
@@ -43019,7 +43061,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.714342",
+          "time": "2026-09-15T15:52:49.194565",
           "equity": 10588.67,
           "type": "current"
         }
@@ -45370,7 +45412,7 @@ window.REPORT_DATA = {
         "profit_factor": 1.1287484995580797,
         "total_pnl": 588.6725422367081,
         "avg_pnl": 5.450671687376927,
-        "avg_monthly_pnl": 12.255569852941177,
+        "avg_monthly_pnl": 12.238827271174864,
         "max_drawdown": 13.180699999999998,
         "total_trades": 108
       },
@@ -46797,7 +46839,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.720870",
+          "time": "2026-09-15T15:52:49.197076",
           "equity": 9988.21,
           "type": "current"
         }
@@ -50534,13 +50576,237 @@ window.REPORT_DATA = {
         "profit_factor": 1.0018331889924945,
         "total_pnl": 5.805884972048716,
         "avg_pnl": 0.05582581703892996,
-        "avg_monthly_pnl": -0.2454569938440674,
+        "avg_monthly_pnl": -0.24512167008198535,
         "max_drawdown": 11.093906457934622,
         "total_trades": 104
       },
       "exposure": {
         "NG/USD": 84.28280923484773
       }
+    },
+    "ma_stocks_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "desk": {
+        "market": "stocks",
+        "param_rank": 1,
+        "param_label": "Long \u00b7 asset trail"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_stocks_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "desk": {
+        "market": "stocks",
+        "param_rank": 2,
+        "param_label": "Long \u00b7 TP1 trail"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_stocks_ls_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "desk": {
+        "market": "stocks",
+        "param_rank": 3,
+        "param_label": "Long/Short \u00b7 asset trail"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_stocks_ls_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-09-15T15:52:49.201077",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "desk": {
+        "market": "stocks",
+        "param_rank": 4,
+        "param_label": "Long/Short \u00b7 TP1 trail"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
     }
   }
 };

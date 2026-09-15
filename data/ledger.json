@@ -29792,6 +29792,26 @@
                     "reason": "Short Stop Loss Hit @ 90.7193 (SL 90.7193)"
                 }
             ]
+        },
+        "ma_stocks_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_stocks_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_stocks_ls_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_stocks_ls_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
         }
     }
 }
