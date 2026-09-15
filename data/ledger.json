@@ -13,7 +13,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 67913.07672991071,
                     "entry_date": "2026-08-19",
-                    "last_price": 77173.796875
+                    "last_price": 76838.15625
                 }
             },
             "history": [
@@ -2861,7 +2861,7 @@
                     "tp1_hit": true,
                     "initial_stop_loss": 67913.07672991071,
                     "entry_date": "2026-08-19",
-                    "last_price": 77173.796875
+                    "last_price": 76838.15625
                 }
             },
             "history": [
@@ -7424,7 +7424,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 67913.07672991071,
                     "entry_date": "2026-08-19",
-                    "last_price": 77173.796875
+                    "last_price": 76838.15625
                 }
             },
             "history": [
@@ -13112,7 +13112,7 @@
                     "tp1_hit": true,
                     "initial_stop_loss": 67913.07672991071,
                     "entry_date": "2026-08-19",
-                    "last_price": 77173.796875
+                    "last_price": 76838.15625
                 }
             },
             "history": [
@@ -21799,12 +21799,12 @@
                     "initial_qty": 9.211715442842031,
                     "entry_price": 83.2699966430664,
                     "side": "LONG",
-                    "stop_loss": 90.7907235281808,
+                    "stop_loss": 90.9412522315979,
                     "take_profit": 0.0,
                     "tp1_hit": false,
                     "initial_stop_loss": 69.39928163800921,
                     "entry_date": "2026-08-12",
-                    "last_price": 100.0500030517578
+                    "last_price": 102.83999633789062
                 }
             },
             "history": [
@@ -26928,7 +26928,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 6.851214374814715,
                     "entry_date": "2026-02-06",
-                    "last_price": 2.8310000896453857
+                    "last_price": 2.875
                 }
             },
             "history": [

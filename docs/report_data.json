@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-09-13T15:07:24.576363",
+    "last_updated": "2026-09-15T02:42:06.329299",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
@@ -67,16 +67,16 @@
           "qty": 0.0935640532902257,
           "entry": 69266.1875,
           "entry_date": "2026-08-19",
-          "current_price": 77173.796875,
-          "unrealized_pnl": 739.8679849607884,
+          "current_price": 76838.15625,
+          "unrealized_pnl": 708.4640876369236,
           "sl": 74213.70061383929,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 7220.693243421553
+          "value": 7189.289346097688
         }
       ],
       "current_cash": 19022.950698003115,
-      "current_equity": 26243.64,
+      "current_equity": 26212.24,
       "history_events": 283,
       "equity_curve": [
         {
@@ -1500,8 +1500,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.576363",
-          "equity": 26243.64,
+          "time": "2026-09-15T02:42:06.329659",
+          "equity": 26212.24,
           "type": "current"
         }
       ],
@@ -4559,15 +4559,15 @@
       },
       "metrics": {
         "win_rate": 29.78723404255319,
-        "profit_factor": 2.1754880652642847,
-        "total_pnl": 15503.77595646387,
-        "avg_pnl": 109.9558578472615,
-        "avg_monthly_pnl": 340.0383717331499,
+        "profit_factor": 2.175488065264285,
+        "total_pnl": 15503.775956463873,
+        "avg_pnl": 109.95585784726151,
+        "avg_monthly_pnl": 338.9148729395605,
         "max_drawdown": 14.4461088633448,
         "total_trades": 141
       },
       "exposure": {
-        "BTC/USDT": 7220.693243421553
+        "BTC/USDT": 7189.289346097688
       }
     },
     "ma_crypto_long_tp1": {
@@ -4578,16 +4578,16 @@
           "qty": 0.04026519187276324,
           "entry": 69266.1875,
           "entry_date": "2026-08-19",
-          "current_price": 77173.796875,
-          "unrealized_pnl": 318.40140873923644,
+          "current_price": 76838.15625,
+          "unrealized_pnl": 304.88677457331727,
           "sl": 74213.70061383929,
           "tp1": true,
           "tp_price": 70619.29827008929,
-          "value": 3107.4177387215314
+          "value": 3093.903104555612
         }
       ],
       "current_cash": 19895.158436643647,
-      "current_equity": 23002.58,
+      "current_equity": 22989.06,
       "history_events": 444,
       "equity_curve": [
         {
@@ -6816,8 +6816,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.585123",
-          "equity": 23002.58,
+          "time": "2026-09-15T02:42:06.333638",
+          "equity": 22989.06,
           "type": "current"
         }
       ],
@@ -12650,15 +12650,15 @@
       },
       "metrics": {
         "win_rate": 61.53846153846154,
-        "profit_factor": 2.59345100048609,
-        "total_pnl": 12629.691501843201,
-        "avg_pnl": 74.73190237777042,
-        "avg_monthly_pnl": 272.19121647180197,
+        "profit_factor": 2.593451000486089,
+        "total_pnl": 12629.691501843194,
+        "avg_pnl": 74.73190237777038,
+        "avg_monthly_pnl": 271.5346935096154,
         "max_drawdown": 6.025939110216878,
         "total_trades": 169
       },
       "exposure": {
-        "BTC/USDT": 3107.4177387215314
+        "BTC/USDT": 3093.903104555612
       }
     },
     "ma_crypto_ls_trail": {
@@ -12669,16 +12669,16 @@
           "qty": 0.10163874471123835,
           "entry": 69266.1875,
           "entry_date": "2026-08-19",
-          "current_price": 77173.796875,
-          "unrealized_pnl": 803.71949054182,
+          "current_price": 76838.15625,
+          "unrealized_pnl": 769.6053987427246,
           "sl": 74213.70061383929,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 7843.847838975089
+          "value": 7809.733747175994
         }
       ],
       "current_cash": 20682.598879908262,
-      "current_equity": 28526.45,
+      "current_equity": 28492.33,
       "history_events": 567,
       "equity_curve": [
         {
@@ -15522,8 +15522,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.607612",
-          "equity": 28526.45,
+          "time": "2026-09-15T02:42:06.341421",
+          "equity": 28492.33,
           "type": "current"
         }
       ],
@@ -21566,12 +21566,12 @@
         "profit_factor": 1.698979861947527,
         "total_pnl": 17722.727228341537,
         "avg_pnl": 62.62447783866268,
-        "avg_monthly_pnl": 386.76188057270235,
+        "avg_monthly_pnl": 385.52074957191786,
         "max_drawdown": 22.131082770080393,
         "total_trades": 283
       },
       "exposure": {
-        "BTC/USDT": 7843.847838975089
+        "BTC/USDT": 7809.733747175994
       }
     },
     "ma_crypto_ls_tp1": {
@@ -21582,16 +21582,16 @@
           "qty": 0.04369871803283873,
           "entry": 69266.1875,
           "entry_date": "2026-08-19",
-          "current_price": 77173.796875,
-          "unrealized_pnl": 345.5523923919571,
+          "current_price": 76838.15625,
+          "unrealized_pnl": 330.8853273597163,
           "sl": 74213.70061383929,
           "tp1": true,
           "tp_price": 70619.29827008929,
-          "value": 3372.3959891641957
+          "value": 3357.728924131955
         }
       ],
       "current_cash": 21768.68875215503,
-      "current_equity": 25141.08,
+      "current_equity": 25126.42,
       "history_events": 849,
       "equity_curve": [
         {
@@ -25845,8 +25845,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.638608",
-          "equity": 25141.08,
+          "time": "2026-09-15T02:42:06.351560",
+          "equity": 25126.42,
           "type": "current"
         }
       ],
@@ -36767,15 +36767,15 @@
       },
       "metrics": {
         "win_rate": 55.12048192771084,
-        "profit_factor": 1.7374757675954562,
-        "total_pnl": 14736.403142917916,
-        "avg_pnl": 44.38675645457204,
-        "avg_monthly_pnl": 316.08821844993145,
+        "profit_factor": 1.737475767595457,
+        "total_pnl": 14736.403142917934,
+        "avg_pnl": 44.386756454572094,
+        "avg_monthly_pnl": 315.34959503424653,
         "max_drawdown": 9.731446563022693,
         "total_trades": 332
       },
       "exposure": {
-        "BTC/USDT": 3372.3959891641957
+        "BTC/USDT": 3357.728924131955
       }
     },
     "ma_commodities_long_trail": {
@@ -36786,16 +36786,16 @@
           "qty": 9.211715442842031,
           "entry": 83.2699966430664,
           "entry_date": "2026-08-12",
-          "current_price": 100.0500030517578,
-          "unrealized_pnl": 154.57264416593074,
-          "sl": 90.7907235281808,
+          "current_price": 102.83999633789062,
+          "unrealized_pnl": 180.2732684052261,
+          "sl": 90.9412522315979,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 921.6321581682697
+          "value": 947.332782407565
         }
       ],
       "current_cash": 12035.38681627236,
-      "current_equity": 12957.02,
+      "current_equity": 12982.72,
       "history_events": 123,
       "equity_curve": [
         {
@@ -37419,8 +37419,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.706298",
-          "equity": 12957.02,
+          "time": "2026-09-15T02:42:06.374318",
+          "equity": 12982.72,
           "type": "current"
         }
       ],
@@ -38783,12 +38783,12 @@
         "profit_factor": 2.020861136125393,
         "total_pnl": 2802.446330274696,
         "avg_pnl": 45.94174311925731,
-        "avg_monthly_pnl": 61.562446135430925,
+        "avg_monthly_pnl": 62.012663934426214,
         "max_drawdown": 5.608814264454075,
         "total_trades": 61
       },
       "exposure": {
-        "CL/USD": 921.6321581682697
+        "CL/USD": 947.332782407565
       }
     },
     "ma_commodities_long_tp1": {
@@ -39633,7 +39633,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.709675",
+          "time": "2026-09-15T02:42:06.375545",
           "equity": 11127.66,
           "type": "current"
         }
@@ -41918,10 +41918,10 @@
       },
       "metrics": {
         "win_rate": 72.1311475409836,
-        "profit_factor": 1.688656447307531,
-        "total_pnl": 1127.657449027106,
-        "avg_pnl": 18.48618768896895,
-        "avg_monthly_pnl": 23.476847640218875,
+        "profit_factor": 1.6886564473075303,
+        "total_pnl": 1127.6574490271053,
+        "avg_pnl": 18.48618768896894,
+        "avg_monthly_pnl": 23.444775443989066,
         "max_drawdown": 3.9847070173899977,
         "total_trades": 61
       },
@@ -43019,7 +43019,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.714342",
+          "time": "2026-09-15T02:42:06.377521",
           "equity": 10588.67,
           "type": "current"
         }
@@ -45370,7 +45370,7 @@
         "profit_factor": 1.1287484995580797,
         "total_pnl": 588.6725422367081,
         "avg_pnl": 5.450671687376927,
-        "avg_monthly_pnl": 12.255569852941177,
+        "avg_monthly_pnl": 12.238827271174864,
         "max_drawdown": 13.180699999999998,
         "total_trades": 108
       },
@@ -45384,16 +45384,16 @@
           "qty": 29.771390521363454,
           "entry": 3.421999931335449,
           "entry_date": "2026-02-06",
-          "current_price": 2.8310000896453857,
-          "unrealized_pnl": 17.594887085018858,
+          "current_price": 2.875,
+          "unrealized_pnl": 16.284948570946653,
           "sl": 6.851214374814715,
           "tp1": false,
           "tp_price": 2.278928450175694,
-          "value": 84.28280923484773
+          "value": 85.59274774891993
         }
       ],
       "current_cash": 9903.92818865219,
-      "current_equity": 9988.21,
+      "current_equity": 9989.52,
       "history_events": 279,
       "equity_curve": [
         {
@@ -46797,8 +46797,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-09-13T15:07:24.720870",
-          "equity": 9988.21,
+          "time": "2026-09-15T02:42:06.380600",
+          "equity": 9989.52,
           "type": "current"
         }
       ],
@@ -50531,15 +50531,15 @@
       },
       "metrics": {
         "win_rate": 67.3076923076923,
-        "profit_factor": 1.0018331889924945,
-        "total_pnl": 5.805884972048716,
-        "avg_pnl": 0.05582581703892996,
-        "avg_monthly_pnl": -0.2454569938440674,
+        "profit_factor": 1.0018331889924943,
+        "total_pnl": 5.8058849720478065,
+        "avg_pnl": 0.05582581703892121,
+        "avg_monthly_pnl": -0.21788592896173956,
         "max_drawdown": 11.093906457934622,
         "total_trades": 104
       },
       "exposure": {
-        "NG/USD": 84.28280923484773
+        "NG/USD": 85.59274774891993
       }
     }
   }
