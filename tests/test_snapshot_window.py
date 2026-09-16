@@ -104,6 +104,24 @@ class SnapshotWindowTests(unittest.TestCase):
         self.assertEqual(snap['timeframe'], '1wk')
         self.assertGreaterEqual(snap['candles'][0]['date'], entry)
 
+    def test_stop_exit_snapshot_sl_matches_fill(self):
+        df = _synthetic_daily(40)
+        entry = str(df.index[5].date())
+        pos = {
+            'entry_price': 100.0,
+            'entry_date': entry,
+            'stop_loss': 90.0,  # replayed / stale
+            'take_profit': 0.0,
+        }
+        reason = 'Trailed Stop Hit @ 95.0 (SL 95.0)'
+        snap = build_close_snapshot(
+            df, {'reason': 'Waiting'}, pos, fill_price=95.0, close_reason=reason,
+        )
+        self.assertEqual(snap['exit_kind'], 'trailed_stop')
+        self.assertAlmostEqual(snap['exit_price'], 95.0)
+        self.assertAlmostEqual(snap['stop_loss'], 95.0)
+        self.assertAlmostEqual(snap['stop_loss_at_exit'], 95.0)
+
 
 if __name__ == '__main__':
     unittest.main()

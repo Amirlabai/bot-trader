@@ -25,6 +25,7 @@ from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
 from resim_engine import asset_type_for_symbol, load_strategy, process_symbol
 from strategies.moving_average import MovingAverageStrategy, CachedMovingAverageStrategy
+from shared.curated_params import load_curated_params, merge_effective_params_for_market
 from shared.stocks_screener import ohlcv_pass_mask, ohlcv_screen
 from shared.stocks_universe import STOCK_SIM_TICKERS, load_universe
 from shared.us_market_calendar import regular_open_et_label
@@ -81,39 +82,48 @@ def _event_timestamp(day: date) -> str:
     return f"{day.isoformat()}T23:59:59"
 
 
-def _precompute_ma_caches(market_cache, strategies):
+def _precompute_ma_caches(market_cache, strategies, active_config, curated):
     """
-    One EMA/ATR/ADX cache per (symbol, short, long, trend, macro) fingerprint.
+    One EMA/ATR/ADX cache per (symbol, short, long, trend, macro, atr_period) fingerprint.
     Filter thresholds (adx_min, vol_mult, atr_buffer) do not need series caches.
     """
     base = MovingAverageStrategy({})
     caches = {}
     fingerprints = set()
-    for strat in strategies.values():
+    for sid, strat in strategies.items():
         if not isinstance(strat, CachedMovingAverageStrategy):
             continue
-        p = strat.params
-        fingerprints.add((
-            p.get('short_window', 12),
-            p.get('long_window', 24),
-            p.get('trend_window', 50),
-            int(p.get('macro_ema_window', 0) or 0),
-        ))
+        cfg = active_config.get(sid) or {}
+        market = cfg.get('market') or ''
+        wallet_params = cfg.get('params') or strat.params
+        for symbol in cfg.get('pairs') or []:
+            if symbol not in market_cache:
+                continue
+            p = merge_effective_params_for_market(wallet_params, curated, symbol, market)
+            fingerprints.add((
+                p.get('short_window', 12),
+                p.get('long_window', 24),
+                p.get('trend_window', 50),
+                int(p.get('macro_ema_window', 0) or 0),
+                int(p.get('atr_period', 14) or 14),
+            ))
 
     if not fingerprints:
         return caches
 
     print(f'Precomputing MA indicators ({len(fingerprints)} fingerprint(s) x {len(market_cache)} symbols)...')
     for symbol, df in market_cache.items():
-        atr = base._calculate_atr(df, 14)
+        atr_by_period = {}
         adx = base._calculate_adx(df, 14)
-        for short_w, long_w, trend_w, macro_w in fingerprints:
-            key = (symbol, short_w, long_w, trend_w, macro_w)
+        for short_w, long_w, trend_w, macro_w, atr_p in fingerprints:
+            if atr_p not in atr_by_period:
+                atr_by_period[atr_p] = base._calculate_atr(df, atr_p)
+            key = (symbol, short_w, long_w, trend_w, macro_w, atr_p)
             entry = {
                 'ema_fast': base._ema(df['close'], short_w),
                 'ema_slow': base._ema(df['close'], long_w),
                 'ema_trend': base._ema(df['close'], trend_w),
-                'atr': atr,
+                'atr': atr_by_period[atr_p],
                 'adx': adx,
             }
             if macro_w > 0:
@@ -287,7 +297,8 @@ def run_resimulation(
         else:
             print(f"Skipping strategy {strategy_id} (load failed)")
 
-    ma_caches = _precompute_ma_caches(market_cache, strategies)
+    curated = load_curated_params()
+    ma_caches = _precompute_ma_caches(market_cache, strategies, active_config, curated)
 
     progress_every = max(1, len(days) // 20)
     for day_i, day in enumerate(days, 1):
@@ -301,6 +312,8 @@ def run_resimulation(
             if not strategy:
                 continue
             risk_settings = _risk_for_strategy(cfg)
+            market = cfg.get('market') or ''
+            wallet_params = cfg.get('params') or {}
             if verbose:
                 print(f"  Strategy {strategy_id} (cash ${ledger.get_balance(strategy_id):.2f})")
             for symbol in cfg['pairs']:
@@ -319,6 +332,10 @@ def run_resimulation(
                 market_data = _slice_asof(full_df, day)
                 if len(market_data) < 30:
                     continue
+                eff = merge_effective_params_for_market(
+                    wallet_params, curated, symbol, market,
+                )
+                strategy.params = eff
                 if isinstance(strategy, CachedMovingAverageStrategy):
                     p = strategy.params
                     cache_key = (
@@ -327,8 +344,12 @@ def run_resimulation(
                         p.get('long_window', 24),
                         p.get('trend_window', 50),
                         int(p.get('macro_ema_window', 0) or 0),
+                        int(p.get('atr_period', 14) or 14),
                     )
-                    strategy.bind_cache(ma_caches[cache_key])
+                    cache = ma_caches.get(cache_key)
+                    if cache is None:
+                        continue
+                    strategy.bind_cache(cache)
                 if verbose:
                     print(f"    {symbol}")
                 process_symbol(

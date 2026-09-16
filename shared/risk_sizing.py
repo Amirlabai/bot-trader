@@ -1,4 +1,54 @@
-"""Position sizing from equity risk (shared by main and resim)."""
+"""Position sizing from equity risk (shared by main, resim, and path_sim)."""
+
+
+def size_long_from_equity(equity, cash, price, stop_loss, risk_settings):
+    """Long-only size from cost-basis equity and free cash (path sim / curator).
+
+    Returns (quantity, target_risk, actual_risk, capped_notional, capped_cash, ok).
+    Never returns a quantity that would spend more than cash.
+    """
+    equity = float(equity)
+    cash = float(cash)
+    price = float(price)
+    stop_loss = float(stop_loss or 0)
+    equity_risk_pct = float(risk_settings['equity_risk_pct'])
+    target_risk = equity * equity_risk_pct
+
+    if stop_loss <= 0 or price <= 0 or equity <= 0:
+        return 0.0, target_risk, 0.0, False, False, False
+
+    risk_per_share = price - stop_loss
+    if risk_per_share <= 0:
+        return 0.0, target_risk, 0.0, False, False, False
+
+    quantity = target_risk / risk_per_share
+    capped_notional = False
+    capped_cash = False
+
+    max_notional = equity * float(risk_settings['max_notional_pct'])
+    if quantity * price > max_notional:
+        quantity = max_notional / price
+        capped_notional = True
+
+    if quantity * price > cash:
+        if cash <= 0:
+            return 0.0, target_risk, 0.0, capped_notional, True, False
+        quantity = cash / price
+        capped_cash = True
+
+    actual_risk = quantity * risk_per_share
+    notional = quantity * price
+    min_frac = float(risk_settings['min_risk_fraction'])
+    min_notional = float(risk_settings['min_notional_usd'])
+    capped = capped_notional or capped_cash
+    if not capped and actual_risk < target_risk * min_frac:
+        return 0.0, target_risk, actual_risk, False, False, False
+    if notional < min_notional or quantity <= 0:
+        return 0.0, target_risk, 0.0, capped_notional, capped_cash, False
+    # Hard invariant: never overspend cash
+    if notional > cash + 1e-9:
+        return 0.0, target_risk, 0.0, capped_notional, True, False
+    return float(quantity), target_risk, actual_risk, capped_notional, capped_cash, True
 
 
 def size_for_risk(ledger, strategy_id, current_price, stop_loss, equity_risk_pct, risk_settings, is_short=False):

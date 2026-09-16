@@ -1,0 +1,1205 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-16T12:55:57",
+  "note": "ADX/atr_buffer fixed off (0); re-run curator for fresh six-pack search.",
+  "templates": {
+    "crypto": {
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "benchmarks": [
+        "BTC/USDT",
+        "ETH/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "SOL/USDT",
+        "ADA/USDT",
+        "DOGE/USDT",
+        "AVAX/USDT",
+        "DOT/USDT",
+        "TRX/USDT",
+        "HYPE/USDT",
+        "ZEC/USDT",
+        "XMR/USDT",
+        "LINK/USDT",
+        "LEO/USDT"
+      ],
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      },
+      "mode": "wallet"
+    },
+    "commodities": {
+      "params": {
+        "short_window": 10,
+        "long_window": 35,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 5.4805,
+      "benchmarks": [
+        "XAU/USD",
+        "CL/USD"
+      ],
+      "metrics": {
+        "mean_score": 5.4805,
+        "per_symbol": {
+          "XAU/USD": {
+            "closed_trades": 5,
+            "wins": 3,
+            "losses": 2,
+            "win_rate": 60.0,
+            "total_pnl": 2825.07,
+            "profit_factor": 37.06985294728571,
+            "payoff": 24.713235298190476,
+            "calmar": 1.1355338077906392,
+            "max_drawdown": 5.56,
+            "equity": 12776.32,
+            "net_pnl": 2776.32,
+            "cash": 9618.8,
+            "open_positions": 1
+          },
+          "CL/USD": {
+            "closed_trades": 10,
+            "wins": 1,
+            "losses": 9,
+            "win_rate": 10.0,
+            "total_pnl": -198.43,
+            "profit_factor": 0.7593883723130457,
+            "payoff": 6.834495350817411,
+            "calmar": -0.040700182934348156,
+            "max_drawdown": 12.28,
+            "equity": 9801.57,
+            "net_pnl": -198.43,
+            "cash": 9801.57,
+            "open_positions": 0
+          }
+        }
+      }
+    },
+    "stocks": {
+      "params": {
+        "short_window": 20,
+        "long_window": 70,
+        "trend_window": 200,
+        "atr_period": 14,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 5.4783,
+      "benchmarks": [
+        "AXON",
+        "DECK",
+        "FIX"
+      ],
+      "metrics": {
+        "mean_score": 5.4783,
+        "per_symbol": {
+          "AXON": {
+            "closed_trades": 15,
+            "wins": 5,
+            "losses": 10,
+            "win_rate": 33.33,
+            "total_pnl": 3351.72,
+            "profit_factor": 3.9714019096952664,
+            "payoff": 7.942803819390533,
+            "calmar": 0.2324168840052377,
+            "max_drawdown": 12.21,
+            "equity": 13218.23,
+            "net_pnl": 3218.23,
+            "cash": 10013.79,
+            "open_positions": 1
+          },
+          "DECK": {
+            "closed_trades": 12,
+            "wins": 2,
+            "losses": 10,
+            "win_rate": 16.67,
+            "total_pnl": 813.39,
+            "profit_factor": 1.6779500701301204,
+            "payoff": 8.389750350650603,
+            "calmar": 0.07827090553324571,
+            "max_drawdown": 10.06,
+            "equity": 10813.39,
+            "net_pnl": 813.39,
+            "cash": 10813.39,
+            "open_positions": 0
+          },
+          "FIX": {
+            "closed_trades": 15,
+            "wins": 7,
+            "losses": 8,
+            "win_rate": 46.67,
+            "total_pnl": 12288.66,
+            "profit_factor": 11.499641862170254,
+            "payoff": 13.14244784248029,
+            "calmar": 0.5708144515138158,
+            "max_drawdown": 14.66,
+            "equity": 22288.66,
+            "net_pnl": 12288.66,
+            "cash": 22288.66,
+            "open_positions": 0
+          }
+        }
+      }
+    },
+    "forex": {
+      "params": {
+        "short_window": 10,
+        "long_window": 30,
+        "trend_window": 100,
+        "atr_period": 21,
+        "sl_atr": 1.5,
+        "trail_atr": 2.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 6.7648,
+      "benchmarks": [
+        "EUR/USD",
+        "USD/JPY"
+      ],
+      "metrics": {
+        "mean_score": 6.7648,
+        "per_symbol": {
+          "EUR/USD": {
+            "closed_trades": 10,
+            "wins": 7,
+            "losses": 3,
+            "win_rate": 70.0,
+            "total_pnl": 110.51,
+            "profit_factor": 8.659185328539163,
+            "payoff": 3.7110794265167844,
+            "calmar": 0.4263945893353211,
+            "max_drawdown": 0.62,
+            "equity": 10110.51,
+            "net_pnl": 110.51,
+            "cash": 10110.51,
+            "open_positions": 0
+          },
+          "USD/JPY": {
+            "closed_trades": 9,
+            "wins": 8,
+            "losses": 1,
+            "win_rate": 88.89,
+            "total_pnl": 409.71,
+            "profit_factor": 187.83214330348923,
+            "payoff": 23.479017912936154,
+            "calmar": 1.2439609084995726,
+            "max_drawdown": 0.78,
+            "equity": 10409.71,
+            "net_pnl": 409.71,
+            "cash": 10409.71,
+            "open_positions": 0
+          }
+        }
+      }
+    }
+  },
+  "symbols": {
+    "XAU/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 11,
+        "long_window": 32,
+        "trend_window": 90,
+        "atr_period": 10,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 8.2468,
+      "metrics": {
+        "net_pnl": 2825.07,
+        "profit_factor": 37.06985294728571,
+        "payoff": 24.713235298190476,
+        "calmar": 1.2337513233394135,
+        "closed_trades": 5,
+        "win_rate": 60.0
+      }
+    },
+    "XAG/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 10,
+        "long_window": 32,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.5,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 5.2674,
+      "metrics": {
+        "net_pnl": 3073.5,
+        "profit_factor": 3.761312101201664,
+        "payoff": 17.552789805607766,
+        "calmar": 0.37426343420631586,
+        "closed_trades": 17,
+        "win_rate": 17.65
+      }
+    },
+    "CL/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 10,
+        "long_window": 38,
+        "trend_window": 110,
+        "atr_period": 10,
+        "sl_atr": 1.5,
+        "trail_atr": 4.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 3.3073,
+      "metrics": {
+        "net_pnl": 412.62,
+        "profit_factor": 1.0121355313862932,
+        "payoff": 8.097084251090346,
+        "calmar": 0.08953935100452126,
+        "closed_trades": 9,
+        "win_rate": 11.11
+      }
+    },
+    "NG/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 11,
+        "long_window": 35,
+        "trend_window": 90,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 1.9333,
+      "metrics": {
+        "net_pnl": -497.8,
+        "profit_factor": 0.489431128025166,
+        "payoff": 4.894311280251659,
+        "calmar": -0.08767880168373529,
+        "closed_trades": 11,
+        "win_rate": 9.09
+      }
+    },
+    "HG/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 10,
+        "long_window": 38,
+        "trend_window": 90,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 3.0593,
+      "metrics": {
+        "net_pnl": 385.6,
+        "profit_factor": 1.747641865089433,
+        "payoff": 6.408020171994588,
+        "calmar": 0.15039874471704084,
+        "closed_trades": 14,
+        "win_rate": 21.43
+      }
+    },
+    "PL/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 11,
+        "long_window": 38,
+        "trend_window": 90,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 5.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 4.7363,
+      "metrics": {
+        "net_pnl": 1408.8,
+        "profit_factor": 2.5749058364530613,
+        "payoff": 11.587076264038775,
+        "calmar": 0.3878221412687812,
+        "closed_trades": 22,
+        "win_rate": 18.18
+      }
+    },
+    "PA/USD": {
+      "market": "commodities",
+      "params": {
+        "short_window": 22,
+        "long_window": 33,
+        "trend_window": 150,
+        "atr_period": 14,
+        "sl_atr": 3.0,
+        "trail_atr": 4.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 2.0022,
+      "metrics": {
+        "net_pnl": 21.02,
+        "profit_factor": 1.0807214233951872,
+        "payoff": 4.322885693580749,
+        "calmar": 0.014308344291833837,
+        "closed_trades": 5,
+        "win_rate": 20.0
+      }
+    },
+    "EUR/USD": {
+      "market": "forex",
+      "params": {
+        "short_window": 10,
+        "long_window": 30,
+        "trend_window": 100,
+        "atr_period": 21,
+        "sl_atr": 1.5,
+        "trail_atr": 1.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 8.1801,
+      "metrics": {
+        "net_pnl": 193.92,
+        "profit_factor": Infinity,
+        "payoff": Infinity,
+        "calmar": 0.9005697501229444,
+        "closed_trades": 10,
+        "win_rate": 100.0
+      }
+    },
+    "GBP/USD": {
+      "market": "forex",
+      "params": {
+        "short_window": 9,
+        "long_window": 30,
+        "trend_window": 90,
+        "atr_period": 21,
+        "sl_atr": 1.0,
+        "trail_atr": 1.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 2.2568,
+      "metrics": {
+        "net_pnl": 149.26,
+        "profit_factor": 3.5438020420247285,
+        "payoff": 1.5750231297887682,
+        "calmar": 0.5543045779613861,
+        "closed_trades": 13,
+        "win_rate": 69.23
+      }
+    },
+    "USD/JPY": {
+      "market": "forex",
+      "params": {
+        "short_window": 9,
+        "long_window": 33,
+        "trend_window": 90,
+        "atr_period": 21,
+        "sl_atr": 2.0,
+        "trail_atr": 1.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 8.415,
+      "metrics": {
+        "net_pnl": 556.23,
+        "profit_factor": Infinity,
+        "payoff": Infinity,
+        "calmar": 2.075195071575768,
+        "closed_trades": 9,
+        "win_rate": 100.0
+      }
+    },
+    "AUD/USD": {
+      "market": "forex",
+      "params": {
+        "short_window": 11,
+        "long_window": 33,
+        "trend_window": 90,
+        "atr_period": 21,
+        "sl_atr": 1.0,
+        "trail_atr": 2.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 1.6418,
+      "metrics": {
+        "net_pnl": 129.3,
+        "profit_factor": 1.6587860830946126,
+        "payoff": 2.488179124641919,
+        "calmar": 0.12216822465229661,
+        "closed_trades": 15,
+        "win_rate": 40.0
+      }
+    },
+    "USD/CAD": {
+      "market": "forex",
+      "params": {
+        "short_window": 11,
+        "long_window": 33,
+        "trend_window": 100,
+        "atr_period": 21,
+        "sl_atr": 1.0,
+        "trail_atr": 2.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 1.9792,
+      "metrics": {
+        "net_pnl": 48.75,
+        "profit_factor": 1.4154090505914045,
+        "payoff": 3.7744241349104124,
+        "calmar": 0.10589744535401233,
+        "closed_trades": 11,
+        "win_rate": 27.27
+      }
+    },
+    "USD/CHF": {
+      "market": "forex",
+      "params": {
+        "short_window": 11,
+        "long_window": 33,
+        "trend_window": 110,
+        "atr_period": 21,
+        "sl_atr": 1.5,
+        "trail_atr": 2.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 2.264,
+      "metrics": {
+        "net_pnl": 85.08,
+        "profit_factor": 3.568691981885309,
+        "payoff": 1.7843459909426544,
+        "calmar": 0.16803344382505717,
+        "closed_trades": 3,
+        "win_rate": 66.67
+      }
+    },
+    "EUR/GBP": {
+      "market": "forex",
+      "params": {
+        "short_window": 11,
+        "long_window": 33,
+        "trend_window": 90,
+        "atr_period": 21,
+        "sl_atr": 1.0,
+        "trail_atr": 1.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 1.1847,
+      "metrics": {
+        "net_pnl": -67.96,
+        "profit_factor": 0.4988058390020295,
+        "payoff": 2.743432114511162,
+        "calmar": -0.1582800091553306,
+        "closed_trades": 13,
+        "win_rate": 15.38
+      }
+    },
+    "EUR/JPY": {
+      "market": "forex",
+      "params": {
+        "short_window": 10,
+        "long_window": 27,
+        "trend_window": 90,
+        "atr_period": 21,
+        "sl_atr": 2.0,
+        "trail_atr": 1.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 1.7063,
+      "metrics": {
+        "net_pnl": 205.52,
+        "profit_factor": 2.024617393738824,
+        "payoff": 2.024617393738824,
+        "calmar": 0.4328249419444419,
+        "closed_trades": 10,
+        "win_rate": 50.0
+      }
+    },
+    "GBP/JPY": {
+      "market": "forex",
+      "params": {
+        "short_window": 9,
+        "long_window": 30,
+        "trend_window": 90,
+        "atr_period": 21,
+        "sl_atr": 1.5,
+        "trail_atr": 2.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 3.5371,
+      "metrics": {
+        "net_pnl": 424.49,
+        "profit_factor": 5.465862667256253,
+        "payoff": 2.7329313336281267,
+        "calmar": 0.6048288000818111,
+        "closed_trades": 12,
+        "win_rate": 66.67
+      }
+    },
+    "AXON": {
+      "market": "stocks",
+      "params": {
+        "short_window": 18,
+        "long_window": 63,
+        "trend_window": 180,
+        "atr_period": 14,
+        "sl_atr": 1.0,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 5.9722,
+      "metrics": {
+        "net_pnl": 6136.47,
+        "profit_factor": 5.356304687585075,
+        "payoff": 17.407990234651493,
+        "calmar": 0.3092824410271094,
+        "closed_trades": 17,
+        "win_rate": 23.53
+      }
+    },
+    "DECK": {
+      "market": "stocks",
+      "params": {
+        "short_window": 22,
+        "long_window": 70,
+        "trend_window": 200,
+        "atr_period": 14,
+        "sl_atr": 1.0,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 5.3235,
+      "metrics": {
+        "net_pnl": 2542.74,
+        "profit_factor": 3.9400075376337003,
+        "payoff": 19.7000376881685,
+        "calmar": 0.252689610574194,
+        "closed_trades": 12,
+        "win_rate": 16.67
+      }
+    },
+    "FIX": {
+      "market": "stocks",
+      "params": {
+        "short_window": 22,
+        "long_window": 63,
+        "trend_window": 180,
+        "atr_period": 14,
+        "sl_atr": 2.0,
+        "trail_atr": 4.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 8.1558,
+      "metrics": {
+        "net_pnl": 13903.39,
+        "profit_factor": 18.647992034879238,
+        "payoff": 11.654995021799525,
+        "calmar": 0.7791320084292419,
+        "closed_trades": 13,
+        "win_rate": 61.54
+      }
+    },
+    "CASY": {
+      "market": "stocks",
+      "params": {
+        "short_window": 22,
+        "long_window": 63,
+        "trend_window": 220,
+        "atr_period": 14,
+        "sl_atr": 1.0,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 5.3906,
+      "metrics": {
+        "net_pnl": 1784.35,
+        "profit_factor": 4.071859784794032,
+        "payoff": 22.395228816367176,
+        "calmar": 0.2913257307636613,
+        "closed_trades": 13,
+        "win_rate": 15.38
+      }
+    },
+    "MANH": {
+      "market": "stocks",
+      "params": {
+        "short_window": 18,
+        "long_window": 63,
+        "trend_window": 180,
+        "atr_period": 14,
+        "sl_atr": 1.0,
+        "trail_atr": 5.0,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 8.1147,
+      "metrics": {
+        "net_pnl": 3981.7,
+        "profit_factor": 10.78918677579568,
+        "payoff": 10.789186775795677,
+        "calmar": 0.5733193486809132,
+        "closed_trades": 10,
+        "win_rate": 50.0
+      }
+    },
+    "WSM": {
+      "market": "stocks",
+      "params": {
+        "short_window": 20,
+        "long_window": 63,
+        "trend_window": 180,
+        "atr_period": 14,
+        "sl_atr": 2.0,
+        "trail_atr": 5.5,
+        "adx_min": 0.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0
+      },
+      "score": 3.8815,
+      "metrics": {
+        "net_pnl": 3907.37,
+        "profit_factor": 5.562325324905775,
+        "payoff": 3.7082168832705165,
+        "calmar": 0.40271251126179897,
+        "closed_trades": 10,
+        "win_rate": 60.0
+      }
+    },
+    "BTC/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "ETH/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "BNB/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "XRP/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "SOL/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "ADA/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "DOGE/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "AVAX/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "DOT/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "TRX/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "HYPE/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "ZEC/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "XMR/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "LINK/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    },
+    "LEO/USDT": {
+      "market": "crypto",
+      "params": {
+        "short_window": 25,
+        "long_window": 75,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.0,
+        "trail_atr": 4.5,
+        "adx_min": 5.0,
+        "atr_buffer": 0.0,
+        "trail_arm_r": 1.0,
+        "adx_period": 14,
+        "vol_mult": 0.0,
+        "freeze_trail_atr": true
+      },
+      "score": 5.5991,
+      "metrics": {
+        "net_pnl": 25819.57,
+        "profit_factor": 4.0790073295279345,
+        "payoff": 12.382700821781228,
+        "calmar": 1.317719357416178,
+        "closed_trades": 113,
+        "win_rate": 24.78,
+        "equity": 35819.57,
+        "mode": "wallet"
+      }
+    }
+  }
+}

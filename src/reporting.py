@@ -5,8 +5,13 @@ import io
 from datetime import datetime, timedelta
 
 from shared.trade_legs import leg_metric_buckets
-from shared.exit_snapshots import build_open_snapshot
+from shared.exit_snapshots import build_open_snapshot, ema_indicator_frame
 from shared.symbols import asset_type_for_symbol
+from shared.curated_params import (
+    load_curated_params,
+    locked_params_summary,
+    merge_effective_params_for_market,
+)
 from config import DASHBOARD_MARKETS, TRADING_CONFIG
 
 try:
@@ -22,8 +27,8 @@ except ImportError:
 
 # --- Chart Rendering -----------------------------------------------------------
 
-# Cap PNG pack size for Pages (~40 recent closes per wallet).
-MAX_CHARTS_PER_STRATEGY = 40
+# Include every close that has a snapshot (was 40; older rows had no expand chart).
+MAX_CHARTS_PER_STRATEGY = None
 CHART_DPI = 90
 
 
@@ -96,15 +101,39 @@ def _render_chart_b64(snapshot: dict) -> str:
             ax.plot([i, i], [l, body_lo], color=color, linewidth=wick_width * 8, solid_capstyle="round")
             ax.plot([i, i], [body_hi, h], color=color, linewidth=wick_width * 8, solid_capstyle="round")
 
-        # --- Indicator overlays (SMAs) ---
-        sma_colors = {"sma_fast": "#58a6ff", "sma_slow": "#d29922", "sma_trend": "#8b949e"}
-        for key, color in sma_colors.items():
-            if key in indicators:
-                values = indicators[key]
-                if isinstance(values, list) and len(values) == n:
-                    ax.plot(xs, values, color=color, linewidth=1.2, label=key.replace("_", " ").upper())
-                elif isinstance(values, (int, float)):
-                    ax.axhline(values, color=color, linewidth=1.0, linestyle="--", label=key.replace("_", " ").upper())
+        # --- Indicator overlays (EMA / legacy SMA keys) ---
+        overlay_colors = {
+            'ema_fast': '#58a6ff',
+            'ema_slow': '#d29922',
+            'ema_trend': '#8b949e',
+            'sma_fast': '#58a6ff',
+            'sma_slow': '#d29922',
+            'sma_trend': '#8b949e',
+        }
+        overlay_labels = {
+            'ema_fast': 'EMA fast',
+            'ema_slow': 'EMA slow',
+            'ema_trend': 'EMA trend',
+            'sma_fast': 'SMA fast',
+            'sma_slow': 'SMA slow',
+            'sma_trend': 'SMA trend',
+        }
+        plotted_overlays = set()
+        for key, color in overlay_colors.items():
+            if key not in indicators:
+                continue
+            # Prefer EMA keys when both EMA and legacy SMA aliases exist.
+            alias = key.replace('sma_', 'ema_')
+            if key.startswith('sma_') and alias in indicators:
+                continue
+            values = indicators[key]
+            label = overlay_labels.get(key, key.replace('_', ' ').upper())
+            if isinstance(values, list) and len(values) == n:
+                ax.plot(xs, values, color=color, linewidth=1.2, label=label)
+                plotted_overlays.add(key)
+            elif isinstance(values, (int, float)):
+                ax.axhline(values, color=color, linewidth=1.0, linestyle='--', label=label)
+                plotted_overlays.add(key)
 
         # --- SL / TP horizontal levels ---
         exit_kind = snapshot.get("exit_kind", "")
@@ -184,7 +213,7 @@ def _render_chart_b64(snapshot: dict) -> str:
             spine.set_edgecolor("#30363d")
         ax.grid(axis="y", color="#30363d", linewidth=0.5, alpha=0.7)
 
-        if any(k in indicators for k in sma_colors) or sl or tp:
+        if plotted_overlays or sl or tp:
             ax.legend(
                 loc="upper left", fontsize=6,
                 facecolor="#21262d", edgecolor="#30363d", labelcolor="#c9d1d9",
@@ -431,6 +460,81 @@ def _compute_pair_performance(leg_records_chronological: list, top_n: int = PAIR
     }
 
 
+def _compute_assets_table(
+    leg_records_chronological: list,
+    traded_symbols: list,
+    wallet_params: dict,
+    market: str,
+    curated: dict | None,
+) -> list:
+    """All-time per-symbol stats + locked best params for the desk Assets section."""
+    by_symbol = {}
+    for t in leg_records_chronological:
+        sym = t["symbol"]
+        if sym not in by_symbol:
+            by_symbol[sym] = {
+                "symbol": sym,
+                "pnl": 0.0,
+                "trades": 0,
+                "wins": 0,
+                "losses": 0,
+                "gross_wins": 0.0,
+                "gross_losses": 0.0,
+                "notional": 0.0,
+            }
+        pnl = float(t["pnl"])
+        by_symbol[sym]["pnl"] += pnl
+        by_symbol[sym]["trades"] += 1
+        by_symbol[sym]["notional"] += float(t.get("entry_notional") or 0.0)
+        if pnl > 0:
+            by_symbol[sym]["wins"] += 1
+            by_symbol[sym]["gross_wins"] += pnl
+        elif pnl < 0:
+            by_symbol[sym]["losses"] += 1
+            by_symbol[sym]["gross_losses"] += abs(pnl)
+
+    wallet_pnl = sum(d["pnl"] for d in by_symbol.values())
+
+    rows = []
+    for sym in traded_symbols:
+        d = by_symbol.get(sym) or {
+            "symbol": sym,
+            "pnl": 0.0,
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "gross_wins": 0.0,
+            "gross_losses": 0.0,
+            "notional": 0.0,
+        }
+        trades = d["trades"]
+        params = locked_params_summary(curated, sym, market, wallet_params)
+        if d["gross_losses"] > 0:
+            pf = round(d["gross_wins"] / d["gross_losses"], 2)
+        elif d["gross_wins"] > 0:
+            pf = "∞"
+        else:
+            pf = 0.0
+        notional = d["notional"]
+        ret_pct = round(d["pnl"] / notional * 100, 2) if notional > 0 else 0.0
+        share = round(d["pnl"] / wallet_pnl * 100, 1) if abs(wallet_pnl) > 1e-9 else 0.0
+        rows.append({
+            "symbol": sym,
+            "params": params,
+            "wins": d["wins"],
+            "losses": d["losses"],
+            "trades": trades,
+            "win_rate": round(d["wins"] / trades * 100, 1) if trades else 0.0,
+            "pnl": round(d["pnl"], 2),
+            "avg_pnl": round(d["pnl"] / trades, 2) if trades else 0.0,
+            "profit_factor": pf,
+            "return_pct": ret_pct,
+            "share_pct": share,
+        })
+    rows.sort(key=lambda r: r["pnl"], reverse=True)
+    return rows
+
+
 def _parse_report_time(value):
     if not value:
         return None
@@ -490,6 +594,7 @@ class ReportGenerator:
             ledger = json.load(f)
 
         strategies = ledger.get("strategies", {})
+        curated = load_curated_params()
 
         charts = {}  # ponytail: separate file so dashboard first paint stays small
         data_fetcher = None
@@ -567,6 +672,20 @@ class ReportGenerator:
                                 symbol, asset_type=asset_type_for_symbol(symbol),
                             )
                             if md is not None and not md.empty:
+                                wallet_cfg = TRADING_CONFIG.get(strat_name) or {}
+                                market = wallet_cfg.get('market') or ''
+                                eff = merge_effective_params_for_market(
+                                    wallet_cfg.get('params') or {},
+                                    curated,
+                                    symbol,
+                                    market,
+                                )
+                                emas = ema_indicator_frame(
+                                    md,
+                                    short_window=int(eff.get('short_window', 12) or 12),
+                                    long_window=int(eff.get('long_window', 24) or 24),
+                                    trend_window=int(eff.get('trend_window', 50) or 50),
+                                )
                                 open_snap = build_open_snapshot(
                                     md,
                                     {
@@ -576,6 +695,7 @@ class ReportGenerator:
                                         'take_profit': pos.get('take_profit', 0.0),
                                         'side': side,
                                     },
+                                    indicators=emas,
                                 )
                                 chart_b64 = _render_chart_b64(open_snap)
                                 if chart_b64:
@@ -665,12 +785,14 @@ class ReportGenerator:
 
             # 3. Trade History (Closed Positions) + Chart Generation
             # Per-close rows stay in the table; metrics use completed legs (TP1+final = one trade).
-            # Charts: newest closes first, cap per wallet to keep report_charts.js lean.
             trade_history = []
             close_events = [e for e in sorted_history if "pnl" in e]
-            chart_eligible = {
-                id(e) for e in close_events[-MAX_CHARTS_PER_STRATEGY:]
-            }
+            if MAX_CHARTS_PER_STRATEGY is None:
+                chart_eligible = {id(e) for e in close_events}
+            else:
+                chart_eligible = {
+                    id(e) for e in close_events[-int(MAX_CHARTS_PER_STRATEGY):]
+                }
 
             for event in close_events:
                 pnl = event['pnl']
@@ -760,6 +882,20 @@ class ReportGenerator:
             desk = _desk_meta(strat_name)
             avg_monthly = _avg_monthly_pnl(equity_curve, current_equity, initial_cash)
 
+            wallet_cfg = TRADING_CONFIG.get(strat_name) or {}
+            market = wallet_cfg.get('market') or ''
+            traded = list(wallet_cfg.get('pairs') or [])
+            for pos in active_positions:
+                if pos['symbol'] not in traded:
+                    traded.append(pos['symbol'])
+            assets = _compute_assets_table(
+                leg_records,
+                traded,
+                wallet_cfg.get('params') or {},
+                market,
+                curated,
+            )
+
             output_data["strategies"][strat_name] = {
                 "active_positions": active_positions,
                 "current_cash": cash,
@@ -768,6 +904,7 @@ class ReportGenerator:
                 "equity_curve": equity_curve,
                 "trade_history": list(reversed(trade_history)),  # Newest first
                 "pair_performance": pair_performance,
+                "assets": assets,
                 "desk": desk,
                 "metrics": {
                     "win_rate": win_rate,

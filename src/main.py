@@ -25,6 +25,7 @@ from shared.constants import (
     reason_is_entry_long,
     reason_is_entry_short,
 )
+from shared.curated_params import load_curated_params, merge_effective_params_for_market
 from shared.exit_snapshots import last_bar_date as _last_bar_date
 from shared.risk_sizing import size_for_risk, should_open_after_sizing
 from shared.symbols import asset_type_for_symbol
@@ -49,6 +50,11 @@ def load_strategy(module_name, class_name, params):
     except Exception as e:
         print(f"Failed to load strategy {class_name} from {module_name}: {e}")
         return None
+
+
+def _open_symbols_for_strategy(ledger, strategy_id) -> list[str]:
+    strat = ledger.ledger.get('strategies', {}).get(strategy_id) or {}
+    return [s for s, pos in (strat.get('positions') or {}).items() if pos]
 
 
 def _parse_markets(raw: str | None) -> set[str] | None:
@@ -130,6 +136,8 @@ def main(markets: set[str] | None = None):
             print(f"Stocks universe sync failed (continuing with existing pairs): {e}")
             traceback.print_exc()
 
+    curated = load_curated_params()
+
     for strategy_id, config in TRADING_CONFIG.items():
         market = config.get('market')
         if markets is not None and market not in markets:
@@ -142,13 +150,25 @@ def main(markets: set[str] | None = None):
         current_balance = ledger.get_balance(strategy_id)
         print(f"Strategy Balance: ${current_balance:.2f}")
 
-        strategy = load_strategy(config['strategy_module'], config['strategy_class'], config['params'])
+        base_params = dict(config['params'])
+        strategy = load_strategy(config['strategy_module'], config['strategy_class'], base_params)
         if not strategy:
             continue
 
-        pairs = config['pairs']
+        pairs = list(config['pairs'])
+        for open_sym in _open_symbols_for_strategy(ledger, strategy_id):
+            if open_sym not in pairs:
+                pairs.append(open_sym)
+                print(f"  (managing dropped/off-book open) {open_sym}")
+
         for symbol in pairs:
             asset_type = asset_type_for_symbol(symbol)
+
+            # Per-symbol curated overlay
+            eff = merge_effective_params_for_market(
+                base_params, curated, symbol, market or '',
+            )
+            strategy.params = eff
 
             print(f"  > Analyzing {symbol} ({asset_type})...")
             market_data = data_fetcher.get_data(symbol, asset_type=asset_type)
@@ -202,6 +222,7 @@ def main(markets: set[str] | None = None):
                             stop_loss=new_sl, take_profit=new_tp,
                             reason=signal_data.get('reason'),
                             entry_date=bar_date,
+                            entry_atr=signal_data.get('current_atr'),
                         ):
                             print(f"    EXECUTED OPEN LONG: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
@@ -229,6 +250,7 @@ def main(markets: set[str] | None = None):
                             stop_loss=new_sl, take_profit=new_tp,
                             reason=signal_data.get('reason'),
                             entry_date=bar_date,
+                            entry_atr=signal_data.get('current_atr'),
                         ):
                             print(f"    EXECUTED OPEN SHORT: {quantity:.6f} {symbol} @ {current_price} (SL {new_sl}, TP {new_tp})")
 
@@ -264,7 +286,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--market',
         default=None,
-        help='Comma-separated markets to run (crypto,commodities,stocks). Default: all.',
+        help='Comma-separated markets to run (crypto,forex,commodities,stocks). Default: all.',
     )
     cli = parser.parse_args()
     main(markets=_parse_markets(cli.market))

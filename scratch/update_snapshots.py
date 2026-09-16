@@ -15,13 +15,10 @@ from ledger_manager import LedgerManager
 from data_ingestion import DataFetcher
 from shared.constants import reason_is_tp1_exit
 from shared.symbols import asset_type_for_symbol
+from shared.curated_params import load_curated_params, merge_effective_params_for_market
 from shared.exit_snapshots import (
     build_close_snapshot,
-    reason_with_fill,
-    resolve_close_fill_price,
-    bar_close_price,
     is_stop_or_trail_reason,
-    apply_close_fill_to_event,
 )
 from reporting import _entry_date_for_trade
 import importlib
@@ -141,7 +138,7 @@ def _simulate_trailing(strategy, market_data, mock_pos, entry_date, exit_ts):
                 mock_pos['stop_loss'] = float(new_sl)
 
 
-def _backfill_close_event(strategy, data_fetcher, history, event, strat_cash_holder):
+def _backfill_close_event(strategy, data_fetcher, history, event, strat_cash_holder=None):
     symbol = event['symbol']
     asset_type = asset_type_for_symbol(symbol)
     market_data = data_fetcher.get_data(symbol, asset_type=asset_type)
@@ -193,22 +190,23 @@ def _backfill_close_event(strategy, data_fetcher, history, event, strat_cash_hol
     _ensure_pos_levels(strategy, market_data_to_event, mock_pos)
 
     signal_data = strategy.generate_signal(market_data_to_event, mock_pos)
-    bar_close = bar_close_price(market_data_to_event)
-    fallback_reason = event.get('reason', '') if is_stop_or_trail_reason(event.get('reason', '')) else None
-    fill_price = resolve_close_fill_price(
-        bar_close, signal_data, mock_pos, fallback_reason=fallback_reason,
-    )
-    entry_for_pnl = float(event.get('entry_price', mock_pos['entry_price']))
-    cash_delta = apply_close_fill_to_event(event, pos_side, fill_price, entry_for_pnl)
-    if strat_cash_holder is not None and abs(cash_delta) > 1e-12:
-        strat_cash_holder[0] += cash_delta
-
-    from shared.exit_snapshots import resolve_close_reason
-    close_reason = resolve_close_reason(
-        signal_data, fill_price, ledger_reason=event.get('reason') or fallback_reason,
-    )
-    if close_reason:
-        event['reason'] = close_reason
+    # Keep resim/live economics untouched. Replayed trail/signal fills often diverge
+    # from the ledger (wrong SL reconstruction) and used to rewrite price/pnl/cash.
+    fill_price = float(event['price'])
+    close_reason = event.get('reason') or ''
+    if not close_reason:
+        from shared.exit_snapshots import resolve_close_reason
+        fallback_reason = (
+            event.get('reason', '')
+            if is_stop_or_trail_reason(event.get('reason', ''))
+            else None
+        )
+        close_reason = resolve_close_reason(
+            signal_data, fill_price, ledger_reason=fallback_reason,
+        ) or ''
+    # Stop/trail ledger fills are at SL: force chart SL onto the fill so Exit and SL match.
+    if fill_price > 0 and is_stop_or_trail_reason(close_reason):
+        mock_pos['stop_loss'] = fill_price
 
     snapshot = build_close_snapshot(
         market_data_to_event, signal_data, mock_pos, fill_price, close_reason=close_reason,
@@ -244,6 +242,7 @@ def main(dry_run=False, strategy_prefix=None):
         print(f"Repaired tp1_hit/initial_qty on {repaired} open position(s)")
 
     data_fetcher = DataFetcher(Config)
+    curated = load_curated_params()
 
     for strategy_id, config in TRADING_CONFIG.items():
         if strategy_prefix and not strategy_id.startswith(strategy_prefix):
@@ -255,7 +254,9 @@ def main(dry_run=False, strategy_prefix=None):
 
         strat_data = ledger.ledger['strategies'].get(strategy_id, {})
         history = strat_data.get('history', [])
-        cash_holder = [float(strat_data.get('cash', 0.0))]
+        market = config.get('market') or ''
+        wallet_params = config.get('params') or {}
+        cash_before = float(strat_data.get('cash', 0.0))
 
         stripped = 0
         for event in history:
@@ -275,8 +276,11 @@ def main(dry_run=False, strategy_prefix=None):
         for event in close_events:
             symbol = event['symbol']
             print(f"  > Close snapshot for {symbol} ({event['side']}) @ {event['price']}")
+            strategy.params = merge_effective_params_for_market(
+                wallet_params, curated, symbol, market,
+            )
 
-            if not _backfill_close_event(strategy, data_fetcher, history, event, cash_holder):
+            if not _backfill_close_event(strategy, data_fetcher, history, event):
                 print("    Skip: no market data")
                 continue
 
@@ -287,8 +291,13 @@ def main(dry_run=False, strategy_prefix=None):
             sl = snap.get('stop_loss_at_exit', snap.get('stop_loss'))
             print(f"    OK — {kind}, SL {sl}, window ends {last_date}")
 
-        strat_data['cash'] = cash_holder[0]
-        print(f"  Backfilled {closes} close snapshots (strategy cash {cash_holder[0]:.2f})")
+        cash_after = float(strat_data.get('cash', 0.0))
+        if abs(cash_after - cash_before) > 1e-9:
+            raise RuntimeError(
+                f'{strategy_id}: snapshot backfill must not change cash '
+                f'({cash_before:.2f} -> {cash_after:.2f})'
+            )
+        print(f"  Backfilled {closes} close snapshots (cash unchanged {cash_after:.2f})")
 
     if dry_run:
         print("\n--- Dry run complete (ledger unchanged on disk) ---")

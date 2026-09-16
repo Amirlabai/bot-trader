@@ -64,7 +64,8 @@ def _load_risk_settings():
 RISK_SETTINGS = _load_risk_settings()
 
 # Seed crypto book. Daily CMC sync may append new top-15 alts as */USDT
-# into data/crypto_universe.json (never removes; open positions stay tradeable).
+# into data/crypto_universe.json; pairs ranked worse than 50 are dropped
+# (base seeds kept; open positions on dropped symbols stay manageable).
 BASE_CRYPTO_PAIRS = [
     'BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'XRP/USDT', 'SOL/USDT',
     'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'TRX/USDT',
@@ -112,23 +113,24 @@ def load_stock_pairs(universe_file: str | None = None) -> list:
 STOCK_PAIRS = load_stock_pairs()
 ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS + STOCK_PAIRS
 
-# Desk market tabs (forex kept visible but untraded until a separate approach).
+# Desk market tabs (all four books traded).
 DASHBOARD_MARKETS = ['crypto', 'forex', 'commodities', 'stocks']
 
 # EMA grid 4y winners (docs/crypto_ema_grid_6m.md / docs/commodities_ema_grid_4y.md).
 # ADX/vol off to match the vectorized grid entry path.
 _CRYPTO_EMA = {
-    'short_window': 20,
-    'long_window': 35,
+    'short_window': 25,
+    'long_window': 75,
     'trend_window': 100,
-    'atr_period': 15,
+    'atr_period': 10,
     'adx_period': 14,
-    'adx_min': 0,
+    'adx_min': 5,
     'vol_ma_period': 20,
     'vol_mult': 0.0,
     'atr_buffer': 0.0,
     'sl_atr': 1.0,
-    'trail_atr': 2.5,
+    'trail_atr': 4.5,
+    'trail_arm_r': 1.0,
 }
 _COMMODITIES_EMA = {
     'short_window': 20,
@@ -159,6 +161,21 @@ _STOCKS_EMA = {
     'atr_buffer': 0.0,
     'sl_atr': 10.0,
     'trail_atr': 24.0,
+}
+# Book default from forex curator template (per-symbol overlays in curated_params.json).
+_FOREX_EMA = {
+    'short_window': 10,
+    'long_window': 30,
+    'trend_window': 100,
+    'atr_period': 21,
+    'adx_period': 14,
+    'adx_min': 0,
+    'vol_ma_period': 20,
+    'vol_mult': 0.0,
+    'atr_buffer': 0.0,
+    'sl_atr': 1.5,
+    'trail_atr': 2.0,
+    'trail_arm_r': 1.0,
 }
 # Stocks paper wallets size at 7% equity risk (tuner default).
 STOCKS_EQUITY_RISK_PCT = 0.07
@@ -228,9 +245,10 @@ def _book_wallets(market, pairs, ema):
     }
 
 
-# 4 wallets × crypto / commodities / stocks. Forex pairs defined but untraded.
+# 4 wallets × crypto / forex / commodities / stocks.
 TRADING_CONFIG = {}
 TRADING_CONFIG.update(_book_wallets('crypto', CRYPTO_PAIRS, _CRYPTO_EMA))
+TRADING_CONFIG.update(_book_wallets('forex', FOREX_PAIRS, _FOREX_EMA))
 TRADING_CONFIG.update(_book_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA))
 TRADING_CONFIG.update(_book_wallets('stocks', STOCK_PAIRS, _STOCKS_EMA))
 
@@ -269,7 +287,7 @@ def sync_crypto_universe_from_cmc(data_fetcher=None) -> dict | None:
         df = data_fetcher.get_data(pair, asset_type='crypto')
         return df is not None and not df.empty
 
-    print('--- CMC top-15 crypto universe sync ---')
+    print('--- CMC top-15 crypto universe sync (drop rank>50) ---')
     summary = sync_crypto_universe(
         CMP_API_KEY,
         CRYPTO_UNIVERSE_FILE,
@@ -282,6 +300,10 @@ def sync_crypto_universe_from_cmc(data_fetcher=None) -> dict | None:
               f"{', '.join(a['pair'] for a in summary['added'])}")
     else:
         print('No new top-15 alts to add.')
+    dropped = summary.get('dropped') or []
+    if dropped:
+        print(f"Dropped {len(dropped)} pair(s): "
+              f"{', '.join(d['pair'] for d in dropped)}")
     print(f"Crypto pairs ({len(summary['pairs'])}): {', '.join(summary['pairs'])}")
     return summary
 

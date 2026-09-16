@@ -1,100 +1,48 @@
 # Trade leg audit
 
-Generated: 2026-09-15T16:43:22.103056
+Generated: 2026-09-16T16:37:39.272027
 
 Expected: at most one TP1 partial (50% of initial), then one final close for the remainder.
 
 ## Totals
 
-- Legs analyzed: 1285
-- TP1 then final (2 closes): 409
-- Single full exit: 864
-- Clean (other): 12
+- Legs analyzed: 714
+- TP1 then final (2 closes): 197
+- Single full exit: 511
+- Clean (other): 6
 - Violations: 0
-- Still open legs: 18
+- Still open legs: 10
 
 ## ma_crypto_long_trail
 
 Violation count: 0
 
 Still open:
-- BTC/USDT LONG: 0.093564 remaining of 0.093564 (0 prior closes)
+- ETH/USDT LONG: 1.388496 remaining of 1.388496 (0 prior closes)
 
 ## ma_crypto_long_tp1
 
 Violation count: 0
 
 Still open:
-- BTC/USDT LONG: 0.040265 remaining of 0.080530 (1 prior closes)
+- ETH/USDT LONG: 0.761359 remaining of 1.522718 (1 prior closes)
 
 ## ma_crypto_ls_trail
 
 Violation count: 0
 
 Still open:
-- BTC/USDT LONG: 0.101639 remaining of 0.101639 (0 prior closes)
+- LINK/USDT SHORT: 52.724712 remaining of 52.724712 (0 prior closes)
+- DOGE/USDT SHORT: 4653.109063 remaining of 4653.109063 (0 prior closes)
+- ETH/USDT LONG: 1.452459 remaining of 1.452459 (0 prior closes)
+- AVAX/USDT SHORT: 40.570654 remaining of 40.570654 (0 prior closes)
+- DOT/USDT SHORT: 178.781332 remaining of 178.781332 (0 prior closes)
 
 ## ma_crypto_ls_tp1
 
 Violation count: 0
 
 Still open:
-- BTC/USDT LONG: 0.043699 remaining of 0.087397 (1 prior closes)
-
-## ma_commodities_long_trail
-
-Violation count: 0
-
-Still open:
-- CL/USD LONG: 9.211715 remaining of 9.211715 (0 prior closes)
-
-## ma_commodities_long_tp1
-
-Violation count: 0
-
-## ma_commodities_ls_trail
-
-Violation count: 0
-
-## ma_commodities_ls_tp1
-
-Violation count: 0
-
-Still open:
-- NG/USD SHORT: 29.771391 remaining of 29.771391 (0 prior closes)
-
-## ma_stocks_long_trail
-
-Violation count: 0
-
-Still open:
-- FTI LONG: 95.602296 remaining of 95.602296 (0 prior closes)
-- WSM LONG: 12.582655 remaining of 12.582655 (0 prior closes)
-- USFD LONG: 43.789088 remaining of 43.789088 (0 prior closes)
-- THC LONG: 10.484649 remaining of 10.484649 (0 prior closes)
-
-## ma_stocks_long_tp1
-
-Violation count: 0
-
-Still open:
-- FTI LONG: 26.366916 remaining of 52.733832 (1 prior closes)
-- USFD LONG: 21.953153 remaining of 43.906305 (1 prior closes)
-
-## ma_stocks_ls_trail
-
-Violation count: 0
-
-Still open:
-- FTI LONG: 95.602296 remaining of 95.602296 (0 prior closes)
-- WSM LONG: 12.582655 remaining of 12.582655 (0 prior closes)
-- USFD LONG: 43.789088 remaining of 43.789088 (0 prior closes)
-- THC LONG: 10.484649 remaining of 10.484649 (0 prior closes)
-
-## ma_stocks_ls_tp1
-
-Violation count: 0
-
-Still open:
-- FTI LONG: 26.366916 remaining of 52.733832 (1 prior closes)
-- USFD LONG: 21.953153 remaining of 43.906305 (1 prior closes)
+- DOGE/USDT SHORT: 1671.523072 remaining of 3343.046143 (1 prior closes)
+- ETH/USDT LONG: 0.540553 remaining of 1.081105 (1 prior closes)
+- AVAX/USDT SHORT: 14.574080 remaining of 29.148160 (1 prior closes)

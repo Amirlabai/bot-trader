@@ -33,4 +33,4 @@ jobs:
       env:
         CMP_API_KEY: ${{ secrets.CMP_API_KEY }}
       run: |
-        python src/main.py --market crypto,commodities
+        python src/main.py --market crypto,forex,commodities

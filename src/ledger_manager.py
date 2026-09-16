@@ -85,7 +85,7 @@ class LedgerManager:
     def update_position(
         self, strategy_id, symbol, quantity, price, side,
         stop_loss=0.0, take_profit=0.0, candle_snapshot=None, reason=None, entry_date=None,
-        event_ts=None,
+        event_ts=None, entry_atr=None,
     ):
         """
         Updates cash and position based on a trade execution for a specific strategy.
@@ -114,6 +114,8 @@ class LedgerManager:
                     }
                     if stop_loss and float(stop_loss) > 0:
                         pos['initial_stop_loss'] = float(stop_loss)
+                    if entry_atr is not None and float(entry_atr) > 0:
+                        pos['entry_atr'] = float(entry_atr)
                     if entry_date:
                         pos['entry_date'] = str(entry_date)[:10]
                     strat_ledger["positions"][symbol] = pos
@@ -142,6 +144,8 @@ class LedgerManager:
                     }
                     if stop_loss and float(stop_loss) > 0:
                         pos['initial_stop_loss'] = float(stop_loss)
+                    if entry_atr is not None and float(entry_atr) > 0:
+                        pos['entry_atr'] = float(entry_atr)
                     if entry_date:
                         pos['entry_date'] = str(entry_date)[:10]
                     strat_ledger["positions"][symbol] = pos

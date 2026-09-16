@@ -112,6 +112,7 @@ def process_symbol(
                     stop_loss=new_sl, take_profit=new_tp,
                     reason=signal_data.get('reason'),
                     entry_date=bar_date, event_ts=event_ts,
+                    entry_atr=signal_data.get('current_atr'),
                 )
 
     elif action == 'sell':
@@ -144,6 +145,7 @@ def process_symbol(
                     stop_loss=new_sl, take_profit=new_tp,
                     reason=signal_data.get('reason'),
                     entry_date=bar_date, event_ts=event_ts,
+                    entry_atr=signal_data.get('current_atr'),
                 )
 
     elif action == 'hold':

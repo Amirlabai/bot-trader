@@ -217,20 +217,30 @@ def build_close_snapshot(
     pct = clamp_quantity_pct(signal_data.get('quantity_pct', 1.0))
     effective_reason = close_reason or ''
 
+    # For stop/trail fills, chart SL must match the ledger fill (fill-at-SL).
+    # Replayed pos stop can diverge after param/trail reconstruction.
+    reason_for_kind = effective_reason or (signal_data.get('reason') if signal_data else '') or ''
+    pos_for_chart = dict(pos_data)
+    fill = float(fill_price) if fill_price is not None else 0.0
+    if fill > 0 and is_stop_or_trail_reason(reason_for_kind):
+        pos_for_chart['stop_loss'] = fill
+
     snap = _build_candle_snapshot(
         market_data, signal_data, n=n,
-        entry_price=entry_price, entry_date=entry_date, pos_data=pos_data,
+        entry_price=entry_price, entry_date=entry_date, pos_data=pos_for_chart,
         chart_levels_from_position=True,
         reason_override=effective_reason,
         bar_cap=bar_cap,
     )
-    sl_at_exit = float(pos_data.get('stop_loss') or 0)
-    tp_at_exit = float(pos_data.get('take_profit') or 0)
+    sl_at_exit = float(pos_for_chart.get('stop_loss') or 0)
+    tp_at_exit = float(pos_for_chart.get('take_profit') or 0)
+    if fill > 0 and is_stop_or_trail_reason(reason_for_kind):
+        sl_at_exit = fill
     snap['stop_loss'] = sl_at_exit
     snap['take_profit'] = tp_at_exit
     snap['stop_loss_at_exit'] = sl_at_exit
     snap['take_profit_at_exit'] = tp_at_exit
-    snap['exit_kind'] = _classify_exit_kind(signal_data, pos_data, close_reason=effective_reason)
+    snap['exit_kind'] = _classify_exit_kind(signal_data, pos_for_chart, close_reason=effective_reason)
     snap['quantity_pct'] = pct
     snap['exit_price'] = fill_price
     exit_date = last_bar_date(market_data)
@@ -241,8 +251,29 @@ def build_close_snapshot(
     return snap
 
 
+def ema_indicator_frame(
+    market_data: pd.DataFrame,
+    *,
+    short_window: int,
+    long_window: int,
+    trend_window: int,
+) -> dict:
+    """Full-history EMA series for snapshot overlays (aligned to market_data index)."""
+    if market_data is None or market_data.empty or 'close' not in market_data.columns:
+        return {}
+    close = market_data['close'].astype(float)
+    def _ema(span: int) -> pd.Series:
+        return close.ewm(span=int(span), adjust=False).mean()
+    return {
+        'ema_fast': _ema(short_window),
+        'ema_slow': _ema(long_window),
+        'ema_trend': _ema(trend_window),
+    }
+
+
 def build_open_snapshot(
     market_data, pos_data, n=SNAPSHOT_BAR_CAP, bar_cap: int = SNAPSHOT_BAR_CAP,
+    indicators: dict | None = None,
 ):
     """Entry→now candle snapshot for an open position (dashboard expand chart)."""
     if not pos_data:
@@ -250,7 +281,7 @@ def build_open_snapshot(
     entry_price = pos_data.get('entry_price')
     entry_date = pos_data.get('entry_date')
     snap = _build_candle_snapshot(
-        market_data, {}, n=n,
+        market_data, {'indicators': indicators or {}}, n=n,
         entry_price=entry_price, entry_date=entry_date, pos_data=pos_data,
         chart_levels_from_position=True,
         reason_override='Open',

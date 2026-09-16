@@ -3,14 +3,19 @@
 **/__pycache__
 gemini.md
 STATUS.md
+status.md
+thought
 graphify-out/
 .agents/
+.cursor/
 .impeccable/live/
 .impeccable/config.local.json
 .impeccable/hook.cache.json
 .impeccable/hook.pending.json
 .impeccable-live.json
 .impeccable-live/
+.incoming/*
+!.incoming/.gitkeep
 docs/report_data.json
 docs/trade_audit.json
 # Local EMA grid tune dumps (regenerate via scratch/tune_btc_ema_grid.py)
@@ -22,4 +27,7 @@ data/ledger*.bak
 data/ledger_resim.json
 data/ohlcv_cache/
 data/stocks_fundamentals_cache.json
+scratch/_*.log
+scratch/*.log
+scratch/_*.py
 gitaction.log

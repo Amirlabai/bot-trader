@@ -12,7 +12,7 @@ Anyone whom it may concern: operators, reviewers, or curious readers who open th
 
 ## Product Purpose
 
-**Bot Trader** is a daily trade tester: a simple algorithmic paper-trading system on crypto, commodities, and US stocks (forex reserved for a later approach), with a GitHub Pages dashboard for after-run review.
+**Bot Trader** is a daily trade tester: a simple algorithmic paper-trading system on crypto, forex, commodities, and US stocks, with a GitHub Pages dashboard for after-run review.
 
 Success means the bot runs on a schedule, the ledger stays coherent with the risk and exit rules, and the desk makes equity, exposure, open risk, and closed-trade outcomes easy to scan. It is not a live brokerage, not a marketplace product, and not a claim of profitable live trading.
 
@@ -32,10 +32,11 @@ Paper-tests four MA wallets per book (long/long-short × asset-trail/TP1-trail) 
 ## Capabilities and Constraints
 
 **Capabilities (built and in scope to preserve):**
-- Multi-wallet paper trading: four wallets per traded book (crypto, commodities, stocks). Long vs long/short × asset trail (no TP1) vs TP1 then trail. Forex pairs remain defined but untraded.
+- Multi-wallet paper trading: four wallets per traded book (crypto, forex, commodities, stocks). Long vs long/short × asset trail (no TP1) vs TP1 then trail.
+- Per-symbol locked EMA/ATR overlays from offline curation (`data/curated_params.json`); desk Assets rows show locked params plus paper WR%, Avg P/L, PF, Ret% on entry notional, Tot P/L, and Share% of wallet PnL.
 - Stocks mid-cap runner screener (Core gates) feeds the stocks book; desk shows today’s matches on the Stocks tab.
-- Risk sizing; TP1 wallets take 50% at 1.0 ATR then trail; asset-trail wallets skip TP1 and trail from entry.
-- Desk: market-first compare of wallets for the selected book, then single-wallet equity, exposure, rolling pair winners/losers, Long vs Short window stats with Bull/Bear/Flat bias cue.
+- Risk sizing; TP1 wallets take 50% at 1.0 ATR then trail; asset-trail wallets skip TP1 and trail from entry (optional trail arm after R-multiple).
+- Desk: market-first compare of wallets for the selected book, then single-wallet equity, exposure, rolling pair winners/losers, Long vs Short window stats with Bull/Bear/Flat bias cue, Assets table.
 - Open positions and closed-trade history with expand detail and lazy close charts.
 - Trade audit and ledger repair/backfill tooling under `scratch/`.
 

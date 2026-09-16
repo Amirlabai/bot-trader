@@ -1,6 +1,6 @@
 # Bot Trader
 
-A Python-based automated trading bot that runs daily on GitHub Actions. It fetches data for crypto and commodities (forex reserved), executes dual MA wallets (long-only asset trail and long/short TP1 trail), and maintains a persistent ledger using this Git repository as a database.
+A Python-based automated trading bot that runs daily on GitHub Actions. It fetches data for crypto, forex, commodities, and stocks; executes four MA wallets per book (long-only asset trail and long/short TP1 trail), and maintains a persistent ledger using this Git repository as a database.
 
 ## Setup Instructions
 

@@ -18,6 +18,9 @@ SKIP_CMC_SYMBOLS = frozenset({
 
 CMC_LISTINGS_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 DEFAULT_TOP_N = 15
+DROP_BELOW_RANK = 50
+# Fetch at least through drop rank so we know who fell out of top-50.
+DEFAULT_LISTINGS_LIMIT = max(DEFAULT_TOP_N, DROP_BELOW_RANK)
 
 
 def cmc_symbol_to_pair(symbol: str) -> str:
@@ -78,12 +81,14 @@ def load_universe(path: str) -> dict:
             'cmc_top15': [],
             'pairs': [],
             'added': [],
+            'dropped': [],
         }
     with open(path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     data.setdefault('cmc_top15', [])
     data.setdefault('pairs', [])
     data.setdefault('added', [])
+    data.setdefault('dropped', [])
     return data
 
 
@@ -111,21 +116,27 @@ def sync_crypto_universe(
     base_pairs: list[str],
     *,
     top_n: int = DEFAULT_TOP_N,
+    drop_below_rank: int = DROP_BELOW_RANK,
     yahoo_ok=None,
 ) -> dict:
-    """Fetch CMC top N; append any new tradable */USDT not already in base+universe.
+    """Fetch CMC listings; add new top-N tradables; drop pairs ranked worse than drop_below_rank.
 
     yahoo_ok: optional callable(pair) -> bool to require Yahoo OHLCV before adding.
-    Returns summary dict with added pairs and full merged list.
+    Base seed pairs are never removed by rank drop.
+    Returns summary with added, dropped, and full merged list.
     """
-    listings = fetch_cmc_top_symbols(api_key, limit=top_n)
-    tradable = tradable_pairs_from_listings(listings)
-    cmc_top_symbols = [str(r.get('symbol') or '').upper() for r in listings]
+    listings_limit = max(int(top_n), int(drop_below_rank), DEFAULT_LISTINGS_LIMIT)
+    listings = fetch_cmc_top_symbols(api_key, limit=listings_limit)
+    tradable_all = tradable_pairs_from_listings(listings)
+    rank_by_pair = {pair: rank for pair, rank, _sym in tradable_all}
+    top_listings = listings[: int(top_n)]
+    cmc_top_symbols = [str(r.get('symbol') or '').upper() for r in top_listings]
+    tradable_top = tradable_pairs_from_listings(top_listings)
 
     universe = load_universe(universe_path)
     known = set(base_pairs) | set(universe.get('pairs') or [])
     added_now = []
-    for pair, rank, sym in tradable:
+    for pair, rank, sym in tradable_top:
         if pair in known:
             continue
         if yahoo_ok is not None and not yahoo_ok(pair):
@@ -143,14 +154,40 @@ def sync_crypto_universe(
         added_now.append(entry)
         print(f'  CMC add {pair} (CMC rank {rank})')
 
-    universe['updated_at'] = datetime.now(timezone.utc).isoformat(timespec='seconds')
+    # Drop universe pairs (not base seeds) with rank > drop_below_rank or missing from listings
+    dropped_now = []
+    kept_pairs = []
+    base_set = set(base_pairs)
+    now_iso = datetime.now(timezone.utc).isoformat(timespec='seconds')
+    for pair in list(universe.get('pairs') or []):
+        if pair in base_set:
+            kept_pairs.append(pair)
+            continue
+        rank = rank_by_pair.get(pair)
+        if rank is None or rank > int(drop_below_rank):
+            drop_entry = {
+                'pair': pair,
+                'rank': rank,
+                'at': now_iso,
+                'reason': 'missing_from_listings' if rank is None else f'rank_gt_{drop_below_rank}',
+            }
+            universe.setdefault('dropped', []).append(drop_entry)
+            dropped_now.append(drop_entry)
+            print(f'  CMC drop {pair} (CMC rank {rank})')
+            continue
+        kept_pairs.append(pair)
+    universe['pairs'] = kept_pairs
+
+    universe['updated_at'] = now_iso
     universe['cmc_top15'] = cmc_top_symbols
     save_universe(universe_path, universe)
 
     merged = merge_crypto_pairs(base_pairs, universe['pairs'])
     return {
         'added': added_now,
+        'dropped': dropped_now,
         'pairs': merged,
         'cmc_top15': cmc_top_symbols,
         'universe_path': universe_path,
+        'drop_below_rank': int(drop_below_rank),
     }

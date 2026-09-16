@@ -68,6 +68,7 @@ def completed_leg_records(history):
             'time': leg['closes'][-1]['ts'],
             'pnl': pnl,
             'entry_price': leg['entry_price'],
+            'entry_notional': float(leg['entry_price']) * float(leg['initial_qty']),
             'open_ts': leg['open_ts'],
             'closes': len(leg['closes']),
         })

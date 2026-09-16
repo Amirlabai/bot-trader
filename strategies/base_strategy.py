@@ -149,7 +149,7 @@ class BaseStrategy(ABC):
         - TP1 / SL hits use high/low wicks
         - SL: Entry - sl_atr ATR (default 1.5)
         - TP1: Entry + 1.0 ATR (Sell 50%, Moves SL to Entry) unless skip_tp1 / trail_from_entry
-        - Trailing updates use close (trail_atr ATR, default 1.5) after TP1, or from entry when trail_from_entry
+        - Trailing updates use close − trail_atr × ATR frozen at entry (fallback: live ATR)
         """
         if not position_data:
             return None
@@ -170,6 +170,7 @@ class BaseStrategy(ABC):
         trail_from_entry = bool(self.params.get('trail_from_entry', False))
         skip_tp1 = bool(self.params.get('skip_tp1', False)) or trail_from_entry
         use_trailing = bool(self.params.get('use_trailing', True))
+        trail_ref_atr = self._trail_reference_atr(position_data, current_atr, sl_atr, is_long)
 
         if stop_loss is None:
             stop_loss = entry_price - (sl_atr * current_atr) if is_long else entry_price + (sl_atr * current_atr)
@@ -213,7 +214,25 @@ class BaseStrategy(ABC):
             return {'action': close_action, 'quantity_pct': 1.0, 'reason': reason}
 
         if use_trailing and (post_tp1 or trail_from_entry):
-            proposed_sl = close - (trail_atr * current_atr) if is_long else close + (trail_atr * current_atr)
+            trail_arm_r = float(self.params.get('trail_arm_r', 0) or 0)
+            trail_armed = True
+            if trail_from_entry and not post_tp1 and trail_arm_r > 0:
+                init_sl = position_data.get('initial_stop_loss')
+                if init_sl is not None:
+                    if is_long:
+                        init_rps = float(entry_price) - float(init_sl)
+                        unrealized_r = (close - float(entry_price)) / init_rps if init_rps > 0 else 0.0
+                    else:
+                        init_rps = float(init_sl) - float(entry_price)
+                        unrealized_r = (float(entry_price) - close) / init_rps if init_rps > 0 else 0.0
+                    trail_armed = unrealized_r >= trail_arm_r
+                if not trail_armed:
+                    return None
+            proposed_sl = (
+                close - (trail_atr * trail_ref_atr)
+                if is_long else
+                close + (trail_atr * trail_ref_atr)
+            )
             better = proposed_sl > stop_loss if is_long else proposed_sl < stop_loss
             if better:
                 if trail_from_entry and not post_tp1:
@@ -231,3 +250,25 @@ class BaseStrategy(ABC):
                 return {'action': 'hold', 'stop_loss': proposed_sl, 'reason': hold_reason}
 
         return None
+
+    @staticmethod
+    def _trail_reference_atr(position_data, current_atr, sl_atr, is_long) -> float:
+        """ATR used for trail distance: prefer entry freeze, else derive from initial SL."""
+        stored = position_data.get('entry_atr')
+        if stored is not None:
+            try:
+                v = float(stored)
+                if v > 0:
+                    return v
+            except (TypeError, ValueError):
+                pass
+        init_sl = position_data.get('initial_stop_loss')
+        entry = position_data.get('entry_price')
+        if init_sl is not None and entry is not None and float(sl_atr) > 0:
+            if is_long:
+                derived = (float(entry) - float(init_sl)) / float(sl_atr)
+            else:
+                derived = (float(init_sl) - float(entry)) / float(sl_atr)
+            if derived > 0:
+                return derived
+        return float(current_atr)

@@ -901,6 +901,13 @@
                     </div>
                     <div id="pair-side-container"></div>
                 </div>
+                <div class="pair-perf-card" id="assets-card">
+                    <div class="pair-perf-header">
+                        <div class="card-title">Assets</div>
+                        <span class="pair-perf-window">Locked params · all-time legs · PF / ret% on entry notional</span>
+                    </div>
+                    <div id="assets-container"></div>
+                </div>
             </div>
 
             <!-- Active Positions -->
@@ -1080,10 +1087,7 @@
             const container = document.getElementById('compare-table-container');
             const wallets = walletsForMarket(market);
             if (!wallets.length) {
-                const untraded = market === 'forex'
-                    ? 'Forex is untraded for now. A different approach is planned.'
-                    : 'No wallets configured for this market.';
-                container.innerHTML = `<div class="compare-empty">${untraded}</div>`;
+                container.innerHTML = `<div class="compare-empty">No wallets configured for this market.</div>`;
                 return;
             }
 
@@ -1442,6 +1446,55 @@
             renderPairPerfTable('pair-winners-container', perf.winners, true);
             renderPairPerfTable('pair-losers-container', perf.losers, false);
             renderSideBreakdown(perf.side_breakdown || [], perf.window_label || '');
+            renderAssets(data.assets || []);
+        }
+
+        function fmtParams(p) {
+            if (!p) return '-';
+            const sw = p.short_window, lw = p.long_window, tw = p.trend_window;
+            const atr = p.atr_period, sl = p.sl_atr, tr = p.trail_atr;
+            if (sw == null) return '-';
+            return `${sw}/${lw}/${tw} · ATR${atr} · SL${sl} · trail${tr}`;
+        }
+
+        function renderAssets(rows) {
+            const container = document.getElementById('assets-container');
+            if (!container) return;
+            if (!rows.length) {
+                container.innerHTML = '<div class="pair-perf-empty">No traded assets.</div>';
+                return;
+            }
+            const body = rows.map(r => {
+                const pnlCls = r.pnl > 0 ? 'is-gain' : (r.pnl < 0 ? 'is-loss' : '');
+                const avg = Number(r.avg_pnl) || 0;
+                const avgCls = avg > 0 ? 'is-gain' : (avg < 0 ? 'is-loss' : '');
+                const ret = Number(r.return_pct) || 0;
+                const retCls = ret > 0 ? 'is-gain' : (ret < 0 ? 'is-loss' : '');
+                const pf = r.profit_factor;
+                const pfText = (typeof pf === 'number') ? pf.toFixed(2) : (pf || '-');
+                const share = Number(r.share_pct);
+                const shareText = Number.isFinite(share) ? `${share.toFixed(1)}%` : '-';
+                return `<tr>
+                    <td>${r.symbol}</td>
+                    <td>${fmtParams(r.params)}</td>
+                    <td class="num">${r.trades}</td>
+                    <td class="num">${Number(r.win_rate).toFixed(1)}%</td>
+                    <td class="num ${avgCls}">${fmtUsd(avg)}</td>
+                    <td class="num">${pfText}</td>
+                    <td class="num ${retCls}">${ret.toFixed(2)}%</td>
+                    <td class="num ${pnlCls}">${fmtUsd(r.pnl)}</td>
+                    <td class="num">${shareText}</td>
+                </tr>`;
+            }).join('');
+            container.innerHTML = `<div class="table-scroll"><table class="pair-perf-table">
+                <thead><tr>
+                    <th>Symbol</th><th>Params</th>
+                    <th class="num">Trades</th><th class="num">WR%</th>
+                    <th class="num">Avg P/L</th><th class="num">PF</th><th class="num">Ret%</th>
+                    <th class="num">Tot P/L</th><th class="num">Share%</th>
+                </tr></thead>
+                <tbody>${body}</tbody>
+            </table></div>`;
         }
 
         function renderStrategy(strategyName) {
