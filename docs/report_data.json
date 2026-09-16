@@ -1,4 +1,4 @@
-window.REPORT_DATA = {
+{
   "metadata": {
     "last_updated": "2026-09-16T02:36:35.931816",
     "initial_cash": 10000.0,
@@ -51688,4 +51688,4 @@ window.REPORT_DATA = {
       }
     }
   }
-};
+}
