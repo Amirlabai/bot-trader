@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EMA Sim Player (local)</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">EMA Sim</div>
+    <label class="field grow">
+      <span>Algo</span>
+      <select id="preset"></select>
+    </label>
+    <label class="field ema-only">
+      <span>Fast</span>
+      <input id="p-fast" type="number" min="2" max="200" step="1" />
+    </label>
+    <label class="field ema-only">
+      <span>Slow</span>
+      <input id="p-slow" type="number" min="3" max="300" step="1" />
+    </label>
+    <label class="field slope-only" hidden>
+      <span>Span</span>
+      <input id="p-span" type="number" min="1" max="100" step="1" value="1" />
+    </label>
+    <label class="field slope-only" hidden>
+      <span>Min</span>
+      <input id="p-min" type="number" min="0" max="1000" step="20" value="0" />
+    </label>
+    <label class="field">
+      <span>Trend</span>
+      <input id="p-trend" type="number" min="5" max="400" step="1" />
+    </label>
+    <label class="field">
+      <span>ATR</span>
+      <input id="p-atr" type="number" min="2" max="50" step="1" />
+    </label>
+    <label class="field">
+      <span>SL×</span>
+      <input id="p-sl" type="number" min="0.5" max="10" step="0.5" />
+    </label>
+    <label class="field">
+      <span>Trail×</span>
+      <input id="p-trail" type="number" min="0.5" max="10" step="0.5" />
+    </label>
+    <label class="field">
+      <span>Speed</span>
+      <select id="speed">
+        <option value="0.5">0.5×</option>
+        <option value="1" selected>1×</option>
+        <option value="2">2×</option>
+        <option value="5">5×</option>
+        <option value="10">10×</option>
+      </select>
+    </label>
+    <button type="button" id="btn-restart" class="btn">Restart</button>
+    <button type="button" id="btn-play" class="btn primary">Play</button>
+    <button type="button" id="btn-pause" class="btn" disabled>Pause</button>
+    <button type="button" id="btn-continue" class="btn accent" disabled>Continue</button>
+    <label class="check">
+      <input id="chk-run" type="checkbox" />
+      Don't pause
+    </label>
+    <label class="check">
+      <input id="chk-skip" type="checkbox" />
+      Skip replay
+    </label>
+  </header>
+
+  <main class="layout">
+    <section class="chart-wrap" id="chart-wrap">
+      <div id="chart"></div>
+      <div id="slope-chart"></div>
+      <div id="event-banner" class="event-banner hidden"></div>
+    </section>
+    <aside class="side">
+      <h2>State</h2>
+      <dl id="stats">
+        <div><dt>Symbol</dt><dd id="s-symbol">-</dd></div>
+        <div><dt>Interval</dt><dd id="s-interval">-</dd></div>
+        <div><dt>Bar</dt><dd id="s-bar">-</dd></div>
+        <div><dt>Cash</dt><dd id="s-cash">-</dd></div>
+        <div><dt>Equity</dt><dd id="s-equity">-</dd></div>
+        <div><dt>Position</dt><dd id="s-pos">-</dd></div>
+        <div><dt>Stop</dt><dd id="s-stop">-</dd></div>
+        <div><dt>Trades</dt><dd id="s-trades">-</dd></div>
+        <div><dt>Realized</dt><dd id="s-pnl">-</dd></div>
+        <div><dt>Last event</dt><dd id="s-event">-</dd></div>
+        <div><dt>Status</dt><dd id="s-status">Idle</dd></div>
+      </dl>
+      <p class="hint">
+        Playback pauses on every entry and exit. Press Continue to resume.
+        Check Don't pause to run through trades without stopping.
+        Check Skip replay to show the finished chart as soon as the sim loads.
+        Mid-slope presets enter when the high-low midpoint crosses above the open-close midpoint, both slopes meet the Min floor, and close is above the trend EMA.
+        Min 0 means the slope only has to be positive.
+        After an exit, both slopes must go negative and then both positive before another entry. Falling under Min is not enough.
+        Close-slope presets drop those averages: entry is a close slope at or above Min, and close above the trend EMA.
+        After an exit, that slope must go negative and then positive before another entry.
+        SL line is the stop used for the wick check (prior bar). Trail updates from close after that check.
+        Ambiguous bars (wick between old and new trail) are rechecked on a finer TF (4h→1h, daily→4h).
+      </p>
+    </aside>
+  </main>
+
+  <script src="/app.js?v=6"></script>
+</body>
+</html>

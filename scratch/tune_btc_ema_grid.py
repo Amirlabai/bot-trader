@@ -4,9 +4,11 @@ EMA grid (vectorized): fast 10-20, slow 20-50 (step 5), trend 100/150/200.
 Grid: atr_period 14-20, sl_atr 1-3, trail_atr 1-3 (0.5 steps).
 Entry: golden cross + close > trend EMA. Exit: SL or trail from entry (no TP1).
 Default: BTC/USDT, last ~6 months. Use --book crypto|forex|commodities for shared-cash multi-pair.
+Use --interval 4h for BTC-only 4h bars (separate cache; not used by live desk).
 
 Usage:
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py
+  .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --interval 4h --label "4h 6m pass"
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --start 2024-09-11 --label "2y pass"
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --book crypto --start 2024-09-11 --label "2y pass"
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py --book forex --start 2022-09-11 --label "4y pass"
@@ -19,6 +21,8 @@ Stocks tuning: scratch/tune_stocks_ema_grid.py (7% risk, ATR20, --fix-ema / --fi
 from __future__ import annotations
 
 import argparse
+import contextlib
+import io
 import itertools
 import json
 import os
@@ -36,11 +40,17 @@ for path in (REPO_ROOT, os.path.join(REPO_ROOT, 'src'), os.path.join(REPO_ROOT, 
         sys.path.insert(0, path)
 
 from config import COMMODITY_PAIRS, CRYPTO_PAIRS, FOREX_PAIRS, Config, RISK_SETTINGS
-from data_ingestion import DataFetcher
+from data_ingestion import DataFetcher, YAHOO_PAUSE_SEC, _normalize_ohlcv, yahoo_ticker
 from strategies.moving_average import MovingAverageStrategy
 
 SYMBOL = 'BTC/USDT'
 REPORT_PATH = os.path.join(REPO_ROOT, 'docs', 'btc_ema_grid_6m.md')
+REPORT_PATH_4H_6M = os.path.join(REPO_ROOT, 'docs', 'btc_ema_grid_4h_6m.md')
+REPORT_PATH_4H_1Y = os.path.join(REPO_ROOT, 'docs', 'btc_ema_grid_4h_1y.md')
+# Extra calendar days before sim start so EMA(200)/ATR are warm on 4h bars.
+BTC_4H_WARMUP_DAYS = 60
+# Default pull covers ~1y sim + EMA warmup (Yahoo 4h typically allows ~730d).
+BTC_4H_FETCH_SPAN_DAYS = 450
 PF_CAP = 10.0
 
 BOOKS = {
@@ -114,31 +124,87 @@ def simulate_long_path(
     start_idx: int,
     start_cash: float,
     risk_settings: dict,
+    *,
+    bar_times: np.ndarray | None = None,
+    parent_interval: str = '1d',
+    finer_times: np.ndarray | None = None,
+    finer_low: np.ndarray | None = None,
+    finer_close: np.ndarray | None = None,
+    slope_oc: np.ndarray | None = None,
+    slope_hl: np.ndarray | None = None,
 ) -> dict:
-    """Long-only path: entry at close, SL via wick, trail from close after entry bar."""
+    """Long-only path: entry at close, SL via wick, trail from close after entry bar.
+
+    When finer_* arrays are provided, ambiguous bars (S0 < low <= S1) are resolved
+    on the finer timeframe (4h→1h, 1d→4h).
+    """
+    from shared.intrabar_resolve import parent_bar_end, resolve_ambiguous, trail_from_close
+
     cash = float(start_cash)
     qty = 0.0
     entry_price = 0.0
     stop = 0.0
     pnls: list[float] = []
     n = len(close)
+    use_reset = slope_oc is not None and slope_hl is not None
+    if use_reset:
+        from slope_view.series import SlopeReset
+        slope_reset = SlopeReset()
+    else:
+        slope_reset = None
+    use_drill = (
+        finer_times is not None
+        and finer_low is not None
+        and finer_close is not None
+        and bar_times is not None
+        and len(bar_times) >= n
+    )
 
     for i in range(start_idx, n):
         a = atr[i]
         if qty > 0:
-            if low[i] <= stop:
-                exit_px = stop
+            s0 = float(stop)
+            if low[i] <= s0:
+                exit_px = s0
                 pnl = (exit_px - entry_price) * qty
                 cash += qty * exit_px
                 pnls.append(pnl)
                 qty = 0.0
+                if slope_reset is not None:
+                    slope_reset.on_exit()
+                    slope_reset.observe(float(slope_oc[i]), float(slope_hl[i]))
                 continue
-            if a == a and a > 0:  # not NaN
-                proposed = close[i] - trail_atr * a
-                if proposed > stop:
-                    stop = proposed
+
+            trail_dist = float(trail_atr * a) if (a == a and a > 0) else 0.0
+            s1 = trail_from_close(s0, float(close[i]), trail_dist)
+            ambiguous = bool(trail_dist > 0 and s0 < float(low[i]) <= s1)
+
+            if ambiguous and use_drill:
+                t0 = bar_times[i]
+                t1 = parent_bar_end(t0, parent_interval)
+                hit, exit_or_final = resolve_ambiguous(
+                    t0, t1, s0, trail_dist, finer_times, finer_low, finer_close,
+                )
+                if hit:
+                    exit_px = float(exit_or_final)
+                    pnl = (exit_px - entry_price) * qty
+                    cash += qty * exit_px
+                    pnls.append(pnl)
+                    qty = 0.0
+                    if slope_reset is not None:
+                        slope_reset.on_exit()
+                        slope_reset.observe(float(slope_oc[i]), float(slope_hl[i]))
+                    continue
+                stop = float(exit_or_final)
+                continue
+
+            stop = float(s1)
             continue
 
+        if slope_reset is not None:
+            slope_reset.observe(float(slope_oc[i]), float(slope_hl[i]))
+            if not slope_reset.allows_entry():
+                continue
         if not entry[i]:
             continue
         if not (a == a) or a <= 0:
@@ -321,6 +387,7 @@ def write_report(
     label: str,
     symbols: list[str] | None = None,
     book_title: str | None = None,
+    interval: str = '1d',
 ):
     symbols = symbols or [SYMBOL]
     book = book_title or ('Crypto' if len(symbols) > 1 else 'BTC')
@@ -333,7 +400,8 @@ def write_report(
         f'# {title} ({label})',
         '',
         f'Generated: {datetime.now().isoformat(timespec="seconds")}',
-        f'Window: `{start}` .. `{end}` | Symbols: `{sym_label}` | Start cash: ${Config.INITIAL_STRATEGY_CASH:,.0f}',
+        f'Window: `{start}` .. `{end}` | Interval: `{interval}` | Symbols: `{sym_label}` | '
+        f'Start cash: ${Config.INITIAL_STRATEGY_CASH:,.0f}',
         f'Elapsed: **{_fmt_duration(elapsed_s)}** ({elapsed_s:.1f}s) for **{n_configs}** configs '
         f'({n_configs / elapsed_s:.1f}/s)' if elapsed_s > 0 else f'Elapsed: n/a | Configs: {n_configs}',
         '',
@@ -342,6 +410,15 @@ def write_report(
         'Risk: no TP1; SL = `sl_atr` × ATR; trail from entry = `trail_atr` × current ATR. '
         'Long only. ADX/vol off. Metrics from vectorized path sim.',
     ]
+    if interval == '4h':
+        lines.append(
+            'Bars: **4h** (EMA/ATR windows are bar counts, not calendar days). '
+            'Ambiguous trail bars (`S0 < low ≤ S1`) resolved on **1h**.'
+        )
+    else:
+        lines.append(
+            'Ambiguous trail bars (`S0 < low ≤ S1`) resolved on **4h** when finer data is available.'
+        )
     if len(symbols) > 1:
         lines.append(
             f'Shared-cash book across: {", ".join(symbols)}.'
@@ -416,7 +493,18 @@ def _bar_dates(df: pd.DataFrame) -> np.ndarray:
     return np.array([ts.date() if hasattr(ts, 'date') else pd.Timestamp(ts).date() for ts in df.index])
 
 
-def run_grid(df: pd.DataFrame, start: date, end: date, limit: int | None = None, symbol: str = SYMBOL):
+def run_grid(
+    df: pd.DataFrame,
+    start: date,
+    end: date,
+    limit: int | None = None,
+    symbol: str = SYMBOL,
+    *,
+    parent_interval: str = '1d',
+    finer_df: pd.DataFrame | None = None,
+):
+    from shared.intrabar_resolve import finer_arrays
+
     base = MovingAverageStrategy({})
     pairs = _ema_pairs()
     ema_periods = sorted({p for pair in pairs for p in pair} | set(TREND_WINDOWS))
@@ -438,6 +526,19 @@ def run_grid(df: pd.DataFrame, start: date, end: date, limit: int | None = None,
     close_a = close_a[: end_idx + 1]
     low_a = low_a[: end_idx + 1]
     n_bars = end_idx + 1
+
+    bar_times = np.array(
+        [pd.Timestamp(ts).to_datetime64() for ts in df.index[:n_bars]],
+        dtype='datetime64[ns]',
+    )
+    finer = finer_arrays(finer_df)
+    if finer is not None:
+        finer_times, finer_low, finer_close = finer
+        drill_tf = '1h' if parent_interval == '4h' else '4h'
+        print(f'Intrabar drill enabled: {parent_interval} ambiguous bars -> {drill_tf} ({len(finer_times)} bars)')
+    else:
+        finer_times = finer_low = finer_close = None
+        print(f'Intrabar drill disabled (no finer data for {parent_interval})')
 
     combos = list(itertools.product(pairs, TREND_WINDOWS, ATR_PERIODS, SL_ATRS, TRAIL_ATRS))
     if limit is not None:
@@ -477,6 +578,11 @@ def run_grid(df: pd.DataFrame, start: date, end: date, limit: int | None = None,
                 start_idx,
                 float(Config.INITIAL_STRATEGY_CASH),
                 RISK_SETTINGS,
+                bar_times=bar_times,
+                parent_interval=parent_interval,
+                finer_times=finer_times,
+                finer_low=finer_low,
+                finer_close=finer_close,
             )
             metrics['params'] = {
                 'short_window': fast,
@@ -731,7 +837,119 @@ def run_parity(df: pd.DataFrame, start: date, end: date):
         )
 
 
-def _default_report_path(book: str | None, label: str) -> str:
+def _btc_4h_cache_path() -> str:
+    cache_dir = os.path.join(Config.DATA_DIR, 'ohlcv_cache')
+    os.makedirs(cache_dir, exist_ok=True)
+    return os.path.join(cache_dir, 'BTC_USDT_4h.csv')
+
+
+def _load_btc_4h_cache() -> pd.DataFrame | None:
+    path = _btc_4h_cache_path()
+    if not os.path.isfile(path):
+        return None
+    try:
+        df = pd.read_csv(path, index_col=0, parse_dates=True)
+        return _normalize_ohlcv(df)
+    except Exception:
+        return None
+
+
+def _save_btc_4h_cache(df: pd.DataFrame) -> None:
+    if df is None or df.empty:
+        return
+    path = _btc_4h_cache_path()
+    try:
+        df.to_csv(path)
+    except Exception as exc:
+        print(f'WARN: could not write 4h OHLCV cache: {exc}')
+
+
+def _btc_4h_cache_fresh(df: pd.DataFrame, max_age_days: int = 2) -> bool:
+    if df is None or df.empty:
+        return False
+    last = df.index[-1]
+    last_d = last.date() if hasattr(last, 'date') else pd.Timestamp(last).date()
+    return (date.today() - last_d).days <= max_age_days
+
+
+def _btc_4h_covers(df: pd.DataFrame, need_from: date | None) -> bool:
+    if need_from is None or df is None or df.empty:
+        return True
+    first = df.index[0]
+    first_d = first.date() if hasattr(first, 'date') else pd.Timestamp(first).date()
+    return first_d <= need_from
+
+
+def fetch_btc_4h(need_from: date | None = None) -> pd.DataFrame:
+    """Yahoo 4h BTC-USD with separate disk cache (does not touch daily BTC cache)."""
+    warm_from = (need_from - timedelta(days=BTC_4H_WARMUP_DAYS)) if need_from else None
+    cached = _load_btc_4h_cache()
+    if (
+        cached is not None
+        and not cached.empty
+        and _btc_4h_cache_fresh(cached)
+        and _btc_4h_covers(cached, warm_from)
+    ):
+        print(f'Using fresh 4h cache ({len(cached)} bars) -> {_btc_4h_cache_path()}')
+        return cached
+
+    try:
+        import yfinance as yf
+    except ImportError as exc:
+        if cached is not None and not cached.empty:
+            print(f'yfinance missing; using stale 4h cache ({len(cached)} bars)')
+            return cached
+        raise SystemExit(f'yfinance required for --interval 4h: {exc}') from exc
+
+    ticker = yahoo_ticker(SYMBOL, asset_type='crypto')
+    fetch_end = datetime.utcnow().date() + timedelta(days=1)
+    span = BTC_4H_FETCH_SPAN_DAYS
+    if warm_from is not None:
+        span = max(span, (fetch_end - warm_from).days + 5)
+    # Yahoo intraday history is typically capped near ~730 days.
+    span = min(span, 730)
+    fetch_start = fetch_end - timedelta(days=span)
+    print(f'Fetching {ticker} 4h from Yahoo ({fetch_start} .. {fetch_end})...')
+    stderr_buf = io.StringIO()
+    try:
+        with contextlib.redirect_stderr(stderr_buf):
+            raw = yf.download(
+                ticker,
+                start=fetch_start.isoformat(),
+                end=fetch_end.isoformat(),
+                interval='4h',
+                progress=False,
+                auto_adjust=False,
+                threads=False,
+                multi_level_index=False,
+            )
+        time.sleep(YAHOO_PAUSE_SEC)
+        df = _normalize_ohlcv(raw)
+    except Exception as exc:
+        if cached is not None and not cached.empty:
+            print(f'Yahoo 4h miss ({exc}); using stale cache ({len(cached)} bars)')
+            return cached
+        raise SystemExit(f'Yahoo 4h fetch failed for {SYMBOL}: {exc}') from exc
+
+    if df.empty:
+        err_text = stderr_buf.getvalue().strip()
+        if cached is not None and not cached.empty:
+            print(f'Yahoo 4h empty ({err_text or "no rows"}); using stale cache ({len(cached)} bars)')
+            return cached
+        raise SystemExit(f'No 4h Yahoo data for {SYMBOL}' + (f': {err_text}' if err_text else ''))
+
+    _save_btc_4h_cache(df)
+    print(f'Loaded {len(df)} 4h bars (cached -> {_btc_4h_cache_path()})')
+    return df
+
+
+def _default_report_path(book: str | None, label: str, interval: str = '1d') -> str:
+    if interval == '4h':
+        if '2y' in label:
+            return os.path.join(REPO_ROOT, 'docs', 'btc_ema_grid_4h_2y.md')
+        if '1y' in label:
+            return REPORT_PATH_4H_1Y
+        return REPORT_PATH_4H_6M
     if book in ('crypto', 'forex', 'commodities'):
         prefix = 'commodities' if book == 'commodities' else book
         if '10y' in label:
@@ -760,6 +978,12 @@ def main():
     parser.add_argument('--report', default=None, help='Report markdown path (default under docs/)')
     parser.add_argument('--label', default=None, help='Report title label (e.g. 2y pass)')
     parser.add_argument(
+        '--interval',
+        choices=('1d', '4h'),
+        default='1d',
+        help='Bar interval (4h is BTC-only scratch fetch; default 1d via DataFetcher)',
+    )
+    parser.add_argument(
         '--book',
         choices=sorted(BOOKS.keys()),
         default=None,
@@ -775,6 +999,12 @@ def main():
     book = args.book
     if args.all_crypto:
         book = 'crypto'
+    interval = args.interval
+
+    if interval == '4h' and book:
+        raise SystemExit('--interval 4h is BTC-only (omit --book / --all-crypto)')
+    if interval == '4h' and args.parity:
+        raise SystemExit('--parity is daily BTC-only (omit --interval 4h)')
 
     fetcher = DataFetcher(Config)
     book_title = None
@@ -795,6 +1025,18 @@ def main():
             raise SystemExit(f'No {book} market data')
         last_bar = max(df.index[-1].date() for df in market.values())
         symbols = list(market.keys())
+    elif interval == '4h':
+        print('Loading BTC/USDT (4h)...')
+        # Prefer explicit --start so fetch covers warmup; else pull default span (~1y+).
+        need_from = date.fromisoformat(args.start) if args.start else (
+            date.today() - timedelta(days=365)
+        )
+        df = fetch_btc_4h(need_from=need_from)
+        if df.empty:
+            raise SystemExit('No BTC 4h data')
+        market = {SYMBOL: df}
+        last_bar = df.index[-1].date()
+        symbols = [SYMBOL]
     else:
         print('Loading BTC/USDT...')
         df = fetcher.get_data(SYMBOL, asset_type='crypto')
@@ -812,9 +1054,25 @@ def main():
     else:
         start = end - timedelta(days=182)
 
+    if interval == '4h':
+        # Ensure enough pre-window bars for trend EMA(200) on 4h.
+        warm_need = start - timedelta(days=BTC_4H_WARMUP_DAYS)
+        first_bar = market[SYMBOL].index[0].date()
+        if first_bar > warm_need:
+            print(
+                f'WARN: 4h history starts {first_bar}; wanted warmup from {warm_need} '
+                f'(EMA200 may be cold at sim start)'
+            )
+
     span_days = (end - start).days
     if args.label:
         label = args.label
+    elif interval == '4h' and span_days >= 600:
+        label = '4h 2y pass'
+    elif interval == '4h' and span_days >= 300:
+        label = '4h 1y pass'
+    elif interval == '4h' and span_days >= 150:
+        label = '4h 6m pass'
     elif span_days >= 3000:
         label = '10y pass'
     elif span_days >= 1200:
@@ -826,7 +1084,7 @@ def main():
     else:
         label = f'{span_days}d pass'
 
-    report_path = args.report or _default_report_path(book, label)
+    report_path = args.report or _default_report_path(book, label, interval=interval)
 
     if args.parity:
         if book:
@@ -838,7 +1096,23 @@ def main():
     if book:
         results, elapsed = run_grid_multi(market, start, end, limit=args.limit)
     else:
-        results, elapsed = run_grid(market[SYMBOL], start, end, limit=args.limit, symbol=SYMBOL)
+        finer_df = None
+        drill_tf = '1h' if interval == '4h' else '4h'
+        try:
+            from sim_player.ohlcv import fetch_btc_intraday
+            print(f'Loading finer {drill_tf} for ambiguous-bar drill...')
+            finer_df = fetch_btc_intraday(drill_tf, need_from=start)
+        except Exception as exc:
+            print(f'WARN: could not load {drill_tf} drill data ({exc}); grid runs without intrabar resolve')
+        results, elapsed = run_grid(
+            market[SYMBOL],
+            start,
+            end,
+            limit=args.limit,
+            symbol=SYMBOL,
+            parent_interval=interval if interval == '4h' else '1d',
+            finer_df=finer_df,
+        )
     rate = len(results) / elapsed if elapsed > 0 else 0
     print(f'\nTimed {len(results)} configs in {_fmt_duration(elapsed)} ({rate:.1f}/s)')
     if args.limit and args.limit < n_full:
@@ -850,6 +1124,7 @@ def main():
         ranked, start, end, args.min_trades, elapsed, len(results), report_path, label,
         symbols=symbols,
         book_title=book_title,
+        interval=interval,
     )
 
     print(f'\n=== Top {REPORT_TOP_N} (eligible) ===')

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midpoint slope viewer (local)</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Slope View</div>
+    <label class="field">
+      <span>Interval</span>
+      <select id="interval">
+        <option value="4h" selected>4h</option>
+        <option value="1h">1h</option>
+        <option value="1d">1d</option>
+      </select>
+    </label>
+    <label class="field">
+      <span>Trend</span>
+      <input id="p-trend" type="number" min="2" max="400" step="1" value="150" />
+    </label>
+    <label class="field">
+      <span>Span</span>
+      <input id="p-span" type="number" min="1" max="200" step="1" value="1" />
+    </label>
+    <label class="field">
+      <span>Start</span>
+      <input id="p-start" type="date" />
+    </label>
+    <label class="field">
+      <span>End</span>
+      <input id="p-end" type="date" />
+    </label>
+    <button type="button" id="btn-load" class="btn primary">Load</button>
+  </header>
+
+  <main class="layout">
+    <section class="chart-wrap">
+      <div id="price-chart"></div>
+      <div id="slope-chart"></div>
+    </section>
+    <aside class="side">
+      <h2>State</h2>
+      <dl id="stats">
+        <div><dt>Symbol</dt><dd id="s-symbol">BTC/USDT</dd></div>
+        <div><dt>Interval</dt><dd id="s-interval">-</dd></div>
+        <div><dt>Bar</dt><dd id="s-bar">-</dd></div>
+        <div><dt>Trend</dt><dd id="s-trend">-</dd></div>
+        <div><dt>OC avg</dt><dd id="s-oc-avg">-</dd></div>
+        <div><dt>HL avg</dt><dd id="s-hl-avg">-</dd></div>
+        <div><dt>OC slope</dt><dd id="s-oc">-</dd></div>
+        <div><dt>HL slope</dt><dd id="s-hl">-</dd></div>
+        <div><dt>Status</dt><dd id="s-status">Idle</dd></div>
+      </dl>
+      <p class="hint">
+        OC avg is (open + close) / 2. HL avg is (high + low) / 2.
+        Each slope is (midpoint now minus midpoint Span bars ago) / Span.
+        The trend line is an EMA of close. Nothing here places a trade.
+      </p>
+    </aside>
+  </main>
+
+  <script src="/app.js?v=2"></script>
+</body>
+</html>
