@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-10-07T19:26:00.227655",
+    "last_updated": "2026-10-08T03:47:08.026529",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
@@ -133,18 +133,18 @@ window.REPORT_DATA = {
           "qty": 1.3884955431685397,
           "entry": 2251.4580078125,
           "entry_date": "2026-08-19",
-          "current_price": 2711.031494140625,
-          "unrealized_pnl": 638.1157375250294,
+          "current_price": 2697.516357421875,
+          "unrealized_pnl": 619.3500304257316,
           "sl": 2437.5153747558593,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 3764.255147003805,
-          "hold_days": 49,
+          "value": 3745.489439904507,
+          "hold_days": 50,
           "chart_id": "open:ma_crypto_long_trail:ETH/USDT"
         }
       ],
       "current_cash": 40404.161317074904,
-      "current_equity": 44168.42,
+      "current_equity": 44149.65,
       "history_events": 231,
       "equity_curve": [
         {
@@ -1308,8 +1308,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:26:00.902859",
-          "equity": 44168.42,
+          "time": "2026-10-08T03:47:08.175836",
+          "equity": 44149.65,
           "type": "current"
         }
       ],
@@ -4102,12 +4102,12 @@ window.REPORT_DATA = {
         "profit_factor": 4.576420926431086,
         "total_pnl": 33530.300726553665,
         "avg_pnl": 291.56783240481445,
-        "avg_monthly_pnl": 699.8662743943472,
+        "avg_monthly_pnl": 699.0114135003363,
         "max_drawdown": 22.9963,
         "total_trades": 115
       },
       "exposure": {
-        "ETH/USDT": 3764.255147003805
+        "ETH/USDT": 3745.489439904507
       }
     },
     "ma_crypto_long_tp1": {
@@ -4118,18 +4118,18 @@ window.REPORT_DATA = {
           "qty": 0.7613587595419865,
           "entry": 2251.4580078125,
           "entry_date": "2026-08-19",
-          "current_price": 2711.031494140625,
-          "unrealized_pnl": 349.90029946916735,
+          "current_price": 2697.516357421875,
+          "unrealized_pnl": 339.61043174193946,
           "sl": 2437.5153747558593,
           "tp1": true,
           "tp_price": 2326.780871582031,
-          "value": 2064.0675754581644,
-          "hold_days": 49,
+          "value": 2053.7777077309365,
+          "hold_days": 50,
           "chart_id": "open:ma_crypto_long_tp1:ETH/USDT"
         }
       ],
       "current_cash": 13285.700901762615,
-      "current_equity": 15349.77,
+      "current_equity": 15339.48,
       "history_events": 360,
       "equity_curve": [
         {
@@ -5938,8 +5938,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:26:17.032875",
-          "equity": 15349.77,
+          "time": "2026-10-08T03:47:19.057097",
+          "equity": 15339.48,
           "type": "current"
         }
       ],
@@ -10919,12 +10919,12 @@ window.REPORT_DATA = {
         "profit_factor": 1.7680018006860772,
         "total_pnl": 4942.520455626886,
         "avg_pnl": 35.05333656472969,
-        "avg_monthly_pnl": 109.57848208277255,
+        "avg_monthly_pnl": 109.29416442501682,
         "max_drawdown": 13.389400000000004,
         "total_trades": 141
       },
       "exposure": {
-        "ETH/USDT": 2064.0675754581644
+        "ETH/USDT": 2053.7777077309365
       }
     },
     "ma_crypto_ls_trail": {
@@ -10935,13 +10935,13 @@ window.REPORT_DATA = {
           "qty": 178.781332078594,
           "entry": 6.354040145874023,
           "entry_date": "2025-01-23",
-          "current_price": 1.2309110164642334,
-          "unrealized_pnl": 915.9198501665298,
+          "current_price": 1.2014100551605225,
+          "unrealized_pnl": 921.1940713260063,
           "sl": 3.315879738330841,
           "tp1": false,
           "tp_price": 5.784021091461182,
-          "value": 220.0639111936918,
-          "hold_days": 622,
+          "value": 214.7896900342153,
+          "hold_days": 623,
           "chart_id": "open:ma_crypto_ls_trail:DOT/USDT"
         },
         {
@@ -10950,13 +10950,13 @@ window.REPORT_DATA = {
           "qty": 52.72471217469674,
           "entry": 19.113391876220703,
           "entry_date": "2025-10-14",
-          "current_price": 13.861173629760742,
-          "unrealized_pnl": 276.9216953232919,
+          "current_price": 13.959114074707031,
+          "unrealized_pnl": 271.75781355323704,
           "sl": 19.464516448974607,
           "tp1": false,
           "tp_price": 16.385600662231447,
-          "value": 730.8263900326316,
-          "hold_days": 358,
+          "value": 735.9902718026865,
+          "hold_days": 359,
           "chart_id": "open:ma_crypto_ls_trail:LINK/USDT"
         },
         {
@@ -10965,13 +10965,13 @@ window.REPORT_DATA = {
           "qty": 4653.109063414529,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.09543000161647797,
-          "unrealized_pnl": 469.4847416346078,
+          "current_price": 0.09374599903821945,
+          "unrealized_pnl": 477.32058929431594,
           "sl": 0.20807759240269652,
           "tp1": false,
           "tp_price": 0.1654182031750679,
-          "value": 444.0462054432968,
-          "hold_days": 357,
+          "value": 436.2103577835887,
+          "hold_days": 358,
           "chart_id": "open:ma_crypto_ls_trail:DOGE/USDT"
         },
         {
@@ -10980,13 +10980,13 @@ window.REPORT_DATA = {
           "qty": 40.570653581267656,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 11.141276359558105,
-          "unrealized_pnl": 357.6440683585047,
+          "current_price": 11.62490177154541,
+          "unrealized_pnl": 338.0230693056699,
           "sl": 21.85813755989075,
           "tp1": false,
           "tp_price": 16.41163911819458,
-          "value": 452.0088636367987,
-          "hold_days": 355,
+          "value": 471.6298626896335,
+          "hold_days": 356,
           "chart_id": "open:ma_crypto_ls_trail:AVAX/USDT"
         },
         {
@@ -10995,18 +10995,18 @@ window.REPORT_DATA = {
           "qty": 1.4524589630589975,
           "entry": 2251.4580078125,
           "entry_date": "2026-08-19",
-          "current_price": 2711.031494140625,
-          "unrealized_pnl": 667.5116294015568,
+          "current_price": 2697.516357421875,
+          "unrealized_pnl": 647.8814479374406,
           "sl": 2437.5153747558593,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 3937.6619927997767,
-          "hold_days": 49,
+          "value": 3918.0318113356607,
+          "hold_days": 50,
           "chart_id": "open:ma_crypto_ls_trail:ETH/USDT"
         }
       ],
       "current_cash": 6973.227852201795,
-      "current_equity": 12757.84,
+      "current_equity": 12749.88,
       "history_events": 405,
       "equity_curve": [
         {
@@ -13040,8 +13040,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:26:48.587841",
-          "equity": 12757.84,
+          "time": "2026-10-08T03:47:38.817716",
+          "equity": 12749.88,
           "type": "current"
         }
       ],
@@ -17643,16 +17643,16 @@ window.REPORT_DATA = {
         "profit_factor": 1.3325071343846835,
         "total_pnl": 4110.293941389367,
         "avg_pnl": 20.551469706946836,
-        "avg_monthly_pnl": 56.48839502018843,
+        "avg_monthly_pnl": 56.28747310020174,
         "max_drawdown": 34.1219,
         "total_trades": 200
       },
       "exposure": {
-        "DOT/USDT": 220.0639111936918,
-        "LINK/USDT": 730.8263900326316,
-        "DOGE/USDT": 444.0462054432968,
-        "AVAX/USDT": 452.0088636367987,
-        "ETH/USDT": 3937.6619927997767
+        "DOT/USDT": 214.7896900342153,
+        "LINK/USDT": 735.9902718026865,
+        "DOGE/USDT": 436.2103577835887,
+        "AVAX/USDT": 471.6298626896335,
+        "ETH/USDT": 3918.0318113356607
       }
     },
     "ma_crypto_ls_tp1": {
@@ -17663,13 +17663,13 @@ window.REPORT_DATA = {
           "qty": 1671.5230715358175,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.09543000161647797,
-          "unrealized_pnl": 168.6516620782607,
+          "current_price": 0.09374599903821945,
+          "unrealized_pnl": 171.4665112403456,
           "sl": 0.1963270008563995,
           "tp1": true,
           "tp_price": 0.1654182031750679,
-          "value": 159.5134494186433,
-          "hold_days": 357,
+          "value": 156.69860025655836,
+          "hold_days": 358,
           "chart_id": "open:ma_crypto_ls_tp1:DOGE/USDT"
         },
         {
@@ -17678,13 +17678,13 @@ window.REPORT_DATA = {
           "qty": 14.574079946153788,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 11.141276359558105,
-          "unrealized_pnl": 128.47545662737815,
+          "current_price": 11.62490177154541,
+          "unrealized_pnl": 121.42706120908362,
           "sl": 19.956615447998047,
           "tp1": true,
           "tp_price": 16.41163911819458,
-          "value": 162.37385236639307,
-          "hold_days": 355,
+          "value": 169.4222477846876,
+          "hold_days": 356,
           "chart_id": "open:ma_crypto_ls_tp1:AVAX/USDT"
         },
         {
@@ -17693,18 +17693,18 @@ window.REPORT_DATA = {
           "qty": 0.5405525099495099,
           "entry": 2251.4580078125,
           "entry_date": "2026-08-19",
-          "current_price": 2711.031494140625,
-          "unrealized_pnl": 248.42360154091472,
+          "current_price": 2697.516357421875,
+          "unrealized_pnl": 241.11796046528363,
           "sl": 2437.5153747558593,
           "tp1": true,
           "tp_price": 2326.780871582031,
-          "value": 1465.4548787098847,
-          "hold_days": 49,
+          "value": 1458.1492376342537,
+          "hold_days": 50,
           "chart_id": "open:ma_crypto_ls_tp1:ETH/USDT"
         }
       ],
       "current_cash": 8465.792112087398,
-      "current_equity": 10253.13,
+      "current_equity": 10250.06,
       "history_events": 623,
       "equity_curve": [
         {
@@ -20828,8 +20828,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:27:17.066955",
-          "equity": 10253.13,
+          "time": "2026-10-08T03:47:57.439961",
+          "equity": 10250.06,
           "type": "current"
         }
       ],
@@ -29037,14 +29037,14 @@ window.REPORT_DATA = {
         "profit_factor": 1.0148869222612074,
         "total_pnl": 157.79230980427383,
         "avg_pnl": 0.6362593137269106,
-        "avg_monthly_pnl": 5.184821248317615,
+        "avg_monthly_pnl": 5.1184944519166,
         "max_drawdown": 20.402299999999997,
         "total_trades": 248
       },
       "exposure": {
-        "DOGE/USDT": 159.5134494186433,
-        "AVAX/USDT": 162.37385236639307,
-        "ETH/USDT": 1465.4548787098847
+        "DOGE/USDT": 156.69860025655836,
+        "AVAX/USDT": 169.4222477846876,
+        "ETH/USDT": 1458.1492376342537
       }
     },
     "ma_forex_long_trail": {
@@ -29055,13 +29055,13 @@ window.REPORT_DATA = {
           "qty": 3435.4553681074694,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8311200141906738,
-          "unrealized_pnl": 62.31922216859216,
+          "current_price": 0.8321800231933594,
+          "unrealized_pnl": 65.96083578711047,
           "sl": 0.8207802275816599,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2855.2757142929067,
-          "hold_days": 34,
+          "value": 2858.9173279114248,
+          "hold_days": 35,
           "chart_id": "open:ma_forex_long_trail:USD/CHF"
         },
         {
@@ -29070,18 +29070,18 @@ window.REPORT_DATA = {
           "qty": 2034.4478254489306,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.4263700246810913,
-          "unrealized_pnl": 54.84874449492143,
+          "current_price": 1.4212199449539185,
+          "unrealized_pnl": 44.37117599308599,
           "sl": 1.4098640510014124,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2901.8753949979837,
-          "hold_days": 16,
+          "value": 2891.3978264961484,
+          "hold_days": 17,
           "chart_id": "open:ma_forex_long_trail:USD/CAD"
         }
       ],
       "current_cash": 5748.123459384872,
-      "current_equity": 11505.27,
+      "current_equity": 11498.44,
       "history_events": 188,
       "equity_curve": [
         {
@@ -30030,8 +30030,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:28:08.075153",
-          "equity": 11505.27,
+          "time": "2026-10-08T03:48:30.556074",
+          "equity": 11498.44,
           "type": "current"
         }
       ],
@@ -32235,13 +32235,13 @@ window.REPORT_DATA = {
         "profit_factor": 3.068255037110134,
         "total_pnl": 1388.106602012256,
         "avg_pnl": 14.925877440992,
-        "avg_monthly_pnl": 31.062139406779668,
+        "avg_monthly_pnl": 30.90024898373985,
         "max_drawdown": 1.2822899813316826,
         "total_trades": 93
       },
       "exposure": {
-        "USD/CHF": 2855.2757142929067,
-        "USD/CAD": 2901.8753949979837
+        "USD/CHF": 2858.9173279114248,
+        "USD/CAD": 2891.3978264961484
       }
     },
     "ma_forex_long_tp1": {
@@ -32252,13 +32252,13 @@ window.REPORT_DATA = {
           "qty": 1684.6139692439956,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8311200141906738,
-          "unrealized_pnl": 30.558927702054284,
+          "current_price": 0.8321800231933594,
+          "unrealized_pnl": 32.344633675502756,
           "sl": 0.8207802275816599,
           "tp1": true,
           "tp_price": 0.8189318974812826,
-          "value": 1400.1163860238769,
-          "hold_days": 34,
+          "value": 1401.9020919973254,
+          "hold_days": 35,
           "chart_id": "open:ma_forex_long_tp1:USD/CHF"
         },
         {
@@ -32267,18 +32267,18 @@ window.REPORT_DATA = {
           "qty": 974.3624089508947,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.4263700246810913,
-          "unrealized_pnl": 26.268825450075568,
+          "current_price": 1.4212199449539185,
+          "unrealized_pnl": 21.250781360818262,
           "sl": 1.4098640510014124,
           "tp1": true,
           "tp_price": 1.4060123988560267,
-          "value": 1389.8013333036154,
-          "hold_days": 16,
+          "value": 1384.783289214358,
+          "hold_days": 17,
           "chart_id": "open:ma_forex_long_tp1:USD/CAD"
         }
       ],
       "current_cash": 8181.6032167636,
-      "current_equity": 10971.52,
+      "current_equity": 10968.29,
       "history_events": 276,
       "equity_curve": [
         {
@@ -33667,8 +33667,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:28:21.972619",
-          "equity": 10971.52,
+          "time": "2026-10-08T03:48:39.977989",
+          "equity": 10968.29,
           "type": "current"
         }
       ],
@@ -37580,13 +37580,13 @@ window.REPORT_DATA = {
         "profit_factor": 2.487755531291582,
         "total_pnl": 902.077567990426,
         "avg_pnl": 9.02077567990426,
-        "avg_monthly_pnl": 20.047891525423736,
+        "avg_monthly_pnl": 19.967701134823866,
         "max_drawdown": 0.8090217031538066,
         "total_trades": 100
       },
       "exposure": {
-        "USD/CHF": 1400.1163860238769,
-        "USD/CAD": 1389.8013333036154
+        "USD/CHF": 1401.9020919973254,
+        "USD/CAD": 1384.783289214358
       }
     },
     "ma_forex_ls_trail": {
@@ -37597,13 +37597,13 @@ window.REPORT_DATA = {
           "qty": 3213.244878017775,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8311200141906738,
-          "unrealized_pnl": 58.2883198816211,
+          "current_price": 0.8321800231933594,
+          "unrealized_pnl": 61.694388380153164,
           "sl": 0.8207802275816599,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2670.5921286162434,
-          "hold_days": 34,
+          "value": 2673.9981971147754,
+          "hold_days": 35,
           "chart_id": "open:ma_forex_ls_trail:USD/CHF"
         },
         {
@@ -37612,13 +37612,13 @@ window.REPORT_DATA = {
           "qty": 2348.030756473409,
           "entry": 1.1469862461090088,
           "entry_date": "2026-09-17",
-          "current_price": 1.1217050552368164,
-          "unrealized_pnl": 59.36101372818252,
+          "current_price": 1.1253530979156494,
+          "unrealized_pnl": 50.79529731735497,
           "sl": 1.1293834107262748,
           "tp1": false,
           "tp_price": 1.14186734244937,
-          "value": 2633.797969387749,
-          "hold_days": 20,
+          "value": 2642.3636857985766,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_ls_trail:EUR/USD"
         },
         {
@@ -37627,13 +37627,13 @@ window.REPORT_DATA = {
           "qty": 181.2497985083536,
           "entry": 1.3382940292358398,
           "entry_date": "2026-09-17",
-          "current_price": 1.32185959815979,
-          "unrealized_pnl": 2.978737321133452,
+          "current_price": 1.326682209968567,
+          "unrealized_pnl": 2.10463990250864,
           "sl": 1.3295864633151464,
           "tp1": false,
           "tp_price": 1.3318748757952736,
-          "value": 239.58678582279518,
-          "hold_days": 20,
+          "value": 240.46088324142,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_ls_trail:GBP/USD"
         },
         {
@@ -37642,13 +37642,13 @@ window.REPORT_DATA = {
           "qty": 1926.5087451747424,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.4263700246810913,
-          "unrealized_pnl": 51.9387052395921,
+          "current_price": 1.4212199449539185,
+          "unrealized_pnl": 42.01703160684645,
           "sl": 1.4098640510014124,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2747.9143264032355,
-          "hold_days": 16,
+          "value": 2737.99265277049,
+          "hold_days": 17,
           "chart_id": "open:ma_forex_ls_trail:USD/CAD"
         },
         {
@@ -37657,18 +37657,18 @@ window.REPORT_DATA = {
           "qty": 3610.846817484705,
           "entry": 0.7034080028533936,
           "entry_date": "2026-09-24",
-          "current_price": 0.6967300772666931,
-          "unrealized_pnl": 24.11296635213696,
+          "current_price": 0.6981801986694336,
+          "unrealized_pnl": 18.87680010008505,
           "sl": 0.7022180131503514,
           "tp1": false,
           "tp_price": 0.6987340365137372,
-          "value": 2515.7855821443113,
-          "hold_days": 13,
+          "value": 2521.0217483963634,
+          "hold_days": 14,
           "chart_id": "open:ma_forex_ls_trail:AUD/USD"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10807.68,
+      "current_equity": 10815.84,
       "history_events": 337,
       "equity_curve": [
         {
@@ -39362,8 +39362,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:28:48.922682",
-          "equity": 10807.68,
+          "time": "2026-10-08T03:48:56.687673",
+          "equity": 10815.84,
           "type": "current"
         }
       ],
@@ -43119,16 +43119,16 @@ window.REPORT_DATA = {
         "profit_factor": 1.4471874886603184,
         "total_pnl": 783.9024846545658,
         "avg_pnl": 4.722304124425095,
-        "avg_monthly_pnl": 16.666955932203397,
+        "avg_monthly_pnl": 16.82393631436315,
         "max_drawdown": 2.587799261142826,
         "total_trades": 166
       },
       "exposure": {
-        "USD/CHF": 2670.5921286162434,
-        "EUR/USD": 2633.797969387749,
-        "GBP/USD": 239.58678582279518,
-        "USD/CAD": 2747.9143264032355,
-        "AUD/USD": 2515.7855821443113
+        "USD/CHF": 2673.9981971147754,
+        "EUR/USD": 2642.3636857985766,
+        "GBP/USD": 240.46088324142,
+        "USD/CAD": 2737.99265277049,
+        "AUD/USD": 2521.0217483963634
       }
     },
     "ma_forex_ls_tp1": {
@@ -43139,13 +43139,13 @@ window.REPORT_DATA = {
           "qty": 1610.5281122964193,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8311200141906738,
-          "unrealized_pnl": 29.215008924494978,
+          "current_price": 0.8321800231933594,
+          "unrealized_pnl": 30.92218322260734,
           "sl": 0.8207802275816599,
           "tp1": true,
           "tp_price": 0.8189318974812826,
-          "value": 1338.5421475462792,
-          "hold_days": 34,
+          "value": 1340.2493218443915,
+          "hold_days": 35,
           "chart_id": "open:ma_forex_ls_tp1:USD/CHF"
         },
         {
@@ -43154,13 +43154,13 @@ window.REPORT_DATA = {
           "qty": 1132.461657509325,
           "entry": 1.1469862461090088,
           "entry_date": "2026-09-17",
-          "current_price": 1.1217050552368164,
-          "unrealized_pnl": 28.629979318932605,
+          "current_price": 1.1253530979156494,
+          "unrealized_pnl": 24.498710860196617,
           "sl": 1.1293834107262748,
           "tp1": true,
           "tp_price": 1.14186734244937,
-          "value": 1270.2879660900742,
-          "hold_days": 20,
+          "value": 1274.4192345488102,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_ls_tp1:EUR/USD"
         },
         {
@@ -43169,13 +43169,13 @@ window.REPORT_DATA = {
           "qty": 970.5774045414245,
           "entry": 1.3382940292358398,
           "entry_date": "2026-09-17",
-          "current_price": 1.32185959815979,
-          "unrealized_pnl": 15.95088745890735,
+          "current_price": 1.326682209968567,
+          "unrealized_pnl": 11.270169406433885,
           "sl": 1.3295864633151464,
           "tp1": true,
           "tp_price": 1.3318748757952736,
-          "value": 1282.9670579500994,
-          "hold_days": 20,
+          "value": 1287.6477760025728,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_ls_tp1:GBP/USD"
         },
         {
@@ -43184,13 +43184,13 @@ window.REPORT_DATA = {
           "qty": 928.8606142435069,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.4263700246810913,
-          "unrealized_pnl": 25.042096368726348,
+          "current_price": 1.4212199449539185,
+          "unrealized_pnl": 20.25839014994154,
           "sl": 1.4098640510014124,
           "tp1": true,
           "tp_price": 1.4060123988560267,
-          "value": 1324.8989372638046,
-          "hold_days": 16,
+          "value": 1320.1152310450198,
+          "hold_days": 17,
           "chart_id": "open:ma_forex_ls_tp1:USD/CAD"
         },
         {
@@ -43199,13 +43199,13 @@ window.REPORT_DATA = {
           "qty": 1851.168637521319,
           "entry": 0.7034080028533936,
           "entry_date": "2026-09-24",
-          "current_price": 0.6967300772666931,
-          "unrealized_pnl": 12.361966409801006,
+          "current_price": 0.6981801986694336,
+          "unrealized_pnl": 9.677547148449412,
           "sl": 0.7022180131503514,
           "tp1": true,
           "tp_price": 0.6987340365137372,
-          "value": 1289.7648678539076,
-          "hold_days": 13,
+          "value": 1292.4492871152593,
+          "hold_days": 14,
           "chart_id": "open:ma_forex_ls_tp1:AUD/USD"
         },
         {
@@ -43214,18 +43214,18 @@ window.REPORT_DATA = {
           "qty": 1527.9919402597673,
           "entry": 0.8521999716758728,
           "entry_date": "2026-10-02",
-          "current_price": 0.8485400080680847,
-          "unrealized_pnl": 5.592394894344255,
+          "current_price": 0.8481900095939636,
+          "unrealized_pnl": 6.127189741904504,
           "sl": 0.8521999716758728,
           "tp1": true,
           "tp_price": 0.8494709219251361,
-          "value": 1296.5622933159914,
-          "hold_days": 5,
+          "value": 1296.027498468431,
+          "hold_days": 6,
           "chart_id": "open:ma_forex_ls_tp1:EUR/GBP"
         }
       ],
       "current_cash": 2610.1060788974582,
-      "current_equity": 10413.13,
+      "current_equity": 10421.01,
       "history_events": 514,
       "equity_curve": [
         {
@@ -45804,8 +45804,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:29:13.868593",
-          "equity": 10413.13,
+          "time": "2026-10-08T03:49:13.142803",
+          "equity": 10421.01,
           "type": "current"
         }
       ],
@@ -52717,17 +52717,17 @@ window.REPORT_DATA = {
         "profit_factor": 1.20575488634235,
         "total_pnl": 384.51465739989635,
         "avg_pnl": 2.0026805072911267,
-        "avg_monthly_pnl": 8.525182627118628,
+        "avg_monthly_pnl": 8.681905064363148,
         "max_drawdown": 3.431662179902465,
         "total_trades": 192
       },
       "exposure": {
-        "USD/CHF": 1338.5421475462792,
-        "EUR/USD": 1270.2879660900742,
-        "GBP/USD": 1282.9670579500994,
-        "USD/CAD": 1324.8989372638046,
-        "AUD/USD": 1289.7648678539076,
-        "EUR/GBP": 1296.5622933159914
+        "USD/CHF": 1340.2493218443915,
+        "EUR/USD": 1274.4192345488102,
+        "GBP/USD": 1287.6477760025728,
+        "USD/CAD": 1320.1152310450198,
+        "AUD/USD": 1292.4492871152593,
+        "EUR/GBP": 1296.027498468431
       }
     },
     "ma_commodities_long_trail": {
@@ -52738,13 +52738,13 @@ window.REPORT_DATA = {
           "qty": 25.286928857180477,
           "entry": 82.4000015258789,
           "entry_date": "2026-08-14",
-          "current_price": 90.16000366210938,
-          "unrealized_pnl": 196.22662195042838,
+          "current_price": 89.69999694824219,
+          "unrealized_pnl": 184.59446490304344,
           "sl": 85.27849884033205,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2279.8695983668913,
-          "hold_days": 54,
+          "value": 2268.237441319506,
+          "hold_days": 55,
           "chart_id": "open:ma_commodities_long_trail:CL/USD"
         },
         {
@@ -52753,18 +52753,18 @@ window.REPORT_DATA = {
           "qty": 535.1149467975785,
           "entry": 6.625,
           "entry_date": "2026-09-17",
-          "current_price": 6.623499870300293,
-          "unrealized_pnl": -0.8027418244481954,
+          "current_price": 6.724999904632568,
+          "unrealized_pnl": 53.511443647219735,
           "sl": 6.484850025177002,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 3544.333780709509,
-          "hold_days": 20,
+          "value": 3598.647966181177,
+          "hold_days": 21,
           "chart_id": "open:ma_commodities_long_trail:HG/USD"
         }
       ],
       "current_cash": 8551.76659118541,
-      "current_equity": 14375.97,
+      "current_equity": 14418.65,
       "history_events": 176,
       "equity_curve": [
         {
@@ -53653,8 +53653,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:29:58.198313",
-          "equity": 14375.97,
+          "time": "2026-10-08T03:49:43.022129",
+          "equity": 14418.65,
           "type": "current"
         }
       ],
@@ -55699,13 +55699,13 @@ window.REPORT_DATA = {
         "profit_factor": 1.9238515599528039,
         "total_pnl": 4180.546090135817,
         "avg_pnl": 48.052253909607096,
-        "avg_monthly_pnl": 89.81361218813215,
+        "avg_monthly_pnl": 90.62847666778974,
         "max_drawdown": 14.818099999999996,
         "total_trades": 87
       },
       "exposure": {
-        "CL/USD": 2279.8695983668913,
-        "HG/USD": 3544.333780709509
+        "CL/USD": 2268.237441319506,
+        "HG/USD": 3598.647966181177
       }
     },
     "ma_commodities_long_tp1": {
@@ -56945,7 +56945,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:30:09.860534",
+          "time": "2026-10-08T03:49:51.152423",
           "equity": 9871.1,
           "type": "current"
         }
@@ -60236,7 +60236,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.959334205088672,
         "total_pnl": -128.90109774962502,
         "avg_pnl": -1.3020312904002527,
-        "avg_monthly_pnl": -2.645579062710714,
+        "avg_monthly_pnl": -2.643796327493254,
         "max_drawdown": 14.306000000000004,
         "total_trades": 99
       },
@@ -60250,13 +60250,13 @@ window.REPORT_DATA = {
           "qty": 90.9781026545249,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 3.134999990463257,
-          "unrealized_pnl": 34.025816986816785,
+          "current_price": 3.2739999294281006,
+          "unrealized_pnl": 21.379866270700532,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 285.21635095430076,
-          "hold_days": 244,
+          "value": 297.862301670417,
+          "hold_days": 245,
           "chart_id": "open:ma_commodities_ls_trail:NG/USD"
         },
         {
@@ -60265,13 +60265,13 @@ window.REPORT_DATA = {
           "qty": 19.24513906661786,
           "entry": 82.4000015258789,
           "entry_date": "2026-08-14",
-          "current_price": 90.16000366210938,
-          "unrealized_pnl": 149.34232026900705,
+          "current_price": 89.69999694824219,
+          "unrealized_pnl": 140.4894270890551,
           "sl": 85.27849884033205,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 1735.1418087240704,
-          "hold_days": 54,
+          "value": 1726.2889155441185,
+          "hold_days": 55,
           "chart_id": "open:ma_commodities_ls_trail:CL/USD"
         },
         {
@@ -60280,13 +60280,13 @@ window.REPORT_DATA = {
           "qty": 411.58411308265613,
           "entry": 6.625,
           "entry_date": "2026-09-17",
-          "current_price": 6.623499870300293,
-          "unrealized_pnl": -0.6174295519628697,
+          "current_price": 6.724999904632568,
+          "unrealized_pnl": 41.15837205654584,
           "sl": 6.484850025177002,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2726.127319620634,
-          "hold_days": 20,
+          "value": 2767.903121229143,
+          "hold_days": 21,
           "chart_id": "open:ma_commodities_ls_trail:HG/USD"
         },
         {
@@ -60295,13 +60295,13 @@ window.REPORT_DATA = {
           "qty": 1.0383354215199287,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1163.0,
-          "unrealized_pnl": 148.68958166168204,
-          "sl": 1318.6643633161273,
+          "current_price": 1147.0,
+          "unrealized_pnl": 165.3029484060009,
+          "sl": 1304.5643877301898,
           "tp1": false,
           "tp_price": 1271.1856427873884,
-          "value": 1207.5840952276772,
-          "hold_days": 19,
+          "value": 1190.9707284833582,
+          "hold_days": 20,
           "chart_id": "open:ma_commodities_ls_trail:PA/USD"
         },
         {
@@ -60310,18 +60310,18 @@ window.REPORT_DATA = {
           "qty": 0.6230992638018006,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4165.0,
-          "unrealized_pnl": 131.53631543809757,
+          "current_price": 4158.89990234375,
+          "unrealized_pnl": 135.33728179682606,
           "sl": 4517.325024414063,
           "tp1": false,
           "tp_price": 4281.950146484375,
-          "value": 2595.2084337344995,
-          "hold_days": 15,
+          "value": 2591.407467375771,
+          "hold_days": 16,
           "chart_id": "open:ma_commodities_ls_trail:XAU/USD"
         }
       ],
       "current_cash": 2162.607308129766,
-      "current_equity": 10711.89,
+      "current_equity": 10737.04,
       "history_events": 279,
       "equity_curve": [
         {
@@ -61725,8 +61725,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:30:31.092566",
-          "equity": 10711.89,
+          "time": "2026-10-08T03:50:04.168698",
+          "equity": 10737.04,
           "type": "current"
         }
       ],
@@ -64827,16 +64827,16 @@ window.REPORT_DATA = {
         "profit_factor": 1.137645260402881,
         "total_pnl": 877.4121397605086,
         "avg_pnl": 6.40446817343437,
-        "avg_monthly_pnl": 14.611026213755888,
+        "avg_monthly_pnl": 15.117018194070099,
         "max_drawdown": 25.449700000000004,
         "total_trades": 137
       },
       "exposure": {
-        "NG/USD": 285.21635095430076,
-        "CL/USD": 1735.1418087240704,
-        "HG/USD": 2726.127319620634,
-        "PA/USD": 1207.5840952276772,
-        "XAU/USD": 2595.2084337344995
+        "NG/USD": 297.862301670417,
+        "CL/USD": 1726.2889155441185,
+        "HG/USD": 2767.903121229143,
+        "PA/USD": 1190.9707284833582,
+        "XAU/USD": 2591.407467375771
       }
     },
     "ma_commodities_ls_tp1": {
@@ -64847,13 +64847,13 @@ window.REPORT_DATA = {
           "qty": 59.99689301694206,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 3.134999990463257,
-          "unrealized_pnl": 22.43884233686602,
+          "current_price": 3.2739999294281006,
+          "unrealized_pnl": 14.099277869430814,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 188.0902590359384,
-          "hold_days": 244,
+          "value": 196.4298235033736,
+          "hold_days": 245,
           "chart_id": "open:ma_commodities_ls_tp1:NG/USD"
         },
         {
@@ -64862,13 +64862,13 @@ window.REPORT_DATA = {
           "qty": 0.35928966079159097,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1163.0,
-          "unrealized_pnl": 51.45026188191536,
-          "sl": 1306.199951171875,
+          "current_price": 1147.0,
+          "unrealized_pnl": 57.19889645458081,
+          "sl": 1304.5643877301898,
           "tp1": true,
           "tp_price": 1271.1856427873884,
-          "value": 417.8538755006203,
-          "hold_days": 19,
+          "value": 412.10524092795487,
+          "hold_days": 20,
           "chart_id": "open:ma_commodities_ls_tp1:PA/USD"
         },
         {
@@ -64877,18 +64877,18 @@ window.REPORT_DATA = {
           "qty": 0.21617785056957342,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4165.0,
-          "unrealized_pnl": 45.63516536635517,
+          "current_price": 4158.89990234375,
+          "unrealized_pnl": 46.95387136594778,
           "sl": 4376.10009765625,
           "tp1": true,
           "tp_price": 4281.950146484375,
-          "value": 900.3807476222732,
-          "hold_days": 15,
+          "value": 899.0620416226807,
+          "hold_days": 16,
           "chart_id": "open:ma_commodities_ls_tp1:XAU/USD"
         }
       ],
       "current_cash": 5988.026438598195,
-      "current_equity": 7494.35,
+      "current_equity": 7495.62,
       "history_events": 424,
       "equity_curve": [
         {
@@ -67017,8 +67017,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:30:50.103473",
-          "equity": 7494.35,
+          "time": "2026-10-08T03:50:16.865244",
+          "equity": 7495.62,
           "type": "current"
         }
       ],
@@ -72555,14 +72555,14 @@ window.REPORT_DATA = {
         "profit_factor": 0.5257382153518633,
         "total_pnl": -2419.057822715721,
         "avg_pnl": -14.399153706641197,
-        "avg_monthly_pnl": -51.42664994942683,
+        "avg_monthly_pnl": -51.365947607816715,
         "max_drawdown": 25.208500000000004,
         "total_trades": 168
       },
       "exposure": {
-        "NG/USD": 188.0902590359384,
-        "PA/USD": 417.8538755006203,
-        "XAU/USD": 900.3807476222732
+        "NG/USD": 196.4298235033736,
+        "PA/USD": 412.10524092795487,
+        "XAU/USD": 899.0620416226807
       }
     },
     "ma_stocks_long_trail": {
@@ -72587,7 +72587,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:31:23.397881",
+          "time": "2026-10-08T03:50:39.063953",
           "equity": 9903.3,
           "type": "current"
         }
@@ -72646,114 +72646,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -72776,7 +72676,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.312827166065022,
+        "avg_monthly_pnl": -5.303254504504544,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -72809,7 +72709,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:31:23.518905",
+          "time": "2026-10-08T03:50:39.139494",
           "equity": 10032.23,
           "type": "current"
         }
@@ -72889,114 +72789,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -73019,7 +72819,7 @@ window.REPORT_DATA = {
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.770759250902503,
+        "avg_monthly_pnl": 1.7675686936936696,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
@@ -73047,7 +72847,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:31:23.759565",
+          "time": "2026-10-08T03:50:39.292303",
           "equity": 9903.3,
           "type": "current"
         }
@@ -73106,114 +72906,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -73236,7 +72936,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.312827166065022,
+        "avg_monthly_pnl": -5.303254504504544,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -73269,7 +72969,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-07T19:31:23.880551",
+          "time": "2026-10-08T03:50:39.368154",
           "equity": 10032.23,
           "type": "current"
         }
@@ -73349,114 +73049,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -73479,7 +73079,7 @@ window.REPORT_DATA = {
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.770759250902503,
+        "avg_monthly_pnl": 1.7675686936936696,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
