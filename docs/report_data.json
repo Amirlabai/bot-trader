@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-10-11T03:09:26.377510",
+    "last_updated": "2026-10-12T03:32:46.315961",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
@@ -1297,7 +1297,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:09:26.398461",
+          "time": "2026-10-12T03:32:46.328363",
           "equity": 43788.64,
           "type": "current"
         }
@@ -4105,7 +4105,7 @@
         "profit_factor": 4.6039760612027365,
         "total_pnl": 33788.64055132819,
         "avg_pnl": 291.2813840631741,
-        "avg_monthly_pnl": 690.2293489932886,
+        "avg_monthly_pnl": 689.7664185110664,
         "max_drawdown": 22.9963,
         "total_trades": 116
       },
@@ -5928,7 +5928,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:09:46.660645",
+          "time": "2026-10-12T03:32:57.892208",
           "equity": 15141.52,
           "type": "current"
         }
@@ -10930,7 +10930,7 @@
         "profit_factor": 1.798924389715785,
         "total_pnl": 5141.52458385125,
         "avg_pnl": 36.207919604586266,
-        "avg_monthly_pnl": 105.03021140939599,
+        "avg_monthly_pnl": 104.95976861167003,
         "max_drawdown": 13.389400000000004,
         "total_trades": 142
       },
@@ -10944,13 +10944,13 @@
           "qty": 178.781332078594,
           "entry": 6.354040145874023,
           "entry_date": "2025-01-23",
-          "current_price": 1.2373939752578735,
-          "unrealized_pnl": 914.7608181575922,
+          "current_price": 1.2587850093841553,
+          "unrealized_pnl": 910.9365005819569,
           "sl": 3.315879738330841,
           "tp1": false,
           "tp_price": 5.784021091461182,
-          "value": 221.2229432026294,
-          "hold_days": 626,
+          "value": 225.04726077826473,
+          "hold_days": 627,
           "chart_id": "open:ma_crypto_ls_trail:DOT/USDT"
         },
         {
@@ -10959,13 +10959,13 @@
           "qty": 52.72471217469674,
           "entry": 19.113391876220703,
           "entry_date": "2025-10-14",
-          "current_price": 12.806872367858887,
-          "unrealized_pnl": 332.5094259024868,
+          "current_price": 13.010017395019531,
+          "unrealized_pnl": 321.79866281572083,
           "sl": 19.464516448974607,
           "tp1": false,
           "tp_price": 16.385600662231447,
-          "value": 675.2386594534368,
-          "hold_days": 362,
+          "value": 685.9494225402027,
+          "hold_days": 363,
           "chart_id": "open:ma_crypto_ls_trail:LINK/USDT"
         },
         {
@@ -10974,13 +10974,13 @@
           "qty": 4653.109063414529,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.08534900099039078,
-          "unrealized_pnl": 516.3927370161416,
+          "current_price": 0.08571500331163406,
+          "unrealized_pnl": 514.6896882979338,
           "sl": 0.20807759240269652,
           "tp1": false,
           "tp_price": 0.1654182031750679,
-          "value": 397.13821006176295,
-          "hold_days": 361,
+          "value": 398.8412587799709,
+          "hold_days": 362,
           "chart_id": "open:ma_crypto_ls_trail:DOGE/USDT"
         },
         {
@@ -10989,18 +10989,18 @@
           "qty": 40.570653581267656,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 10.341124534606934,
-          "unrealized_pnl": 390.10675086101776,
+          "current_price": 10.356106758117676,
+          "unrealized_pnl": 389.49891226108633,
           "sl": 21.85813755989075,
           "tp1": false,
           "tp_price": 16.41163911819458,
-          "value": 419.54618113428563,
-          "hold_days": 359,
+          "value": 420.15401973421706,
+          "hold_days": 360,
           "chart_id": "open:ma_crypto_ls_trail:AVAX/USDT"
         }
       ],
       "current_cash": 10513.618905860054,
-      "current_equity": 12226.76,
+      "current_equity": 12243.61,
       "history_events": 406,
       "equity_curve": [
         {
@@ -13039,8 +13039,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:10:23.878835",
-          "equity": 12226.76,
+          "time": "2026-10-12T03:33:19.006460",
+          "equity": 12243.61,
           "type": "current"
         }
       ],
@@ -17663,15 +17663,15 @@
         "profit_factor": 1.3543685775792138,
         "total_pnl": 4380.534631649409,
         "avg_pnl": 21.793704635071684,
-        "avg_monthly_pnl": 45.487924496644304,
+        "avg_monthly_pnl": 45.80139461770625,
         "max_drawdown": 34.1219,
         "total_trades": 201
       },
       "exposure": {
-        "DOT/USDT": 221.2229432026294,
-        "LINK/USDT": 675.2386594534368,
-        "DOGE/USDT": 397.13821006176295,
-        "AVAX/USDT": 419.54618113428563
+        "DOT/USDT": 225.04726077826473,
+        "LINK/USDT": 685.9494225402027,
+        "DOGE/USDT": 398.8412587799709,
+        "AVAX/USDT": 420.15401973421706
       }
     },
     "ma_crypto_ls_tp1": {
@@ -17682,13 +17682,13 @@
           "qty": 1671.5230715358175,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.08534900099039078,
-          "unrealized_pnl": 185.50228720893244,
+          "current_price": 0.08571500331163406,
+          "unrealized_pnl": 184.89050588473864,
           "sl": 0.1963270008563995,
           "tp1": true,
           "tp_price": 0.1654182031750679,
-          "value": 142.66282428797152,
-          "hold_days": 361,
+          "value": 143.27460561216535,
+          "hold_days": 362,
           "chart_id": "open:ma_crypto_ls_tp1:DOGE/USDT"
         },
         {
@@ -17697,18 +17697,18 @@
           "qty": 14.574079946153788,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 10.341124534606934,
-          "unrealized_pnl": 140.1369332932774,
+          "current_price": 10.356106758117676,
+          "unrealized_pnl": 139.9185811700607,
           "sl": 19.956615447998047,
           "tp1": true,
           "tp_price": 16.41163911819458,
-          "value": 150.71237570049382,
-          "hold_days": 359,
+          "value": 150.93072782371053,
+          "hold_days": 360,
           "chart_id": "open:ma_crypto_ls_tp1:AVAX/USDT"
         }
       ],
       "current_cash": 9783.397165952198,
-      "current_equity": 10076.77,
+      "current_equity": 10077.6,
       "history_events": 624,
       "equity_curve": [
         {
@@ -20837,8 +20837,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:10:58.902984",
-          "equity": 10076.77,
+          "time": "2026-10-12T03:33:39.114091",
+          "equity": 10077.6,
           "type": "current"
         }
       ],
@@ -29073,13 +29073,13 @@
         "profit_factor": 1.028216908841463,
         "total_pnl": 299.0820495673088,
         "avg_pnl": 1.201132729185979,
-        "avg_monthly_pnl": 1.5682462248322238,
+        "avg_monthly_pnl": 1.5841381623071837,
         "max_drawdown": 20.402299999999997,
         "total_trades": 249
       },
       "exposure": {
-        "DOGE/USDT": 142.66282428797152,
-        "AVAX/USDT": 150.71237570049382
+        "DOGE/USDT": 143.27460561216535,
+        "AVAX/USDT": 150.93072782371053
       }
     },
     "ma_forex_long_trail": {
@@ -29090,13 +29090,13 @@
           "qty": 3435.4553681074694,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8299999833106995,
-          "unrealized_pnl": 58.4714060695381,
+          "current_price": 0.8313800096511841,
+          "unrealized_pnl": 63.21242496908569,
           "sl": 0.8207802275816599,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2851.4278981938523,
-          "hold_days": 38,
+          "value": 2856.1689170934,
+          "hold_days": 39,
           "chart_id": "open:ma_forex_long_trail:USD/CHF"
         },
         {
@@ -29111,12 +29111,12 @@
           "tp1": false,
           "tp_price": 0.0,
           "value": 2893.7374659419424,
-          "hold_days": 20,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_long_trail:USD/CAD"
         }
       ],
       "current_cash": 5748.123459384872,
-      "current_equity": 11493.29,
+      "current_equity": 11498.03,
       "history_events": 188,
       "equity_curve": [
         {
@@ -30065,8 +30065,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:12:00.647116",
-          "equity": 11493.29,
+          "time": "2026-10-12T03:34:14.134427",
+          "equity": 11498.03,
           "type": "current"
         }
       ],
@@ -32270,12 +32270,12 @@
         "profit_factor": 3.068255037110134,
         "total_pnl": 1388.106602012256,
         "avg_pnl": 14.925877440992,
-        "avg_monthly_pnl": 30.73158510818122,
+        "avg_monthly_pnl": 30.808302787162173,
         "max_drawdown": 1.2822899813316826,
         "total_trades": 93
       },
       "exposure": {
-        "USD/CHF": 2851.4278981938523,
+        "USD/CHF": 2856.1689170934,
         "USD/CAD": 2893.7374659419424
       }
     },
@@ -32287,13 +32287,13 @@
           "qty": 1684.6139692439956,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8299999833106995,
-          "unrealized_pnl": 28.672108035664824,
+          "current_price": 0.8313800096511841,
+          "unrealized_pnl": 30.996919686769886,
           "sl": 0.8207802275816599,
           "tp1": true,
           "tp_price": 0.8189318974812826,
-          "value": 1398.2295663574876,
-          "hold_days": 38,
+          "value": 1400.5543780085925,
+          "hold_days": 39,
           "chart_id": "open:ma_forex_long_tp1:USD/CHF"
         },
         {
@@ -32308,12 +32308,12 @@
           "tp1": true,
           "tp_price": 1.4060123988560267,
           "value": 1385.903817692879,
-          "hold_days": 20,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_long_tp1:USD/CAD"
         }
       ],
       "current_cash": 8181.6032167636,
-      "current_equity": 10965.74,
+      "current_equity": 10968.06,
       "history_events": 276,
       "equity_curve": [
         {
@@ -33702,8 +33702,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:12:17.747814",
-          "equity": 10965.74,
+          "time": "2026-10-12T03:34:23.890285",
+          "equity": 10968.06,
           "type": "current"
         }
       ],
@@ -37615,12 +37615,12 @@
         "profit_factor": 2.487755531291582,
         "total_pnl": 902.077567990426,
         "avg_pnl": 9.02077567990426,
-        "avg_monthly_pnl": 19.87472025016903,
+        "avg_monthly_pnl": 19.90900422297296,
         "max_drawdown": 0.8090217031538066,
         "total_trades": 100
       },
       "exposure": {
-        "USD/CHF": 1398.2295663574876,
+        "USD/CHF": 1400.5543780085925,
         "USD/CAD": 1385.903817692879
       }
     },
@@ -37632,13 +37632,13 @@
           "qty": 3213.244878017775,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8299999833106995,
-          "unrealized_pnl": 54.68938639332173,
+          "current_price": 0.8313800096511841,
+          "unrealized_pnl": 59.12374896341355,
           "sl": 0.8207802275816599,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2666.993195127944,
-          "hold_days": 38,
+          "value": 2671.427557698036,
+          "hold_days": 39,
           "chart_id": "open:ma_forex_ls_trail:USD/CHF"
         },
         {
@@ -37647,13 +37647,13 @@
           "qty": 2348.030756473409,
           "entry": 1.1469862461090088,
           "entry_date": "2026-09-17",
-          "current_price": 1.1205737590789795,
-          "unrealized_pnl": 62.01733190146379,
+          "current_price": 1.1213024854660034,
+          "unrealized_pnl": 60.30625993167787,
           "sl": 1.1278127091271537,
           "tp1": false,
           "tp_price": 1.14186734244937,
-          "value": 2631.141651214468,
-          "hold_days": 24,
+          "value": 2632.8527231842536,
+          "hold_days": 25,
           "chart_id": "open:ma_forex_ls_trail:EUR/USD"
         },
         {
@@ -37668,7 +37668,7 @@
           "tp1": false,
           "tp_price": 1.3318748757952736,
           "value": 239.77696764157497,
-          "hold_days": 24,
+          "hold_days": 25,
           "chart_id": "open:ma_forex_ls_trail:GBP/USD"
         },
         {
@@ -37683,7 +37683,7 @@
           "tp1": false,
           "tp_price": 0.0,
           "value": 2740.208160976941,
-          "hold_days": 20,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_ls_trail:USD/CAD"
         },
         {
@@ -37692,18 +37692,18 @@
           "qty": 3610.846817484705,
           "entry": 0.7034080028533936,
           "entry_date": "2026-09-24",
-          "current_price": 0.6987631916999817,
-          "unrealized_pnl": 16.771701571114694,
+          "current_price": 0.695900022983551,
+          "unrealized_pnl": 27.110165218760127,
           "sl": 0.7022180131503514,
           "tp1": false,
           "tp_price": 0.6987340365137372,
-          "value": 2523.1268469253337,
-          "hold_days": 17,
+          "value": 2512.7883832776884,
+          "hold_days": 18,
           "chart_id": "open:ma_forex_ls_trail:AUD/USD"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10801.25,
+      "current_equity": 10797.05,
       "history_events": 337,
       "equity_curve": [
         {
@@ -39397,8 +39397,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:12:48.957062",
-          "equity": 10801.25,
+          "time": "2026-10-12T03:34:40.932368",
+          "equity": 10797.05,
           "type": "current"
         }
       ],
@@ -43154,16 +43154,16 @@
         "profit_factor": 1.4471874886603184,
         "total_pnl": 783.9024846545658,
         "avg_pnl": 4.722304124425095,
-        "avg_monthly_pnl": 16.489551639621364,
+        "avg_monthly_pnl": 16.39203336148647,
         "max_drawdown": 2.587799261142826,
         "total_trades": 166
       },
       "exposure": {
-        "USD/CHF": 2666.993195127944,
-        "EUR/USD": 2631.141651214468,
+        "USD/CHF": 2671.427557698036,
+        "EUR/USD": 2632.8527231842536,
         "GBP/USD": 239.77696764157497,
         "USD/CAD": 2740.208160976941,
-        "AUD/USD": 2523.1268469253337
+        "AUD/USD": 2512.7883832776884
       }
     },
     "ma_forex_ls_tp1": {
@@ -43174,13 +43174,13 @@
           "qty": 1610.5281122964193,
           "entry": 0.8129799962043762,
           "entry_date": "2026-09-03",
-          "current_price": 0.8299999833106995,
-          "unrealized_pnl": 27.411167705656165,
+          "current_price": 0.8313800096511841,
+          "unrealized_pnl": 29.633738922716198,
           "sl": 0.8207802275816599,
           "tp1": true,
           "tp_price": 0.8189318974812826,
-          "value": 1336.7383063274403,
-          "hold_days": 38,
+          "value": 1338.9608775445004,
+          "hold_days": 39,
           "chart_id": "open:ma_forex_ls_tp1:USD/CHF"
         },
         {
@@ -43189,13 +43189,13 @@
           "qty": 1132.461657509325,
           "entry": 1.1469862461090088,
           "entry_date": "2026-09-17",
-          "current_price": 1.1205737590789795,
-          "unrealized_pnl": 29.911128840970527,
+          "current_price": 1.1213024854660034,
+          "unrealized_pnl": 29.085874148850632,
           "sl": 1.1278127091271537,
           "tp1": true,
           "tp_price": 1.14186734244937,
-          "value": 1269.0068165680361,
-          "hold_days": 24,
+          "value": 1269.832071260156,
+          "hold_days": 25,
           "chart_id": "open:ma_forex_ls_tp1:EUR/USD"
         },
         {
@@ -43210,7 +43210,7 @@
           "tp1": true,
           "tp_price": 1.3318748757952736,
           "value": 1283.98546557086,
-          "hold_days": 24,
+          "hold_days": 25,
           "chart_id": "open:ma_forex_ls_tp1:GBP/USD"
         },
         {
@@ -43225,7 +43225,7 @@
           "tp1": true,
           "tp_price": 1.4060123988560267,
           "value": 1321.1834319128643,
-          "hold_days": 20,
+          "hold_days": 21,
           "chart_id": "open:ma_forex_ls_tp1:USD/CAD"
         },
         {
@@ -43234,13 +43234,13 @@
           "qty": 1851.168637521319,
           "entry": 0.7034080028533936,
           "entry_date": "2026-09-24",
-          "current_price": 0.6987631916999817,
-          "unrealized_pnl": 8.598328734405268,
+          "current_price": 0.695900022983551,
+          "unrealized_pnl": 13.898536866193885,
           "sl": 0.7022180131503514,
           "tp1": true,
           "tp_price": 0.6987340365137372,
-          "value": 1293.5285055293034,
-          "hold_days": 17,
+          "value": 1288.2282973975148,
+          "hold_days": 18,
           "chart_id": "open:ma_forex_ls_tp1:AUD/USD"
         },
         {
@@ -43249,18 +43249,18 @@
           "qty": 1527.9919402597673,
           "entry": 0.8521999716758728,
           "entry_date": "2026-10-02",
-          "current_price": 0.8461099863052368,
-          "unrealized_pnl": 9.305448562631678,
+          "current_price": 0.8474599719047546,
+          "unrealized_pnl": 7.242681447101696,
           "sl": 0.850203560931342,
           "tp1": true,
           "tp_price": 0.8494709219251361,
-          "value": 1292.8492396477038,
-          "hold_days": 9,
+          "value": 1294.9120067632339,
+          "hold_days": 10,
           "chart_id": "open:ma_forex_ls_tp1:EUR/GBP"
         }
       ],
       "current_cash": 2610.1060788974582,
-      "current_equity": 10407.4,
+      "current_equity": 10407.21,
       "history_events": 514,
       "equity_curve": [
         {
@@ -45839,8 +45839,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:13:19.175606",
-          "equity": 10407.4,
+          "time": "2026-10-12T03:34:57.789403",
+          "equity": 10407.21,
           "type": "current"
         }
       ],
@@ -52752,17 +52752,17 @@
         "profit_factor": 1.20575488634235,
         "total_pnl": 384.51465739989635,
         "avg_pnl": 2.0026805072911267,
-        "avg_monthly_pnl": 8.384203853955368,
+        "avg_monthly_pnl": 8.37463133445944,
         "max_drawdown": 3.431662179902465,
         "total_trades": 192
       },
       "exposure": {
-        "USD/CHF": 1336.7383063274403,
-        "EUR/USD": 1269.0068165680361,
+        "USD/CHF": 1338.9608775445004,
+        "EUR/USD": 1269.832071260156,
         "GBP/USD": 1283.98546557086,
         "USD/CAD": 1321.1834319128643,
-        "AUD/USD": 1293.5285055293034,
-        "EUR/GBP": 1292.8492396477038
+        "AUD/USD": 1288.2282973975148,
+        "EUR/GBP": 1294.9120067632339
       }
     },
     "ma_commodities_long_trail": {
@@ -52773,13 +52773,13 @@
           "qty": 25.286928857180477,
           "entry": 82.4000015258789,
           "entry_date": "2026-08-14",
-          "current_price": 91.8499984741211,
-          "unrealized_pnl": 238.9614005307728,
+          "current_price": 89.93000030517578,
+          "unrealized_pnl": 190.41054342673593,
           "sl": 85.27849884033205,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2322.6043769472353,
-          "hold_days": 58,
+          "value": 2274.0535198431985,
+          "hold_days": 59,
           "chart_id": "open:ma_commodities_long_trail:CL/USD"
         },
         {
@@ -52788,18 +52788,18 @@
           "qty": 535.1149467975785,
           "entry": 6.625,
           "entry_date": "2026-09-17",
-          "current_price": 6.642499923706055,
-          "unrealized_pnl": 9.364470742927136,
+          "current_price": 6.730500221252441,
+          "unrealized_pnl": 56.45474528263294,
           "sl": 6.484850025177002,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 3554.5009932768844,
-          "hold_days": 24,
+          "value": 3601.59126781659,
+          "hold_days": 25,
           "chart_id": "open:ma_commodities_long_trail:HG/USD"
         }
       ],
       "current_cash": 8551.76659118541,
-      "current_equity": 14428.87,
+      "current_equity": 14427.41,
       "history_events": 176,
       "equity_curve": [
         {
@@ -53688,8 +53688,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:14:13.273663",
-          "equity": 14428.87,
+          "time": "2026-10-12T03:35:28.184786",
+          "equity": 14427.41,
           "type": "current"
         }
       ],
@@ -55734,13 +55734,13 @@
         "profit_factor": 1.9238515599528039,
         "total_pnl": 4180.546090135817,
         "avg_pnl": 48.052253909607096,
-        "avg_monthly_pnl": 90.65482893409552,
+        "avg_monthly_pnl": 90.56404023857526,
         "max_drawdown": 14.818099999999996,
         "total_trades": 87
       },
       "exposure": {
-        "CL/USD": 2322.6043769472353,
-        "HG/USD": 3554.5009932768844
+        "CL/USD": 2274.0535198431985,
+        "HG/USD": 3601.59126781659
       }
     },
     "ma_commodities_long_tp1": {
@@ -56980,7 +56980,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:14:27.642531",
+          "time": "2026-10-12T03:35:36.161996",
           "equity": 9871.1,
           "type": "current"
         }
@@ -60271,7 +60271,7 @@
         "profit_factor": 0.959334205088672,
         "total_pnl": -128.90109774962502,
         "avg_pnl": -1.3020312904002527,
-        "avg_monthly_pnl": -2.63846250840618,
+        "avg_monthly_pnl": -2.636689348118272,
         "max_drawdown": 14.306000000000004,
         "total_trades": 99
       },
@@ -60285,13 +60285,13 @@
           "qty": 90.9781026545249,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 3.2200000286102295,
-          "unrealized_pnl": 26.292674790642973,
+          "current_price": 3.1519999504089355,
+          "unrealized_pnl": 32.479192885756014,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 292.9494931504746,
-          "hold_days": 248,
+          "value": 286.76297505536155,
+          "hold_days": 249,
           "chart_id": "open:ma_commodities_ls_trail:NG/USD"
         },
         {
@@ -60300,13 +60300,13 @@
           "qty": 19.24513906661786,
           "entry": 82.4000015258789,
           "entry_date": "2026-08-14",
-          "current_price": 91.8499984741211,
-          "unrealized_pnl": 181.86650544803527,
+          "current_price": 89.93000030517578,
+          "unrealized_pnl": 144.91587367903108,
           "sl": 85.27849884033205,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 1767.6659939030988,
-          "hold_days": 58,
+          "value": 1730.7153621340944,
+          "hold_days": 59,
           "chart_id": "open:ma_commodities_ls_trail:CL/USD"
         },
         {
@@ -60315,13 +60315,13 @@
           "qty": 411.58411308265613,
           "entry": 6.625,
           "entry_date": "2026-09-17",
-          "current_price": 6.642499923706055,
-          "unrealized_pnl": 7.202690577570667,
+          "current_price": 6.730500221252441,
+          "unrealized_pnl": 43.42221499421009,
           "sl": 6.484850025177002,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2733.9474397501676,
-          "hold_days": 24,
+          "value": 2770.166964166807,
+          "hold_days": 25,
           "chart_id": "open:ma_commodities_ls_trail:HG/USD"
         },
         {
@@ -60330,13 +60330,13 @@
           "qty": 1.0383354215199287,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1140.5,
-          "unrealized_pnl": 172.05212864588043,
+          "current_price": 1160.0,
+          "unrealized_pnl": 151.80458792624182,
           "sl": 1298.0643877301898,
           "tp1": false,
           "tp_price": 1271.1856427873884,
-          "value": 1184.2215482434788,
-          "hold_days": 23,
+          "value": 1204.4690889631174,
+          "hold_days": 24,
           "chart_id": "open:ma_commodities_ls_trail:PA/USD"
         },
         {
@@ -60345,18 +60345,18 @@
           "qty": 0.6230992638018006,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4216.2998046875,
-          "unrealized_pnl": 99.57144490414018,
+          "current_price": 4228.89990234375,
+          "unrealized_pnl": 91.7203333307,
           "sl": 4517.325024414063,
           "tp1": false,
           "tp_price": 4281.950146484375,
-          "value": 2627.173304268457,
-          "hold_days": 19,
+          "value": 2635.024415841897,
+          "hold_days": 20,
           "chart_id": "open:ma_commodities_ls_trail:XAU/USD"
         }
       ],
       "current_cash": 2162.607308129766,
-      "current_equity": 10768.57,
+      "current_equity": 10789.75,
       "history_events": 279,
       "equity_curve": [
         {
@@ -61760,8 +61760,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:14:52.100964",
-          "equity": 10768.57,
+          "time": "2026-10-12T03:35:49.446362",
+          "equity": 10789.75,
           "type": "current"
         }
       ],
@@ -64862,16 +64862,16 @@
         "profit_factor": 1.137645260402881,
         "total_pnl": 877.4121397605086,
         "avg_pnl": 6.40446817343437,
-        "avg_monthly_pnl": 15.731909465366504,
+        "avg_monthly_pnl": 16.15458039314516,
         "max_drawdown": 25.449700000000004,
         "total_trades": 137
       },
       "exposure": {
-        "NG/USD": 292.9494931504746,
-        "CL/USD": 1767.6659939030988,
-        "HG/USD": 2733.9474397501676,
-        "PA/USD": 1184.2215482434788,
-        "XAU/USD": 2627.173304268457
+        "NG/USD": 286.76297505536155,
+        "CL/USD": 1730.7153621340944,
+        "HG/USD": 2770.166964166807,
+        "PA/USD": 1204.4690889631174,
+        "XAU/USD": 2635.024415841897
       }
     },
     "ma_commodities_ls_tp1": {
@@ -64882,13 +64882,13 @@
           "qty": 59.99689301694206,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 3.2200000286102295,
-          "unrealized_pnl": 17.33910414172611,
+          "current_price": 3.1519999504089355,
+          "unrealized_pnl": 21.418897558712835,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 193.1899972310783,
-          "hold_days": 248,
+          "value": 189.1102038140916,
+          "hold_days": 249,
           "chart_id": "open:ma_commodities_ls_tp1:NG/USD"
         },
         {
@@ -64897,13 +64897,13 @@
           "qty": 0.35928966079159097,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1140.5,
-          "unrealized_pnl": 59.534279249726154,
+          "current_price": 1160.0,
+          "unrealized_pnl": 52.528130864290134,
           "sl": 1298.0643877301898,
           "tp1": true,
           "tp_price": 1271.1856427873884,
-          "value": 409.7698581328095,
-          "hold_days": 23,
+          "value": 416.77600651824554,
+          "hold_days": 24,
           "chart_id": "open:ma_commodities_ls_tp1:PA/USD"
         },
         {
@@ -64912,18 +64912,18 @@
           "qty": 0.21617785056957342,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4216.2998046875,
-          "unrealized_pnl": 34.54528385437249,
+          "current_price": 4228.89990234375,
+          "unrealized_pnl": 31.821421826077646,
           "sl": 4376.10009765625,
           "tp1": true,
           "tp_price": 4281.950146484375,
-          "value": 911.470629134256,
-          "hold_days": 19,
+          "value": 914.1944911625508,
+          "hold_days": 20,
           "chart_id": "open:ma_commodities_ls_tp1:XAU/USD"
         }
       ],
       "current_cash": 5988.026438598195,
-      "current_equity": 7502.46,
+      "current_equity": 7508.11,
       "history_events": 424,
       "equity_curve": [
         {
@@ -67052,8 +67052,8 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:15:15.559308",
-          "equity": 7502.46,
+          "time": "2026-10-12T03:36:02.574739",
+          "equity": 7508.11,
           "type": "current"
         }
       ],
@@ -72590,14 +72590,14 @@
         "profit_factor": 0.5257382153518633,
         "total_pnl": -2419.057822715721,
         "avg_pnl": -14.399153706641197,
-        "avg_monthly_pnl": -51.122309179556154,
+        "avg_monthly_pnl": -50.97238029233872,
         "max_drawdown": 25.208500000000004,
         "total_trades": 168
       },
       "exposure": {
-        "NG/USD": 193.1899972310783,
-        "PA/USD": 409.7698581328095,
-        "XAU/USD": 911.470629134256
+        "NG/USD": 189.1102038140916,
+        "PA/USD": 416.77600651824554,
+        "XAU/USD": 914.1944911625508
       }
     },
     "ma_stocks_long_trail": {
@@ -72622,7 +72622,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:15:56.790196",
+          "time": "2026-10-12T03:36:25.446471",
           "equity": 9903.3,
           "type": "current"
         }
@@ -72711,7 +72711,7 @@
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.274742383512584,
+        "avg_monthly_pnl": -5.265306350626158,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -72744,7 +72744,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:15:56.941893",
+          "time": "2026-10-12T03:36:25.523107",
           "equity": 10032.23,
           "type": "current"
         }
@@ -72854,7 +72854,7 @@
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.758065636200693,
+        "avg_monthly_pnl": 1.7549206171735003,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
@@ -72882,7 +72882,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:15:57.245019",
+          "time": "2026-10-12T03:36:25.679759",
           "equity": 9903.3,
           "type": "current"
         }
@@ -72971,7 +72971,7 @@
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.274742383512584,
+        "avg_monthly_pnl": -5.265306350626158,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -73004,7 +73004,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-10-11T03:15:57.396347",
+          "time": "2026-10-12T03:36:25.755810",
           "equity": 10032.23,
           "type": "current"
         }
@@ -73114,7 +73114,7 @@
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.758065636200693,
+        "avg_monthly_pnl": 1.7549206171735003,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
