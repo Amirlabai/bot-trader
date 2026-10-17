@@ -38,11 +38,7 @@ def size_long_from_equity(equity, cash, price, stop_loss, risk_settings):
 
     actual_risk = quantity * risk_per_share
     notional = quantity * price
-    min_frac = float(risk_settings['min_risk_fraction'])
     min_notional = float(risk_settings['min_notional_usd'])
-    capped = capped_notional or capped_cash
-    if not capped and actual_risk < target_risk * min_frac:
-        return 0.0, target_risk, actual_risk, False, False, False
     if notional < min_notional or quantity <= 0:
         return 0.0, target_risk, 0.0, capped_notional, capped_cash, False
     # Hard invariant: never overspend cash

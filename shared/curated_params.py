@@ -68,30 +68,6 @@ def symbol_params(curated: dict, symbol: str) -> dict[str, Any]:
     return {}
 
 
-def merge_effective_params(wallet_params: dict, curated: dict | None, symbol: str) -> dict:
-    """Wallet mode flags + template defaults + per-symbol locked six-pack."""
-    out = dict(wallet_params or {})
-    if not curated:
-        return out
-    market = out.get('market')  # may be absent on params
-    # Prefer symbol overlay; else market template
-    sym = symbol_params(curated, symbol)
-    if sym:
-        for k in SIX_PACK_KEYS:
-            if k in sym:
-                out[k] = sym[k]
-        for k in GATE_KEYS:
-            if k in sym:
-                out[k] = sym[k]
-        for k in MODE_KEYS:
-            if k in sym:
-                out[k] = sym[k]
-        return out
-
-    # Infer market from curated symbol entry or templates keys via caller
-    return out
-
-
 def merge_effective_params_for_market(
     wallet_params: dict,
     curated: dict | None,

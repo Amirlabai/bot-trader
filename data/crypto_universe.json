@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07T03:32:30+00:00",
+  "updated_at": "2026-10-17T02:21:21+00:00",
   "cmc_top15": [
     "BTC",
     "ETH",
@@ -14,8 +14,8 @@
     "DOGE",
     "XMR",
     "LINK",
-    "ADA",
-    "LEO"
+    "LEO",
+    "ADA"
   ],
   "pairs": [
     "HYPE/USDT",
