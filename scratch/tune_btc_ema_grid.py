@@ -5,6 +5,7 @@ Grid: atr_period 14-20, sl_atr 1-3, trail_atr 1-3 (0.5 steps).
 Entry: golden cross + close > trend EMA. Exit: SL or trail from entry (no TP1).
 Default: BTC/USDT, last ~6 months. Use --book crypto|forex|commodities for shared-cash multi-pair.
 Use --interval 4h for BTC-only 4h bars (separate cache; not used by live desk).
+Use --trend-weekly to keep the cross and risk on daily bars and read trend EMA on completed weekly candles.
 
 Usage:
   .\\.venv\\Scripts\\python.exe scratch\\tune_btc_ema_grid.py
@@ -75,6 +76,12 @@ REPORT_TOP_N = 10
 
 def _ema_pairs():
     return [(f, s) for f in FAST_WINDOWS for s in SLOW_WINDOWS if f < s]
+
+
+def weekly_trend_on_daily(close: pd.Series, span: int, ema_fn) -> pd.Series:
+    from shared.weekly_trend import weekly_trend_on_daily as _weekly
+
+    return _weekly(close, span, ema_fn)
 
 
 def _fmt_duration(seconds: float) -> str:
@@ -298,6 +305,7 @@ def simulate_long_portfolio(
     entry_price = [0.0] * n_sym
     stop = [0.0] * n_sym
     pnls: list[float] = []
+    by_symbol: list[list[float]] = [[] for _ in range(n_sym)]
 
     for i in range(n):
         for s, ser in enumerate(series):
@@ -309,6 +317,7 @@ def simulate_long_portfolio(
                 pnl = (exit_px - entry_price[s]) * qty[s]
                 cash += qty[s] * exit_px
                 pnls.append(pnl)
+                by_symbol[s].append(pnl)
                 qty[s] = 0.0
                 continue
             if a == a and a > 0:
@@ -349,6 +358,7 @@ def simulate_long_portfolio(
 
     out = _metrics_from_pnls(pnls, cash, open_mtm, start_cash)
     out['open_positions'] = open_n
+    out['by_symbol'] = by_symbol
     return out
 
 
@@ -388,6 +398,7 @@ def write_report(
     symbols: list[str] | None = None,
     book_title: str | None = None,
     interval: str = '1d',
+    trend_weekly: bool = False,
 ):
     symbols = symbols or [SYMBOL]
     book = book_title or ('Crypto' if len(symbols) > 1 else 'BTC')
@@ -405,8 +416,14 @@ def write_report(
         f'Elapsed: **{_fmt_duration(elapsed_s)}** ({elapsed_s:.1f}s) for **{n_configs}** configs '
         f'({n_configs / elapsed_s:.1f}/s)' if elapsed_s > 0 else f'Elapsed: n/a | Configs: {n_configs}',
         '',
-        'Structure: **EMA fast/slow golden cross** (fast∈10/15/20, slow∈20..50 step 5, fast<slow), '
-        'trend **close > EMA{100|150|200}**.',
+        (
+            'Structure: **daily EMA fast/slow golden cross** (fast∈10/15/20, slow∈20..50 step 5, fast<slow). '
+            'Trend is the last **completed weekly** candle (week ends Sunday): weekly close > weekly '
+            'EMA{100|150|200}. The open week is not used. SL, trail, and ATR stay on the daily bars.'
+            if trend_weekly else
+            'Structure: **EMA fast/slow golden cross** (fast∈10/15/20, slow∈20..50 step 5, fast<slow), '
+            'trend **close > EMA{100|150|200}**.'
+        ),
         'Risk: no TP1; SL = `sl_atr` × ATR; trail from entry = `trail_atr` × current ATR. '
         'Long only. ADX/vol off. Metrics from vectorized path sim.',
     ]
@@ -415,14 +432,16 @@ def write_report(
             'Bars: **4h** (EMA/ATR windows are bar counts, not calendar days). '
             'Ambiguous trail bars (`S0 < low ≤ S1`) resolved on **1h**.'
         )
+    elif len(symbols) > 1:
+        lines.append(
+            'Shared-cash book. Ambiguous trail bars stay on the daily wick. No finer-bar drill.'
+        )
     else:
         lines.append(
             'Ambiguous trail bars (`S0 < low ≤ S1`) resolved on **4h** when finer data is available.'
         )
     if len(symbols) > 1:
-        lines.append(
-            f'Shared-cash book across: {", ".join(symbols)}.'
-        )
+        lines.append(f'One wallet across: {", ".join(symbols)}.')
     lines += [
         '',
         f'Configs: **{len(ranked)}** | Eligible (n≥{min_trades}): **{len(eligible)}**',
@@ -478,6 +497,8 @@ def write_report(
             'sl_atr': r['params']['sl_atr'],
             'trail_atr': r['params']['trail_atr'],
         }
+        if trend_weekly:
+            slim['trend_weekly'] = True
         lines.append(
             f"| {i} | {r['composite']:.4f} | ${r['net_pnl']:+,.0f} | {r['win_rate']:.0f} | "
             f"{r['closed_trades']} | {pf_s} | `{json.dumps(slim)}` |"
@@ -502,14 +523,30 @@ def run_grid(
     *,
     parent_interval: str = '1d',
     finer_df: pd.DataFrame | None = None,
+    trend_weekly: bool = False,
 ):
     from shared.intrabar_resolve import finer_arrays
 
     base = MovingAverageStrategy({})
     pairs = _ema_pairs()
     ema_periods = sorted({p for pair in pairs for p in pair} | set(TREND_WINDOWS))
-    print(f'Precomputing {len(ema_periods)} EMAs + {len(ATR_PERIODS)} ATRs...')
-    ema = {p: base._ema(df['close'], p) for p in ema_periods}
+    if trend_weekly:
+        print(
+            f'Precomputing {len(ema_periods) - len(TREND_WINDOWS)} daily EMAs, '
+            f'{len(TREND_WINDOWS)} weekly trend EMAs + {len(ATR_PERIODS)} ATRs...'
+        )
+        ema = {p: base._ema(df['close'], p) for p in ema_periods if p not in TREND_WINDOWS}
+        weekly_bull = {
+            tw: weekly_trend_on_daily(df['close'].astype(float), tw, base._ema)
+            for tw in TREND_WINDOWS
+        }
+        for tw, bull in weekly_bull.items():
+            n_true = int(bull.sum())
+            print(f'  weekly trend EMA{tw}: {n_true} bullish daily bars / {len(bull)}')
+    else:
+        print(f'Precomputing {len(ema_periods)} EMAs + {len(ATR_PERIODS)} ATRs...')
+        ema = {p: base._ema(df['close'], p) for p in ema_periods}
+        weekly_bull = None
     atr_by = {p: base._calculate_atr(df, p) for p in ATR_PERIODS}
 
     close = df['close'].astype(float)
@@ -557,9 +594,12 @@ def run_grid(
     for (fast, slow, tw), inner in grouped.items():
         fast_s = ema[fast]
         slow_s = ema[slow]
-        trend_s = ema[tw]
         cross = (fast_s.shift(1) <= slow_s.shift(1)) & (fast_s > slow_s)
-        entry_s = cross & (close > trend_s)
+        if weekly_bull is not None:
+            entry_s = cross & weekly_bull[tw]
+        else:
+            trend_s = ema[tw]
+            entry_s = cross & (close > trend_s)
         entry_a = entry_s.fillna(False).to_numpy(dtype=bool)[:n_bars]
         entry_a = entry_a.copy()
         entry_a[:start_idx] = False
@@ -613,11 +653,13 @@ def run_grid_multi(
     start: date,
     end: date,
     limit: int | None = None,
+    trend_weekly: bool = False,
 ):
-    """Shared-cash grid across multiple crypto symbols on a union calendar."""
+    """Shared-cash grid across multiple symbols on a union calendar."""
     base = MovingAverageStrategy({})
     pairs = _ema_pairs()
-    ema_periods = sorted({p for pair in pairs for p in pair} | set(TREND_WINDOWS))
+    fast_slow = {p for pair in pairs for p in pair}
+    ema_periods = sorted(fast_slow if trend_weekly else fast_slow | set(TREND_WINDOWS))
     symbols = list(market.keys())
 
     all_dates = sorted({
@@ -648,6 +690,12 @@ def run_grid_multi(
         has_a[idxs] = True
 
         ema = {p: base._ema(close, p) for p in ema_periods}
+        weekly_bull = None
+        if trend_weekly:
+            weekly_bull = {
+                tw: weekly_trend_on_daily(close, tw, base._ema)
+                for tw in TREND_WINDOWS
+            }
         atr_cal = {}
         for ap in ATR_PERIODS:
             atr_s = base._calculate_atr(df, ap).to_numpy(dtype=float)
@@ -665,6 +713,7 @@ def run_grid_multi(
             'row_cal': row_cal,
             'valid': valid,
             'idxs': idxs,
+            'weekly_bull': weekly_bull,
         }
 
     combos = list(itertools.product(pairs, TREND_WINDOWS, ATR_PERIODS, SL_ATRS, TRAIL_ATRS))
@@ -687,9 +736,12 @@ def run_grid_multi(
             close = p['close']
             fast_s = p['ema'][fast]
             slow_s = p['ema'][slow]
-            trend_s = p['ema'][tw]
             cross = (fast_s.shift(1) <= slow_s.shift(1)) & (fast_s > slow_s)
-            entry_raw = (cross & (close > trend_s)).fillna(False).to_numpy(dtype=bool)
+            if trend_weekly:
+                entry_raw = (cross & p['weekly_bull'][tw]).fillna(False).to_numpy(dtype=bool)
+            else:
+                trend_s = p['ema'][tw]
+                entry_raw = (cross & (close > trend_s)).fillna(False).to_numpy(dtype=bool)
             entry_a = np.zeros(n_days, dtype=bool)
             entry_a[p['idxs']] = entry_raw[p['valid']]
             entry_by_sym[sym] = entry_a
@@ -732,7 +784,7 @@ def run_grid_multi(
     return results, elapsed
 
 
-def run_parity(df: pd.DataFrame, start: date, end: date):
+def run_parity(df: pd.DataFrame, start: date, end: date, trend_weekly: bool = False):
     """Compare vector sim vs process_symbol on a few configs."""
     from ledger_manager import LedgerManager
     from resim_engine import process_symbol
@@ -761,7 +813,10 @@ def run_parity(df: pd.DataFrame, start: date, end: date):
         trend_s = base._ema(close, p['trend_window'])
         atr_s = base._calculate_atr(df, p['atr_period'])
         cross = (fast_s.shift(1) <= slow_s.shift(1)) & (fast_s > slow_s)
-        entry_s = cross & (close > trend_s)
+        if trend_weekly:
+            entry_s = cross & weekly_trend_on_daily(close, p['trend_window'], base._ema)
+        else:
+            entry_s = cross & (close > trend_s)
         entry_a = entry_s.fillna(False).to_numpy(dtype=bool)[: end_idx + 1].copy()
         entry_a[:start_idx] = False
         atr_a = atr_s.to_numpy(dtype=float)[: end_idx + 1]
@@ -781,6 +836,7 @@ def run_parity(df: pd.DataFrame, start: date, end: date):
             'skip_tp1': True,
             'trail_from_entry': True,
             'trend_exit': False,
+            'trend_weekly': trend_weekly,
         }
         cache = {
             'ema_fast': fast_s,
@@ -943,7 +999,25 @@ def fetch_btc_4h(need_from: date | None = None) -> pd.DataFrame:
     return df
 
 
-def _default_report_path(book: str | None, label: str, interval: str = '1d') -> str:
+def _window_suffix(label: str) -> str:
+    if '10y' in label:
+        return '10y'
+    if '4y' in label:
+        return '4y'
+    if '2y' in label:
+        return '2y'
+    if '1y' in label:
+        return '1y'
+    return '6m'
+
+
+def _default_report_path(book: str | None, label: str, interval: str = '1d', trend_weekly: bool = False) -> str:
+    if trend_weekly:
+        suffix = _window_suffix(label)
+        prefix = 'btc'
+        if book in ('crypto', 'forex', 'commodities'):
+            prefix = 'commodities' if book == 'commodities' else book
+        return os.path.join(REPO_ROOT, 'docs', f'{prefix}_ema_weekly_trend_{suffix}.md')
     if interval == '4h':
         if '2y' in label:
             return os.path.join(REPO_ROOT, 'docs', 'btc_ema_grid_4h_2y.md')
@@ -994,6 +1068,16 @@ def main():
         action='store_true',
         help='Alias for --book crypto',
     )
+    parser.add_argument(
+        '--trend-weekly',
+        action='store_true',
+        help='BTC daily entries; trend filter is the last completed weekly candle vs weekly EMA',
+    )
+    parser.add_argument(
+        '--exclude',
+        default='',
+        help='Comma-separated symbols to leave out of a book run',
+    )
     args = parser.parse_args()
 
     book = args.book
@@ -1005,12 +1089,18 @@ def main():
         raise SystemExit('--interval 4h is BTC-only (omit --book / --all-crypto)')
     if interval == '4h' and args.parity:
         raise SystemExit('--parity is daily BTC-only (omit --interval 4h)')
+    if args.trend_weekly and interval != '1d':
+        raise SystemExit('--trend-weekly uses daily entries (omit --interval 4h)')
 
     fetcher = DataFetcher(Config)
     book_title = None
 
     if book:
         asset_type, pair_list, book_title = BOOKS[book]
+        excluded = {s.strip() for s in args.exclude.split(',') if s.strip()}
+        if excluded:
+            pair_list = [s for s in pair_list if s not in excluded]
+            print(f'Excluded: {", ".join(sorted(excluded))}')
         print(f'Loading {len(pair_list)} {book} pairs...')
         market: dict[str, pd.DataFrame] = {}
         for sym in pair_list:
@@ -1084,17 +1174,21 @@ def main():
     else:
         label = f'{span_days}d pass'
 
-    report_path = args.report or _default_report_path(book, label, interval=interval)
+    report_path = args.report or _default_report_path(
+        book, label, interval=interval, trend_weekly=args.trend_weekly,
+    )
 
     if args.parity:
         if book:
             raise SystemExit('--parity is BTC-only')
-        run_parity(market[SYMBOL], start, end)
+        run_parity(market[SYMBOL], start, end, trend_weekly=args.trend_weekly)
         return
 
     n_full = len(_ema_pairs()) * len(TREND_WINDOWS) * len(ATR_PERIODS) * len(SL_ATRS) * len(TRAIL_ATRS)
     if book:
-        results, elapsed = run_grid_multi(market, start, end, limit=args.limit)
+        results, elapsed = run_grid_multi(
+            market, start, end, limit=args.limit, trend_weekly=args.trend_weekly,
+        )
     else:
         finer_df = None
         drill_tf = '1h' if interval == '4h' else '4h'
@@ -1112,6 +1206,7 @@ def main():
             symbol=SYMBOL,
             parent_interval=interval if interval == '4h' else '1d',
             finer_df=finer_df,
+            trend_weekly=args.trend_weekly,
         )
     rate = len(results) / elapsed if elapsed > 0 else 0
     print(f'\nTimed {len(results)} configs in {_fmt_duration(elapsed)} ({rate:.1f}/s)')
@@ -1125,6 +1220,7 @@ def main():
         symbols=symbols,
         book_title=book_title,
         interval=interval,
+        trend_weekly=args.trend_weekly,
     )
 
     print(f'\n=== Top {REPORT_TOP_N} (eligible) ===')

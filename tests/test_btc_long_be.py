@@ -309,13 +309,52 @@ class LongOnlyBeTrendExitTests(unittest.TestCase):
                 'ma_crypto_long_tp1',
                 'ma_crypto_ls_trail',
                 'ma_crypto_ls_tp1',
+                'ma_crypto_r2_long_trail',
+                'ma_crypto_r2_long_tp1',
+                'ma_crypto_r2_ls_trail',
+                'ma_crypto_r2_ls_tp1',
+                'ma_crypto_r3_long_trail',
+                'ma_crypto_r3_long_tp1',
+                'ma_crypto_r3_ls_trail',
+                'ma_crypto_r3_ls_tp1',
+                'ma_crypto_r5_long_trail',
+                'ma_crypto_r5_long_tp1',
+                'ma_crypto_r5_ls_trail',
+                'ma_crypto_r5_ls_tp1',
+                'ma_crypto_r10_long_trail',
+                'ma_crypto_r10_long_tp1',
+                'ma_crypto_r10_ls_trail',
+                'ma_crypto_r10_ls_tp1',
+                'ma_crypto_r15_long_trail',
+                'ma_crypto_r15_long_tp1',
+                'ma_crypto_r15_ls_trail',
+                'ma_crypto_r15_ls_tp1',
+                'ma_forex_long_trail',
+                'ma_forex_long_tp1',
+                'ma_forex_ls_trail',
+                'ma_forex_ls_tp1',
                 'ma_commodities_long_trail',
                 'ma_commodities_long_tp1',
                 'ma_commodities_ls_trail',
                 'ma_commodities_ls_tp1',
+                'ma_stocks_long_trail',
+                'ma_stocks_long_tp1',
+                'ma_stocks_ls_trail',
+                'ma_stocks_ls_tp1',
             },
         )
+        self.assertEqual(TRADING_CONFIG['ma_crypto_long_trail']['equity_risk_pct'], 0.01)
+        self.assertEqual(TRADING_CONFIG['ma_crypto_long_trail']['param_label'], '1% · Long · asset trail')
+        self.assertEqual(TRADING_CONFIG['ma_crypto_r15_ls_tp1']['equity_risk_pct'], 0.15)
+        self.assertEqual(TRADING_CONFIG['ma_crypto_r15_ls_tp1']['max_notional_pct'], 1.0)
         long_trail = TRADING_CONFIG['ma_crypto_long_trail']['params']
+        self.assertTrue(long_trail['trend_weekly'])
+        self.assertEqual(long_trail['short_window'], 10)
+        self.assertEqual(long_trail['long_window'], 20)
+        self.assertEqual(long_trail['trend_window'], 150)
+        self.assertEqual(long_trail['atr_period'], 14)
+        self.assertEqual(long_trail['sl_atr'], 1.0)
+        self.assertEqual(long_trail['trail_atr'], 3.0)
         self.assertTrue(long_trail['long_only'])
         self.assertTrue(long_trail['trail_from_entry'])
         self.assertTrue(long_trail['skip_tp1'])

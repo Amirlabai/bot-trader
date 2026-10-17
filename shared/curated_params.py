@@ -25,6 +25,11 @@ GATE_KEYS = (
     'vol_mult',
 )
 
+# Book mode flags. Not part of the six-pack, but a template must be able to set them.
+MODE_KEYS = (
+    'trend_weekly',
+)
+
 
 def load_curated_params(path: str | None = None) -> dict:
     p = path or DEFAULT_CURATED_PATH
@@ -78,6 +83,9 @@ def merge_effective_params(wallet_params: dict, curated: dict | None, symbol: st
         for k in GATE_KEYS:
             if k in sym:
                 out[k] = sym[k]
+        for k in MODE_KEYS:
+            if k in sym:
+                out[k] = sym[k]
         return out
 
     # Infer market from curated symbol entry or templates keys via caller
@@ -94,11 +102,11 @@ def merge_effective_params_for_market(
     if not curated:
         return out
     tmpl = template_params(curated, market)
-    for k in list(SIX_PACK_KEYS) + list(GATE_KEYS):
+    for k in list(SIX_PACK_KEYS) + list(GATE_KEYS) + list(MODE_KEYS):
         if k in tmpl:
             out[k] = tmpl[k]
     sym = symbol_params(curated, symbol)
-    for k in list(SIX_PACK_KEYS) + list(GATE_KEYS):
+    for k in list(SIX_PACK_KEYS) + list(GATE_KEYS) + list(MODE_KEYS):
         if k in sym:
             out[k] = sym[k]
     return out

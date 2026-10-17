@@ -116,21 +116,24 @@ ALL_MARKET_PAIRS = CRYPTO_PAIRS + FOREX_PAIRS + COMMODITY_PAIRS + STOCK_PAIRS
 # Desk market tabs (all four books traded).
 DASHBOARD_MARKETS = ['crypto', 'forex', 'commodities', 'stocks']
 
-# EMA grid 4y winners (docs/crypto_ema_grid_6m.md / docs/commodities_ema_grid_4y.md).
-# ADX/vol off to match the vectorized grid entry path.
+# Weekly-trend daily EMA. The 2y search left ZEC and XRP out of the fit so one
+# pair could not set the six-pack. Both stay in BASE_CRYPTO_PAIRS and trade it.
+# fast 10 / slow 20 / weekly EMA 150 · ATR 14 · SL 1 · trail 3.
+# Entry is the daily golden cross. Trend is the last completed Sunday week.
 _CRYPTO_EMA = {
-    'short_window': 25,
-    'long_window': 75,
-    'trend_window': 100,
-    'atr_period': 10,
+    'short_window': 10,
+    'long_window': 20,
+    'trend_window': 150,
+    'trend_weekly': True,
+    'atr_period': 14,
     'adx_period': 14,
-    'adx_min': 5,
+    'adx_min': 0,
     'vol_ma_period': 20,
     'vol_mult': 0.0,
     'atr_buffer': 0.0,
     'sl_atr': 1.0,
-    'trail_atr': 4.5,
-    'trail_arm_r': 1.0,
+    'trail_atr': 3.0,
+    'trail_arm_r': 0.0,
 }
 _COMMODITIES_EMA = {
     'short_window': 20,
@@ -205,8 +208,8 @@ def _tp1_trail_params(base: dict, *, long_only: bool) -> dict:
     }
 
 
-def _wallet(market, pairs, rank, label, params):
-    return {
+def _wallet(market, pairs, rank, label, params, *, equity_risk_pct=None, max_notional_pct=None):
+    cfg = {
         'strategy_module': 'strategies.moving_average',
         'strategy_class': 'MovingAverageStrategy',
         'pairs': list(pairs),
@@ -215,39 +218,84 @@ def _wallet(market, pairs, rank, label, params):
         'param_rank': rank,
         'param_label': label,
     }
+    if equity_risk_pct is not None:
+        cfg['equity_risk_pct'] = float(equity_risk_pct)
+    if max_notional_pct is not None:
+        cfg['max_notional_pct'] = float(max_notional_pct)
+    return cfg
 
 
-def _book_wallets(market, pairs, ema):
+def _book_wallets(
+    market,
+    pairs,
+    ema,
+    *,
+    id_prefix=None,
+    label_prefix='',
+    rank_base=0,
+    equity_risk_pct=None,
+    max_notional_pct=None,
+):
     """Four exit/side modes per traded book."""
-    if market == 'crypto':
+    if id_prefix:
+        prefix = id_prefix
+    elif market == 'crypto':
         prefix = 'ma_crypto'
     elif market == 'stocks':
         prefix = 'ma_stocks'
     else:
         prefix = f'ma_{market}'
-    return {
-        f'{prefix}_long_trail': _wallet(
-            market, pairs, 1, 'Long · asset trail',
-            _asset_trail_params(ema, long_only=True),
-        ),
-        f'{prefix}_long_tp1': _wallet(
-            market, pairs, 2, 'Long · TP1 trail',
-            _tp1_trail_params(ema, long_only=True),
-        ),
-        f'{prefix}_ls_trail': _wallet(
-            market, pairs, 3, 'Long/Short · asset trail',
-            _asset_trail_params(ema, long_only=False),
-        ),
-        f'{prefix}_ls_tp1': _wallet(
-            market, pairs, 4, 'Long/Short · TP1 trail',
-            _tp1_trail_params(ema, long_only=False),
-        ),
-    }
+    styles = (
+        (1, 'Long · asset trail', _asset_trail_params(ema, long_only=True), 'long_trail'),
+        (2, 'Long · TP1 trail', _tp1_trail_params(ema, long_only=True), 'long_tp1'),
+        (3, 'Long/Short · asset trail', _asset_trail_params(ema, long_only=False), 'ls_trail'),
+        (4, 'Long/Short · TP1 trail', _tp1_trail_params(ema, long_only=False), 'ls_tp1'),
+    )
+    out = {}
+    for style_rank, label, params, slug in styles:
+        out[f'{prefix}_{slug}'] = _wallet(
+            market,
+            pairs,
+            rank_base + style_rank,
+            f'{label_prefix}{label}',
+            params,
+            equity_risk_pct=equity_risk_pct,
+            max_notional_pct=max_notional_pct,
+        )
+    return out
 
 
-# 4 wallets × crypto / forex / commodities / stocks.
+# Equity risk for the crypto ladder. 1% keeps the global 25% notional cap.
+# Higher steps may use the full wallet as notional so the stop risk can exceed 1%.
+CRYPTO_RISK_LADDER = (
+    (0.01, 'ma_crypto', '1% · ', 0, None),
+    (0.02, 'ma_crypto_r2', '2% · ', 20, 1.0),
+    (0.03, 'ma_crypto_r3', '3% · ', 30, 1.0),
+    (0.05, 'ma_crypto_r5', '5% · ', 50, 1.0),
+    (0.10, 'ma_crypto_r10', '10% · ', 100, 1.0),
+    (0.15, 'ma_crypto_r15', '15% · ', 150, 1.0),
+)
+
+
+def _crypto_risk_wallets(pairs, ema):
+    out = {}
+    for pct, prefix, label_prefix, rank_base, max_notional in CRYPTO_RISK_LADDER:
+        out.update(_book_wallets(
+            'crypto',
+            pairs,
+            ema,
+            id_prefix=prefix,
+            label_prefix=label_prefix,
+            rank_base=rank_base,
+            equity_risk_pct=pct,
+            max_notional_pct=max_notional,
+        ))
+    return out
+
+
+# Crypto risk ladder, then forex / commodities / stocks.
 TRADING_CONFIG = {}
-TRADING_CONFIG.update(_book_wallets('crypto', CRYPTO_PAIRS, _CRYPTO_EMA))
+TRADING_CONFIG.update(_crypto_risk_wallets(CRYPTO_PAIRS, _CRYPTO_EMA))
 TRADING_CONFIG.update(_book_wallets('forex', FOREX_PAIRS, _FOREX_EMA))
 TRADING_CONFIG.update(_book_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA))
 TRADING_CONFIG.update(_book_wallets('stocks', STOCK_PAIRS, _STOCKS_EMA))

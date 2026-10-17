@@ -1,6 +1,8 @@
 from .base_strategy import BaseStrategy
 import pandas as pd
 
+from shared.weekly_trend import weekly_ema_on_daily, weekly_trend_flags
+
 class MovingAverageStrategy(BaseStrategy):
     def generate_signal(self, market_data: pd.DataFrame, position_data: dict) -> dict:
         # Default Hold
@@ -121,14 +123,6 @@ class MovingAverageStrategy(BaseStrategy):
             if base_ok and require_stack:
                 base_ok = float(signal_slow) > float(signal_base)
 
-        slope_ok = True
-        if trend_slope_bars > 0 and len(ema_trend) > trend_slope_bars:
-            prior_trend = ema_trend.iloc[-1 - trend_slope_bars]
-            if pd.isnull(prior_trend):
-                slope_ok = False
-            else:
-                slope_ok = float(signal_trend) > float(prior_trend)
-
         reclaim_ok = True
         if reclaim_lookback > 0:
             look = closes.iloc[-(reclaim_lookback + 1):-1]
@@ -138,6 +132,35 @@ class MovingAverageStrategy(BaseStrategy):
                 look_level = ema_trend.iloc[-(reclaim_lookback + 1):-1]
             was_below = (look < look_level).fillna(False).any()
             reclaim_ok = bool(was_below)
+
+        trend_weekly = bool(self.params.get('trend_weekly', False))
+        ema_fn = lambda series, span: BaseStrategy._ema(self, series, span)
+        if trend_weekly:
+            bull, bear = weekly_trend_flags(closes, int(trend_period), ema_fn)
+            trend_long_ok = bool(bull.iloc[-1])
+            trend_short_ok = bool(bear.iloc[-1])
+        else:
+            trend_long_ok = float(signal_price) > float(signal_trend)
+            trend_short_ok = float(signal_price) < float(signal_trend)
+
+        slope_ok = True
+        if trend_slope_bars > 0 and trend_weekly:
+            wema = weekly_ema_on_daily(closes, int(trend_period), ema_fn)
+            if len(wema) <= trend_slope_bars:
+                slope_ok = False
+            else:
+                prior_trend = wema.iloc[-1 - trend_slope_bars]
+                now_trend = wema.iloc[-1]
+                if pd.isnull(prior_trend) or pd.isnull(now_trend):
+                    slope_ok = False
+                else:
+                    slope_ok = float(now_trend) > float(prior_trend)
+        elif trend_slope_bars > 0 and len(ema_trend) > trend_slope_bars:
+            prior_trend = ema_trend.iloc[-1 - trend_slope_bars]
+            if pd.isnull(prior_trend):
+                slope_ok = False
+            else:
+                slope_ok = float(signal_trend) > float(prior_trend)
 
         macro_ok = True
         if macro_ema_window > 0:
@@ -178,7 +201,7 @@ class MovingAverageStrategy(BaseStrategy):
         if not position_data:
             if (
                 crossover_long
-                and signal_price > signal_trend
+                and trend_long_ok
                 and adx_ok
                 and volume_ok
                 and separation_ok
@@ -194,17 +217,20 @@ class MovingAverageStrategy(BaseStrategy):
                     'reason': 'Golden Cross + filters',
                     'is_entry': True,
                 }
+                if trend_weekly:
+                    signal_out['reason'] = 'Golden Cross + weekly trend'
                 if not skip_tp1:
                     signal_out['take_profit'] = current_price + (1.0 * current_atr)
                 else:
                     signal_out['take_profit'] = 0.0
-                    signal_out['reason'] = 'Big-move long: cross + EMA200/reclaim'
+                    if not trend_weekly:
+                        signal_out['reason'] = 'Big-move long: cross + EMA200/reclaim'
                 return self._stamp_atr(signal_out, current_atr, indicators)
 
             if (
                 not long_only
                 and crossover_short
-                and signal_price < signal_trend
+                and trend_short_ok
                 and adx_ok
                 and volume_ok
                 and separation_ok
@@ -212,11 +238,14 @@ class MovingAverageStrategy(BaseStrategy):
                 initial_sl = current_price + (sl_atr * current_atr)
                 initial_tp = current_price - (1.0 * current_atr)
 
+                short_reason = (
+                    'Death Cross + weekly trend' if trend_weekly else 'Death Cross + ADX/vol/trend'
+                )
                 return self._stamp_atr({
                     'action': 'sell',
                     'stop_loss': initial_sl,
                     'take_profit': initial_tp,
-                    'reason': 'Death Cross + ADX/vol/trend',
+                    'reason': short_reason,
                     'is_entry': True,
                 }, current_atr, indicators)
 

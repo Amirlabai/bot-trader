@@ -175,9 +175,14 @@ def _eligible_on_day(mask: pd.Series, day: date) -> bool:
 
 
 def _risk_for_strategy(cfg: dict) -> dict:
-    if cfg.get('market') == 'stocks':
-        return {**RISK_SETTINGS, 'equity_risk_pct': STOCKS_EQUITY_RISK_PCT}
-    return RISK_SETTINGS
+    settings = dict(RISK_SETTINGS)
+    if cfg.get('equity_risk_pct') is not None:
+        settings['equity_risk_pct'] = float(cfg['equity_risk_pct'])
+    elif cfg.get('market') == 'stocks':
+        settings['equity_risk_pct'] = STOCKS_EQUITY_RISK_PCT
+    if cfg.get('max_notional_pct') is not None:
+        settings['max_notional_pct'] = float(cfg['max_notional_pct'])
+    return settings
 
 
 def _merge_strategies_into_live(resim_ledger: dict, strategy_ids: list[str]) -> None:

@@ -65,12 +65,17 @@ def _parse_markets(raw: str | None) -> set[str] | None:
     return markets or None
 
 
-def _risk_for_market(market: str | None) -> tuple[float, dict]:
-    """Return (equity_risk_pct, risk_settings) for the wallet market."""
-    if market == 'stocks':
-        settings = {**RISK_SETTINGS, 'equity_risk_pct': STOCKS_EQUITY_RISK_PCT}
-        return STOCKS_EQUITY_RISK_PCT, settings
-    return RISK_SETTINGS['equity_risk_pct'], RISK_SETTINGS
+def _risk_for_config(config: dict) -> tuple[float, dict]:
+    """Wallet equity risk. Crypto ladder overrides the 1% default. Stocks stay at 7%."""
+    settings = dict(RISK_SETTINGS)
+    market = config.get('market')
+    if config.get('equity_risk_pct') is not None:
+        settings['equity_risk_pct'] = float(config['equity_risk_pct'])
+    elif market == 'stocks':
+        settings['equity_risk_pct'] = STOCKS_EQUITY_RISK_PCT
+    if config.get('max_notional_pct') is not None:
+        settings['max_notional_pct'] = float(config['max_notional_pct'])
+    return settings['equity_risk_pct'], settings
 
 
 def _normalize_screener_payload(screener_payload: dict | None) -> dict | None:
@@ -196,7 +201,7 @@ def main(markets: set[str] | None = None):
             print(f"    Action: {action.upper()} | Reason: {signal_data.get('reason', '')} | Price: {current_price}")
 
             position_side = pos_data.get('side', 'LONG') if pos_data else None
-            equity_risk_pct, risk_settings = _risk_for_market(market)
+            equity_risk_pct, risk_settings = _risk_for_config(config)
 
             if action == 'buy':
                 if position_side == 'SHORT':

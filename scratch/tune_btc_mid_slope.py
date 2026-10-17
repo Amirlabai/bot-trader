@@ -225,6 +225,11 @@ def main():
     start = date.fromisoformat(args.start) if args.start else first + timedelta(days=WARMUP_DAYS)
     if start > end:
         raise SystemExit(f'Window empty: {start} .. {end}')
+    if (start - first).days < WARMUP_DAYS:
+        print(
+            f'WARN: 4h history starts {first}; wanted {WARMUP_DAYS}d warmup before {start}. '
+            'Trend EMA may be cold at the first scored bar.'
+        )
 
     close = df['close'].astype(float).to_numpy(dtype=float)
     high = df['high'].astype(float).to_numpy(dtype=float)

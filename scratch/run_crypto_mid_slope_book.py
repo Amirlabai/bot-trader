@@ -291,7 +291,17 @@ def _sym_row(pnls: list[float]) -> tuple[float, int, float]:
     return sum(pnls), n, wr
 
 
-def write_report(metrics: dict, symbols: list[str], skipped: list[str], drill_n: int, elapsed: float) -> None:
+def write_report(
+    metrics: dict,
+    symbols: list[str],
+    skipped: list[str],
+    drill_n: int,
+    elapsed: float,
+    *,
+    label: str,
+    source: str,
+    excluded: list[str] | None = None,
+) -> None:
     rows = []
     for sym, pnls in zip(symbols, metrics['by_symbol']):
         pnl, n, wr = _sym_row(pnls)
@@ -300,11 +310,6 @@ def write_report(metrics: dict, symbols: list[str], skipped: list[str], drill_n:
     pf = metrics['profit_factor']
     pf_s = 'inf' if pf == float('inf') else f'{pf:.2f}'
     kind = 'close slope' if SIGNAL == 'close' else 'midpoint'
-    source = (
-        'docs/btc_close_slope_4h_6m.md'
-        if SIGNAL == 'close'
-        else 'docs/btc_mid_slope_4h_6m.md'
-    )
     if SIGNAL == 'close':
         structure = (
             'Structure: slope of close is positive and close is above the trend EMA. '
@@ -317,7 +322,7 @@ def write_report(metrics: dict, symbols: list[str], skipped: list[str], drill_n:
             'After an exit, that symbol must see both slopes go negative and then positive before it can enter again.'
         )
     lines = [
-        f'# Crypto book, 4h 6m {kind} (shared wallet)',
+        f'# Crypto book, 4h {label} {kind} (shared wallet)',
         '',
         f'Generated: {pd.Timestamp.now().isoformat(timespec="seconds")}',
         f'Source: `{source}` composite #1 '
@@ -359,6 +364,8 @@ def write_report(metrics: dict, symbols: list[str], skipped: list[str], drill_n:
     ]
     for sym, pnl, n, wr in rows:
         lines.append(f'| {sym} | ${pnl:+,.0f} | {n} | {wr:.0f} |')
+    if excluded:
+        lines += ['', 'Left out as extreme winners: ' + ', '.join(excluded)]
     if skipped:
         lines += ['', 'Skipped (no 4h bars in the window): ' + ', '.join(skipped)]
     lines.append('')
@@ -372,14 +379,51 @@ def main() -> None:
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--signal', choices=('mid', 'close'), default='mid')
+    parser.add_argument('--start', default=None, help='First scored day, YYYY-MM-DD')
+    parser.add_argument('--end', default=None, help='Last scored day, YYYY-MM-DD')
+    parser.add_argument('--span', type=int, default=None)
+    parser.add_argument('--trend', type=int, default=None)
+    parser.add_argument('--atr', type=int, default=None)
+    parser.add_argument('--sl', type=float, default=None)
+    parser.add_argument('--trail', type=float, default=None)
+    parser.add_argument('--label', default='6m')
+    parser.add_argument('--source', default=None, help='Report path the params came from')
+    parser.add_argument('--report', default=None)
+    parser.add_argument('--exclude', default='', help='Comma-separated symbols to leave out')
     args = parser.parse_args()
     _apply_signal(args.signal)
+    global START, END, SLOPE_SPAN, TREND_WINDOW, ATR_PERIOD, SL_ATR, TRAIL_ATR, REPORT_PATH
+    if args.start:
+        START = date.fromisoformat(args.start)
+    if args.end:
+        END = date.fromisoformat(args.end)
+    if args.span is not None:
+        SLOPE_SPAN = args.span
+    if args.trend is not None:
+        TREND_WINDOW = args.trend
+    if args.atr is not None:
+        ATR_PERIOD = args.atr
+    if args.sl is not None:
+        SL_ATR = args.sl
+    if args.trail is not None:
+        TRAIL_ATR = args.trail
+    if args.report:
+        REPORT_PATH = args.report if os.path.isabs(args.report) else os.path.join(REPO_ROOT, args.report)
+    elif args.label != '6m':
+        kind_slug = 'close' if args.signal == 'close' else 'mid'
+        REPORT_PATH = os.path.join(REPO_ROOT, 'docs', f'crypto_{kind_slug}_slope_4h_{args.label}.md')
+    source = args.source or 'scratch/tune_btc_mid_slope.py'
 
     need_from = START - timedelta(days=WARMUP_DAYS)
     prepared = []
     skipped = []
     t0 = time.perf_counter()
+    excluded = {s.strip() for s in args.exclude.split(',') if s.strip()}
+    if excluded:
+        print(f'Excluded: {", ".join(sorted(excluded))}')
     for symbol in CRYPTO_PAIRS:
+        if symbol in excluded:
+            continue
         df = load_interval(symbol, '4h', need_from, END)
         if df is None or df.empty:
             skipped.append(symbol)
@@ -409,7 +453,10 @@ def main() -> None:
     elapsed = time.perf_counter() - t0
     symbols = [ser['symbol'] for ser in prepared]
     drill_n = sum(1 for ser in prepared if ser['finer'] is not None)
-    write_report(metrics, symbols, skipped, drill_n, elapsed)
+    write_report(
+        metrics, symbols, skipped, drill_n, elapsed,
+        label=args.label, source=source, excluded=sorted(excluded),
+    )
     print(
         f"Shared PnL ${metrics['net_pnl']:+,.0f} "
         f"WR {metrics['win_rate']:.0f}% trades {metrics['closed_trades']} "
