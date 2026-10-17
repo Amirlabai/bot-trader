@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolve Lab</title>
+<style>
+:root{--canvas:#0d1117;--surface:#161b22;--ink:#c9d1d9;--frost:#f0f6fc;--muted:#8b949e;--stroke:#30363d;--accent:#58a6ff;--gain:#3fb950;--loss:#f85149;--caution:#d29922}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:clamp(1.35rem,4vw,2rem);color:var(--frost);margin:0 0 4px}
+h2{font-size:15px;color:var(--frost);margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 16px}
+.card{background:var(--surface);border:1px solid var(--stroke);border-radius:6px;padding:14px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+select,button{background:var(--canvas);color:var(--ink);border:1px solid var(--stroke);border-radius:6px;padding:8px 12px;font:inherit}
+button{cursor:pointer}button:hover:not(:disabled){border-color:var(--accent)}
+button.primary{background:var(--accent);color:#0d1117;border-color:var(--accent);font-weight:600}
+button:disabled{opacity:.4;cursor:not-allowed}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--stroke)}
+th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:500}
+.scroll{overflow-x:auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kpi{border:1px solid var(--stroke);border-radius:6px;padding:8px 10px}
+.kpi b{display:block;color:var(--frost);font-size:18px}.kpi span{color:var(--muted);font-size:12px}
+.ok{color:var(--gain)}.bad{color:var(--loss)}.warn{color:var(--caution)}.muted{color:var(--muted)}
+.bar{height:8px;background:var(--canvas);border-radius:4px;overflow:hidden;margin:10px 0 4px}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .2s}
+ul{margin:6px 0 0;padding-left:18px}
+.err{color:var(--loss);margin-top:8px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Evolve Lab</h1>
+  <p class="sub">Retune on a training window, test against the locked params on a later holdout, promote only on a clear win. Localhost only.</p>
+
+  <div class="card">
+    <div class="row">
+      <select id="market"><option>crypto</option><option>commodities</option><option>forex</option><option>stocks</option></select>
+      <button class="primary" id="run">Run retune</button>
+      <button id="rollback">Roll back last promotion</button>
+      <span id="msg" class="muted"></span>
+    </div>
+    <div id="progress" hidden>
+      <div class="bar"><i id="pbar"></i></div>
+      <div class="muted" id="ptext"></div>
+    </div>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="card"><h2>Locked params (champion)</h2><div id="champ" class="scroll"></div></div>
+  <div class="card"><h2>Trade feedback</h2><div id="fb"></div></div>
+
+  <div class="card" id="result" hidden>
+    <h2>Champion vs challenger</h2>
+    <p class="muted" id="windows"></p>
+    <div class="scroll" id="cmp"></div>
+    <h2 style="margin-top:14px">Gates</h2>
+    <div class="scroll" id="gates"></div>
+    <div class="row" style="margin-top:12px">
+      <button class="primary" id="promote">Promote challenger</button>
+      <button id="reject">Reject</button>
+    </div>
+  </div>
+
+  <div class="card"><h2>Decision log</h2><div class="scroll" id="log"></div></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const SIX = ['short_window','long_window','trend_window','atr_period','sl_atr','trail_atr'];
+let jobId = null, report = null, timer = null;
+
+const fmt = v => v === null || v === undefined ? '-' : (typeof v === 'number' ? (Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(2)) : v);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const market = () => $('market').value;
+
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', body: JSON.stringify(body)} : {});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+function fail(e) { $('err').textContent = e.message || e; }
+
+async function refresh() {
+  $('err').textContent = '';
+  const {state, feedback} = await api('/api/state?market=' + market());
+  const p = state.template || {};
+  $('champ').innerHTML = `<table><tr>${SIX.map(k => `<th>${k}</th>`).join('')}</tr><tr>${SIX.map(k => `<td>${fmt(p[k])}</td>`).join('')}</tr></table>
+    <p class="muted">Source: ${esc(state.source)}. Updated ${esc(state.updated_at || '-')}</p>`;
+  const f = feedback;
+  $('fb').innerHTML = f.legs
+    ? `<div class="kpis">${[['Completed legs', f.legs], ['Win rate', f.win_rate + '%'], ['Quick-stop rate', f.quick_stop_rate + '%'],
+        ['Trailed exits', f.trailed_share + '%'], ['Median hold (days)', f.median_hold_days], ['Avg winner return', f.avg_win_ret_pct + '%']]
+        .map(([l, v]) => `<div class="kpi"><b>${v ?? '-'}</b><span>${l}</span></div>`).join('')}</div>`
+      + `<ul>${f.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`
+    : `<p class="muted">${esc(f.notes[0])}</p>`;
+  renderLog(state.log);
+}
+
+function renderLog(log) {
+  $('log').innerHTML = log.length
+    ? `<table><tr><th>Date</th><th>Decision</th><th>Params</th><th>Holdout PF</th><th>Holdout net P/L</th></tr>${log.slice().reverse().map(e => {
+        const c = e.challenger;
+        return `<tr><td>${esc(e.at.slice(0,10))}</td><td class="${e.decision==='promoted'?'ok':e.decision==='rejected'?'warn':'muted'}">${esc(e.decision)}${e.forced?' (forced)':''}${e.rolled_back?' (rolled back)':''}</td>
+          <td>${c ? SIX.map(k => c.params[k]).join(' / ') : '-'}</td><td>${c ? fmt(c.holdout.profit_factor) : '-'}</td><td>${c ? fmt(c.holdout.net_pnl) : '-'}</td></tr>`;
+      }).join('')}</table>`
+    : '<p class="muted">No decisions yet.</p>';
+}
+
+function renderResult(r) {
+  report = r;
+  $('result').hidden = false;
+  $('windows').textContent = `Train ${r.windows.train.join(' to ')} | Holdout ${r.windows.holdout.join(' to ')} | ${r.symbols} symbols`
+    + (r.same_as_champion ? ' | The search found the champion again: nothing to promote.' : '');
+  const rows = [['Params', c => SIX.map(k => c.params[k]).join(' / '), c => SIX.map(k => c.params[k]).join(' / ')],
+    ['Holdout score', c => fmt(c.holdout_score)], ['Holdout PF', c => fmt(c.holdout.profit_factor)],
+    ['Holdout net P/L', c => fmt(c.holdout.net_pnl)], ['Holdout trades', c => fmt(c.holdout.closed_trades)],
+    ['Holdout win rate %', c => fmt(c.holdout.win_rate)], ['Holdout max DD %', c => fmt(c.holdout.max_drawdown)],
+    ['Train PF', c => fmt(c.train && c.train.profit_factor)], ['Train net P/L', c => fmt(c.train && c.train.net_pnl)]];
+  $('cmp').innerHTML = `<table><tr><th></th><th>Champion</th><th>Challenger</th></tr>${rows.map(([l, f]) =>
+    `<tr><td>${l}</td><td>${f(r.champion)}</td><td>${f(r.challenger)}</td></tr>`).join('')}</table>`;
+  $('gates').innerHTML = `<table>${r.gates.map(g => `<tr><td>${esc(g.name)}</td><td>${esc(g.detail)}</td><td class="${g.ok?'ok':'bad'}">${g.ok?'Pass':'Fail'}</td></tr>`).join('')}</table>`;
+  $('promote').textContent = r.passed ? 'Promote challenger' : 'Force promote (gates failed)';
+  $('promote').disabled = r.same_as_champion;
+  $('reject').disabled = false;
+}
+
+async function poll() {
+  const j = await api('/api/job/' + jobId);
+  if (j.status === 'running') {
+    $('progress').hidden = false;
+    $('pbar').style.width = (j.n ? j.i / j.n * 100 : 0) + '%';
+    $('ptext').textContent = `${j.stage} ${j.n > 1 ? j.i + '/' + j.n : ''} ${j.note}`;
+    return;
+  }
+  clearInterval(timer); $('progress').hidden = true; $('run').disabled = false;
+  if (j.status === 'error') return fail(j.error);
+  renderResult(j.report);
+}
+
+$('run').onclick = async () => {
+  try {
+    $('err').textContent = ''; $('result').hidden = true; $('run').disabled = true;
+    jobId = (await api('/api/run', {market: market()})).id;
+    timer = setInterval(() => poll().catch(fail), 1000);
+  } catch (e) { $('run').disabled = false; fail(e); }
+};
+$('promote').onclick = async () => {
+  if (!report.passed && !confirm('Gates failed. Promote anyway?')) return;
+  try {
+    await api('/api/promote', {id: jobId, force: !report.passed});
+    $('result').hidden = true; $('msg').textContent = 'Promoted. The next daily run uses the new params.'; refresh();
+  } catch (e) { fail(e); }
+};
+$('reject').onclick = async () => {
+  try { await api('/api/reject', {id: jobId}); $('result').hidden = true; $('msg').textContent = 'Rejected and logged.'; refresh(); }
+  catch (e) { fail(e); }
+};
+$('rollback').onclick = async () => {
+  if (!confirm('Restore the params from before the last promotion?')) return;
+  try { await api('/api/rollback', {market: market()}); $('msg').textContent = 'Rolled back.'; refresh(); }
+  catch (e) { fail(e); }
+};
+$('market').onchange = () => { $('result').hidden = true; $('msg').textContent = ''; refresh().catch(fail); };
+refresh().catch(fail);
+</script>
+</body>
+</html>
