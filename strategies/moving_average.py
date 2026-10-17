@@ -1,7 +1,8 @@
 from .base_strategy import BaseStrategy
 import pandas as pd
 
-from shared.weekly_trend import weekly_ema_on_daily, weekly_trend_flags
+from shared import mtf
+from shared.path_sim import effective_tfs
 
 class MovingAverageStrategy(BaseStrategy):
     def generate_signal(self, market_data: pd.DataFrame, position_data: dict) -> dict:
@@ -29,6 +30,8 @@ class MovingAverageStrategy(BaseStrategy):
         trend_slope_bars = int(self.params.get('trend_slope_bars', 0) or 0)
         reclaim_lookback = int(self.params.get('reclaim_lookback', 0) or 0)
         macro_ema_window = int(self.params.get('macro_ema_window', 0) or 0)
+        tfs = effective_tfs(self.params)
+        hold_days = int(self.params.get('hold_days', 0) or 0)
 
         # Data provided by DataFetcher is now guaranteed to be closed candles only.
         closed_data = market_data
@@ -54,7 +57,10 @@ class MovingAverageStrategy(BaseStrategy):
         ema_slow = self._ema(closes, slow_period)
         ema_base = self._ema(closes, base_period) if base_period > 0 else None
         ema_macro = self._ema(closes, macro_ema_window) if macro_ema_window > 0 else None
-        atr = self._calculate_atr(closed_data, atr_period)
+        if tfs['atr_tf'] == 'D':
+            atr = self._calculate_atr(closed_data, atr_period)
+        else:
+            atr = mtf.atr_on_tf(closed_data, atr_period, tfs['atr_tf'])
         adx = self._calculate_adx(closed_data, adx_period)
         vol_ma = closed_data['volume'].rolling(window=vol_ma_period).mean()
         
@@ -105,6 +111,13 @@ class MovingAverageStrategy(BaseStrategy):
 
         crossover_long = prev_signal_fast <= prev_signal_slow and signal_fast > signal_slow
         crossover_short = prev_signal_fast >= prev_signal_slow and signal_fast < signal_slow
+        ema_fn = lambda series, span: BaseStrategy._ema(self, series, span)
+        if tfs['cross_tf'] != 'D':
+            cross_up, cross_down = mtf.cross_events(
+                closed_data, fast_period, slow_period, tfs['cross_tf'], ema_fn,
+            )
+            crossover_long = bool(cross_up.iloc[-1])
+            crossover_short = bool(cross_down.iloc[-1])
         adx_ok = True if float(adx_min) <= 0 else signal_adx > adx_min
         # Yahoo forex volume is typically all zeros; skip volume gate when unusable.
         if float(vol_mult) <= 0:
@@ -133,10 +146,10 @@ class MovingAverageStrategy(BaseStrategy):
             was_below = (look < look_level).fillna(False).any()
             reclaim_ok = bool(was_below)
 
-        trend_weekly = bool(self.params.get('trend_weekly', False))
-        ema_fn = lambda series, span: BaseStrategy._ema(self, series, span)
-        if trend_weekly:
-            bull, bear = weekly_trend_flags(closes, int(trend_period), ema_fn)
+        trend_tf = tfs['trend_tf']
+        trend_weekly = trend_tf == 'W'
+        if trend_tf != 'D':
+            bull, bear = mtf.trend_flags(closed_data, int(trend_period), trend_tf, ema_fn)
             trend_long_ok = bool(bull.iloc[-1])
             trend_short_ok = bool(bear.iloc[-1])
         else:
@@ -144,8 +157,8 @@ class MovingAverageStrategy(BaseStrategy):
             trend_short_ok = float(signal_price) < float(signal_trend)
 
         slope_ok = True
-        if trend_slope_bars > 0 and trend_weekly:
-            wema = weekly_ema_on_daily(closes, int(trend_period), ema_fn)
+        if trend_slope_bars > 0 and trend_tf != 'D':
+            wema = mtf.ema_on_tf(closed_data, int(trend_period), trend_tf, ema_fn)
             if len(wema) <= trend_slope_bars:
                 slope_ok = False
             else:
@@ -196,6 +209,29 @@ class MovingAverageStrategy(BaseStrategy):
                     'quantity_pct': 1.0,
                     'reason': reason,
                 }, current_atr, indicators)
+
+        # --- 2b. Higher-timeframe signal exit and holding horizon (long) ---
+        if position_data and position_data.get('side', 'LONG') == 'LONG':
+            if hold_days > 0 and position_data.get('entry_date'):
+                held = (pd.Timestamp(closed_data.index[-1]).tz_localize(None).normalize()
+                        - pd.Timestamp(position_data['entry_date'])).days
+                if held >= hold_days:
+                    return self._stamp_atr({
+                        'action': 'sell',
+                        'quantity_pct': 1.0,
+                        'reason': f'Time exit: held {held}d (horizon {hold_days}d)',
+                    }, current_atr, indicators)
+            exit_mode = tfs['exit_mode']
+            if exit_mode != 'stop_only':
+                flag = mtf.exit_flags(
+                    closed_data, exit_mode, tfs['exit_tf'], fast_period, slow_period, trend_period, ema_fn,
+                )
+                if bool(flag.iloc[-1]):
+                    return self._stamp_atr({
+                        'action': 'sell',
+                        'quantity_pct': 1.0,
+                        'reason': f'Exit: {exit_mode} on {tfs["exit_tf"]}',
+                    }, current_atr, indicators)
 
         # --- 3. Entry Logic ---
         if not position_data:

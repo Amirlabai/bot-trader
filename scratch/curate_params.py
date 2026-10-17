@@ -43,6 +43,7 @@ from shared.curated_params import load_curated_params, save_curated_params  # no
 from shared.path_sim import (  # noqa: E402
     PathSimInvariantError,
     build_long_entry_mask,
+    build_signals,
     curator_score,
     ema_series,
     params_from_ratios,
@@ -330,27 +331,28 @@ def _build_wallet_series(
     calendar: pd.DatetimeIndex,
     *,
     start: date,
+    gates: dict | None = None,
 ) -> list[dict]:
-    """Aligned multi-symbol series with the same six-pack on every coin."""
+    """Aligned multi-symbol series with the same six-pack (and timeframe roles) on every coin.
+
+    `gates` overrides FIXED_GATES (adx_min, atr_buffer, adx_period) so the lab can score the
+    live template instead of the curator defaults.
+    """
+    g = {**FIXED_GATES, **(gates or {})}
     series = []
     start_ts = pd.Timestamp(start)
+    cal_days = calendar.tz_localize(None).values.astype('datetime64[D]').astype('int64')         if getattr(calendar, 'tz', None) is not None else calendar.values.astype('datetime64[D]').astype('int64')
     for sym, df in frames.items():
         native = df[df.index >= start_ts] if len(df) else df
         if native.empty or len(native) < 50:
             continue
         close = native['close'].to_numpy(dtype=float)
-        high = native['high'].to_numpy(dtype=float)
         low = native['low'].to_numpy(dtype=float)
-        entry, atr = build_long_entry_mask(
-            close, high, low,
-            short_window=int(params['short_window']),
-            long_window=int(params['long_window']),
-            trend_window=int(params['trend_window']),
-            atr_period=int(params['atr_period']),
-            adx_min=float(FIXED_GATES['adx_min']),
-            atr_buffer=float(FIXED_GATES['atr_buffer']),
-            adx_period=int(FIXED_GATES['adx_period']),
-            regime_ok=None,
+        entry, atr, exit_sig = build_signals(
+            native, params,
+            adx_min=float(g['adx_min']),
+            atr_buffer=float(g['atr_buffer']),
+            adx_period=int(g['adx_period']),
         )
         pack = pd.DataFrame(
             {
@@ -358,6 +360,7 @@ def _build_wallet_series(
                 'low': low,
                 'atr': atr,
                 'entry': entry.astype(float),
+                'exit': exit_sig.astype(float),
                 'has': 1.0,
             },
             index=native.index,
@@ -371,6 +374,8 @@ def _build_wallet_series(
             'low': al['low'].ffill().to_numpy(dtype=float),
             'atr': al['atr'].ffill().to_numpy(dtype=float),
             'entry': ent,
+            'exit': (al['exit'].fillna(0.0).to_numpy(dtype=float) > 0.5) & has,
+            'days': cal_days,
             'has_bar': has,
             'sl_atr': float(params['sl_atr']),
             'trail_atr': float(params['trail_atr']),

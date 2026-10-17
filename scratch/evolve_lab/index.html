@@ -40,6 +40,8 @@ ul{margin:6px 0 0;padding-left:18px}
   <div class="card">
     <div class="row">
       <select id="market"><option>crypto</option><option>commodities</option><option>forex</option><option>stocks</option></select>
+      <select id="bot"><option value="live">Bot A · live paper</option><option value="hold">Bot B · hold + profit gate</option></select>
+      <label class="muted"><input type="checkbox" id="tfs"> Search timeframes (D/W/M)</label>
       <button class="primary" id="run">Run retune</button>
       <button id="rollback">Roll back last promotion</button>
       <span id="msg" class="muted"></span>
@@ -71,6 +73,10 @@ ul{margin:6px 0 0;padding-left:18px}
 <script>
 const $ = id => document.getElementById(id);
 const SIX = ['short_window','long_window','trend_window','atr_period','sl_atr','trail_atr'];
+const TF = ['trend_tf','cross_tf','atr_tf','exit_tf','exit_mode'];
+const HOLD = ['hold_days','gate_window','gate_min_trades','gate_min_pf'];
+const bot = () => $('bot').value;
+const KEYS = () => SIX.concat(TF, bot() === 'hold' ? HOLD : []);
 let jobId = null, report = null, timer = null;
 
 const fmt = v => v === null || v === undefined ? '-' : (typeof v === 'number' ? (Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(2)) : v);
@@ -87,9 +93,9 @@ function fail(e) { $('err').textContent = e.message || e; }
 
 async function refresh() {
   $('err').textContent = '';
-  const {state, feedback} = await api('/api/state?market=' + market());
+  const {state, feedback} = await api('/api/state?market=' + market() + '&bot=' + bot());
   const p = state.template || {};
-  $('champ').innerHTML = `<table><tr>${SIX.map(k => `<th>${k}</th>`).join('')}</tr><tr>${SIX.map(k => `<td>${fmt(p[k])}</td>`).join('')}</tr></table>
+  $('champ').innerHTML = `<table><tr>${KEYS().map(k => `<th>${k}</th>`).join('')}</tr><tr>${KEYS().map(k => `<td>${fmt(p[k])}</td>`).join('')}</tr></table>
     <p class="muted">Source: ${esc(state.source)}. Updated ${esc(state.updated_at || '-')}</p>`;
   const f = feedback;
   $('fb').innerHTML = f.legs
@@ -106,7 +112,7 @@ function renderLog(log) {
     ? `<table><tr><th>Date</th><th>Decision</th><th>Params</th><th>Holdout PF</th><th>Holdout net P/L</th></tr>${log.slice().reverse().map(e => {
         const c = e.challenger;
         return `<tr><td>${esc(e.at.slice(0,10))}</td><td class="${e.decision==='promoted'?'ok':e.decision==='rejected'?'warn':'muted'}">${esc(e.decision)}${e.forced?' (forced)':''}${e.rolled_back?' (rolled back)':''}</td>
-          <td>${c ? SIX.map(k => c.params[k]).join(' / ') : '-'}</td><td>${c ? fmt(c.holdout.profit_factor) : '-'}</td><td>${c ? fmt(c.holdout.net_pnl) : '-'}</td></tr>`;
+          <td>${c ? KEYS().map(k => c.params[k]).filter(v => v !== undefined).join(' / ') : '-'}</td><td>${c ? fmt(c.holdout.profit_factor) : '-'}</td><td>${c ? fmt(c.holdout.net_pnl) : '-'}</td></tr>`;
       }).join('')}</table>`
     : '<p class="muted">No decisions yet.</p>';
 }
@@ -115,8 +121,12 @@ function renderResult(r) {
   report = r;
   $('result').hidden = false;
   $('windows').textContent = `Train ${r.windows.train.join(' to ')} | Holdout ${r.windows.holdout.join(' to ')} | ${r.symbols} symbols`
+    + ` | ${r.bot === 'hold' ? 'Bot B hold' : 'Bot A live'}${r.timeframes ? ' | timeframe search' : ''} | ${r.tested} candidates`
+    + ` | train thirds (champion ${r.folds.champion.join(' / ')} vs challenger ${r.folds.challenger.join(' / ')})`
     + (r.same_as_champion ? ' | The search found the champion again: nothing to promote.' : '');
-  const rows = [['Params', c => SIX.map(k => c.params[k]).join(' / '), c => SIX.map(k => c.params[k]).join(' / ')],
+  const rows = [['Six-pack', c => SIX.map(k => c.params[k]).join(' / ')],
+    ['Timeframes (trend / cross / ATR / exit)', c => c.params.trend_tf ? [c.params.trend_tf, c.params.cross_tf, c.params.atr_tf, c.params.exit_mode + '@' + c.params.exit_tf].join(' / ') : 'D / D / D / stop only'],
+    ['Hold days · gate', c => c.params.hold_days ? c.params.hold_days + 'd · last ' + c.params.gate_window + ' legs, min ' + c.params.gate_min_trades : '-'],
     ['Holdout score', c => fmt(c.holdout_score)], ['Holdout PF', c => fmt(c.holdout.profit_factor)],
     ['Holdout net P/L', c => fmt(c.holdout.net_pnl)], ['Holdout trades', c => fmt(c.holdout.closed_trades)],
     ['Holdout win rate %', c => fmt(c.holdout.win_rate)], ['Holdout max DD %', c => fmt(c.holdout.max_drawdown)],
@@ -145,7 +155,7 @@ async function poll() {
 $('run').onclick = async () => {
   try {
     $('err').textContent = ''; $('result').hidden = true; $('run').disabled = true;
-    jobId = (await api('/api/run', {market: market()})).id;
+    jobId = (await api('/api/run', {market: market(), bot: bot(), timeframes: $('tfs').checked})).id;
     timer = setInterval(() => poll().catch(fail), 1000);
   } catch (e) { $('run').disabled = false; fail(e); }
 };
@@ -162,10 +172,10 @@ $('reject').onclick = async () => {
 };
 $('rollback').onclick = async () => {
   if (!confirm('Restore the params from before the last promotion?')) return;
-  try { await api('/api/rollback', {market: market()}); $('msg').textContent = 'Rolled back.'; refresh(); }
+  try { await api('/api/rollback', {market: market(), bot: bot()}); $('msg').textContent = 'Rolled back.'; refresh(); }
   catch (e) { fail(e); }
 };
-$('market').onchange = () => { $('result').hidden = true; $('msg').textContent = ''; refresh().catch(fail); };
+$('bot').onchange = $('market').onchange = () => { $('result').hidden = true; $('msg').textContent = ''; refresh().catch(fail); };
 refresh().catch(fail);
 </script>
 </body>

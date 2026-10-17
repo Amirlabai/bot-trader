@@ -33,6 +33,7 @@ from shared.trade_exec import apply_exit
 from shared.us_market_calendar import is_us_equity_trading_day, now_et
 from data_ingestion import DataFetcher
 from ledger_manager import LedgerManager
+from shared.profit_gate import symbol_gate_ok
 
 
 def _is_entry_signal(signal_data, long=True):
@@ -170,8 +171,9 @@ def main(markets: set[str] | None = None):
             asset_type = asset_type_for_symbol(symbol)
 
             # Per-symbol curated overlay
+            bot = config.get('bot', 'live')
             eff = merge_effective_params_for_market(
-                base_params, curated, symbol, market or '',
+                base_params, curated, symbol, market or '', bot,
             )
             strategy.params = eff
 
@@ -209,6 +211,14 @@ def main(markets: set[str] | None = None):
                         ledger, strategy, strategy_id, symbol, market_data, pos_data,
                         signal_data, position_side, build_snapshots=True, verbose=True,
                     )
+
+                if position_side is None and _is_entry_signal(signal_data, long=True) and bot == 'hold':
+                    gate_ok, gate_why = symbol_gate_ok(
+                        ledger.ledger, config.get('gate_sources') or [strategy_id], symbol, eff,
+                    )
+                    print(f"    Profit gate {'OPEN' if gate_ok else 'BLOCKED'}: {gate_why}")
+                    if not gate_ok:
+                        continue
 
                 if position_side is None and _is_entry_signal(signal_data, long=True):
                     new_sl = signal_data.get('stop_loss', 0.0)

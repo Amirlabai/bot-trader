@@ -8,6 +8,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from shared import mtf
 from shared.risk_sizing import size_long_from_equity
 
 EPS = 1e-9
@@ -100,6 +101,65 @@ def build_long_entry_mask(
     return entry, atr
 
 
+MTF_DEFAULTS = {
+    'trend_tf': 'D', 'cross_tf': 'D', 'atr_tf': 'D', 'exit_tf': 'D', 'exit_mode': 'stop_only',
+}
+
+
+def effective_tfs(params: dict) -> dict:
+    """Timeframe params with the legacy trend_weekly flag mapped to trend_tf='W'."""
+    out = {k: params.get(k, v) for k, v in MTF_DEFAULTS.items()}
+    if params.get('trend_weekly') and 'trend_tf' not in params:
+        out['trend_tf'] = 'W'
+    for k in ('trend_tf', 'cross_tf', 'atr_tf', 'exit_tf'):
+        out[k] = mtf.check_tf(out[k])
+    return out
+
+
+def build_signals(df: pd.DataFrame, params: dict, *, adx_min: float = 0.0, atr_buffer: float = 0.0,
+                  adx_period: int = 14) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Entry mask, ATR and signal-exit mask for one symbol from its daily OHLC frame.
+
+    Plain daily params (no trend_weekly / *_tf / exit_mode) reproduce build_long_entry_mask exactly.
+    """
+    tf = effective_tfs(params)
+    n = len(df)
+    exit_mode = str(tf['exit_mode'])
+    daily_only = (
+        tf['trend_tf'] == 'D' and tf['cross_tf'] == 'D' and tf['atr_tf'] == 'D' and exit_mode == 'stop_only'
+    )
+    close = df['close'].to_numpy(dtype=float)
+    high = df['high'].to_numpy(dtype=float)
+    low = df['low'].to_numpy(dtype=float)
+    fast_w, slow_w = int(params['short_window']), int(params['long_window'])
+    trend_w, atr_p = int(params['trend_window']), int(params['atr_period'])
+    if daily_only:
+        entry, atr = build_long_entry_mask(
+            close, high, low, short_window=fast_w, long_window=slow_w, trend_window=trend_w,
+            atr_period=atr_p, adx_min=adx_min, atr_buffer=atr_buffer, adx_period=adx_period,
+        )
+        return entry, atr, np.zeros(n, dtype=bool)
+
+    ema = lambda series, span: series.ewm(span=int(span), adjust=False).mean()  # noqa: E731
+    bars = {t: mtf.completed_ohlc(df, t) for t in {tf['cross_tf'], tf['trend_tf'], tf['atr_tf'], tf['exit_tf']}}
+    up, _down = mtf.cross_events(df, fast_w, slow_w, tf['cross_tf'], ema, bars[tf['cross_tf']])
+    bull, _bear = mtf.trend_flags(df, trend_w, tf['trend_tf'], ema, bars[tf['trend_tf']])
+    if tf['atr_tf'] == 'D':
+        atr = atr_series(high, low, close, atr_p)
+    else:
+        atr = mtf.atr_on_tf(df, atr_p, tf['atr_tf'], bars[tf['atr_tf']]).to_numpy(dtype=float)
+    entry = up.to_numpy(dtype=bool) & bull.to_numpy(dtype=bool) & (atr == atr) & (atr > 0)
+    if float(adx_min) > 0:
+        adx = adx_series(high, low, close, adx_period)
+        entry &= (adx == adx) & (adx >= float(adx_min))
+    if float(atr_buffer) > 0:
+        raise ValueError('atr_buffer > 0 is only supported with daily timeframes')
+    exit_sig = mtf.exit_flags(
+        df, exit_mode, tf['exit_tf'], fast_w, slow_w, trend_w, ema, bars[tf['exit_tf']],
+    ).to_numpy(dtype=bool)
+    return entry, atr, exit_sig
+
+
 def _cost_basis_equity(cash: float, qtys: list[float], entries: list[float]) -> float:
     return float(cash) + sum(q * e for q, e in zip(qtys, entries) if q > 0)
 
@@ -161,6 +221,31 @@ def _metrics_from_closed(
     }
 
 
+def _signal_exit(exit_sig, days, max_hold_days: int, i: int, entry_day: int) -> bool:
+    """Close at this bar's close: higher-timeframe exit signal, or the holding horizon reached."""
+    if exit_sig is not None and bool(exit_sig[i]):
+        return True
+    return bool(max_hold_days and days is not None and int(days[i]) - entry_day >= int(max_hold_days))
+
+
+def gate_allows(pnls: list[float], gate: tuple[int, int, float] | None) -> bool:
+    """Per-symbol profit gate: last `window` closed legs must net positive with PF >= min_pf.
+
+    Fewer than `min_trades` legs = probation, entry allowed. gate = (window, min_trades, min_pf).
+    """
+    if not gate:
+        return True
+    window, min_trades, min_pf = int(gate[0]), int(gate[1]), float(gate[2])
+    legs = pnls[-window:]
+    if len(legs) < min_trades:
+        return True
+    if sum(legs) <= 0:
+        return False
+    loss = -sum(p for p in legs if p <= 0)
+    win = sum(p for p in legs if p > 0)
+    return loss == 0 or win / loss >= min_pf
+
+
 def simulate_long_path(
     entry: np.ndarray,
     close: np.ndarray,
@@ -174,6 +259,9 @@ def simulate_long_path(
     *,
     trail_arm_r: float = 1.0,
     assert_invariants: bool = True,
+    exit_sig: np.ndarray | None = None,
+    days: np.ndarray | None = None,
+    max_hold_days: int = 0,
 ) -> dict:
     """Long-only single-symbol path: fill stops at SL, trail after trail_arm_r.
 
@@ -186,6 +274,7 @@ def simulate_long_path(
     initial_stop = 0.0
     entry_atr = 0.0
     equity_at_entry = 0.0
+    entry_day = 0
     trail_armed = False
     pnls: list[float] = []
     equity_curve: list[float] = []
@@ -207,6 +296,15 @@ def simulate_long_path(
                             f'equity_risk_pct {risk_pct:.4%} (pnl={pnl:.4f})'
                         )
                 cash += qty * exit_px
+                pnls.append(pnl)
+                qty = 0.0
+                trail_armed = False
+                equity_curve.append(cash)
+                continue
+
+            if _signal_exit(exit_sig, days, max_hold_days, i, entry_day):
+                pnl = (float(close[i]) - entry_price) * qty
+                cash += qty * float(close[i])
                 pnls.append(pnl)
                 qty = 0.0
                 trail_armed = False
@@ -263,6 +361,7 @@ def simulate_long_path(
         initial_stop = stop0
         entry_atr = float(a)
         equity_at_entry = equity
+        entry_day = int(days[i]) if days is not None else 0
         trail_armed = False
         cash -= notional
         equity_curve.append(cash + qty * price)
@@ -282,6 +381,8 @@ def simulate_long_portfolio(
     *,
     trail_arm_r: float = 1.0,
     assert_invariants: bool = True,
+    max_hold_days: int = 0,
+    gate: tuple[int, int, float] | None = None,
 ) -> dict:
     """Shared-cash long-only book. Exits all symbols, then sequential entries."""
     cash = float(start_cash)
@@ -293,6 +394,8 @@ def simulate_long_portfolio(
     initial_stop = [0.0] * n_sym
     entry_atr = [0.0] * n_sym
     equity_at_entry = [0.0] * n_sym
+    entry_day = [0] * n_sym
+    sym_pnls: list[list[float]] = [[] for _ in range(n_sym)]
     trail_armed = [False] * n_sym
     pnls: list[float] = []
     equity_curve: list[float] = []
@@ -317,6 +420,16 @@ def simulate_long_portfolio(
                         )
                 cash += qty[s] * exit_px
                 pnls.append(pnl)
+                sym_pnls[s].append(pnl)
+                qty[s] = 0.0
+                trail_armed[s] = False
+                continue
+            if _signal_exit(ser.get('exit'), ser.get('days'), max_hold_days, i, entry_day[s]):
+                px = float(ser['close'][i])
+                pnl = (px - entry_price[s]) * qty[s]
+                cash += qty[s] * px
+                pnls.append(pnl)
+                sym_pnls[s].append(pnl)
                 qty[s] = 0.0
                 trail_armed[s] = False
                 continue
@@ -340,6 +453,8 @@ def simulate_long_portfolio(
                 continue
             a = ser['atr'][i]
             if not (a == a) or a <= 0:
+                continue
+            if not gate_allows(sym_pnls[s], gate):
                 continue
             price = float(ser['close'][i])
             sym_sl = float(ser.get('sl_atr', sl_atr))
@@ -366,6 +481,7 @@ def simulate_long_portfolio(
             initial_stop[s] = stop0
             entry_atr[s] = float(a)
             equity_at_entry[s] = equity
+            entry_day[s] = int(ser['days'][i]) if ser.get('days') is not None else 0
             trail_armed[s] = False
             cash -= notional
 

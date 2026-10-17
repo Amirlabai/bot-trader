@@ -341,6 +341,9 @@ class LongOnlyBeTrendExitTests(unittest.TestCase):
                 'ma_stocks_long_tp1',
                 'ma_stocks_ls_trail',
                 'ma_stocks_ls_tp1',
+                *(f'hold_{book}_{mode}'
+                  for book in ('crypto', 'forex', 'commodities', 'stocks')
+                  for mode in ('long_trail', 'long_tp1')),
             },
         )
         self.assertEqual(TRADING_CONFIG['ma_crypto_long_trail']['equity_risk_pct'], 0.01)

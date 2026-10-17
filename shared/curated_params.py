@@ -28,18 +28,33 @@ GATE_KEYS = (
 # Book mode flags. Not part of the six-pack, but a template must be able to set them.
 MODE_KEYS = (
     'trend_weekly',
+    # Which timeframe each role uses (D/W/M, resampled from daily; see shared/mtf.py).
+    'trend_tf',
+    'cross_tf',
+    'atr_tf',
+    'exit_tf',
+    'exit_mode',
+    # Hold bot: fixed holding horizon and the per-symbol live profit gate.
+    'hold_days',
+    'gate_window',
+    'gate_min_trades',
+    'gate_min_pf',
 )
+
+BOT_LIVE = 'live'
+BOT_HOLD = 'hold'
 
 
 def load_curated_params(path: str | None = None) -> dict:
     p = path or DEFAULT_CURATED_PATH
     if not os.path.exists(p):
-        return {'version': 1, 'templates': {}, 'symbols': {}}
+        return {'version': 1, 'templates': {}, 'symbols': {}, 'hold_templates': {}}
     with open(p, 'r', encoding='utf-8') as f:
         data = json.load(f)
     data.setdefault('version', 1)
     data.setdefault('templates', {})
     data.setdefault('symbols', {})
+    data.setdefault('hold_templates', {})
     return data
 
 
@@ -52,8 +67,8 @@ def save_curated_params(data: dict, path: str | None = None) -> str:
     return p
 
 
-def template_params(curated: dict, market: str) -> dict[str, Any]:
-    templates = curated.get('templates') or {}
+def template_params(curated: dict, market: str, bot: str = BOT_LIVE) -> dict[str, Any]:
+    templates = curated.get('hold_templates' if bot == BOT_HOLD else 'templates') or {}
     block = templates.get(market) or {}
     if isinstance(block, dict) and 'params' in block:
         return dict(block.get('params') or {})
@@ -73,14 +88,17 @@ def merge_effective_params_for_market(
     curated: dict | None,
     symbol: str,
     market: str,
+    bot: str = BOT_LIVE,
 ) -> dict:
     out = dict(wallet_params or {})
     if not curated:
         return out
-    tmpl = template_params(curated, market)
+    tmpl = template_params(curated, market, bot)
     for k in list(SIX_PACK_KEYS) + list(GATE_KEYS) + list(MODE_KEYS):
         if k in tmpl:
             out[k] = tmpl[k]
+    if bot == BOT_HOLD:  # per-symbol overlays belong to the live book only
+        return out
     sym = symbol_params(curated, symbol)
     for k in list(SIX_PACK_KEYS) + list(GATE_KEYS) + list(MODE_KEYS):
         if k in sym:

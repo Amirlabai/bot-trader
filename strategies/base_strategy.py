@@ -169,7 +169,7 @@ class BaseStrategy(ABC):
         trail_atr = float(self.params.get('trail_atr', 1.5))
         trail_from_entry = bool(self.params.get('trail_from_entry', False))
         skip_tp1 = bool(self.params.get('skip_tp1', False)) or trail_from_entry
-        use_trailing = bool(self.params.get('use_trailing', True))
+        use_trailing = bool(self.params.get('use_trailing', True)) and trail_atr > 0  # trail_atr 0 = pure hold
         trail_ref_atr = self._trail_reference_atr(position_data, current_atr, sl_atr, is_long)
 
         if stop_loss is None:

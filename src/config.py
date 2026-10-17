@@ -208,8 +208,10 @@ def _tp1_trail_params(base: dict, *, long_only: bool) -> dict:
     }
 
 
-def _wallet(market, pairs, rank, label, params, *, equity_risk_pct=None, max_notional_pct=None):
+def _wallet(market, pairs, rank, label, params, *, equity_risk_pct=None, max_notional_pct=None,
+            bot='live'):
     cfg = {
+        'bot': bot,
         'strategy_module': 'strategies.moving_average',
         'strategy_class': 'MovingAverageStrategy',
         'pairs': list(pairs),
@@ -293,12 +295,46 @@ def _crypto_risk_wallets(pairs, ema):
     return out
 
 
+# Hold bot defaults: fixed horizon plus the per-symbol live profit gate. The lab curates
+# these into hold_templates in data/curated_params.json; until then this is the fallback.
+HOLD_DEFAULTS = {
+    'hold_days': 30,
+    'gate_window': 5,
+    'gate_min_trades': 3,
+    'gate_min_pf': 1.0,
+}
+
+
+def _hold_wallets(market, pairs, ema, *, rank_base=200):
+    """Second bot: long-only, fixed holding horizon, entries only on profitable symbols.
+
+    The gate reads closed legs from the hold wallet itself plus the live wallet of the
+    same style (paper trades of the live book count as evidence).
+    """
+    live_prefix = 'ma_crypto' if market == 'crypto' else f'ma_{market}'
+    styles = (
+        (1, 'Hold · Long · asset trail', _asset_trail_params({**ema, **HOLD_DEFAULTS}, long_only=True), 'long_trail'),
+        (2, 'Hold · Long · TP1 trail', _tp1_trail_params({**ema, **HOLD_DEFAULTS}, long_only=True), 'long_tp1'),
+    )
+    out = {}
+    for style_rank, label, params, slug in styles:
+        sid = f'hold_{market}_{slug}'
+        cfg = _wallet(market, pairs, rank_base + style_rank, label, params, bot='hold')
+        cfg['gate_sources'] = [sid, f'{live_prefix}_{slug}']
+        out[sid] = cfg
+    return out
+
+
 # Crypto risk ladder, then forex / commodities / stocks.
 TRADING_CONFIG = {}
 TRADING_CONFIG.update(_crypto_risk_wallets(CRYPTO_PAIRS, _CRYPTO_EMA))
 TRADING_CONFIG.update(_book_wallets('forex', FOREX_PAIRS, _FOREX_EMA))
 TRADING_CONFIG.update(_book_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA))
 TRADING_CONFIG.update(_book_wallets('stocks', STOCK_PAIRS, _STOCKS_EMA))
+TRADING_CONFIG.update(_hold_wallets('crypto', CRYPTO_PAIRS, _CRYPTO_EMA, rank_base=200))
+TRADING_CONFIG.update(_hold_wallets('forex', FOREX_PAIRS, _FOREX_EMA, rank_base=210))
+TRADING_CONFIG.update(_hold_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA, rank_base=220))
+TRADING_CONFIG.update(_hold_wallets('stocks', STOCK_PAIRS, _STOCKS_EMA, rank_base=230))
 
 
 def apply_crypto_pairs(pairs: list) -> None:

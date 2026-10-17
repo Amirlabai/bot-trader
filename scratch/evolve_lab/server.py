@@ -19,6 +19,7 @@ import engine
 HERE = os.path.dirname(os.path.abspath(__file__))
 HOST, PORT = '127.0.0.1', 8767
 MARKETS = ('crypto', 'commodities', 'forex', 'stocks')
+BOTS = ('live', 'hold')
 JOBS: dict[str, dict] = {}
 LOCK = threading.Lock()
 
@@ -28,7 +29,8 @@ def _run_job(job: dict) -> None:
         job.update(stage=stage, i=i, n=n, note=note)
 
     try:
-        job['report'] = engine.run_cycle(job['market'], progress=progress)
+        job['report'] = engine.run_cycle(
+            job['market'], progress=progress, bot=job['bot'], timeframes=job['timeframes'])
         job['status'] = 'done'
     except Exception as e:  # surfaced in the UI
         traceback.print_exc()
@@ -57,13 +59,19 @@ class Handler(SimpleHTTPRequestHandler):
             raise ValueError(f'Unknown market {m}')
         return m
 
+    def _bot(self, q) -> str:
+        b = (q.get('bot') or ['live'])[0]
+        if b not in BOTS:
+            raise ValueError(f'Unknown bot {b}')
+        return b
+
     def do_GET(self):
         u = urlparse(self.path)
         q = parse_qs(u.query)
         try:
             if u.path == '/api/state':
                 m = self._market(q)
-                return self._json({'state': engine.state(m), 'feedback': engine.feedback(m)})
+                return self._json({'state': engine.state(m, self._bot(q)), 'feedback': engine.feedback(m)})
             if u.path.startswith('/api/job/'):
                 job = JOBS.get(u.path.rsplit('/', 1)[1])
                 if not job:
@@ -80,12 +88,13 @@ class Handler(SimpleHTTPRequestHandler):
         try:
             if u.path == '/api/run':
                 m = self._market({'market': [body.get('market', 'crypto')]})
+                bot = self._bot({'bot': [body.get('bot', 'live')]})
                 with LOCK:
                     if any(j['status'] == 'running' for j in JOBS.values()):
                         return self._json({'error': 'A retune is already running.'}, 409)
                     jid = uuid.uuid4().hex[:8]
-                    JOBS[jid] = job = {'id': jid, 'market': m, 'status': 'running', 'stage': 'Starting', 'i': 0, 'n': 1,
-                                       'note': ''}
+                    JOBS[jid] = job = {'id': jid, 'market': m, 'bot': bot, 'timeframes': bool(body.get('timeframes')),
+                                       'status': 'running', 'stage': 'Starting', 'i': 0, 'n': 1, 'note': ''}
                 threading.Thread(target=_run_job, args=(job,), daemon=True).start()
                 return self._json({'id': jid})
             if u.path == '/api/promote':
@@ -103,7 +112,8 @@ class Handler(SimpleHTTPRequestHandler):
                 job['status'] = 'rejected'
                 return self._json({'ok': True})
             if u.path == '/api/rollback':
-                engine.rollback(self._market({'market': [body.get('market', 'crypto')]}))
+                engine.rollback(self._market({'market': [body.get('market', 'crypto')]}),
+                                self._bot({'bot': [body.get('bot', 'live')]}))
                 return self._json({'ok': True})
         except Exception as e:
             return self._json({'error': str(e)}, 400)

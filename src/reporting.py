@@ -570,6 +570,7 @@ def _desk_meta(strat_name):
         'market': cfg.get('market'),
         'param_rank': cfg.get('param_rank'),
         'param_label': cfg.get('param_label') or strat_name.replace('_', ' ').upper(),
+        'bot': cfg.get('bot', 'live'),
     }
 
 
@@ -611,6 +612,7 @@ class ReportGenerator:
                 'market': cfg.get('market'),
                 'param_rank': cfg.get('param_rank'),
                 'param_label': cfg.get('param_label'),
+                'bot': cfg.get('bot', 'live'),
             })
         output_data = {
             "metadata": {
