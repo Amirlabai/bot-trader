@@ -19,8 +19,6 @@ SKIP_CMC_SYMBOLS = frozenset({
 CMC_LISTINGS_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 DEFAULT_TOP_N = 15
 DROP_BELOW_RANK = 50
-# Fetch at least through drop rank so we know who fell out of top-50.
-DEFAULT_LISTINGS_LIMIT = max(DEFAULT_TOP_N, DROP_BELOW_RANK)
 
 
 def cmc_symbol_to_pair(symbol: str) -> str:
@@ -125,7 +123,7 @@ def sync_crypto_universe(
     Base seed pairs are never removed by rank drop.
     Returns summary with added, dropped, and full merged list.
     """
-    listings_limit = max(int(top_n), int(drop_below_rank), DEFAULT_LISTINGS_LIMIT)
+    listings_limit = max(int(top_n), int(drop_below_rank))
     listings = fetch_cmc_top_symbols(api_key, limit=listings_limit)
     tradable_all = tradable_pairs_from_listings(listings)
     rank_by_pair = {pair: rank for pair, rank, _sym in tradable_all}
@@ -159,8 +157,12 @@ def sync_crypto_universe(
     kept_pairs = []
     base_set = set(base_pairs)
     now_iso = datetime.now(timezone.utc).isoformat(timespec='seconds')
+    # Missing == ranked past the fetched page, so only trust it on a full page.
+    full_listing = len(listings) >= int(drop_below_rank)
+    if not full_listing:
+        print(f'  CMC returned {len(listings)} listings (< {drop_below_rank}); skipping drops')
     for pair in list(universe.get('pairs') or []):
-        if pair in base_set:
+        if pair in base_set or not full_listing:
             kept_pairs.append(pair)
             continue
         rank = rank_by_pair.get(pair)

@@ -234,8 +234,6 @@ def build_close_snapshot(
     )
     sl_at_exit = float(pos_for_chart.get('stop_loss') or 0)
     tp_at_exit = float(pos_for_chart.get('take_profit') or 0)
-    if fill > 0 and is_stop_or_trail_reason(reason_for_kind):
-        sl_at_exit = fill
     snap['stop_loss'] = sl_at_exit
     snap['take_profit'] = tp_at_exit
     snap['stop_loss_at_exit'] = sl_at_exit

@@ -108,6 +108,20 @@ class CmcUniverseTests(unittest.TestCase):
             self.assertIn('BTC/USDT', summary['pairs'])
             self.assertIn('ETH/USDT', summary['pairs'])
 
+    def test_sync_short_listing_drops_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, 'crypto_universe.json')
+            with open(path, 'w', encoding='utf-8') as f:
+                json.dump({'pairs': ['SUI/USDT', 'LINK/USDT']}, f)
+            for short in ([], [{'symbol': 'BTC', 'cmc_rank': 1}]):
+                with patch('shared.cmc_universe.fetch_cmc_top_symbols', return_value=short):
+                    summary = sync_crypto_universe(
+                        'fake-key', path, ['BTC/USDT'], yahoo_ok=lambda _p: True,
+                    )
+                self.assertEqual(summary['dropped'], [])
+                self.assertIn('SUI/USDT', summary['pairs'])
+                self.assertIn('LINK/USDT', summary['pairs'])
+
 
 if __name__ == '__main__':
     unittest.main()

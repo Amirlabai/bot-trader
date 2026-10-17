@@ -305,14 +305,9 @@ class LongOnlyBeTrendExitTests(unittest.TestCase):
         self.assertEqual(
             set(TRADING_CONFIG),
             {
-                'ma_crypto_long_trail',
-                'ma_crypto_long_tp1',
-                'ma_crypto_ls_trail',
-                'ma_crypto_ls_tp1',
-                'ma_commodities_long_trail',
-                'ma_commodities_long_tp1',
-                'ma_commodities_ls_trail',
-                'ma_commodities_ls_tp1',
+                f'ma_{book}_{mode}'
+                for book in ('crypto', 'forex', 'commodities', 'stocks')
+                for mode in ('long_trail', 'long_tp1', 'ls_trail', 'ls_tp1')
             },
         )
         long_trail = TRADING_CONFIG['ma_crypto_long_trail']['params']
