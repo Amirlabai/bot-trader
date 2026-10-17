@@ -444,6 +444,13 @@ def reject(report: dict) -> dict:
     return entry
 
 
+def propose(report: dict) -> dict:
+    """Log a finished run without touching live params (headless/CI use)."""
+    entry = {**report, 'decision': 'proposed'}
+    _save_log(load_log() + [_clean(entry)])
+    return entry
+
+
 def rollback(market: str, bot: str = BOT_LIVE) -> dict:
     log = load_log()
     last = next((e for e in reversed(log) if e['market'] == market and e['decision'] == 'promoted'

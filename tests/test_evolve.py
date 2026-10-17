@@ -60,6 +60,11 @@ class EvolveTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             engine.rollback('crypto')
 
+    def test_propose_logs_without_touching_params(self):
+        engine.propose(_report())
+        self.assertEqual(curated_params.load_curated_params()['templates'], self.start['templates'])
+        self.assertEqual(json.load(open(engine.LOG_PATH))[0]['decision'], 'proposed')
+
     def test_failed_gates_need_force(self):
         with self.assertRaises(ValueError):
             engine.promote(_report(passed=False))
