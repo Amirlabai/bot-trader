@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.18.0 (2026-10-17)
+
+### Bug Fixes
+
+- Guard CMC drops on short listings, lock live/backtest trail parity
+  ([`8134819`](https://github.com/Amirlabai/bot-trader/commit/8134819dde6a8cc70d2cf85bb9ca6404291eeea0))
+
+### Features
+
+- **evolve**: Add walk-forward retune lab
+  ([`d8e24a7`](https://github.com/Amirlabai/bot-trader/commit/d8e24a7fca3626c0d49cfedb4b500e98d6a32f85))
+
+
 ## v1.17.0 (2026-08-30)
 
 ### Features
