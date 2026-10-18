@@ -52261,13 +52261,13 @@
                     "initial_qty": 178.781332078594,
                     "entry_price": 6.354040145874023,
                     "side": "SHORT",
-                    "stop_loss": 3.315879738330841,
+                    "stop_loss": 2.892370128631592,
                     "take_profit": 5.784021091461182,
                     "tp1_hit": false,
                     "initial_stop_loss": 6.924059200286865,
                     "entry_atr": 0.5700190544128418,
                     "entry_date": "2025-01-23",
-                    "last_price": 1.1458460092544556
+                    "last_price": 1.1823129653930664
                 },
                 "LINK/USDT": {
                     "qty": 52.72471217469674,
@@ -52280,33 +52280,33 @@
                     "initial_stop_loss": 21.84118309020996,
                     "entry_atr": 2.727791213989257,
                     "entry_date": "2025-10-14",
-                    "last_price": 12.451733589172363
+                    "last_price": 12.334110260009766
                 },
                 "DOGE/USDT": {
                     "qty": 4653.109063414529,
                     "initial_qty": 4653.109063414529,
                     "entry_price": 0.1963270008563995,
                     "side": "SHORT",
-                    "stop_loss": 0.20807759240269652,
+                    "stop_loss": 0.17356439530849455,
                     "take_profit": 0.1654182031750679,
                     "tp1_hit": false,
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.08106499910354614
+                    "last_price": 0.08083800226449966
                 },
                 "AVAX/USDT": {
                     "qty": 40.570653581267656,
                     "initial_qty": 40.570653581267656,
                     "entry_price": 19.956615447998047,
                     "side": "SHORT",
-                    "stop_loss": 21.85813755989075,
+                    "stop_loss": 20.581750202178956,
                     "take_profit": 16.41163911819458,
                     "tp1_hit": false,
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 10.032499313354492
+                    "last_price": 9.946821212768555
                 }
             },
             "history": [
@@ -91973,13 +91973,13 @@
                     "initial_qty": 3343.046143071635,
                     "entry_price": 0.1963270008563995,
                     "side": "SHORT",
-                    "stop_loss": 0.1963270008563995,
+                    "stop_loss": 0.17356439530849455,
                     "take_profit": 0.1654182031750679,
                     "tp1_hit": true,
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.08106499910354614
+                    "last_price": 0.08083800226449966
                 },
                 "AVAX/USDT": {
                     "qty": 14.574079946153788,
@@ -91992,7 +91992,7 @@
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 10.032499313354492
+                    "last_price": 9.946821212768555
                 }
             },
             "history": [
@@ -141340,7 +141340,7 @@
                     "initial_stop_loss": 1.3928076199122839,
                     "entry_atr": 0.0066023894718715125,
                     "entry_date": "2026-09-21",
-                    "last_price": 1.413699984550476
+                    "last_price": 1.4193400144577026
                 }
             },
             "history": [
@@ -164724,7 +164724,7 @@
                     "initial_stop_loss": 1.3928076199122839,
                     "entry_atr": 0.0066023894718715125,
                     "entry_date": "2026-09-21",
-                    "last_price": 1.413699984550476
+                    "last_price": 1.4193400144577026
                 }
             },
             "history": [
@@ -195203,7 +195203,7 @@
                     "initial_stop_loss": 1.3928076199122839,
                     "entry_atr": 0.0066023894718715125,
                     "entry_date": "2026-09-21",
-                    "last_price": 1.413699984550476
+                    "last_price": 1.4193400144577026
                 },
                 "AUD/USD": {
                     "qty": 3610.846817484705,
@@ -232972,7 +232972,7 @@
                     "initial_stop_loss": 1.3928076199122839,
                     "entry_atr": 0.0066023894718715125,
                     "entry_date": "2026-09-21",
-                    "last_price": 1.413699984550476
+                    "last_price": 1.4193400144577026
                 },
                 "AUD/USD": {
                     "qty": 1851.168637521319,
@@ -232992,13 +232992,13 @@
                     "initial_qty": 3055.9838805195345,
                     "entry_price": 0.8521999716758728,
                     "side": "SHORT",
-                    "stop_loss": 0.8473435512610844,
+                    "stop_loss": 0.8473035565444401,
                     "take_profit": 0.8494709219251361,
                     "tp1_hit": true,
                     "initial_stop_loss": 0.8549290214266095,
                     "entry_atr": 0.0027290497507367817,
                     "entry_date": "2026-10-02",
-                    "last_price": 0.8432499766349792
+                    "last_price": 0.843209981918335
                 }
             },
             "history": [
@@ -282343,7 +282343,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 99.04000091552734,
+                    "last_price": 101.41000366210938,
                     "entry_atr": 3.747000122070309
                 },
                 "HG/USD": {
@@ -282357,7 +282357,7 @@
                     "initial_stop_loss": 6.484850025177002,
                     "entry_atr": 0.14014997482299804,
                     "entry_date": "2026-09-17",
-                    "last_price": 6.561999797821045
+                    "last_price": 6.531000137329102
                 }
             },
             "history": [
@@ -314782,7 +314782,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 3.117000102996826,
+                    "last_price": 3.115999937057495,
                     "entry_atr": 1.2698000907897953
                 },
                 "CL/USD": {
@@ -314795,7 +314795,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 99.04000091552734,
+                    "last_price": 101.41000366210938,
                     "entry_atr": 3.747000122070309
                 },
                 "HG/USD": {
@@ -314809,7 +314809,7 @@
                     "initial_stop_loss": 6.484850025177002,
                     "entry_atr": 0.14014997482299804,
                     "entry_date": "2026-09-17",
-                    "last_price": 6.561999797821045
+                    "last_price": 6.531000137329102
                 },
                 "PA/USD": {
                     "qty": 1.0383354215199287,
@@ -314822,7 +314822,7 @@
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 1115.0
+                    "last_price": 1113.300048828125
                 },
                 "XAU/USD": {
                     "qty": 0.6230992638018006,
@@ -314835,7 +314835,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 4186.7001953125
+                    "last_price": 4181.10009765625
                 }
             },
             "history": [
@@ -342071,7 +342071,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 3.117000102996826,
+                    "last_price": 3.115999937057495,
                     "entry_atr": 1.2698000907897953
                 },
                 "PA/USD": {
@@ -342085,7 +342085,7 @@
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 1115.0
+                    "last_price": 1113.300048828125
                 },
                 "XAU/USD": {
                     "qty": 0.21617785056957342,
@@ -342098,7 +342098,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 4186.7001953125
+                    "last_price": 4181.10009765625
                 }
             },
             "history": [
@@ -375601,6 +375601,366 @@
                     "quantity_pct": 1.0
                 }
             ]
+        },
+        "ma_crypto_r2_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r2_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r2_ls_trail": {
+            "cash": 6772.170097074759,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 324.50868814066285,
+                    "initial_qty": 324.50868814066285,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:20.863070",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 324.50868814066285,
+                    "price": 9.946821212768555,
+                    "total_value": 3227.8299029252407,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r2_ls_tp1": {
+            "cash": 6772.170097074759,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 324.50868814066285,
+                    "initial_qty": 324.50868814066285,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:21.325076",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 324.50868814066285,
+                    "price": 9.946821212768555,
+                    "total_value": 3227.8299029252407,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r3_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r3_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r3_ls_trail": {
+            "cash": 5158.255145612139,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 486.76303221099425,
+                    "initial_qty": 486.76303221099425,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:22.716839",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 486.76303221099425,
+                    "price": 9.946821212768555,
+                    "total_value": 4841.744854387861,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r3_ls_tp1": {
+            "cash": 5158.255145612139,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 486.76303221099425,
+                    "initial_qty": 486.76303221099425,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:23.179651",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 486.76303221099425,
+                    "price": 9.946821212768555,
+                    "total_value": 4841.744854387861,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r5_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r5_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r5_ls_trail": {
+            "cash": 1930.425242686898,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 811.2717203516571,
+                    "initial_qty": 811.2717203516571,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:24.568245",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 811.2717203516571,
+                    "price": 9.946821212768555,
+                    "total_value": 8069.574757313102,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r5_ls_tp1": {
+            "cash": 1930.425242686898,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 811.2717203516571,
+                    "initial_qty": 811.2717203516571,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:25.033346",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 811.2717203516571,
+                    "price": 9.946821212768555,
+                    "total_value": 8069.574757313102,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r10_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r10_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r10_ls_trail": {
+            "cash": 0.0,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 1005.3463097500114,
+                    "initial_qty": 1005.3463097500114,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:26.447818",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1005.3463097500114,
+                    "price": 9.946821212768555,
+                    "total_value": 10000.0,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r10_ls_tp1": {
+            "cash": 0.0,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 1005.3463097500114,
+                    "initial_qty": 1005.3463097500114,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:26.909594",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1005.3463097500114,
+                    "price": 9.946821212768555,
+                    "total_value": 10000.0,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r15_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r15_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "ma_crypto_r15_ls_trail": {
+            "cash": 0.0,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 1005.3463097500114,
+                    "initial_qty": 1005.3463097500114,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:28.301109",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1005.3463097500114,
+                    "price": 9.946821212768555,
+                    "total_value": 10000.0,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "ma_crypto_r15_ls_tp1": {
+            "cash": 0.0,
+            "positions": {
+                "AVAX/USDT": {
+                    "qty": 1005.3463097500114,
+                    "initial_qty": 1005.3463097500114,
+                    "entry_price": 9.946821212768555,
+                    "side": "SHORT",
+                    "stop_loss": 10.563137531280518,
+                    "take_profit": 9.330504894256592,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 10.563137531280518,
+                    "entry_atr": 0.6163163185119629,
+                    "entry_date": "2026-10-16"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-18T02:21:28.767874",
+                    "symbol": "AVAX/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1005.3463097500114,
+                    "price": 9.946821212768555,
+                    "total_value": 10000.0,
+                    "reason": "Death Cross + weekly trend"
+                }
+            ]
+        },
+        "hold_crypto_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "hold_crypto_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "hold_forex_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "hold_forex_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "hold_commodities_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "hold_commodities_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
         }
     }
 }

@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-10-17T02:21:42.310976",
+    "last_updated": "2026-10-18T02:21:43.601815",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
@@ -13,97 +13,309 @@ window.REPORT_DATA = {
         "id": "ma_crypto_long_trail",
         "market": "crypto",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "1% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_crypto_long_tp1",
         "market": "crypto",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "1% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_crypto_ls_trail",
         "market": "crypto",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "1% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_crypto_ls_tp1",
         "market": "crypto",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "1% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r2_long_trail",
+        "market": "crypto",
+        "param_rank": 21,
+        "param_label": "2% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r2_long_tp1",
+        "market": "crypto",
+        "param_rank": 22,
+        "param_label": "2% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r2_ls_trail",
+        "market": "crypto",
+        "param_rank": 23,
+        "param_label": "2% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r2_ls_tp1",
+        "market": "crypto",
+        "param_rank": 24,
+        "param_label": "2% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r3_long_trail",
+        "market": "crypto",
+        "param_rank": 31,
+        "param_label": "3% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r3_long_tp1",
+        "market": "crypto",
+        "param_rank": 32,
+        "param_label": "3% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r3_ls_trail",
+        "market": "crypto",
+        "param_rank": 33,
+        "param_label": "3% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r3_ls_tp1",
+        "market": "crypto",
+        "param_rank": 34,
+        "param_label": "3% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r5_long_trail",
+        "market": "crypto",
+        "param_rank": 51,
+        "param_label": "5% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r5_long_tp1",
+        "market": "crypto",
+        "param_rank": 52,
+        "param_label": "5% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r5_ls_trail",
+        "market": "crypto",
+        "param_rank": 53,
+        "param_label": "5% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r5_ls_tp1",
+        "market": "crypto",
+        "param_rank": 54,
+        "param_label": "5% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r10_long_trail",
+        "market": "crypto",
+        "param_rank": 101,
+        "param_label": "10% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r10_long_tp1",
+        "market": "crypto",
+        "param_rank": 102,
+        "param_label": "10% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r10_ls_trail",
+        "market": "crypto",
+        "param_rank": 103,
+        "param_label": "10% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r10_ls_tp1",
+        "market": "crypto",
+        "param_rank": 104,
+        "param_label": "10% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r15_long_trail",
+        "market": "crypto",
+        "param_rank": 151,
+        "param_label": "15% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r15_long_tp1",
+        "market": "crypto",
+        "param_rank": 152,
+        "param_label": "15% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r15_ls_trail",
+        "market": "crypto",
+        "param_rank": 153,
+        "param_label": "15% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      {
+        "id": "ma_crypto_r15_ls_tp1",
+        "market": "crypto",
+        "param_rank": 154,
+        "param_label": "15% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_forex_long_trail",
         "market": "forex",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "Long \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_forex_long_tp1",
         "market": "forex",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_forex_ls_trail",
         "market": "forex",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_forex_ls_tp1",
         "market": "forex",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_commodities_long_trail",
         "market": "commodities",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "Long \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_commodities_long_tp1",
         "market": "commodities",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_commodities_ls_trail",
         "market": "commodities",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_commodities_ls_tp1",
         "market": "commodities",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_stocks_long_trail",
         "market": "stocks",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "Long \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_stocks_long_tp1",
         "market": "stocks",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       {
         "id": "ma_stocks_ls_trail",
         "market": "stocks",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       {
         "id": "ma_stocks_ls_tp1",
         "market": "stocks",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      {
+        "id": "hold_crypto_long_trail",
+        "market": "crypto",
+        "param_rank": 201,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_crypto_long_tp1",
+        "market": "crypto",
+        "param_rank": 202,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_forex_long_trail",
+        "market": "forex",
+        "param_rank": 211,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_forex_long_tp1",
+        "market": "forex",
+        "param_rank": 212,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_commodities_long_trail",
+        "market": "commodities",
+        "param_rank": 221,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_commodities_long_tp1",
+        "market": "commodities",
+        "param_rank": 222,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_stocks_long_trail",
+        "market": "stocks",
+        "param_rank": 231,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      {
+        "id": "hold_stocks_long_tp1",
+        "market": "stocks",
+        "param_rank": 232,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
       }
     ],
     "screener": {
@@ -1297,7 +1509,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:21:42.336176",
+          "time": "2026-10-18T02:21:43.617975",
           "equity": 43788.64,
           "type": "current"
         }
@@ -3797,12 +4009,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ZEC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 8,
@@ -3817,12 +4029,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XMR/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 5,
           "losses": 8,
@@ -3837,12 +4049,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ADA/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 3,
@@ -3857,12 +4069,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOGE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 4,
@@ -3877,12 +4089,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LINK/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 10,
@@ -3897,12 +4109,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XRP/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 5,
@@ -3917,12 +4129,12 @@ window.REPORT_DATA = {
         {
           "symbol": "AVAX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 1,
           "losses": 3,
@@ -3937,12 +4149,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BNB/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 8,
@@ -3957,12 +4169,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BTC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 4,
@@ -3977,12 +4189,12 @@ window.REPORT_DATA = {
         {
           "symbol": "TRX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 7,
@@ -3997,12 +4209,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOT/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 1,
           "losses": 3,
@@ -4017,12 +4229,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ETH/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 5,
@@ -4037,12 +4249,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LEO/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 8,
@@ -4057,12 +4269,12 @@ window.REPORT_DATA = {
         {
           "symbol": "HYPE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 0,
           "losses": 0,
@@ -4077,12 +4289,12 @@ window.REPORT_DATA = {
         {
           "symbol": "SOL/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 1,
           "losses": 9,
@@ -4098,14 +4310,15 @@ window.REPORT_DATA = {
       "desk": {
         "market": "crypto",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "1% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 26.72413793103448,
         "profit_factor": 4.6039760612027365,
         "total_pnl": 33788.64055132819,
         "avg_pnl": 291.2813840631741,
-        "avg_monthly_pnl": 687.4610494652406,
+        "avg_monthly_pnl": 687.0018236472946,
         "max_drawdown": 22.9963,
         "total_trades": 116
       },
@@ -5928,7 +6141,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:22:02.542343",
+          "time": "2026-10-18T02:21:56.755049",
           "equity": 15141.52,
           "type": "current"
         }
@@ -10622,12 +10835,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XMR/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 8,
           "losses": 6,
@@ -10642,12 +10855,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ADA/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 4,
           "losses": 3,
@@ -10662,12 +10875,12 @@ window.REPORT_DATA = {
         {
           "symbol": "AVAX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 4,
           "losses": 3,
@@ -10682,12 +10895,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOT/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 4,
           "losses": 4,
@@ -10702,12 +10915,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BTC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 5,
           "losses": 3,
@@ -10722,12 +10935,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BNB/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 4,
@@ -10742,12 +10955,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XRP/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 6,
           "losses": 4,
@@ -10762,12 +10975,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LINK/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 5,
           "losses": 8,
@@ -10782,12 +10995,12 @@ window.REPORT_DATA = {
         {
           "symbol": "SOL/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 5,
@@ -10802,12 +11015,12 @@ window.REPORT_DATA = {
         {
           "symbol": "HYPE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 0,
           "losses": 0,
@@ -10822,12 +11035,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LEO/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 4,
@@ -10842,12 +11055,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOGE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 5,
           "losses": 6,
@@ -10862,12 +11075,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ETH/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 4,
           "losses": 4,
@@ -10882,12 +11095,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ZEC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 6,
@@ -10902,12 +11115,12 @@ window.REPORT_DATA = {
         {
           "symbol": "TRX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 4,
           "losses": 5,
@@ -10923,14 +11136,15 @@ window.REPORT_DATA = {
       "desk": {
         "market": "crypto",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "1% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 54.22535211267606,
         "profit_factor": 1.798924389715785,
         "total_pnl": 5141.52458385125,
         "avg_pnl": 36.207919604586266,
-        "avg_monthly_pnl": 104.60896724598932,
+        "avg_monthly_pnl": 104.53908817635272,
         "max_drawdown": 13.389400000000004,
         "total_trades": 142
       },
@@ -10944,13 +11158,13 @@ window.REPORT_DATA = {
           "qty": 178.781332078594,
           "entry": 6.354040145874023,
           "entry_date": "2025-01-23",
-          "current_price": 1.1458460092544556,
-          "unrealized_pnl": 931.1278854687691,
-          "sl": 3.315879738330841,
+          "current_price": 1.1823129653930664,
+          "unrealized_pnl": 924.6082744734566,
+          "sl": 2.892370128631592,
           "tp1": false,
           "tp_price": 5.784021091461182,
-          "value": 204.8558758914525,
-          "hold_days": 632,
+          "value": 211.37548688676503,
+          "hold_days": 633,
           "chart_id": "open:ma_crypto_ls_trail:DOT/USDT"
         },
         {
@@ -10959,13 +11173,13 @@ window.REPORT_DATA = {
           "qty": 52.72471217469674,
           "entry": 19.113391876220703,
           "entry_date": "2025-10-14",
-          "current_price": 12.451733589172363,
-          "unrealized_pnl": 351.23401579080706,
+          "current_price": 12.334110260009766,
+          "unrealized_pnl": 357.4356719659346,
           "sl": 19.464516448974607,
           "tp1": false,
           "tp_price": 16.385600662231447,
-          "value": 656.5140695651164,
-          "hold_days": 368,
+          "value": 650.3124133899888,
+          "hold_days": 369,
           "chart_id": "open:ma_crypto_ls_trail:LINK/USDT"
         },
         {
@@ -10974,13 +11188,13 @@ window.REPORT_DATA = {
           "qty": 4653.109063414529,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.08106499910354614,
-          "unrealized_pnl": 536.3266650235033,
-          "sl": 0.20807759240269652,
+          "current_price": 0.08083800226449966,
+          "unrealized_pnl": 537.382906072637,
+          "sl": 0.17356439530849455,
           "tp1": false,
           "tp_price": 0.1654182031750679,
-          "value": 377.20428205440123,
-          "hold_days": 367,
+          "value": 376.14804100526766,
+          "hold_days": 368,
           "chart_id": "open:ma_crypto_ls_trail:DOGE/USDT"
         },
         {
@@ -10989,18 +11203,18 @@ window.REPORT_DATA = {
           "qty": 40.570653581267656,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 10.032499313354492,
-          "unrealized_pnl": 402.62787779889265,
-          "sl": 21.85813755989075,
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 406.10389433726573,
+          "sl": 20.581750202178956,
           "tp1": false,
           "tp_price": 16.41163911819458,
-          "value": 407.02505419641074,
-          "hold_days": 365,
+          "value": 403.54903765803766,
+          "hold_days": 366,
           "chart_id": "open:ma_crypto_ls_trail:AVAX/USDT"
         }
       ],
       "current_cash": 10487.348622803886,
-      "current_equity": 12132.95,
+      "current_equity": 12128.73,
       "history_events": 408,
       "equity_curve": [
         {
@@ -13049,8 +13263,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:22:39.665443",
-          "equity": 12132.95,
+          "time": "2026-10-18T02:22:21.029472",
+          "equity": 12128.73,
           "type": "current"
         }
       ],
@@ -17386,12 +17600,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ZEC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 1,
           "losses": 16,
@@ -17406,12 +17620,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOGE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 8,
@@ -17426,12 +17640,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ADA/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 6,
@@ -17446,12 +17660,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOT/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 2,
@@ -17466,12 +17680,12 @@ window.REPORT_DATA = {
         {
           "symbol": "AVAX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 6,
@@ -17486,12 +17700,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ETH/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 5,
           "losses": 10,
@@ -17506,12 +17720,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BTC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 11,
@@ -17526,12 +17740,12 @@ window.REPORT_DATA = {
         {
           "symbol": "TRX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 13,
@@ -17546,12 +17760,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XRP/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 2,
           "losses": 14,
@@ -17566,12 +17780,12 @@ window.REPORT_DATA = {
         {
           "symbol": "HYPE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 0,
           "losses": 0,
@@ -17586,12 +17800,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BNB/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 12,
@@ -17606,12 +17820,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XMR/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 5,
           "losses": 19,
@@ -17626,12 +17840,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LEO/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 16,
@@ -17646,12 +17860,12 @@ window.REPORT_DATA = {
         {
           "symbol": "SOL/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 3,
           "losses": 19,
@@ -17666,12 +17880,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LINK/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 1,
           "losses": 14,
@@ -17687,22 +17901,23 @@ window.REPORT_DATA = {
       "desk": {
         "market": "crypto",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "1% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 17.82178217821782,
         "profit_factor": 1.3514964234610836,
         "total_pnl": 4354.26434859324,
         "avg_pnl": 21.555764101946735,
-        "avg_monthly_pnl": 43.3968353108289,
+        "avg_monthly_pnl": 43.282043670674675,
         "max_drawdown": 34.1219,
         "total_trades": 202
       },
       "exposure": {
-        "DOT/USDT": 204.8558758914525,
-        "LINK/USDT": 656.5140695651164,
-        "DOGE/USDT": 377.20428205440123,
-        "AVAX/USDT": 407.02505419641074
+        "DOT/USDT": 211.37548688676503,
+        "LINK/USDT": 650.3124133899888,
+        "DOGE/USDT": 376.14804100526766,
+        "AVAX/USDT": 403.54903765803766
       }
     },
     "ma_crypto_ls_tp1": {
@@ -17713,13 +17928,13 @@ window.REPORT_DATA = {
           "qty": 1671.5230715358175,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.08106499910354614,
-          "unrealized_pnl": 192.66309520129624,
-          "sl": 0.1963270008563995,
+          "current_price": 0.08083800226449966,
+          "unrealized_pnl": 193.04252565492814,
+          "sl": 0.17356439530849455,
           "tp1": true,
           "tp_price": 0.1654182031750679,
-          "value": 135.50201629560775,
-          "hold_days": 367,
+          "value": 135.12258584197585,
+          "hold_days": 368,
           "chart_id": "open:ma_crypto_ls_tp1:DOGE/USDT"
         },
         {
@@ -17728,18 +17943,18 @@ window.REPORT_DATA = {
           "qty": 14.574079946153788,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 10.032499313354492,
-          "unrealized_pnl": 144.63486194120986,
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 145.88354142878393,
           "sl": 19.956615447998047,
           "tp1": true,
           "tp_price": 16.41163911819458,
-          "value": 146.21444705256135,
-          "hold_days": 365,
+          "value": 144.9657675649873,
+          "hold_days": 366,
           "chart_id": "open:ma_crypto_ls_tp1:AVAX/USDT"
         }
       ],
       "current_cash": 9764.394096605862,
-      "current_equity": 10046.11,
+      "current_equity": 10044.48,
       "history_events": 626,
       "equity_curve": [
         {
@@ -20878,8 +21093,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:23:14.905064",
-          "equity": 10046.11,
+          "time": "2026-10-18T02:22:44.186960",
+          "equity": 10044.48,
           "type": "current"
         }
       ],
@@ -28827,12 +29042,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ADA/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 6,
           "losses": 7,
@@ -28847,12 +29062,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XMR/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 11,
           "losses": 15,
@@ -28867,12 +29082,12 @@ window.REPORT_DATA = {
         {
           "symbol": "AVAX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 6,
@@ -28887,12 +29102,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BTC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 8,
           "losses": 7,
@@ -28907,12 +29122,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOT/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 6,
@@ -28927,12 +29142,12 @@ window.REPORT_DATA = {
         {
           "symbol": "HYPE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 0,
           "losses": 0,
@@ -28947,12 +29162,12 @@ window.REPORT_DATA = {
         {
           "symbol": "DOGE/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 6,
@@ -28967,12 +29182,12 @@ window.REPORT_DATA = {
         {
           "symbol": "SOL/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 13,
           "losses": 10,
@@ -28987,12 +29202,12 @@ window.REPORT_DATA = {
         {
           "symbol": "BNB/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 11,
           "losses": 10,
@@ -29007,12 +29222,12 @@ window.REPORT_DATA = {
         {
           "symbol": "XRP/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 9,
           "losses": 10,
@@ -29027,12 +29242,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ETH/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 8,
@@ -29047,12 +29262,12 @@ window.REPORT_DATA = {
         {
           "symbol": "TRX/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 7,
           "losses": 9,
@@ -29067,12 +29282,12 @@ window.REPORT_DATA = {
         {
           "symbol": "ZEC/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 11,
           "losses": 11,
@@ -29087,12 +29302,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LINK/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 10,
           "losses": 10,
@@ -29107,12 +29322,12 @@ window.REPORT_DATA = {
         {
           "symbol": "LEO/USDT",
           "params": {
-            "short_window": 25,
-            "long_window": 75,
-            "trend_window": 100,
-            "atr_period": 10,
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
             "sl_atr": 1.0,
-            "trail_atr": 4.5
+            "trail_atr": 3.0
           },
           "wins": 8,
           "losses": 13,
@@ -29128,20 +29343,21 @@ window.REPORT_DATA = {
       "desk": {
         "market": "crypto",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "1% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 48.8,
         "profit_factor": 1.0263767739681713,
         "total_pnl": 280.0789802209729,
         "avg_pnl": 1.1203159208838915,
-        "avg_monthly_pnl": 0.9381504846256804,
+        "avg_monthly_pnl": 0.9043820975283813,
         "max_drawdown": 20.402299999999997,
         "total_trades": 250
       },
       "exposure": {
-        "DOGE/USDT": 135.50201629560775,
-        "AVAX/USDT": 146.21444705256135
+        "DOGE/USDT": 135.12258584197585,
+        "AVAX/USDT": 144.9657675649873
       }
     },
     "ma_forex_long_trail": {
@@ -29158,7 +29374,7 @@ window.REPORT_DATA = {
           "tp1": false,
           "tp_price": 0.0,
           "value": 2829.47542239612,
-          "hold_days": 44,
+          "hold_days": 45,
           "chart_id": "open:ma_forex_long_trail:USD/CHF"
         },
         {
@@ -29167,18 +29383,18 @@ window.REPORT_DATA = {
           "qty": 2034.4478254489306,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.413699984550476,
-          "unrealized_pnl": 29.072208902840575,
+          "current_price": 1.4193400144577026,
+          "unrealized_pnl": 40.54655548306459,
           "sl": 1.411524040358407,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2876.098859405903,
-          "hold_days": 26,
+          "value": 2887.573205986127,
+          "hold_days": 27,
           "chart_id": "open:ma_forex_long_trail:USD/CAD"
         }
       ],
       "current_cash": 5748.123459384872,
-      "current_equity": 11453.7,
+      "current_equity": 11465.17,
       "history_events": 188,
       "equity_curve": [
         {
@@ -30127,8 +30343,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:24:17.516195",
-          "equity": 11453.7,
+          "time": "2026-10-18T02:23:25.119798",
+          "equity": 11465.17,
           "type": "current"
         }
       ],
@@ -32325,20 +32541,21 @@ window.REPORT_DATA = {
       "desk": {
         "market": "forex",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "Long \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 51.61290322580645,
         "profit_factor": 3.068255037110134,
         "total_pnl": 1388.106602012256,
         "avg_pnl": 14.925877440992,
-        "avg_monthly_pnl": 29.795955387205403,
+        "avg_monthly_pnl": 30.0108424461642,
         "max_drawdown": 1.2822899813316826,
         "total_trades": 93
       },
       "exposure": {
         "USD/CHF": 2829.47542239612,
-        "USD/CAD": 2876.098859405903
+        "USD/CAD": 2887.573205986127
       }
     },
     "ma_forex_long_tp1": {
@@ -32355,7 +32572,7 @@ window.REPORT_DATA = {
           "tp1": true,
           "tp_price": 0.8189318974812826,
           "value": 1387.464924286552,
-          "hold_days": 44,
+          "hold_days": 45,
           "chart_id": "open:ma_forex_long_tp1:USD/CHF"
         },
         {
@@ -32364,18 +32581,18 @@ window.REPORT_DATA = {
           "qty": 974.3624089508947,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.413699984550476,
-          "unrealized_pnl": 13.923614626904799,
+          "current_price": 1.4193400144577026,
+          "unrealized_pnl": 19.41904775386516,
           "sl": 1.411524040358407,
           "tp1": true,
           "tp_price": 1.4060123988560267,
-          "value": 1377.4561224804445,
-          "hold_days": 26,
+          "value": 1382.951555607405,
+          "hold_days": 27,
           "chart_id": "open:ma_forex_long_tp1:USD/CAD"
         }
       ],
       "current_cash": 8181.6032167636,
-      "current_equity": 10946.52,
+      "current_equity": 10952.02,
       "history_events": 276,
       "equity_curve": [
         {
@@ -33764,8 +33981,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:24:34.743433",
-          "equity": 10946.52,
+          "time": "2026-10-18T02:23:36.471523",
+          "equity": 10952.02,
           "type": "current"
         }
       ],
@@ -37670,20 +37887,21 @@ window.REPORT_DATA = {
       "desk": {
         "market": "forex",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 72.0,
         "profit_factor": 2.487755531291582,
         "total_pnl": 902.077567990426,
         "avg_pnl": 9.02077567990426,
-        "avg_monthly_pnl": 19.400473063973074,
+        "avg_monthly_pnl": 19.50007318304173,
         "max_drawdown": 0.8090217031538066,
         "total_trades": 100
       },
       "exposure": {
         "USD/CHF": 1387.464924286552,
-        "USD/CAD": 1377.4561224804445
+        "USD/CAD": 1382.951555607405
       }
     },
     "ma_forex_ls_trail": {
@@ -37700,7 +37918,7 @@ window.REPORT_DATA = {
           "tp1": false,
           "tp_price": 0.0,
           "value": 2646.460638928347,
-          "hold_days": 44,
+          "hold_days": 45,
           "chart_id": "open:ma_forex_ls_trail:USD/CHF"
         },
         {
@@ -37709,13 +37927,13 @@ window.REPORT_DATA = {
           "qty": 1926.5087451747424,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.413699984550476,
-          "unrealized_pnl": 27.52976212624692,
+          "current_price": 1.4193400144577026,
+          "unrealized_pnl": 38.39532906556598,
           "sl": 1.411524040358407,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2723.5053832898902,
-          "hold_days": 26,
+          "value": 2734.3709502292095,
+          "hold_days": 27,
           "chart_id": "open:ma_forex_ls_trail:USD/CAD"
         },
         {
@@ -37730,12 +37948,12 @@ window.REPORT_DATA = {
           "tp1": false,
           "tp_price": 0.6987340365137372,
           "value": 2509.275079077002,
-          "hold_days": 23,
+          "hold_days": 24,
           "chart_id": "open:ma_forex_ls_trail:AUD/USD"
         }
       ],
       "current_cash": 2991.979599574389,
-      "current_equity": 10871.22,
+      "current_equity": 10882.09,
       "history_events": 339,
       "equity_curve": [
         {
@@ -39439,8 +39657,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:25:06.089242",
-          "equity": 10871.22,
+          "time": "2026-10-18T02:23:56.914600",
+          "equity": 10882.09,
           "type": "current"
         }
       ],
@@ -43231,20 +43449,21 @@ window.REPORT_DATA = {
       "desk": {
         "market": "forex",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 45.23809523809524,
         "profit_factor": 1.4792789469681227,
         "total_pnl": 840.1575779690947,
         "avg_pnl": 5.000937964101754,
-        "avg_monthly_pnl": 17.857076599326586,
+        "avg_monthly_pnl": 18.06770819313594,
         "max_drawdown": 2.587799261142826,
         "total_trades": 168
       },
       "exposure": {
         "USD/CHF": 2646.460638928347,
-        "USD/CAD": 2723.5053832898902,
+        "USD/CAD": 2734.3709502292095,
         "AUD/USD": 2509.275079077002
       }
     },
@@ -43262,7 +43481,7 @@ window.REPORT_DATA = {
           "tp1": true,
           "tp_price": 0.8189318974812826,
           "value": 1326.447071070837,
-          "hold_days": 44,
+          "hold_days": 45,
           "chart_id": "open:ma_forex_ls_tp1:USD/CHF"
         },
         {
@@ -43271,13 +43490,13 @@ window.REPORT_DATA = {
           "qty": 928.8606142435069,
           "entry": 1.3994100093841553,
           "entry_date": "2026-09-21",
-          "current_price": 1.413699984550476,
-          "unrealized_pnl": 13.2733951105132,
+          "current_price": 1.4193400144577026,
+          "unrealized_pnl": 18.512196754491413,
           "sl": 1.411524040358407,
           "tp1": true,
           "tp_price": 1.4060123988560267,
-          "value": 1313.1302360055915,
-          "hold_days": 26,
+          "value": 1318.3690376495697,
+          "hold_days": 27,
           "chart_id": "open:ma_forex_ls_tp1:USD/CAD"
         },
         {
@@ -43292,7 +43511,7 @@ window.REPORT_DATA = {
           "tp1": true,
           "tp_price": 0.6987340365137372,
           "value": 1286.427135819879,
-          "hold_days": 23,
+          "hold_days": 24,
           "chart_id": "open:ma_forex_ls_tp1:AUD/USD"
         },
         {
@@ -43301,18 +43520,18 @@ window.REPORT_DATA = {
           "qty": 1527.9919402597673,
           "entry": 0.8521999716758728,
           "entry_date": "2026-10-02",
-          "current_price": 0.8432499766349792,
-          "unrealized_pnl": 13.675520287850238,
-          "sl": 0.8473435512610844,
+          "current_price": 0.843209981918335,
+          "unrealized_pnl": 13.736631892535682,
+          "sl": 0.8473035565444401,
           "tp1": true,
           "tp_price": 0.8494709219251361,
-          "value": 1288.4791679224854,
-          "hold_days": 15,
+          "value": 1288.4180563178,
+          "hold_days": 16,
           "chart_id": "open:ma_forex_ls_tp1:EUR/GBP"
         }
       ],
       "current_cash": 5242.764130179854,
-      "current_equity": 10457.25,
+      "current_equity": 10462.43,
       "history_events": 516,
       "equity_curve": [
         {
@@ -45901,8 +46120,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:25:36.917967",
-          "equity": 10457.25,
+          "time": "2026-10-18T02:24:17.072479",
+          "equity": 10462.43,
           "type": "current"
         }
       ],
@@ -52849,22 +53068,23 @@ window.REPORT_DATA = {
       "desk": {
         "market": "forex",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 61.34020618556701,
         "profit_factor": 1.2308241376872007,
         "total_pnl": 431.3640652730014,
         "avg_pnl": 2.2235261096546464,
-        "avg_monthly_pnl": 9.372085437710439,
+        "avg_monthly_pnl": 9.471879626514138,
         "max_drawdown": 3.431662179902465,
         "total_trades": 194
       },
       "exposure": {
         "USD/CHF": 1326.447071070837,
-        "USD/CAD": 1313.1302360055915,
+        "USD/CAD": 1318.3690376495697,
         "AUD/USD": 1286.427135819879,
-        "EUR/GBP": 1288.4791679224854
+        "EUR/GBP": 1288.4180563178
       }
     },
     "ma_commodities_long_trail": {
@@ -52875,13 +53095,13 @@ window.REPORT_DATA = {
           "qty": 25.286928857180477,
           "entry": 82.4000015258789,
           "entry_date": "2026-08-14",
-          "current_price": 99.04000091552734,
-          "unrealized_pnl": 420.7744807495666,
+          "current_price": 101.41000366210938,
+          "unrealized_pnl": 480.70457159370875,
           "sl": 85.27849884033205,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2504.417457166029,
-          "hold_days": 64,
+          "value": 2564.3475480101715,
+          "hold_days": 65,
           "chart_id": "open:ma_commodities_long_trail:CL/USD"
         },
         {
@@ -52890,18 +53110,18 @@ window.REPORT_DATA = {
           "qty": 535.1149467975785,
           "entry": 6.625,
           "entry_date": "2026-09-17",
-          "current_price": 6.561999797821045,
-          "unrealized_pnl": -33.71234983722823,
+          "current_price": 6.531000137329102,
+          "unrealized_pnl": -50.3007315121175,
           "sl": 6.484850025177002,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 3511.424172696729,
-          "hold_days": 30,
+          "value": 3494.8357910218397,
+          "hold_days": 31,
           "chart_id": "open:ma_commodities_long_trail:HG/USD"
         }
       ],
       "current_cash": 8551.76659118541,
-      "current_equity": 14567.61,
+      "current_equity": 14610.95,
       "history_events": 176,
       "equity_curve": [
         {
@@ -53790,8 +54010,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:26:31.563590",
-          "equity": 14567.61,
+          "time": "2026-10-18T02:24:53.165525",
+          "equity": 14610.95,
           "type": "current"
         }
       ],
@@ -55829,20 +56049,21 @@ window.REPORT_DATA = {
       "desk": {
         "market": "commodities",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "Long \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 16.091954022988507,
         "profit_factor": 1.9238515599528039,
         "total_pnl": 4180.546090135817,
         "avg_pnl": 48.052253909607096,
-        "avg_monthly_pnl": 93.1189747990623,
+        "avg_monthly_pnl": 93.93961889223563,
         "max_drawdown": 14.818099999999996,
         "total_trades": 87
       },
       "exposure": {
-        "CL/USD": 2504.417457166029,
-        "HG/USD": 3511.424172696729
+        "CL/USD": 2564.3475480101715,
+        "HG/USD": 3494.8357910218397
       }
     },
     "ma_commodities_long_tp1": {
@@ -57082,7 +57303,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:26:45.804863",
+          "time": "2026-10-18T02:25:02.656630",
           "equity": 9871.1,
           "type": "current"
         }
@@ -60366,14 +60587,15 @@ window.REPORT_DATA = {
       "desk": {
         "market": "commodities",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 47.474747474747474,
         "profit_factor": 0.959334205088672,
         "total_pnl": -128.90109774962502,
         "avg_pnl": -1.3020312904002527,
-        "avg_monthly_pnl": -2.6278591761553844,
+        "avg_monthly_pnl": -2.6261002342704076,
         "max_drawdown": 14.306000000000004,
         "total_trades": 99
       },
@@ -60387,13 +60609,13 @@ window.REPORT_DATA = {
           "qty": 90.9781026545249,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 3.117000102996826,
-          "unrealized_pnl": 35.663412596507605,
+          "current_price": 3.115999937057495,
+          "unrealized_pnl": 35.75440579600763,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 283.57875534460993,
-          "hold_days": 254,
+          "value": 283.4877621451099,
+          "hold_days": 255,
           "chart_id": "open:ma_commodities_ls_trail:NG/USD"
         },
         {
@@ -60402,13 +60624,13 @@ window.REPORT_DATA = {
           "qty": 19.24513906661786,
           "entry": 82.4000015258789,
           "entry_date": "2026-08-14",
-          "current_price": 99.04000091552734,
-          "unrealized_pnl": 320.2391023222205,
+          "current_price": 101.41000366210938,
+          "unrealized_pnl": 365.85013476845796,
           "sl": 85.27849884033205,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 1906.0385907772838,
-          "hold_days": 64,
+          "value": 1951.6496232235213,
+          "hold_days": 65,
           "chart_id": "open:ma_commodities_ls_trail:CL/USD"
         },
         {
@@ -60417,13 +60639,13 @@ window.REPORT_DATA = {
           "qty": 411.58411308265613,
           "entry": 6.625,
           "entry_date": "2026-09-17",
-          "current_price": 6.561999797821045,
-          "unrealized_pnl": -25.929882337853247,
+          "current_price": 6.531000137329102,
+          "unrealized_pnl": -38.688850107293206,
           "sl": 6.484850025177002,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2700.8148668347435,
-          "hold_days": 30,
+          "value": 2688.0558990653035,
+          "hold_days": 31,
           "chart_id": "open:ma_commodities_ls_trail:HG/USD"
         },
         {
@@ -60432,13 +60654,13 @@ window.REPORT_DATA = {
           "qty": 1.0383354215199287,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1115.0,
-          "unrealized_pnl": 198.52968189463863,
+          "current_price": 1113.300048828125,
+          "unrealized_pnl": 200.29480141125075,
           "sl": 1265.5643877301898,
           "tp1": false,
           "tp_price": 1271.1856427873884,
-          "value": 1157.7439949947207,
-          "hold_days": 29,
+          "value": 1155.9788754781084,
+          "hold_days": 30,
           "chart_id": "open:ma_commodities_ls_trail:PA/USD"
         },
         {
@@ -60447,18 +60669,18 @@ window.REPORT_DATA = {
           "qty": 0.6230992638018006,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4186.7001953125,
-          "unrealized_pnl": 118.01493971452355,
+          "current_price": 4181.10009765625,
+          "unrealized_pnl": 121.50435644135112,
           "sl": 4517.325024414063,
           "tp1": false,
           "tp_price": 4281.950146484375,
-          "value": 2608.7298094580733,
-          "hold_days": 25,
+          "value": 2605.2403927312457,
+          "hold_days": 26,
           "chart_id": "open:ma_commodities_ls_trail:XAU/USD"
         }
       ],
       "current_cash": 2162.607308129766,
-      "current_equity": 10819.51,
+      "current_equity": 10847.02,
       "history_events": 279,
       "equity_curve": [
         {
@@ -61862,8 +62084,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:27:10.074714",
-          "equity": 10819.51,
+          "time": "2026-10-18T02:25:19.006238",
+          "equity": 10847.02,
           "type": "current"
         }
       ],
@@ -64957,23 +65179,24 @@ window.REPORT_DATA = {
       "desk": {
         "market": "commodities",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 17.51824817518248,
         "profit_factor": 1.137645260402881,
         "total_pnl": 877.4121397605086,
         "avg_pnl": 6.40446817343437,
-        "avg_monthly_pnl": 16.707190639651714,
+        "avg_monthly_pnl": 17.256473393574307,
         "max_drawdown": 25.449700000000004,
         "total_trades": 137
       },
       "exposure": {
-        "NG/USD": 283.57875534460993,
-        "CL/USD": 1906.0385907772838,
-        "HG/USD": 2700.8148668347435,
-        "PA/USD": 1157.7439949947207,
-        "XAU/USD": 2608.7298094580733
+        "NG/USD": 283.4877621451099,
+        "CL/USD": 1951.6496232235213,
+        "HG/USD": 2688.0558990653035,
+        "PA/USD": 1155.9788754781084,
+        "XAU/USD": 2605.2403927312457
       }
     },
     "ma_commodities_ls_tp1": {
@@ -64984,13 +65207,13 @@ window.REPORT_DATA = {
           "qty": 59.99689301694206,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 3.117000102996826,
-          "unrealized_pnl": 23.518779659506457,
+          "current_price": 3.115999937057495,
+          "unrealized_pnl": 23.578786508367692,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 187.01032171329797,
-          "hold_days": 254,
+          "value": 186.95031486443673,
+          "hold_days": 255,
           "chart_id": "open:ma_commodities_ls_tp1:NG/USD"
         },
         {
@@ -64999,13 +65222,13 @@ window.REPORT_DATA = {
           "qty": 0.35928966079159097,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1115.0,
-          "unrealized_pnl": 68.69616559991172,
+          "current_price": 1113.300048828125,
+          "unrealized_pnl": 69.30694047981696,
           "sl": 1265.5643877301898,
           "tp1": true,
           "tp_price": 1271.1856427873884,
-          "value": 400.6079717826239,
-          "hold_days": 29,
+          "value": 399.9971969027187,
+          "hold_days": 30,
           "chart_id": "open:ma_commodities_ls_tp1:PA/USD"
         },
         {
@@ -65014,18 +65237,18 @@ window.REPORT_DATA = {
           "qty": 0.21617785056957342,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4186.7001953125,
-          "unrealized_pnl": 40.94406378675899,
+          "current_price": 4181.10009765625,
+          "unrealized_pnl": 42.154680861066815,
           "sl": 4376.10009765625,
           "tp1": true,
           "tp_price": 4281.950146484375,
-          "value": 905.0718492018694,
-          "hold_days": 25,
+          "value": 903.8612321275616,
+          "hold_days": 26,
           "chart_id": "open:ma_commodities_ls_tp1:XAU/USD"
         }
       ],
       "current_cash": 5988.026438598195,
-      "current_equity": 7480.72,
+      "current_equity": 7478.84,
       "history_events": 424,
       "equity_curve": [
         {
@@ -67154,8 +67377,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:27:33.483721",
-          "equity": 7480.72,
+          "time": "2026-10-18T02:25:34.618900",
+          "equity": 7478.84,
           "type": "current"
         }
       ],
@@ -72685,21 +72908,22 @@ window.REPORT_DATA = {
       "desk": {
         "market": "commodities",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 49.404761904761905,
         "profit_factor": 0.5257382153518633,
         "total_pnl": -2419.057822715721,
         "avg_pnl": -14.399153706641197,
-        "avg_monthly_pnl": -51.360070328198255,
-        "max_drawdown": 25.208500000000004,
+        "avg_monthly_pnl": -51.363994310575634,
+        "max_drawdown": 25.2116,
         "total_trades": 168
       },
       "exposure": {
-        "NG/USD": 187.01032171329797,
-        "PA/USD": 400.6079717826239,
-        "XAU/USD": 905.0718492018694
+        "NG/USD": 186.95031486443673,
+        "PA/USD": 399.9971969027187,
+        "XAU/USD": 903.8612321275616
       }
     },
     "ma_stocks_long_trail": {
@@ -72724,7 +72948,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:28:14.276145",
+          "time": "2026-10-18T02:26:01.850697",
           "equity": 9903.3,
           "type": "current"
         }
@@ -72806,14 +73030,15 @@ window.REPORT_DATA = {
       "desk": {
         "market": "stocks",
         "param_rank": 1,
-        "param_label": "Long \u00b7 asset trail"
+        "param_label": "Long \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 0.0,
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.218628102836918,
+        "avg_monthly_pnl": -5.209391592920393,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -72846,7 +73071,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:28:14.427463",
+          "time": "2026-10-18T02:26:01.949278",
           "equity": 10032.23,
           "type": "current"
         }
@@ -72949,14 +73174,15 @@ window.REPORT_DATA = {
       "desk": {
         "market": "stocks",
         "param_rank": 2,
-        "param_label": "Long \u00b7 TP1 trail"
+        "param_label": "Long \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 100.0,
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.7393628102836642,
+        "avg_monthly_pnl": 1.7362842920353747,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
@@ -72984,7 +73210,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:28:14.726295",
+          "time": "2026-10-18T02:26:02.145887",
           "equity": 9903.3,
           "type": "current"
         }
@@ -73066,14 +73292,15 @@ window.REPORT_DATA = {
       "desk": {
         "market": "stocks",
         "param_rank": 3,
-        "param_label": "Long/Short \u00b7 asset trail"
+        "param_label": "Long/Short \u00b7 asset trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 0.0,
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.218628102836918,
+        "avg_monthly_pnl": -5.209391592920393,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -73106,7 +73333,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-10-17T02:28:14.876993",
+          "time": "2026-10-18T02:26:02.246746",
           "equity": 10032.23,
           "type": "current"
         }
@@ -73209,16 +73436,9021 @@ window.REPORT_DATA = {
       "desk": {
         "market": "stocks",
         "param_rank": 4,
-        "param_label": "Long/Short \u00b7 TP1 trail"
+        "param_label": "Long/Short \u00b7 TP1 trail",
+        "bot": "live"
       },
       "metrics": {
         "win_rate": 100.0,
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.7393628102836642,
+        "avg_monthly_pnl": 1.7362842920353747,
         "max_drawdown": 0.0,
         "total_trades": 1
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r2_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:02.443700",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:02.443705",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 21,
+        "param_label": "2% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r2_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:02.443816",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:02.443818",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 22,
+        "param_label": "2% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r2_ls_trail": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 324.50868814066285,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 3227.8299029252407,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r2_ls_trail:AVAX/USDT"
+        }
+      ],
+      "current_cash": 6772.170097074759,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:20.863070",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:20.863070",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:02.544869",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 23,
+        "param_label": "2% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 3227.8299029252407
+      }
+    },
+    "ma_crypto_r2_ls_tp1": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 324.50868814066285,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 3227.8299029252407,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r2_ls_tp1:AVAX/USDT"
+        }
+      ],
+      "current_cash": 6772.170097074759,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:21.325076",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:21.325076",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:02.645891",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 24,
+        "param_label": "2% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 3227.8299029252407
+      }
+    },
+    "ma_crypto_r3_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:02.646055",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:02.646057",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 31,
+        "param_label": "3% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r3_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:02.646168",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:02.646170",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 32,
+        "param_label": "3% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r3_ls_trail": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 486.76303221099425,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 4841.744854387861,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r3_ls_trail:AVAX/USDT"
+        }
+      ],
+      "current_cash": 5158.255145612139,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:22.716839",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:22.716839",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:02.748733",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 33,
+        "param_label": "3% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 4841.744854387861
+      }
+    },
+    "ma_crypto_r3_ls_tp1": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 486.76303221099425,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 4841.744854387861,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r3_ls_tp1:AVAX/USDT"
+        }
+      ],
+      "current_cash": 5158.255145612139,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:23.179651",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:23.179651",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:02.848402",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 34,
+        "param_label": "3% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 4841.744854387861
+      }
+    },
+    "ma_crypto_r5_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:02.848569",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:02.848571",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 51,
+        "param_label": "5% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r5_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:02.848668",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:02.848669",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 52,
+        "param_label": "5% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r5_ls_trail": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 811.2717203516571,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 8069.574757313102,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r5_ls_trail:AVAX/USDT"
+        }
+      ],
+      "current_cash": 1930.425242686898,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:24.568245",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:24.568245",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:02.949992",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 53,
+        "param_label": "5% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 8069.574757313102
+      }
+    },
+    "ma_crypto_r5_ls_tp1": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 811.2717203516571,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 8069.574757313102,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r5_ls_tp1:AVAX/USDT"
+        }
+      ],
+      "current_cash": 1930.425242686898,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:25.033346",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:25.033346",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:03.051165",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 54,
+        "param_label": "5% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 8069.574757313102
+      }
+    },
+    "ma_crypto_r10_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.051341",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.051343",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 101,
+        "param_label": "10% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r10_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.051441",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.051442",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 102,
+        "param_label": "10% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r10_ls_trail": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 1005.3463097500114,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 10000.0,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r10_ls_trail:AVAX/USDT"
+        }
+      ],
+      "current_cash": 0.0,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:26.447818",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:26.447818",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:03.151548",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 103,
+        "param_label": "10% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 10000.0
+      }
+    },
+    "ma_crypto_r10_ls_tp1": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 1005.3463097500114,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 10000.0,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r10_ls_tp1:AVAX/USDT"
+        }
+      ],
+      "current_cash": 0.0,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:26.909594",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:26.909594",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:03.252401",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 104,
+        "param_label": "10% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 10000.0
+      }
+    },
+    "ma_crypto_r15_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.252569",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.252571",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 151,
+        "param_label": "15% \u00b7 Long \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r15_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.252669",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.252671",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 152,
+        "param_label": "15% \u00b7 Long \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "ma_crypto_r15_ls_trail": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 1005.3463097500114,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 10000.0,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r15_ls_trail:AVAX/USDT"
+        }
+      ],
+      "current_cash": 0.0,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:28.301109",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:28.301109",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:03.353788",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 153,
+        "param_label": "15% \u00b7 Long/Short \u00b7 asset trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 10000.0
+      }
+    },
+    "ma_crypto_r15_ls_tp1": {
+      "active_positions": [
+        {
+          "symbol": "AVAX/USDT",
+          "side": "SHORT",
+          "qty": 1005.3463097500114,
+          "entry": 9.946821212768555,
+          "entry_date": "2026-10-16",
+          "current_price": 9.946821212768555,
+          "unrealized_pnl": 0.0,
+          "sl": 10.563137531280518,
+          "tp1": false,
+          "tp_price": 9.330504894256592,
+          "value": 10000.0,
+          "hold_days": 2,
+          "chart_id": "open:ma_crypto_r15_ls_tp1:AVAX/USDT"
+        }
+      ],
+      "current_cash": 0.0,
+      "current_equity": 10000.0,
+      "history_events": 1,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:21:28.767874",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:21:28.767874",
+          "equity": 10000.0,
+          "type": "trade"
+        },
+        {
+          "time": "2026-10-18T02:26:03.454927",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 154,
+        "param_label": "15% \u00b7 Long/Short \u00b7 TP1 trail",
+        "bot": "live"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {
+        "AVAX/USDT": 10000.0
+      }
+    },
+    "hold_crypto_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.455101",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.455104",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 201,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "hold_crypto_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.455205",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.455207",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "BTC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ETH/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "BNB/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XRP/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "SOL/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ADA/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOGE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AVAX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DOT/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "TRX/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HYPE/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "ZEC/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XMR/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LINK/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "LEO/USDT",
+          "params": {
+            "short_window": 10,
+            "long_window": 20,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 3.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "crypto",
+        "param_rank": 202,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "hold_forex_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.455296",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.455297",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "EUR/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 30,
+            "trend_window": 100,
+            "atr_period": 21,
+            "sl_atr": 1.5,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "GBP/USD",
+          "params": {
+            "short_window": 9,
+            "long_window": 30,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "USD/JPY",
+          "params": {
+            "short_window": 9,
+            "long_window": 33,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 2.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AUD/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 2.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "USD/CAD",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 100,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 2.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "USD/CHF",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 110,
+            "atr_period": 21,
+            "sl_atr": 1.5,
+            "trail_atr": 2.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "EUR/GBP",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "EUR/JPY",
+          "params": {
+            "short_window": 10,
+            "long_window": 27,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 2.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "GBP/JPY",
+          "params": {
+            "short_window": 9,
+            "long_window": 30,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.5,
+            "trail_atr": 2.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "forex",
+        "param_rank": 211,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "hold_forex_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.455370",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.455371",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "EUR/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 30,
+            "trend_window": 100,
+            "atr_period": 21,
+            "sl_atr": 1.5,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "GBP/USD",
+          "params": {
+            "short_window": 9,
+            "long_window": 30,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "USD/JPY",
+          "params": {
+            "short_window": 9,
+            "long_window": 33,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 2.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "AUD/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 2.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "USD/CAD",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 100,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 2.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "USD/CHF",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 110,
+            "atr_period": 21,
+            "sl_atr": 1.5,
+            "trail_atr": 2.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "EUR/GBP",
+          "params": {
+            "short_window": 11,
+            "long_window": 33,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "EUR/JPY",
+          "params": {
+            "short_window": 10,
+            "long_window": 27,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 2.0,
+            "trail_atr": 1.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "GBP/JPY",
+          "params": {
+            "short_window": 9,
+            "long_window": 30,
+            "trend_window": 90,
+            "atr_period": 21,
+            "sl_atr": 1.5,
+            "trail_atr": 2.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "forex",
+        "param_rank": 212,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "hold_commodities_long_trail": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.455439",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.455440",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "XAU/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 32,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.5,
+            "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XAG/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 32,
+            "trend_window": 100,
+            "atr_period": 10,
+            "sl_atr": 1.5,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "CL/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 38,
+            "trend_window": 110,
+            "atr_period": 10,
+            "sl_atr": 1.5,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "NG/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 35,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HG/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 38,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "PL/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 38,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.0,
+            "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "PA/USD",
+          "params": {
+            "short_window": 22,
+            "long_window": 33,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 3.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "commodities",
+        "param_rank": 221,
+        "param_label": "Hold \u00b7 Long \u00b7 asset trail",
+        "bot": "hold"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
+      },
+      "exposure": {}
+    },
+    "hold_commodities_long_tp1": {
+      "active_positions": [],
+      "current_cash": 10000.0,
+      "current_equity": 10000.0,
+      "history_events": 0,
+      "equity_curve": [
+        {
+          "time": "2026-10-18T02:26:03.455496",
+          "equity": 10000.0,
+          "type": "initial"
+        },
+        {
+          "time": "2026-10-18T02:26:03.455497",
+          "equity": 10000.0,
+          "type": "current"
+        }
+      ],
+      "trade_history": [],
+      "pair_performance": {
+        "winners": [],
+        "losers": [],
+        "side_breakdown": [
+          {
+            "side": "LONG",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "side": "SHORT",
+            "pnl": 0.0,
+            "avg_pnl": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ],
+        "window_label": "No closed trades",
+        "trades_in_window": 0
+      },
+      "assets": [
+        {
+          "symbol": "XAU/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 32,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.5,
+            "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "XAG/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 32,
+            "trend_window": 100,
+            "atr_period": 10,
+            "sl_atr": 1.5,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "CL/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 38,
+            "trend_window": 110,
+            "atr_period": 10,
+            "sl_atr": 1.5,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "NG/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 35,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "HG/USD",
+          "params": {
+            "short_window": 10,
+            "long_window": 38,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "PL/USD",
+          "params": {
+            "short_window": 11,
+            "long_window": 38,
+            "trend_window": 90,
+            "atr_period": 10,
+            "sl_atr": 1.0,
+            "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "PA/USD",
+          "params": {
+            "short_window": 22,
+            "long_window": 33,
+            "trend_window": 150,
+            "atr_period": 14,
+            "sl_atr": 3.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        }
+      ],
+      "desk": {
+        "market": "commodities",
+        "param_rank": 222,
+        "param_label": "Hold \u00b7 Long \u00b7 TP1 trail",
+        "bot": "hold"
+      },
+      "metrics": {
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "total_pnl": 0,
+        "avg_pnl": 0.0,
+        "avg_monthly_pnl": 0.0,
+        "max_drawdown": 0.0,
+        "total_trades": 0
       },
       "exposure": {}
     }
