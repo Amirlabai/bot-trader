@@ -376541,6 +376541,16 @@
             "cash": 10000.0,
             "positions": {},
             "history": []
+        },
+        "hold_stocks_long_trail": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
+        },
+        "hold_stocks_long_tp1": {
+            "cash": 10000.0,
+            "positions": {},
+            "history": []
         }
     }
 }
