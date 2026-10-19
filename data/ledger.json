@@ -1,8 +1,21 @@
 {
     "strategies": {
         "ma_crypto_long_trail": {
-            "cash": 43788.64055132821,
-            "positions": {},
+            "cash": 32841.48041349616,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1211.8945440114348,
+                    "initial_qty": 1211.8945440114348,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
             "history": [
                 {
                     "timestamp": "2022-09-11T23:59:59",
@@ -24234,12 +24247,34 @@
                     "take_profit_at_exit": 0.0,
                     "quantity_pct": 1.0,
                     "reason": "Trailed Stop Hit @ 2437.5154 (SL 2437.5154)"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:21.721319",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1211.8945440114348,
+                    "price": 9.033096313476562,
+                    "total_value": 10947.160137832052,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_long_tp1": {
-            "cash": 15141.524583851256,
-            "positions": {},
+            "cash": 11356.143437888442,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 419.05687868238135,
+                    "initial_qty": 419.05687868238135,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
             "history": [
                 {
                     "timestamp": "2022-09-11T23:59:59",
@@ -52250,24 +52285,33 @@
                     "take_profit_at_exit": 2326.780871582031,
                     "quantity_pct": 1.0,
                     "reason": "Trailed Stop Hit @ 2437.5154 (SL 2437.5154)"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:22.508800",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 419.05687868238135,
+                    "price": 9.033096313476562,
+                    "total_value": 3785.381145962814,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_ls_trail": {
-            "cash": 10487.348622803886,
+            "cash": 6898.782535655576,
             "positions": {
                 "DOT/USDT": {
                     "qty": 178.781332078594,
                     "initial_qty": 178.781332078594,
                     "entry_price": 6.354040145874023,
                     "side": "SHORT",
-                    "stop_loss": 2.892370128631592,
+                    "stop_loss": 2.824351215362549,
                     "take_profit": 5.784021091461182,
                     "tp1_hit": false,
                     "initial_stop_loss": 6.924059200286865,
                     "entry_atr": 0.5700190544128418,
                     "entry_date": "2025-01-23",
-                    "last_price": 1.1823129653930664
+                    "last_price": 1.1142940521240234
                 },
                 "LINK/USDT": {
                     "qty": 52.72471217469674,
@@ -52280,33 +52324,45 @@
                     "initial_stop_loss": 21.84118309020996,
                     "entry_atr": 2.727791213989257,
                     "entry_date": "2025-10-14",
-                    "last_price": 12.334110260009766
+                    "last_price": 11.97105884552002
                 },
                 "DOGE/USDT": {
                     "qty": 4653.109063414529,
                     "initial_qty": 4653.109063414529,
                     "entry_price": 0.1963270008563995,
                     "side": "SHORT",
-                    "stop_loss": 0.17356439530849455,
+                    "stop_loss": 0.17195739448070524,
                     "take_profit": 0.1654182031750679,
                     "tp1_hit": false,
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.08083800226449966
+                    "last_price": 0.07923100143671036
                 },
                 "AVAX/USDT": {
                     "qty": 40.570653581267656,
                     "initial_qty": 40.570653581267656,
                     "entry_price": 19.956615447998047,
                     "side": "SHORT",
-                    "stop_loss": 20.581750202178956,
+                    "stop_loss": 20.389635372161866,
                     "take_profit": 16.41163911819458,
                     "tp1_hit": false,
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 9.946821212768555
+                    "last_price": 9.754706382751465
+                },
+                "LEO/USDT": {
+                    "qty": 397.2686621080851,
+                    "initial_qty": 397.2686621080851,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -91962,24 +92018,33 @@
                     "take_profit_at_exit": 0.3247127890586853,
                     "quantity_pct": 1.0,
                     "reason": "Short Stop Loss Hit @ 0.3295 (SL 0.3295)"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:23.020029",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 397.2686621080851,
+                    "price": 9.033096313476562,
+                    "total_value": 3588.5660871483096,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_ls_tp1": {
-            "cash": 9764.394096605862,
+            "cash": 5788.30989487838,
             "positions": {
                 "DOGE/USDT": {
                     "qty": 1671.5230715358175,
                     "initial_qty": 3343.046143071635,
                     "entry_price": 0.1963270008563995,
                     "side": "SHORT",
-                    "stop_loss": 0.17356439530849455,
+                    "stop_loss": 0.17195739448070524,
                     "take_profit": 0.1654182031750679,
                     "tp1_hit": true,
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.08083800226449966
+                    "last_price": 0.07923100143671036
                 },
                 "AVAX/USDT": {
                     "qty": 14.574079946153788,
@@ -91992,7 +92057,31 @@
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 9.946821212768555
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 1238.6605401172192,
+                    "initial_qty": 1238.6605401172192,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
+                },
+                "LEO/USDT": {
+                    "qty": 287.3712444980087,
+                    "initial_qty": 287.3712444980087,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -141310,6 +141399,24 @@
                     "take_profit_at_exit": 0.3247127890586853,
                     "quantity_pct": 1.0,
                     "reason": "Short Stop Loss Hit @ 0.3295 (SL 0.3295)"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:23.194126",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1238.6605401172192,
+                    "price": 1.1142940521240234,
+                    "total_value": 1380.2320724533477,
+                    "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:23.551613",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 287.3712444980087,
+                    "price": 9.033096313476562,
+                    "total_value": 2595.8521292741343,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
@@ -141326,7 +141433,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 0.8040521442890167,
                     "entry_date": "2026-09-03",
-                    "last_price": 0.8236100077629089,
+                    "last_price": 0.827750027179718,
                     "entry_atr": 0.005951901276906331
                 },
                 "USD/CAD": {
@@ -164710,7 +164817,7 @@
                     "tp1_hit": true,
                     "initial_stop_loss": 0.8040521442890167,
                     "entry_date": "2026-09-03",
-                    "last_price": 0.8236100077629089,
+                    "last_price": 0.827750027179718,
                     "entry_atr": 0.005951901276906331
                 },
                 "USD/CAD": {
@@ -195189,7 +195296,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 0.8040521442890167,
                     "entry_date": "2026-09-03",
-                    "last_price": 0.8236100077629089,
+                    "last_price": 0.827750027179718,
                     "entry_atr": 0.005951901276906331
                 },
                 "USD/CAD": {
@@ -195210,13 +195317,13 @@
                     "initial_qty": 3610.846817484705,
                     "entry_price": 0.7034080028533936,
                     "side": "SHORT",
-                    "stop_loss": 0.7022180131503514,
+                    "stop_loss": 0.7011979392596653,
                     "take_profit": 0.6987340365137372,
                     "tp1_hit": false,
                     "initial_stop_loss": 0.7080819691930499,
                     "entry_atr": 0.004673966339656285,
                     "entry_date": "2026-09-24",
-                    "last_price": 0.6949270367622375
+                    "last_price": 0.6918500065803528
                 }
             },
             "history": [
@@ -232958,7 +233065,7 @@
                     "tp1_hit": true,
                     "initial_stop_loss": 0.8040521442890167,
                     "entry_date": "2026-09-03",
-                    "last_price": 0.8236100077629089,
+                    "last_price": 0.827750027179718,
                     "entry_atr": 0.005951901276906331
                 },
                 "USD/CAD": {
@@ -232979,13 +233086,13 @@
                     "initial_qty": 3702.337275042638,
                     "entry_price": 0.7034080028533936,
                     "side": "SHORT",
-                    "stop_loss": 0.7022180131503514,
+                    "stop_loss": 0.7011979392596653,
                     "take_profit": 0.6987340365137372,
                     "tp1_hit": true,
                     "initial_stop_loss": 0.7080819691930499,
                     "entry_atr": 0.004673966339656285,
                     "entry_date": "2026-09-24",
-                    "last_price": 0.6949270367622375
+                    "last_price": 0.6918500065803528
                 },
                 "EUR/GBP": {
                     "qty": 1527.9919402597673,
@@ -232998,7 +233105,7 @@
                     "initial_stop_loss": 0.8549290214266095,
                     "entry_atr": 0.0027290497507367817,
                     "entry_date": "2026-10-02",
-                    "last_price": 0.843209981918335
+                    "last_price": 0.8448299765586853
                 }
             },
             "history": [
@@ -282343,7 +282450,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 101.41000366210938,
+                    "last_price": 97.5,
                     "entry_atr": 3.747000122070309
                 },
                 "HG/USD": {
@@ -282357,7 +282464,7 @@
                     "initial_stop_loss": 6.484850025177002,
                     "entry_atr": 0.14014997482299804,
                     "entry_date": "2026-09-17",
-                    "last_price": 6.531000137329102
+                    "last_price": 6.616499900817871
                 }
             },
             "history": [
@@ -314782,7 +314889,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 3.115999937057495,
+                    "last_price": 3.068000078201294,
                     "entry_atr": 1.2698000907897953
                 },
                 "CL/USD": {
@@ -314795,7 +314902,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 101.41000366210938,
+                    "last_price": 97.5,
                     "entry_atr": 3.747000122070309
                 },
                 "HG/USD": {
@@ -314809,7 +314916,7 @@
                     "initial_stop_loss": 6.484850025177002,
                     "entry_atr": 0.14014997482299804,
                     "entry_date": "2026-09-17",
-                    "last_price": 6.531000137329102
+                    "last_price": 6.616499900817871
                 },
                 "PA/USD": {
                     "qty": 1.0383354215199287,
@@ -314822,7 +314929,7 @@
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 1113.300048828125
+                    "last_price": 1129.0
                 },
                 "XAU/USD": {
                     "qty": 0.6230992638018006,
@@ -314835,7 +314942,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 4181.10009765625
+                    "last_price": 4194.5
                 }
             },
             "history": [
@@ -342071,7 +342178,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 3.115999937057495,
+                    "last_price": 3.068000078201294,
                     "entry_atr": 1.2698000907897953
                 },
                 "PA/USD": {
@@ -342085,7 +342192,7 @@
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 1113.300048828125
+                    "last_price": 1129.0
                 },
                 "XAU/USD": {
                     "qty": 0.21617785056957342,
@@ -342098,7 +342205,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 4181.10009765625
+                    "last_price": 4194.5
                 }
             },
             "history": [
@@ -375603,17 +375710,63 @@
             ]
         },
         "ma_crypto_r2_long_trail": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:24.098312",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r2_long_tp1": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:24.642298",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r2_ls_trail": {
-            "cash": 6772.170097074759,
+            "cash": 0.0,
             "positions": {
                 "AVAX/USDT": {
                     "qty": 324.50868814066285,
@@ -375625,7 +375778,32 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 2385.845723160625,
+                    "initial_qty": 2385.845723160625,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
+                },
+                "LEO/USDT": {
+                    "qty": 455.39605199760376,
+                    "initial_qty": 455.39605199760376,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -375637,11 +375815,29 @@
                     "price": 9.946821212768555,
                     "total_value": 3227.8299029252407,
                     "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:24.830428",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 2385.845723160625,
+                    "price": 1.1142940521240234,
+                    "total_value": 2658.5336986034235,
+                    "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:25.189108",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 455.39605199760376,
+                    "price": 9.033096313476562,
+                    "total_value": 4113.636398471335,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_r2_ls_tp1": {
-            "cash": 6772.170097074759,
+            "cash": 0.0,
             "positions": {
                 "AVAX/USDT": {
                     "qty": 324.50868814066285,
@@ -375653,7 +375849,32 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 2385.845723160625,
+                    "initial_qty": 2385.845723160625,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
+                },
+                "LEO/USDT": {
+                    "qty": 455.39605199760376,
+                    "initial_qty": 455.39605199760376,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -375665,21 +375886,85 @@
                     "price": 9.946821212768555,
                     "total_value": 3227.8299029252407,
                     "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:25.376505",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 2385.845723160625,
+                    "price": 1.1142940521240234,
+                    "total_value": 2658.5336986034235,
+                    "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:25.734262",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 455.39605199760376,
+                    "price": 9.033096313476562,
+                    "total_value": 4113.636398471335,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_r3_long_trail": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:26.279830",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r3_long_tp1": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:26.824848",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r3_ls_trail": {
-            "cash": 5158.255145612139,
+            "cash": 0.0,
             "positions": {
                 "AVAX/USDT": {
                     "qty": 486.76303221099425,
@@ -375691,7 +375976,32 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 3578.7685847409375,
+                    "initial_qty": 3578.7685847409375,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
+                },
+                "LEO/USDT": {
+                    "qty": 129.57401948220024,
+                    "initial_qty": 129.57401948220024,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -375703,11 +376013,29 @@
                     "price": 9.946821212768555,
                     "total_value": 4841.744854387861,
                     "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:27.011173",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 3578.7685847409375,
+                    "price": 1.1142940521240234,
+                    "total_value": 3987.8005479051358,
+                    "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:27.368685",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 129.57401948220024,
+                    "price": 9.033096313476562,
+                    "total_value": 1170.4545977070034,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_r3_ls_tp1": {
-            "cash": 5158.255145612139,
+            "cash": 0.0,
             "positions": {
                 "AVAX/USDT": {
                     "qty": 486.76303221099425,
@@ -375719,7 +376047,32 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 3578.7685847409375,
+                    "initial_qty": 3578.7685847409375,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
+                },
+                "LEO/USDT": {
+                    "qty": 129.57401948220024,
+                    "initial_qty": 129.57401948220024,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -375731,21 +376084,85 @@
                     "price": 9.946821212768555,
                     "total_value": 4841.744854387861,
                     "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:27.554407",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 3578.7685847409375,
+                    "price": 1.1142940521240234,
+                    "total_value": 3987.8005479051358,
+                    "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:27.912961",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 129.57401948220024,
+                    "price": 9.033096313476562,
+                    "total_value": 1170.4545977070034,
+                    "reason": "Golden Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_r5_long_trail": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:28.465975",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r5_long_tp1": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:29.010675",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r5_ls_trail": {
-            "cash": 1930.425242686898,
+            "cash": 0.0,
             "positions": {
                 "AVAX/USDT": {
                     "qty": 811.2717203516571,
@@ -375757,7 +376174,20 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 1732.419946967497,
+                    "initial_qty": 1732.419946967497,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -375769,11 +376199,20 @@
                     "price": 9.946821212768555,
                     "total_value": 8069.574757313102,
                     "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:29.197292",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1732.419946967497,
+                    "price": 1.1142940521240234,
+                    "total_value": 1930.425242686898,
+                    "reason": "Death Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_r5_ls_tp1": {
-            "cash": 1930.425242686898,
+            "cash": 0.0,
             "positions": {
                 "AVAX/USDT": {
                     "qty": 811.2717203516571,
@@ -375785,7 +376224,20 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
+                },
+                "DOT/USDT": {
+                    "qty": 1732.419946967497,
+                    "initial_qty": 1732.419946967497,
+                    "entry_price": 1.1142940521240234,
+                    "side": "SHORT",
+                    "stop_loss": 1.198121769087655,
+                    "take_profit": 1.0304663351603918,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.198121769087655,
+                    "entry_atr": 0.08382771696363177,
+                    "entry_date": "2026-10-17"
                 }
             },
             "history": [
@@ -375797,18 +376249,73 @@
                     "price": 9.946821212768555,
                     "total_value": 8069.574757313102,
                     "reason": "Death Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-10-19T02:36:29.742194",
+                    "symbol": "DOT/USDT",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1732.419946967497,
+                    "price": 1.1142940521240234,
+                    "total_value": 1930.425242686898,
+                    "reason": "Death Cross + weekly trend"
                 }
             ]
         },
         "ma_crypto_r10_long_trail": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:30.689405",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r10_long_tp1": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:31.235330",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r10_ls_trail": {
             "cash": 0.0,
@@ -375823,7 +376330,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
                 }
             },
             "history": [
@@ -375851,7 +376359,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
                 }
             },
             "history": [
@@ -375867,14 +376376,60 @@
             ]
         },
         "ma_crypto_r15_long_trail": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:32.868967",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r15_long_tp1": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 0.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 1107.0401170284108,
+                    "initial_qty": 1107.0401170284108,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 9.12671320778983,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:33.418185",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 1107.0401170284108,
+                    "price": 9.033096313476562,
+                    "total_value": 10000.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "ma_crypto_r15_ls_trail": {
             "cash": 0.0,
@@ -375889,7 +376444,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
                 }
             },
             "history": [
@@ -375917,7 +376473,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
-                    "entry_date": "2026-10-16"
+                    "entry_date": "2026-10-16",
+                    "last_price": 9.754706382751465
                 }
             },
             "history": [
@@ -375933,9 +376490,32 @@
             ]
         },
         "hold_crypto_long_trail": {
-            "cash": 10000.0,
-            "positions": {},
-            "history": []
+            "cash": 7500.0,
+            "positions": {
+                "LEO/USDT": {
+                    "qty": 276.7600292571027,
+                    "initial_qty": 276.7600292571027,
+                    "entry_price": 9.033096313476562,
+                    "side": "LONG",
+                    "stop_loss": 8.939479419163295,
+                    "take_profit": 0.0,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 8.939479419163295,
+                    "entry_atr": 0.0936168943132673,
+                    "entry_date": "2026-10-17"
+                }
+            },
+            "history": [
+                {
+                    "timestamp": "2026-10-19T02:36:43.824961",
+                    "symbol": "LEO/USDT",
+                    "side": "OPEN_LONG",
+                    "quantity": 276.7600292571027,
+                    "price": 9.033096313476562,
+                    "total_value": 2500.0,
+                    "reason": "Golden Cross + weekly trend"
+                }
+            ]
         },
         "hold_crypto_long_tp1": {
             "cash": 10000.0,
