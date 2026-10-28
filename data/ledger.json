@@ -14,7 +14,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -24274,7 +24274,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -52307,13 +52307,13 @@
                     "initial_qty": 178.781332078594,
                     "entry_price": 6.354040145874023,
                     "side": "SHORT",
-                    "stop_loss": 2.737109208106995,
+                    "stop_loss": 2.7193881511688236,
                     "take_profit": 5.784021091461182,
                     "tp1_hit": false,
                     "initial_stop_loss": 6.924059200286865,
                     "entry_atr": 0.5700190544128418,
                     "entry_date": "2025-01-23",
-                    "last_price": 1.0270520448684692
+                    "last_price": 1.0093309879302979
                 },
                 "LINK/USDT": {
                     "qty": 52.72471217469674,
@@ -52326,7 +52326,7 @@
                     "initial_stop_loss": 21.84118309020996,
                     "entry_atr": 2.727791213989257,
                     "entry_date": "2025-10-14",
-                    "last_price": 11.434389114379883
+                    "last_price": 11.378973960876465
                 },
                 "DOGE/USDT": {
                     "qty": 4653.109063414529,
@@ -52339,7 +52339,7 @@
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.07684200257062912
+                    "last_price": 0.07760100066661835
                 },
                 "AVAX/USDT": {
                     "qty": 40.570653581267656,
@@ -52352,7 +52352,7 @@
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 },
                 "LEO/USDT": {
                     "qty": 397.2686621080851,
@@ -52365,7 +52365,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -92047,7 +92047,7 @@
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.07684200257062912
+                    "last_price": 0.07760100066661835
                 },
                 "AVAX/USDT": {
                     "qty": 14.574079946153788,
@@ -92060,7 +92060,7 @@
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 },
                 "LEO/USDT": {
                     "qty": 287.3712444980087,
@@ -92073,7 +92073,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -141532,22 +141532,8 @@
             ]
         },
         "ma_forex_long_trail": {
-            "cash": 8579.661984557104,
-            "positions": {
-                "GBP/USD": {
-                    "qty": 2133.6189830457747,
-                    "initial_qty": 2133.6189830457747,
-                    "entry_price": 1.3403927087783813,
-                    "side": "LONG",
-                    "stop_loss": 1.3329516024816603,
-                    "take_profit": 0.0,
-                    "tp1_hit": false,
-                    "initial_stop_loss": 1.3329516024816603,
-                    "entry_atr": 0.007441106296720959,
-                    "entry_date": "2026-10-23",
-                    "last_price": 1.3377747535705566
-                }
-            },
+            "cash": 11423.67282709326,
+            "positions": {},
             "history": [
                 {
                     "timestamp": "2022-09-22T23:59:59",
@@ -165619,26 +165605,87 @@
                     "price": 1.3403927087783813,
                     "total_value": 2859.8873281857013,
                     "reason": "Big-move long: cross + EMA200/reclaim"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:04.525229",
+                    "symbol": "GBP/USD",
+                    "side": "CLOSE_LONG",
+                    "quantity": 2133.6189830457747,
+                    "price": 1.3329516024816603,
+                    "total_value": 2844.010842536156,
+                    "pnl": -15.87648564954543,
+                    "entry_price": 1.3403927087783813,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-23",
+                                "open": 1.34035671,
+                                "high": 1.34084201,
+                                "low": 1.33664823,
+                                "close": 1.34039271
+                            },
+                            {
+                                "date": "2026-10-26",
+                                "open": 1.33786416,
+                                "high": 1.33886731,
+                                "low": 1.33299565,
+                                "close": 1.33777475
+                            },
+                            {
+                                "date": "2026-10-27",
+                                "open": 1.33459675,
+                                "high": 1.33493519,
+                                "low": 1.33076048,
+                                "close": 1.3345077
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 1.3329516024816603,
+                        "take_profit": 0.0,
+                        "indicators": {
+                            "ema_trend": [
+                                1.33846206,
+                                1.33844695,
+                                1.33836038
+                            ],
+                            "ema_fast": [
+                                1.33315733,
+                                1.33408081,
+                                1.33416619
+                            ],
+                            "ema_slow": [
+                                1.33287936,
+                                1.33319519,
+                                1.33327987
+                            ],
+                            "adx": [
+                                24.58278894,
+                                23.1677052,
+                                21.6675685
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 1.333 (SL 1.333)",
+                        "entry_price": 1.3403927087783813,
+                        "entry_date": "2026-10-23",
+                        "stop_loss_at_exit": 1.3329516024816603,
+                        "take_profit_at_exit": 0.0,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 1.3329516024816603,
+                        "exit_date": "2026-10-27"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 1.3329516024816603,
+                    "take_profit_at_exit": 0.0,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 1.333 (SL 1.333)"
                 }
             ]
         },
         "ma_forex_long_tp1": {
-            "cash": 8204.727763561985,
-            "positions": {
-                "GBP/USD": {
-                    "qty": 2040.3790893589887,
-                    "initial_qty": 2040.3790893589887,
-                    "entry_price": 1.3403927087783813,
-                    "side": "LONG",
-                    "stop_loss": 1.3329516024816603,
-                    "take_profit": 1.3478338150751024,
-                    "tp1_hit": false,
-                    "initial_stop_loss": 1.3329516024816603,
-                    "entry_atr": 0.007441106296720959,
-                    "entry_date": "2026-10-23",
-                    "last_price": 1.3377747535705566
-                }
-            },
+            "cash": 10924.45434039312,
+            "positions": {},
             "history": [
                 {
                     "timestamp": "2022-09-22T23:59:59",
@@ -196805,25 +196852,87 @@
                     "price": 1.3403927087783813,
                     "total_value": 2734.9092545206618,
                     "reason": "Golden Cross + filters"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.697895",
+                    "symbol": "GBP/USD",
+                    "side": "CLOSE_LONG",
+                    "quantity": 2040.3790893589887,
+                    "price": 1.3329516024816603,
+                    "total_value": 2719.726576831135,
+                    "pnl": -15.182677689526827,
+                    "entry_price": 1.3403927087783813,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-23",
+                                "open": 1.34035671,
+                                "high": 1.34084201,
+                                "low": 1.33664823,
+                                "close": 1.34039271
+                            },
+                            {
+                                "date": "2026-10-26",
+                                "open": 1.33786416,
+                                "high": 1.33886731,
+                                "low": 1.33299565,
+                                "close": 1.33777475
+                            },
+                            {
+                                "date": "2026-10-27",
+                                "open": 1.33459675,
+                                "high": 1.33493519,
+                                "low": 1.33076048,
+                                "close": 1.3345077
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 1.3329516024816603,
+                        "take_profit": 1.3478338150751024,
+                        "indicators": {
+                            "ema_trend": [
+                                1.33846206,
+                                1.33844695,
+                                1.33836038
+                            ],
+                            "ema_fast": [
+                                1.33315733,
+                                1.33408081,
+                                1.33416619
+                            ],
+                            "ema_slow": [
+                                1.33287936,
+                                1.33319519,
+                                1.33327987
+                            ],
+                            "adx": [
+                                24.58278894,
+                                23.1677052,
+                                21.6675685
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 1.333 (SL 1.333)",
+                        "entry_price": 1.3403927087783813,
+                        "entry_date": "2026-10-23",
+                        "stop_loss_at_exit": 1.3329516024816603,
+                        "take_profit_at_exit": 1.3478338150751024,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 1.3329516024816603,
+                        "exit_date": "2026-10-27"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 1.3329516024816603,
+                    "take_profit_at_exit": 1.3478338150751024,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 1.333 (SL 1.333)"
                 }
             ]
         },
         "ma_forex_ls_trail": {
-            "cash": 5448.26980959729,
+            "cash": 2716.5734725182174,
             "positions": {
-                "GBP/USD": {
-                    "qty": 2032.3408855912016,
-                    "initial_qty": 2032.3408855912016,
-                    "entry_price": 1.3403927087783813,
-                    "side": "LONG",
-                    "stop_loss": 1.3329516024816603,
-                    "take_profit": 0.0,
-                    "tp1_hit": false,
-                    "initial_stop_loss": 1.3329516024816603,
-                    "entry_atr": 0.007441106296720959,
-                    "entry_date": "2026-10-23",
-                    "last_price": 1.3377747535705566
-                },
                 "USD/JPY": {
                     "qty": 17.3699857998677,
                     "initial_qty": 17.3699857998677,
@@ -196834,7 +196943,32 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 158.74695187523253,
                     "entry_atr": 0.9584750220889137,
-                    "entry_date": "2026-10-26"
+                    "entry_date": "2026-10-26",
+                    "last_price": 157.5279998779297
+                },
+                "USD/CAD": {
+                    "qty": 1941.3628827176667,
+                    "initial_qty": 1941.3628827176667,
+                    "entry_price": 1.4012600183486938,
+                    "side": "SHORT",
+                    "stop_loss": 1.4081471761067708,
+                    "take_profit": 1.394372860590617,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.4081471761067708,
+                    "entry_atr": 0.006887157758076985,
+                    "entry_date": "2026-10-27"
+                },
+                "GBP/JPY": {
+                    "qty": 12.942419673218241,
+                    "initial_qty": 12.942419673218241,
+                    "entry_price": 210.18899536132812,
+                    "side": "SHORT",
+                    "stop_loss": 212.28670501708984,
+                    "take_profit": 208.79052225748697,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 212.28670501708984,
+                    "entry_atr": 1.3984731038411458,
+                    "entry_date": "2026-10-27"
                 }
             },
             "history": [
@@ -235540,11 +235674,104 @@
                     "price": 156.8300018310547,
                     "total_value": 2724.134904798645,
                     "reason": "Death Cross + ADX/vol/trend"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.744210",
+                    "symbol": "GBP/USD",
+                    "side": "CLOSE_LONG",
+                    "quantity": 2032.3408855912016,
+                    "price": 1.3329516024816603,
+                    "total_value": 2709.012040237789,
+                    "pnl": -15.122864560856215,
+                    "entry_price": 1.3403927087783813,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-23",
+                                "open": 1.34035671,
+                                "high": 1.34084201,
+                                "low": 1.33664823,
+                                "close": 1.34039271
+                            },
+                            {
+                                "date": "2026-10-26",
+                                "open": 1.33786416,
+                                "high": 1.33886731,
+                                "low": 1.33299565,
+                                "close": 1.33777475
+                            },
+                            {
+                                "date": "2026-10-27",
+                                "open": 1.33459675,
+                                "high": 1.33493519,
+                                "low": 1.33076048,
+                                "close": 1.3345077
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 1.3329516024816603,
+                        "take_profit": 0.0,
+                        "indicators": {
+                            "ema_trend": [
+                                1.33846206,
+                                1.33844695,
+                                1.33836038
+                            ],
+                            "ema_fast": [
+                                1.33315733,
+                                1.33408081,
+                                1.33416619
+                            ],
+                            "ema_slow": [
+                                1.33287936,
+                                1.33319519,
+                                1.33327987
+                            ],
+                            "adx": [
+                                24.58278894,
+                                23.1677052,
+                                21.6675685
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 1.333 (SL 1.333)",
+                        "entry_price": 1.3403927087783813,
+                        "entry_date": "2026-10-23",
+                        "stop_loss_at_exit": 1.3329516024816603,
+                        "take_profit_at_exit": 0.0,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 1.3329516024816603,
+                        "exit_date": "2026-10-27"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 1.3329516024816603,
+                    "take_profit_at_exit": 0.0,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 1.333 (SL 1.333)"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.759022",
+                    "symbol": "USD/CAD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1941.3628827176667,
+                    "price": 1.4012600183486938,
+                    "total_value": 2720.3541886584308,
+                    "reason": "Death Cross + ADX/vol/trend"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.777987",
+                    "symbol": "GBP/JPY",
+                    "side": "OPEN_SHORT",
+                    "quantity": 12.942419673218241,
+                    "price": 210.18899536132812,
+                    "total_value": 2720.3541886584308,
+                    "reason": "Death Cross + ADX/vol/trend"
                 }
             ]
         },
         "ma_forex_ls_tp1": {
-            "cash": 3939.9130971644836,
+            "cash": 1311.603951607126,
             "positions": {
                 "EUR/GBP": {
                     "qty": 1527.9919402597673,
@@ -235557,20 +235784,7 @@
                     "initial_stop_loss": 0.8549290214266095,
                     "entry_atr": 0.0027290497507367817,
                     "entry_date": "2026-10-02",
-                    "last_price": 0.8384900093078613
-                },
-                "GBP/USD": {
-                    "qty": 1955.4223739967895,
-                    "initial_qty": 1955.4223739967895,
-                    "entry_price": 1.3403927087783813,
-                    "side": "LONG",
-                    "stop_loss": 1.3329516024816603,
-                    "take_profit": 1.3478338150751024,
-                    "tp1_hit": false,
-                    "initial_stop_loss": 1.3329516024816603,
-                    "entry_atr": 0.007441106296720959,
-                    "entry_date": "2026-10-23",
-                    "last_price": 1.3377747535705566
+                    "last_price": 0.8372799754142761
                 },
                 "USD/JPY": {
                     "qty": 16.71257962179278,
@@ -235582,7 +235796,32 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 158.74695187523253,
                     "entry_atr": 0.9584750220889137,
-                    "entry_date": "2026-10-26"
+                    "entry_date": "2026-10-26",
+                    "last_price": 157.5279998779297
+                },
+                "USD/CAD": {
+                    "qty": 1867.8876382535268,
+                    "initial_qty": 1867.8876382535268,
+                    "entry_price": 1.4012600183486938,
+                    "side": "SHORT",
+                    "stop_loss": 1.4081471761067708,
+                    "take_profit": 1.394372860590617,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 1.4081471761067708,
+                    "entry_atr": 0.006887157758076985,
+                    "entry_date": "2026-10-27"
+                },
+                "GBP/JPY": {
+                    "qty": 12.452584692899675,
+                    "initial_qty": 12.452584692899675,
+                    "entry_price": 210.18899536132812,
+                    "side": "SHORT",
+                    "stop_loss": 212.28670501708984,
+                    "take_profit": 208.79052225748697,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 212.28670501708984,
+                    "entry_atr": 1.3984731038411458,
+                    "entry_date": "2026-10-27"
                 }
             },
             "history": [
@@ -285891,6 +286130,99 @@
                     "price": 156.8300018310547,
                     "total_value": 2621.033892687409,
                     "reason": "Death Cross + ADX/vol/trend"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.789401",
+                    "symbol": "GBP/USD",
+                    "side": "CLOSE_LONG",
+                    "quantity": 1955.4223739967895,
+                    "price": 1.3329516024816603,
+                    "total_value": 2606.4833869475133,
+                    "pnl": -14.55050573989638,
+                    "entry_price": 1.3403927087783813,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-23",
+                                "open": 1.34035671,
+                                "high": 1.34084201,
+                                "low": 1.33664823,
+                                "close": 1.34039271
+                            },
+                            {
+                                "date": "2026-10-26",
+                                "open": 1.33786416,
+                                "high": 1.33886731,
+                                "low": 1.33299565,
+                                "close": 1.33777475
+                            },
+                            {
+                                "date": "2026-10-27",
+                                "open": 1.33459675,
+                                "high": 1.33493519,
+                                "low": 1.33076048,
+                                "close": 1.3345077
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 1.3329516024816603,
+                        "take_profit": 1.3478338150751024,
+                        "indicators": {
+                            "ema_trend": [
+                                1.33846206,
+                                1.33844695,
+                                1.33836038
+                            ],
+                            "ema_fast": [
+                                1.33315733,
+                                1.33408081,
+                                1.33416619
+                            ],
+                            "ema_slow": [
+                                1.33287936,
+                                1.33319519,
+                                1.33327987
+                            ],
+                            "adx": [
+                                24.58278894,
+                                23.1677052,
+                                21.6675685
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 1.333 (SL 1.333)",
+                        "entry_price": 1.3403927087783813,
+                        "entry_date": "2026-10-23",
+                        "stop_loss_at_exit": 1.3329516024816603,
+                        "take_profit_at_exit": 1.3478338150751024,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 1.3329516024816603,
+                        "exit_date": "2026-10-27"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 1.3329516024816603,
+                    "take_profit_at_exit": 1.3478338150751024,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 1.333 (SL 1.333)"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.803840",
+                    "symbol": "USD/CAD",
+                    "side": "OPEN_SHORT",
+                    "quantity": 1867.8876382535268,
+                    "price": 1.4012600183486938,
+                    "total_value": 2617.3962662524355,
+                    "reason": "Death Cross + ADX/vol/trend"
+                },
+                {
+                    "timestamp": "2026-10-28T03:18:09.822900",
+                    "symbol": "GBP/JPY",
+                    "side": "OPEN_SHORT",
+                    "quantity": 12.452584692899675,
+                    "price": 210.18899536132812,
+                    "total_value": 2617.3962662524355,
+                    "reason": "Death Cross + ADX/vol/trend"
                 }
             ]
         },
@@ -285907,7 +286239,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 100.87999725341797,
+                    "last_price": 101.1500015258789,
                     "entry_atr": 3.747000122070309
                 }
             },
@@ -318785,7 +319117,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 3.0350000858306885,
+                    "last_price": 3.055000066757202,
                     "entry_atr": 1.2698000907897953
                 },
                 "CL/USD": {
@@ -318798,7 +319130,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 100.87999725341797,
+                    "last_price": 101.1500015258789,
                     "entry_atr": 3.747000122070309
                 },
                 "PA/USD": {
@@ -318806,13 +319138,13 @@
                     "initial_qty": 1.0383354215199287,
                     "entry_price": 1306.199951171875,
                     "side": "SHORT",
-                    "stop_loss": 1195.5643877301898,
+                    "stop_loss": 1186.5643877301898,
                     "take_profit": 1271.1856427873884,
                     "tp1_hit": false,
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 1038.0
+                    "last_price": 1029.0
                 },
                 "XAU/USD": {
                     "qty": 0.6230992638018006,
@@ -318825,7 +319157,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 4021.39990234375
+                    "last_price": 4061.60009765625
                 }
             },
             "history": [
@@ -346389,7 +346721,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 3.0350000858306885,
+                    "last_price": 3.055000066757202,
                     "entry_atr": 1.2698000907897953
                 },
                 "PA/USD": {
@@ -346397,13 +346729,13 @@
                     "initial_qty": 0.7185793215831819,
                     "entry_price": 1306.199951171875,
                     "side": "SHORT",
-                    "stop_loss": 1195.5643877301898,
+                    "stop_loss": 1186.5643877301898,
                     "take_profit": 1271.1856427873884,
                     "tp1_hit": true,
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 1038.0
+                    "last_price": 1029.0
                 },
                 "XAU/USD": {
                     "qty": 0.21617785056957342,
@@ -346416,7 +346748,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 4021.39990234375
+                    "last_price": 4061.60009765625
                 }
             },
             "history": [
@@ -380007,7 +380339,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380036,7 +380368,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380065,7 +380397,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 },
                 "LEO/USDT": {
                     "qty": 455.39605199760376,
@@ -380078,7 +380410,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380244,7 +380576,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380593,7 +380925,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380622,7 +380954,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380651,7 +380983,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 },
                 "LEO/USDT": {
                     "qty": 129.57401948220024,
@@ -380664,7 +380996,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -380830,7 +381162,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -381179,7 +381511,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -381208,7 +381540,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -381237,7 +381569,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 }
             },
             "history": [
@@ -381720,7 +382052,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -381749,7 +382081,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -381778,7 +382110,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 }
             },
             "history": [
@@ -382005,7 +382337,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -382034,7 +382366,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
@@ -382063,7 +382395,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.914212226867676
+                    "last_price": 8.956565856933594
                 }
             },
             "history": [
@@ -382290,7 +382622,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.035139083862305
+                    "last_price": 9.035017967224121
                 }
             },
             "history": [
