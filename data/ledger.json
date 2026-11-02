@@ -14,7 +14,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -24418,7 +24418,7 @@
             ]
         },
         "ma_crypto_long_tp1": {
-            "cash": 11249.405659336278,
+            "cash": 13144.548157537864,
             "positions": {
                 "LEO/USDT": {
                     "qty": 209.52843934119068,
@@ -24431,20 +24431,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 5408.002504232248,
-                    "initial_qty": 10816.005008464495,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -52797,6 +52784,81 @@
                     "take_profit_at_exit": 1409.0913609095983,
                     "quantity_pct": 1.0,
                     "reason": "Stop Loss Hit @ 1207.58 (SL 1207.58)"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:03.998781",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 5408.002504232248,
+                    "price": 0.35043299198150635,
+                    "total_value": 1895.1424982015856,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -52814,7 +52876,7 @@
                     "initial_stop_loss": 6.924059200286865,
                     "entry_atr": 0.5700190544128418,
                     "entry_date": "2025-01-23",
-                    "last_price": 0.974702000617981
+                    "last_price": 0.945514976978302
                 },
                 "LINK/USDT": {
                     "qty": 52.72471217469674,
@@ -52827,7 +52889,7 @@
                     "initial_stop_loss": 21.84118309020996,
                     "entry_atr": 2.727791213989257,
                     "entry_date": "2025-10-14",
-                    "last_price": 11.437138557434082
+                    "last_price": 11.6520357131958
                 },
                 "DOGE/USDT": {
                     "qty": 4653.109063414529,
@@ -52840,7 +52902,7 @@
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.07588200271129608
+                    "last_price": 0.07554599642753601
                 },
                 "AVAX/USDT": {
                     "qty": 40.570653581267656,
@@ -52853,7 +52915,7 @@
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 },
                 "LEO/USDT": {
                     "qty": 397.2686621080851,
@@ -52866,7 +52928,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -92692,7 +92754,7 @@
             ]
         },
         "ma_crypto_ls_tp1": {
-            "cash": 7005.340855407541,
+            "cash": 8291.96908461229,
             "positions": {
                 "DOGE/USDT": {
                     "qty": 1671.5230715358175,
@@ -92705,7 +92767,7 @@
                     "initial_stop_loss": 0.22723579853773113,
                     "entry_atr": 0.03090879768133163,
                     "entry_date": "2025-10-15",
-                    "last_price": 0.07588200271129608
+                    "last_price": 0.07554599642753601
                 },
                 "AVAX/USDT": {
                     "qty": 14.574079946153788,
@@ -92718,7 +92780,7 @@
                     "initial_stop_loss": 23.501591777801515,
                     "entry_atr": 3.544976329803467,
                     "entry_date": "2025-10-17",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 },
                 "LEO/USDT": {
                     "qty": 143.68562224900435,
@@ -92731,20 +92793,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 3671.538521329205,
-                    "initial_qty": 7343.07704265841,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -142530,6 +142579,81 @@
                     "take_profit_at_exit": 1409.0913609095983,
                     "quantity_pct": 1.0,
                     "reason": "Stop Loss Hit @ 1207.58 (SL 1207.58)"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:05.242506",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 3671.538521329205,
+                    "price": 0.35043299198150635,
+                    "total_value": 1286.628229204749,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -197959,7 +198083,7 @@
                     "initial_stop_loss": 1.4081471761067708,
                     "entry_atr": 0.006887157758076985,
                     "entry_date": "2026-10-27",
-                    "last_price": 1.3973000049591064
+                    "last_price": 1.3986400365829468
                 },
                 "GBP/JPY": {
                     "qty": 12.942419673218241,
@@ -236814,7 +236938,7 @@
                     "initial_stop_loss": 1.4081471761067708,
                     "entry_atr": 0.006887157758076985,
                     "entry_date": "2026-10-27",
-                    "last_price": 1.3973000049591064
+                    "last_price": 1.3986400365829468
                 },
                 "GBP/JPY": {
                     "qty": 12.452584692899675,
@@ -287331,7 +287455,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 104.12000274658203,
+                    "last_price": 100.94000244140625,
                     "entry_atr": 3.747000122070309
                 }
             },
@@ -320209,7 +320333,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 2.8980000019073486,
+                    "last_price": 2.8959999084472656,
                     "entry_atr": 1.2698000907897953
                 },
                 "CL/USD": {
@@ -320222,7 +320346,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 76.77950134277344,
                     "entry_date": "2026-08-14",
-                    "last_price": 104.12000274658203,
+                    "last_price": 100.94000244140625,
                     "entry_atr": 3.747000122070309
                 },
                 "PA/USD": {
@@ -320230,13 +320354,13 @@
                     "initial_qty": 1.0383354215199287,
                     "entry_price": 1306.199951171875,
                     "side": "SHORT",
-                    "stop_loss": 1135.0643877301898,
+                    "stop_loss": 1132.5643877301898,
                     "take_profit": 1271.1856427873884,
                     "tp1_hit": false,
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 984.5999755859375
+                    "last_price": 975.0
                 },
                 "XAU/USD": {
                     "qty": 0.6230992638018006,
@@ -320249,7 +320373,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 3898.89990234375
+                    "last_price": 3909.60009765625
                 },
                 "HG/USD": {
                     "qty": 418.81740303669324,
@@ -320261,7 +320385,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 6.548299980163574,
                     "entry_atr": 0.08980007171630859,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 6.512499809265137
                 }
             },
             "history": [
@@ -347834,7 +347959,7 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 4.7788001537323,
                     "entry_date": "2026-02-05",
-                    "last_price": 2.8980000019073486,
+                    "last_price": 2.8959999084472656,
                     "entry_atr": 1.2698000907897953
                 },
                 "PA/USD": {
@@ -347842,13 +347967,13 @@
                     "initial_qty": 0.7185793215831819,
                     "entry_price": 1306.199951171875,
                     "side": "SHORT",
-                    "stop_loss": 1135.0643877301898,
+                    "stop_loss": 1132.5643877301898,
                     "take_profit": 1271.1856427873884,
                     "tp1_hit": true,
                     "initial_stop_loss": 1411.2428763253347,
                     "entry_atr": 35.014308384486604,
                     "entry_date": "2026-09-18",
-                    "last_price": 984.5999755859375
+                    "last_price": 975.0
                 },
                 "XAU/USD": {
                     "qty": 0.21617785056957342,
@@ -347861,7 +347986,7 @@
                     "initial_stop_loss": 4517.325024414063,
                     "entry_atr": 94.149951171875,
                     "entry_date": "2026-09-22",
-                    "last_price": 3898.89990234375
+                    "last_price": 3909.60009765625
                 },
                 "HG/USD": {
                     "qty": 293.6835146530146,
@@ -347873,7 +347998,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 6.548299980163574,
                     "entry_atr": 0.08980007171630859,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 6.512499809265137
                 }
             },
             "history": [
@@ -381473,7 +381599,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -381489,7 +381615,7 @@
             ]
         },
         "ma_crypto_r2_long_tp1": {
-            "cash": 0.0,
+            "cash": 2525.909414409099,
             "positions": {
                 "LEO/USDT": {
                     "qty": 553.5200585142054,
@@ -381502,20 +381628,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7207.966921511776,
-                    "initial_qty": 14415.933843023551,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 },
                 "ZEC/USDT": {
                     "qty": 2.019948226350162,
@@ -381527,7 +381640,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 1169.32377406529,
                     "entry_atr": 99.31318882533482,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 1250.3385009765625
                 }
             },
             "history": [
@@ -381795,6 +381909,81 @@
                     "price": 1268.636962890625,
                     "total_value": 2562.580983073174,
                     "reason": "Golden Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:06.174409",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7207.966921511776,
+                    "price": 0.35043299198150635,
+                    "total_value": 2525.909414409099,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -381812,7 +382001,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 },
                 "LEO/USDT": {
                     "qty": 455.39605199760376,
@@ -381825,7 +382014,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -382062,7 +382251,7 @@
             ]
         },
         "ma_crypto_r2_ls_tp1": {
-            "cash": 5058.212422860092,
+            "cash": 7704.9235709177565,
             "positions": {
                 "LEO/USDT": {
                     "qty": 227.69802599880188,
@@ -382075,20 +382264,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7552.688270279475,
-                    "initial_qty": 15105.37654055895,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -382751,6 +382927,81 @@
                     "take_profit_at_exit": 1409.0913609095983,
                     "quantity_pct": 1.0,
                     "reason": "Stop Loss Hit @ 1207.58 (SL 1207.58)"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:07.104437",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7552.688270279475,
+                    "price": 0.35043299198150635,
+                    "total_value": 2646.711148057664,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -382768,7 +383019,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -382784,7 +383035,7 @@
             ]
         },
         "ma_crypto_r3_long_tp1": {
-            "cash": 0.0,
+            "cash": 2525.909414409099,
             "positions": {
                 "LEO/USDT": {
                     "qty": 553.5200585142054,
@@ -382797,20 +383048,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7207.966921511776,
-                    "initial_qty": 14415.933843023551,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 },
                 "ZEC/USDT": {
                     "qty": 2.019948226350162,
@@ -382822,7 +383060,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 1169.32377406529,
                     "entry_atr": 99.31318882533482,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 1250.3385009765625
                 }
             },
             "history": [
@@ -383090,6 +383329,81 @@
                     "price": 1268.636962890625,
                     "total_value": 2562.580983073174,
                     "reason": "Golden Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:08.037102",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7207.966921511776,
+                    "price": 0.35043299198150635,
+                    "total_value": 2525.909414409099,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -383107,7 +383421,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 },
                 "LEO/USDT": {
                     "qty": 129.57401948220024,
@@ -383120,7 +383434,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -383357,7 +383671,7 @@
             ]
         },
         "ma_crypto_r3_ls_tp1": {
-            "cash": 6297.930610239381,
+            "cash": 9014.781548934525,
             "positions": {
                 "LEO/USDT": {
                     "qty": 64.78700974110012,
@@ -383370,20 +383684,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7752.840060328916,
-                    "initial_qty": 15505.680120657831,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -384046,6 +384347,81 @@
                     "take_profit_at_exit": 1409.0913609095983,
                     "quantity_pct": 1.0,
                     "reason": "Stop Loss Hit @ 1207.58 (SL 1207.58)"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:08.967083",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7752.840060328916,
+                    "price": 0.35043299198150635,
+                    "total_value": 2716.850938695144,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -384063,7 +384439,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -384079,7 +384455,7 @@
             ]
         },
         "ma_crypto_r5_long_tp1": {
-            "cash": 0.0,
+            "cash": 2525.909414409099,
             "positions": {
                 "LEO/USDT": {
                     "qty": 553.5200585142054,
@@ -384092,20 +384468,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7207.966921511776,
-                    "initial_qty": 14415.933843023551,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 },
                 "ZEC/USDT": {
                     "qty": 2.019948226350162,
@@ -384117,7 +384480,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 1169.32377406529,
                     "entry_atr": 99.31318882533482,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 1250.3385009765625
                 }
             },
             "history": [
@@ -384385,6 +384749,81 @@
                     "price": 1268.636962890625,
                     "total_value": 2562.580983073174,
                     "reason": "Golden Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:09.898566",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7207.966921511776,
+                    "price": 0.35043299198150635,
+                    "total_value": 2525.909414409099,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -384402,7 +384841,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 }
             },
             "history": [
@@ -384630,22 +385069,8 @@
             ]
         },
         "ma_crypto_r5_ls_tp1": {
-            "cash": 7853.197178878119,
-            "positions": {
-                "TRX/USDT": {
-                    "qty": 5056.791012539387,
-                    "initial_qty": 10113.582025078775,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
-                }
-            },
+            "cash": 9625.263583227488,
+            "positions": {},
             "history": [
                 {
                     "timestamp": "2026-10-18T02:21:25.033346",
@@ -385123,6 +385548,81 @@
                     "take_profit_at_exit": 1409.0913609095983,
                     "quantity_pct": 1.0,
                     "reason": "Stop Loss Hit @ 1207.58 (SL 1207.58)"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:10.834009",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 5056.791012539387,
+                    "price": 0.35043299198150635,
+                    "total_value": 1772.0664043493684,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -385140,7 +385640,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -385156,7 +385656,7 @@
             ]
         },
         "ma_crypto_r10_long_tp1": {
-            "cash": 0.0,
+            "cash": 2525.909414409099,
             "positions": {
                 "LEO/USDT": {
                     "qty": 553.5200585142054,
@@ -385169,20 +385669,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7207.966921511776,
-                    "initial_qty": 14415.933843023551,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 },
                 "ZEC/USDT": {
                     "qty": 2.019948226350162,
@@ -385194,7 +385681,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 1169.32377406529,
                     "entry_atr": 99.31318882533482,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 1250.3385009765625
                 }
             },
             "history": [
@@ -385462,6 +385950,81 @@
                     "price": 1268.636962890625,
                     "total_value": 2562.580983073174,
                     "reason": "Golden Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:11.766313",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7207.966921511776,
+                    "price": 0.35043299198150635,
+                    "total_value": 2525.909414409099,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -385479,7 +386042,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 }
             },
             "history": [
@@ -385790,7 +386353,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
@@ -385806,7 +386369,7 @@
             ]
         },
         "ma_crypto_r15_long_tp1": {
-            "cash": 0.0,
+            "cash": 2525.909414409099,
             "positions": {
                 "LEO/USDT": {
                     "qty": 553.5200585142054,
@@ -385819,20 +386382,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
-                },
-                "TRX/USDT": {
-                    "qty": 7207.966921511776,
-                    "initial_qty": 14415.933843023551,
-                    "entry_price": 0.35043299198150635,
-                    "side": "LONG",
-                    "stop_loss": 0.35043299198150635,
-                    "take_profit": 0.355520635843277,
-                    "tp1_hit": true,
-                    "initial_stop_loss": 0.3453453481197357,
-                    "entry_atr": 0.00508764386177063,
-                    "entry_date": "2026-10-29",
-                    "last_price": 0.3276830017566681
+                    "last_price": 9.397665023803711
                 },
                 "ZEC/USDT": {
                     "qty": 2.019948226350162,
@@ -385844,7 +386394,8 @@
                     "tp1_hit": false,
                     "initial_stop_loss": 1169.32377406529,
                     "entry_atr": 99.31318882533482,
-                    "entry_date": "2026-10-30"
+                    "entry_date": "2026-10-30",
+                    "last_price": 1250.3385009765625
                 }
             },
             "history": [
@@ -386112,6 +386663,81 @@
                     "price": 1268.636962890625,
                     "total_value": 2562.580983073174,
                     "reason": "Golden Cross + weekly trend"
+                },
+                {
+                    "timestamp": "2026-11-02T03:41:13.686226",
+                    "symbol": "TRX/USDT",
+                    "side": "CLOSE_LONG",
+                    "quantity": 7207.966921511776,
+                    "price": 0.35043299198150635,
+                    "total_value": 2525.909414409099,
+                    "pnl": 0.0,
+                    "entry_price": 0.35043299198150635,
+                    "snapshot": {
+                        "candles": [
+                            {
+                                "date": "2026-10-29",
+                                "open": 0.32944599,
+                                "high": 0.36309201,
+                                "low": 0.32895601,
+                                "close": 0.35043299
+                            },
+                            {
+                                "date": "2026-10-30",
+                                "open": 0.35043299,
+                                "high": 0.36155599,
+                                "low": 0.32709801,
+                                "close": 0.327683
+                            },
+                            {
+                                "date": "2026-10-31",
+                                "open": 0.327683,
+                                "high": 0.32768399,
+                                "low": 0.30174401,
+                                "close": 0.30236799
+                            }
+                        ],
+                        "timeframe": "1d",
+                        "bar_cap": 60,
+                        "stop_loss": 0.35043299198150635,
+                        "take_profit": 0.355520635843277,
+                        "indicators": {
+                            "ema_trend": [
+                                0.33101936,
+                                0.33097517,
+                                0.33059627
+                            ],
+                            "ema_fast": [
+                                0.33384207,
+                                0.33272224,
+                                0.32720328
+                            ],
+                            "ema_slow": [
+                                0.33293412,
+                                0.33243401,
+                                0.32957058
+                            ],
+                            "adx": [
+                                12.52752108,
+                                15.72995901,
+                                14.74691384
+                            ]
+                        },
+                        "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)",
+                        "entry_price": 0.35043299198150635,
+                        "entry_date": "2026-10-29",
+                        "stop_loss_at_exit": 0.35043299198150635,
+                        "take_profit_at_exit": 0.355520635843277,
+                        "exit_kind": "stop_loss",
+                        "quantity_pct": 1.0,
+                        "exit_price": 0.35043299198150635,
+                        "exit_date": "2026-10-31"
+                    },
+                    "exit_kind": "stop_loss",
+                    "stop_loss_at_exit": 0.35043299198150635,
+                    "take_profit_at_exit": 0.355520635843277,
+                    "quantity_pct": 1.0,
+                    "reason": "Stop Loss Hit @ 0.3504 (SL 0.3504)"
                 }
             ]
         },
@@ -386129,7 +386755,7 @@
                     "initial_stop_loss": 10.563137531280518,
                     "entry_atr": 0.6163163185119629,
                     "entry_date": "2026-10-16",
-                    "last_price": 8.539600372314453
+                    "last_price": 8.558518409729004
                 }
             },
             "history": [
@@ -386440,7 +387066,7 @@
                     "initial_stop_loss": 8.939479419163295,
                     "entry_atr": 0.0936168943132673,
                     "entry_date": "2026-10-17",
-                    "last_price": 9.42154598236084
+                    "last_price": 9.397665023803711
                 }
             },
             "history": [
