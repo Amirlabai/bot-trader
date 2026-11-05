@@ -31,3 +31,7 @@ scratch/_*.log
 scratch/*.log
 scratch/_*.py
 gitaction.log
+
+# Research harness (research/README.md)
+research/cache/
+research/results/**/trades.csv.gz

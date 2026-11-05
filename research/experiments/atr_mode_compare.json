@@ -1,0 +1,29 @@
+{
+  "name": "atr_mode_compare",
+  "description": "Trail rule: live (trail_atr x ATR frozen at entry) against asset-trail (current ATR, widened to the initial stop), across trail widths and arm levels.",
+  "pairs": "universe",
+  "years": 4,
+  "fee_rate": 0.001,
+  "oos_months": 12,
+  "include_baseline": true,
+  "grid": [
+    {
+      "atr_mode": [
+        "frozen",
+        "current"
+      ],
+      "trail_atr": [
+        2.0,
+        3.0,
+        4.0
+      ]
+    },
+    {
+      "trail_arm_r": [
+        0.5,
+        1.0,
+        2.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "spec": {
+    "name": "structure_entries",
+    "description": "Confirmation entries: after the EMA crossover, wait for a close above the signal high or swing high (higher high), or above resistance (swing pivots or the N-bar band high). Each crossed with the current exit and two scale-out ladders. Wide USDT list on Yahoo daily (pairs without Yahoo data are skipped).",
+    "btc_symbol": "BTC/USDT",
+    "pairs": [
+      "BTC/USDT",
+      "ETH/USDT",
+      "BNB/USDT",
+      "XRP/USDT",
+      "SOL/USDT",
+      "ADA/USDT",
+      "DOGE/USDT",
+      "AVAX/USDT",
+      "DOT/USDT",
+      "TRX/USDT",
+      "LINK/USDT",
+      "LTC/USDT",
+      "BCH/USDT",
+      "ATOM/USDT",
+      "ETC/USDT",
+      "XLM/USDT",
+      "NEAR/USDT",
+      "FIL/USDT",
+      "UNI/USDT",
+      "AAVE/USDT",
+      "ALGO/USDT",
+      "VET/USDT",
+      "EOS/USDT",
+      "XTZ/USDT",
+      "THETA/USDT",
+      "HBAR/USDT",
+      "SAND/USDT",
+      "MANA/USDT",
+      "INJ/USDT",
+      "ICP/USDT"
+    ],
+    "years": 6,
+    "fee_rate": 0.001,
+    "oos_months": 18,
+    "include_baseline": true,
+    "audit": {
+      "pivot_k": 3,
+      "lookback": 120
+    },
+    "entry_modes": [
+      {
+        "type": "higher_high",
+        "ref": [
+          "signal_high",
+          "swing_high"
+        ],
+        "within": [
+          1,
+          2,
+          3,
+          5,
+          10
+        ],
+        "pivot_k": 3,
+        "lookback": 120
+      },
+      {
+        "type": "resistance_break",
+        "level": "pivot",
+        "pivot_k": [
+          3,
+          5
+        ],
+        "lookback": [
+          60,
+          120
+        ],
+        "within": [
+          2,
+          3,
+          5,
+          10
+        ],
+        "none_above": [
+          "enter",
+          "skip"
+        ]
+      },
+      {
+        "type": "resistance_break",
+        "level": "band",
+        "lookback": [
+          20,
+          55,
+          120
+        ],
+        "within": [
+          2,
+          3,
+          5,
+          10
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "step_r": 3.0,
+        "fraction": 0.1
+      },
+      {
+        "step_r": 1.0,
+        "fraction": 0.5
+      }
+    ],
+    "save_trades_for_exits": [
+      "baseline"
+    ]
+  },
+  "git_sha": "b757466",
+  "git_dirty": true,
+  "ran_at": "2026-11-05T16:26:42+00:00",
+  "strategy_id": "ma_crypto_long_trail",
+  "strategy_params": {
+    "short_window": 10,
+    "long_window": 20,
+    "trend_window": 150,
+    "trend_weekly": true,
+    "atr_period": 14,
+    "adx_period": 14,
+    "adx_min": 0,
+    "vol_ma_period": 20,
+    "vol_mult": 0.0,
+    "atr_buffer": 0.0,
+    "sl_atr": 1.0,
+    "trail_atr": 3.0,
+    "trail_arm_r": 0.0,
+    "long_only": true,
+    "use_trailing": true,
+    "trail_from_entry": true,
+    "skip_tp1": true,
+    "trend_exit": false
+  },
+  "window_start": "2020-11-05 00:00:00",
+  "fee_rate": 0.001,
+  "oos_months": 18,
+  "oos_from": "2025-05-04 00:00:00",
+  "pairs": {
+    "BTC/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "ETH/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "BNB/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "XRP/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "SOL/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "ADA/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "DOGE/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "AVAX/USDT": [
+      "2021-02-19 00:00:00",
+      "2026-11-04 00:00:00",
+      2085
+    ],
+    "DOT/USDT": [
+      "2021-01-19 00:00:00",
+      "2026-11-04 00:00:00",
+      2116
+    ],
+    "TRX/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "LINK/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "LTC/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "BCH/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "ATOM/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "ETC/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "XLM/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "NEAR/USDT": [
+      "2021-03-15 00:00:00",
+      "2026-11-04 00:00:00",
+      2061
+    ],
+    "FIL/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "AAVE/USDT": [
+      "2021-03-03 00:00:00",
+      "2026-11-04 00:00:00",
+      2073
+    ],
+    "ALGO/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "VET/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "EOS/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "XTZ/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "THETA/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "HBAR/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "SAND/USDT": [
+      "2021-01-13 00:00:00",
+      "2026-11-04 00:00:00",
+      2122
+    ],
+    "MANA/USDT": [
+      "2020-11-05 00:00:00",
+      "2026-11-04 00:00:00",
+      2191
+    ],
+    "INJ/USDT": [
+      "2021-03-22 00:00:00",
+      "2026-11-04 00:00:00",
+      2054
+    ],
+    "ICP/USDT": [
+      "2021-10-09 00:00:00",
+      "2026-11-04 00:00:00",
+      1853
+    ]
+  },
+  "missing_pairs": [
+    "UNI/USDT"
+  ],
+  "btc_symbol": "BTC/USDT",
+  "variants": [
+    {
+      "name": "baseline",
+      "step_r": null,
+      "first_r": null,
+      "fraction": 0.0,
+      "fraction_step": 0.0,
+      "fraction_max": 1.0,
+      "max_steps": null,
+      "breakeven_after_first": false,
+      "early_exit_bars": null,
+      "early_exit_min_r": 0.5,
+      "sl_atr": 1.0,
+      "trail_atr": 3.0,
+      "atr_mode": "frozen",
+      "trail_arm_r": 0.0,
+      "tp1_live": false,
+      "tp1_fraction": 0.5
+    },
+    {
+      "name": "r3_sell10",
+      "step_r": 3.0,
+      "first_r": null,
+      "fraction": 0.1,
+      "fraction_step": 0.0,
+      "fraction_max": 1.0,
+      "max_steps": null,
+      "breakeven_after_first": false,
+      "early_exit_bars": null,
+      "early_exit_min_r": 0.5,
+      "sl_atr": 1.0,
+      "trail_atr": 3.0,
+      "atr_mode": "frozen",
+      "trail_arm_r": 0.0,
+      "tp1_live": false,
+      "tp1_fraction": 0.5
+    },
+    {
+      "name": "r1_sell50",
+      "step_r": 1.0,
+      "first_r": null,
+      "fraction": 0.5,
+      "fraction_step": 0.0,
+      "fraction_max": 1.0,
+      "max_steps": null,
+      "breakeven_after_first": false,
+      "early_exit_bars": null,
+      "early_exit_min_r": 0.5,
+      "sl_atr": 1.0,
+      "trail_atr": 3.0,
+      "atr_mode": "frozen",
+      "trail_arm_r": 0.0,
+      "tp1_live": false,
+      "tp1_fraction": 0.5
+    }
+  ],
+  "filters": {}
+}

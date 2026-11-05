@@ -1,0 +1,104 @@
+{
+  "name": "filtered_scale_out",
+  "description": "Combined retest. Entry filter arms: none and gbm skip 20%. Exit arms: current trail and early exit (7 days, 0.25R), each with and without a scale-out ladder. Tests whether selling off pays once likely false starts are removed. Wide USDT list on Yahoo daily (pairs without Yahoo data are skipped).",
+  "btc_symbol": "BTC/USDT",
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "SOL/USDT",
+    "ADA/USDT",
+    "DOGE/USDT",
+    "AVAX/USDT",
+    "DOT/USDT",
+    "TRX/USDT",
+    "LINK/USDT",
+    "LTC/USDT",
+    "BCH/USDT",
+    "ATOM/USDT",
+    "ETC/USDT",
+    "XLM/USDT",
+    "NEAR/USDT",
+    "FIL/USDT",
+    "UNI/USDT",
+    "AAVE/USDT",
+    "ALGO/USDT",
+    "VET/USDT",
+    "EOS/USDT",
+    "XTZ/USDT",
+    "THETA/USDT",
+    "HBAR/USDT",
+    "SAND/USDT",
+    "MANA/USDT",
+    "INJ/USDT",
+    "ICP/USDT"
+  ],
+  "years": 6,
+  "fee_rate": 0.001,
+  "oos_months": 18,
+  "include_baseline": true,
+  "entry_filter": {
+    "label": "false_start",
+    "models": [
+      "gbm"
+    ],
+    "skip_q": [
+      0.2
+    ],
+    "train_months": 18,
+    "refit_months": 3
+  },
+  "variants": [
+    {
+      "early_exit_bars": 7,
+      "early_exit_min_r": 0.25
+    }
+  ],
+  "grid": [
+    {
+      "early_exit_bars": [
+        null,
+        7
+      ],
+      "early_exit_min_r": [
+        0.25
+      ],
+      "step_r": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "fraction": [
+        0.1,
+        0.2,
+        0.3,
+        0.5
+      ],
+      "fraction_step": [
+        0.0
+      ]
+    },
+    {
+      "early_exit_bars": [
+        null,
+        7
+      ],
+      "early_exit_min_r": [
+        0.25
+      ],
+      "step_r": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "fraction": [
+        0.1,
+        0.2
+      ],
+      "fraction_step": [
+        0.1
+      ]
+    }
+  ]
+}
