@@ -1,0 +1,59 @@
+{
+  "name": "early_exit_grid",
+  "description": "No-progress exit: after N bars, sell at the close if the best high so far is below entry + x R. The trail and initial stop are unchanged. Wide USDT list on Yahoo daily (pairs without Yahoo data are skipped).",
+  "btc_symbol": "BTC/USDT",
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "SOL/USDT",
+    "ADA/USDT",
+    "DOGE/USDT",
+    "AVAX/USDT",
+    "DOT/USDT",
+    "TRX/USDT",
+    "LINK/USDT",
+    "LTC/USDT",
+    "BCH/USDT",
+    "ATOM/USDT",
+    "ETC/USDT",
+    "XLM/USDT",
+    "NEAR/USDT",
+    "FIL/USDT",
+    "UNI/USDT",
+    "AAVE/USDT",
+    "ALGO/USDT",
+    "VET/USDT",
+    "EOS/USDT",
+    "XTZ/USDT",
+    "THETA/USDT",
+    "HBAR/USDT",
+    "SAND/USDT",
+    "MANA/USDT",
+    "INJ/USDT",
+    "ICP/USDT"
+  ],
+  "years": 6,
+  "fee_rate": 0.001,
+  "oos_months": 18,
+  "include_baseline": true,
+  "grid": [
+    {
+      "early_exit_bars": [
+        2,
+        3,
+        5,
+        7,
+        10,
+        15
+      ],
+      "early_exit_min_r": [
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    }
+  ]
+}

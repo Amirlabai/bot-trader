@@ -1,0 +1,57 @@
+{
+  "name": "false_start_filter",
+  "description": "Walk-forward entry filter. A model trained only on earlier closed trades scores each entry signal; the riskiest share of entries is skipped. Label false_start = closed at the initial stop and never reached +1R. Wide USDT list on Yahoo daily (pairs without Yahoo data are skipped).",
+  "btc_symbol": "BTC/USDT",
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "SOL/USDT",
+    "ADA/USDT",
+    "DOGE/USDT",
+    "AVAX/USDT",
+    "DOT/USDT",
+    "TRX/USDT",
+    "LINK/USDT",
+    "LTC/USDT",
+    "BCH/USDT",
+    "ATOM/USDT",
+    "ETC/USDT",
+    "XLM/USDT",
+    "NEAR/USDT",
+    "FIL/USDT",
+    "UNI/USDT",
+    "AAVE/USDT",
+    "ALGO/USDT",
+    "VET/USDT",
+    "EOS/USDT",
+    "XTZ/USDT",
+    "THETA/USDT",
+    "HBAR/USDT",
+    "SAND/USDT",
+    "MANA/USDT",
+    "INJ/USDT",
+    "ICP/USDT"
+  ],
+  "years": 6,
+  "fee_rate": 0.001,
+  "oos_months": 18,
+  "include_baseline": true,
+  "entry_filter": {
+    "label": "false_start",
+    "models": [
+      "logistic",
+      "gbm"
+    ],
+    "skip_q": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "train_months": 18,
+    "refit_months": 3
+  }
+}

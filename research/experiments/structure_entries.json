@@ -1,0 +1,113 @@
+{
+  "name": "structure_entries",
+  "description": "Confirmation entries: after the EMA crossover, wait for a close above the signal high or swing high (higher high), or above resistance (swing pivots or the N-bar band high). Each crossed with the current exit and two scale-out ladders. Wide USDT list on Yahoo daily (pairs without Yahoo data are skipped).",
+  "btc_symbol": "BTC/USDT",
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "BNB/USDT",
+    "XRP/USDT",
+    "SOL/USDT",
+    "ADA/USDT",
+    "DOGE/USDT",
+    "AVAX/USDT",
+    "DOT/USDT",
+    "TRX/USDT",
+    "LINK/USDT",
+    "LTC/USDT",
+    "BCH/USDT",
+    "ATOM/USDT",
+    "ETC/USDT",
+    "XLM/USDT",
+    "NEAR/USDT",
+    "FIL/USDT",
+    "UNI/USDT",
+    "AAVE/USDT",
+    "ALGO/USDT",
+    "VET/USDT",
+    "EOS/USDT",
+    "XTZ/USDT",
+    "THETA/USDT",
+    "HBAR/USDT",
+    "SAND/USDT",
+    "MANA/USDT",
+    "INJ/USDT",
+    "ICP/USDT"
+  ],
+  "years": 6,
+  "fee_rate": 0.001,
+  "oos_months": 18,
+  "include_baseline": true,
+  "audit": {
+    "pivot_k": 3,
+    "lookback": 120
+  },
+  "entry_modes": [
+    {
+      "type": "higher_high",
+      "ref": [
+        "signal_high",
+        "swing_high"
+      ],
+      "within": [
+        1,
+        2,
+        3,
+        5,
+        10
+      ],
+      "pivot_k": 3,
+      "lookback": 120
+    },
+    {
+      "type": "resistance_break",
+      "level": "pivot",
+      "pivot_k": [
+        3,
+        5
+      ],
+      "lookback": [
+        60,
+        120
+      ],
+      "within": [
+        2,
+        3,
+        5,
+        10
+      ],
+      "none_above": [
+        "enter",
+        "skip"
+      ]
+    },
+    {
+      "type": "resistance_break",
+      "level": "band",
+      "lookback": [
+        20,
+        55,
+        120
+      ],
+      "within": [
+        2,
+        3,
+        5,
+        10
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "step_r": 3.0,
+      "fraction": 0.1
+    },
+    {
+      "step_r": 1.0,
+      "fraction": 0.5
+    }
+  ],
+  "save_trades_for_exits": [
+    "baseline"
+  ]
+}

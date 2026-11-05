@@ -1,0 +1,9 @@
+{
+  "name": "baseline",
+  "description": "Live daily exit (ma_crypto_long_trail): 1x ATR initial stop, 3x ATR trail from entry using ATR frozen at entry, no TP1, no scale-out.",
+  "pairs": "universe",
+  "years": 4,
+  "fee_rate": 0.001,
+  "oos_months": 12,
+  "include_baseline": true
+}

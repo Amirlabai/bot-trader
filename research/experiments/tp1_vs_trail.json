@@ -1,0 +1,24 @@
+{
+  "name": "tp1_vs_trail",
+  "description": "Live TP1 wallet (50% at entry + 1 entry ATR, stop to entry, then trail) against the live asset-trail wallet, plus ladder equivalents.",
+  "pairs": "universe",
+  "years": 4,
+  "fee_rate": 0.001,
+  "oos_months": 12,
+  "include_baseline": true,
+  "variants": [
+    {
+      "tp1_live": true
+    },
+    {
+      "tp1_live": true,
+      "tp1_fraction": 0.3
+    },
+    {
+      "step_r": 1.0,
+      "fraction": 0.5,
+      "max_steps": 1,
+      "breakeven_after_first": true
+    }
+  ]
+}
