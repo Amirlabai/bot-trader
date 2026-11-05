@@ -6,6 +6,114 @@ from shared.path_sim import effective_tfs
 
 class MovingAverageStrategy(BaseStrategy):
     def generate_signal(self, market_data: pd.DataFrame, position_data: dict) -> dict:
+        confirm = self.params.get('confirm_entry')
+        if confirm and not position_data and not getattr(self, '_base_only', False):
+            return self._confirmed_entry_signal(market_data, confirm)
+        return self._generate_base_signal(market_data, position_data)
+
+    # --- Confirmation entry (params['confirm_entry']) -------------------------------------
+    # After a golden-cross entry signal at bar s, wait up to `within` bars for a close above
+    # max(high[s], last swing high known at s). Cancel on a close below the signal stop or the
+    # fast EMA back under the slow EMA; a newer signal replaces it; only the first close above
+    # the level counts (bars held in a position included). Entry stop: close - sl_atr x ATR.
+    # Decided from the bars alone, so live, resim and research/entries.py (trigger 'close')
+    # agree; tests/test_confirm_entry.py checks this bar for bar.
+
+    @staticmethod
+    def _base_key(market_data: pd.DataFrame, s: int):
+        return (market_data.index[0], market_data.index[s], s, float(market_data['close'].iloc[s]))
+
+    def _base_entry_at(self, market_data: pd.DataFrame, s: int, sig: dict | None = None):
+        """(is_entry, stop) of the plain strategy, flat, on bars [0..s]. Memoized per bar."""
+        memo = self.__dict__.setdefault('_base_memo', {})
+        key = self._base_key(market_data, s)
+        if key in memo:
+            return memo[key]
+        if sig is None:
+            self._base_only = True
+            try:
+                sig = self._generate_base_signal(market_data.iloc[:s + 1], None)
+            finally:
+                self._base_only = False
+        out = (False, None)
+        if sig.get('action') == 'buy' and sig.get('is_entry'):
+            try:
+                stop = float(sig.get('stop_loss'))
+            except (TypeError, ValueError):
+                stop = None
+            if stop is not None and 0 < stop < float(market_data['close'].iloc[s]):
+                out = (True, stop)
+        if len(memo) > 20000:
+            memo.clear()
+        memo[key] = out
+        return out
+
+    def _confirmed_entry_signal(self, market_data: pd.DataFrame, confirm: dict) -> dict:
+        from shared.price_structure import last_swing_high_at
+
+        if not bool(self.params.get('long_only', False)):
+            raise ValueError('confirm_entry supports long_only wallets only')
+        within = int(confirm.get('within', 10))
+        ref = str(confirm.get('ref', 'swing_high'))
+        k = int(confirm.get('pivot_k', 3))
+        lookback = int(confirm.get('lookback', 120))
+        n = len(market_data)
+        t = n - 1
+        base = self._generate_base_signal(market_data, None)  # indicators / ATR for today
+        hold = {'action': 'hold', 'reason': 'Waiting'}
+        if t < 1:
+            return hold
+        today_entry, _ = self._base_entry_at(market_data, t, sig=base)
+        if today_entry:
+            hold['reason'] = 'Signal: waiting for higher-high confirmation'
+            return self._stamp_atr(hold, base.get('current_atr'), base.get('indicators'))
+
+        signal_bar, signal_stop = None, None
+        for s in range(t - 1, max(-1, t - within - 1), -1):
+            is_entry, stop = self._base_entry_at(market_data, s)
+            if is_entry:
+                signal_bar, signal_stop = s, stop
+                break
+        if signal_bar is None:
+            return self._stamp_atr(hold, base.get('current_atr'), base.get('indicators'))
+
+        high = market_data['high'].to_numpy(dtype=float)
+        close = market_data['close'].to_numpy(dtype=float)
+        level = high[signal_bar]
+        if ref == 'swing_high':
+            swing = last_swing_high_at(high, signal_bar, k, lookback)
+            if swing == swing:
+                level = max(level, swing)
+        closes = market_data['close']
+        fast = self._ema(closes, int(self.params.get('short_window', 12))).to_numpy(dtype=float)
+        slow = self._ema(closes, int(self.params.get('long_window', 24))).to_numpy(dtype=float)
+        for j in range(signal_bar + 1, t + 1):
+            if close[j] < signal_stop or not fast[j] > slow[j]:
+                hold['reason'] = 'Confirmation cancelled'
+                return self._stamp_atr(hold, base.get('current_atr'), base.get('indicators'))
+            if close[j] > level:
+                if j < t:
+                    hold['reason'] = 'Confirmation already used'
+                    return self._stamp_atr(hold, base.get('current_atr'), base.get('indicators'))
+                atr = base.get('current_atr')
+                if atr is None or pd.isnull(atr) or float(atr) <= 0:
+                    return hold
+                stop = float(close[t]) - float(self.params.get('sl_atr', 1.5)) * float(atr)
+                if not 0 < stop < float(close[t]):
+                    return hold
+                signal_date = str(market_data.index[signal_bar])[:10]
+                out = {
+                    'action': 'buy',
+                    'stop_loss': stop,
+                    'take_profit': 0.0,
+                    'reason': f'Higher-high confirm (signal {signal_date})',
+                    'is_entry': True,
+                }
+                return self._stamp_atr(out, atr, base.get('indicators'))
+        hold['reason'] = f'Signal pending: close > {round(float(level), 4)}'
+        return self._stamp_atr(hold, base.get('current_atr'), base.get('indicators'))
+
+    def _generate_base_signal(self, market_data: pd.DataFrame, position_data: dict) -> dict:
         # Default Hold
         signal = {'action': 'hold', 'reason': 'Waiting'}
         

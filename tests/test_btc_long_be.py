@@ -329,6 +329,10 @@ class LongOnlyBeTrendExitTests(unittest.TestCase):
                 'ma_crypto_r15_long_tp1',
                 'ma_crypto_r15_ls_trail',
                 'ma_crypto_r15_ls_tp1',
+                'ma_crypto_hh_long_trail',
+                'ma_crypto_hh_r2_long_trail',
+                'ma_crypto_hh_r3_long_trail',
+                'ma_crypto_hh_r5_long_trail',
                 'ma_forex_long_trail',
                 'ma_forex_long_tp1',
                 'ma_forex_ls_trail',
@@ -361,6 +365,13 @@ class LongOnlyBeTrendExitTests(unittest.TestCase):
         self.assertTrue(long_trail['long_only'])
         self.assertTrue(long_trail['trail_from_entry'])
         self.assertTrue(long_trail['skip_tp1'])
+
+        hh = TRADING_CONFIG['ma_crypto_hh_r3_long_trail']
+        self.assertEqual(hh['equity_risk_pct'], 0.03)
+        self.assertEqual(hh['max_notional_pct'], 1.0)
+        self.assertEqual(hh['params']['confirm_entry']['within'], 10)
+        self.assertEqual({k: v for k, v in hh['params'].items() if k != 'confirm_entry'}, long_trail)
+        self.assertNotIn('confirm_entry', long_trail)
 
         long_tp1 = TRADING_CONFIG['ma_crypto_long_tp1']['params']
         self.assertTrue(long_tp1['long_only'])

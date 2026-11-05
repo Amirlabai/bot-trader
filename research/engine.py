@@ -158,4 +158,12 @@ def simulate(symbol: str, signals: pd.DataFrame, policy: ExitPolicy, fee_rate: f
                     pending = None
             continue
         _step(i)
+        if ctx is not None:
+            # Track pending signals while a position is open, so the rule depends on the bars
+            # alone (as live confirm_entry does). A trigger here is used up without an entry.
+            is_signal = entry[i] and not math.isnan(stop[i]) and stop[i] > 0 and (allowed is None or allowed[i])
+            if is_signal:
+                action, pending = start_pending(ctx, i, stop[i])
+            elif pending is not None and check_pending(ctx, pending, i) != 'wait':
+                pending = None
     return trades

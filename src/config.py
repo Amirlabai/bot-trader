@@ -295,6 +295,31 @@ def _crypto_risk_wallets(pairs, ema):
     return out
 
 
+# Higher-high confirmation wallets (research/results/structure_entries, mode hh_swing3_w10).
+# Same book and asset-trail exit as ma_crypto_long_trail; the entry waits up to 10 days after
+# the golden cross for a close above max(signal high, last swing high). Paper test against the
+# risk ladder wallet of the same risk: about a third of the R drawdown in research, so 3% is the
+# equal-drawdown counterpart of the live 1% wallet.
+CRYPTO_CONFIRM_ENTRY = {'type': 'higher_high', 'ref': 'swing_high', 'within': 10, 'pivot_k': 3, 'lookback': 120}
+CRYPTO_HH_LADDER = (
+    (0.01, 'ma_crypto_hh_long_trail', 'HH 1% · Long · asset trail', 170, None),
+    (0.02, 'ma_crypto_hh_r2_long_trail', 'HH 2% · Long · asset trail', 171, 1.0),
+    (0.03, 'ma_crypto_hh_r3_long_trail', 'HH 3% · Long · asset trail', 172, 1.0),
+    (0.05, 'ma_crypto_hh_r5_long_trail', 'HH 5% · Long · asset trail', 173, 1.0),
+)
+
+
+def _crypto_hh_wallets(pairs, ema):
+    params = {**_asset_trail_params(ema, long_only=True), 'confirm_entry': dict(CRYPTO_CONFIRM_ENTRY)}
+    out = {}
+    for pct, sid, label, rank, max_notional in CRYPTO_HH_LADDER:
+        out[sid] = _wallet(
+            'crypto', pairs, rank, label, dict(params),
+            equity_risk_pct=pct, max_notional_pct=max_notional,
+        )
+    return out
+
+
 # Hold bot defaults: fixed horizon plus the per-symbol live profit gate. The lab curates
 # these into hold_templates in data/curated_params.json; until then this is the fallback.
 HOLD_DEFAULTS = {
@@ -328,6 +353,7 @@ def _hold_wallets(market, pairs, ema, *, rank_base=200):
 # Crypto risk ladder, then forex / commodities / stocks.
 TRADING_CONFIG = {}
 TRADING_CONFIG.update(_crypto_risk_wallets(CRYPTO_PAIRS, _CRYPTO_EMA))
+TRADING_CONFIG.update(_crypto_hh_wallets(CRYPTO_PAIRS, _CRYPTO_EMA))
 TRADING_CONFIG.update(_book_wallets('forex', FOREX_PAIRS, _FOREX_EMA))
 TRADING_CONFIG.update(_book_wallets('commodities', COMMODITY_PAIRS, _COMMODITIES_EMA))
 TRADING_CONFIG.update(_book_wallets('stocks', STOCK_PAIRS, _STOCKS_EMA))

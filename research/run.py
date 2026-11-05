@@ -281,7 +281,7 @@ def run_experiment(spec: dict, *, refresh=False, pairs_override=None, out_root=R
     btc = get_history(btc_symbol, refresh=refresh)
     end = btc.index[-1] if btc is not None and not btc.empty else pd.Timestamp.now()
     start = (pd.Timestamp(end) - pd.Timedelta(days=int(round(365 * years)))).normalize()
-    signals_by_pair, ranges, missing = {}, {}, []
+    signals_by_pair, ranges, missing, histories = {}, {}, [], {}
     for symbol in pairs:
         df = btc if symbol == btc_symbol else get_history(symbol, refresh=refresh)
         if df is None or df.empty:
@@ -294,6 +294,7 @@ def run_experiment(spec: dict, *, refresh=False, pairs_override=None, out_root=R
             missing.append(symbol)
             continue
         signals_by_pair[symbol] = sig
+        histories[symbol] = df
         ranges[symbol] = [str(sig.index[0]), str(sig.index[-1]), int(len(sig))]
 
     last_bar = max(pd.Timestamp(r[1]) for r in ranges.values())
@@ -316,7 +317,8 @@ def run_experiment(spec: dict, *, refresh=False, pairs_override=None, out_root=R
         if mode.type != 'signal':
             from research.entries import EntryContext
             spans = (int(strategy.params.get('short_window', 10)), int(strategy.params.get('long_window', 20)))
-            contexts = {s: EntryContext(sig, mode, *spans) for s, sig in signals_by_pair.items()}
+            contexts = {s: EntryContext(sig, mode, *spans, history=histories.get(s))
+                        for s, sig in signals_by_pair.items()}
         for fkey, masks in filters.items():
             for policy in policies:
                 name = policy.name if fkey == 'none' else f'{fkey}+{policy.name}'
