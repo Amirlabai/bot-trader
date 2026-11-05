@@ -1,0 +1,9 @@
+# Generated data and outputs (not code). Keeps the graph about the system, not its state.
+data/
+docs/report_data.js
+docs/report_data.json
+docs/report_charts.js
+docs/trade_audit.md
+research/results/
+research/cache/
+gitaction.log
