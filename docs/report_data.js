@@ -1,6 +1,6 @@
 window.REPORT_DATA = {
   "metadata": {
-    "last_updated": "2026-11-05T21:09:31.551559",
+    "last_updated": "2026-11-06T04:28:21.301385",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
@@ -373,18 +373,18 @@ window.REPORT_DATA = {
           "qty": 1211.8945440114348,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 311.2453580826029,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 341.8543126110289,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 11258.405495914654,
-          "hold_days": 19,
+          "value": 11289.014450443081,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 32244.661335108285,
-      "current_equity": 43503.07,
+      "current_equity": 43533.68,
       "history_events": 237,
       "equity_curve": [
         {
@@ -1578,8 +1578,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:09:32.202086",
-          "equity": 43503.07,
+          "time": "2026-11-06T04:28:21.526087",
+          "equity": 43533.68,
           "type": "current"
         }
       ],
@@ -4429,12 +4429,12 @@ window.REPORT_DATA = {
         "profit_factor": 4.328435924592662,
         "total_pnl": 33191.82147294032,
         "avg_pnl": 281.2866226520366,
-        "avg_monthly_pnl": 673.1021076732674,
+        "avg_monthly_pnl": 673.2726813984168,
         "max_drawdown": 22.9963,
         "total_trades": 118
       },
       "exposure": {
-        "LEO/USDT": 11258.405495914654
+        "LEO/USDT": 11289.014450443081
       }
     },
     "ma_crypto_long_tp1": {
@@ -4445,18 +4445,18 @@ window.REPORT_DATA = {
           "qty": 209.52843934119068,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 53.81223511030387,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 59.1043180756894,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 1946.502808091711,
-          "hold_days": 19,
+          "value": 1951.7948910570965,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_long_tp1:LEO/USDT"
         }
       ],
       "current_cash": 13144.548157537864,
-      "current_equity": 15091.05,
+      "current_equity": 15096.34,
       "history_events": 368,
       "equity_curve": [
         {
@@ -6305,8 +6305,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:09:43.865391",
-          "equity": 15091.05,
+          "time": "2026-11-06T04:28:42.617500",
+          "equity": 15096.34,
           "type": "current"
         }
       ],
@@ -11392,12 +11392,12 @@ window.REPORT_DATA = {
         "profit_factor": 1.7617494137162184,
         "total_pnl": 5017.623328757835,
         "avg_pnl": 34.844606449707186,
-        "avg_monthly_pnl": 102.28305899339932,
+        "avg_monthly_pnl": 102.32179996701846,
         "max_drawdown": 13.389400000000004,
         "total_trades": 144
       },
       "exposure": {
-        "LEO/USDT": 1946.502808091711
+        "LEO/USDT": 1951.7948910570965
       }
     },
     "ma_crypto_ls_trail": {
@@ -11408,13 +11408,13 @@ window.REPORT_DATA = {
           "qty": 178.781332078594,
           "entry": 6.354040145874023,
           "entry_date": "2025-01-23",
-          "current_price": 0.9404289722442627,
-          "unrealized_pnl": 967.8526169770893,
+          "current_price": 0.9549630284309387,
+          "unrealized_pnl": 965.2541990515302,
           "sl": 2.6189131379127506,
           "tp1": false,
           "tp_price": 5.784021091461182,
-          "value": 168.13114438313238,
-          "hold_days": 651,
+          "value": 170.72956230869147,
+          "hold_days": 652,
           "chart_id": "open:ma_crypto_ls_trail:DOT/USDT"
         },
         {
@@ -11423,13 +11423,13 @@ window.REPORT_DATA = {
           "qty": 52.72471217469674,
           "entry": 19.113391876220703,
           "entry_date": "2025-10-14",
-          "current_price": 11.035170555114746,
-          "unrealized_pnl": 425.92189403881,
+          "current_price": 11.442480087280273,
+          "unrealized_pnl": 404.4466161893722,
           "sl": 18.77732200622558,
           "tp1": false,
           "tp_price": 16.385600662231447,
-          "value": 581.8261913171134,
-          "hold_days": 387,
+          "value": 603.3014691665512,
+          "hold_days": 388,
           "chart_id": "open:ma_crypto_ls_trail:LINK/USDT"
         },
         {
@@ -11438,13 +11438,13 @@ window.REPORT_DATA = {
           "qty": 4653.109063414529,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.07528200000524521,
-          "unrealized_pnl": 563.2355905415255,
+          "current_price": 0.07699699699878693,
+          "unrealized_pnl": 555.2555224871479,
           "sl": 0.16684039533138273,
           "tp1": false,
           "tp_price": 0.1654182031750679,
-          "value": 350.29535653637913,
-          "hold_days": 386,
+          "value": 358.27542459075676,
+          "hold_days": 387,
           "chart_id": "open:ma_crypto_ls_trail:DOGE/USDT"
         },
         {
@@ -11453,13 +11453,13 @@ window.REPORT_DATA = {
           "qty": 40.570653581267656,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 463.8457368738596,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 455.07881613276055,
           "sl": 18.9005597114563,
           "tp1": false,
           "tp_price": 16.41163911819458,
-          "value": 345.8071951214438,
-          "hold_days": 384,
+          "value": 354.57411586254284,
+          "hold_days": 385,
           "chart_id": "open:ma_crypto_ls_trail:AVAX/USDT"
         },
         {
@@ -11468,18 +11468,18 @@ window.REPORT_DATA = {
           "qty": 397.2686621080851,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 102.02870175778334,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 112.06256029285426,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 3690.594788906093,
-          "hold_days": 19,
+          "value": 3700.628647441164,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_ls_trail:LEO/USDT"
         }
       ],
       "current_cash": 6703.14049900862,
-      "current_equity": 11839.8,
+      "current_equity": 11890.65,
       "history_events": 413,
       "equity_curve": [
         {
@@ -13553,8 +13553,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:10:06.892862",
-          "equity": 11839.8,
+          "time": "2026-11-06T04:29:21.578273",
+          "equity": 11890.65,
           "type": "current"
         }
       ],
@@ -18241,16 +18241,16 @@ window.REPORT_DATA = {
         "profit_factor": 1.3304839139962814,
         "total_pnl": 4158.622311946285,
         "avg_pnl": 20.38540348993277,
-        "avg_monthly_pnl": 36.962978547854775,
+        "avg_monthly_pnl": 37.95953784630606,
         "max_drawdown": 34.1219,
         "total_trades": 204
       },
       "exposure": {
-        "DOT/USDT": 168.13114438313238,
-        "LINK/USDT": 581.8261913171134,
-        "DOGE/USDT": 350.29535653637913,
-        "AVAX/USDT": 345.8071951214438,
-        "LEO/USDT": 3690.594788906093
+        "DOT/USDT": 170.72956230869147,
+        "LINK/USDT": 603.3014691665512,
+        "DOGE/USDT": 358.27542459075676,
+        "AVAX/USDT": 354.57411586254284,
+        "LEO/USDT": 3700.628647441164
       }
     },
     "ma_crypto_ls_tp1": {
@@ -18261,13 +18261,13 @@ window.REPORT_DATA = {
           "qty": 1671.5230715358175,
           "entry": 0.1963270008563995,
           "entry_date": "2025-10-15",
-          "current_price": 0.07528200000524521,
-          "unrealized_pnl": 202.32951161677707,
+          "current_price": 0.07699699699878693,
+          "unrealized_pnl": 199.46285457445754,
           "sl": 0.16684039533138273,
           "tp1": true,
           "tp_price": 0.1654182031750679,
-          "value": 125.8355998801269,
-          "hold_days": 386,
+          "value": 128.70225692244645,
+          "hold_days": 387,
           "chart_id": "open:ma_crypto_ls_tp1:DOGE/USDT"
         },
         {
@@ -18276,13 +18276,13 @@ window.REPORT_DATA = {
           "qty": 14.574079946153788,
           "entry": 19.956615447998047,
           "entry_date": "2025-10-17",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 166.6259785127923,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 163.47666262843182,
           "sl": 18.9005597114563,
           "tp1": true,
           "tp_price": 16.41163911819458,
-          "value": 124.22333048097893,
-          "hold_days": 384,
+          "value": 127.37264636533938,
+          "hold_days": 385,
           "chart_id": "open:ma_crypto_ls_tp1:AVAX/USDT"
         },
         {
@@ -18291,18 +18291,18 @@ window.REPORT_DATA = {
           "qty": 143.68562224900435,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 36.90212417343056,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 40.53120782558608,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 1334.8281888104977,
-          "hold_days": 19,
+          "value": 1338.4572724626532,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_ls_tp1:LEO/USDT"
         }
       ],
       "current_cash": 8291.96908461229,
-      "current_equity": 9876.86,
+      "current_equity": 9886.5,
       "history_events": 635,
       "equity_curve": [
         {
@@ -21486,8 +21486,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:10:26.018783",
-          "equity": 9876.86,
+          "time": "2026-11-06T04:29:58.474820",
+          "equity": 9886.5,
           "type": "current"
         }
       ],
@@ -29849,14 +29849,14 @@ window.REPORT_DATA = {
         "profit_factor": 1.0085107092630485,
         "total_pnl": 92.12863115204709,
         "avg_pnl": 0.36414478716224147,
-        "avg_monthly_pnl": -2.473976072607249,
+        "avg_monthly_pnl": -2.278796998680739,
         "max_drawdown": 20.402299999999997,
         "total_trades": 253
       },
       "exposure": {
-        "DOGE/USDT": 125.8355998801269,
-        "AVAX/USDT": 124.22333048097893,
-        "LEO/USDT": 1334.8281888104977
+        "DOGE/USDT": 128.70225692244645,
+        "AVAX/USDT": 127.37264636533938,
+        "LEO/USDT": 1338.4572724626532
       }
     },
     "ma_forex_long_trail": {
@@ -29867,18 +29867,18 @@ window.REPORT_DATA = {
           "qty": 18.021936860651618,
           "entry": 158.468994140625,
           "entry_date": "2026-11-04",
-          "current_price": 158.468994140625,
-          "unrealized_pnl": 0.0,
+          "current_price": 158.35699462890625,
+          "unrealized_pnl": -2.0184481286191236,
           "sl": 156.73737444196428,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2855.918206773315,
-          "hold_days": 1,
+          "value": 2853.899758644696,
+          "hold_days": 2,
           "chart_id": "open:ma_forex_long_trail:USD/JPY"
         }
       ],
       "current_cash": 8567.754620319945,
-      "current_equity": 11423.67,
+      "current_equity": 11421.65,
       "history_events": 193,
       "equity_curve": [
         {
@@ -30852,8 +30852,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:11:00.487885",
-          "equity": 11423.67,
+          "time": "2026-11-06T04:31:02.675818",
+          "equity": 11421.65,
           "type": "current"
         }
       ],
@@ -33121,12 +33121,12 @@ window.REPORT_DATA = {
         "profit_factor": 3.0722281138916783,
         "total_pnl": 1423.6728270932674,
         "avg_pnl": 14.829925282221536,
-        "avg_monthly_pnl": 28.811805601728725,
+        "avg_monthly_pnl": 28.75180855481727,
         "max_drawdown": 1.2822899813316826,
         "total_trades": 96
       },
       "exposure": {
-        "USD/JPY": 2855.918206773315
+        "USD/JPY": 2853.899758644696
       }
     },
     "ma_forex_long_tp1": {
@@ -33137,18 +33137,18 @@ window.REPORT_DATA = {
           "qty": 17.234371934453602,
           "entry": 158.468994140625,
           "entry_date": "2026-11-04",
-          "current_price": 158.468994140625,
-          "unrealized_pnl": 0.0,
+          "current_price": 158.35699462890625,
+          "unrealized_pnl": -1.9302412414381322,
           "sl": 156.73737444196428,
           "tp1": false,
           "tp_price": 159.33480398995536,
-          "value": 2731.1135850982796,
-          "hold_days": 1,
+          "value": 2729.1833438568415,
+          "hold_days": 2,
           "chart_id": "open:ma_forex_long_tp1:USD/JPY"
         }
       ],
       "current_cash": 8193.340755294841,
-      "current_equity": 10924.45,
+      "current_equity": 10922.52,
       "history_events": 281,
       "equity_curve": [
         {
@@ -34562,8 +34562,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:11:10.076910",
-          "equity": 10924.45,
+          "time": "2026-11-06T04:31:20.739605",
+          "equity": 10922.52,
           "type": "current"
         }
       ],
@@ -38539,12 +38539,12 @@ window.REPORT_DATA = {
         "profit_factor": 2.487415491944044,
         "total_pnl": 924.4543403931265,
         "avg_pnl": 8.975284858185693,
-        "avg_monthly_pnl": 18.70874127327129,
+        "avg_monthly_pnl": 18.657277408637885,
         "max_drawdown": 0.8090217031538066,
         "total_trades": 103
       },
       "exposure": {
-        "USD/JPY": 2731.1135850982796
+        "USD/JPY": 2729.1833438568415
       }
     },
     "ma_forex_ls_trail": {
@@ -38555,13 +38555,13 @@ window.REPORT_DATA = {
           "qty": 17.3699857998677,
           "entry": 156.8300018310547,
           "entry_date": "2026-10-26",
-          "current_price": 158.468994140625,
-          "unrealized_pnl": -28.469273143328692,
+          "current_price": 158.35699462890625,
+          "unrealized_pnl": -26.523843215181888,
           "sl": 158.74695187523253,
           "tp1": false,
           "tp_price": 155.87152680896577,
-          "value": 2752.604177941974,
-          "hold_days": 10,
+          "value": 2750.658748013827,
+          "hold_days": 11,
           "chart_id": "open:ma_forex_ls_trail:USD/JPY"
         },
         {
@@ -38570,18 +38570,18 @@ window.REPORT_DATA = {
           "qty": 1941.3628827176667,
           "entry": 1.4012600183486938,
           "entry_date": "2026-10-27",
-          "current_price": 1.4004900455474854,
-          "unrealized_pnl": 1.4947966169683229,
+          "current_price": 1.397189974784851,
+          "unrealized_pnl": 7.901431505888293,
           "sl": 1.4081471761067708,
           "tp1": false,
           "tp_price": 1.394372860590617,
-          "value": 2718.8593920414623,
-          "hold_days": 9,
+          "value": 2712.4527571525427,
+          "hold_days": 10,
           "chart_id": "open:ma_forex_ls_trail:USD/CAD"
         }
       ],
       "current_cash": 5409.778222459217,
-      "current_equity": 10881.24,
+      "current_equity": 10872.89,
       "history_events": 348,
       "equity_curve": [
         {
@@ -40330,8 +40330,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:11:27.801227",
-          "equity": 10881.24,
+          "time": "2026-11-06T04:31:52.764768",
+          "equity": 10872.89,
           "type": "current"
         }
       ],
@@ -44229,13 +44229,13 @@ window.REPORT_DATA = {
         "profit_factor": 1.4758529381752088,
         "total_pnl": 854.2673159162846,
         "avg_pnl": 4.937961363677946,
-        "avg_monthly_pnl": 17.834270279255314,
+        "avg_monthly_pnl": 17.65354775747507,
         "max_drawdown": 2.587799261142826,
         "total_trades": 173
       },
       "exposure": {
-        "USD/JPY": 2752.604177941974,
-        "USD/CAD": 2718.8593920414623
+        "USD/JPY": 2750.658748013827,
+        "USD/CAD": 2712.4527571525427
       }
     },
     "ma_forex_ls_tp1": {
@@ -44246,13 +44246,13 @@ window.REPORT_DATA = {
           "qty": 1527.9919402597673,
           "entry": 0.8521999716758728,
           "entry_date": "2026-10-02",
-          "current_price": 0.8341799974441528,
-          "unrealized_pnl": 27.534375389756807,
+          "current_price": 0.8336099982261658,
+          "unrealized_pnl": 28.405329600795405,
           "sl": 0.8375635615416935,
           "tp1": true,
           "tp_price": 0.8494709219251361,
-          "value": 1274.6203128205789,
-          "hold_days": 34,
+          "value": 1273.7493586095402,
+          "hold_days": 35,
           "chart_id": "open:ma_forex_ls_tp1:EUR/GBP"
         },
         {
@@ -44261,13 +44261,13 @@ window.REPORT_DATA = {
           "qty": 16.71257962179278,
           "entry": 156.8300018310547,
           "entry_date": "2026-10-26",
-          "current_price": 158.468994140625,
-          "unrealized_pnl": -27.39178947319989,
+          "current_price": 158.35699462890625,
+          "unrealized_pnl": -25.519988715998366,
           "sl": 158.74695187523253,
           "tp1": false,
           "tp_price": 155.87152680896577,
-          "value": 2648.425682160609,
-          "hold_days": 10,
+          "value": 2646.5538814034076,
+          "hold_days": 11,
           "chart_id": "open:ma_forex_ls_tp1:USD/JPY"
         },
         {
@@ -44276,18 +44276,18 @@ window.REPORT_DATA = {
           "qty": 933.9438191267634,
           "entry": 1.4012600183486938,
           "entry_date": "2026-10-27",
-          "current_price": 1.4004900455474854,
-          "unrealized_pnl": 0.719111338584395,
+          "current_price": 1.397189974784851,
+          "unrealized_pnl": 3.8011920300276225,
           "sl": 1.4012600183486938,
           "tp1": true,
           "tp_price": 1.394372860590617,
-          "value": 1307.9790217876332,
-          "hold_days": 9,
+          "value": 1304.8969410961902,
+          "hold_days": 10,
           "chart_id": "open:ma_forex_ls_tp1:USD/CAD"
         }
       ],
       "current_cash": 5218.0086622558,
-      "current_equity": 10449.03,
+      "current_equity": 10443.21,
       "history_events": 526,
       "equity_curve": [
         {
@@ -46926,8 +46926,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:11:45.732872",
-          "equity": 10449.03,
+          "time": "2026-11-06T04:32:24.753387",
+          "equity": 10443.21,
           "type": "current"
         }
       ],
@@ -54008,14 +54008,14 @@ window.REPORT_DATA = {
         "profit_factor": 1.230060026964788,
         "total_pnl": 439.29319183655457,
         "avg_pnl": 2.2075034765656008,
-        "avg_monthly_pnl": 9.087334192154268,
+        "avg_monthly_pnl": 8.963590946843837,
         "max_drawdown": 3.431662179902465,
         "total_trades": 199
       },
       "exposure": {
-        "EUR/GBP": 1274.6203128205789,
-        "USD/JPY": 2648.425682160609,
-        "USD/CAD": 1307.9790217876332
+        "EUR/GBP": 1273.7493586095402,
+        "USD/JPY": 2646.5538814034076,
+        "USD/CAD": 1304.8969410961902
       }
     },
     "ma_commodities_long_trail": {
@@ -54930,7 +54930,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:12:16.010722",
+          "time": "2026-11-06T04:33:22.560530",
           "equity": 14087.35,
           "type": "current"
         }
@@ -57040,7 +57040,7 @@ window.REPORT_DATA = {
         "profit_factor": 1.862095803581256,
         "total_pnl": 4087.3508072065015,
         "avg_pnl": 45.415008968961125,
-        "avg_monthly_pnl": 82.28089657738096,
+        "avg_monthly_pnl": 82.22651396232651,
         "max_drawdown": 14.818099999999996,
         "total_trades": 90
       },
@@ -58293,7 +58293,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:12:24.366985",
+          "time": "2026-11-06T04:33:38.216901",
           "equity": 9772.39,
           "type": "current"
         }
@@ -61606,7 +61606,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.9303614457920509,
         "total_pnl": -227.6120867721288,
         "avg_pnl": -2.276120867721288,
-        "avg_monthly_pnl": -4.58193080357144,
+        "avg_monthly_pnl": -4.578902428949119,
         "max_drawdown": 14.306000000000004,
         "total_trades": 100
       },
@@ -61620,13 +61620,13 @@ window.REPORT_DATA = {
           "qty": 90.9781026545249,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 2.937999963760376,
-          "unrealized_pnl": 51.948505639135625,
+          "current_price": 2.9809999465942383,
+          "unrealized_pnl": 48.03644878673369,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 267.29366230198195,
-          "hold_days": 273,
+          "value": 271.20571915438387,
+          "hold_days": 274,
           "chart_id": "open:ma_commodities_ls_trail:NG/USD"
         },
         {
@@ -61635,13 +61635,13 @@ window.REPORT_DATA = {
           "qty": 1.0383354215199287,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1025.0,
-          "unrealized_pnl": 291.9798698314322,
+          "current_price": 1022.5,
+          "unrealized_pnl": 294.575708385232,
           "sl": 1085.0643877301898,
           "tp1": false,
           "tp_price": 1271.1856427873884,
-          "value": 1064.2938070579269,
-          "hold_days": 48,
+          "value": 1061.6979685041272,
+          "hold_days": 49,
           "chart_id": "open:ma_commodities_ls_trail:PA/USD"
         },
         {
@@ -61650,18 +61650,18 @@ window.REPORT_DATA = {
           "qty": 0.6230992638018006,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4146.7001953125,
-          "unrealized_pnl": 142.93891026659557,
+          "current_price": 4051.89990234375,
+          "unrealized_pnl": 202.0089030236187,
           "sl": 4355.649658203125,
           "tp1": false,
           "tp_price": 4281.950146484375,
-          "value": 2583.8058389060016,
-          "hold_days": 44,
+          "value": 2524.7358461489785,
+          "hold_days": 45,
           "chart_id": "open:ma_commodities_ls_trail:XAU/USD"
         }
       ],
       "current_cash": 6473.360730918707,
-      "current_equity": 10388.75,
+      "current_equity": 10331.0,
       "history_events": 283,
       "equity_curve": [
         {
@@ -63085,8 +63085,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:12:39.602262",
-          "equity": 10388.75,
+          "time": "2026-11-06T04:34:03.934936",
+          "equity": 10331.0,
           "type": "current"
         }
       ],
@@ -66251,14 +66251,14 @@ window.REPORT_DATA = {
         "profit_factor": 1.1353410727931206,
         "total_pnl": 875.6213249217881,
         "avg_pnl": 6.254438035155629,
-        "avg_monthly_pnl": 7.825779183201059,
+        "avg_monthly_pnl": 6.658831791143424,
         "max_drawdown": 25.449700000000004,
         "total_trades": 140
       },
       "exposure": {
-        "NG/USD": 267.29366230198195,
-        "PA/USD": 1064.2938070579269,
-        "XAU/USD": 2583.8058389060016
+        "NG/USD": 271.20571915438387,
+        "PA/USD": 1061.6979685041272,
+        "XAU/USD": 2524.7358461489785
       }
     },
     "ma_commodities_ls_tp1": {
@@ -66269,13 +66269,13 @@ window.REPORT_DATA = {
           "qty": 59.99689301694206,
           "entry": 3.509000062942505,
           "entry_date": "2026-02-05",
-          "current_price": 2.937999963760376,
-          "unrealized_pnl": 34.258231863293496,
+          "current_price": 2.9809999465942383,
+          "unrealized_pnl": 31.678366493479913,
           "sl": 4.7788001537323,
           "tp1": false,
           "tp_price": 2.23919997215271,
-          "value": 176.27086950951093,
-          "hold_days": 273,
+          "value": 178.8507348793245,
+          "hold_days": 274,
           "chart_id": "open:ma_commodities_ls_tp1:NG/USD"
         },
         {
@@ -66284,13 +66284,13 @@ window.REPORT_DATA = {
           "qty": 0.35928966079159097,
           "entry": 1306.199951171875,
           "entry_date": "2026-09-18",
-          "current_price": 1025.0,
-          "unrealized_pnl": 101.03223507115491,
+          "current_price": 1022.5,
+          "unrealized_pnl": 101.9304592231339,
           "sl": 1085.0643877301898,
           "tp1": true,
           "tp_price": 1271.1856427873884,
-          "value": 368.27190231138076,
-          "hold_days": 48,
+          "value": 367.3736781594018,
+          "hold_days": 49,
           "chart_id": "open:ma_commodities_ls_tp1:PA/USD"
         },
         {
@@ -66299,18 +66299,18 @@ window.REPORT_DATA = {
           "qty": 0.21617785056957342,
           "entry": 4376.10009765625,
           "entry_date": "2026-09-22",
-          "current_price": 4146.7001953125,
-          "unrealized_pnl": 49.591177809541925,
+          "current_price": 4051.89990234375,
+          "unrealized_pnl": 70.08490137689215,
           "sl": 4355.649658203125,
           "tp1": true,
           "tp_price": 4281.950146484375,
-          "value": 896.4247351790865,
-          "hold_days": 44,
+          "value": 875.9310116117364,
+          "hold_days": 45,
           "chart_id": "open:ma_commodities_ls_tp1:XAU/USD"
         }
       ],
       "current_cash": 5934.797857574157,
-      "current_equity": 7375.77,
+      "current_equity": 7356.95,
       "history_events": 428,
       "equity_curve": [
         {
@@ -68459,8 +68459,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:12:53.458409",
-          "equity": 7375.77,
+          "time": "2026-11-06T04:34:29.764367",
+          "equity": 7356.95,
           "type": "current"
         }
       ],
@@ -74040,14 +74040,14 @@ window.REPORT_DATA = {
         "profit_factor": 0.5203084922203195,
         "total_pnl": -2472.2864037397594,
         "avg_pnl": -14.542861198469174,
-        "avg_monthly_pnl": -52.827381365740735,
-        "max_drawdown": 26.242299999999997,
+        "avg_monthly_pnl": -53.17107361202908,
+        "max_drawdown": 26.430500000000002,
         "total_trades": 170
       },
       "exposure": {
-        "NG/USD": 176.27086950951093,
-        "PA/USD": 368.27190231138076,
-        "XAU/USD": 896.4247351790865
+        "NG/USD": 178.8507348793245,
+        "PA/USD": 367.3736781594018,
+        "XAU/USD": 875.9310116117364
       }
     },
     "ma_stocks_long_trail": {
@@ -74072,7 +74072,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:16.845953",
+          "time": "2026-11-06T04:35:14.179893",
           "equity": 9903.3,
           "type": "current"
         }
@@ -74131,114 +74131,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -74262,7 +74162,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.0485527444254235,
+        "avg_monthly_pnl": -5.0399079623288054,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -74295,7 +74195,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:16.925643",
+          "time": "2026-11-06T04:35:14.342598",
           "equity": 10032.23,
           "type": "current"
         }
@@ -74375,114 +74275,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -74506,7 +74306,7 @@ window.REPORT_DATA = {
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.68267688679243,
+        "avg_monthly_pnl": 1.679795590753402,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
@@ -74534,7 +74334,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:17.082845",
+          "time": "2026-11-06T04:35:14.659552",
           "equity": 9903.3,
           "type": "current"
         }
@@ -74593,114 +74393,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": -0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -74724,7 +74424,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -96.69568685997925,
         "avg_pnl": -96.69568685997925,
-        "avg_monthly_pnl": -5.0485527444254235,
+        "avg_monthly_pnl": -5.0399079623288054,
         "max_drawdown": 0.9670000000000073,
         "total_trades": 1
       },
@@ -74757,7 +74457,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:17.162012",
+          "time": "2026-11-06T04:35:14.819284",
           "equity": 10032.23,
           "type": "current"
         }
@@ -74837,114 +74537,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -74968,7 +74568,7 @@ window.REPORT_DATA = {
         "profit_factor": "\u221e",
         "total_pnl": 32.23189561999299,
         "avg_pnl": 32.23189561999299,
-        "avg_monthly_pnl": 1.68267688679243,
+        "avg_monthly_pnl": 1.679795590753402,
         "max_drawdown": 0.0,
         "total_trades": 1
       },
@@ -74982,18 +74582,18 @@ window.REPORT_DATA = {
           "qty": 1107.0401170284108,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 284.3160729941063,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 312.27670766377304,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 10284.316072994106,
-          "hold_days": 19,
+          "value": 10312.276707663774,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r2_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10284.32,
+      "current_equity": 10312.28,
       "history_events": 1,
       "equity_curve": [
         {
@@ -75007,8 +74607,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:17.407085",
-          "equity": 10284.32,
+          "time": "2026-11-06T04:35:15.429325",
+          "equity": 10312.28,
           "type": "current"
         }
       ],
@@ -75348,12 +74948,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": 509.0582352941172,
+        "avg_monthly_pnl": 528.0568055555567,
         "max_drawdown": 0.0,
         "total_trades": 0
       },
       "exposure": {
-        "LEO/USDT": 10284.316072994106
+        "LEO/USDT": 10312.276707663774
       }
     },
     "ma_crypto_r2_long_tp1": {
@@ -75364,18 +74964,18 @@ window.REPORT_DATA = {
           "qty": 553.5200585142054,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 142.15803649705316,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 156.13835383188652,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 5142.158036497053,
-          "hold_days": 19,
+          "value": 5156.138353831887,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r2_long_tp1:LEO/USDT"
         }
       ],
       "current_cash": 4887.882897861359,
-      "current_equity": 10030.04,
+      "current_equity": 10044.02,
       "history_events": 7,
       "equity_curve": [
         {
@@ -75419,8 +75019,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:17.497502",
-          "equity": 10030.04,
+          "time": "2026-11-06T04:35:15.615774",
+          "equity": 10044.02,
           "type": "current"
         }
       ],
@@ -75859,12 +75459,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.1828025808276008,
         "total_pnl": -163.935930956839,
         "avg_pnl": -81.9679654784195,
-        "avg_monthly_pnl": 53.78485294117804,
+        "avg_monthly_pnl": 74.43659722222296,
         "max_drawdown": 1.9885037304889095,
         "total_trades": 2
       },
       "exposure": {
-        "LEO/USDT": 5142.158036497053
+        "LEO/USDT": 5156.138353831887
       }
     },
     "ma_crypto_r2_ls_trail": {
@@ -75875,13 +75475,13 @@ window.REPORT_DATA = {
           "qty": 324.50868814066285,
           "entry": 9.946821212768555,
           "entry_date": "2026-10-16",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 461.85426948671153,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 391.7311214080521,
           "sl": 10.114579677581787,
           "tp1": false,
           "tp_price": 9.330504894256592,
-          "value": 2765.9756334385293,
-          "hold_days": 20,
+          "value": 2836.098781517189,
+          "hold_days": 21,
           "chart_id": "open:ma_crypto_r2_ls_trail:AVAX/USDT"
         },
         {
@@ -75890,18 +75490,18 @@ window.REPORT_DATA = {
           "qty": 455.39605199760376,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 116.9572946538989,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 128.45928310404895,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 4230.5936931252345,
-          "hold_days": 19,
+          "value": 4242.095681575384,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r2_ls_trail:LEO/USDT"
         }
       ],
       "current_cash": 2269.2006358009658,
-      "current_equity": 9265.77,
+      "current_equity": 9347.4,
       "history_events": 6,
       "equity_curve": [
         {
@@ -75940,8 +75540,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:18.124208",
-          "equity": 9265.77,
+          "time": "2026-11-06T04:35:16.635860",
+          "equity": 9347.4,
           "type": "current"
         }
       ],
@@ -76337,13 +75937,13 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -389.3330628024578,
         "avg_pnl": -194.6665314012289,
-        "avg_monthly_pnl": -1241.5625347222215,
-        "max_drawdown": 7.342299999999996,
+        "avg_monthly_pnl": -1045.44802631579,
+        "max_drawdown": 6.526000000000004,
         "total_trades": 2
       },
       "exposure": {
-        "AVAX/USDT": 2765.9756334385293,
-        "LEO/USDT": 4230.5936931252345
+        "AVAX/USDT": 2836.098781517189,
+        "LEO/USDT": 4242.095681575384
       }
     },
     "ma_crypto_r2_ls_tp1": {
@@ -76354,18 +75954,18 @@ window.REPORT_DATA = {
           "qty": 227.69802599880188,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 58.47864732694945,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 64.22964155202448,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 2115.2968465626172,
-          "hold_days": 19,
+          "value": 2121.047840787692,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r2_ls_tp1:LEO/USDT"
         }
       ],
       "current_cash": 7704.9235709177565,
-      "current_equity": 9820.22,
+      "current_equity": 9825.97,
       "history_events": 12,
       "equity_curve": [
         {
@@ -76434,8 +76034,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:18.382831",
-          "equity": 9820.22,
+          "time": "2026-11-06T04:35:17.159722",
+          "equity": 9825.97,
           "type": "current"
         }
       ],
@@ -76949,12 +76549,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.3478024827089306,
         "total_pnl": -259.5746118818456,
         "avg_pnl": -64.8936529704614,
-        "avg_monthly_pnl": -304.0029861111122,
+        "avg_monthly_pnl": -278.7914802631589,
         "max_drawdown": 3.3491089108910908,
         "total_trades": 4
       },
       "exposure": {
-        "LEO/USDT": 2115.2968465626172
+        "LEO/USDT": 2121.047840787692
       }
     },
     "ma_crypto_r3_long_trail": {
@@ -76965,18 +76565,18 @@ window.REPORT_DATA = {
           "qty": 1107.0401170284108,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 284.3160729941063,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 312.27670766377304,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 10284.316072994106,
-          "hold_days": 19,
+          "value": 10312.276707663774,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r3_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10284.32,
+      "current_equity": 10312.28,
       "history_events": 1,
       "equity_curve": [
         {
@@ -76990,8 +76590,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:19.025904",
-          "equity": 10284.32,
+          "time": "2026-11-06T04:35:18.570346",
+          "equity": 10312.28,
           "type": "current"
         }
       ],
@@ -77331,12 +76931,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": 509.0582352941172,
+        "avg_monthly_pnl": 528.0568055555567,
         "max_drawdown": 0.0,
         "total_trades": 0
       },
       "exposure": {
-        "LEO/USDT": 10284.316072994106
+        "LEO/USDT": 10312.276707663774
       }
     },
     "ma_crypto_r3_long_tp1": {
@@ -77347,18 +76947,18 @@ window.REPORT_DATA = {
           "qty": 553.5200585142054,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 142.15803649705316,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 156.13835383188652,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 5142.158036497053,
-          "hold_days": 19,
+          "value": 5156.138353831887,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r3_long_tp1:LEO/USDT"
         }
       ],
       "current_cash": 4887.882897861359,
-      "current_equity": 10030.04,
+      "current_equity": 10044.02,
       "history_events": 7,
       "equity_curve": [
         {
@@ -77402,8 +77002,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:19.117292",
-          "equity": 10030.04,
+          "time": "2026-11-06T04:35:18.754798",
+          "equity": 10044.02,
           "type": "current"
         }
       ],
@@ -77842,12 +77442,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.1828025808276008,
         "total_pnl": -163.935930956839,
         "avg_pnl": -81.9679654784195,
-        "avg_monthly_pnl": 53.78485294117804,
+        "avg_monthly_pnl": 74.43659722222296,
         "max_drawdown": 1.9885037304889095,
         "total_trades": 2
       },
       "exposure": {
-        "LEO/USDT": 5142.158036497053
+        "LEO/USDT": 5156.138353831887
       }
     },
     "ma_crypto_r3_ls_trail": {
@@ -77858,13 +77458,13 @@ window.REPORT_DATA = {
           "qty": 486.76303221099425,
           "entry": 9.946821212768555,
           "entry_date": "2026-10-16",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 692.7814042300672,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 587.5966821120782,
           "sl": 10.114579677581787,
           "tp1": false,
           "tp_price": 9.330504894256592,
-          "value": 4148.963450157794,
-          "hold_days": 20,
+          "value": 4254.148172275783,
+          "hold_days": 21,
           "chart_id": "open:ma_crypto_r3_ls_trail:AVAX/USDT"
         },
         {
@@ -77873,18 +77473,18 @@ window.REPORT_DATA = {
           "qty": 129.57401948220024,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 33.27790548379517,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 36.5505708241869,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 1203.7325031907985,
-          "hold_days": 19,
+          "value": 1207.0051685311903,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r3_ls_trail:LEO/USDT"
         }
       ],
       "current_cash": 3403.8009537014495,
-      "current_equity": 8756.5,
+      "current_equity": 8864.95,
       "history_events": 6,
       "equity_curve": [
         {
@@ -77923,8 +77523,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:19.732647",
-          "equity": 8756.5,
+          "time": "2026-11-06T04:35:19.864831",
+          "equity": 8864.95,
           "type": "current"
         }
       ],
@@ -78320,13 +77920,13 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -583.9995942036862,
         "avg_pnl": -291.9997971018431,
-        "avg_monthly_pnl": -2102.7239583333335,
-        "max_drawdown": 12.435,
+        "avg_monthly_pnl": -1818.3202302631566,
+        "max_drawdown": 11.350499999999993,
         "total_trades": 2
       },
       "exposure": {
-        "AVAX/USDT": 4148.963450157794,
-        "LEO/USDT": 1203.7325031907985
+        "AVAX/USDT": 4254.148172275783,
+        "LEO/USDT": 1207.0051685311903
       }
     },
     "ma_crypto_r3_ls_tp1": {
@@ -78337,18 +77937,18 @@ window.REPORT_DATA = {
           "qty": 64.78700974110012,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 16.638952741897587,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 18.27528541209345,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 601.8662515953993,
-          "hold_days": 19,
+          "value": 603.5025842655951,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r3_ls_tp1:LEO/USDT"
         }
       ],
       "current_cash": 9014.781548934525,
-      "current_equity": 9616.65,
+      "current_equity": 9618.28,
       "history_events": 12,
       "equity_curve": [
         {
@@ -78417,8 +78017,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:19.985055",
-          "equity": 9616.65,
+          "time": "2026-11-06T04:35:20.383333",
+          "equity": 9618.28,
           "type": "current"
         }
       ],
@@ -78932,12 +78532,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.31812542257635923,
         "total_pnl": -406.05631085577807,
         "avg_pnl": -101.51407771394452,
-        "avg_monthly_pnl": -648.2342013888895,
+        "avg_monthly_pnl": -611.505394736841,
         "max_drawdown": 5.41862068965517,
         "total_trades": 4
       },
       "exposure": {
-        "LEO/USDT": 601.8662515953993
+        "LEO/USDT": 603.5025842655951
       }
     },
     "ma_crypto_r5_long_trail": {
@@ -78948,18 +78548,18 @@ window.REPORT_DATA = {
           "qty": 1107.0401170284108,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 284.3160729941063,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 312.27670766377304,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 10284.316072994106,
-          "hold_days": 19,
+          "value": 10312.276707663774,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r5_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10284.32,
+      "current_equity": 10312.28,
       "history_events": 1,
       "equity_curve": [
         {
@@ -78973,8 +78573,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:20.743777",
-          "equity": 10284.32,
+          "time": "2026-11-06T04:35:21.692668",
+          "equity": 10312.28,
           "type": "current"
         }
       ],
@@ -79314,12 +78914,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": 509.0582352941172,
+        "avg_monthly_pnl": 528.0568055555567,
         "max_drawdown": 0.0,
         "total_trades": 0
       },
       "exposure": {
-        "LEO/USDT": 10284.316072994106
+        "LEO/USDT": 10312.276707663774
       }
     },
     "ma_crypto_r5_long_tp1": {
@@ -79330,18 +78930,18 @@ window.REPORT_DATA = {
           "qty": 553.5200585142054,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 142.15803649705316,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 156.13835383188652,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 5142.158036497053,
-          "hold_days": 19,
+          "value": 5156.138353831887,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r5_long_tp1:LEO/USDT"
         }
       ],
       "current_cash": 4887.882897861359,
-      "current_equity": 10030.04,
+      "current_equity": 10044.02,
       "history_events": 7,
       "equity_curve": [
         {
@@ -79385,8 +78985,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:20.833707",
-          "equity": 10030.04,
+          "time": "2026-11-06T04:35:21.881154",
+          "equity": 10044.02,
           "type": "current"
         }
       ],
@@ -79825,12 +79425,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.1828025808276008,
         "total_pnl": -163.935930956839,
         "avg_pnl": -81.9679654784195,
-        "avg_monthly_pnl": 53.78485294117804,
+        "avg_monthly_pnl": 74.43659722222296,
         "max_drawdown": 1.9885037304889095,
         "total_trades": 2
       },
       "exposure": {
-        "LEO/USDT": 5142.158036497053
+        "LEO/USDT": 5156.138353831887
       }
     },
     "ma_crypto_r5_ls_trail": {
@@ -79841,18 +79441,18 @@ window.REPORT_DATA = {
           "qty": 811.2717203516571,
           "entry": 9.946821212768555,
           "entry_date": "2026-10-16",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 1154.6356737167787,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 979.3278035201303,
           "sl": 10.114579677581787,
           "tp1": false,
           "tp_price": 9.330504894256592,
-          "value": 6914.939083596323,
-          "hold_days": 20,
+          "value": 7090.246953792972,
+          "hold_days": 21,
           "chart_id": "open:ma_crypto_r5_ls_trail:AVAX/USDT"
         }
       ],
       "current_cash": 1647.721144318205,
-      "current_equity": 8562.66,
+      "current_equity": 8737.97,
       "history_events": 5,
       "equity_curve": [
         {
@@ -79886,8 +79486,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:21.234669",
-          "equity": 8562.66,
+          "time": "2026-11-06T04:35:22.817472",
+          "equity": 8737.97,
           "type": "current"
         }
       ],
@@ -80283,12 +79883,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -282.7040983686928,
         "avg_pnl": -141.3520491843464,
-        "avg_monthly_pnl": -2430.502013888889,
-        "max_drawdown": 14.373400000000004,
+        "avg_monthly_pnl": -2021.7388486842115,
+        "max_drawdown": 12.620300000000007,
         "total_trades": 2
       },
       "exposure": {
-        "AVAX/USDT": 6914.939083596323
+        "AVAX/USDT": 7090.246953792972
       }
     },
     "ma_crypto_r5_ls_tp1": {
@@ -80353,7 +79953,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:21.400138",
+          "time": "2026-11-06T04:35:23.155818",
           "equity": 9625.26,
           "type": "current"
         }
@@ -80847,7 +80447,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.423893304861477,
         "total_pnl": -374.7364167725119,
         "avg_pnl": -93.68410419312798,
-        "avg_monthly_pnl": -633.6749305555552,
+        "avg_monthly_pnl": -600.3236184210523,
         "max_drawdown": 6.0950243902439,
         "total_trades": 4
       },
@@ -80861,18 +80461,18 @@ window.REPORT_DATA = {
           "qty": 1107.0401170284108,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 284.3160729941063,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 312.27670766377304,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 10284.316072994106,
-          "hold_days": 19,
+          "value": 10312.276707663774,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r10_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10284.32,
+      "current_equity": 10312.28,
       "history_events": 1,
       "equity_curve": [
         {
@@ -80886,8 +80486,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:22.127986",
-          "equity": 10284.32,
+          "time": "2026-11-06T04:35:24.287002",
+          "equity": 10312.28,
           "type": "current"
         }
       ],
@@ -81227,12 +80827,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": 509.0582352941172,
+        "avg_monthly_pnl": 528.0568055555567,
         "max_drawdown": 0.0,
         "total_trades": 0
       },
       "exposure": {
-        "LEO/USDT": 10284.316072994106
+        "LEO/USDT": 10312.276707663774
       }
     },
     "ma_crypto_r10_long_tp1": {
@@ -81243,18 +80843,18 @@ window.REPORT_DATA = {
           "qty": 553.5200585142054,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 142.15803649705316,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 156.13835383188652,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 5142.158036497053,
-          "hold_days": 19,
+          "value": 5156.138353831887,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r10_long_tp1:LEO/USDT"
         }
       ],
       "current_cash": 4887.882897861359,
-      "current_equity": 10030.04,
+      "current_equity": 10044.02,
       "history_events": 7,
       "equity_curve": [
         {
@@ -81298,8 +80898,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:22.223913",
-          "equity": 10030.04,
+          "time": "2026-11-06T04:35:24.470084",
+          "equity": 10044.02,
           "type": "current"
         }
       ],
@@ -81738,12 +81338,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.1828025808276008,
         "total_pnl": -163.935930956839,
         "avg_pnl": -81.9679654784195,
-        "avg_monthly_pnl": 53.78485294117804,
+        "avg_monthly_pnl": 74.43659722222296,
         "max_drawdown": 1.9885037304889095,
         "total_trades": 2
       },
       "exposure": {
-        "LEO/USDT": 5142.158036497053
+        "LEO/USDT": 5156.138353831887
       }
     },
     "ma_crypto_r10_ls_trail": {
@@ -81754,18 +81354,18 @@ window.REPORT_DATA = {
           "qty": 1005.3463097500114,
           "entry": 9.946821212768555,
           "entry_date": "2026-10-16",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 1430.8507058198861,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 1213.605218332736,
           "sl": 10.114579677581787,
           "tp1": false,
           "tp_price": 9.330504894256592,
-          "value": 8569.149294180113,
-          "hold_days": 20,
+          "value": 8786.394781667264,
+          "hold_days": 21,
           "chart_id": "open:ma_crypto_r10_ls_trail:AVAX/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 8569.15,
+      "current_equity": 8786.39,
       "history_events": 1,
       "equity_curve": [
         {
@@ -81779,8 +81379,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:22.680016",
-          "equity": 8569.15,
+          "time": "2026-11-06T04:35:25.412849",
+          "equity": 8786.39,
           "type": "current"
         }
       ],
@@ -82120,12 +81720,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": -2419.5276041666675,
-        "max_drawdown": 14.308500000000004,
+        "avg_monthly_pnl": -1944.1712828947377,
+        "max_drawdown": 12.136100000000006,
         "total_trades": 0
       },
       "exposure": {
-        "AVAX/USDT": 8569.149294180113
+        "AVAX/USDT": 8786.394781667264
       }
     },
     "ma_crypto_r10_ls_tp1": {
@@ -82165,7 +81765,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:22.680216",
+          "time": "2026-11-06T04:35:25.413083",
           "equity": 9515.84,
           "type": "current"
         }
@@ -82584,7 +82184,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.3902011860496943,
         "total_pnl": -484.1582644909349,
         "avg_pnl": -242.07913224546746,
-        "avg_monthly_pnl": -818.7011111111109,
+        "avg_monthly_pnl": -775.6115789473681,
         "max_drawdown": 7.7011118536617005,
         "total_trades": 2
       },
@@ -82598,18 +82198,18 @@ window.REPORT_DATA = {
           "qty": 1107.0401170284108,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 284.3160729941063,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 312.27670766377304,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 10284.316072994106,
-          "hold_days": 19,
+          "value": 10312.276707663774,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r15_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 10284.32,
+      "current_equity": 10312.28,
       "history_events": 1,
       "equity_curve": [
         {
@@ -82623,8 +82223,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:23.010836",
-          "equity": 10284.32,
+          "time": "2026-11-06T04:35:26.061290",
+          "equity": 10312.28,
           "type": "current"
         }
       ],
@@ -82964,12 +82564,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": 509.0582352941172,
+        "avg_monthly_pnl": 528.0568055555567,
         "max_drawdown": 0.0,
         "total_trades": 0
       },
       "exposure": {
-        "LEO/USDT": 10284.316072994106
+        "LEO/USDT": 10312.276707663774
       }
     },
     "ma_crypto_r15_long_tp1": {
@@ -82980,18 +82580,18 @@ window.REPORT_DATA = {
           "qty": 553.5200585142054,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 142.15803649705316,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 156.13835383188652,
           "sl": 9.178437914167132,
           "tp1": true,
           "tp_price": 9.12671320778983,
-          "value": 5142.158036497053,
-          "hold_days": 19,
+          "value": 5156.138353831887,
+          "hold_days": 20,
           "chart_id": "open:ma_crypto_r15_long_tp1:LEO/USDT"
         }
       ],
       "current_cash": 4887.882897861359,
-      "current_equity": 10030.04,
+      "current_equity": 10044.02,
       "history_events": 7,
       "equity_curve": [
         {
@@ -83035,8 +82635,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:23.268396",
-          "equity": 10030.04,
+          "time": "2026-11-06T04:35:26.243592",
+          "equity": 10044.02,
           "type": "current"
         }
       ],
@@ -83475,12 +83075,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.1828025808276008,
         "total_pnl": -163.935930956839,
         "avg_pnl": -81.9679654784195,
-        "avg_monthly_pnl": 53.78485294117804,
+        "avg_monthly_pnl": 74.43659722222296,
         "max_drawdown": 1.9885037304889095,
         "total_trades": 2
       },
       "exposure": {
-        "LEO/USDT": 5142.158036497053
+        "LEO/USDT": 5156.138353831887
       }
     },
     "ma_crypto_r15_ls_trail": {
@@ -83491,18 +83091,18 @@ window.REPORT_DATA = {
           "qty": 1005.3463097500114,
           "entry": 9.946821212768555,
           "entry_date": "2026-10-16",
-          "current_price": 8.523579597473145,
-          "unrealized_pnl": 1430.8507058198861,
+          "current_price": 8.739669799804688,
+          "unrealized_pnl": 1213.605218332736,
           "sl": 10.114579677581787,
           "tp1": false,
           "tp_price": 9.330504894256592,
-          "value": 8569.149294180113,
-          "hold_days": 20,
+          "value": 8786.394781667264,
+          "hold_days": 21,
           "chart_id": "open:ma_crypto_r15_ls_trail:AVAX/USDT"
         }
       ],
       "current_cash": 0.0,
-      "current_equity": 8569.15,
+      "current_equity": 8786.39,
       "history_events": 1,
       "equity_curve": [
         {
@@ -83516,8 +83116,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:23.693681",
-          "equity": 8569.15,
+          "time": "2026-11-06T04:35:27.056111",
+          "equity": 8786.39,
           "type": "current"
         }
       ],
@@ -83857,12 +83457,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": 0,
         "avg_pnl": 0.0,
-        "avg_monthly_pnl": -2419.5276041666675,
-        "max_drawdown": 14.308500000000004,
+        "avg_monthly_pnl": -1944.1712828947377,
+        "max_drawdown": 12.136100000000006,
         "total_trades": 0
       },
       "exposure": {
-        "AVAX/USDT": 8569.149294180113
+        "AVAX/USDT": 8786.394781667264
       }
     },
     "ma_crypto_r15_ls_tp1": {
@@ -83902,7 +83502,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:23.693897",
+          "time": "2026-11-06T04:35:27.056335",
           "equity": 9515.84,
           "type": "current"
         }
@@ -84321,7 +83921,7 @@ window.REPORT_DATA = {
         "profit_factor": 0.3902011860496943,
         "total_pnl": -484.1582644909349,
         "avg_pnl": -242.07913224546746,
-        "avg_monthly_pnl": -818.7011111111109,
+        "avg_monthly_pnl": -775.6115789473681,
         "max_drawdown": 7.7011118536617005,
         "total_trades": 2
       },
@@ -84335,18 +83935,18 @@ window.REPORT_DATA = {
           "qty": 276.7600292571027,
           "entry": 9.033096313476562,
           "entry_date": "2026-10-17",
-          "current_price": 9.289921760559082,
-          "unrealized_pnl": 71.07901824852658,
+          "current_price": 9.315178871154785,
+          "unrealized_pnl": 78.06917691594326,
           "sl": 9.178437914167132,
           "tp1": false,
           "tp_price": 0.0,
-          "value": 2571.0790182485266,
-          "hold_days": 19,
+          "value": 2578.0691769159434,
+          "hold_days": 20,
           "chart_id": "open:hold_crypto_long_trail:LEO/USDT"
         }
       ],
       "current_cash": 7363.7045884792215,
-      "current_equity": 9934.78,
+      "current_equity": 9941.77,
       "history_events": 5,
       "equity_curve": [
         {
@@ -84380,8 +83980,8 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:24.018448",
-          "equity": 9934.78,
+          "time": "2026-11-06T04:35:27.806084",
+          "equity": 9941.77,
           "type": "current"
         }
       ],
@@ -84777,12 +84377,12 @@ window.REPORT_DATA = {
         "profit_factor": 0.0,
         "total_pnl": -136.29541152077854,
         "avg_pnl": -68.14770576038927,
-        "avg_monthly_pnl": -116.77257352941061,
+        "avg_monthly_pnl": -98.46531249999926,
         "max_drawdown": 1.3629999999999927,
         "total_trades": 2
       },
       "exposure": {
-        "LEO/USDT": 2571.0790182485266
+        "LEO/USDT": 2578.0691769159434
       }
     },
     "hold_crypto_long_tp1": {
@@ -84792,12 +84392,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170493",
+          "time": "2026-11-06T04:35:28.112962",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170498",
+          "time": "2026-11-06T04:35:28.112967",
           "equity": 10000.0,
           "type": "current"
         }
@@ -85151,12 +84751,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170579",
+          "time": "2026-11-06T04:35:28.113111",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170580",
+          "time": "2026-11-06T04:35:28.113114",
           "equity": 10000.0,
           "type": "current"
         }
@@ -85390,12 +84990,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170640",
+          "time": "2026-11-06T04:35:28.113224",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170641",
+          "time": "2026-11-06T04:35:28.113226",
           "equity": 10000.0,
           "type": "current"
         }
@@ -85629,12 +85229,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170695",
+          "time": "2026-11-06T04:35:28.113325",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170696",
+          "time": "2026-11-06T04:35:28.113328",
           "equity": 10000.0,
           "type": "current"
         }
@@ -85828,12 +85428,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170745",
+          "time": "2026-11-06T04:35:28.113417",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170746",
+          "time": "2026-11-06T04:35:28.113420",
           "equity": 10000.0,
           "type": "current"
         }
@@ -86027,12 +85627,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170793",
+          "time": "2026-11-06T04:35:28.113506",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170794",
+          "time": "2026-11-06T04:35:28.113509",
           "equity": 10000.0,
           "type": "current"
         }
@@ -86062,114 +85662,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -86206,12 +85706,12 @@ window.REPORT_DATA = {
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-05T21:13:24.170859",
+          "time": "2026-11-06T04:35:28.113557",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-05T21:13:24.170860",
+          "time": "2026-11-06T04:35:28.113559",
           "equity": 10000.0,
           "type": "current"
         }
@@ -86241,114 +85741,14 @@ window.REPORT_DATA = {
       },
       "assets": [
         {
-          "symbol": "AXON",
+          "symbol": "OKTA",
           "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "DECK",
-          "params": {
-            "short_window": 22,
+            "short_window": 20,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "FIX",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 4.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "CASY",
-          "params": {
-            "short_window": 22,
-            "long_window": 63,
-            "trend_window": 220,
-            "atr_period": 14,
-            "sl_atr": 1.0,
-            "trail_atr": 5.5
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "MANH",
-          "params": {
-            "short_window": 18,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 1.0,
+            "sl_atr": 1.5,
             "trail_atr": 5.0
-          },
-          "wins": 0,
-          "losses": 0,
-          "trades": 0,
-          "win_rate": 0.0,
-          "pnl": 0.0,
-          "avg_pnl": 0.0,
-          "profit_factor": 0.0,
-          "return_pct": 0.0,
-          "share_pct": 0.0
-        },
-        {
-          "symbol": "WSM",
-          "params": {
-            "short_window": 20,
-            "long_window": 63,
-            "trend_window": 180,
-            "atr_period": 14,
-            "sl_atr": 2.0,
-            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -86530,7 +85930,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:24.170942",
+          "time": "2026-11-06T04:35:28.113666",
           "equity": 12587.56,
           "type": "current"
         }
@@ -87210,7 +86610,7 @@ window.REPORT_DATA = {
         "profit_factor": 5.962104775433014,
         "total_pnl": 2587.5552285999875,
         "avg_pnl": 184.82537347142767,
-        "avg_monthly_pnl": 258.2257622950819,
+        "avg_monthly_pnl": 257.3818872549019,
         "max_drawdown": 1.646369895607038,
         "total_trades": 14
       },
@@ -87318,7 +86718,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:25.477499",
+          "time": "2026-11-06T04:35:30.586543",
           "equity": 13109.91,
           "type": "current"
         }
@@ -87875,7 +87275,7 @@ window.REPORT_DATA = {
         "profit_factor": 5.23696685975877,
         "total_pnl": 3109.9075041906804,
         "avg_pnl": 345.5452782434089,
-        "avg_monthly_pnl": 310.3537233606557,
+        "avg_monthly_pnl": 309.3394955065359,
         "max_drawdown": 4.042867205003818,
         "total_trades": 9
       },
@@ -87983,7 +87383,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:26.386080",
+          "time": "2026-11-06T04:35:32.192334",
           "equity": 13124.42,
           "type": "current"
         }
@@ -88540,7 +87940,7 @@ window.REPORT_DATA = {
         "profit_factor": 4.322494595396218,
         "total_pnl": 3124.4238387281534,
         "avg_pnl": 347.1582043031282,
-        "avg_monthly_pnl": 311.80175,
+        "avg_monthly_pnl": 310.78279003267977,
         "max_drawdown": 4.863816225038113,
         "total_trades": 9
       },
@@ -88628,7 +88028,7 @@ window.REPORT_DATA = {
           "type": "trade"
         },
         {
-          "time": "2026-11-05T21:13:27.279629",
+          "time": "2026-11-06T04:35:33.683173",
           "equity": 12839.58,
           "type": "current"
         }
@@ -89143,7 +88543,7 @@ window.REPORT_DATA = {
         "profit_factor": 3.3109515585100535,
         "total_pnl": 2839.5811400905827,
         "avg_pnl": 405.65444858436894,
-        "avg_monthly_pnl": 283.376118852459,
+        "avg_monthly_pnl": 282.45005310457515,
         "max_drawdown": 6.475861808819228,
         "total_trades": 7
       },
