@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-11-13T04:22:32.762041",
+    "last_updated": "2026-11-13T20:57:05.595591",
     "initial_cash": 10000.0,
     "markets": [
       "crypto",
@@ -348,7 +348,7 @@
     ],
     "screener": {
       "stocks": {
-        "as_of": "2026-11-12T16:31:22-05:00",
+        "as_of": "2026-11-13T15:57:03-05:00",
         "open_et": "09:30 America/New_York",
         "seed_count": 22,
         "match_count": 0,
@@ -1577,7 +1577,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:22:32.786151",
+          "time": "2026-11-13T20:57:05.595847",
           "equity": 42936.04,
           "type": "current"
         }
@@ -6348,7 +6348,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:22:49.816732",
+          "time": "2026-11-13T20:57:16.191347",
           "equity": 15142.88,
           "type": "current"
         }
@@ -13657,7 +13657,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:23:21.056492",
+          "time": "2026-11-13T20:57:37.558516",
           "equity": 11555.24,
           "type": "current"
         }
@@ -21636,7 +21636,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:23:50.576656",
+          "time": "2026-11-13T20:57:55.862292",
           "equity": 9898.79,
           "type": "current"
         }
@@ -31084,7 +31084,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:24:42.495258",
+          "time": "2026-11-13T20:58:28.748695",
           "equity": 11458.93,
           "type": "current"
         }
@@ -34825,7 +34825,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:24:56.967573",
+          "time": "2026-11-13T20:58:37.442364",
           "equity": 10956.29,
           "type": "current"
         }
@@ -40636,7 +40636,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:25:22.772057",
+          "time": "2026-11-13T20:58:53.070423",
           "equity": 10819.39,
           "type": "current"
         }
@@ -47284,7 +47284,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:25:48.528782",
+          "time": "2026-11-13T20:59:09.419157",
           "equity": 10405.4,
           "type": "current"
         }
@@ -55365,7 +55365,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:26:34.800296",
+          "time": "2026-11-13T20:59:38.328844",
           "equity": 14203.9,
           "type": "current"
         }
@@ -58756,7 +58756,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:26:47.500314",
+          "time": "2026-11-13T20:59:45.856668",
           "equity": 9861.68,
           "type": "current"
         }
@@ -63591,7 +63591,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:27:07.871741",
+          "time": "2026-11-13T21:00:00.273050",
           "equity": 10239.15,
           "type": "current"
         }
@@ -68991,7 +68991,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:27:28.226104",
+          "time": "2026-11-13T21:00:12.203779",
           "equity": 7360.63,
           "type": "current"
         }
@@ -74626,7 +74626,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:03.051624",
+          "time": "2026-11-13T21:00:32.791653",
           "equity": 9903.3,
           "type": "current"
         }
@@ -74685,14 +74685,114 @@
       },
       "assets": [
         {
-          "symbol": "OKTA",
+          "symbol": "AXON",
           "params": {
-            "short_window": 20,
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "DECK",
+          "params": {
+            "short_window": 22,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.5,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "FIX",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "CASY",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 220,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "MANH",
+          "params": {
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
             "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "WSM",
+          "params": {
+            "short_window": 20,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -74749,7 +74849,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:03.179532",
+          "time": "2026-11-13T21:00:32.862967",
           "equity": 10032.23,
           "type": "current"
         }
@@ -74829,14 +74929,114 @@
       },
       "assets": [
         {
-          "symbol": "OKTA",
+          "symbol": "AXON",
           "params": {
-            "short_window": 20,
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DECK",
+          "params": {
+            "short_window": 22,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.5,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "FIX",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "CASY",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 220,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "MANH",
+          "params": {
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
             "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "WSM",
+          "params": {
+            "short_window": 20,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -74888,7 +75088,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:03.430404",
+          "time": "2026-11-13T21:00:33.000860",
           "equity": 9903.3,
           "type": "current"
         }
@@ -74947,14 +75147,114 @@
       },
       "assets": [
         {
-          "symbol": "OKTA",
+          "symbol": "AXON",
           "params": {
-            "short_window": 20,
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "DECK",
+          "params": {
+            "short_window": 22,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.5,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "FIX",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "CASY",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 220,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "MANH",
+          "params": {
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
             "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": -0.0
+        },
+        {
+          "symbol": "WSM",
+          "params": {
+            "short_window": 20,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -75011,7 +75311,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:03.555298",
+          "time": "2026-11-13T21:00:33.070219",
           "equity": 10032.23,
           "type": "current"
         }
@@ -75091,14 +75391,114 @@
       },
       "assets": [
         {
-          "symbol": "OKTA",
+          "symbol": "AXON",
           "params": {
-            "short_window": 20,
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DECK",
+          "params": {
+            "short_window": 22,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.5,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "FIX",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "CASY",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 220,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "MANH",
+          "params": {
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
             "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "WSM",
+          "params": {
+            "short_window": 20,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -75150,7 +75550,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:03.804874",
+          "time": "2026-11-13T21:00:33.213979",
           "equity": 10160.9,
           "type": "current"
         }
@@ -75593,7 +75993,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:03.946264",
+          "time": "2026-11-13T21:00:33.292219",
           "equity": 10067.21,
           "type": "current"
         }
@@ -76181,7 +76581,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:05.077566",
+          "time": "2026-11-13T21:00:34.003589",
           "equity": 9033.66,
           "type": "current"
         }
@@ -76727,7 +77127,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:05.597896",
+          "time": "2026-11-13T21:00:34.304836",
           "equity": 9892.45,
           "type": "current"
         }
@@ -77339,7 +77739,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:06.957550",
+          "time": "2026-11-13T21:00:35.144505",
           "equity": 10160.9,
           "type": "current"
         }
@@ -77782,7 +78182,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:07.097527",
+          "time": "2026-11-13T21:00:35.272622",
           "equity": 10116.65,
           "type": "current"
         }
@@ -78370,7 +78770,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:08.140877",
+          "time": "2026-11-13T21:00:36.009932",
           "equity": 8470.04,
           "type": "current"
         }
@@ -78916,7 +79316,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:08.749391",
+          "time": "2026-11-13T21:00:36.303006",
           "equity": 9753.43,
           "type": "current"
         }
@@ -79528,7 +79928,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:10.025681",
+          "time": "2026-11-13T21:00:37.166020",
           "equity": 10160.9,
           "type": "current"
         }
@@ -79971,7 +80371,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:10.165933",
+          "time": "2026-11-13T21:00:37.245538",
           "equity": 10161.02,
           "type": "current"
         }
@@ -80549,7 +80949,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:11.295453",
+          "time": "2026-11-13T21:00:37.831091",
           "equity": 8426.68,
           "type": "current"
         }
@@ -81052,7 +81452,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:11.676295",
+          "time": "2026-11-13T21:00:38.046740",
           "equity": 9865.9,
           "type": "current"
         }
@@ -81616,7 +82016,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:12.758350",
+          "time": "2026-11-13T21:00:38.730209",
           "equity": 10160.9,
           "type": "current"
         }
@@ -82059,7 +82459,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:12.897684",
+          "time": "2026-11-13T21:00:38.812773",
           "equity": 10161.02,
           "type": "current"
         }
@@ -82607,7 +83007,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:13.941906",
+          "time": "2026-11-13T21:00:39.514162",
           "equity": 8561.63,
           "type": "current"
         }
@@ -83008,7 +83408,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:13.942113",
+          "time": "2026-11-13T21:00:39.514334",
           "equity": 9890.98,
           "type": "current"
         }
@@ -83497,7 +83897,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:14.549206",
+          "time": "2026-11-13T21:00:39.856437",
           "equity": 10160.9,
           "type": "current"
         }
@@ -83940,7 +84340,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:14.777727",
+          "time": "2026-11-13T21:00:39.934638",
           "equity": 10161.02,
           "type": "current"
         }
@@ -84488,7 +84888,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:15.818950",
+          "time": "2026-11-13T21:00:40.639073",
           "equity": 8561.63,
           "type": "current"
         }
@@ -84889,7 +85289,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:15.819163",
+          "time": "2026-11-13T21:00:40.639235",
           "equity": 9890.98,
           "type": "current"
         }
@@ -85408,7 +85808,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:16.423217",
+          "time": "2026-11-13T21:00:40.999597",
           "equity": 9805.29,
           "type": "current"
         }
@@ -85867,12 +86267,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-13T04:28:17.017045",
+          "time": "2026-11-13T21:00:41.295403",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-13T04:28:17.017051",
+          "time": "2026-11-13T21:00:41.295408",
           "equity": 10000.0,
           "type": "current"
         }
@@ -86252,7 +86652,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:17.147459",
+          "time": "2026-11-13T21:00:41.370125",
           "equity": 10010.91,
           "type": "current"
         }
@@ -86519,7 +86919,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:17.265020",
+          "time": "2026-11-13T21:00:41.440289",
           "equity": 10012.33,
           "type": "current"
         }
@@ -86777,12 +87177,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-13T04:28:17.396626",
+          "time": "2026-11-13T21:00:41.520028",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-13T04:28:17.396634",
+          "time": "2026-11-13T21:00:41.520036",
           "equity": 10000.0,
           "type": "current"
         }
@@ -86976,12 +87376,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-13T04:28:17.396727",
+          "time": "2026-11-13T21:00:41.520094",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-13T04:28:17.396730",
+          "time": "2026-11-13T21:00:41.520095",
           "equity": 10000.0,
           "type": "current"
         }
@@ -87175,12 +87575,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-13T04:28:17.396811",
+          "time": "2026-11-13T21:00:41.520143",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-13T04:28:17.396813",
+          "time": "2026-11-13T21:00:41.520144",
           "equity": 10000.0,
           "type": "current"
         }
@@ -87210,14 +87610,114 @@
       },
       "assets": [
         {
-          "symbol": "OKTA",
+          "symbol": "AXON",
           "params": {
-            "short_window": 20,
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DECK",
+          "params": {
+            "short_window": 22,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.5,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "FIX",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "CASY",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 220,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "MANH",
+          "params": {
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
             "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "WSM",
+          "params": {
+            "short_window": 20,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -87254,12 +87754,12 @@
       "history_events": 0,
       "equity_curve": [
         {
-          "time": "2026-11-13T04:28:17.396859",
+          "time": "2026-11-13T21:00:41.520189",
           "equity": 10000.0,
           "type": "initial"
         },
         {
-          "time": "2026-11-13T04:28:17.396861",
+          "time": "2026-11-13T21:00:41.520191",
           "equity": 10000.0,
           "type": "current"
         }
@@ -87289,14 +87789,114 @@
       },
       "assets": [
         {
-          "symbol": "OKTA",
+          "symbol": "AXON",
           "params": {
-            "short_window": 20,
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "DECK",
+          "params": {
+            "short_window": 22,
             "long_window": 70,
             "trend_window": 200,
             "atr_period": 14,
-            "sl_atr": 1.5,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "FIX",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 4.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "CASY",
+          "params": {
+            "short_window": 22,
+            "long_window": 63,
+            "trend_window": 220,
+            "atr_period": 14,
+            "sl_atr": 1.0,
+            "trail_atr": 5.5
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "MANH",
+          "params": {
+            "short_window": 18,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 1.0,
             "trail_atr": 5.0
+          },
+          "wins": 0,
+          "losses": 0,
+          "trades": 0,
+          "win_rate": 0.0,
+          "pnl": 0.0,
+          "avg_pnl": 0.0,
+          "profit_factor": 0.0,
+          "return_pct": 0.0,
+          "share_pct": 0.0
+        },
+        {
+          "symbol": "WSM",
+          "params": {
+            "short_window": 20,
+            "long_window": 63,
+            "trend_window": 180,
+            "atr_period": 14,
+            "sl_atr": 2.0,
+            "trail_atr": 5.5
           },
           "wins": 0,
           "losses": 0,
@@ -87478,7 +88078,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:17.396944",
+          "time": "2026-11-13T21:00:41.520269",
           "equity": 12587.56,
           "type": "current"
         }
@@ -88266,7 +88866,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:19.348001",
+          "time": "2026-11-13T21:00:42.732411",
           "equity": 13109.91,
           "type": "current"
         }
@@ -88931,7 +89531,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:20.613723",
+          "time": "2026-11-13T21:00:43.514754",
           "equity": 13124.42,
           "type": "current"
         }
@@ -89576,7 +90176,7 @@
           "type": "trade"
         },
         {
-          "time": "2026-11-13T04:28:21.797065",
+          "time": "2026-11-13T21:00:44.321936",
           "equity": 12839.58,
           "type": "current"
         }
