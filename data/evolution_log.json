@@ -5758,5 +5758,1445 @@
     "same_as_champion": false,
     "passed": false,
     "decision": "proposed"
+  },
+  {
+    "market": "crypto",
+    "bot": "live",
+    "timeframes": true,
+    "at": "2026-11-15T10:23:08",
+    "windows": {
+      "train": [
+        "2023-05-14",
+        "2026-05-13"
+      ],
+      "holdout": [
+        "2026-05-14",
+        "2026-11-14"
+      ]
+    },
+    "symbols": 14,
+    "feedback": {
+      "legs": 120,
+      "notes": [
+        "No rule triggered: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 26.7,
+      "quick_stop_rate": 25.0,
+      "trailed_share": 29.2,
+      "median_hold_days": 7.0,
+      "avg_win_ret_pct": 38.06
+    },
+    "folds": {
+      "champion": [
+        2.95,
+        0.37,
+        2.175
+      ],
+      "challenger": [
+        6.605,
+        6.978,
+        6.97
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 10,
+        "long_window": 20,
+        "trend_window": 150,
+        "atr_period": 14,
+        "sl_atr": 1.0,
+        "trail_atr": 3.0,
+        "trend_tf": "W",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only"
+      },
+      "train": {
+        "closed_trades": 140,
+        "wins": 34,
+        "losses": 106,
+        "win_rate": 24.29,
+        "total_pnl": 6650.91,
+        "profit_factor": 1.646358656426866,
+        "payoff": 5.132765222977876,
+        "calmar": 0.6544307293738213,
+        "max_drawdown": 23.52,
+        "equity": 18640.56,
+        "net_pnl": 8640.56,
+        "cash": 5466.69,
+        "open_positions": 3
+      },
+      "holdout": {
+        "closed_trades": 16,
+        "wins": 5,
+        "losses": 11,
+        "win_rate": 31.25,
+        "total_pnl": 1581.94,
+        "profit_factor": 2.93200941933432,
+        "payoff": 6.450420722535505,
+        "calmar": 4.249168602368706,
+        "max_drawdown": 5.21,
+        "equity": 11581.94,
+        "net_pnl": 1581.94,
+        "cash": 11581.94,
+        "open_positions": 0
+      },
+      "holdout_score": 4.338841733800742
+    },
+    "challenger": {
+      "params": {
+        "short_window": 12,
+        "long_window": 20,
+        "trend_window": 24,
+        "atr_period": 13,
+        "sl_atr": 0.25,
+        "trail_atr": 3.0,
+        "trend_tf": "W",
+        "cross_tf": "W",
+        "atr_tf": "W",
+        "exit_tf": "W",
+        "exit_mode": "stop_only"
+      },
+      "train": {
+        "closed_trades": 39,
+        "wins": 7,
+        "losses": 32,
+        "win_rate": 17.95,
+        "total_pnl": 18718.9,
+        "profit_factor": 6.491056282460209,
+        "payoff": 29.673400148389526,
+        "calmar": 2.0065004962674484,
+        "max_drawdown": 14.53,
+        "equity": 30415.85,
+        "net_pnl": 20415.85,
+        "cash": 22424.96,
+        "open_positions": 1
+      },
+      "holdout": {
+        "closed_trades": 8,
+        "wins": 1,
+        "losses": 7,
+        "win_rate": 12.5,
+        "total_pnl": 39.97,
+        "profit_factor": 1.1042805905914794,
+        "payoff": 7.7299641341403555,
+        "calmar": 0.06065462607650235,
+        "max_drawdown": 8.98,
+        "equity": 10039.97,
+        "net_pnl": 39.97,
+        "cash": 10039.97,
+        "open_positions": 0
+      },
+      "holdout_score": 3.21454463793059,
+      "train_score": 6.822275426360584
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": false,
+        "detail": "3.21 vs 4.34"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": true,
+        "detail": "1.10"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": true,
+        "detail": "8"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": false,
+        "detail": "8.98% vs 5.21%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "3.21 vs 6.82"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "5.43 / 6.48 / 6.33"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "crypto",
+    "bot": "hold",
+    "timeframes": true,
+    "at": "2026-11-15T10:24:29",
+    "windows": {
+      "train": [
+        "2023-05-14",
+        "2026-05-13"
+      ],
+      "holdout": [
+        "2026-05-14",
+        "2026-11-14"
+      ]
+    },
+    "symbols": 14,
+    "feedback": {
+      "legs": 120,
+      "notes": [
+        "No rule triggered: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 26.7,
+      "quick_stop_rate": 25.0,
+      "trailed_share": 29.2,
+      "median_hold_days": 7.0,
+      "avg_win_ret_pct": 38.06
+    },
+    "folds": {
+      "champion": [
+        3.556,
+        0.815,
+        2.562
+      ],
+      "challenger": [
+        7.438,
+        0.0,
+        8.919
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 10,
+        "long_window": 20,
+        "trend_window": 150,
+        "atr_period": 14,
+        "sl_atr": 1.0,
+        "trail_atr": 3.0,
+        "trend_tf": "W",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only",
+        "hold_days": 30,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 73,
+        "wins": 16,
+        "losses": 57,
+        "win_rate": 21.92,
+        "total_pnl": 1467.53,
+        "profit_factor": 1.2716468786954993,
+        "payoff": 4.530242005352716,
+        "calmar": 0.19828249937284034,
+        "max_drawdown": 16.13,
+        "equity": 11467.53,
+        "net_pnl": 1467.53,
+        "cash": 11467.53,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 15,
+        "wins": 5,
+        "losses": 10,
+        "win_rate": 33.33,
+        "total_pnl": 982.31,
+        "profit_factor": 2.3011326922737325,
+        "payoff": 4.602265384547464,
+        "calmar": 2.5291733557186142,
+        "max_drawdown": 5.38,
+        "equity": 10982.31,
+        "net_pnl": 982.31,
+        "cash": 10982.31,
+        "open_positions": 0
+      },
+      "holdout_score": 3.152137267258515
+    },
+    "challenger": {
+      "params": {
+        "short_window": 10,
+        "long_window": 31,
+        "trend_window": 5,
+        "atr_period": 21,
+        "sl_atr": 2.5,
+        "trail_atr": 0.0,
+        "trend_tf": "M",
+        "cross_tf": "W",
+        "atr_tf": "D",
+        "exit_tf": "W",
+        "exit_mode": "cross",
+        "hold_days": 60,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 16,
+        "wins": 7,
+        "losses": 9,
+        "win_rate": 43.75,
+        "total_pnl": 12782.15,
+        "profit_factor": 12.654111900179796,
+        "payoff": 16.269572443088308,
+        "calmar": 2.067641993037038,
+        "max_drawdown": 10.1,
+        "equity": 22819.45,
+        "net_pnl": 12819.45,
+        "cash": 20481.65,
+        "open_positions": 1
+      },
+      "holdout": {
+        "closed_trades": 7,
+        "wins": 1,
+        "losses": 6,
+        "win_rate": 14.29,
+        "total_pnl": -175.68,
+        "profit_factor": 0.6812503800685974,
+        "payoff": 4.087502280411584,
+        "calmar": -0.3753448558685448,
+        "max_drawdown": 6.36,
+        "equity": 9824.32,
+        "net_pnl": -175.68,
+        "cash": 9824.32,
+        "open_positions": 0
+      },
+      "holdout_score": 1.7371884691749233,
+      "train_score": 8.413528398607408
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": false,
+        "detail": "1.74 vs 3.15"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": false,
+        "detail": "0.68"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": true,
+        "detail": "7"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": true,
+        "detail": "6.36% vs 5.38%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "1.74 vs 8.41"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "9.10 / 0.00 / 38.04"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "commodities",
+    "bot": "live",
+    "timeframes": true,
+    "at": "2026-11-15T10:25:58",
+    "windows": {
+      "train": [
+        "2023-05-15",
+        "2026-05-12"
+      ],
+      "holdout": [
+        "2026-05-13",
+        "2026-11-13"
+      ]
+    },
+    "symbols": 7,
+    "feedback": {
+      "legs": 90,
+      "notes": [
+        "No rule triggered: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 16.7,
+      "quick_stop_rate": 21.1,
+      "trailed_share": 1.1,
+      "median_hold_days": 6.0,
+      "avg_win_ret_pct": 26.84
+    },
+    "folds": {
+      "champion": [
+        0.276,
+        -1.268,
+        2.959
+      ],
+      "challenger": [
+        4.012,
+        0.0,
+        2.544
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 10,
+        "long_window": 35,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only"
+      },
+      "train": {
+        "closed_trades": 77,
+        "wins": 18,
+        "losses": 59,
+        "win_rate": 23.38,
+        "total_pnl": 1962.9,
+        "profit_factor": 1.4635485559928305,
+        "payoff": 4.797186933532056,
+        "calmar": 0.12487504019901612,
+        "max_drawdown": 52.24,
+        "equity": 12081.6,
+        "net_pnl": 2081.6,
+        "cash": 6824.85,
+        "open_positions": 2
+      },
+      "holdout": {
+        "closed_trades": 4,
+        "wins": 0,
+        "losses": 4,
+        "win_rate": 0.0,
+        "total_pnl": -296.44,
+        "profit_factor": 0.0,
+        "payoff": 0.0,
+        "calmar": -1.085793173754928,
+        "max_drawdown": 5.17,
+        "equity": 9708.67,
+        "net_pnl": -291.33,
+        "cash": 8333.33,
+        "open_positions": 1
+      },
+      "holdout_score": 0.0
+    },
+    "challenger": {
+      "params": {
+        "short_window": 25,
+        "long_window": 31,
+        "trend_window": 9,
+        "atr_period": 4,
+        "sl_atr": 0.5,
+        "trail_atr": 2.5,
+        "trend_tf": "M",
+        "cross_tf": "D",
+        "atr_tf": "W",
+        "exit_tf": "M",
+        "exit_mode": "trend"
+      },
+      "train": {
+        "closed_trades": 20,
+        "wins": 4,
+        "losses": 16,
+        "win_rate": 20.0,
+        "total_pnl": 4603.23,
+        "profit_factor": 5.663202015276578,
+        "payoff": 22.652808061106313,
+        "calmar": 1.9314791560194644,
+        "max_drawdown": 6.98,
+        "equity": 14603.23,
+        "net_pnl": 4603.23,
+        "cash": 11493.16,
+        "open_positions": 1
+      },
+      "holdout": {
+        "closed_trades": 4,
+        "wins": 0,
+        "losses": 4,
+        "win_rate": 0.0,
+        "total_pnl": -258.29,
+        "profit_factor": 0.0,
+        "payoff": 0.0,
+        "calmar": -1.9294241959602423,
+        "max_drawdown": 2.58,
+        "equity": 9741.71,
+        "net_pnl": -258.29,
+        "cash": 9741.71,
+        "open_positions": 0
+      },
+      "holdout_score": 0.0,
+      "train_score": 6.434736738078353
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": true,
+        "detail": "0.00 vs 0.00"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": false,
+        "detail": "0.00"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": false,
+        "detail": "4"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": true,
+        "detail": "2.58% vs 5.17%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "0.00 vs 6.43"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "2.49 / 0.00 / 1.62"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "commodities",
+    "bot": "hold",
+    "timeframes": true,
+    "at": "2026-11-15T10:27:13",
+    "windows": {
+      "train": [
+        "2023-05-15",
+        "2026-05-12"
+      ],
+      "holdout": [
+        "2026-05-13",
+        "2026-11-13"
+      ]
+    },
+    "symbols": 7,
+    "feedback": {
+      "legs": 90,
+      "notes": [
+        "No rule triggered: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 16.7,
+      "quick_stop_rate": 21.1,
+      "trailed_share": 1.1,
+      "median_hold_days": 6.0,
+      "avg_win_ret_pct": 26.84
+    },
+    "folds": {
+      "champion": [
+        1.022,
+        -0.248,
+        0.822
+      ],
+      "challenger": [
+        4.011,
+        1.004,
+        5.197
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 10,
+        "long_window": 35,
+        "trend_window": 100,
+        "atr_period": 10,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only",
+        "hold_days": 30,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 25,
+        "wins": 2,
+        "losses": 23,
+        "win_rate": 8.0,
+        "total_pnl": -1147.27,
+        "profit_factor": 0.24005267839620473,
+        "payoff": 2.760605801556354,
+        "calmar": -0.07717678200045981,
+        "max_drawdown": 51.71,
+        "equity": 8852.73,
+        "net_pnl": -1147.27,
+        "cash": 8852.73,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 6,
+        "wins": 2,
+        "losses": 4,
+        "win_rate": 33.33,
+        "total_pnl": -134.2,
+        "profit_factor": 0.5170271439109847,
+        "payoff": 1.0340542878219694,
+        "calmar": -0.7542318946641802,
+        "max_drawdown": 3.32,
+        "equity": 9871.0,
+        "net_pnl": -129.0,
+        "cash": 8472.66,
+        "open_positions": 1
+      },
+      "holdout_score": 0.5945812154976324
+    },
+    "challenger": {
+      "params": {
+        "short_window": 19,
+        "long_window": 30,
+        "trend_window": 11,
+        "atr_period": 4,
+        "sl_atr": 0.5,
+        "trail_atr": 0.0,
+        "trend_tf": "M",
+        "cross_tf": "D",
+        "atr_tf": "W",
+        "exit_tf": "M",
+        "exit_mode": "trend",
+        "hold_days": 60,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 22,
+        "wins": 4,
+        "losses": 18,
+        "win_rate": 18.18,
+        "total_pnl": 1764.45,
+        "profit_factor": 2.6024720166495467,
+        "payoff": 11.711124074922958,
+        "calmar": 0.8949793303758924,
+        "max_drawdown": 6.24,
+        "equity": 11764.45,
+        "net_pnl": 1764.45,
+        "cash": 11764.45,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 3,
+        "wins": 2,
+        "losses": 1,
+        "win_rate": 66.67,
+        "total_pnl": 255.21,
+        "profit_factor": 4.660173244379716,
+        "payoff": 2.330086622189858,
+        "calmar": 2.364766751987693,
+        "max_drawdown": 2.13,
+        "equity": 10255.21,
+        "net_pnl": 255.21,
+        "cash": 10255.21,
+        "open_positions": 0
+      },
+      "holdout_score": 3.385561628134861,
+      "train_score": 4.850108273567474
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": true,
+        "detail": "3.39 vs 0.59"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": true,
+        "detail": "4.66"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": false,
+        "detail": "3"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": true,
+        "detail": "2.13% vs 3.32%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": true,
+        "detail": "3.39 vs 4.85"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "1.54 / 0.23 / 3.11"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "forex",
+    "bot": "live",
+    "timeframes": true,
+    "at": "2026-11-15T10:28:59",
+    "windows": {
+      "train": [
+        "2023-05-15",
+        "2026-05-12"
+      ],
+      "holdout": [
+        "2026-05-13",
+        "2026-11-13"
+      ]
+    },
+    "symbols": 9,
+    "feedback": {
+      "legs": 96,
+      "notes": [
+        "No rule triggered: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 52.1,
+      "quick_stop_rate": 11.5,
+      "trailed_share": 2.1,
+      "median_hold_days": 20.0,
+      "avg_win_ret_pct": 1.62
+    },
+    "folds": {
+      "champion": [
+        0.687,
+        0.056,
+        0.645
+      ],
+      "challenger": [
+        4.09,
+        0.0,
+        5.395
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 10,
+        "long_window": 30,
+        "trend_window": 100,
+        "atr_period": 21,
+        "sl_atr": 1.5,
+        "trail_atr": 2.0,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only"
+      },
+      "train": {
+        "closed_trades": 61,
+        "wins": 34,
+        "losses": 27,
+        "win_rate": 55.74,
+        "total_pnl": 530.24,
+        "profit_factor": 1.7642088044478346,
+        "payoff": 1.4009893447085746,
+        "calmar": 0.6164275431831827,
+        "max_drawdown": 2.74,
+        "equity": 10530.24,
+        "net_pnl": 530.24,
+        "cash": 10530.24,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 14,
+        "wins": 8,
+        "losses": 6,
+        "win_rate": 57.14,
+        "total_pnl": 108.55,
+        "profit_factor": 2.102800584363609,
+        "payoff": 1.5771004382727065,
+        "calmar": 1.8721321528016748,
+        "max_drawdown": 1.24,
+        "equity": 10121.91,
+        "net_pnl": 121.91,
+        "cash": 5054.28,
+        "open_positions": 2
+      },
+      "holdout_score": -0.10117326177624641
+    },
+    "challenger": {
+      "params": {
+        "short_window": 29,
+        "long_window": 119,
+        "trend_window": 11,
+        "atr_period": 8,
+        "sl_atr": 0.25,
+        "trail_atr": 1.5,
+        "trend_tf": "M",
+        "cross_tf": "D",
+        "atr_tf": "W",
+        "exit_tf": "M",
+        "exit_mode": "trend"
+      },
+      "train": {
+        "closed_trades": 17,
+        "wins": 3,
+        "losses": 14,
+        "win_rate": 17.65,
+        "total_pnl": 403.35,
+        "profit_factor": 4.013916550518752,
+        "payoff": 18.731610569087515,
+        "calmar": 0.7589724494308466,
+        "max_drawdown": 1.7,
+        "equity": 10403.35,
+        "net_pnl": 403.35,
+        "cash": 10403.35,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 33.33,
+        "total_pnl": -2.87,
+        "profit_factor": 0.7099830073212317,
+        "payoff": 1.4199660146424633,
+        "calmar": -0.07469093405239532,
+        "max_drawdown": 0.73,
+        "equity": 9997.13,
+        "net_pnl": -2.87,
+        "cash": 9997.13,
+        "open_positions": 0
+      },
+      "holdout_score": 0.8164804584194164,
+      "train_score": 5.458056937619608
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": true,
+        "detail": "0.82 vs -0.10"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": false,
+        "detail": "0.71"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": false,
+        "detail": "3"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": true,
+        "detail": "0.73% vs 1.24%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "0.82 vs 5.46"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "2.17 / 0.00 / 3.57"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "forex",
+    "bot": "hold",
+    "timeframes": true,
+    "at": "2026-11-15T10:30:08",
+    "windows": {
+      "train": [
+        "2023-05-15",
+        "2026-05-12"
+      ],
+      "holdout": [
+        "2026-05-13",
+        "2026-11-13"
+      ]
+    },
+    "symbols": 9,
+    "feedback": {
+      "legs": 96,
+      "notes": [
+        "No rule triggered: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 52.1,
+      "quick_stop_rate": 11.5,
+      "trailed_share": 2.1,
+      "median_hold_days": 20.0,
+      "avg_win_ret_pct": 1.62
+    },
+    "folds": {
+      "champion": [
+        0.335,
+        -0.141,
+        0.381
+      ],
+      "challenger": [
+        4.698,
+        2.547,
+        4.089
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 10,
+        "long_window": 30,
+        "trend_window": 100,
+        "atr_period": 21,
+        "sl_atr": 1.5,
+        "trail_atr": 2.0,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only",
+        "hold_days": 30,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 48,
+        "wins": 28,
+        "losses": 20,
+        "win_rate": 58.33,
+        "total_pnl": 267.17,
+        "profit_factor": 1.5446773033610322,
+        "payoff": 1.1033409309721658,
+        "calmar": 0.47717021050884867,
+        "max_drawdown": 2.07,
+        "equity": 10307.18,
+        "net_pnl": 307.18,
+        "cash": 5133.59,
+        "open_positions": 2
+      },
+      "holdout": {
+        "closed_trades": 15,
+        "wins": 8,
+        "losses": 7,
+        "win_rate": 53.33,
+        "total_pnl": 123.41,
+        "profit_factor": 2.0557335405184536,
+        "payoff": 1.798766847953647,
+        "calmar": 2.276985690937612,
+        "max_drawdown": 1.15,
+        "equity": 10136.8,
+        "net_pnl": 136.8,
+        "cash": 5061.71,
+        "open_positions": 2
+      },
+      "holdout_score": -0.21193127396931066
+    },
+    "challenger": {
+      "params": {
+        "short_window": 31,
+        "long_window": 101,
+        "trend_window": 125,
+        "atr_period": 8,
+        "sl_atr": 0.25,
+        "trail_atr": 2.5,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "W",
+        "exit_tf": "D",
+        "exit_mode": "trend",
+        "hold_days": 180,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 28,
+        "wins": 3,
+        "losses": 25,
+        "win_rate": 10.71,
+        "total_pnl": 264.75,
+        "profit_factor": 1.93139126662759,
+        "payoff": 16.094927221896583,
+        "calmar": 0.5812937602845653,
+        "max_drawdown": 1.46,
+        "equity": 10264.75,
+        "net_pnl": 264.75,
+        "cash": 10264.75,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 7,
+        "wins": 1,
+        "losses": 6,
+        "win_rate": 14.29,
+        "total_pnl": -33.11,
+        "profit_factor": 0.2889255635459299,
+        "payoff": 1.7335533812755795,
+        "calmar": -0.6050317779278813,
+        "max_drawdown": 1.04,
+        "equity": 9966.89,
+        "net_pnl": -33.11,
+        "cash": 9966.89,
+        "open_positions": 0
+      },
+      "holdout_score": 0.4998376326942948,
+      "train_score": 4.485384822039329
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": true,
+        "detail": "0.50 vs -0.21"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": false,
+        "detail": "0.29"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": true,
+        "detail": "7"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": true,
+        "detail": "1.04% vs 1.15%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "0.50 vs 4.49"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "2.22 / 0.52 / 1.24"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "stocks",
+    "bot": "live",
+    "timeframes": true,
+    "at": "2026-11-15T10:31:34",
+    "windows": {
+      "train": [
+        "2023-05-15",
+        "2026-05-12"
+      ],
+      "holdout": [
+        "2026-05-13",
+        "2026-11-13"
+      ]
+    },
+    "symbols": 6,
+    "feedback": {
+      "legs": 1,
+      "notes": [
+        "1 legs, need 20: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 0.0,
+      "quick_stop_rate": 0.0,
+      "trailed_share": 0.0,
+      "median_hold_days": 3,
+      "avg_win_ret_pct": 0.0
+    },
+    "folds": {
+      "champion": [
+        9.222,
+        1.834,
+        1.218
+      ],
+      "challenger": [
+        9.434,
+        9.711,
+        8.082
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 20,
+        "long_window": 70,
+        "trend_window": 200,
+        "atr_period": 14,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only"
+      },
+      "train": {
+        "closed_trades": 20,
+        "wins": 9,
+        "losses": 11,
+        "win_rate": 45.0,
+        "total_pnl": 8967.76,
+        "profit_factor": 6.255525449670418,
+        "payoff": 7.645642216263845,
+        "calmar": 1.9594925587475602,
+        "max_drawdown": 12.23,
+        "equity": 18967.76,
+        "net_pnl": 8967.76,
+        "cash": 18967.76,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 6,
+        "wins": 1,
+        "losses": 5,
+        "win_rate": 16.67,
+        "total_pnl": -549.59,
+        "profit_factor": 0.2504055309875061,
+        "payoff": 1.2520276549375307,
+        "calmar": -0.8657216869230568,
+        "max_drawdown": 12.08,
+        "equity": 9450.41,
+        "net_pnl": -549.59,
+        "cash": 9450.41,
+        "open_positions": 0
+      },
+      "holdout_score": 0.5508921681725134
+    },
+    "challenger": {
+      "params": {
+        "short_window": 31,
+        "long_window": 72,
+        "trend_window": 11,
+        "atr_period": 13,
+        "sl_atr": 2.5,
+        "trail_atr": 2.0,
+        "trend_tf": "M",
+        "cross_tf": "D",
+        "atr_tf": "W",
+        "exit_tf": "M",
+        "exit_mode": "stop_only"
+      },
+      "train": {
+        "closed_trades": 11,
+        "wins": 11,
+        "losses": 0,
+        "win_rate": 100.0,
+        "total_pnl": 16925.82,
+        "profit_factor": null,
+        "payoff": null,
+        "calmar": 5.900382641786322,
+        "max_drawdown": 6.68,
+        "equity": 26925.82,
+        "net_pnl": 16925.82,
+        "cash": 26925.82,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 33.33,
+        "total_pnl": -1079.51,
+        "profit_factor": 0.10409976139430473,
+        "payoff": 0.20819952278860945,
+        "calmar": -1.3445407564504641,
+        "max_drawdown": 14.88,
+        "equity": 8920.49,
+        "net_pnl": -1079.51,
+        "cash": 8920.49,
+        "open_positions": 0
+      },
+      "holdout_score": 0.11971472560345044,
+      "train_score": 9.180076528357265
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": false,
+        "detail": "0.12 vs 0.55"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": false,
+        "detail": "0.10"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": false,
+        "detail": "3"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": false,
+        "detail": "14.88% vs 12.08%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "0.12 vs 9.18"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "inf / inf / inf"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
+  },
+  {
+    "market": "stocks",
+    "bot": "hold",
+    "timeframes": true,
+    "at": "2026-11-15T10:32:45",
+    "windows": {
+      "train": [
+        "2023-05-15",
+        "2026-05-12"
+      ],
+      "holdout": [
+        "2026-05-13",
+        "2026-11-13"
+      ]
+    },
+    "symbols": 6,
+    "feedback": {
+      "legs": 1,
+      "notes": [
+        "1 legs, need 20: search grid unchanged."
+      ],
+      "sl_extra": false,
+      "trail_extra": false,
+      "win_rate": 0.0,
+      "quick_stop_rate": 0.0,
+      "trailed_share": 0.0,
+      "median_hold_days": 3,
+      "avg_win_ret_pct": 0.0
+    },
+    "folds": {
+      "champion": [
+        1.489,
+        0.547,
+        3.484
+      ],
+      "challenger": [
+        9.434,
+        9.711,
+        8.082
+      ]
+    },
+    "tested": 1672,
+    "champion": {
+      "params": {
+        "short_window": 20,
+        "long_window": 70,
+        "trend_window": 200,
+        "atr_period": 14,
+        "sl_atr": 1.5,
+        "trail_atr": 5.0,
+        "trend_tf": "D",
+        "cross_tf": "D",
+        "atr_tf": "D",
+        "exit_tf": "D",
+        "exit_mode": "stop_only",
+        "hold_days": 30,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 17,
+        "wins": 6,
+        "losses": 11,
+        "win_rate": 35.29,
+        "total_pnl": -16.78,
+        "profit_factor": 0.9842206757490092,
+        "payoff": 1.8044045722065167,
+        "calmar": -0.007472379722325524,
+        "max_drawdown": 7.54,
+        "equity": 9983.22,
+        "net_pnl": -16.78,
+        "cash": 9983.22,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 6,
+        "wins": 1,
+        "losses": 5,
+        "win_rate": 16.67,
+        "total_pnl": -424.94,
+        "profit_factor": 0.43084903371659383,
+        "payoff": 2.1542451685829693,
+        "calmar": -0.7076440438651819,
+        "max_drawdown": 11.49,
+        "equity": 9575.06,
+        "net_pnl": -424.94,
+        "cash": 9575.06,
+        "open_positions": 0
+      },
+      "holdout_score": 0.9478678741765064
+    },
+    "challenger": {
+      "params": {
+        "short_window": 31,
+        "long_window": 72,
+        "trend_window": 13,
+        "atr_period": 13,
+        "sl_atr": 2.5,
+        "trail_atr": 2.0,
+        "trend_tf": "M",
+        "cross_tf": "D",
+        "atr_tf": "W",
+        "exit_tf": "M",
+        "exit_mode": "stop_only",
+        "hold_days": 252,
+        "gate_window": 5,
+        "gate_min_trades": 3,
+        "gate_min_pf": 1.0
+      },
+      "train": {
+        "closed_trades": 11,
+        "wins": 11,
+        "losses": 0,
+        "win_rate": 100.0,
+        "total_pnl": 16925.82,
+        "profit_factor": null,
+        "payoff": null,
+        "calmar": 5.900382641786322,
+        "max_drawdown": 6.68,
+        "equity": 26925.82,
+        "net_pnl": 16925.82,
+        "cash": 26925.82,
+        "open_positions": 0
+      },
+      "holdout": {
+        "closed_trades": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 33.33,
+        "total_pnl": -1079.51,
+        "profit_factor": 0.10409976139430473,
+        "payoff": 0.20819952278860945,
+        "calmar": -1.3445407564504641,
+        "max_drawdown": 14.88,
+        "equity": 8920.49,
+        "net_pnl": -1079.51,
+        "cash": 8920.49,
+        "open_positions": 0
+      },
+      "holdout_score": 0.11971472560345044,
+      "train_score": 9.180076528357265
+    },
+    "gates": [
+      {
+        "name": "Holdout score beats champion by 20%",
+        "ok": false,
+        "detail": "0.12 vs 0.95"
+      },
+      {
+        "name": "Holdout profit factor above 1",
+        "ok": false,
+        "detail": "0.10"
+      },
+      {
+        "name": "At least 5 holdout trades",
+        "ok": false,
+        "detail": "3"
+      },
+      {
+        "name": "Max drawdown within champion + 2 pts",
+        "ok": false,
+        "detail": "14.88% vs 11.49%"
+      },
+      {
+        "name": "Holdout score at least half of train score",
+        "ok": false,
+        "detail": "0.12 vs 9.18"
+      },
+      {
+        "name": "Profit factor above 1 in 2 of 3 train sub-periods",
+        "ok": true,
+        "detail": "inf / inf / inf"
+      },
+      {
+        "name": "No promotion in last 28 days",
+        "ok": true,
+        "detail": "none yet"
+      }
+    ],
+    "same_as_champion": false,
+    "passed": false,
+    "decision": "proposed"
   }
 ]
