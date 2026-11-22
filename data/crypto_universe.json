@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-11-21T04:58:09+00:00",
+  "updated_at": "2026-11-22T04:19:39+00:00",
   "cmc_top15": [
     "BTC",
     "ETH",
     "USDT",
-    "USDC",
     "BNB",
+    "USDC",
     "XRP",
     "SOL",
     "TRX",
     "HYPE",
     "ZEC",
-    "LEO",
-    "DOGE",
     "XMR",
+    "DOGE",
+    "LEO",
     "LINK",
     "ADA"
   ],
