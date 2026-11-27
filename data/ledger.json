@@ -387543,8 +387543,21 @@
             ]
         },
         "ma_stocks_ls_trail": {
-            "cash": 9903.30431314002,
-            "positions": {},
+            "cash": 7427.478234855016,
+            "positions": {
+                "WSM": {
+                    "qty": 11.65698048589793,
+                    "initial_qty": 11.65698048589793,
+                    "entry_price": 212.38999938964844,
+                    "side": "SHORT",
+                    "stop_loss": 235.5300031389509,
+                    "take_profit": 200.8199975149972,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 235.5300031389509,
+                    "entry_atr": 11.570001874651227,
+                    "entry_date": "2026-11-25"
+                }
+            },
             "history": [
                 {
                     "timestamp": "2025-03-31T23:59:59",
@@ -387640,12 +387653,34 @@
                     "stop_loss_at_exit": 30.464285986764093,
                     "take_profit_at_exit": 0.0,
                     "quantity_pct": 1.0
+                },
+                {
+                    "timestamp": "2026-11-27T22:48:52.931946",
+                    "symbol": "WSM",
+                    "side": "OPEN_SHORT",
+                    "quantity": 11.65698048589793,
+                    "price": 212.38999938964844,
+                    "total_value": 2475.826078285005,
+                    "reason": "Death Cross + ADX/vol/trend"
                 }
             ]
         },
         "ma_stocks_ls_tp1": {
-            "cash": 10032.231895619992,
-            "positions": {},
+            "cash": 7524.173921714994,
+            "positions": {
+                "WSM": {
+                    "qty": 11.808738552250484,
+                    "initial_qty": 11.808738552250484,
+                    "entry_price": 212.38999938964844,
+                    "side": "SHORT",
+                    "stop_loss": 235.5300031389509,
+                    "take_profit": 200.8199975149972,
+                    "tp1_hit": false,
+                    "initial_stop_loss": 235.5300031389509,
+                    "entry_atr": 11.570001874651227,
+                    "entry_date": "2026-11-25"
+                }
+            },
             "history": [
                 {
                     "timestamp": "2025-03-31T23:59:59",
@@ -387816,6 +387851,15 @@
                     "stop_loss_at_exit": 31.690000534057617,
                     "take_profit_at_exit": 32.50714356558663,
                     "quantity_pct": 1.0
+                },
+                {
+                    "timestamp": "2026-11-27T22:48:52.985416",
+                    "symbol": "WSM",
+                    "side": "OPEN_SHORT",
+                    "quantity": 11.808738552250484,
+                    "price": 212.38999938964844,
+                    "total_value": 2508.057973904998,
+                    "reason": "Death Cross + ADX/vol/trend"
                 }
             ]
         },
